@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>qa1</title>
+  <style>
+  .li0{background-color:yellow;overflow:hidden;}
+  .li1{background-color:#b8ede4;overflow:hidden;}
+  .li2{background-color:#eeb5ed;overflow:hidden;}
+  #bu li{height:20px;margin-top:10px;}
+  </style>
+ </head>
+ <body>
+ <div id="bu">
+  <ul id="uu">
+    <li class="li0" onclick="li0()">字体,<a href="https://www.cnblogs.com/huaxie/p/11840694.html">查看详细链接</a><br>字体设置方法：<br>
+一、整体设置（针对文本项），打印初始化后、增加打印项之前调用本函数<br>
+LODOP.SET_PRINT_STYLE("FontSize",11);<br>
+二、单个打印项（针对文本项）进行字体设置，例如：<br>
+LODOP.SET_PRINT_STYLEA(3,"FontName","隶书");<br>
+设置第3个内容项的字体为隶书。<br>
+LODOP.SET_PRINT_STYLEA(3,"FontSize",15);<br>
+设置第3个内容项字体为15号字体<br>
+单独设置某个打印项的字体，可以参考样例3。<br>
+一、二、是对所有内容字体的设置，只对文本项起作用，超文本不起作用。css样式参见样例10.<br>
+另外：超文本方式输出字体时，此时最好用pt这个单位设置字体大小，不要用px，否则会受打印分辨率影响。px是相对计量单位，显示屏幕上12点和打印机上的12点可能不一样大。但都用9pt就差不多大了，9pt在打印机上或许是11px或12px。套打最好不要用htm语句，要用add_print_text语句。不设置就会被浏览器引擎设置为默认字体，默认字体大小是9号字体。</li>
+        <li class="li1" onclick="li1()">Lodop不打印css背景图,<a href="https://www.cnblogs.com/huaxie/p/11840694.html">查看详细链接</a><br>
+css背景图，http协议会按异步方式下载背景图，所以很容易等不到下载完毕就开始打印了，故lodop不打印背景图。至于普通图片参考样例37 http://www.c-lodop.com/demolist/PrintSample37.html<br>
+用普通图片的输出方式。<br>
+<br>
+css背景图，参考http://www.c-lodop.com/faq/pp14.html<br>
+通常情况下打印图片都支持，因超文本背景图片是异步资源，所以默认是不打印的。<br>
+参考链接里的二．打印包含超文本对象背景图片。<br>
+		</li>
+        <li class="li2" onclick="li2()">导出excel,<a href="https://www.cnblogs.com/huaxie/p/12157195.html">查看详细链接</a><br>
+确认系统 print spooler 打印服务是开启的<br>
+由于lodop采用“Excel.Application”来导出excel，所以要求系统必须安装excel相关软件且非绿色安装那种。<br>
+大量复杂的导出建议采用样例12的办法。样例12导出不需要excel支持。打开是转换需要excel支持.<br>
+<br>
+导出excel，<br>
+参考http://www.c-lodop.com/demolist/PrintSample27.html<br>
+参考http://www.c-lodop.com/demolist/PrintSample12.html<br>
+样例27的方法，如果导出不要样式，LODOP.SET_SAVE_MODE("QUICK_SAVE",true);//快速生成（无表格样式,数据量较大时或许用到）<br> 
+用样例12的方式试试，<br>
+表格数据太大，一次导出如果慢，拆分后多次导出试试。<br>
+		</li>
+            <li class="li0" onclick="li3()">同一个任务发送到不同的打印机,<a href="https://www.cnblogs.com/huaxie/p/9790615.html">查看详细链接</a><br>
+同一个任务同时发送到不同的打印机打印，<br>
+参考样例44，第3步<br>
+例如：<br>
+LODOP. SET_PRINT_MODE("NOCLEAR_AFTER_PRINT",true);//设置打印完毕不清理打印信息<br>
+LODOP. SET_PRINTER_INDEXA("SG");//设置打印机SG<br>
+LODOP.PRINT();//打印<br>
+LODOP. SET_PRINTER_INDEXA("HY");//设置打印机HY<br>
+LODOP.PRINT();//打印<br>
+		</li>
+                <li class="li2" onclick="li4()">赋值方法,<a href="https://www.cnblogs.com/huaxie/p/9790615.html">查看详细链接</a><br>
+1.按变量形式赋值，参考样例35；<br>
+2.按顺序赋值 ，参考样例36<br>
+LODOP.SET_PRINT_STYLEA(x,"Content",”赋值内容”);//第一个参数x-给第几个输出打印项赋值，<br>
+Content-关键字，第三个参数：输出内容<br>
+例如：赋值第1、2、3项内容赋值<br>
+LODOP.SET_PRINT_STYLEA(1,"Content","学生证");<br>
+LODOP.SET_PRINT_STYLEA(2,"Content","张三");<br>
+LODOP.SET_PRINT_STYLEA(3,"Content","王五");<br>
+3.按项目类名赋值,项目类型是aa：<br>
+LODOP.SET_PRINT_STYLEA(‘aa’,"Content","学生证");//项目类名是aa的所有打印项内容被替换<br>
+		</li>
+		<li class="li0" onclick="li5()">分页,<a href="https://www.cnblogs.com/huaxie/p/9790615.html">查看详细链接</a><br>
+超文本超过设置的打印项高度就会自动分页，可通过调整超文本打印项的高度，控制当前页面输出的多少内容。（打印项高度可在打印设计界面可视化调整）
+减小打印项高度，不要紧贴纸张输出。<br>
+手动分页 参考样例30 http://www.c-lodop.com/demolist/PrintSample30.html<br>
+如果有合并行、嵌套表格等复合表格 可以用 add_print_htm, 切行时调整分页粒度TableRowThickNess，参考 样例30
+http://www.c-lodop.com/demolist/PrintSample30.html<br>
+单个简单表格输出 可以用add_print_table，不切行。<br>
+		</li>
+		<li class="li1" onclick="li6()">手机，其他操作系统,<a href="https://www.cnblogs.com/huaxie/p/9790615.html">查看详细链接</a><br>
+目前lodop和c-lodop只能安装到windows操作系统上，其他操作系统无法安装，无法用客户端本地打印角色，其他操作系统可以用集中打印，或广域网打印角色。<br>
+三种角色及使用方法 参考http://www.c-lodop.com/demolist/t1.html<br>
+		</li>
+  </ul>
+</div>
+<script type="text/javascript">
+var div_bu=document.getElementById("bu");
+var ularr=div_bu.getElementsByTagName("ul");
+var liarr=ularr[0].getElementsByTagName("li");
+var li0_on="t";
+var li1_on="t";
+var li2_on="t";
+var li3_on="t";
+var li4_on="t";
+var li5_on="t";
+var li6_on="t";
+
+
+function closeli(){	
+	for(var i=0;i<liarr.length;i++){liarr[i].style.height="20px";}
+	};
+function li0(){
+	if(li0_on=="t"){
+	for(var i=0;i<liarr.length;i++){liarr[i].style.height="20px";};
+    liarr[0].style.height="350px";li0_on="f";}
+	else if(li0_on=="f")
+	{closeli();li0_on="t";}
+};
+function li1(){
+	if(li1_on=="t"){
+	for(var i=0;i<liarr.length;i++){liarr[i].style.height="20px";};
+    liarr[1].style.height="200px";li1_on="f";}
+	else if(li1_on=="f")
+	{closeli();li1_on="t";}
+};
+function li2(){
+	if(li2_on=="t"){
+	for(var i=0;i<liarr.length;i++){liarr[i].style.height="20px";};
+    liarr[2].style.height="280px";li2_on="f";}
+	else if(li2_on=="f")
+	{closeli();li2_on="t";}
+};
+function li3(){
+	if(li3_on=="t"){
+	for(var i=0;i<liarr.length;i++){liarr[i].style.height="20px";};
+    liarr[3].style.height="200px";li3_on="f";}
+	else if(li3_on=="f")
+	{closeli();li3_on="t";}
+};
+function li4(){
+	if(li4_on=="t"){
+	for(var i=0;i<liarr.length;i++){liarr[i].style.height="20px";};
+    liarr[4].style.height="300px";li4_on="f";}
+	else if(li4_on=="f")
+	{closeli();li4_on="t";}
+};
+function li5(){
+	if(li5_on=="t"){
+	for(var i=0;i<liarr.length;i++){liarr[i].style.height="20px";};
+    liarr[5].style.height="200px";li5_on="f";}
+	else if(li5_on=="f")
+	{closeli();li5_on="t";}
+};
+function li6(){
+	if(li6_on=="t"){
+	for(var i=0;i<liarr.length;i++){liarr[i].style.height="20px";};
+    liarr[6].style.height="150px";li6_on="f";}
+	else if(li6_on=="f")
+	{closeli();li6_on="t";}
+};
+</script>
+ </body>
+</html>
