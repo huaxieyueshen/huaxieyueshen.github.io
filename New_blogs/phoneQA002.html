@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>图片叉号空白不清晰-QA手机友好版002</title>
+ </head>
+ <body>
+ <style>
+  #phone{width:500px;background-color:#f4b6ec;margin:auto;}
+  #phone a{text-decoration:none;color:#660066;}
+  </style>
+ <div id="phone">
+<b>1.图片显示空白叉号</b><br>
+（1）查看lodop内部解析的html信息，见http://www.c-lodop.com/faq/pp8.html<br>
+查看一下传入的图片路径是否正确，尽量用绝对路径地址，换个图片试试。<br>
+（2）显示空白或者图片缺失等问题，加延迟试试：<br>
+LODOP.SET_PRINT_STYLEA(0,"HtmWaitMilSecs",1000)//设置上一项延迟超文本下载1000毫秒<br>
+（3）权限问题，图片显示叉号 说明服务端拒绝了 可能证书 session等问题，导致没有直接访问该图片的权限，有些需要验证之后才能访问图片。由于Lodop借用IE下载引擎，与非IE浏览器之间目前不能传递Session(cookies)<br>
+（4）清空ie缓存 重置ie 后在ie中查看下。IE中的URL最大长度限制为2048字节。超过这个长度会不支持。<br>
+（5） 查看服务器端错误日志排查下 。<br>
+（6）做个简单的例子验证下，排除其他因素的干扰。Base64输出图片参考样例38。<br><br>
+排查下上面的条目 ，查看服务器端错误日志排查下 。<br>
+用其他路径试试，或用其他图片试试。<br><br>
+Lodop是基于本机windows底层引擎进行渲染解析的，与ie调用的引擎一致。<br>
+需要在ie浏览器里能不用验证，直接访问到。<br><br>
+直接把图片地址放到ie浏览器里是试验下。能否直接在浏览器里访问到。<br><br>
+图片显示叉号 说明服务端拒绝了 可能证书 session 地址等问题<br>
+清空ie缓存后在ie中查看下，查看服务器端错误日志排查下 。<br><br>
+查看lodop内部解析的html信息，见http://www.c-lodop.com/faq/pp8.html<br>
+，图片显示叉号 说明服务端拒绝了。查看一下传入的图片路径是否正确，尽量用绝对路径地址，换其他路径对比试试。<br><br>
+换用绝对路径试试，例如这种<br>
+LODOP.ADD_PRINT_IMAGE(30,150,400,400,"&lt;img border='0' src='http://www.c-lodop.com/demolist/PrintSample8.jpg' <br><br>
+打印图片，参考http://www.c-lodop.com/demolist/PrintSample8.html<br>
+Lodop是基于本机windows底层引擎进行渲染解析的，与ie调用的引擎一致，直接把图片地址放到ie浏览器里是试验下。能否直接在浏览器里访问到。<br><br>
+
+<b>2.其他输出方式</b><br>
+二维码，可以用lodop语句输出 参考样例11 http://www.c-lodop.com/demolist/PrintSample11.html<br><br>
+
+<b>3.输出清晰图片</b><br>
+如何输出清晰图片 参考http://www.c-lodop.com/faq/pp14.html<br>
+并用xps或pdf虚拟打印机测试<br><br>
+ </div>
+ </body>
+</html>
