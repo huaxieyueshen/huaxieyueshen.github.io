@@ -1,0 +1,48 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>WEB打印控件LODOP</title>
+<script language="javascript" src="LodopFuncs.js"></script>
+ <link href="../css/blogback.css" type='text/css' rel="stylesheet">     
+</head>
+<body id="bodyA1">
+<div id="header">
+<div id="head1"></div>
+</div>
+<div class="blogpost-body">
+<h3>lodop打印横向纵向</h3>
+    <p><strong>简短问答：</strong><br />横向纵向 参考http://www.c-lodop.com/blogs/Blog010.html<br />设置打印方向，参考样例5 http://www.c-lodop.com/demolist/PrintSample5.html<br />横向打印，纵向预览，参考样例16的E http://www.c-lodop.com/demolist/PrintSample16.html</p>
+<p>注意这里的横向纵向指的是内容的方向，不是纸张的方向。<br />仔细阅读下http://www.c-lodop.com/blogs/Blog010.html</p>
+<p><strong>其他：</strong><br />有的用户横着进纸，有的用户纵向进纸，怎么办？<br />进纸方向不同，是不同纸张，可以让用户自己选择。</p>
+<p>纸张设置，参考样例5 http://www.c-lodop.com/demolist/PrintSample5.html<br />用xps或pdf虚拟打印机测试一下（测试可用样例5），如果虚拟打印机输出的是正确的纸张，真实打印机不是，可能是打印机不支持该自定义纸张。<br />选择该真实打印机，在打印预览下方状态栏查看一下纸张大小，有的打印机不支持该自定义纸张。</p>
+<p>横着进纸，宽边进纸，有的打印机不支持这种纸张，预览下方状态栏查看下。</p>
+<p>LODOP.SET_PRINT_MODE("RESELECT_ORIENT",true);让用户选择打印方向。<br />进纸纸张不同，让用户选择不同的纸张。</p>
+<p>下图，有两段代码，第二段没在图中写代码，设置的纸张宽高是反着的。</p>
+<p>宽边进纸，和窄边进纸是不同的纸张。</p>
+<div class="cnblogs_Highlighter">
+<pre class="brush:html;gutter:true;">&lt;script language="javascript" src="LodopFuncs.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;a href="javascript:prn1_preview()"&gt;横向纵向&lt;/a&gt;&lt;br&gt;
+&lt;script language="javascript" type="text/javascript"&gt;   
+        var LODOP; //声明为全局变量 
+	function prn1_preview() {
+		LODOP=getLodop(); 
+        LODOP.PRINT_INITA(0,0,151,76,"");
+        LODOP.SET_PRINT_PAGESIZE(1,400,200,"");//宽边进纸，窄边进纸宽高相反
+        LODOP.ADD_PRINT_RECT(7,11,133,60,0,1);
+        LODOP.ADD_PRINT_TEXT(26,32,100,20,"花谢悦神cnblog");
+	LODOP.SET_PRINT_MODE("RESELECT_ORIENT",true);
+        LODOP.PRINT_DESIGN();
+	};
+</pre>
+</div>
+<p>　图示：　</p>
+<p><img src="https://img2020.cnblogs.com/blog/1481828/202004/1481828-20200414111014514-2049319032.png" alt="" /></p>
+<p>&nbsp;</p>
+<p><a href="../blog_index.html">返回博文列表</a></p>
+</div>
+<div id="footer"><img src="../images/lodopfoot.png"></div>
+</body>
+</html>
