@@ -1,0 +1,41 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>WEB打印控件LODOP</title>
+<script language="javascript" src="LodopFuncs.js"></script>
+ <link href="../css/blogback.css" type='text/css' rel="stylesheet">     
+</head>
+<body id="bodyA1">
+<div id="header">
+<div id="head1"></div>
+</div>
+<div class="blogpost-body">
+<h3>LODOP.FORMAT格式转换【回调和直接返回值】</h3>
+    <p>Lodop中有一些格式转换函数，这些函数和其他众多函数一样，<span style="color: #993300;">c-lodop需要使用回调函数On_Return返回，Lodop插件方式直接返回，通常混合部署，写法要兼容两个控件</span>。<br />可以用if (LODOP.CVERSION)判断是否是使用的c-lodop方式，如下图片用的是这两个作为例子：<br /><span style="color: #333399;">LODOP.FORMAT("UpperMoney",需要转换的内容);<span style="color: #339966;">//把阿拉伯数字转换成汉字大写数字</span></span><br /><span style="color: #333399;">LODOP.FORMAT("CHAR:FirstPinYin",需要转换的内容);<span style="color: #339966;">//把汉字转换成汉字首字母</span></span><br />图片用了两个写法，通常由于功能是一样的，lodop和c-lodop返回值也要一样的，这里第一个写法都是用相同返回值，第二个写法为了演示区别，所以返回值字符串里加了区分两个返回值的内容。<br />返回一样的值，转换成大写数字：<br />    <span style="color: #333399;">if (LODOP.CVERSION) CLODOP.On_Return=function(TaskID,Value){document.getElementById('V2').value=Value;}; </span><br /><span style="color: #333399;">       var stResult=LODOP.FORMAT("UpperMoney",document.getElementById('V1').value);</span><br /><span style="color: #333399;">       if (!LODOP.CVERSION) document.getElementById('V2').value=stResult;</span> <br />返回值加区分，转换成首字母：<br /> <span style="color: #333399;">if (LODOP.CVERSION) CLODOP.On_Return=function(TaskID,Value){document.getElementById('V4').value=Value+"clodop输出的"}; </span><br /><span style="color: #333399;">       LODOP.FORMAT("CHAR:FirstPinYin",document.getElementById('V3').value);</span><br /><span style="color: #333399;">       if (!LODOP.CVERSION) document.getElementById('V4').value=LODOP.FORMAT("CHAR:FirstPinYin",document.getElementById('V3').value)+"这是Lodop输出的";</span></p>
+<p><img src="https://img2018.cnblogs.com/blog/1481828/201809/1481828-20180905171608923-149005804.png" alt="" /></p>
+<p><strong></strong></p>
+<p>如下代码，修改V1文本框为需要转换的值，修改FORMTAT参数为转换格式，在V2文本框输出。<br />改代码稍稍改改，<span style="background-color: #ffffff; color: #000000;">可直接复制</span>用于测试各种格式转换后的效果。方便本人复制，特加此代码，否则复制了该博文上面的代码，还要写文本框语句，比较麻烦。</p>
+<div class="cnblogs_code">
+<pre><span style="color: #0000ff;">&lt;</span><span style="color: #800000;">body</span><span style="color: #0000ff;">&gt;</span><span style="color: #000000;">
+需要转换的值：</span><span style="color: #0000ff;">&lt;</span><span style="color: #800000;">input </span><span style="color: #ff0000;">type</span><span style="color: #0000ff;">="text"</span><span style="color: #ff0000;"> id</span><span style="color: #0000ff;">="V1"</span><span style="color: #ff0000;"> size</span><span style="color: #0000ff;">="23"</span><span style="color: #ff0000;"> value</span><span style="color: #0000ff;">="2018-10-23 09:59:17"</span><span style="color: #ff0000;"> name</span><span style="color: #0000ff;">="V1"</span><span style="color: #0000ff;">&gt;</span>转换后的结果<span style="color: #0000ff;">&lt;</span><span style="color: #800000;">input </span><span style="color: #ff0000;">type</span><span style="color: #0000ff;">="text"</span><span style="color: #ff0000;"> id</span><span style="color: #0000ff;">="V2"</span><span style="color: #ff0000;"> size</span><span style="color: #0000ff;">="23"</span><span style="color: #ff0000;"> value</span><span style="color: #0000ff;">=""</span><span style="color: #ff0000;"> name</span><span style="color: #0000ff;">="V2"</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #0000ff;">&lt;</span><span style="color: #800000;">a </span><span style="color: #ff0000;">href</span><span style="color: #0000ff;">="javascript:prn1_preview()"</span><span style="color: #0000ff;">&gt;</span>点击获取结果<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">a</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #0000ff;">&lt;</span><span style="color: #800000;">script </span><span style="color: #ff0000;">language</span><span style="color: #0000ff;">="javascript"</span><span style="color: #ff0000;"> type</span><span style="color: #0000ff;">="text/javascript"</span><span style="color: #0000ff;">&gt;</span>   
+        <span style="background-color: #f5f5f5; color: #0000ff;">var</span><span style="background-color: #f5f5f5; color: #000000;"> LODOP; </span><span style="background-color: #f5f5f5; color: #008000;">//</span><span style="background-color: #f5f5f5; color: #008000;">声明为全局变量 </span>
+    <span style="background-color: #f5f5f5; color: #0000ff;">function</span><span style="background-color: #f5f5f5; color: #000000;"> prn1_preview() {
+        LODOP</span><span style="background-color: #f5f5f5; color: #000000;">=</span><span style="background-color: #f5f5f5; color: #000000;">getLodop(); 
+       </span><span style="background-color: #f5f5f5; color: #0000ff;">if</span><span style="background-color: #f5f5f5; color: #000000;"> (LODOP.CVERSION) CLODOP.On_Return</span><span style="background-color: #f5f5f5; color: #000000;">=</span><span style="background-color: #f5f5f5; color: #0000ff;">function</span><span style="background-color: #f5f5f5; color: #000000;">(TaskID,Value){document.getElementById(</span><span style="background-color: #f5f5f5; color: #000000;">'</span><span style="background-color: #f5f5f5; color: #000000;">V2</span><span style="background-color: #f5f5f5; color: #000000;">'</span><span style="background-color: #f5f5f5; color: #000000;">).value</span><span style="background-color: #f5f5f5; color: #000000;">=</span><span style="background-color: #f5f5f5; color: #000000;">Value;}; 
+       </span><span style="background-color: #f5f5f5; color: #0000ff;">var</span><span style="background-color: #f5f5f5; color: #000000;"> stResult</span><span style="background-color: #f5f5f5; color: #000000;">=</span><span style="background-color: #f5f5f5; color: #000000;">LODOP.FORMAT(</span><span style="background-color: #f5f5f5; color: #000000;">"</span><span style="background-color: #f5f5f5; color: #000000;">TIME:yyyy-mm</span><span style="background-color: #f5f5f5; color: #000000;">"</span><span style="background-color: #f5f5f5; color: #000000;">,document.getElementById(</span><span style="background-color: #f5f5f5; color: #000000;">'</span><span style="background-color: #f5f5f5; color: #000000;">V1</span><span style="background-color: #f5f5f5; color: #000000;">'</span><span style="background-color: #f5f5f5; color: #000000;">).value);</span><span style="background-color: #f5f5f5; color: #008000;">//</span><span style="background-color: #f5f5f5; color: #008000;">转换语句</span>
+       <span style="background-color: #f5f5f5; color: #0000ff;">if</span><span style="background-color: #f5f5f5; color: #000000;"> (</span><span style="background-color: #f5f5f5; color: #000000;">!</span><span style="background-color: #f5f5f5; color: #000000;">LODOP.CVERSION) document.getElementById(</span><span style="background-color: #f5f5f5; color: #000000;">'</span><span style="background-color: #f5f5f5; color: #000000;">V2</span><span style="background-color: #f5f5f5; color: #000000;">'</span><span style="background-color: #f5f5f5; color: #000000;">).value</span><span style="background-color: #f5f5f5; color: #000000;">=</span><span style="background-color: #f5f5f5; color: #000000;">stResult; 
+    };
+</span><span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">script</span><span style="color: #0000ff;">&gt;</span> 
+<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">body</span><span style="color: #0000ff;">&gt;</span></pre>
+</div>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>cnblog链接（带图示）:<a href="https://www.cnblogs.com/huaxie/p/9593316.html" target="_blank">LODOP.FORMAT格式转换【回调和直接返回值】</a></p>
+<p><a href="../blog_index.html">返回博文列表</a></p>
+</div>
+<div id="footer"><img src="../images/lodopfoot.png"></div>
+</body>
+</html>

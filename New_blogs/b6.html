@@ -1,0 +1,25 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>WEB打印控件LODOP</title>
+<script language="javascript" src="LodopFuncs.js"></script>
+ <link href="../css/blogback.css" type='text/css' rel="stylesheet">     
+</head>
+<body id="bodyA1">
+<div id="header">
+<div id="head1"></div>
+</div>
+<div class="blogpost-body">
+<h3>Lodop打印控件 打印‘接下一页’‘以下空白’</h3>
+    <p>Lodop打印控件中，超文本超过设置的打印项高度 或超过纸张，就会自动分页，纯文本通过设置为多页项也可以根据打印项高度自动分页，Lodop中还提供了许多手动分页的方法，对于<span style="color: #333333;">多页文档中（自动分页或手动分页）</span>，有时候需要标注&lsquo;接下一页&rsquo;，用来表示内容没有结束。<br />自动分页，不知道总共会分多少页，分到的最后一页的数据数量可能很少，造成最后一页下方是空白，需要标注&lsquo;以下空白&rsquo;，表示后面没有其他内容了。<br />Lodop中对打印项的控制很多，可以输出到某页，也可以设置每页输出，&lsquo;接下一页&rsquo;也就是每页输出，最后一页因为下面没有页数了，所以设置禁止输出到最后一页，&lsquo;以下空白&rsquo;直接设置在最后一页输出。</p>
+<p>&lsquo;接下一页&rsquo;可以把打印项输出为眉脚项（每页输出），然后设置禁止输出到最后一页来实现。<br />  <span style="color: #333399;">LODOP.SET_PRINT_STYLEA(0,"ItemType",1);<span style="color: #339966;">//设置打印项为眉脚项，每页输出</span></span><br /><span style="color: #333399;">  LODOP.SET_PRINT_STYLEA(0,"PageUnIndex","last");<span style="color: #339966;">//设置禁止在最后一页输出</span></span></p>
+<p>&lsquo;以下空白&rsquo;可以通过，设置打印项只输出到最后一页来实现。<br />   <span style="color: #333399;">LODOP.SET_PRINT_STYLEA(0,"PageIndex","last");<span style="color: #339966;">//设置仅在最后一页输出</span></span></p>
+<p><img src="https://images2018.cnblogs.com/blog/1481828/201809/1481828-20180906170439883-299366584.png" alt="" /></p>
+<p>&nbsp;</p>
+<p>cnblog链接（带图示）:<a href="https://www.cnblogs.com/huaxie/p/9599718.html" target="_blank">Lodop打印控件 打印‘接下一页’‘以下空白’</a></p>
+<p><a href="../blog_index.html">返回博文列表</a></p>
+</div>
+<div id="footer"><img src="../images/lodopfoot.png"></div>
+</body>
+</html>

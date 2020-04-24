@@ -1,0 +1,29 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>WEB打印控件LODOP</title>
+<script language="javascript" src="LodopFuncs.js"></script>
+ <link href="../css/blogback.css" type='text/css' rel="stylesheet">     
+</head>
+<body id="bodyA1">
+<div id="header">
+<div id="head1"></div>
+</div>
+<div class="blogpost-body">
+<h3>C-Lodop设置页面一加载就打印</h3>
+    <p>C-Lodop由于是服务不是np插件，调用打印语句（print或preview等）时机太早，在页面第一次加载完成后有几百毫秒时间等待WebSocket通讯服务准备完成，在没完成的时候会提示<span style="color: #993300;">&ldquo;C-Lodop未准备好&rdquo;</span>或<span style="color: #993300;">&ldquo;WebSocket没准备好&rdquo;</span>。新版修改了该提示，变为<span style="color: #800000;">&ldquo;网页还没下载完毕，请稍等一下再操作.&rdquo;<span style="color: #000000;">只是修改了提示内容，还是同一问题。</span></span></p>
+<p>正常进入web页面进行打印，一般是先进入页面，然后点击页面的某个按钮进行打印，在打印按钮里获取LODOP对象。<br />如果是要一进入页面就打印，或想避免因没准备好久点了这个按钮导致的这个提示，可以加延迟，或加等C-Lodop准备好再执行打印语句的方法。</p>
+<p>可以用JS加延迟，把获取LODOP对象这件事延迟一下，例如延迟500毫秒。<br /><span style="color: #333399;">setTimeout("prn1_preview()","500");  <span style="color: #339966;">//500毫秒后执行prn1_preview()函数，只执行一次。</span></span></p>
+<p>也可以加等c-lodop准备好，在调用该方法的语句，由于是混合部署，需要判断一下，:<br />  <span style="color: #333399;">if (needCLodop()) {</span><br /><span style="color: #339966;">	//C-Lodop----begin----</span><br /><span style="color: #333399;">	window.On_CLodop_Opened=function(){</span><br /><span style="color: #333399;">		prn1_preview();	<span style="color: #339966;">//prn1_preview()是自己写的调用打印方法						</span></span><br /><span style="color: #333399;">		window.On_CLodop_Opened=null;</span><br /><span style="color: #333399;">	};	</span><br /><span style="color: #339966;">	//C-Lodop----end----				</span><br /><span style="color: #333399;">  } else </span><br /><span style="color: #333399;">  window.onload = function(){prn1_preview();};<span style="color: #339966;">	//使用lodop控件时的调用</span></span></p>
+<p>如果只使用C-Lodop，则不需要附加判断，直接用//C-Lodop----begin----和//C-Lodop----end----这两个注释之间的代码即可。</p>
+<p><span style="color: #800080;">目前最新版修改了该提示</span>，最新版提示的是<span style="color: #993300;">&ldquo;网页还没下载完毕，请稍等一下再操作&rdquo;</span>。<br />可以在<span style="background-color: #ccffff;">LodopFuncs.js里查看一下，这提示的来源此文件</span>，如果提示的是标题的，应该是旧版的LodopFuncs.js。</p>
+<p>&nbsp;</p>
+<p><img src="https://img2018.cnblogs.com/blog/1481828/201809/1481828-20180905170241933-1936582895.png" alt="" /></p>
+<p>&nbsp;</p>
+<p>cnblog链接（带图示）:<a href="https://www.cnblogs.com/huaxie/p/9593208.html" target="_blank">C-Lodop设置页面一加载就打印</a></p>
+<p><a href="../blog_index.html">返回博文列表</a></p>
+</div>
+<div id="footer"><img src="../images/lodopfoot.png"></div>
+</body>
+</html>

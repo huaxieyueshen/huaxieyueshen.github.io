@@ -1,0 +1,24 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>WEB打印控件LODOP</title>
+<script language="javascript" src="LodopFuncs.js"></script>
+ <link href="../css/blogback.css" type='text/css' rel="stylesheet">     
+</head>
+<body id="bodyA1">
+<div id="header">
+<div id="head1"></div>
+</div>
+<div class="blogpost-body">
+<h3>Lodop打印如何隐藏table某一列</h3>
+    <p>Lodop打印超文本，<span style="color: #800080;">既可以打印页面上存在的某些部分，也可以自己组织超文本和css样式传入</span>，有些需要打印的页面表格里，会有一列有编辑删除等按钮，用于对于数据库数据的操作，在打印的时候，这一列由于不属于数据范围内，需要隐藏该列。<br /><span style="color: #800000;">Lodop传入的样式可以不是页面本身的css样式，传入什么打印什么</span>。<br />1.可以组织去掉该列的超文本传给控件，字符串拼接除掉该列的超文本。（传入的超文本去掉该列）<br />2.也可以传入只隐藏该列的css样式。（传入css样式去掉该列）</p>
+<p>如图，图中一个是直接页面的样式的样式，一个是通过传入隐藏该列的css样式 隐藏某列。<br />通过给页面上某列，传入的时候添加<span style="color: #0000ff;">display:none;</span>隐藏该列的样式，隐藏掉不需要的列。</p>
+<p><img src="https://images2018.cnblogs.com/blog/1481828/201809/1481828-20180907101806319-1757366999.png" alt="" /></p>
+<p>&nbsp;</p>
+<p>cnblog链接（带图示）:<a href="https://www.cnblogs.com/huaxie/p/9602879.html" target="_blank">Lodop打印如何隐藏table某一列</a></p>
+<p><a href="../blog_index.html">返回博文列表</a></p>
+</div>
+<div id="footer"><img src="../images/lodopfoot.png"></div>
+</body>
+</html>

@@ -1,0 +1,33 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>WEB打印控件LODOP</title>
+<script language="javascript" src="LodopFuncs.js"></script>
+ <link href="../css/blogback.css" type='text/css' rel="stylesheet">     
+</head>
+<body id="bodyA1">
+<div id="header">
+<div id="head1"></div>
+</div>
+<div class="blogpost-body">
+<h3>如何设置C-Lodop打印控件的端口</h3>
+    <p>Lodop是一款功能强大的打印控件，在一些浏览器不再支持np插件之后，Lodop公司又推出了C-Lodop，C-Lodop是以服务的方式解决web打印，摆脱了对浏览器的依赖，支持了所有的浏览器。</p>
+<p>该控件使用简单，使用简短的JS语句就可以实现各种web打印，目前支持所有浏览器的方法有混合部署和单独使用C-Lodop两种方式。<br />由于lodop插件只能在ie,低版本火狐谷歌这些支持np插件的浏览器下使用，所以不建议单独使用lodop插件，可和c-lodop混合部署或只使用C-Lodop。</p>
+<p>C-Lodop的目前的新版本，标准版支持8000和18000双端口（http），只要一个端口能使用就能用，减小了端口被占用的可能，通常不会两个端口都被占用。<br />C-Lodop32位扩展版支持三个端口，在标准版基础上，增加了一个8443端口（https），如果该https端口被占用，会加一变成8444端口。</p>
+<p>注意：<br />1.<span style="color: #800000;">https网站需要用C-Lodop32位扩展版</span>。<br />C-Lodop32位扩展版有https端口，C-Lodop64位扩展版没有https端口。<br />如果网站是https的，需要使用32位C-Lodop扩展版，32位C-Lodop扩展版支持32位和64位操作系统。</p>
+<p>2.<span style="color: #800000;">LodopFuncs.js里端口要和启动端口一致</span>。<br />建议使用默认端口，修改LodopFuncs.js里的端口，安装启动的C-Lodop端口也要修改，每个客户端都修改是很麻烦的一件事情，默认端口客户端下载后可直接使用，不建议更改端口，可附加备用端口。</p>
+<p>如上所述，https端口，如果8443被占用，会加一变成8444，可以把8443作为优先级最高，8444作为备用端口。LodopFuncs.js该部分里参数Priority是服务优先级，数值越大优先级越高。<br /><span style="color: #333399;">https://localhost:8443/CLodopfuncs.js?priority=1</span><br /><span style="color: #333399;">https://localhost:8444/CLodopfuncs.js?priority=0</span><br />如果是https网站，安装扩展版后，会看到只有一个8443的https端口，但是在LodopFuncs.js里，建议通过优先级方式，增加备用端口8444，客户端占用默认端口，会用备用端口。</p>
+<p>如果启动C-Lodop的启动端口和LodopFuncs.js里引用的端口不一致，这种情况，即使安装了也启动了C-Lodop，不管重启多少次C-Lodop，都会提示<span style="color: #008000;">"CLodop云打印服务(localhost本地)未安装启动!"</span>。<br />因此要特别注意，<span style="background-color: #ffff00;">要使用默认端口，或增加备用端口，不可随意更改</span>，否则会给终端客户造成困扰。</p>
+<p>相关博文：<a href="https://www.cnblogs.com/huaxie/p/10345805.html" target="_blank">提示&ldquo;Web打印服务CLodop未安装启动&rdquo;的各种原因和解决方法</a></p>
+<p><img src="https://img2018.cnblogs.com/blog/1481828/201809/1481828-20180905140903931-625138679.png" alt="" /></p>
+<p><strong>简短问答</strong><br />https://localhost:8443/CLodopfuncs.js和加载不上<br />GET https://localhost:8443/CLodopfuncs.js?priority=1 net::ERR_CONNECTION_REFUSED<br />GET https://localhost:8444/CLodopfuncs.js?priority=0 net::ERR_CONNECTION_REFUSED</p>
+<p>双击桌面上的c-lodop快捷方式，重启一下本机的c-lodop，重启后刷新页面.<br />查看当前是否有https端口，参考http://www.c-lodop.com/faq/pp32.html<br />使用32位扩展版c-lodop，启动界面设置里查看下当前启动端口。<br />重启c-lodop后刷新页面，清理浏览器缓存，看报错是否去掉。<br />访问下https://localhost:8443，点欢迎页面的预览试试。</p>
+<p>如果欢迎页面点预览正常了，那么c-lodop正常了，查看下自己页面的使用方法，刷新自己的页面重新测试一下。<br />https://localhost:8444/CLodopfuncs.js报错不用管，这个是备用的，当8443占用时，这个会有用。<br />建议不要去掉，如果客户端8443占用了，就会走这个优先级，保留备用端口8444。</p>
+<p>&nbsp;</p>
+<p>cnblog链接（带图示）:<a href="https://www.cnblogs.com/huaxie/p/9591791.html" target="_blank">如何设置C-Lodop打印控件的端口</a></p>
+<p><a href="../blog_index.html">返回博文列表</a></p>
+</div>
+<div id="footer"><img src="../images/lodopfoot.png"></div>
+</body>
+</html>

@@ -1,0 +1,28 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>WEB打印控件LODOP</title>
+<script language="javascript" src="LodopFuncs.js"></script>
+ <link href="../css/blogback.css" type='text/css' rel="stylesheet">     
+</head>
+<body id="bodyA1">
+<div id="header">
+<div id="head1"></div>
+</div>
+<div class="blogpost-body">
+<h3>Lodop打印项对象类型属性区分</h3>
+    <p>Lodop提供了一些打印项类型，默认是普通项，通过设置打印对象的类型，<span style="color: #008080;">可以实现一些普通项不能实现的效果</span>。例如：该博客另一篇博文 标题是<a href="https://www.cnblogs.com/huaxie/p/9599718.html" target="_blank">Lodop打印控件 打印&lsquo;接下一页&rsquo;&lsquo;以下空白&rsquo;</a>，就用了眉脚项。</p>
+<p><strong>普通项：</strong><br />默认纯文本打印项（<span style="color: #333399;">ADD_PRINT_TEXT</span>）为普通项，只输出当前页，如果内容超过打印项宽度，且高度不够，该纯文本打印项会隐藏后面的内容。<br />如果是超文本（例如：<span style="color: #333399;">ADD_PRINT_HTM</span>），超过打印项高度会自动分页。<br />1.只在当前页输出。<br />2.如果该纯文本打印项内容超过打印项宽度，且高度较大，该纯文本打印项会让后面的超过宽度的部分自动换行。<br />3.如果该纯文本打印项内容超过打印项宽度，且高度不够，该纯文本打印项会隐藏后面的内容。</p>
+<p>其他打印项，与普通打印项的区别：<br /><strong>眉脚项：</strong><br /><span style="color: #333399;">LODOP.SET_PRINT_STYLEA(0,"ItemType",1);</span><span style="color: #339966;">//设置上面的为页眉页脚，每页固定位置输出</span><br />1.每页固定位置输出。</p>
+<p><strong>页号项、页数项：</strong><br /><span style="color: #333399;">LODOP.SET_PRINT_STYLEA(0,"ItemType",2);</span><span style="color: #339966;">//设置上面的纯文本打印项为页号项</span><br /><span style="color: #333399;">LODOP.SET_PRINT_STYLEA(0,"ItemType",3);</span><span style="color: #339966;">//设置上面的纯文本打印项为页数项</span><br />1.每页固定位置输出。<br />2..页号项，每页输出，且内容必须包含页号或页数（占位符为#和&amp;），否则会在文本后强制加上页号。<br />   页数项，每页输出，且内容必须包含页号或页数（占位符为#和&amp;），否则会在文本后强制加上页数。</p>
+<p><strong>多页文项：</strong><br /><span style="color: #333399;">LODOP.SET_PRINT_STYLEA(0,"ItemType",4);</span><span style="color: #339966;">//设置上面的纯文本打印项为多页文项</span><br />1.纯文本打印（<span style="color: #333399;">ADD_PRINT_TEXT</span>）项超过宽度且高度不够的情况下，不会隐藏后面的内容，而是会分到下一页。<br />分页数量和每页显示内容多少 和设置的纯文本打印项高度有关。</p>
+<p>在打印设计里，可双击该打印项，或右键-设置属性，查看到属性窗口，其中第一个设置的属性就是对象类型。<br />一旦设置了对象类型，普通项和多页文项还是白色区域，<br />眉脚项和页号项页数项，这种每页输出的类型，会有一个深色的背景色，这个背景色是在打印设计界面区分用的，不会实际输出背景色。</p>
+<p><img src="https://images2018.cnblogs.com/blog/1481828/201809/1481828-20180907105038619-2121838898.png" alt="" /></p>
+<p>&nbsp;</p>
+<p>cnblog链接（带图示）:<a href="https://www.cnblogs.com/huaxie/p/9603229.html" target="_blank">Lodop打印项对象类型属性区分</a></p>
+<p><a href="../blog_index.html">返回博文列表</a></p>
+</div>
+<div id="footer"><img src="../images/lodopfoot.png"></div>
+</body>
+</html>

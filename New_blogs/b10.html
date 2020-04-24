@@ -1,0 +1,28 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>WEB打印控件LODOP</title>
+<script language="javascript" src="LodopFuncs.js"></script>
+ <link href="../css/blogback.css" type='text/css' rel="stylesheet">     
+</head>
+<body id="bodyA1">
+<div id="header">
+<div id="head1"></div>
+</div>
+<div class="blogpost-body">
+<h3>Lodop打印控件指定打印任务某几页</h3>
+    <p>使用Lodop打印控件进行打印开发，有时候一个任务里有多页，例如各种合同之类的，客户端用户在使用过程中，可能有某一页打印后发现需要修改，这时候<span style="background-color: #ccffff;">不必再把整个任务重新打印一遍，只需要打印需要修改的那页重新打印即可</span>。<br />如果客户是让客户预览打印，在预览界面的打印按钮里，多页任务点击后可以看到从第几页到第几页的选项，用户可输入自己要重打的起始页和终止页即可。<br />这个功能也可以在代码里指定，如果是不预览直接打印，那么就可以在页面上加入两个文本框，让客户输入要重打的起始页和终止页进行重打，加上这个功能更有利于用户使用。</p>
+<p>例如，要重打2,3页，可以用如下语句进行重打：<br /><span style="color: #000080;">LODOP.SET_PRINT_MODE ("PRINT_START_PAGE",2);</span><span style="color: #008000;">//设置从第2页开始打印</span><br /><span style="color: #000080;">LODOP.SET_PRINT_MODE ("PRINT_END_PAGE",3);</span><span style="color: #008000;">//设置从第3页结束打印</span></p>
+<p>如果要重打某一页，起始页和终止页相同就可以了，例如在页面添加id为T1的文本框，然后设置打印时重打T1文本框里输入的该值的页：<br /><span style="color: #000080;">LODOP.SET_PRINT_MODE ("PRINT_START_PAGE",document.getElementById('T1').value);</span><br /><span style="color: #000080;">LODOP.SET_PRINT_MODE ("PRINT_START_PAGE",document.getElementById('T1').value);</span></p>
+<p>设置从第几页打印到第几页，不必重打整个任务：</p>
+<p><img src="https://images2018.cnblogs.com/blog/1481828/201809/1481828-20180910135217450-1394722938.png" alt="" /></p>
+<p>设置重打某一页，参数通过文本框传入，可让用户自己输入需要的重打页：</p>
+<p><img src="https://images2018.cnblogs.com/blog/1481828/201809/1481828-20180910135235346-771875769.png" alt="" /></p>
+<p>&nbsp;</p>
+<p>cnblog链接（带图示）:<a href="https://www.cnblogs.com/huaxie/p/9619044.html" target="_blank">Lodop打印控件指定打印任务某几页</a></p>
+<p><a href="../blog_index.html">返回博文列表</a></p>
+</div>
+<div id="footer"><img src="../images/lodopfoot.png"></div>
+</body>
+</html>

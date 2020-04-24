@@ -1,0 +1,36 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>WEB打印控件LODOP</title>
+<script language="javascript" src="LodopFuncs.js"></script>
+ <link href="../css/blogback.css" type='text/css' rel="stylesheet">     
+</head>
+<body id="bodyA1">
+<div id="header">
+<div id="head1"></div>
+</div>
+<div class="blogpost-body">
+<h3>Lodop连续打印内容逐渐偏移怎么办</h3>
+    <p>Lodop打印控件中，可以使用打印机自带的纸张名称，也可以自定义纸张。（<span style="color: #333399;">SET_PRINT_PAGESIZE</span>语句）。<br />通常进行打印开发，为了避免浪费纸张，会用虚拟打印机效果作为依据，虚拟打印机连续打印多少张都没问题，但有时会发生在实际打印机中，内容会逐渐偏移的情况，刚开始偏移很小不明显，大批量的打印超多之后偏移会越来越明显。<br />这种情况通常是由于 程序里设置的纸张和实际纸张有差异引起的，表现为连续打印越往后的偏移越大偏移不断累积。</p>
+<p><span style="color: #333333;">程序自定义纸张与实际纸张微小差异导致连续打印偏移，偏移越来越大，如何测量纸张，纠正位置：</span><br /><strong>解决方法：</strong><br />多数套打业务的票据是连续纸，纸张高度决定走纸的距离，对连续打印影响很大，<span style="background-color: #ccffff;">尽量测量准确的纸张高度大小</span>，纸张之间有撕纸的间隙，可以<span style="background-color: #ccffff;">若干张一起测量，取平均值</span>，这样稍微准确一些。</p>
+<p>设置输出的纸张 与实际纸张大小有差异，如果确实无法做到与纸张实物一样大，<span style="background-color: #ccffff;">输出一定任务数量后，发现有偏差时需要手动调整进纸位置以纠正</span>。</p>
+<p>此外，如果打印机本身列表有这个纸张，可以用打印机本身的纸张，这样可以避免单位换算引起的微小差值。</p>
+<p>如果用虚拟打印机测试，也发生偏移，而且不是连续打印累计偏移，那么就不是这个原因，参本博客其他博文的介绍。其他偏移等：<a href="https://www.cnblogs.com/huaxie/p/10564614.html" target="_blank">LODOP不同打印机出现偏移问题</a></p>
+<p><strong>累计偏移简短问答：</strong><br />参考http://www.c-lodop.com/faq/pp17.html<br />是累计偏移吗，偏移逐渐增大那种。</p>
+<p>进入打印预览看看，预览下方状态栏纸张的大小，是否是设置的纸张，是否和实际纸张一致。</p>
+<p>用xps或pdf虚拟打印机测试一下。<br />如果虚拟打印机能正常输出这个纸张，说明该打印机不支持设置的该纸张。</p>
+<p>这种是实际纸张与设置的纸张之间存在差异导致的，尽量让实际纸张与设置的纸张一致。<br />批量连续打印时，可以测量多张纸，取平均值，这样测量可能准确一点。</p>
+<p>打印机的纸张列表里是否有需要的该纸张，直接使用打印机本身的纸张试试，按打印机本身的纸张走纸。<br />纸张设置的是mm，打印机里吗是英寸，换算可能存在差值，可以试试用打印机本身的纸张，用本身的纸张走纸。</p>
+<p>前面的是打印机可打区域的大小，参考http://www.c-lodop.com/faq/pp26.html<br />后面的是纸张，走纸是按照纸张走纸，默认以可打区域为基点，会影响打印项的在纸张中的位置。</p>
+<p>或者代码里不设置纸张，直接走打印机的默认纸张，把需要的纸张设置为默认纸张，这个打印机自带的是英寸，避免了代码和打印机单位之间的转换导致差异。</p>
+<p>不建议用英寸设置纸张，测量纸张的时候，一般是mm，测量可能存在偏差。用xps或pdf虚拟打印机对比测试一下，用打印机本身的纸张试试。</p>
+<p><img src="https://images2018.cnblogs.com/blog/1481828/201809/1481828-20180906162416817-1713920555.png" alt="" /></p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>cnblog链接（带图示）:<a href="https://www.cnblogs.com/huaxie/p/9599221.html" target="_blank">Lodop连续打印内容逐渐偏移怎么办</a></p>
+<p><a href="../blog_index.html">返回博文列表</a></p>
+</div>
+<div id="footer"><img src="../images/lodopfoot.png"></div>
+</body>
+</html>

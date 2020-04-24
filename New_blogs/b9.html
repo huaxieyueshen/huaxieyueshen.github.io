@@ -1,0 +1,26 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>WEB打印控件LODOP</title>
+<script language="javascript" src="LodopFuncs.js"></script>
+ <link href="../css/blogback.css" type='text/css' rel="stylesheet">     
+</head>
+<body id="bodyA1">
+<div id="header">
+<div id="head1"></div>
+</div>
+<div class="blogpost-body">
+<h3>Lodop打印控件不打印css背景图怎么办</h3>
+    <p>background:url()这是css背景图，http协议会按异步方式下载背景图，所以很容易等不到下载完毕就开始打印了，故lodop不打印css背景图。<br />Lodop不打印css背景图，但是有其他方法输出背景图，<span style="color: #800000;">在超文本中也可以用普通图片利用层级关系作为背景图输出，<span style="color: #333399;">img图片设置样式z-index为负值</span>（例如<span style="color: #333399;">style='z-index: -1;</span>）</span>。<br />其他背景图及输出方法，可参考本博客其他博文。</p>
+<p>Lodop打印html超文本可以输出css背景色，但是不能输出背景图，见图一：</p>
+<p><img src="https://images2018.cnblogs.com/blog/1481828/201809/1481828-20180907145714411-518814311.png" alt="" /></p>
+<p>通过设置img图片设置样式z-index为负值，可以把普通图片叠加到下面当作背景图输出，见图二：</p>
+<p><img src="https://images2018.cnblogs.com/blog/1481828/201809/1481828-20180907145736900-489791889.png" alt="" /></p>
+<p>&nbsp;</p>
+<p>cnblog链接（带图示）:<a href="https://www.cnblogs.com/huaxie/p/9604650.html" target="_blank">Lodop打印控件不打印css背景图怎么办</a></p>
+<p><a href="../blog_index.html">返回博文列表</a></p>
+</div>
+<div id="footer"><img src="../images/lodopfoot.png"></div>
+</body>
+</html>
