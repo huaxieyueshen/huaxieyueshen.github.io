@@ -1,0 +1,30 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>WEB打印控件LODOP</title>
+<script language="javascript" src="LodopFuncs.js"></script>
+ <link href="../css/blogback.css" type='text/css' rel="stylesheet">     
+</head>
+<body id="bodyA1">
+<div id="header">
+<div id="head1"></div>
+</div>
+<div class="blogpost-body">
+<h3>Lodop窗口的按钮、权限，隐藏或设置功能不可用</h3>
+    <p>Lodop隐藏某个按钮或部分，具体参考Lodop技术手册 SET_SHOW_MODE篇。<br />以下是几个例子，（对应下图图片）：</p>
+<p>第一种：<br /><span style="color: #000080;">LODOP.SET_SHOW_MODE ("HIDE_PBUTTIN_SETUP",true);<span style="color: #008000;">//隐藏打印设计界面的&lsquo;打印&rsquo;按钮</span></span></p>
+<p>第二种：</p>
+<p><span style="color: #000080;">LODOP.SET_SHOW_MODE("SETUP_ENABLESS","10");<span style="color: #008000;">//设置打印维护界面上的&lsquo;颜色&rsquo;按钮不可用</span></span></p>
+<p>第三种：</p>
+<p><span style="color: #000080;">LODOP.SET_SHOW_MODE("SETUP_ENABLESS","10");</span><br /><span style="color: #000080;">LODOP.SET_SHOW_MODE ("HIDE_DISBUTTIN_SETUP",true);<span style="color: #008000;">//隐藏上句&lsquo;不可用的颜色按钮&rsquo;</span></span></p>
+<p>下图是以前做的图，作图的时候不仔细，第二种设置颜色不可用后实际效果是灰色的，PS拖进去用的是第三种图，没看仔细拖错了素材，后来没有重做：</p>
+<div><span style="color: #000080;">&nbsp;LODOP.SET_SHOW_MODE&nbsp;("HIDE_PBUTTIN_PREVIEW",true);//隐藏预览的打印按钮</span>&nbsp; 这个也常用。</div>
+<p>&nbsp;<img src="https://img2018.cnblogs.com/blog/1481828/201809/1481828-20180926172350805-1246943290.jpg" alt="" /></p>
+<p>&nbsp;</p>
+<p>cnblog链接（带图示）:<a href="https://www.cnblogs.com/huaxie/p/9708290.html" target="_blank">Lodop窗口的按钮、权限，隐藏或设置功能不可用</a></p>
+<p><a href="../blog_index.html">返回博文列表</a></p>
+</div>
+<div id="footer"><img src="../images/lodopfoot.png"></div>
+</body>
+</html>
