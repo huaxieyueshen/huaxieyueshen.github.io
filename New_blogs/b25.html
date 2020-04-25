@@ -1,0 +1,23 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>WEB打印控件LODOP</title>
+<script language="javascript" src="LodopFuncs.js"></script>
+ <link href="../css/blogback.css" type='text/css' rel="stylesheet">     
+</head>
+<body id="bodyA1">
+<div id="header">
+<div id="head1"></div>
+</div>
+<div class="blogpost-body">
+<h3>LODOP打印控件关联输出各内容</h3>
+    <p>Lodop打印控件利用SET_PRINT_STYLEA里面的&ldquo;LinkedItem&rdquo;可以把多个独立的内容关联起来，让它们顺序打印。这样，就可以实现很多效果，例如一些内容紧跟着表格下方输出，关联表格后就是和表格的偏移值，不再用top,left定位，相对于表格。<br />当连续使用关联前一个对象，变成连续顺序关联串的时候，注意第一个对象的高度是当前页输出（所有内容）的高度，超过高度会分页，-1为前一项，可以连成关联串，<span style="background-color: #ccffcc;">第一个对象的高度height就是每一页输出的串的高度</span>，也就是说，如果想在一个页面输出整个串的内容，那么第一个对象的高度应该包括后面的所有高度总和，第一个对象的高度是本页输出的高度，<span style="background-color: #ffffff; color: #333399;">当连续关联上一个对象时，第二个top就不是上边距，而是和第一个对象的top差值，left也不是左边距，是和第一个对象的左边距差值</span>，第三个对象左边距和关联的第二个 相同，所以也就是和第二个对象左边对齐，也就是0。<br />如下图，第四个我没继续画差额线，因为这是每个关联前一个对象，这里<span style="color: #000080;">第四个top就是和第三个对象的差额</span>，左边距是和第三个对象的差额，不过如果第一个对象高度不够，那么就会分页。<br />在打印设计查看一下各种关联内容，打印设计可以通过左侧的对象查看器（点击设计界面左侧的小三角形，展开打印项界面）选中一个或多个对象。</p>
+<p><img src="https://img2018.cnblogs.com/blog/1481828/201809/1481828-20180926103505697-257781261.jpg" alt="" /></p>
+<p>&nbsp;</p>
+<p>cnblog链接（带图示）:<a href="https://www.cnblogs.com/huaxie/p/9705530.html" target="_blank">LODOP打印控件关联输出各内容</a></p>
+<p><a href="../blog_index.html">返回博文列表</a></p>
+</div>
+<div id="footer"><img src="../images/lodopfoot.png"></div>
+</body>
+</html>

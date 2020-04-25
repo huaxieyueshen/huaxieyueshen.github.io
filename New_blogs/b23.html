@@ -1,0 +1,25 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>WEB打印控件LODOP</title>
+<script language="javascript" src="LodopFuncs.js"></script>
+ <link href="../css/blogback.css" type='text/css' rel="stylesheet">     
+</head>
+<body id="bodyA1">
+<div id="header">
+<div id="head1"></div>
+</div>
+<div class="blogpost-body">
+<h3>Lodop代码设置打印机等信息后 设置预览可重选</h3>
+    <p>Lodop打印控件默认在代码里指定了打印、纸张、纸张方向、份数等信息，在预览的界面的设置里是无法重新选择的，默认是禁止重选的，如果重选会提示，例如：<span style="color: #800000;">&ldquo;打印方向&rdquo;已由程序控制，无法改变！&ldquo;纸张大小&rdquo;已由程序控制，无法改变！&ldquo;目标打印机&rdquo;已由程序控制，无法改变！</span>等。</p>
+<p>比如在代码中写了如下语句用于指定这些信息：<br /><span style="color: #333399;">LODOP.SET_PRINT_PAGESIZE</span>   设置纸张大小和方向<br /><span style="color: #333399;">LODOP.SET_PRINTER_INDEX</span>    选择打印机</p>
+<p><span style="color: #333399;">使用SET_PRINT_MODE("RESELECT_XXX",true);</span>语句可允许操作者在预览界面重选这些设置。<br /><strong>用如下语句，让这些信息可以在预览界面重新指定：</strong><br /><span style="color: #333399;">LODOP.SET_PRINT_MODE("RESELECT_PRINTER",true);   </span><span style="color: #008000;">允许重选打印机</span><br /><span style="color: #333399;">LODOP.SET_PRINT_MODE("RESELECT_ORIENT",true);    <span style="color: #008000;">允许重选纸张方向</span></span><br /><span style="color: #333399;">LODOP.SET_PRINT_MODE("RESELECT_PAGESIZE",true);  <span style="color: #008000;">允许重选纸张</span></span><br /><span style="color: #333399;">LODOP.SET_PRINT_MODE("RESELECT_COPIES",true);    允许重选份数</span></p>
+<p><img src="https://img2018.cnblogs.com/blog/1481828/201809/1481828-20180926095849377-253560699.png" alt="" /></p>
+<p>&nbsp;</p>
+<p>cnblog链接（带图示）:<a href="https://www.cnblogs.com/huaxie/p/9705241.html" target="_blank">Lodop代码设置打印机等信息后 设置预览可重选</a></p>
+<p><a href="../blog_index.html">返回博文列表</a></p>
+</div>
+<div id="footer"><img src="../images/lodopfoot.png"></div>
+</body>
+</html>

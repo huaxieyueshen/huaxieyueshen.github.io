@@ -1,0 +1,38 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>WEB打印控件LODOP</title>
+<script language="javascript" src="LodopFuncs.js"></script>
+ <link href="../css/blogback.css" type='text/css' rel="stylesheet">     
+</head>
+<body id="bodyA1">
+<div id="header">
+<div id="head1"></div>
+</div>
+<div class="blogpost-body">
+<h3>如何判断使用的是Lodop还是C-Lodop</h3>
+    <p>Lodop和C-Lodop混合部署的时候，LodopFuncs.js里面有自动判断当前浏览器使用什么，支持np插件的就会使用Lodop，不支持插件方式的会使用C-Lodop，可以通过预览窗口左上角图标简单的识别出当前使用的是哪种方式。</p>
+<p><strong>1.弹出的窗口。</strong><br />弹出窗口<span style="background-color: #ccffff;">左上角是小打印图标，使用的是C-Lodop</span>；<br />弹出窗口<span style="background-color: #ccffff;">左上角是浏览器图标，使用的是Lodop；</span></p>
+<p><strong>2.用CVERSION属性判断是否云打印。</strong><br />如官网（或混合安装包自带的）样例1：判断是否控件是否安装。<br />LODOP.CVERSION是C-Lodop的版本号，<span style="color: #000080;">如果该浏览器使用的是Lodop插件方式，那么调用这个LODOP.CERSION就会提示undefined</span>。<br />所以需要提前判断该浏览器是否使用的是云打印，如果是云打印，再调用这个LODOP.CERSION方法。<br />如下面方法，浏览器不是使用的C-Lodop弹出的提示会只有Lodop的版本号。</p>
+<div class="cnblogs_code">
+<pre><span style="color: #0000ff;">function</span><span style="color: #000000;"> CheckIsInstall() {     
+        </span><span style="color: #0000ff;">try</span><span style="color: #000000;">{            
+              </span><span style="color: #0000ff;">var</span> LODOP=<span style="color: #000000;">getLodop();
+            </span><span style="color: #0000ff;">if</span><span style="color: #000000;"> (LODOP.VERSION) {
+                 </span><span style="color: #0000ff;">if</span><span style="color: #000000;"> (LODOP.CVERSION)
+                 alert(</span>"当前有C-Lodop云打印可用! C-Lodop版本:"+LODOP.CVERSION+"(内含Lodop"+LODOP.VERSION+")"<span style="color: #000000;">);
+                 </span><span style="color: #0000ff;">else</span><span style="color: #000000;">
+                 alert(</span>"本机已成功安装了Lodop控件！ 版本号:"+<span style="color: #000000;">LODOP.VERSION);
+            };
+         }</span><span style="color: #0000ff;">catch</span><span style="color: #000000;">(err){
+          }</span></pre>
+</div>
+<p><img src="https://img2018.cnblogs.com/blog/1481828/201809/1481828-20180926101533997-971730289.png" alt="" /></p>
+<p>&nbsp;</p>
+<p>cnblog链接（带图示）:<a href="https://www.cnblogs.com/huaxie/p/9705355.html" target="_blank">如何判断使用的是Lodop还是C-Lodop</a></p>
+<p><a href="../blog_index.html">返回博文列表</a></p>
+</div>
+<div id="footer"><img src="../images/lodopfoot.png"></div>
+</body>
+</html>

@@ -1,0 +1,30 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>WEB打印控件LODOP</title>
+<script language="javascript" src="LodopFuncs.js"></script>
+ <link href="../css/blogback.css" type='text/css' rel="stylesheet">     
+</head>
+<body id="bodyA1">
+<div id="header">
+<div id="head1"></div>
+</div>
+<div class="blogpost-body">
+<h3>Lodop打印控件输出页码（超文本和纯文本页码）</h3>
+    <p>Lodop打印控件打印超文本既可以手动分页，也可以自动分页，自动分页可阅读本博客的另一篇博文：<br /><a href="https://www.cnblogs.com/huaxie/p/9640491.html" target="_blank">Lodop打印控件 超文本自动分页</a><br /><br />自动分页的时候，往往是不知道需要打印的内容到底分了几页，也就不可能预先知道一共几页，也无法在每页设置页码，Lodop提供了语句可以给打印任务添加页码，自动获取该任务一共几页，以及哪些内容分到了哪一页，并且可以设置页码的起始位置和起始值。</p>
+<p><strong>Lodop输出页码，可以用超文本或纯文本两种方式：</strong><br />1.超文本页码，<span style="background-color: #ccffff;"><span style="color: #333399;">tdata="pageNO"</span>是第几页</span>，<span style="background-color: #ccffff;"><span style="color: #333399;">tdata="pageCount"</span>是共几页</span>。<br />默认是阿拉伯数字的页码，通过<span style="color: #333399;">format="ChineseNum"</span>可以设置成中文数字的页码。<br />页码是要每页输出的，超文本页码需要设置每页输出，可用如下语句，ItemType为1，就是页眉页脚项，加上这个样式后，该项的特点是每页在固定的位置输出。<br /><span style="color: #333399;">LODOP.SET_PRINT_STYLEA(0,"ItemType",1);<span style="color: #008000;">//设置上面的为页眉页脚，每页固定位置输出</span></span></p>
+<p>2.纯文本页码，添加纯文本打印项后，可以设置样式为页号项，此项的特是每页输出，且内容包含页号页码，设置了这个样式后，就不用设置上面1里面的每页输出了。<br /><span style="color: #333399;">LODOP.SET_PRINT_STYLEA(0,"ItemType",2);<span style="color: #008000;">//设置上面的纯文本打印项为页号项</span></span></p>
+<p><strong><span style="color: #333399;"><span style="color: #008000;">稍详细的简短问答：</span></span></strong></p>
+<p>如果是纯文本，可以设置为页号项或页数项<br />LODOP.SET_PRINT_STYLEA(0,"ItemType",2);//设置上面的纯文本打印项为页号项<br />如果是超文本tdata="pageNO"是第几页，tdata="pageCount"是共几页，并设置为页眉页脚项，每页输出LODOP.SET_PRINT_STYLEA(0,"ItemType",1);//设置上面的为页眉页脚，每页固定位置输出</p>
+<p>&nbsp;</p>
+<p><img src="https://img2018.cnblogs.com/blog/1481828/201809/1481828-20180925164944799-70330083.jpg" alt="" /><br />超文本和纯文本页码，都可以控制从哪一页开始显示，页码从几开始。<br />下图中给超文本和纯文本都加了页码显示页数，和初始值的控制，都是有效的，写注释的时候略有不同，一个比较白话文的注释，一个较正常的注释。<br /><span style="color: #333399;">LODOP.SET_PRINT_STYLEA(0,"NumberStartPage",2);<span style="color: #008000;">//设置从哪一页开始显示</span></span><br /><span style="color: #333399;">LODOP.SET_PRINT_STYLEA(0,"StartNumberValue",3);<span style="color: #008000;">//设置页码从几开始显示</span></span></p>
+<p><span style="color: #333399;">LODOP.SET_PRINT_STYLEA(0,"NumberStartPage",2);<span style="color: #008000;">//设置开始显示页码的页数</span></span><br /><span style="color: #333399;">LODOP.SET_PRINT_STYLEA(0,"StartNumberValue",3);/<span style="color: #008000;">/设置页码初始值</span></span></p>
+<p><img src="https://img2018.cnblogs.com/blog/1481828/201809/1481828-20180925164956694-1510582955.jpg" alt="" /></p>
+<p>&nbsp;</p>
+<p>cnblog链接（带图示）:<a href="https://www.cnblogs.com/huaxie/p/9700435.html" target="_blank">Lodop打印控件输出页码（超文本和纯文本页码）</a></p>
+<p><a href="../blog_index.html">返回博文列表</a></p>
+</div>
+<div id="footer"><img src="../images/lodopfoot.png"></div>
+</body>
+</html>
