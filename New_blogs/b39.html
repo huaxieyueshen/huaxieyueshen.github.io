@@ -1,0 +1,26 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>WEB打印控件LODOP</title>
+<script language="javascript" src="LodopFuncs.js"></script>
+ <link href="../css/blogback.css" type='text/css' rel="stylesheet">     
+</head>
+<body id="bodyA1">
+<div id="header">
+<div id="head1"></div>
+</div>
+<div class="blogpost-body">
+<h3>Lodop打印维护PRINT_SETUP本地缓存ini文件</h3>
+    <p>针对千差万别的客户端，Lodop提供了打印维护（PRINT_SETUP），可以针对某个客户端微调，调整结果保存在客户端本地，不会影响其他访问网站的用户的使用。</p>
+<p><strong>打印维护使用方法：</strong><br /><span style="background-color: #ccffff;">1.PRINT_INIT或PRINT_INITA，中设置任务名。</span><br /><span style="background-color: #ccffff;">2.打印维护，然后修改内容后，点应用。</span><br />上述两个步骤会在本地生成一个ini文件，该ini文件的名称中带有PRINT_INIT或PRINT_INITA中设置的任务名。（不同任务设置不同任务名，避免互相影响）<br />该ini文件一般在的可能位置如下：<br /><span style="color: #000080;">系统盘符:\Program Files (x86)\MountTaiSoftware\Lodop\PrintSetups_打印任务名.ini</span><br /><span style="color: #000080;">C:\Program Files\MountTaiSoftware\Lodop</span><br /><span style="color: #000080;">C:\Program Files (x86)\MountTaiSoftware\Lodop</span><br /><span style="color: #000080;">C:\MountTaiSoftware\MountTaiSoftware\Lodop</span></p>
+<p>有了ini文件的影响，效果就不再是代码效果，而是客户端调整后的效果，有些开发人员可能不小心用打印维护缓存了该任务名的ini文件，然后<span style="color: #993300;">怎么修改代码都无效了</span>，这就是该文件在起作用。<br /><span style="background-color: #cc99ff;">1.怎么修改代码都还是原来的代码。</span><br />有的不了解打印维护而使用了，造成怎么修改代码都还是原来的代码，可以排查一下是否本地已经生成了该任务名的ini文件，本地已有ini文件就会按照ini模版进行显示，所以无论怎么修改代码，页面还是不会改变这是由于受到了这个ini文件的影响。<br /><span style="background-color: #cc99ff;">2.页面代码和预览不一致。</span><br />查看页面源码，发现和预览效果不一致，排查一下是否本地ini文件在起作用。<br /><span style="color: #000000; background-color: #cc99ff;">3.其他电脑和客户都没问题，就自己电脑显示出来不一样。</span><br />排查一下是否本地ini文件在起作用。</p>
+<p><strong>出现这种状态，可用如下几个方法，可恢复到和代码一致的状态：</strong><br />1.置空任务名，LODOP.PRINT_INIT(""); 置空后，就不会缓存ini文件。<br />2.在打印维护界面恢复整体缺省，点保存。<br />3.直接找到这个任务名的ini文件删除掉<br />换个任务名也可以，换一个本地没有ini缓存模版的任务名，指向一个不存在的文件。</p>
+<p><img src="https://img2018.cnblogs.com/blog/1481828/201809/1481828-20180930104327911-2033153898.jpg" alt="" /></p>
+<p>&nbsp;</p>
+<p>cnblog链接（带图示）:<a href="https://www.cnblogs.com/huaxie/p/9728450.html" target="_blank">Lodop打印维护PRINT_SETUP本地缓存ini文件</a></p>
+<p><a href="../blog_index.html">返回博文列表</a></p>
+</div>
+<div id="footer"><img src="../images/lodopfoot.png"></div>
+</body>
+</html>

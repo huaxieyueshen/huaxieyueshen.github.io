@@ -1,0 +1,35 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>WEB打印控件LODOP</title>
+<script language="javascript" src="LodopFuncs.js"></script>
+ <link href="../css/blogback.css" type='text/css' rel="stylesheet">     
+</head>
+<body id="bodyA1">
+<div id="header">
+<div id="head1"></div>
+</div>
+<div class="blogpost-body">
+<h3>c-lodop云打印实现手机打印 JS语句打印</h3>
+    <p>Lodop和c-lodop目前只能安装到windows操作系统上，但是其他操作系统可通过向C-Lodop安装的电脑发送打印任务，实现手机广域网或局域网打印，打印语句也是简单的JS语句，可以轻松实现云打印。</p>
+<p><strong>手机用C-Lodop（云打印方式）打印目前有三种方式：</strong><br />手机访问c-lodop集中打印（局域网）<br />手机访问c-lodop广域网端桥打印（广域网）<br />手机访问c-lodop广域网AO打印（广域网）</p>
+<p>由于Lodop和c-lodop目前只能安装到windows操作系统上，常见的客户访问网站，然后用客户自己本地的打印机进行打印，这种客户端本地打印角色不能实现。</p>
+<p><strong>手机打印方式一：</strong><br />手机访问c-lodop集中打印<br />场景：1.办公室内的手机电脑集中到一台机器上打印。<br />2.微信到店点餐，消费者进入餐厅，连上餐厅的wifi，然后在手机上就可以点餐，后台打印机打印（后台有一个windows电脑，连接的打印机）</p>
+<p>1.集中打印那台电脑安装c-lodop并启动成功。<br />2.页面引用"http://[C-Lodop服务所在主机ip]:[C-Lodop端口]/CLodopFuncs.js<br />  远程机器[ip地址:169.254.118.87]上通过远程机器打印例如：</p>
+<div class="cnblogs_code">
+<pre>&lt;scriptsrc="http://169.254.118.87:8000/CLodopFuncs.js"&gt;&lt;/script&gt;</pre>
+</div>
+<p><strong>手机打印方式二：</strong><br />广域网AO端桥打印<br />1.一台win电脑作为服务器，安装扩展版，安装时勾选服务器端模式。<br />2.打印端电脑安装扩展版（也需要是windows系统）开启AO端桥，指向那台win服务器。（打印端连接的是普通打印机）<br />3.其他电脑或手机，访问那台win服务器，选择某个端桥，在那个端桥电脑上进行广域网打印。</p>
+<p><strong>手机打印方式三：</strong><br />广域网AO打印机打印<br />该方式类似方式二，只是客户端不再需要一台电脑安装c-lodop并开启端口，而是直接通过AO服务器发送到AO打印机端。<br />由于广域网服务器是看不到的，所以该方式可以<span style="background-color: #99ccff;">实现手机&mdash;直接发送给打印机的类似效果</span>，只不过其中间经过了一个服务器。<br /><span style="color: #800000;">注意：该方式需要特殊的AO打印机，目前Lodop公司已经推出了一台。</span></p>
+<p>如图，第一张图示集中打印和端桥打印的区别介绍。<br />第二张图示手机到端桥打印的图。<br />由于是以前做的图，那时候AO打印机还没推出，所以没有第三种方式的图。<br />第二张广域网图，服务器 和客户端都用的笔记本图，实际上服务器一般都不会是笔记本，这里代指一台windows服务器电脑。</p>
+<p>&nbsp;<img src="https://img2018.cnblogs.com/blog/1481828/201809/1481828-20180928105002270-1273873893.jpg" alt="" /></p>
+<p>第二张，广域网AO端桥打印：</p>
+<p><img src="https://img2018.cnblogs.com/blog/1481828/201809/1481828-20180928105023434-1118603880.jpg" alt="" /></p>
+<p>&nbsp;</p>
+<p>cnblog链接（带图示）:<a href="https://www.cnblogs.com/huaxie/p/9717389.html" target="_blank">c-lodop云打印实现手机打印 JS语句打印</a></p>
+<p><a href="../blog_index.html">返回博文列表</a></p>
+</div>
+<div id="footer"><img src="../images/lodopfoot.png"></div>
+</body>
+</html>

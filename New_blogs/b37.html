@@ -1,0 +1,28 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>WEB打印控件LODOP</title>
+<script language="javascript" src="LodopFuncs.js"></script>
+ <link href="../css/blogback.css" type='text/css' rel="stylesheet">     
+</head>
+<body id="bodyA1">
+<div id="header">
+<div id="head1"></div>
+</div>
+<div class="blogpost-body">
+<h3>Lodop强制分页LODOP.NewPage()和LODOP.NewPageA()</h3>
+    <p>使用Lodop打印控件打印时，有自动分页，有手动强制分页，也可以两者结合使用，在使用两者结合的时候注意LODOP.NewPage()和LODOP.NewPageA()的区别，如果前面打印项自动分页不止一页，如果想要后面的页不重叠分页后的内容，应该用LODOP.NewPageA()。</p>
+<p>LODOP.NewPage();强制分页，前面的自动分页会覆盖后面的页面，和后面页面内容同时输出。<br />LODOP.NewPageA();强制分页，前面的自动分页，后面的页面会在自动分页的后面添加新页面。</p>
+<p>如图所示，两个链接点击事件里，一模一样的代码，一个是NewPage(),一个是NewPageA()。<br />用了一个强制分页，也就是应该是两页，第一页是一个超文本打印项，第二页是一个纯文本打印项。由于第一页的超文本打印项高度设置的太小，所以导致了自动分页，结果就是NewPage()，超文本分页后的内容和第二页重叠了，NewPageA()，超文本分页后，没有和第二页重叠，原本的第二页在第三页输出。</p>
+<p>如果第一页的超文本没有自动分页，两个分页效果是相同的，第一页的超文本打印项本身自动分页，需要两页才能显示行完全，因此这两个语句效果是不同的。</p>
+<p><span style="background-color: #ffff99;">当前面的对象是一页时，两个效果是一样的，当前面的对像是多页时有差异。</span></p>
+<p>例如 前面的对象占3页时<br />NEWPAGE 是从第2页开始<br />NEWPAGEA是从第4页开始 <br />如果是位置重复的话，用NEWPAGE 就覆盖了，位置不重复，就并列输出<br />NEWPAGEA 是顺序输出</p>
+<p><img src="https://img2018.cnblogs.com/blog/1481828/201809/1481828-20180928171646766-88536761.jpg" alt="" /></p>
+<p>&nbsp;</p>
+<p>cnblog链接（带图示）:<a href="https://www.cnblogs.com/huaxie/p/9719782.html" target="_blank">Lodop强制分页LODOP.NewPage()和LODOP.NewPageA()</a></p>
+<p><a href="../blog_index.html">返回博文列表</a></p>
+</div>
+<div id="footer"><img src="../images/lodopfoot.png"></div>
+</body>
+</html>
