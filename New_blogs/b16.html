@@ -1,0 +1,28 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>WEB打印控件LODOP</title>
+<script language="javascript" src="LodopFuncs.js"></script>
+ <link href="../css/blogback.css" type='text/css' rel="stylesheet">     
+</head>
+<body id="bodyA1">
+<div id="header">
+<div id="head1"></div>
+</div>
+<div class="blogpost-body">
+<h3>Lodop打印控件传入css样式、看是否传入正确样式</h3>
+    <p>Lodop中可以传入页面存在的css样式，也可以是拼接后的新样式，例如本博客的其他博文：<br /><a href="https://www.cnblogs.com/huaxie/p/9602879.html" target="_blank">Lodop打印如何隐藏table某一列</a></p>
+<p>需要打印的页面，样式不一定都是行内样式，style样式单独写在页面上，或引用的是.css文件等情况，<span style="background-color: #ccffcc;">使用Lodop打印控件进行打印超文本的时候，要注意把样式也传进去</span>。<br />可参考LODOP官网的样例10（或下载中心综合版里自带的样例10），<br />如图，就是该样例的几种引用css样式的方式：</p>
+<p><img src="https://img2018.cnblogs.com/blog/1481828/201809/1481828-20180918171701216-343132364.png" alt="" /></p>
+<p>引入之后，可以通过打印设计（<span style="color: #333399;">PRINT_DESIGN</span>） 选中超文本打印项-右键-把查看到的超文本代码复制到e浏览器中查看（Lodop解析超文本用的是ie引擎），查看传入的是否正确。<br />也就是先把打印预览指令(<span style="color: #333399;">LODOP.PREVIEW</span>)临时改成打印设计指令(<span style="color: #333399;">LODOP.PRINT_DESIGN</span>)，进入打印设计之后，用鼠标双击对象会弹出属性窗口（也可右键-设置属性），在该窗口中就能找到该对象的超文本html代码：</p>
+<p><img src="https://img2018.cnblogs.com/blog/1481828/201809/1481828-20180918172011444-1712832678.png" alt="" /></p>
+<p><br /><strong>使用Lodop打印html超文本，还需要注意：</strong><br />1.css样式等尽量<span style="color: #000000;">使用pt等绝对单位，<span style="background-color: #ffff99;">不使用px等相对单位，避免分辨率的影响</span></span><br />2.<span style="background-color: #ffff99;">系统和浏览器不要设置缩放</span>，例如 控制板面-显示里设置缩放。<br />3.因浏览器版本不同遵循的html标准不同，造成某些标签属性显示有差异，<span style="background-color: #ffff99;">尽量避免使用有差异的属性</span>，尽量使用各浏览器无歧义的通用的 html  css  js，Lodop是基于本机ie引擎进行解析渲染的，不要用本机ie不支持的html  css  js ，遇到问题可重置ie浏览器试试<br />4.可尝试<span style="background-color: #ffff99;">把ADD_PRINT_HTM（普通模式）换成ADD_PRINT_HTML(图形模式）</span>试试，ADD_PRINT_HTML(图形模式）一般能比普通模式较好的还原页面样式，图形模式输出超文本可能造成清晰度比普通模式略低，一般适合高精度的打印机。</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>cnblog链接（带图示）:<a href="https://www.cnblogs.com/huaxie/p/9669963.html" target="_blank">Lodop打印控件传入css样式、看是否传入正确样式</a></p>
+<p><a href="../blog_index.html">返回博文列表</a></p>
+</div>
+<div id="footer"><img src="../images/lodopfoot.png"></div>
+</body>
+</html>

@@ -1,0 +1,30 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>WEB打印控件LODOP</title>
+<script language="javascript" src="LodopFuncs.js"></script>
+ <link href="../css/blogback.css" type='text/css' rel="stylesheet">     
+</head>
+<body id="bodyA1">
+<div id="header">
+<div id="head1"></div>
+</div>
+<div class="blogpost-body">
+<h3>Lodop打印控件 超文本自动分页</h3>
+    <p>Lodop打印控件打印html超文本，通常传入一个超文本内容可能会超过纸张，如果要拆分每页显示哪些然后手动分页比较麻烦，Lodop中的超文本都有自动分页的特点。<br /><strong>自动分页的依据：</strong><br />1.超文本超过设置的打印项高度自动分页<span style="color: #800080;">（打印项高度）</span><br />2.超文本超过纸张自动分页<span style="color: #800080;">（纸张高度）</span></p>
+<p>超文本分页，有两种可能，1.超过设置的打印项高度 2.打印项超过纸张高度<br />刚接触Lodop的新手有时会奇怪，一页下面还有很多空白 怎么就分页了呢？这是由于超文本打印项高度设定小了的缘故，本博文的（图2）专门介绍什么是打印项高度，以及如何调整打印项高度。</p>
+<p>&nbsp;<img src="https://images2018.cnblogs.com/blog/1481828/201809/1481828-20180913145838719-1677934252.jpg" alt="" /></p>
+<p><strong>打印项高度：</strong><br />在打印设计选中某个打印项，打印项周围出现蓝色的圆点，拖动圆点可以把打印项宽或高增大或减小，蓝色圆点围起来的区域就是打印项的宽高组成的区域，这个区域的高度就是打印项的高度。<br />改变打印项宽高值方法：<br />1.在打印设计里选中打印项，拖动蓝色圆点，增大或缩小宽高。<br />2.通过打印设计上方工具栏里的文本框和小三角，增大或减少宽高的值。<br />（调整后预览看看效果，不满意再调整，直到调整看起来分页高度合适，生成代码）<br />3.直接在语句里调整打印项高度值，例如ADD_PRINT_HTM的第3个参数是宽，第4个参数是高，第4个参数也就是打印项的高度值。</p>
+<p>&nbsp;<img src="https://images2018.cnblogs.com/blog/1481828/201809/1481828-20180913145856174-1434330387.png" alt="" /></p>
+<p><strong>简短问答：</strong><br /><strong>超文本打印项自动分页</strong><br />超文本超过设置的打印项高度就会自动分页，可通过调整超文本打印项的高度，控制当前页面输出的多少内容。（打印项高度可在打印设计界面可视化调整）<br />设置的打印项高度太小，还没到达纸张下面就自动分页了。</p>
+<p><img src="https://img2018.cnblogs.com/blog/1481828/201906/1481828-20190611111014220-2010823539.png" alt="" /></p>
+<p>选中打印项，增加打印项高度，然后预览，查看效果。<br />也就是超文本打印项的第四个参数。<br />例如ADD_PRINT_HTM(intTop,intLeft,intWidth,intHeight,strHtml)增加超文本项<br />intHeight就是的打印项高度<br />可以在打印设计可视化调整，到合适的分页位置。</p>
+<p>如果内容超出了纸张，不想分页，可以缩放http://www.c-lodop.com/demolist/PrintSample42.html<br />设置高度溢出缩放，或整页缩放。</p>
+<p>&nbsp;</p>
+<p>cnblog链接（带图示）:<a href="https://www.cnblogs.com/huaxie/p/9640491.html" target="_blank">Lodop打印控件 超文本自动分页</a></p>
+<p><a href="../blog_index.html">返回博文列表</a></p>
+</div>
+<div id="footer"><img src="../images/lodopfoot.png"></div>
+</body>
+</html>

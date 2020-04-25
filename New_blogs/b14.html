@@ -1,0 +1,30 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>WEB打印控件LODOP</title>
+<script language="javascript" src="LodopFuncs.js"></script>
+ <link href="../css/blogback.css" type='text/css' rel="stylesheet">     
+</head>
+<body id="bodyA1">
+<div id="header">
+<div id="head1"></div>
+</div>
+<div class="blogpost-body">
+<h3>Lodop打印控件在页面如何使用</h3>
+    <p>Lodop打印控件部署到web服务器简单，在页面的使用方法也简单，是非常容易和方便使用的打印控件。<br />客户端本地打印角色（即用户访问网站后 用自己链接的打印机进行客户端本地打印），步骤很少，部署简单：<br /><a href="https://www.cnblogs.com/huaxie/p/9636061.html" target="_blank">Lodop部署web网站 客户端本地打印角色</a></p>
+<p><strong>一.推荐的使用方法是混合部署</strong>，即Lodop官网样例那种部署方式，可直接引用LodopFuncs.js，里面写好了判断，判断哪些浏览器走Lodop还是走C-Lodop：<a href="https://www.cnblogs.com/huaxie/p/9635884.html" target="_blank">LODOP打印控件如何提示用户升级下载安装新版本。</a></p>
+<p>可混合部署，不论浏览器是否支持np插件都可使用。<br />（1）在官网下载中心 下载综合安装包<br />（2）安装  CLodop_Setup_for_Win32NT.exe（安装 兼容32位和64位操作系统）<br />install_lodop32.exe（安装 浏览器位数是32位）64位操作系统中也可以有32位浏览器<br />install_lodop64.exe（32位操作系统不用安装，64位操作系统中如果有64位浏览器，需要安装）<br />（3）在页面引用安装包里的 LodopFuncs.js<br />该LodopFuncs.js里有自动判断哪些浏览器使用Lodop，哪些浏览器使用C-Lodop的方法。<br />（4）使用Lodop，具体使用方法参考官网样例（官网样例页面 右键-查看源码）<br />方法外 <span style="color: #0000ff;">var LODOP;</span><span style="color: #008000;"> //声明为全局变量</span><br />在每个需要打印的地方：<span style="color: #0000ff;">LODOP=getLodop();</span> <span style="color: #008000;">//获得Lodop对象，getLodop()该方法在LodopFuncs.js里。</span><br />最基本的打印过程至少有初始化语句、添内容语句和打印语句三部分组成，例如：<br /><span style="color: #0000ff;">LODOP.PRINT_INIT("打印任务名");</span>               <span style="color: #339966;">//首先一个初始化语句</span><br /><span style="color: #0000ff;">LODOP.ADD_PRINT_TEXT(0,0,100,20,"文本内容一");</span><span style="color: #008000;">//然后多个ADD语句及SET语句</span><br /><span style="color: #0000ff;">LODOP.PRINT();</span>                               <span style="color: #008000;">//最后一个打印(或预览、维护、设计)语句</span></p>
+<p><strong>二，只使用C-Lodop方式</strong><br />修改LodopFuncs.js里needClodop方法返回true，其他的同混合部署相同。<br /><span style="color: #0000ff;">function needCLodop(){</span><br /><span style="color: #0000ff;">    try{</span><br /><span style="color: #0000ff;"> return true;</span><br /><span style="color: #0000ff;">    } catch(err) {return true;};</span><br /><span style="color: #0000ff;">};</span><br />修改后，判断不管什么浏览器什么版本都会走C-Lodop方式。</p>
+<p><strong>三，只使用C-Lodop方法，不使用LodopFuncs.js</strong><br />欢迎页面方法，直接引用<span style="color: #0000ff;">http://localhost:8000/CLodopfuncs.js</span>，客户端本地打印不建议用这种方法，因为LodopFuncs.js里写好了许多提示，如提示客户端下载等。<br />注意，如果直接引用<span style="color: #0000ff;">http://localhost:8000/CLodopfuncs.js</span>，可以直接使用Lodop方法，不要上面那种LODOP=getLodop();，<span style="background-color: #ccffff;">getLodop()该方法是写在LodopFuncs.js里的，不引用这个文件自然不能用这个方法。</span></p>
+<p><img src="https://images2018.cnblogs.com/blog/1481828/201809/1481828-20180913103632494-261231650.png" alt="" /></p>
+<p><strong>四.只使用Lodop插件方式，不使用C-Lodop（该方法不支持所有浏览器）</strong><br />由于C-Lodop不支持np插件，所以此方法不能用于高版本的火狐谷歌等浏览器，（若使用此方法，需要限制客户端的浏览器，如让用户都用ie等）。<br />Lodop插件由于是浏览器插件，因此可以内嵌到浏览器，注意内嵌的时候如何使用，可参考本博文的图片。</p>
+<p><img src="https://images2018.cnblogs.com/blog/1481828/201809/1481828-20180913103642576-322753242.jpg" alt="" /></p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>cnblog链接（带图示）:<a href="https://www.cnblogs.com/huaxie/p/9639085.html" target="_blank">Lodop打印控件在页面如何使用</a></p>
+<p><a href="../blog_index.html">返回博文列表</a></p>
+</div>
+<div id="footer"><img src="../images/lodopfoot.png"></div>
+</body>
+</html>
