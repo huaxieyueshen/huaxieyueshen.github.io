@@ -1,0 +1,26 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>WEB打印控件LODOP</title>
+<script language="javascript" src="LodopFuncs.js"></script>
+ <link href="../css/blogback.css" type='text/css' rel="stylesheet">     
+</head>
+<body id="bodyA1">
+<div id="header">
+<div id="head1"></div>
+</div>
+<div class="blogpost-body">
+<h3>Lodop打印控件 打印透明图问题</h3>
+    <p>Lodop通过增设transcolor属性实现了&ldquo;先字后章&rdquo;效果，这个属性可以把某种颜色转成类似透明的效果。<br />例如：把图章的底色白色变成透明：<span style="color: #000080;">transcolor="#FFFFFF</span>"。<br />最好底色是白色，转换后可能会有细小那种颜色的边，如果是两个图片叠加，而底下的图片不是白色，那么白边就会比较明显。</p>
+<p>png透明图加入后也可能会出现没有透明情况，<span style="background-color: #ccffff;">可试试ADD_PRINT_HTML(图形模式)</span>，这种模式不如ADD_PRINT_HTM清晰，后面HTM的语句输出的是解析后的超文本，放大也不会模糊，而后面是HTML的语句则是图形模式，放大会模糊类，有很多像素点。<br />有些打印机（有些虚拟打印机也不支持，例如xps虚拟打印机可以，有的pdf虚拟打印机可以，有的pdf虚拟打印机不可以）不支持透明图打印，以实际测试为准，这时候建议使用合成图，  <span style="color: #800000;">图片叠加之类的建议使用图片处理工具如PS处理好，Lodop毕竟是打印控件</span>。</p>
+<p>&nbsp;<img src="https://img2018.cnblogs.com/blog/1481828/201809/1481828-20180926171355435-1055550172.png" alt="" /></p>
+<p>以前测试过半透明的图片和下面的叠加，测试add_print_htm（普通模式）和add_print_html（图形模式）的区别。<br />有些样式等效果不支持，用<span style="background-color: #ccffff;">图形模式可以展现出页面效果</span>，可能实际打印出来不清晰，如果高精度的打印机等打印出来还是可以的。<br />（<span style="color: #ff0000;">下图为以前的旧试验</span>）,使用的是虚拟打印机测试，有时候真实打印机不一定能还原虚拟打印机效果，可能还是会不透明，<span style="background-color: #99ccff;">具体以实际测试为准</span>。</p>
+<p><img src="https://img2018.cnblogs.com/blog/1481828/201809/1481828-20180926171419847-200141007.png" alt="" /></p>
+<p>&nbsp;</p>
+<p>cnblog链接（带图示）:<a href="https://www.cnblogs.com/huaxie/p/9708182.html" target="_blank">Lodop打印控件 打印透明图问题</a></p>
+<p><a href="../blog_index.html">返回博文列表</a></p>
+</div>
+<div id="footer"><img src="../images/lodopfoot.png"></div>
+</body>
+</html>

@@ -1,0 +1,28 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>WEB打印控件LODOP</title>
+<script language="javascript" src="LodopFuncs.js"></script>
+ <link href="../css/blogback.css" type='text/css' rel="stylesheet">     
+</head>
+<body id="bodyA1">
+<div id="header">
+<div id="head1"></div>
+</div>
+<div class="blogpost-body">
+<h3>Lodop打印设计、维护、预览、直接打印简单介绍</h3>
+    <p><strong>四者的区别和联系：</strong><br />（其中<span style="background-color: #c0c0c0;">PRINT_DESIGN打印设计是提供给开发人员</span>的，另外三个可开放给用户）<br />PRINT_DESIGN打印设计：辅助开发人员设计，图形化拖动插入修改等，设计完成后，生成代码拷贝到程序里。<br />PRINT_SETUP打印维护：开放给用户（客户端），让每个用户可根据自己电脑本地微调，保存在用户本地，调整结果只针对该用户自己生效。<br />PREVIEW打印预览：开放给客户端，预览打印页面的效果，可预览后打印。<br />PRINT直接打印：不预览，直接打印。</p>
+<p>PRINT_DESIGN打印设计，详细参考本博客其他博文。</p>
+<p><span style="color: #000080;"><strong>PRINT_SETUP打印维护：</strong></span><br />打印维护（PRINT_SETUP语句）功能是提供给客户端单个电脑微调用的，为了让微调结果永久有效，Lodop会在本地为该过程对应生成一个ini配置文件，文件路径和文件名类似如下： <span style="color: #000080;">系统盘符:\Program Files (x86)\MountTaiSoftware\Lodop\PrintSetups_打印任务名.ini</span>（&ldquo;打印任务名&rdquo;是初始化语句的参数设置的：LODOP.PRINT_INIT("具体的打印任务名");或： LODOP.PRINT_INITA(0,0,800,600,"具体的打印任务名");）<br />（<span style="background-color: #ffff99;">这个调整结果是针对该客户端电脑本地的，生成的是本地的模版，不会影响其他客户端设置</span>）<br />清理本地配置文件方法：<br />1.不改程序语句而想清理本地配置文件，可以进入打印维护界面，在&ldquo;复原&rdquo;按钮旁边找&ldquo;恢复整体缺省&rdquo;菜单，恢复后再按&ldquo;应用&rdquo;按钮.<br />这时候就是按照程序原本设置的代码里的进行显示，也就是重置到未经过用户打印维护调整前的代码设置。<br />2.如要禁用本地微调功能，则干脆设置打印任务名为空：LODOP.PRINT_INIT("");<br />3.改一下初始化语句设置的打印任务名，使其长而与众不同，从而让Lodop指向一个不存在的配置文件；<br />设置任务名重复等，会产生影响，可任务名置空，或删除本地ini文件，恢复整体缺省等。<br />由于很多程序设置这个任务名时过于简单，出现重复的可能性就很大，当这个名称重复时，会形成交叉干扰，最大的表现是修改web页面的js脚本对某台电脑的打印预览不起作用（因为这台电脑受该配置文件影响了）。<br />除此之外，有些异常如修改了却没起作用，也可能是是浏览器缓存引起的，(1)刷新一下(2)清楚浏览器缓存(3)排除任务名重复等造成的影响。</p>
+<p><span style="color: #000080;"><strong>PREVIEW打印预览：</strong></span>开放给客户端，预览打印页面的效果，可预览后打印。<br />预览，有本地预览和远程预览，预览界面是不同的。<br />本地预览窗口也可以用语句设置各种预览窗口，如果可以内嵌，也可以自己构建内嵌在页面的自定义预览。<br />预览后打印是免费的，无水印。<br />预览界面可以自己设置各种预置的样式，如果是lodop插件方式（可内嵌），可以在页面构建自己的预览界面。<br />例如：使用SET_PREVIEW_WINDOW控制预览窗口大小或上方显示哪些工具。<br />使用LODOP.SET_SHOW_MODE设置皮肤颜色。</p>
+<p><strong>PRINT直接打印：</strong>不预览，直接打印。<br />需要购买注册号，否则会下方输出水印。</p>
+<p>此外，还有PRINTA（直接打印前弹出 打印机选择框）等扩展方法。<br />代码可以控制打印预览的样式，或隐藏部分按钮，打印后设置自动关闭等，如图是一些样式：</p>
+<p><img src="https://img2018.cnblogs.com/blog/1481828/201809/1481828-20180926170608349-2053038158.jpg" alt="" /></p>
+<p>&nbsp;</p>
+<p>cnblog链接（带图示）:<a href="https://www.cnblogs.com/huaxie/p/9708109.html" target="_blank">Lodop打印设计、维护、预览、直接打印简单介绍</a></p>
+<p><a href="../blog_index.html">返回博文列表</a></p>
+</div>
+<div id="footer"><img src="../images/lodopfoot.png"></div>
+</body>
+</html>

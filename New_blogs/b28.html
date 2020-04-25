@@ -1,0 +1,34 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>WEB打印控件LODOP</title>
+<script language="javascript" src="LodopFuncs.js"></script>
+ <link href="../css/blogback.css" type='text/css' rel="stylesheet">     
+</head>
+<body id="bodyA1">
+<div id="header">
+<div id="head1"></div>
+</div>
+<div class="blogpost-body">
+<h3>C/S架构引用Lodop 如何在C#调用web打印控件Lodop</h3>
+    <p> lodop是web打印控件，引用安装目录下的ocx文件，可以在c/s架构中使用。<br />    该文件所在路径：<span style="color: #000080;">C:\Program Files (x86)\MountTaiSoftware\Lodop</span><br />    有32位和64位的，如下例子引用的是32位的：<span style="color: #000080;">CAOSOFT_WEB_PRINT_lodop.ocx</span><br />    使用的是C#语言写的cs架构的winform程序<br />    引入Lodop:  using Lodop;<br />    这个引入的名叫Lodop的命名空间里，有3个接口，1个类。<br />    ILodopX接口、ILodopXEvents接口，LodopX接口，LodopXClass类。<br />    （使用的Lodop版本为6.2之后，具体哪个版本忘了）<br />   这三个接口中，这个可以使用，所以用的LodopX。<br />  下面是一个<span style="background-color: #ccffff;">简单的winform程序，直接放了一个按钮button，点击按钮打印一个Lodop添加的文本打印相</span>。</p>
+<div class="cnblogs_code">
+<pre><span style="color: #0000ff;">private</span> <span style="color: #0000ff;">void</span> button_Click(<span style="color: #0000ff;">object</span><span style="color: #000000;"> sender, EventArgs e)
+{
+Lodop.LodopX PRLodop </span>= <span style="color: #0000ff;">new</span><span style="color: #000000;"> LodopX();
+PRLodop.ADD_PRINT_TEXT(</span><span style="color: #800080;">10</span>, <span style="color: #800080;">10</span>, <span style="color: #800080;">100</span>, <span style="color: #800080;">20</span>, <span style="color: #800000;">"</span><span style="color: #800000;">一个文本项</span><span style="color: #800000;">"</span><span style="color: #000000;">);
+PRLodop.SET_PRINT_STYLEA(</span><span style="color: #800080;">0</span>, <span style="color: #800000;">"</span><span style="color: #800000;">FontSize</span><span style="color: #800000;">"</span>, <span style="color: #800080;">13.5</span><span style="color: #000000;">);
+PRLodop.SET_PRINT_STYLEA(</span><span style="color: #800080;">0</span>, <span style="color: #800000;">"</span><span style="color: #800000;">Bold</span><span style="color: #800000;">"</span>, <span style="color: #800080;">1</span><span style="color: #000000;">);
+PRLodop.PREVIEW();
+}</span></pre>
+</div>
+<p>如图，图片由于转存缩放有点小，由于这图做的很早了，以后找找旧电脑哪个地方存了原图，再替换掉这个：</p>
+<p><img src="https://img2018.cnblogs.com/blog/1481828/201809/1481828-20180926164232312-778494505.jpg" alt="" /></p>
+<p>&nbsp;</p>
+<p>cnblog链接（带图示）:<a href="https://www.cnblogs.com/huaxie/p/9707880.html" target="_blank">C/S架构引用Lodop 如何在C#调用web打印控件Lodop</a></p>
+<p><a href="../blog_index.html">返回博文列表</a></p>
+</div>
+<div id="footer"><img src="../images/lodopfoot.png"></div>
+</body>
+</html>

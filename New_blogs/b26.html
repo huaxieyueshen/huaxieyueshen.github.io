@@ -1,0 +1,24 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>WEB打印控件LODOP</title>
+<script language="javascript" src="LodopFuncs.js"></script>
+ <link href="../css/blogback.css" type='text/css' rel="stylesheet">     
+</head>
+<body id="bodyA1">
+<div id="header">
+<div id="head1"></div>
+</div>
+<div class="blogpost-body">
+<h3>Lodop打印控件中PRINT_INITA()和PRINT_PAGESIZE()宽高</h3>
+    <p>Lodop中有两个初始化语句，<span style="color: #000080;">PRINT_INIT()和PRINT_INITA()</span>，<span style="color: #000080;">PRINT_INITA()</span>多了四个参数，前两个是整体偏移值，第三四参数是宽高，这个宽高是指打印设计可视化编辑区域的宽高，有时会被误认为是纸张的宽高，这两个参数其实和纸张无关。</p>
+<p>两者的区别：<br /><span style="color: #000080;">PRINT_INITA()</span>的第三和第四个参数是宽高：<span style="background-color: #99ccff;">打印设计可视化编辑区域的宽高，与实际输出无关</span>。<br /><span style="color: #000080;">PRINT_PAGESIZE()</span>的第二和第三个参数是宽高：纸张的宽高，如果打印机支持自定义纸张，是与实际输出有关。<br /> <br />有些人认为打印设计界面里的菜单栏里的宽高，在不选中里面任何打印项的时候，那个宽高是纸张的宽高，其实不是，那个就是打印设计可视化编辑区域的宽高，与设计有关，实际打印无关。</p>
+<p><img src="https://img2018.cnblogs.com/blog/1481828/201809/1481828-20180926160616332-1231631416.jpg" alt="" /></p>
+<p>&nbsp;</p>
+<p>cnblog链接（带图示）:<a href="https://www.cnblogs.com/huaxie/p/9707548.html" target="_blank">Lodop打印控件中PRINT_INITA()和PRINT_PAGESIZE()宽高</a></p>
+<p><a href="../blog_index.html">返回博文列表</a></p>
+</div>
+<div id="footer"><img src="../images/lodopfoot.png"></div>
+</body>
+</html>
