@@ -1,0 +1,32 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>WEB打印控件LODOP</title>
+<script language="javascript" src="LodopFuncs.js"></script>
+ <link href="../css/blogback.css" type='text/css' rel="stylesheet">     
+</head>
+<body id="bodyA1">
+<div id="header">
+<div id="head1"></div>
+</div>
+<div class="blogpost-body">
+<h3>Lodop打印控件打印机可打区域的影响 设置纸张边缘为基点</h3>
+    <p>由于打印机千差万别，打印开发也要注意针对客户各种打印机进行处理，Lodop提供了打印维护（<span style="color: #000080;">PRINT_SETUP</span>）可针对每个客户端进行微调，保存结果保存在客户端本地，对其他访问网站的客户没有影响。</p>
+<p>由于打印机的限制，有些打印机不能打印某些规格的纸张，或打印区域有限制，不是所有打印机都支持自定义纸张，也不是所有打印机可打区域都相同，在打印预览界面里选择真实打印机，有时候<span style="color: #000000; background-color: #ffff99;">预览能看到一些虚线，这些虚线是打印机的可打区域，<span style="color: #800000;">受打印机的影响</span></span>。<br />虚线外是不可打的，因此Lodop对打印项的top、left等起始点默认是从可打区域的边缘为起始位置的，这样可以避免有内容超过可打区域造成打印不全，但是这样一来不同打印机可打区域不同，所以坐标的基点不同，也就造成内容在纸张中位置不同，如果不想这样，也可以设置以纸张边缘为基点，那么起始位置就不再是可打区域的边缘了，需要注意内容不要在可打区域外输出。</p>
+<p>如图，左侧是默认以可打区域（<span style="background-color: #cc99ff;">不同打印机可打区域不同</span>）为基点，打印项top、left均设置成0，却还有边距，这是由于默认不是以纸张边缘为基点。<br />右侧是设置以纸张边缘为基点后，打印项起始位置变成了纸张最左上角，由于在可打区域外，因此那部分打印不出来，该top、left的依据是纸张边缘。</p>
+<p>top值为0,left为0，应该是在纸张的最左上角位置显示，用虚拟打印机可以看出，top值为0,left为0确实是在纸张的最左上角，然而实际用打印机打印中不一定在最左上角。</p>
+<p><span style="background-color: #ccffff;">虚线是打印机的可打印区域边界，也就是打印机走纸的物理边界</span>。</p>
+<p>不同的打印机边界值不同，一般是1&mdash;&mdash;5mm的差异。<br />打印机预留的物理边距，不可以取消，有个别打印可以提供修改，具体查看一下相应的打印管理程序。</p>
+<p>以可打区域为基点，能保证内容不会超出可打区域，从而把内容都打印出来。<br />以纸张边缘为基点，能更好的设计，让不同打印机内容在纸张中的位置一样。<br />可根据需要，选择默认，或以纸张边缘为基点（设置以纸张边缘为基点需要加如下语句）<br /><span style="color: #000080;">LODOP.SET_PRINT_MODE("POS_BASEON_PAPER",true);<span style="color: #008000;">//设置以纸张边缘为基点</span></span></p>
+<p>&nbsp;</p>
+<p>注意：<span style="color: #993300;"><span style="background-color: #ccffcc;">可打区域外是打印不出来的</span>，<span style="color: #000000;">和打印机有关。</span></span><br /><span style="color: #000000;">设置以纸张为基点，只是设计的内容的坐标定位的位置有关，如图所示。</span></p>
+<p>&nbsp;</p>
+<p>&nbsp;<img src="https://img2018.cnblogs.com/blog/1481828/201809/1481828-20180919141050308-108538032.jpg" alt="" /></p>
+<p>&nbsp;</p>
+<p>cnblog链接（带图示）:<a href="https://www.cnblogs.com/huaxie/p/9674296.html" target="_blank">Lodop打印控件打印机可打区域的影响 设置纸张边缘为基点</a></p>
+<p><a href="../blog_index.html">返回博文列表</a></p>
+</div>
+<div id="footer"><img src="../images/lodopfoot.png"></div>
+</body>
+</html>

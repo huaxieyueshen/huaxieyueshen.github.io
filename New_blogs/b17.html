@@ -1,0 +1,31 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>WEB打印控件LODOP</title>
+<script language="javascript" src="LodopFuncs.js"></script>
+ <link href="../css/blogback.css" type='text/css' rel="stylesheet">     
+</head>
+<body id="bodyA1">
+<div id="header">
+<div id="head1"></div>
+</div>
+<div class="blogpost-body">
+<h3>Lodop打印控件里SET_PRINT_STYLE和SET_PRINT_STYLEA</h3>
+    <p><span style="color: #333399;">LODOP.SET_PRINT_STYLE</span> 对该语句后面的打印项样式设置效果。<br /><span style="color: #333399;">LODOP.SET_PRINT_STYLEA</span>  针对第一个参数设置的打印项样式设置效果。<br />这两个语句，作用范围不同。</p>
+<p><strong>在设置字体等样式时，只针对纯文本（add_print_text语句，文本项）有效：</strong><br />纯文本（<span style="color: #333399;">add_print_text</span>语句，文本项）字体设置方法：<br />一、<span style="background-color: #ccffff;">整体设置（针对文本项）</span>，打印初始化后、增加打印项之前调用本函数<br />  <span style="color: #333399;">LODOP.SET_PRINT_STYLE("FontSize",11);</span><br />二、<span style="background-color: #ccffff;">单个打印项（针对文本项）</span>进行字体设置，例如：<br />  <span style="color: #333399;">LODOP.SET_PRINT_STYLEA(3,"FontName","隶书");</span><br />  设置第3个内容项的字体为隶书。<br />  <span style="color: #333399;">LODOP.SET_PRINT_STYLEA(3,"FontSize",15);</span><br />  设置第3个内容项字体为15号字体<br />单独设置某个打印项的字体，可以参考样例3。</p>
+<p>SET_PRINT_STYLE和SET_PRINT_STYLEA语句只对文本项起作用，超文本不起作用。<br />超文本需要加载css样式，传入css样式可查看本博客的其他博文：<a href="https://www.cnblogs.com/huaxie/p/9669963.html" target="_blank">Lodop打印控件传入css样式、看是否传入正确样式</a></p>
+<p><span style="background-color: #ccffff;">超文本方式输出字体时，此时最好用pt这个单位设置字体大小，不要用px，否则会受打印分辨率影响</span>。px是相对计量单位，显示屏幕上12点和打印机上的12点可能不一样大。但都用9pt就差不多大了，9pt在打印机上或许是11px或12px。(这里的受分辨率影响的px指的<span style="background-color: #ffff99;">不是lodop中的px，是超文本内部的px单位</span>，超文本中输出的内部的css样式中的px，这种经过浏览器解析的html语言输出的css样式），如该链接博文：<a href="https://www.cnblogs.com/huaxie/p/10677369.html" target="_blank">LODOP中的纯文本和超文本打印项 </a>中的字体为蓝色，就是超文本css样式，这种样式需要浏览器解析。</p>
+<p>由于该文和图片均没有用到超文本打印项，和超文本的css样式，特此说明，避免和纯文本混淆。</p>
+<p><img src="https://img2018.cnblogs.com/blog/1481828/201809/1481828-20180919102611685-1573675566.jpg" alt="" /></p>
+<p>SET_PRINT_STYLEA的第一个参数，可以是数字或字符型。<br />序号、数字：<span style="background-color: #ccffff;">打印任务（从初始化init或inita开始）的第一个打印项是1，自然数往后排序，所有打印项均参与排序</span>。<br />0代表当前打印项，也就是该SET_PRINT_STYLEA语句往前紧跟着的那个打印项，如果是用打印设计生成代码，会发现都是0这种写法，打印项后面紧跟着它的设置的样式属性，这种写法较容易阅读，一眼就可以看出这个打印项有哪些属性。<br />负数代表从当前打印向前移该个数的打印项。</p>
+<p>项目名，字符型：设置的对象的类名或关键字。<br />打印设计可视化设置对象类名：打印设计选中打印项-右键-设置属性里设置，然后生成代码。<br />代码：例如：<br /><span style="color: #333399;">LODOP.SET_PRINT_STYLEA(0,"ItemName","c");<span style="color: #008000;">//设置该打印对象类名为c</span>。</span><br /><span style="color: #333399;">LODOP.ADD_PRINT_TEXTA("a",10,10,100,20,"新加文本1");<span style="color: #008000;">//设置该文本项的对象类名a。</span></span><br /><span style="color: #333399;">LODOP.ADD_PRINT_BARCODEA("b",59,77,100,60,"Code39","123456789012");<span style="color: #008000;">//设置该条码打印项的对象类名为b</span>。</span><br />关键字可参考lodop官网下载中心的lodop技术手册。</p>
+<p><img src="https://img2018.cnblogs.com/blog/1481828/201809/1481828-20180919102802626-534138212.jpg" alt="" /></p>
+<p><br />对于样式，负数不常用，但是关联，-1是常用的，关联时，第一个参数是被关联对象，被关联的一般是前一个对象，就是-1，而且多次关联可以形成关联串，关联相关博文：<a href="https://www.cnblogs.com/huaxie/p/9705530.html" target="_blank">LODOP打印控件关联输出各内容</a>、</p>
+<p>&nbsp;</p>
+<p>cnblog链接（带图示）:<a href="https://www.cnblogs.com/huaxie/p/9673090.html" target="_blank">Lodop打印控件里SET_PRINT_STYLE和SET_PRINT_STYLEA</a></p>
+<p><a href="../blog_index.html">返回博文列表</a></p>
+</div>
+<div id="footer"><img src="../images/lodopfoot.png"></div>
+</body>
+</html>

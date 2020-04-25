@@ -1,0 +1,23 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>WEB打印控件LODOP</title>
+<script language="javascript" src="LodopFuncs.js"></script>
+ <link href="../css/blogback.css" type='text/css' rel="stylesheet">     
+</head>
+<body id="bodyA1">
+<div id="header">
+<div id="head1"></div>
+</div>
+<div class="blogpost-body">
+<h3>Lodop打印二维码内容长度不同如何大小相同</h3>
+    <p>利用Loodop打印控件打印二维码的时候，往往传入的数值是变量，有的只有一个数字，有的却一大堆数字和字母，根据内容长度不同，二维码大小也不同，这样如果批量打印二维码标签，传入的数据是不同的，会造成有的标签二维码大，有的二维码小的状况。<br />出现这种状况，是<span style="background-color: #99ccff;">因为Lodop中默认输出二维码的版本是AUTO（自动）</span>，这会导致随着二维码中的数据量不同，二维码大小也会不同。<br />如果想把<span style="background-color: #ccffff;">所有二维码设置成同一大小，解决方法是用语句指定同一个版本</span>。<br />例如：每个二维码加上相同的版本，<br /><span style="color: #000080;">LODOP.SET_PRINT_STYLEA(0,"QRCodeVersion",7);<span style="color: #008000;">//设置二维码版本为7</span></span><br />同样都是版本7，这样打印项宽高相同，里面的内容无论是多少，都会是一样大小。<br />如图示，两个二维码，第一个方法里是没有加版本设置语句，走的是AUTO，虽然打印项宽高是相同的，但是数据量不同，大小不同，第二个方法里每个二维码都指定了同样的版本，打印项宽高相同，数据量不同，大小相同。</p>
+<p><img src="https://img2018.cnblogs.com/blog/1481828/201809/1481828-20180920104622352-69769102.png" alt="" /></p>
+<p>&nbsp;</p>
+<p>cnblog链接（带图示）:<a href="https://www.cnblogs.com/huaxie/p/9679459.html" target="_blank">Lodop打印二维码内容长度不同如何大小相同</a></p>
+<p><a href="../blog_index.html">返回博文列表</a></p>
+</div>
+<div id="footer"><img src="../images/lodopfoot.png"></div>
+</body>
+</html>

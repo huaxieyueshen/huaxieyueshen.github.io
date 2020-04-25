@@ -1,0 +1,25 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>WEB打印控件LODOP</title>
+<script language="javascript" src="LodopFuncs.js"></script>
+ <link href="../css/blogback.css" type='text/css' rel="stylesheet">     
+</head>
+<body id="bodyA1">
+<div id="header">
+<div id="head1"></div>
+</div>
+<div class="blogpost-body">
+<h3>Lodop打印条码二维码设置多宽不一定是多宽</h3>
+    <p>Lodop输出二维码和条码，可用如下语句，其中下面的width和height参数，设置了条码或二维码多宽，会发现<br />可能不是设置的宽度或高度。<br /><span style="color: #000080;">ADD_PRINT_BARCODE(Top,Left,Width,Height,BarCodeType,BarCodeValue);</span></p>
+<p>在打印设计里，调整二维码或条码的宽度，可以看到在打印项宽高的蓝色圆点中可能有白色区域，条码没有占满整个打印项宽高，这种是正常现象，条码随着内容差异可能造成宽度不同，<span style="background-color: #ccffff;">实际宽度值&lt;=设置的条码打印项宽度值</span>，<span style="background-color: #ffff00;">条码设置多宽不一定是多宽，可以在打印设计里调整到合适大小，然后在打印设计里生成代码</span>。</p>
+<p>由于内容不同，宽度受竖条或横条的合计值影响，因此条码不同值可能长度也会有所不同，二维码如果不设置具体版本号，随着内容不同也会不同，二维码可以通过设置具体版本号解决这个内容不同导致大小不同问题，可参考本博客的其他博文：<a href="https://www.cnblogs.com/huaxie/p/9679459.html" target="_blank">Lodop打印二维码内容长度不同如何大小相同</a><br />版本号是二维码的属性，条码没有，数值不同可能会影响内容长度不同，可在打印设计可视化调整，或改用图片方式，图片方式虽然控制宽度能和设置宽度一致，但是不如Lodop语句输出的条码清晰准确，图片方式控制宽高缩放可能会影响清晰度和识别率，建议使用Lodop（<span style="color: #000080;">ADD_PRINT_BARCODE</span>）语句输出条码。</p>
+<p><img src="https://img2018.cnblogs.com/blog/1481828/201809/1481828-20180920102657233-2004720521.jpg" alt="" /></p>
+<p>&nbsp;</p>
+<p>cnblog链接（带图示）:<a href="https://www.cnblogs.com/huaxie/p/9679314.html" target="_blank">Lodop打印条码二维码设置多宽不一定是多宽</a></p>
+<p><a href="../blog_index.html">返回博文列表</a></p>
+</div>
+<div id="footer"><img src="../images/lodopfoot.png"></div>
+</body>
+</html>
