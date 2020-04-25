@@ -1,0 +1,30 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>WEB打印控件LODOP</title>
+<script language="javascript" src="LodopFuncs.js"></script>
+ <link href="../css/blogback.css" type='text/css' rel="stylesheet">     
+</head>
+<body id="bodyA1">
+<div id="header">
+<div id="head1"></div>
+</div>
+<div class="blogpost-body">
+<h3>Lodop打印控件设置表格次页偏移</h3>
+    <p>Lodop打印控件有很好的自动分页功能，超文本table表格一页装不下，自动分到第二页，第三页&hellip;&hellip;<br />通常表格之前还会有一些内容，比如标题，制表人名称日期什么的杂七杂八的东西，这种东西会占用一定的空间，这些东西只需要在第一页显示。<br />在这种情况下，表格自动分页后，还是会按照打印项原来的top顶边距来进行定位，也就是第二页、第三页&hellip;&hellip;上方，原来标题好制表人日期什么的占用的地方，会显示空白，这段距离还在，这显然是浪费了上方的空间也让纸张看起来留白很不舒服。</p>
+<p>这种情况下，<span style="background-color: #99ccff;">Lodop提供了次页偏移方法，让自动分页的表格在第二页第三页&hellip;&hellip;进行top顶边距的偏移</span>，根据表格第一页上方标题等杂乱内容的高度，可自己调整一下偏移值到合适位置。<br />例如：<span style="color: #000080;">LODOP.SET_PRINT_STYLEA(0,"Offset2Top",-140);</span><span style="color: #008000;">//设置次页向上偏移140</span><br />负值是向上偏移，正值是向下偏移，一般是次页表格向上偏移比较常见。<br />Lodop中其实还有次页左偏移：<span style="color: #000080;">&ldquo;Offset2Top&rdquo;</span>：次页开始的上边距偏移量，<span style="color: #000080;">&ldquo;Offset2Left&rdquo;</span>：次页开始的左边距偏移量。</p>
+<p>偏移后，打印项的打印项高度也会增加，Lodop自动分页每页显示多少数据和超文本打印项的高度有关，偏移后，会自动增加这些高度，如图，设置自动分页的表格次页向上偏移，去掉了原来自动分页上方的留白部分：</p>
+<p><img src="https://images2018.cnblogs.com/blog/1481828/201809/1481828-20180910143123456-2010321118.png" alt="" /></p>
+<p>简短问答：</p>
+<div>可以设置次页偏移，超文本自动分页后，次页开始的位置不再是初始位置，而是偏移后的位置。<br />例如：LODOP.SET_PRINT_STYLEA(0,"Offset2Top",-140);//设置次页向上偏移140&nbsp;</div>
+<div>
+<p>参考样例39 http://www.c-lodop.com/demolist/PrintSample39.html<br />LODOP.SET_PRINT_STYLEA(0,"Offset2Top",-140);//设置次页向上偏移140<br />次页表格top值偏移，设置。<br />负值是向上偏移，正值是向下偏移。<br />参考技术手册：&ldquo;Offset2Top&rdquo;：次页开始的上边距偏移量，&ldquo;Offset2Left&rdquo;：次页开始的左边距偏移量</p>
+
+<p>&nbsp;</p>
+<p>cnblog链接（带图示）:<a href="https://www.cnblogs.com/huaxie/p/9619462.html" target="_blank">Lodop打印控件设置表格次页偏移</a></p>
+<p><a href="../blog_index.html">返回博文列表</a></p>
+</div>
+<div id="footer"><img src="../images/lodopfoot.png"></div>
+</body>
+</html>

@@ -1,0 +1,24 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>WEB打印控件LODOP</title>
+<script language="javascript" src="LodopFuncs.js"></script>
+ <link href="../css/blogback.css" type='text/css' rel="stylesheet">     
+</head>
+<body id="bodyA1">
+<div id="header">
+<div id="head1"></div>
+</div>
+<div class="blogpost-body">
+<h3>LODOP打印控件如何提示用户升级下载安装新版本</h3>
+    <p>Lodop、C-Lodop在不断完善功能和更新中，新版本修复了很多问题，以及增加很多有利的功能，网站如何更新版本，提示用户下载新版本呢？<br /><strong><span style="color: #000000;">更新版本很简单，只需要三步</span></strong>：<br />1.替换提示安装部分的自己放置的路径里的安装文件。(替换安装文件）<br />2.修改新版本的LodopFuncs.js提示下载安装的路径，变成自己放置新文件的路径。（修改新版js提示安装文件路径）<br />3.替换LodopFuncs.js为新版本的LodopFuncs.js。(替换成新的LodopFuncs.js）<br /><span style="background-color: #ccffff;">用户安装版本小于LodopFuncs.js判断的版本号，用户那里会提示升级</span>，然后用户可根据提示点击提示里的链接下载最新版的安装文件，进行安装后即可升级。</p>
+<p>有些版本之间，LodopFuncs.js的修改内容可能较多，有些会发现新版的LodopFuncs.js和旧版的相差不大，只有判断安装升级的版本号那个地方有区别，其他的相同，这时候也可以直接修改旧版的LodopFuncs.js的判断升级的版本号为新版本号。<br /><span style="color: #800000;">如果相差较多，一定要更新成新的LodopFuncs.js</span>，且把提示安装下载的默认路径改成自己的路径。<br />一些新旧版本的不同，可以参考本博客的而其他博文。<br />该升级版本方法适用于客户端本地打印角色方式，关于客户端本地打印角色部署方法，可参考本博客其他博文:<a href="https://www.cnblogs.com/huaxie/p/9636061.html" target="_blank">Lodop部署web网站 客户端本地打印角色</a></p>
+<p><img src="https://images2018.cnblogs.com/blog/1481828/201809/1481828-20180912165636007-1778641295.png" alt="" /></p>
+<p>&nbsp;</p>
+<p>cnblog链接（带图示）:<a href="https://www.cnblogs.com/huaxie/p/9635884.html" target="_blank">LODOP打印控件如何提示用户升级下载安装新版本</a></p>
+<p><a href="../blog_index.html">返回博文列表</a></p>
+</div>
+<div id="footer"><img src="../images/lodopfoot.png"></div>
+</body>
+</html>
