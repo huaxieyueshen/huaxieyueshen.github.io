@@ -1,0 +1,26 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>WEB打印控件LODOP</title>
+<script language="javascript" src="LodopFuncs.js"></script>
+ <link href="../css/blogback.css" type='text/css' rel="stylesheet">     
+</head>
+<body id="bodyA1">
+<div id="header">
+<div id="head1"></div>
+</div>
+<div class="blogpost-body">
+<h3>Lodop调整打印项输出顺序 覆盖与层级</h3>
+    <p>Lodop中的打印项，如果有输出在同一位置，或部分位置重叠的地方，打印项之间是怎么覆盖的呢？<br />在JS里，按照Lodop语句打印项先后的执行顺序，<span style="background-color: #00ffff;">先执行的先输出，后执行的后输出，如果有后面的打印项和前面的打印项位置有重叠，会覆盖掉前面的打印项</span>。</p>
+<p><strong>解决方法是：</strong><br />1.预览某个打印项不全，或不显示。（代码里没有指定不预览）<br />可以进入打印设计，在打印设计里的左侧打印项列表里查看一下，没显示的打印项（或显示不全）的打印项，是否有后面的打印项在前面覆盖了那个打印项。<br />2.打印机打印时，打印一会进纸一会出去，不是按照从前到后的内容顺序打印。<br />调整打印项的输出顺序，前面的先输出，后面的后输出。</p>
+<p><strong>调整方法：</strong><br />1.直接<span style="background-color: #ffff99;">在代码里，调整各个语句的位置，排序打印项语句</span>。<br />2.在<span style="background-color: #ffff99;">打印设计左侧的打印项列表里，按住alt键拖动需要移动打印项，上移或下移，移动排序后生成代码，生成的代码是排序后的顺序</span>。</p>
+<p>例如图示，文本项一部分被图片覆盖了，把文本项的输出顺序调整后，文本项就会图片的上面。</p>
+<p><img src="https://img2018.cnblogs.com/blog/1481828/201809/1481828-20180930163026159-247972073.jpg" alt="" /></p>
+<p>&nbsp;</p>
+<p>cnblog链接（带图示）:<a href="https://www.cnblogs.com/huaxie/p/9732406.html" target="_blank">Lodop调整打印项输出顺序 覆盖与层级</a></p>
+<p><a href="../blog_index.html">返回博文列表</a></p>
+</div>
+<div id="footer"><img src="../images/lodopfoot.png"></div>
+</body>
+</html>

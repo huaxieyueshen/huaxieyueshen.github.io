@@ -1,0 +1,27 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>WEB打印控件LODOP</title>
+<script language="javascript" src="LodopFuncs.js"></script>
+ <link href="../css/blogback.css" type='text/css' rel="stylesheet">     
+</head>
+<body id="bodyA1">
+<div id="header">
+<div id="head1"></div>
+</div>
+<div class="blogpost-body">
+<h3>Lodop在页面获取打印机列表 选择打印机预览</h3>
+    <p>利用<span style="color: #000080;">GET_PRINTER_COUNT</span>，获取打印机个数，然后用<span style="color: #000080;">GET_PRINTER_NAME(intPrinterIndex);</span>循环获取打印机名称，添加到list列表里，可以让用户在页面就选择打印机。<br />LODOP的预览中可以选择打印机，有时候不需要预览，直接打印，可以用PRINTA()在直接打印打印前弹出选择框，也可以让用户在页面选择。<br />此文方法适用于Lodop和C-Lodop，此外，C-Lodop有个特有的获取打印机列表的方法，集中打印等云主机的打印机列表都可以用此方法获取，可查看本博客另一篇博文：C-<a href="https://www.cnblogs.com/huaxie/p/9766886.html" target="_blank">Lodop获取打印机列表Create_Printer_List</a></p>
+<p>如图所示，图示以前的在asp.net中的前台部分，没用runat server的服务器端控件，还有一篇关于服务器端控件和前台JS的交互的，但是那样很麻烦，这种获取打印机直接用前端控件比较好。</p>
+<p>由于c-lodop是本地服务，即使是放在onload里，也可能存在c-lodop没准备好的状况，除了按照其他博文的方法准备好之外，也可以让用户点击，然后触发页面事件获取打印机列表。<br />此外，这种方法还要加判断，例如用户点击两次，就会重复给列表装载打印机，所以提前判断下如果列表不为空，就不能再执行装载列表的方法了，避免重复装载，可查看本博客相关博文：<a href="https://www.cnblogs.com/huaxie/p/10857490.html" target="_blank">LODOP在页面让客户选择打印机</a></p>
+<p><img src="https://img2018.cnblogs.com/blog/1481828/201810/1481828-20181009165713243-2050747303.jpg" alt="" /></p>
+<p>如下图所示，是利用列表选择的打印机进行预览，<span style="color: #000080;">用的是列表里选项的value值，给每个选项付value值的时候，是从0到小于个数，每次循环加一，也就是到个数-1停止循环。原因是这个序号是从0开始的，也就是索引，C＃或其他中，索引也都是从0开始数的，index是从0循环到小于个数，而不是从1循环到等于个数。</span><br />如果超出索引，会提示Printer NO. overflow。由于这图和一些文字是复制的原来的文章的，面向想学习的小白，所以介绍了索引。</p>
+<p><img src="https://img2018.cnblogs.com/blog/1481828/201810/1481828-20181009165727776-1381641993.jpg" alt="" /></p>
+<p>&nbsp;</p>
+<p>cnblog链接（带图示）:<a href="https://www.cnblogs.com/huaxie/p/9761321.html" target="_blank">Lodop在页面获取打印机列表 选择打印机预览</a></p>
+<p><a href="../blog_index.html">返回博文列表</a></p>
+</div>
+<div id="footer"><img src="../images/lodopfoot.png"></div>
+</body>
+</html>

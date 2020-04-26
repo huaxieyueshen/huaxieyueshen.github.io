@@ -1,0 +1,25 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>WEB打印控件LODOP</title>
+<script language="javascript" src="LodopFuncs.js"></script>
+ <link href="../css/blogback.css" type='text/css' rel="stylesheet">     
+</head>
+<body id="bodyA1">
+<div id="header">
+<div id="head1"></div>
+</div>
+<div class="blogpost-body">
+<h3>LODOP弹出对话框获取保存文件的路径</h3>
+    <p>通常一般不会让用户自己在文本框里填上路径，因为路径要输入字母字符等比较麻烦，而且用户硬盘里文件很多，也不知道要保存在哪里，LODOP可以弹出一个选择保存路径的弹窗，然后把返回选择的路径值。这样用户就可以通过弹窗选择路径，然后把返回到的值赋给文本框就可以了。<br />如图，可以<span style="background-color: #99ccff;">用GET_DIALOG_VALUE函数，这个函数有两个参数，第一个参数LocalFileFullNameForSave代表了类型是弹出一个定位保存本地文件的对话框。第二个参数是默认的名称和类型。</span><br />&ldquo;LocalFileFullNameForSave&rdquo;的第二个参数值是保存文件的路径及文件名，例如&ldquo;*.bmp；*.jpg&rdquo; &ldquo;*.mdb&rdquo;等。<br /><span style="color: #000080;">LODOP.GET_DIALOG_VALUE("LocalFileFullNameForSave","a.doc");<span style="color: #003300;">//弹出保存文件对话框，默认保存文件名为a.doc。</span></span></p>
+<p><img src="https://img2018.cnblogs.com/blog/1481828/201810/1481828-20181010161120431-54436595.jpg" alt="" /></p>
+<p>c-lodop需要回调函数，因此，获取此返回值的时候，c-lodop需要用on_return。<br /><span style="background-color: #ffff99;">c-lodop会走if (LODOP.CVERSION)，调用回调函数。</span><br /><span style="background-color: #ffff99;">lodop会走else，直接返回值。</span><br />通常为了兼容两者的写法，会返回一样的值，这样无论客户使用的是哪个，提示或者返回值是一样的，这里为了区别，加上了&ldquo;c-lodop返回的&rdquo;和&ldquo;lodop返回的&rdquo;。可以看到走的是哪个支线。<br />360极速模式走的是c-lodop，兼容模式走的是lodop插件方式。<br />由于这些博文都是以前的，所以都是放图，cnblog可以直接发代码块，比较方便，将来的新博文会直接放代码块，这样也可以便于拷贝代码。</p>
+<p><img src="https://img2018.cnblogs.com/blog/1481828/201810/1481828-20181010161138628-730468818.jpg" alt="" /></p>
+<p>&nbsp;</p>
+<p>cnblog链接（带图示）:<a href="https://www.cnblogs.com/huaxie/p/9767127.html" target="_blank">LODOP弹出对话框获取保存文件的路径</a></p>
+<p><a href="../blog_index.html">返回博文列表</a></p>
+</div>
+<div id="footer"><img src="../images/lodopfoot.png"></div>
+</body>
+</html>

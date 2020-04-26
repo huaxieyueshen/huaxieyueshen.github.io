@@ -1,0 +1,25 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>WEB打印控件LODOP</title>
+<script language="javascript" src="LodopFuncs.js"></script>
+ <link href="../css/blogback.css" type='text/css' rel="stylesheet">     
+</head>
+<body id="bodyA1">
+<div id="header">
+<div id="head1"></div>
+</div>
+<div class="blogpost-body">
+<h3>Lodop导出excel及提示成功【回调和直接返回值】</h3>
+    <p>高版本的火狐和谷歌不再支持np插件之后，Lodop公司推出了C-Lodop，解决了这些浏览器不能用Lodop插件方式打印的问题，相比较Lodop插件，C-Lodop由于是以服务的形式出现，返回值不能直接返回，需要回调，如果不加回调，就会可能是&ldquo;Cm&rdquo;和数字的一堆无意义的数码。<br />触发回调函数的，就是动作语句，可参考LODOP官网的技术手册，哪些是有返回值的动作语句。<br /><span style="background-color: #ffff00;">C-Lodop中动作函数的返回值需要回调函数On_Return，Lodop中是直接返回，不需要回调函数。</span></p>
+<p>此篇博文中c-lodop回调是SAVE_TO_FILE返回值，<br />里面有两个判断：<br />1.判断if (LODOP.CVERSION)就是判断是否为C-Lodop，是就会走回调函数的里的语句，不是就走支线else里面。<br />2.回调里的根据返回的值为真if(Value)就提示，支线里根据返回值为真就提示if (LODOP.SAVE_TO_FILE。。。）<br />通常情况下，为了提示的统一，无论走回调还是直接返回，内容都是一样的，这里为了演示区分，所以两个内容不同，用的是360浏览器，这个360极速模式走的是C-Loodop，兼容模式走的是Lodop。</p>
+<p>更多回调相关，可阅读本博客的其他博文,，例如：<a href="https://www.cnblogs.com/huaxie/p/9729568.html" target="_blank">C-Lodop回调函数的触发</a>&nbsp; &nbsp; &nbsp;,&nbsp;<a href="https://www.cnblogs.com/huaxie/p/9593316.html" target="_blank">LODOP.FORMAT格式转换【回调和直接返回值】</a></p>
+<p><img src="https://img2018.cnblogs.com/blog/1481828/201809/1481828-20180930160411693-2045819764.jpg" alt="" /></p>
+<p>&nbsp;</p>
+<p>cnblog链接（带图示）:<a href="https://www.cnblogs.com/huaxie/p/9732169.html" target="_blank">Lodop导出excel及提示成功【回调和直接返回值】</a></p>
+<p><a href="../blog_index.html">返回博文列表</a></p>
+</div>
+<div id="footer"><img src="../images/lodopfoot.png"></div>
+</body>
+</html>
