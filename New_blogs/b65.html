@@ -1,0 +1,24 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>WEB打印控件LODOP</title>
+<script language="javascript" src="LodopFuncs.js"></script>
+ <link href="../css/blogback.css" type='text/css' rel="stylesheet">     
+</head>
+<body id="bodyA1">
+<div id="header">
+<div id="head1"></div>
+</div>
+<div class="blogpost-body">
+<h3>开启打印服务Print Spooler</h3>
+    <p>windows系统需要开启Print Spooler才能进行打印，如果不开启，可能造成很多现象和原因，比如windows打印机队列的打印机全部消失，用Lodop打印的时候提示<span style="color: #993300;">"Printer selected is not valid"</span>，或<span style="color: #993300;">类似 请在操作系统安装打印机并开启打印服务</span> 的提示。<br />例如，图中就是在我以前的win8电脑上找到该服务的方法。<br />（1）在 控制版面-管理工具-服务里面，找到Print Spooler并开启。<br />（2）用win+R快捷键打开运行窗口，输入services.msc打开服务列表，找到Print Spooler并开启。</p>
+<p>提示提示"Printer selected is not valid"的原因不只是这一个，如果出现这个提示，<br />1.排查这个rint Spooler是否开启了<br />2.如果设置了set_print_pagesize语句，去掉该语句试试，有很多打印机不支持该操作，会表现出以上异常。<br />3.windows系统默认打印机是一台网络共享打印机且该打印机目前不可访问。例如：网络断开原因、本地重启电脑后共享打印机没有记住共享端的用户名和密码等<br />4.打印机驱动安装是否正常，重装打印机驱动试试</p>
+<p><img src="https://img2018.cnblogs.com/blog/1481828/201810/1481828-20181029135946786-1236666431.jpg" alt="" /></p>
+<p>&nbsp;</p>
+<p>cnblog链接（带图示）:<a href="https://www.cnblogs.com/huaxie/p/9870324.html" target="_blank">开启打印服务Print Spooler</a></p>
+<p><a href="../blog_index.html">返回博文列表</a></p>
+</div>
+<div id="footer"><img src="../images/lodopfoot.png"></div>
+</body>
+</html>

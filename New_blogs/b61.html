@@ -1,0 +1,31 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>WEB打印控件LODOP</title>
+<script language="javascript" src="LodopFuncs.js"></script>
+ <link href="../css/blogback.css" type='text/css' rel="stylesheet">     
+</head>
+<body id="bodyA1">
+<div id="header">
+<div id="head1"></div>
+</div>
+<div class="blogpost-body">
+<h3>Lodop客户端本地角色注册号常见误区</h3>
+    <p>之前写过一篇关于Lodop和c-lodop注册号的区别：<a href="https://www.cnblogs.com/huaxie/p/9728197.html" target="_blank">LODOP、C-LODOP注册号的区别</a><br />第一种角色客户端本地打印角色是最常见的角色，最常见的场景，关于c-lodop云打印，它的第一种角色是取代Lodop用的，用来解决高版本的火狐谷歌不再支持np插件问题，这种方式没有体现云的特点，官网三种角色的介绍：http://www.c-lodop.com/demolist/t1.html</p>
+<p>很多人刚接触会有误区，认为云打印，是不是客户端不用安装了，只在服务器上安装了c-lodop，客户端就可以不需要安装就在自己电脑链接的打印机上进行打印了，这种是错误的想法。<br />应该说除了AO打印机打印这种角色外，遵循了一个特点：<span style="background-color: #ccffff;">在哪里打印就在哪里安装c-lodop</span>。<br />想要在自己电脑上进行本地打印，就必须每个客户端安装上c-lodop。</p>
+<p>另外三种角色不是打印到自己本地打印机上<br />集中打印：是所有客户端打印到一台云主机上，不是该客户端本地的打印机。<br />广域网AO端桥打印：打印到其他电脑连接的打印机上，不是该客户端本地的打印机。<br />广域网AO打印机打印：需要使用特殊的AO打印机，不再需要作为端桥的电脑，也不是客户端本地的打印机。</p>
+<p>类似Lodop的官网这样，http://www.c-lodop.com/LodopDemo.html，这个链接里是官网的样例列表，任意用户可访问官网样例，并用自己电脑本地的打印机进行打印，如果你没有安装就访问官网样例，点击打印相关按钮，就会提示下载安装，根据提示下载安装到本地，才能打印。<br />官网这种就是客户端本地打印角色，如<span style="color: #000080;">果是官网这种购买授权，则是Lodop本地注册号中的域名注册，注册的域名就是c-lodop.com</span>。<br />一些人看到访问的是http://localhost:8000/CLodopFuncs.js，就误认为需要注册的是localhost，Lodop中的注册根据的是客户端浏览器地址栏的访问方式，比如，官网就是www.c-lodop.com的域名访问。</p>
+<p>也有人会误认为客户端本地打印角色，是不是每个客户端的ip都要注册，有多少客户端注册多少个ip，不是这样的，<span style="background-color: #ffff00;">注册号根据的是浏览器地址栏的访问方式，和客户端数量，网站端口等都没有关系，需要注册的只有访问的地址</span>。客户端本地打印角色客户端访问数量没有限制，注意ip访问注册ip，域名访问注册域名。如果是域名访问，注册该域名所在的ip是没有用的哦。</p>
+<p>（1）.单独注册服务器ip地址，登陆访问方式是ip地址访问，例如：注册ip地址：192.168.0.1，登陆方式如下：http：//192.168.0.1:8000/index.jsp等，域名访问时，注册信息无效。<br />（2）.单独注册域名：登陆访问方式是域名地址访问，例如：注册域名： www.c-lodop.com 登陆方式如下：http://www.c-lodop.com/index.html等，ip地址访问时，注册信息无效</p>
+<p>客户端本地打印混合部署方式：（即Lodop官网的部署方式）<br /><a href="https://www.cnblogs.com/huaxie/p/9636061.html" target="_blank">Lodop部署web网站 客户端本地打印角色</a></p>
+<p>该图片是以前博文的图片，当时还没有广域网打印角色，图片区分了集中打印和本地打印安装问题。客户端本地打印每个客户端都需要安装，客户端本地打印是http://localhost:8000/CLodopFuncs.js，集中打印才是集中打印那台电脑的ip地址和端口。</p>
+<p><img src="https://img2018.cnblogs.com/blog/1481828/201810/1481828-20181025162111397-1461288835.jpg" alt="" /></p>
+<p><img src="https://img2018.cnblogs.com/blog/1481828/201810/1481828-20181025162124579-463659604.jpg" alt="" /></p>
+<p>&nbsp;</p>
+<p>cnblog链接（带图示）:<a href="https://www.cnblogs.com/huaxie/p/9850518.html" target="_blank">Lodop客户端本地角色注册号常见误区</a></p>
+<p><a href="../blog_index.html">返回博文列表</a></p>
+</div>
+<div id="footer"><img src="../images/lodopfoot.png"></div>
+</body>
+</html>

@@ -1,0 +1,30 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>WEB打印控件LODOP</title>
+<script language="javascript" src="LodopFuncs.js"></script>
+ <link href="../css/blogback.css" type='text/css' rel="stylesheet">     
+</head>
+<body id="bodyA1">
+<div id="header">
+<div id="head1"></div>
+</div>
+<div class="blogpost-body">
+<h3>Lodop设置文本项行间距、字间距</h3>
+    <p>LODOP给文本项ADD_PRINT_TEXT设置字间距、行间距，可以在打印设计页面，右键属性里设置，然后在打印设计生成代码，也可以直接写代码。<br />LineSpacing行间距、LetterSpacing字间距，还有TextFrame文本框样式，这里的是文本的框，每个文本的框。</p>
+<div class="cnblogs_code">
+<pre>LODOP.ADD_PRINT_TEXT(115,169,100,20,"新加文本2"<span style="color: #000000;">);
+LODOP.SET_PRINT_STYLEA(</span>0,"TextFrame",2<span style="color: #000000;">);
+LODOP.SET_PRINT_STYLEA(</span>0,"LineSpacing",3<span style="color: #000000;">);
+LODOP.SET_PRINT_STYLEA(</span>0,"LetterSpacing",3);</pre>
+</div>
+<p>以上设置只针对ADD_PRINT_TEXT纯文本项，如果是html超文本，需要用css样式设置，传入css样式及查看传入的样式，可查看本博客另一篇博文;<br /><a href="https://www.cnblogs.com/huaxie/p/9669963.html" target="_blank">Lodop打印控件传入css样式、看是否传入正确样式</a></p>
+<p><img src="https://img2018.cnblogs.com/blog/1481828/201810/1481828-20181024133840735-1415056731.jpg" alt="" /></p>
+<p>&nbsp;</p>
+<p>cnblog链接（带图示）:<a href="https://www.cnblogs.com/huaxie/p/9843115.html" target="_blank">Lodop设置文本项行间距、字间距</a></p>
+<p><a href="../blog_index.html">返回博文列表</a></p>
+</div>
+<div id="footer"><img src="../images/lodopfoot.png"></div>
+</body>
+</html>

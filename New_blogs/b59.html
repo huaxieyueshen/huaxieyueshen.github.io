@@ -1,0 +1,105 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>WEB打印控件LODOP</title>
+<script language="javascript" src="LodopFuncs.js"></script>
+ <link href="../css/blogback.css" type='text/css' rel="stylesheet">     
+</head>
+<body id="bodyA1">
+<div id="header">
+<div id="head1"></div>
+</div>
+<div class="blogpost-body">
+<h3>【gridview增删改查】数据库查询后lodop打印</h3>
+    <p>ASP.NET中使用gridview可以很容易的把需要的数据动态显示在前台，还可以在表格里加入列进行增删改查，每次点击的时候重新加载数据，gridview也提供了分页等功能，还有一些模版让显示在前台的表格更美观。<br />此博文是以前写的，那时候写的比较随意，图片也没有经过PS成一张图，略微整理后发出来，虽然上学的时候写的方法都是用英文，当时发出来不是在博客上，读者很多不是软件专业，为了更通俗易懂，所以把上学用的一些方法改成了汉字首字母，比如zsg就是增删改，有的例如binddata()是用的原来的英文描述，<span style="color: #000080;">由是上学写的稍作修改的代码，此文应该挺适合小白看，没有复杂的内容</span>。</p>
+<p>对数据库增删改查，首先要写对数据库连接字符串，如图，这张图示以前找的，现在应该还不过时，上学用的sqlsever数据库，这是后来换新电脑后，只装了个access数据库，所以上网搜了一下access的数据库连接字符串，根据access版本写上后是正确的，这个图片在当时感觉还挺全的。现在有点过时了，access版本也更新了不少。<br />ASP.NET连接字符串：</p>
+<p><img src="https://img2018.cnblogs.com/blog/1481828/201810/1481828-20181024101211466-718672626.png" alt="" /></p>
+<p>--注：此代码也有点问题，比如如下所说情况，但是当时边写边写文章，所以没再改--<br />如果输入textbox1，没有点击查询，然后输入第二个textbox2，第一个不清空很不舒服。原来只想着查完情况，好预备下一次输入，重置一下，但是没有考虑到前面那种状况，应该两个都清空或者一开始就清空，总之就这样带着吧。--</p>
+<div class="cnblogs_code">
+<pre><span style="color: #0000ff;">using</span><span style="color: #000000;"> System.Collections.Generic;
+</span><span style="color: #0000ff;">using</span><span style="color: #000000;"> System.Linq;
+</span><span style="color: #0000ff;">using</span><span style="color: #000000;"> System.Web;
+</span><span style="color: #0000ff;">using</span><span style="color: #000000;"> System.Web.UI;
+</span><span style="color: #0000ff;">using</span><span style="color: #000000;"> System.Web.UI.WebControls;
+</span><span style="color: #0000ff;">using</span><span style="color: #000000;"> System.Data;
+</span><span style="color: #0000ff;">using</span><span style="color: #000000;"> System.Data.OleDb;
+</span><span style="color: #0000ff;">using</span><span style="color: #000000;"> System.Text;
+
+</span><span style="color: #0000ff;">public</span> <span style="color: #0000ff;">partial</span> <span style="color: #0000ff;">class</span><span style="color: #000000;"> ceshi5 : System.Web.UI.Page
+{
+    </span><span style="color: #0000ff;">public</span> <span style="color: #0000ff;">static</span> DataTable getdt(<span style="color: #0000ff;">string</span><span style="color: #000000;"> strSQL)
+    {
+        </span><span style="color: #0000ff;">string</span> connstring = <span style="color: #800000;">"</span><span style="color: #800000;">provider=Microsoft.Ace.Oledb.12.0;Data Source=D:/da2.accdb</span><span style="color: #800000;">"</span>;<span style="color: #008000;">//</span><span style="color: #008000;">（链接数据库的字符串）</span>
+        OleDbConnection conn = <span style="color: #0000ff;">new</span> OleDbConnection(connstring);<span style="color: #008000;">//</span><span style="color: #008000;">（根据连接字符串，创建一个链接）</span>
+        conn.Open();<span style="color: #008000;">//</span><span style="color: #008000;">（打开链接）</span>
+<span style="color: #000000;">
+        OleDbDataAdapter da </span>= <span style="color: #0000ff;">new</span> OleDbDataAdapter(strSQL, conn);<span style="color: #008000;">//</span><span style="color: #008000;">（根据查询语句，链接，创建一个适配器）</span>
+        DataTable dt = <span style="color: #0000ff;">new</span> DataTable();<span style="color: #008000;">//</span><span style="color: #008000;">（新建一个空表）</span>
+        da.Fill(dt);<span style="color: #008000;">//</span><span style="color: #008000;">（用适配器da，填满dt新表）</span>
+<span style="color: #000000;">
+        conn.Close();</span><span style="color: #008000;">//</span><span style="color: #008000;">（关闭链接）</span>
+        <span style="color: #0000ff;">return</span> dt;<span style="color: #008000;">//</span><span style="color: #008000;">（返回填满的那个表）</span>
+<span style="color: #000000;">    }
+    </span><span style="color: #0000ff;">public</span> <span style="color: #0000ff;">static</span> <span style="color: #0000ff;">void</span> zsg(<span style="color: #0000ff;">string</span><span style="color: #000000;"> sql)
+    {
+        </span><span style="color: #0000ff;">string</span> connstring = <span style="color: #800000;">"</span><span style="color: #800000;">provider=Microsoft.Ace.Oledb.12.0;Data Source=D:/da2.accdb</span><span style="color: #800000;">"</span>;<span style="color: #008000;">//</span><span style="color: #008000;">（链接数据库的字符串）</span>
+        OleDbConnection conn = <span style="color: #0000ff;">new</span> OleDbConnection(connstring);<span style="color: #008000;">//</span><span style="color: #008000;">（根据连接字符串，创建一个链接）</span>
+        OleDbCommand cmd = <span style="color: #0000ff;">new</span><span style="color: #000000;"> OleDbCommand(sql, conn);
+
+        conn.Open();</span><span style="color: #008000;">//</span><span style="color: #008000;">（打开链接）</span>
+<span style="color: #000000;">
+        cmd.ExecuteNonQuery();
+        conn.Close();</span><span style="color: #008000;">//</span><span style="color: #008000;">（关闭链接）</span>
+<span style="color: #000000;">
+    }
+    </span><span style="color: #0000ff;">public</span> <span style="color: #0000ff;">void</span><span style="color: #000000;"> binddata()
+    {
+        DataTable dtt </span>= getdt(<span style="color: #800000;">"</span><span style="color: #800000;">select kw,info from lodopkeyword</span><span style="color: #800000;">"</span><span style="color: #000000;">);
+        GridView1.DataSource </span>=<span style="color: #000000;"> dtt;
+        GridView1.DataBind();
+
+    }
+    </span><span style="color: #0000ff;">protected</span> <span style="color: #0000ff;">void</span> Page_Load(<span style="color: #0000ff;">object</span><span style="color: #000000;"> sender, EventArgs e)
+    {
+       </span><span style="color: #0000ff;">if</span> (!<span style="color: #000000;">IsPostBack)
+      {
+           binddata();
+       }
+    }
+    </span><span style="color: #0000ff;">protected</span> <span style="color: #0000ff;">void</span> Btn_wen_Click(<span style="color: #0000ff;">object</span><span style="color: #000000;"> sender, EventArgs e)
+    {
+        DataTable dt </span>= getdt(<span style="color: #800000;">"</span><span style="color: #800000;">select kw as 问题,info as 答案 from lodopkeyword where kw like'%</span><span style="color: #800000;">"</span> + TextBox1.Text + <span style="color: #800000;">"</span><span style="color: #800000;">%'</span><span style="color: #800000;">"</span><span style="color: #000000;">);
+        GridView1.DataSource </span>=<span style="color: #000000;"> dt;
+        GridView1.DataBind();
+        TextBox1.Text </span>= <span style="color: #800000;">""</span><span style="color: #000000;">;
+    }
+    </span><span style="color: #0000ff;">protected</span> <span style="color: #0000ff;">void</span> Btn_da_Click(<span style="color: #0000ff;">object</span><span style="color: #000000;"> sender, EventArgs e)
+    {
+        DataTable dt </span>= getdt(<span style="color: #800000;">"</span><span style="color: #800000;">select kw as 问题,info as 答案 from lodopkeyword where info like'%</span><span style="color: #800000;">"</span> + TextBox2.Text + <span style="color: #800000;">"</span><span style="color: #800000;">%'</span><span style="color: #800000;">"</span><span style="color: #000000;">);
+        GridView1.DataSource </span>=<span style="color: #000000;"> dt;
+        GridView1.DataBind();
+        TextBox2.Text </span>= <span style="color: #800000;">""</span><span style="color: #000000;">;
+    }
+    </span><span style="color: #0000ff;">protected</span> <span style="color: #0000ff;">void</span> btninsert_Click(<span style="color: #0000ff;">object</span><span style="color: #000000;"> sender, EventArgs e)
+    {
+        </span><span style="color: #0000ff;">string</span> sql = <span style="color: #800000;">"</span><span style="color: #800000;">insert into lodopkeyword(kw,info) values('</span><span style="color: #800000;">"</span> + TextBox3.Text + <span style="color: #800000;">"</span><span style="color: #800000;">','</span><span style="color: #800000;">"</span> +<span style="color: #000000;">
+           TextBox4.Text </span>+ <span style="color: #800000;">"</span><span style="color: #800000;">')</span><span style="color: #800000;">"</span><span style="color: #000000;">;
+        zsg(sql);
+        binddata();
+        TextBox3.Text </span>= <span style="color: #800000;">""</span>; TextBox4.Text = <span style="color: #800000;">""</span><span style="color: #000000;">;
+    }
+}</span></pre>
+</div>
+<p>&nbsp;</p>
+<p><img src="https://img2018.cnblogs.com/blog/1481828/201810/1481828-20181024103449555-391311611.png" alt="" /></p>
+<p><img src="https://img2018.cnblogs.com/blog/1481828/201810/1481828-20181024104110819-437250657.png" alt="" /></p>
+<p><img src="https://img2018.cnblogs.com/blog/1481828/201810/1481828-20181024103500118-136296429.png" alt="" /></p>
+<p>由于是以前的文字，图片没有经过整合处理，以前的文章图片较多，较繁杂，取了部分图片，图片经过多次转存有点变形。</p>
+<p>&nbsp;</p>
+<p>cnblog链接（带图示）:<a href="https://www.cnblogs.com/huaxie/p/9842194.html" target="_blank">【gridview增删改查】数据库查询后lodop打印</a></p>
+<p><a href="../blog_index.html">返回博文列表</a></p>
+</div>
+<div id="footer"><img src="../images/lodopfoot.png"></div>
+</body>
+</html>

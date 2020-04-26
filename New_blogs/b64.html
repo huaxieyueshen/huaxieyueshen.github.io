@@ -1,0 +1,24 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>WEB打印控件LODOP</title>
+<script language="javascript" src="LodopFuncs.js"></script>
+ <link href="../css/blogback.css" type='text/css' rel="stylesheet">     
+</head>
+<body id="bodyA1">
+<div id="header">
+<div id="head1"></div>
+</div>
+<div class="blogpost-body">
+<h3>C-Lodop的https扩展版，火狐下添加例外</h3>
+    <p>LODOP综合版里的c-lodop是标准版，没有https和广域网打印功能，如果使用了标准版，调试JS的时候会提示，，<span style="color: #993300;">loaded over HTTPS，，，the content must be serverd over HTTPS，，，</span>之类的错误。<br />https网站需要安装https扩展版，<br />安装https（32位c-lodop扩展版）版后，也要修改LodopFuncs.js里的端口，相应变为8443，协议也变成https，可查看本博客另一篇博文了解端口设置问题：<br /><a href="https://www.cnblogs.com/huaxie/p/9591791.html" target="_blank">如何设置C-Lodop打印控件的端口</a><br />此外，提示下载安装的安装文件也要修改成对应的https版本。<br />客户端本地打印角色，是访问的是客户端本地的c-lodop，访问的是localhost，如果是https，可用32位扩展版c-lodop，不过有个浏览器需要添加例外，<span style="background-color: #ccffff;">火狐不认localhost证书，提示不安全，所以需要添加例外</span>。</p>
+<p><span style="background-color: #ffcc99;">火狐里添加例外的方法可百度一下网上的方法，可以在页面上添加，也可以在浏览器设置里添加</span>：<br />高级&mdash;&mdash;添加例外，左下角打勾可以添加永久例外，不用以后每次添加，点确认安全例外。<br />添加例外后就可以访问了，在这个 https://localhost:8443 欢迎页面，欢迎页面下面可以查看自带的https的例子。火狐提示不安全，按照提示添加例外就行，图片是根据页面上提示添加例外，也可以在浏览器的设置里添加。</p>
+<p><img src="https://img2018.cnblogs.com/blog/1481828/201810/1481828-20181029133650984-79047500.png" alt="" /></p>
+<p>&nbsp;</p>
+<p>cnblog链接（带图示）:<a href="https://www.cnblogs.com/huaxie/p/9870205.html" target="_blank">C-Lodop的https扩展版，火狐下添加例外</a></p>
+<p><a href="../blog_index.html">返回博文列表</a></p>
+</div>
+<div id="footer"><img src="../images/lodopfoot.png"></div>
+</body>
+</html>

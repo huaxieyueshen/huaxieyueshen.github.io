@@ -1,0 +1,53 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>WEB打印控件LODOP</title>
+<script language="javascript" src="LodopFuncs.js"></script>
+ <link href="../css/blogback.css" type='text/css' rel="stylesheet">     
+</head>
+<body id="bodyA1">
+<div id="header">
+<div id="head1"></div>
+</div>
+<div class="blogpost-body">
+<h3>LODOP在页面不同位置输出页眉页脚</h3>
+    <p>Lodop中的页眉页脚项的特点是：每页固定位置输出，具体该特点可查看本博客的其他博文：<a href="https://www.cnblogs.com/huaxie/p/9603229.html" target="_blank">Lodop打印项对象类型属性区分</a></p>
+<p>Lodop中有可以设置打印项次页偏移属性，但是该方法是针对单个打印项自动分页的，对于眉脚项，如果想次页在不同位置显示，用这个方法是不行的，眉脚项不会自动分页。<br /><a href="https://www.cnblogs.com/huaxie/p/9619462.html" target="_blank">Lodop打印控件设置表格次页偏移</a><br />如果想要这种效果，可以变通实现，也就是设置两个内容相同的打印项，第二个打印项设置位置不同，然后禁止输出到第一页，这样一来，第一页就是一个位置，第二页往后就是不同的位置效果。<br />看似效果是该打印项在第二页往后偏移了，其实是两个内容大小完全相同的打印项，以这种方式实现效果。</p>
+<div class="cnblogs_code">
+<pre>&lt;html&gt;
+&lt;head&gt;
+&lt;meta http-equiv="Content-Type" content="text/html; charset=utf-8" /&gt;
+&lt;title&gt;WEB打印控件LODOP&lt;/title&gt;
+&lt;script language="javascript" src="LodopFuncs.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;a href="javascript:prn1_preview()"&gt;打印预览&lt;/a&gt;
+&lt;script language="javascript" type="text/javascript"&gt;   
+        <span style="color: #0000ff;">var</span> LODOP; <span style="color: #008000;">//</span><span style="color: #008000;">声明为全局变量 </span>
+    <span style="color: #0000ff;">function</span><span style="color: #000000;"> prn1_preview() {    
+        LODOP</span>=<span style="color: #000000;">getLodop();  
+        LODOP.PRINT_INIT(</span>"");<span style="color: #008000;">//</span><span style="color: #008000;">初始化</span>
+        LODOP.ADD_PRINT_TEXT(19,26,100,20,"眉脚眉脚");<span style="color: #008000;">//</span><span style="color: #008000;">普通文本项，只在第一页输出</span>
+        LODOP.ADD_PRINT_TEXT(16,157,100,20,"眉脚眉脚");<span style="color: #008000;">//</span><span style="color: #008000;">眉脚项，禁止第一页输出，也就是第二页往后</span>
+        LODOP.SET_PRINT_STYLEA(0,"ItemType",1);<span style="color: #008000;">//</span><span style="color: #008000;">眉脚项，每页输出</span>
+        LODOP.SET_PRINT_STYLEA(0,"PageUnIndex","first");<span style="color: #008000;">//</span><span style="color: #008000;">禁止在第一页输出</span>
+        LODOP.ADD_PRINT_TEXT(54,68,95,26,"第一页的内容A"<span style="color: #000000;">);
+        LODOP.NewPage();
+        LODOP.ADD_PRINT_TEXT(</span>54,68,95,26,"第二页的内容B"<span style="color: #000000;">);
+        LODOP.NewPage();
+        LODOP.ADD_PRINT_TEXT(</span>54,68,95,26,"第三页的内容C"<span style="color: #000000;">);
+        LODOP.PREVIEW();
+    };
+</span>&lt;/script&gt; 
+&lt;/body&gt;
+&lt;/html&gt;</pre>
+</div>
+<p><img src="https://img2018.cnblogs.com/blog/1481828/201810/1481828-20181024154151502-2133447661.png" alt="" /></p>
+<p>&nbsp;</p>
+<p>cnblog链接（带图示）:<a href="https://www.cnblogs.com/huaxie/p/9843840.html" target="_blank">LODOP在页面不同位置输出页眉页脚</a></p>
+<p><a href="../blog_index.html">返回博文列表</a></p>
+</div>
+<div id="footer"><img src="../images/lodopfoot.png"></div>
+</body>
+</html>

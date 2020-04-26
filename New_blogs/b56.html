@@ -1,0 +1,40 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>WEB打印控件LODOP</title>
+<script language="javascript" src="LodopFuncs.js"></script>
+ <link href="../css/blogback.css" type='text/css' rel="stylesheet">     
+</head>
+<body id="bodyA1">
+<div id="header">
+<div id="head1"></div>
+</div>
+<div class="blogpost-body">
+<h3>Lodop打印条码二维码的一些设置</h3>
+    <p> Lodop绘制条码图功能让条码打印变得很简单，客户端不用安装专门的条码字库，该函数格式如下：<br /><span style="color: #000080;">ADD_PRINT_BARCODE(Top,Left,Width,Height,BarCodeType,BarCodeValue);</span><br />关键参数含义:<br />Width 条码的总宽度，计量单位px（1px=1/96英寸）<br />Height 条码的总高度（一维条码时包括文字高度）<br />BarCodeType 条码的类型（规制）名称<br />BarCodeValue 条码值</p>
+<p>目前LODOP支持24种一维码和2种二维码，具体支持哪些可查看官网的样例和Lodop技术手册。<br />关于条码二维码宽度：<br /><a href="https://www.cnblogs.com/huaxie/p/9679314.html" target="_blank">Lodop打印条码二维码设置多宽不一定是多宽</a></p>
+<p>一些常见的样式设置</p>
+<div class="cnblogs_Highlighter">
+<pre class="brush:javascript;gutter:true;">LODOP.ADD_PRINT_BARCODE(88,32,206,78,"128B","123456789012");//设置条码位置、宽高、字体、值
+LODOP.SET_PRINT_STYLEA(0,"FontSize",18);//设置上面这个条码下方的文字字体大小
+LODOP.SET_PRINT_STYLEA(0,"Color","#FF0000");//设置当前条码以及条码下方字体的颜色
+LODOP.SET_PRINT_STYLEA(0,"Angle",180);//设置旋转角度
+LODOP.SET_PRINT_STYLEA(0,"ShowBarText",0);//设置是否显示下方的文字
+LODOP.SET_PRINT_STYLEA(0,"AlignJustify",2);//设置条码下方的文字相对于条码本身居中
+LODOP.SET_PRINT_STYLEA(0,"AlignJustify",1);//设置条码下方的文字相对于条码本身居左
+LODOP.SET_PRINT_STYLEA(0,"AlignJustify",3);//设置条码下方的文字相对于条码本身居右
+LODOP.SET_PRINT_STYLEA(0,"GroundColor","#0080FF");//设置条码的背景色　</pre>
+</div>
+<p><img src="https://img2018.cnblogs.com/blog/1481828/201810/1481828-20181022142309383-1614199175.png" alt="" /></p>
+<p>官网一些问题的详细介绍：</p>
+<p>一、条码语句默认是Auto类型自适应宽度或高度，默认Auto属性<br /> 二维码或条码是由竖条和横条组成，设定宽度后，自动计算每条应占用的宽度，计算后的合计宽度一般是小于等于设定宽度，所以条码或二维码的增大或缩小是受每个竖条或横条的宽度合计值影响，比如40个竖条，每一个增加1px，总宽度就增加了40px，所以宽度和高度跳跃式放大或缩小，是非线性。默认Auto属性，QRCord二维码根据内容多少自动调整显示级别，也就是宽度和高度的自适应。<br />        最小宽度小于1px时就无法再小了，就要调整条码纸的宽度以适应内容输出的宽度，或调整内容输出量达到调整输出宽度效果。<br />二、去掉默认auto自适应属性，保证输出的二维码宽高不变<br /> 用类似这个语句设置条码属性到具体版本号就可以了：LODOP.SET_PRINT_STYLEA(0,"QRCodeVersion",5); //其中参数5是版本号  C-Lodop和Lodop主要支持二维码类型：QRCode和PDF417，常用的是QRCode，QR码分为 version 1 到version 40 共40种类型，目前C-Lodop和Lodop支持7种版本：1、2、3、5、7、10、14。另外容错率影响QRCord版本的最大输出值，设置容错率的语句： LODOP.SET_PRINT_STYLEA(0,"QRCodeErrorLevel","L");//L为低容错率7%，默认是M级容错率15%，最高级H级容错率是30%， 相对于低容错L 7% 所能输出的最大字符数值如下<br />版本1：最大值17个字符<br />版本2：最大值32个字符<br />版本3：最大值53个字符<br />版本5：最大值106个字符<br />版本7： 最大值154个字符<br />版本10：最大值135个汉字 271个字符<br />版本14：最大值229个汉字，458个字符<br />超出了会有内容溢出提示&ldquo;QRCord data overflow&rdquo;，如果条码内容为空提示&ldquo;QRCord data null&rdquo;</p>
+<p>几个条码类型简单描述<br />128A: 标准数字和字母, 控制符, 特殊字符<br />128B: 标准数字和字母, 小写字母, 特殊字符<br />128C: [00]-[99]的数字对集合, 共100个(只能包含数字，一个条码字符代表两位数字）<br />128AUTO:会自动在几个代码集中切换。<br />128C 只能打数字，可以打到超窄 ，有客户可以打到12毫米</p>
+<p>影响条码识别率<br />首先尽量要用Lodop、C-Lodop最新版本，新版本对条码输出有很多改进；<br />其次，如果测试Lodop一维码，要打印到纸张上之后扫描，不能从屏幕扫描，原因是Lodop一维码输出按打印分辨率控制精度的，而二维码可以从屏幕扫描测试；影响扫描识别率的另外一个关键原因是条码总宽度，特别是打印设备的输出精度不高时。也就是说总宽度越窄，对打印设备精度要求越高；<br />再有，同样的内容，要选择识别更容易的码制类型，例如当内容全部是数字时，要选择128C而不用128A，后者可以用字母，但识别率相对较低；<br />我们在实际测试中还发现，扫描枪的使用手法也很有影响，例如有时扫描枪离条码不能太近（当然不能极远），尽量调整好扫描距离，这是对比扫描率的基础，有时这个失误会让测试结果大相径庭；一维条码的总宽越大，扫描枪的距离则越远才行，扫描手法失误有时会严重影响扫描识别率，比打印设备的精度和浓度的影响还大。我认为调整条码宽度最重要的使命就是让总宽合适，从而让扫描距离适中。如果是二维码，要注意扫描软件的字符集局限，要多试试其它字符集，如UTF-8，GB2312等等；<br />最后，打印时注意调整一下打印浓度，很可能让识别率大大提高；<br />总之，条码打印不是一簇而就的工作。 </p>
+<p>&nbsp;</p>
+<p>cnblog链接（带图示）:<a href="https://www.cnblogs.com/huaxie/p/9829953.html" target="_blank">Lodop打印条码二维码的一些设置</a></p>
+<p><a href="../blog_index.html">返回博文列表</a></p>
+</div>
+<div id="footer"><img src="../images/lodopfoot.png"></div>
+</body>
+</html>

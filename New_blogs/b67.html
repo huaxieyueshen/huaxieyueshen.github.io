@@ -1,0 +1,27 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>WEB打印控件LODOP</title>
+<script language="javascript" src="LodopFuncs.js"></script>
+ <link href="../css/blogback.css" type='text/css' rel="stylesheet">     
+</head>
+<body id="bodyA1">
+<div id="header">
+<div id="head1"></div>
+</div>
+<div class="blogpost-body">
+<h3>Lodop图片输出ADD_PRINT_IMAGE 有白边</h3>
+    <p>ADD_PRINT_IMAGE输出图片，如果使用img标签（即超文本&lt;img标签），是超文本，无论是相对路径，网络图片，还是base64，都可能有白边，这可能和超文本解析有关。<br />ADD_PRINT_IMAGE输出图片，如果使用本地绝对路径，就不会有白边。</p>
+<p>如果设置了浏览器护眼色，ADD_PRINT_IMAGE输出图片的白边会变成该设置颜色（通常为浅绿色护眼色），可通过取消护眼色取消这种颜色的白边（详见另一篇博文）：<a href="https://www.cnblogs.com/huaxie/p/9717172.html" target="_blank">如何取消浏览器护眼色 Lodop打印图片，有窗口颜色的边框</a></p>
+<p>如下图，分别用img标签+相对路径，img标签+网络图片地址路径，img标签+base64码，本地绝对路径（无img标签）试验结果。</p>
+<p>该白边的区域，如果宽度打印项宽度较大，超出图片的部分也会被解析成白色区域，不透明的超文本背景。<br /><strong>用base64直接输出图片，也不需要浏览器进行解析，不需要浏览器解析，也没有白边。</strong><br />关于<span style="color: #000080;">直接用base64码输出图片及用img+base64码输出图片的效果对比</span>，可查看本博客另一篇相关博文：<a href="https://www.cnblogs.com/huaxie/p/10395704.html" target="_blank">LODOP直接用base64码输出图片</a></p>
+<p><img src="https://img2018.cnblogs.com/blog/1481828/201810/1481828-20181031151210799-1226459533.png" alt="" /></p>
+<p>由于有该白边的影响，设置图片top，left为0,0,会发现上面和左侧还有一点白色的边距，这种时候，可以设置top，left为负值，来改善图片的位置，去掉该白色边距。</p>
+<p>&nbsp;</p>
+<p>cnblog链接（带图示）:<a href="https://www.cnblogs.com/huaxie/p/9883291.html" target="_blank">Lodop图片输出ADD_PRINT_IMAGE 有白边</a></p>
+<p><a href="../blog_index.html">返回博文列表</a></p>
+</div>
+<div id="footer"><img src="../images/lodopfoot.png"></div>
+</body>
+</html>

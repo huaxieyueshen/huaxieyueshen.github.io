@@ -1,0 +1,28 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>WEB打印控件LODOP</title>
+<script language="javascript" src="LodopFuncs.js"></script>
+ <link href="../css/blogback.css" type='text/css' rel="stylesheet">     
+</head>
+<body id="bodyA1">
+<div id="header">
+<div id="head1"></div>
+</div>
+<div class="blogpost-body">
+<h3>Lodop不要把客户端的打印机共享到服务器上 再在客户端打印</h3>
+    <p>客户端打印需要每个客户端都安装，Lodop插件方式和C-Lodop方式，都是安装一次后，无需再次安装，c-lodop默认也是开机自启动的。<br />集中打印方式，可以打印到某台电脑（作为云主机）上，但是不能打印到客户端本地的打印机上。<br />AO端桥打印，打印端也是需要安装c-lodop扩展版，并开启端桥功能，因此打印端也需要安装，只有特殊的AO打印机打印方式，打印端才能不需要电脑，也不需要电脑安装c-lodop。</p>
+<p><strong>局域网集中打印方式适用于一些可能的场景：</strong><br />1.微信到店点餐，客户进入后连接wifi，后台有一台专门的电脑连接点击进行打印机，通过手机发送打印任务到这台电脑上。<br />2.局域网内，其他人都不安装打印机，有一台专门用来打印的电脑，其他人的电脑都发送到这台电脑连接的打印机进行打印。</p>
+<p>局域网集中打印方式，不需要客户端安装c-lodop，但是打印端不是客户端本身，有些程序员不想让客户端安装c-lodop，想实现什么都不安装就在本地打印方式，这种方法是实现不了的，有人想到了另一种方法：<span style="background-color: #ffff99;">所有客户端的打印机共享到某台电脑上，然后客户端访问这台电脑选择自己的打印机进行打印，这样就不需要客户端安装了，看似没有问题，但是这种使用方法应该还是很有问题的</span>。虽然此方法是可以实现该效果。<br />刚开始我就奇怪怎么会一台集中打印的电脑连接了几十台打印机还同时处于工作状态，后来一想，就算使用了接口扩展，一台电脑也连接不了这么多打印机，还都处于工作状态，一台电脑有多个打印机驱动很正常，但是实际打印的时候，一般都用哪个插上哪个的usb接口进行打印，几十台同时插上似乎有点奇怪，后来得知原来都是共享打印机。<br />问题1：集中打印的这台电脑连接的全部是共享打印机，这台电脑的几十台共享打印机全部处于工作状态，对这台作为云主机的集中打印的电脑负担很重。<br />2.共享打印机可能会造成一些问题，更何况是几十台共享打印机同时在一台电脑上工作。<br />3.程序开发也要考虑硬件配置，和客户打印的快捷方式。</p>
+<p><strong>集中打印到的云主机，最好是直接连接该主机的打印机。</strong><br />对于客户端本地这种情况建议用客户端本地打印方式，每个客户端本地安装c-lodop。<br />每个客户端本地安装，在每个客户端本地打印，不要把客户端的电脑共享到服务器上。</p>
+<p>如图，局域网集中打印，把普通客户端PC连接的打印机，共享到服务上，然后再访问服务器选择自己共享的打印机进行打印，<span style="color: #993300;">不建议使用这种方法</span>，最好是图中作为云主机的服务器自己连接的打印机。</p>
+<p><img src="https://img2018.cnblogs.com/blog/1481828/201810/1481828-20181030104044834-507791837.png" alt="" /></p>
+<p>客户端本地打印角色，要每个客户端都安装，在本地打印也比较快捷，LODOP和C-LODOP安装并不复杂，而且一般不会拦截，加上安装一次，客户端就不用再安装了，所以让客户安装也不麻烦。<a href="https://www.cnblogs.com/huaxie/p/9848319.html" target="_blank">Lodop提示安装或升级的注意事项</a></p>
+<p>&nbsp;</p>
+<p>cnblog链接（带图示）:<a href="https://www.cnblogs.com/huaxie/p/9875458.html" target="_blank">Lodop不要把客户端的打印机共享到服务器上 再在客户端打印</a></p>
+<p><a href="../blog_index.html">返回博文列表</a></p>
+</div>
+<div id="footer"><img src="../images/lodopfoot.png"></div>
+</body>
+</html>

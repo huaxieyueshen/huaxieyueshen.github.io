@@ -1,0 +1,32 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>WEB打印控件LODOP</title>
+<script language="javascript" src="LodopFuncs.js"></script>
+ <link href="../css/blogback.css" type='text/css' rel="stylesheet">     
+</head>
+<body id="bodyA1">
+<div id="header">
+<div id="head1"></div>
+</div>
+<div class="blogpost-body">
+<h3>Lodop某个电脑打印内容大小有问题</h3>
+    <p>可能原因分析：本地设置放大比例问题，是真实的放大或缩小，<br />1.查看比例应在100%，</p>
+<p><img src="https://img2018.cnblogs.com/blog/1481828/201810/1481828-20181026102109327-1883379335.jpg" alt="" /></p>
+<p> 2.控制面板设置显示应在100%（win7 win10中）</p>
+<p><img src="https://img2018.cnblogs.com/blog/1481828/201810/1481828-20181026102116976-1837816471.jpg" alt="" /></p>
+<p> 3.超文本样式问题，分析样式中不同浏览器版本下显示不一致的标签属性，避开，换其他方式实现<br />4.打印机纸张问题：纸张大小是否一致；可打印区域是否影响到了输出内容的大小；</p>
+<p>&nbsp;</p>
+<p><strong>注意事项：</strong><br />1.并不是程序设置了纸张大小就一定生效，需要选择真实打印机然后预览下方查看，才能确认纸张和设置纸张一致。<br />在预览里选择真实打印机，下方状态栏可以看到纸张，有的打印机纸张可能不生效，排查一下是否和设置的纸张一致。<br />2.电脑中的缩放会影响打印内容，由于Lodop调用ie引擎进行解析超文本，但是客户端ie版本可能不同，或ie本身存在问题，都会影响解析后的样式是，升级ie浏览器<br />3.打印机不同，可打区域可能不同，进而如果里面样式受容器的影响，可打区域也会影响样式。</p>
+<p>此外，css样式等尽量使用pt等绝对单位，不使用px等相对单位，避免分辨率的影响。</p>
+<p><strong>关于操作系统的显示设置的缩放，对打印有影响：</strong></p>
+<p>操作系统的这个显示必须是100%,lodop无法控制，需要手动设置成100%。<br />如果是超文本内部的css样式设置的是px单位，电脑的分辨率不同，会有影响，可以换用pt等绝对单位。<br />这个操作系统显示的缩放比例对打印有影响，需要设置成100%.</p>
+<p>这里指的超文本的px单位，是超文本的内部的css样式，不是lodop中的px，例如：<a href="https://www.cnblogs.com/huaxie/p/10677369.html" target="_blank">LODOP中的纯文本和超文本打印项</a> 该博文中的字体为蓝色，就是css样式。</p>
+<p>&nbsp;</p>
+<p>cnblog链接（带图示）:<a href="https://www.cnblogs.com/huaxie/p/9854851.html" target="_blank">Lodop某个电脑打印内容大小有问题</a></p>
+<p><a href="../blog_index.html">返回博文列表</a></p>
+</div>
+<div id="footer"><img src="../images/lodopfoot.png"></div>
+</body>
+</html>
