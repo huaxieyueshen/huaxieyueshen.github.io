@@ -1,0 +1,46 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>WEB打印控件LODOP</title>
+<script language="javascript" src="LodopFuncs.js"></script>
+ <link href="../css/blogback.css" type='text/css' rel="stylesheet">     
+</head>
+<body id="bodyA1">
+<div id="header">
+<div id="head1"></div>
+</div>
+<div class="blogpost-body">
+<h3>C-Lodop提示“网页还没下载完毕，请稍等一下再操作.”</h3>
+    <p>该提示在Lodop旧版本中是： 提示<span style="background-color: #ccffcc;">"WebSocket没准备好，点确定继续"</span>，提示<span style="background-color: #ccffcc;">&ldquo;C-Lodop没准备好&rdquo;</span>，新版本修改了该提示的描述<span style="background-color: #ccffcc;">&ldquo;网页还没下载完毕，请稍等一下再操作.&rdquo;</span>，让问题更解释更直观。</p>
+<p><strong>问题原因：</strong>调用C-Lodop云打印时机太早，调用打印语句（print或preview等）时机太早，在页面第一次加载完成后有几百毫秒时间等待WebSocket通讯服务准备完成。</p>
+<p><strong>解决方法：</strong><br />方法一：等待C-Lodop准备好再执行调用打印方法打印，用如下写法，OpenPreview()代表自己的打印方法，如下写法兼容Lodop和c-lodop，如果是只使用c-lodop的方式，可以只写c-lodop部分（即只用C-Lodop----begin和C-Lodop----end两个注释之间的部分），此问题有个单独的博文 <a href="https://www.cnblogs.com/huaxie/p/9593208.html" target="_blank">C-Lodop设置页面一加载就打印</a></p>
+<div class="cnblogs_code">
+<pre> <span style="color: #0000ff;">if</span><span style="color: #000000;"> (needCLodop()) {
+    </span><span style="color: #008000;">//</span><span style="color: #008000;">如果是只运行C-Lodop,只需下边的代码，</span>
+    <span style="color: #008000;">//</span><span style="color: #008000;">C-Lodop----begin----</span>
+    window.On_CLodop_Opened=<span style="color: #0000ff;">function</span><span style="color: #000000;">(){
+        OpenPreview();    </span><span style="color: #008000;">//</span><span style="color: #008000;">OpenPreview()是调用打印方法                        </span>
+        window.On_CLodop_Opened=<span style="color: #0000ff;">null</span><span style="color: #000000;">;
+    };    
+    </span><span style="color: #008000;">//</span><span style="color: #008000;">C-Lodop----end----                </span>
+  } <span style="color: #0000ff;">else</span><span style="color: #000000;"> 
+  window.onload </span>= <span style="color: #0000ff;">function</span>(){OpenPreview();};    <span style="color: #008000;">//</span><span style="color: #008000;">使用lodop控件时的调用</span></pre>
+</div>
+<p>方法二：设置时间延迟执行，例如</p>
+<div class="cnblogs_code">
+<pre>    setTimeout("print()","500");  <span style="color: #008000;">//</span><span style="color: #008000;">500毫秒后执行print()函数，只执行一次。</span>
+    <span style="color: #0000ff;">function</span><span style="color: #000000;"> print(){
+        LODOP.PRINT_INIT(</span>"测试打印"<span style="color: #000000;">);
+        LODOP.ADD_PRINT_TEXT(</span>10,10,300,200,"这是纯文本行"<span style="color: #000000;">);
+        LODOP.PRINT();
+    }</span></pre>
+</div>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>cnblog链接（带图示）:<a href="https://www.cnblogs.com/huaxie/p/9804744.html" target="_blank">C-Lodop提示“网页还没下载完毕，请稍等一下再操作.”</a></p>
+<p><a href="../blog_index.html">返回博文列表</a></p>
+</div>
+<div id="footer"><img src="../images/lodopfoot.png"></div>
+</body>
+</html>

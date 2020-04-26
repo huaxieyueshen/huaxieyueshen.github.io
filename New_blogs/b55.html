@@ -1,0 +1,32 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>WEB打印控件LODOP</title>
+<script language="javascript" src="LodopFuncs.js"></script>
+ <link href="../css/blogback.css" type='text/css' rel="stylesheet">     
+</head>
+<body id="bodyA1">
+<div id="header">
+<div id="head1"></div>
+</div>
+<div class="blogpost-body">
+<h3>LODOOP中的各种边距 打印项、整体偏移、可打区域、内部边距</h3>
+    <p>Lodop中的打印项内容位置定位，除了打印项本身的top，left值，也会受其他设定或打印机的影响。<br />打印开发，先用虚拟打印机测试出正确结果，然后客户端用打印维护微调<br /><strong>常见问题：</strong><br /><strong>1.设置打印项相对于纸张居中，内容没有相对纸张居中。</strong><br />打印项居中，但是如果打印项内容本身有内容边距，里面的内容没有相对于自身的边距居中，自然内容也不会在纸张中居中。<br /><strong>2.</strong>打印项位置不对，不是设置的top，left值，打印内容被切去了，显示不出来，<strong>打印预览有虚线，虚线外的内容是空白</strong>。<br />虚线是打印机的可打区域，是物理的可打区域，和打印机有关，可打区域外是不打印的。<br />（默认打印项定位是以可打区域为基点，设置以纸张为基点可查看本博客另一篇博文：<a href="https://www.cnblogs.com/huaxie/p/9674296.html" target="_blank">Lodop打印控件打印机可打区域的影响 设置纸张边缘为基点）</a></p>
+<p><strong>影响打印项在纸张中受到的可能边距：</strong><br />1.打印项本身的top，left值。<br />2.INITA初始化语句第一、二参数的偏移值。.<br />3.打印预览中虚线引起的边距（打印机的可打区域的影响）</p>
+<p><strong>打印项内容受到的可能边距：</strong><br />1.打印项本身的top，left值。<br />2.INITA初始化语句第一、二参数的偏移值。<br />3.打印预览中虚线引起的边距（打印机的可打区域的影响）<br />4.打印项内部的边距（内容的边距，如超文本中的css样式等）</p>
+<p><strong>各种边距解释：</strong><br />1.打印项设置的边距<br />添加Lodop各种打印项（例如ADD_PRINT_HTM(Top,Left,Width,Height,strHtmlContent)），参数中：<br />top是打印项在纸张内的上边距，打印项在纸张内的上边距，也就是在每张纸的上下起点位置。<br />left是打印项在纸张内的左边距，也就是在每张纸的左右起点位置<br />2.整体偏移导致的边距<br />INITA初始化语句第一、二参数的偏移值，所有打印内容针对纸张进行偏移，偏移上边距或左边距。<br />3.打印机可打区域引起的边距<br />和打印机有关，预览里以虚线的形式存在，虚线外是打印不出来的。默认是以可打区域为边缘，可以用语句设置以纸张边缘为基点进行设计。<br />4.打印项内部的边距<br />例如超文本自带的本身里的边距，条码等设置打印项多宽，可能里面实际内容没有多宽，因为受条码竖线合计值的影响。</p>
+<p><img src="https://img2018.cnblogs.com/blog/1481828/201810/1481828-20181022102309019-4245822.jpg" alt="" /></p>
+<p>PRINT_INITA的三、四参数与纸张无关，这个只是设置打印设计可视化编辑区域的，PRINT_INITA的三、四参数 打印设计可视化编辑区域（与纸张无关）<br />SET_PRINT_PAGESIZE的二、三参数 设置自定义纸张大小，第四参数纸张名称。</p>
+<p><img src="https://img2018.cnblogs.com/blog/1481828/201810/1481828-20181022102445491-1552938499.jpg" alt="" /></p>
+<p>出现边距或位置不对，可先用虚拟打印机测试一下。<br />如果虚拟打印机不正常，可排查代码问题。例如PRINT_INITA初始化语句第一、二参数不为0，打印项内部边距。<br />如果虚拟打印机正常，在预览里查看一下，真实打印机自定义纸张是否生效，是否有打印机可打区域的影响以及打印机或打印机驱动问题。</p>
+<p><br /><strong>用虚拟打印机测试正常，用真实打印机预览也没有空白边距，就是走纸的时候位置不对，有空白边距：</strong><br />正常情况下预览是打印机的反显，打印机如果预览正常，打印不正常，只能和打印机驱动，或这打印机<br />实体打印机是否在初始位置输出，或打印机初始走纸位置不正确，联系打印机厂商确认一下。</p>
+<p>如果确认真实打印机预览正常，打印不正常，重装打印机驱动试试，如果重装驱动没有西效果。<br />实体打印机是否在初始位置输出，或打印机初始走纸位置不正确，联系打印机厂商确认一下。</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>cnblog链接（带图示）:<a href="https://www.cnblogs.com/huaxie/p/9828739.html" target="_blank">LODOOP中的各种边距 打印项、整体偏移、可打区域、内部边距</a></p>
+<p><a href="../blog_index.html">返回博文列表</a></p>
+</div>
+<div id="footer"><img src="../images/lodopfoot.png"></div>
+</body>
+</html>

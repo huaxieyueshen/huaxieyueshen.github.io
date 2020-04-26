@@ -1,0 +1,28 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>WEB打印控件LODOP</title>
+<script language="javascript" src="LodopFuncs.js"></script>
+ <link href="../css/blogback.css" type='text/css' rel="stylesheet">     
+</head>
+<body id="bodyA1">
+<div id="header">
+<div id="head1"></div>
+</div>
+<div class="blogpost-body">
+<h3>LODOP选择路径，保存写入word文件</h3>
+    <p>之前的博文介绍了lodop和c-lodop如果使用 LODOP.GET_DIALOG_VALUE弹出对话框，让用户选择路径，例如保存文件的路径，这样用户就不用手动输入想要的路径。</p>
+<p>这一篇，是利用上一篇<a href="https://www.cnblogs.com/huaxie/p/9767127.html" target="_blank">LODOP弹出对话框获取保存文件的路径</a>的那个方法选择路径，然后把内容写入word文件（保存成word文件），如果该路径下没有这个文件，就会自动创建word文件，也可以称为把内容保存成word文档。</p>
+<div class="cnblogs_code">
+<pre>LODOP.WRITE_FILE_TEXT('UTF-8',document.getElementById('T2').value,"1aaa");<span style="color: #008000;">//</span><span style="color: #008000;">把内容1aaa以utf-8编码写入文件</span></pre>
+</div>
+<p>通过那篇博文的LODOP.GET_DIALOG_VALUE方法，默认的文件名是a.doc(可以在弹出框修改），因此，文本框里的带路径的文件类型是.doc，所以这个WRITE_FILE_TEXT方法写入的就是.doc格式的word文件。</p>
+<p><img src="https://img2018.cnblogs.com/blog/1481828/201810/1481828-20181010164439538-1976192005.jpg" alt="" /></p>
+<p>&nbsp;</p>
+<p>cnblog链接（带图示）:<a href="https://www.cnblogs.com/huaxie/p/9767454.html" target="_blank">LODOP选择路径，保存写入word文件</a></p>
+<p><a href="../blog_index.html">返回博文列表</a></p>
+</div>
+<div id="footer"><img src="../images/lodopfoot.png"></div>
+</body>
+</html>

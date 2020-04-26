@@ -1,0 +1,34 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>WEB打印控件LODOP</title>
+<script language="javascript" src="LodopFuncs.js"></script>
+ <link href="../css/blogback.css" type='text/css' rel="stylesheet">     
+</head>
+<body id="bodyA1">
+<div id="header">
+<div id="head1"></div>
+</div>
+<div class="blogpost-body">
+<h3>Lodop导出图片，导出单页内容的图片</h3>
+    <p>用如下语句设置图片的格式，设置导出的图片初识的默认名称，Lodop可以把打印内容导出成图片。</p>
+<div class="cnblogs_code">
+<pre>LODOP.SET_SAVE_MODE("SAVEAS_IMGFILE_EXENAME",".jpg"<span style="color: #000000;">);
+LODOP.SAVE_TO_FILE(</span>"全部打印内容的图片.jpg"); </pre>
+</div>
+<p>如果一个任务中包含多页，那么导出的就是全部的多页内容，如图，整个任务中的每页的内容导出成了一张长长的图片。</p>
+<p>通过控制打印那几页，也可以控制导出那几页内容的图片。<br />关于指定输出页数，可查看本博客的详细介绍的博文：<a href="https://www.cnblogs.com/huaxie/p/9619044.html" target="_blank">Lodop设置从第几页输出到第几页</a></p>
+<p>如图，在页面输入5，就只导出了有第5页内容的图片。</p>
+<p><img src="https://img2018.cnblogs.com/blog/1481828/201810/1481828-20181019141334372-732304438.jpg" alt="" /></p>
+<p>虽然指定导出第几页可以导出该页的内容，但是图片长度不一定是单页长度，因此建议导出的时候导出整个任务的，可以多分一些任务。</p>
+<p>此外，导出图片长度和导出的是第几页有关：<br />通过测试第1，2页，可以发现，第一页输出的第一页纸张的长度的图片，第二页输出的是两页长度的图片，第5页输出的是5页长度的图片，所以导出单页的内容为图片，图片长度和导出的是第几页有关。</p>
+<p><em><img src="https://img2018.cnblogs.com/blog/1481828/201810/1481828-20181019141407321-1410188841.jpg" alt="" /></em></p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>cnblog链接（带图示）:<a href="https://www.cnblogs.com/huaxie/p/9816156.html" target="_blank">Lodop导出图片，导出单页内容的图片</a></p>
+<p><a href="../blog_index.html">返回博文列表</a></p>
+</div>
+<div id="footer"><img src="../images/lodopfoot.png"></div>
+</body>
+</html>

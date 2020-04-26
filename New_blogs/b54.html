@@ -1,0 +1,29 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>WEB打印控件LODOP</title>
+<script language="javascript" src="LodopFuncs.js"></script>
+ <link href="../css/blogback.css" type='text/css' rel="stylesheet">     
+</head>
+<body id="bodyA1">
+<div id="header">
+<div id="head1"></div>
+</div>
+<div class="blogpost-body">
+<h3>Lodop设置打印维护返回打印语句代码</h3>
+    <p>打印设计关闭时，可以返回设计的打印代码，打印维护则返回成功打印的次数。<br />不过打印维护也是返回打印程序代码的，方法就是加个语句，这个语句是：</p>
+<div class="cnblogs_code">
+<pre>LODOP.SET_PRINT_MODE("PRINT_SETUP_PROGRAM",<span style="color: #0000ff;">true</span>);<span style="color: #008000;">//</span><span style="color: #008000;">设置打印维护返回打印语句代码</span></pre>
+</div>
+<p>加上这个语句，就可以改变打印维护的返回值，打印维护就可以返回打印的代码。</p>
+<p>打印设计PRINT_DESIGN关闭默认返回打印语句代码<br />打印维护PRINT_SETUP关闭默认返回成功打印的次数<br />打印维护关闭返回打印语句代码：（设置后，打印维护关闭返回的不再是成功打印的次数，而是打印语句代码）<br />加这个语句LODOP.SET_PRINT_MODE("PRINT_SETUP_PROGRAM",true);</p>
+<p><br />注意c-lodop需要回调函数，可查看本博客的其他相关博文了解更多c-lodop回调函数的使用。</p>
+<p><img src="https://img2018.cnblogs.com/blog/1481828/201810/1481828-20181022111738912-711457817.jpg" alt="" /></p>
+<p>&nbsp;</p>
+<p>cnblog链接（带图示）:<a href="https://www.cnblogs.com/huaxie/p/9829104.html" target="_blank">Lodop设置打印维护返回打印语句代码</a></p>
+<p><a href="../blog_index.html">返回博文列表</a></p>
+</div>
+<div id="footer"><img src="../images/lodopfoot.png"></div>
+</body>
+</html>

@@ -1,0 +1,50 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>WEB打印控件LODOP</title>
+<script language="javascript" src="LodopFuncs.js"></script>
+ <link href="../css/blogback.css" type='text/css' rel="stylesheet">     
+</head>
+<body id="bodyA1">
+<div id="header">
+<div id="head1"></div>
+</div>
+<div class="blogpost-body">
+<h3>Lodop打印语句最基本结构介绍（什么是一个任务）</h3>
+    <p>Lodop中最基本的打印过程至少有初始化语句、添内容语句和打印语句三部分组成，例如：</p>
+<div class="cnblogs_code">
+<pre>LODOP.PRINT_INIT("打印任务名"); <span style="color: #008000;">//</span><span style="color: #008000;">首先一个初始化语句</span>
+LODOP.ADD_PRINT_TEXT(0,0,100,20,"文本内容一");<span style="color: #008000;">//</span><span style="color: #008000;">然后多个ADD语句及SET语句</span>
+LODOP.PRINT(); <span style="color: #008000;">//</span><span style="color: #008000;">最后一个打印(或预览、维护、设计)语句</span></pre>
+</div>
+<p>一个打印任务：（可包含一个初始化语句，一个纸张设置，一个Lodop背景图设置，一个指定打印机）</p>
+<div class="cnblogs_code">
+<pre>LODOP.PRINT_INIT("");<span style="color: #008000;">//</span><span style="color: #008000;">首先一个初始化语句</span>
+LODOP.SET_PRINT_PAGESIZE(1,400,800,"");<span style="color: #008000;">//</span><span style="color: #008000;">设置纸张大小</span>
+LODOP.ADD_PRINT_SETUP_BKIMG("背景图地址");<span style="color: #008000;">//</span><span style="color: #008000;">设置Lodop背景图</span>
+LODOP.SET_PRINTER_INDEX(打印机序号);<span style="color: #008000;">//</span><span style="color: #008000;">选择打印机，可用序号或打印机名等方式指定打印机</span>
+LODOP.ADD_PRINT_TEXT(0,0,179,33,"页面\n内容");<span style="color: #008000;">//</span><span style="color: #008000;">ADD语句添加一个文本打印项，文本里换行了。</span>
+LODOP.SET_PRINT_STYLEA(0,"LineSpacing","10");<span style="color: #008000;">//</span><span style="color: #008000;"> SET语句设置打印项样式，设置行间距。 </span>
+LODOP.PREVIEW();<span style="color: #008000;">//</span><span style="color: #008000;">最后一个打印(或预览、维护、设计)语句</span></pre>
+</div>
+<p><strong>常见的错误用法：</strong></p>
+<p>1.newpage分页后，每分页一次就init设置一下，这是错误的，<span style="background-color: #ffffff;">分页是在一个任务里进行的</span>，只能有一个init或inita。<br />2.一个任务(init或inita)里有多个纸张设置语句，这是错误的，<span style="background-color: #ffffff;">一个任务只能有一个纸张设置</span>。<br />3.一个任务里设置多张ADD_PRINT_SETUP_BKIMG背景图，一个任务只能有一个，如果想不同页输出不同背景图，可用普通图片方式输出背景图。<br />4.一个任务里打印预览，和导出图片，需要分成两个任务，一个任务打印预览，一个导出。（同理，发送打印机指令，和打印预览等也不能同一个任务），具体可查看本博客的另一篇博文：<a href="https://www.cnblogs.com/huaxie/p/9811235.html" target="_blank">Lodop如何设置预览后导出带背景的图，打印不带背景图</a></p>
+<div class="cnblogs_code">
+<pre>LODOP.PRINT_INIT(""<span style="color: #000000;">); 
+打印内容
+预览语句
+LODOP.PRINT_INIT(</span>""<span style="color: #000000;">); 
+打印内容
+导出图片语句。</span></pre>
+</div>
+<p>4.一个任务设置多个打印机，或打印方向，一个任务设置只能设置一种，一个打印机，一个打印方向。</p>
+<p>如果一个任务页数特别多，一次性占用太多的系统资源，需要等很长时间，所以需要分任务，在在分任务分页之间平衡一下，如果要用打印维护对客户端微调，需要给每个任务设置不同的任务名，可查看本博客的其他博文：</p>
+<p><img src="https://img2018.cnblogs.com/blog/1481828/201810/1481828-20181018150402901-1195814879.jpg" alt="" /></p>
+<p>&nbsp;</p>
+<p>cnblog链接（带图示）:<a href="https://www.cnblogs.com/huaxie/p/9810583.html" target="_blank">Lodop打印语句最基本结构介绍（什么是一个任务）</a></p>
+<p><a href="../blog_index.html">返回博文列表</a></p>
+</div>
+<div id="footer"><img src="../images/lodopfoot.png"></div>
+</body>
+</html>

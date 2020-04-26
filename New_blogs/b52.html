@@ -1,0 +1,54 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>WEB打印控件LODOP</title>
+<script language="javascript" src="LodopFuncs.js"></script>
+ <link href="../css/blogback.css" type='text/css' rel="stylesheet">     
+</head>
+<body id="bodyA1">
+<div id="header">
+<div id="head1"></div>
+</div>
+<div class="blogpost-body">
+<h3>Lodop如何设置预览后导出带背景的图，打印不带背景图</h3>
+    <p>Lodop中的ADD_PRINT_SETUP_BKIMG，可以加载上背景图，该背景图在预览的时候可以显示也可以不显示，打印可以打印出来也可以不打印出来。<br />一般套打，都是不打印背景图的，比如一些快递的快递单，通常预览和导出图片会放在两个按钮里，如果想要打印预览和导出图片都执行，也可以，但是需要放在两个任务里。<br />什么是一个任务，可查看本博客的另一篇博文：<a href="https://www.cnblogs.com/huaxie/p/9810583.html" target="_blank">Lodop打印语句最基本结构介绍（什么是一个任务）</a></p>
+<p>想要设置，预览包含背景图，打印不包含背景图，预览后弹窗导出图片，可以用如下方法设置：</p>
+<div class="cnblogs_code">
+<pre>LODOP.PRINT_INIT(""<span style="color: #000000;">); 
+不带背景图的打印
+预览语句
+
+LODOP.PRINT_INIT(</span>""<span style="color: #000000;">); 
+带背景图的打印 
+LODOP.SET_SHOW_MODE(</span>"BKIMG_PRINT",1);<span style="color: #008000;">//</span><span style="color: #008000;">打印包含背景图 </span>
+导出图片语句。</pre>
+</div>
+<p>导出图片导出的是所有打印内容，而不是预览的内容，所以要设置打印包含背景图该句，然后进行导出。</p>
+<div class="cnblogs_code">
+<pre>&lt;script language="javascript" type="text/javascript"&gt;   
+        <span style="color: #0000ff;">var</span> LODOP; <span style="color: #008000;">//</span><span style="color: #008000;">声明为全局变量 </span>
+    <span style="color: #0000ff;">function</span><span style="color: #000000;"> prn1_preview() {    
+        LODOP</span>=<span style="color: #000000;">getLodop(); 
+        LODOP.PRINT_INIT(</span>"");<span style="color: #008000;">//</span><span style="color: #008000;">初始化</span>
+        LODOP.ADD_PRINT_SETUP_BKIMG("&lt;img border='0' src='http://s1.sinaimg.cn/middle/721e77e5t99431b026bd0&amp;690'&gt;");<span style="color: #008000;">//</span><span style="color: #008000;">背景图</span>
+        LODOP.ADD_PRINT_TEXT(0,0,100,20,"文本内容一");<span style="color: #008000;">//</span><span style="color: #008000;">文本项</span>
+        LODOP.SET_SHOW_MODE("BKIMG_IN_PREVIEW",1); <span style="color: #008000;">//</span><span style="color: #008000;">预览包含背景图    </span>
+<span style="color: #000000;">        LODOP.PREVIEW();    
+        LODOP.PRINT_INIT(</span>"");<span style="color: #008000;">//</span><span style="color: #008000;">初始化</span>
+        LODOP.ADD_PRINT_SETUP_BKIMG("&lt;img border='0' src='http://s1.sinaimg.cn/middle/721e77e5t99431b026bd0&amp;690'&gt;");<span style="color: #008000;">//</span><span style="color: #008000;">背景图</span>
+        LODOP.ADD_PRINT_TEXT(0,0,100,20,"文本内容一");<span style="color: #008000;">//</span><span style="color: #008000;">文本项</span>
+        LODOP.SET_SHOW_MODE("BKIMG_PRINT",1);<span style="color: #008000;">//</span><span style="color: #008000;">打印包含背景图            </span>
+        LODOP.SET_SAVE_MODE("SAVEAS_IMGFILE_EXENAME",".emf"<span style="color: #000000;">);
+        LODOP.SAVE_TO_FILE(</span>"新的矢量图片文件.emf"<span style="color: #000000;">); 
+    };
+</span>&lt;/script&gt; </pre>
+</div>
+<p>&nbsp;<img src="https://img2018.cnblogs.com/blog/1481828/201810/1481828-20181018165617005-1800390039.png" alt="" /></p>
+<p>&nbsp;</p>
+<p>cnblog链接（带图示）:<a href="https://www.cnblogs.com/huaxie/p/9811235.html" target="_blank">Lodop如何设置预览后导出带背景的图，打印不带背景图</a></p>
+<p><a href="../blog_index.html">返回博文列表</a></p>
+</div>
+<div id="footer"><img src="../images/lodopfoot.png"></div>
+</body>
+</html>
