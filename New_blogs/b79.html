@@ -1,0 +1,25 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>WEB打印控件LODOP</title>
+<script language="javascript" src="LodopFuncs.js"></script>
+ <link href="../css/blogback.css" type='text/css' rel="stylesheet">     
+</head>
+<body id="bodyA1">
+<div id="header">
+<div id="head1"></div>
+</div>
+<div class="blogpost-body">
+<h3>Lodop打印旋转180度 倒着打</h3>
+    <p><strong>方法1：</strong><br />打印出来后，直接把纸张倒过来。<br />如果本身是白纸，打印机出纸内容是倒着的，可以打出来后手动倒着把纸张正过来。<br />如果本身不是白纸，需要打印的纸张上有背景，调整进纸方向。（如果是卷纸，卷纸背景是反的，查看一下是否放反了）。<br />正常情况下打印内容都是顺着打印机出纸方向的，如果打印出来是倒着的，查看一下是否打印机的设置问题。</p>
+<p><strong>方法2</strong>：使用Lodop语句，该可以控制在某个打印项所在页，整页旋转。<br />此方法注意：很多打印机不一定支持该旋转，需要实际测试后再决定使用该功能。<br /><span style="color: #000080;">LODOP.SET_PRINT_STYLEA(0,"AngleOfPageInside",180);//上面这个打印项所在页，整页旋转</span><br />该方法由于是转换成图形模式再旋转，会有点模糊，不好处理，所以<span style="background-color: #ffff99;">不建议使用，建议用手直接把纸张翻转一下</span>。</p>
+<p>&nbsp;<img src="https://img2018.cnblogs.com/blog/1481828/201811/1481828-20181112164539957-68328650.png" alt="" /></p>
+
+<p>&nbsp;</p>
+<p>cnblog链接（带图示）:<a href="https://www.cnblogs.com/huaxie/p/9947409.html" target="_blank">Lodop打印旋转180度 倒着打</a></p>
+<p><a href="../blog_index.html">返回博文列表</a></p>
+</div>
+<div id="footer"><img src="../images/lodopfoot.png"></div>
+</body>
+</html>

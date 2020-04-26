@@ -1,0 +1,27 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>WEB打印控件LODOP</title>
+<script language="javascript" src="LodopFuncs.js"></script>
+ <link href="../css/blogback.css" type='text/css' rel="stylesheet">     
+</head>
+<body id="bodyA1">
+<div id="header">
+<div id="head1"></div>
+</div>
+<div class="blogpost-body">
+<h3>Lodop文本项相对于文本框居中 两端对齐</h3>
+    <p>Lodop中ADD_PRINT_TEXT默认内容是相对于文本框居左的，如果想要设置相对于文本框居中，可用如下语句。<br />还有一种是两端对齐，可以让内容的两端阿和文本框的最左和最右端对齐，文本项内容布满文本框，中间部分填充等距离的间隔。</p>
+<p>文本项相对于文本框居中在打印设计里可以看到效果，<span style="background-color: #ccffcc;">两端对齐在打印设计里看不到效果，可以点设计里的预览后看到效果</span>。虽然设计里看不到效果，但是预览和打印都是有效果的。<br />如图所示，第一张图代码，第二张图是可视化设置（可视化后生成代码）：<br />文本项相对于文本框居中：<br /><span style="color: #000080;">LODOP.SET_PRINT_STYLEA(0,"Alignment",2);</span><br />两端对齐：<br /><span style="color: #000080;">LODOP.SET_PRINT_STYLEA(0,"AlignJustify",1);</span></p>
+<p><img src="https://img2018.cnblogs.com/blog/1481828/201811/1481828-20181108141409584-1047746299.png" alt="" /></p>
+<p>可视化设置：<br />文本项相对于文本框居中可以通过打印设计PRINT_DESIGN界面上方的快捷按钮设置，两端对齐可选中打印项-右键查看属性里设置。</p>
+<p><img src="https://img2018.cnblogs.com/blog/1481828/201811/1481828-20181108141424210-1601908424.png" alt="" /></p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>cnblog链接（带图示）:<a href="https://www.cnblogs.com/huaxie/p/9928785.html" target="_blank">Lodop文本项相对于文本框居中 两端对齐</a></p>
+<p><a href="../blog_index.html">返回博文列表</a></p>
+</div>
+<div id="footer"><img src="../images/lodopfoot.png"></div>
+</body>
+</html>

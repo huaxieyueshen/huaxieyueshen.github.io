@@ -1,0 +1,28 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>WEB打印控件LODOP</title>
+<script language="javascript" src="LodopFuncs.js"></script>
+ <link href="../css/blogback.css" type='text/css' rel="stylesheet">     
+</head>
+<body id="bodyA1">
+<div id="header">
+<div id="head1"></div>
+</div>
+<div class="blogpost-body">
+<h3>Win10图片打不开文件系统错误2147416359解决方法</h3>
+    <p>该问题表现为win10打开所有图片都会提示这个&lsquo;文件系统错误-2147416359&rsquo;，打开其他文件没问题。<br />此问题应该是win10自带的图片查看器出了故障。</p>
+<p>在网上找到如下方案，但是我的服务列表里没有这个，只能另找方案。<br />在服务里找到windows license manager service服务，右键打开属性---启动类型改为自动---重启生效。</p>
+<p>此问题为：<br /><span style="background-color: #ccffcc;">1.win10操作系统，打开所有图片都会提示这个&lsquo;文件系统错误-2147416359&rsquo;</span><br /><span style="background-color: #ccffcc;">2.服务里找不到windows license manager service</span></p>
+<p>出现原因不明，可能是没正常关机导致的，以前都是关闭大多数应用后关机，由于中午走得急，就那一次很多应用没有关，直接点关机，下午上班出现了这个错误，可能是由于关机时自动强制关闭一些应用导致的。</p>
+<p>此问题可能是win10默认图片查看器不知道出了什么问题导致，在服务找不到windows license manager service的情况下，可以装一下其他图片查看器软件用来代替，安装后需要指定为默认查看图片工具，否则双击普通打开还是会提示这个，无法查看。</p>
+<p><span style="background-color: #ffcc99;">win10开始-设置-应用-默认应用-照片-选择另一个图片查看器（默认另一个图片查看器）</span></p>
+<p><img src="https://img2018.cnblogs.com/blog/1481828/201811/1481828-20181112162703449-1134985590.png" alt="" /></p>
+<p>&nbsp;</p>
+<p>cnblog链接（带图示）:<a href="https://www.cnblogs.com/huaxie/p/9947246.html" target="_blank">Win10图片打不开文件系统错误2147416359解决方法</a></p>
+<p><a href="../blog_index.html">返回博文列表</a></p>
+</div>
+<div id="footer"><img src="../images/lodopfoot.png"></div>
+</body>
+</html>

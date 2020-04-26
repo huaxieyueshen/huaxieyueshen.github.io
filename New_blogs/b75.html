@@ -1,0 +1,26 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>WEB打印控件LODOP</title>
+<script language="javascript" src="LodopFuncs.js"></script>
+ <link href="../css/blogback.css" type='text/css' rel="stylesheet">     
+</head>
+<body id="bodyA1">
+<div id="header">
+<div id="head1"></div>
+</div>
+<div class="blogpost-body">
+<h3>Lodop中特殊符号￥打印设计和预览不同</h3>
+    <p>Lodop中￥符号样式改变问题</p>
+<p>Lodop中对超文本样式的解析，虽然说是<span style="color: #000080;">按照调用的本机ie引擎，但是调用的ie版本可能不同</span>，导致在ie下是一种样式，预览又是另一种样式。可能是有些样式没有具体设置，走的默认样式，但是浏览器调用解析的默认样式不同造成的。<br />Lodop纯文本，也可能会出现打印设计和预览不同的情况，原因是没有具体指定文字的字体。</p>
+<p><span style="color: #000080;">可以通过指定具体字体，换个字体试试，达到想要的效果</span>。<br />特殊字符也是如此，例如￥这个符号，黑体和宋体就是不同的。</p>
+<p><span style="background-color: #00ffff;">打印设计是辅助设计的，具体以打印预览和虚拟打印机测试为准。</span></p>
+<p><span style="background-color: #00ffff;"><img src="https://img2018.cnblogs.com/blog/1481828/201811/1481828-20181112160214390-86849295.png" alt="" /></span></p>
+<p>&nbsp;</p>
+<p>cnblog链接（带图示）:<a href="https://www.cnblogs.com/huaxie/p/9947009.html" target="_blank">Lodop中特殊符号￥打印设计和预览不同</a></p>
+<p><a href="../blog_index.html">返回博文列表</a></p>
+</div>
+<div id="footer"><img src="../images/lodopfoot.png"></div>
+</body>
+</html>
