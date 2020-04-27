@@ -1,0 +1,31 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>WEB打印控件LODOP</title>
+<script language="javascript" src="LodopFuncs.js"></script>
+ <link href="../css/blogback.css" type='text/css' rel="stylesheet">     
+</head>
+<body id="bodyA1">
+<div id="header">
+<div id="head1"></div>
+</div>
+<div class="blogpost-body">
+<h3>LODOP暂存、应用、复原 按钮的区别</h3>
+    <p>LODOP中打印设计（PRINT_DESIGN）有暂存和复原按钮，<br />打印维护（PRINT_SETUP）有应用和复原按钮。</p>
+<p>打印设计暂存和打印维护的应用功能不同，两者的区别：<br /><strong>1.打印设计的暂存、复原（类似返回上一步，返回到暂存时候的布局）</strong><br />类似一些软件的返回上一步，像PS,blender这样的还有返回上上步，多级返回，这里的打印设计的复原功能，就是类似这种返回上一步，返回到哪一步？就是暂存的时候的那一步，这里的功能是用来辅助设计的，关闭打印打印设计后不会对调整后的内容显示有任何影响。<br />比如，设计一段时间后，发现设计的效果差不多了，可以点暂存，然后修改下细节，细节修改之后发现修改的不怎么好，这时候可以点复原，就可以回到设计的效果差不多了点暂存的时候那个步骤，然后就可以再修改，如果不好再复原，在设计再暂存，以此类推，直到设计好。然后用生成代码，或用打印设计的返回值，获取设计后的代码，把获取的代码或生成的代码，拷贝出来，放到程序里就可以了。<br />打印设计生成代码，内容弄太多或超文本会显示省略号，但能一眼看出每个打印项的位置信息，如果要返回全部的代码，可以利用LODOP.PRINT_DESIGN()的返回值，可查看本博客的相关博文：<br /><a href="https://www.cnblogs.com/huaxie/p/9777750.html" target="_blank">Lodop打印设计界面生成代码带&rdquo;...(省略)&rdquo;</a></p>
+<p><strong>2.打印维护的应用和复原</strong><br />PRINT_INIT或PRINT_INITA，中设置任务名。<br />打印维护，然后修改内容后，点应用。<br />具体可查看本博客另一篇详细博文：<a href="https://www.cnblogs.com/huaxie/p/9728450.html" target="_blank">Lodop打印维护PRINT_SETUP本地缓存ini文件Lodop打印维护</a></p>
+<p>缓存的ini配置文件路径：<br />系统盘符:\Program Files (x86)\MountTaiSoftware\Lodop\PrintSetups_打印任务名.ini<br />C:\Program Files\MountTaiSoftware\Lodop<br />C:\Program Files (x86)\MountTaiSoftware\Lodop<br />C:\MountTaiSoftware\MountTaiSoftware\Lodop</p>
+<p><strong>ini区别：打印设计只是临时工作文件，打印维护是实际使用一直存在的文件</strong><br />如果实际查看，也可能会发现LODOP.PRINT_DESIGN()的缓存ini文件，这个ini文件只是工作临时文件，不会对实际打印内容产生任何影响，只是用来辅助设计的。<br />而LODOP.PRINT_SETUP();打印维护，缓存的ini文件，会对该客户端本地的该任务名的内容有影响，修改后就是按照这个修改后的进行打印。</p>
+<p><strong>暂存和应用：（前缀不同<strong>PrintDesigns_，PrintSetups_</strong>）</strong><br />打印设计的临时工作文件ini，不指定任务名时，是PrintDesigns_NoPrintTaskName.ini<br />打印设计临时工作文件ini，指定任务名时（例如LODOP.PRINT_INIT("测试");），是PrintDesigns_测试.ini<br />打印维护缓存的in文件，不指定任务名时，相当于禁用了打印维护的本地配置调整功能，不会生成ini文件。<br />打印维护的ini，指定任务名时（例如LODOP.PRINT_INIT("测试");），是PrintSetups_测试.ini</p>
+<p><strong>LODOP.PRINT_INIT("");初始化为空值</strong>，置空任务名，相当于打印维护禁用本地微调功能，不会生成任务文件，如果置空后想使用该功能，会提示：<span style="color: #000080;">打印任务名（PrintTaskName）空，无法保存当前布局！请用&ldquo;PRINT_INIT&rdquo;或&ldquo;PRINT_INITA&rdquo;在初始化时指定PrintTaskName</span>.</p>
+<p>LODOP.PRINT_INIT("");---------LODOP.PRINT_DESIGN();暂存----------PrintDesigns_NoPrintTaskName.ini（临时）<br />LODOP.PRINT_INIT("");---------LODOP.PRINT_SETUP();应用----------不生成，报错<br />LODOP.PRINT_INIT("测试");---------LODOP.PRINT_DESIGN();暂存----------PrintDesigns_测试.ini<br />LODOP.PRINT_INIT("测试");---------LODOP.PRINT_SETUP();应用----------PrintSetups_测试.ini(调整结果一直有效)</p>
+<p><img src="https://img2018.cnblogs.com/blog/1481828/201812/1481828-20181214140830497-1751284712.png" alt="" /></p>
+
+<p>&nbsp;</p>
+<p>cnblog链接（带图示）:<a href="https://www.cnblogs.com/huaxie/p/10118373.html" target="_blank">LODOP暂存、应用、复原 按钮的区别</a></p>
+<p><a href="../blog_index.html">返回博文列表</a></p>
+</div>
+<div id="footer"><img src="../images/lodopfoot.png"></div>
+</body>
+</html>

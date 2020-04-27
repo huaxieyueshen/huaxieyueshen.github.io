@@ -1,0 +1,31 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>WEB打印控件LODOP</title>
+<script language="javascript" src="LodopFuncs.js"></script>
+ <link href="../css/blogback.css" type='text/css' rel="stylesheet">     
+</head>
+<body id="bodyA1">
+<div id="header">
+<div id="head1"></div>
+</div>
+<div class="blogpost-body">
+<h3>Lodop、c-lodop注册与角色简短问答</h3>
+    <p><strong>注册与角色：</strong><br />参考http://www.c-lodop.com/demolist/t1.html<br />参考链接里的三种场景，是哪种角色。<br />客户端访问网站后用自己的打印机打印。是客户端本地打印角色。<br />IP和域名注册，根据浏览器地址栏访问方式注册，P访问，注册IP；域名访问，注册域名；不限IP域名，可做企业名称注册。<br />（1）.单独注册服务器ip地址，登陆访问方式是ip地址访问，例如：注册ip地址：192.168.0.1，登陆方式如下http：//192.168.0.1:8000/index.jsp等，域名访问时，注册信息无效。<br />（2）.单独注册域名：登陆访问方式是域名地址访问，例如：注册域名： www.c-lodop.com 登陆方式如下：http://www.c-lodop.com/index.html等，ip地址访问时，注册信息无效</p>
+<p><span style="color: #000000; font-family: 微软雅黑;">域名的使用原则是：如果注册的是&ldquo;</span><span style="color: #000000; font-family: 微软雅黑;">&nbsp;<a class="imui-msg-link unknown-link J_link_6269471646858183336_929ba26f492f86d4a9d66a080849865a" href="alires:///WebUI/chatmsg/abc.com" target="_blank"><span class="link-sf">abc.com</span></a>&nbsp;&rdquo;，那么可以用域名&ldquo;</span><span style="color: #000000; font-family: 微软雅黑;">&nbsp;<a class="imui-msg-link unknown-link J_link_6269471646858183336_19103e6354655886cb2f46880a4ae116" href="alires:///WebUI/chatmsg/www.abc.com" target="_blank"><span class="link-sf">www.abc.com</span></a>&nbsp;&rdquo;&ldquo;</span><span style="color: #000000; font-family: 微软雅黑;">&nbsp;<a class="imui-msg-link unknown-link J_link_6269471646858183336_9b8200d828d92d71d107a567afb9501b" href="alires:///WebUI/chatmsg/xx.abc.com" target="_blank"><span class="link-sf">xx.abc.com</span></a>&nbsp;&rdquo;等等，但反之则不对。<br /><br />客户端浏览器访问的什么地址，注册什么地址&nbsp;</span></p>
+<p><strong>角色与安装：</strong><br />测试参考一下官网样例http://www.c-lodop.com/LodopDemo.html<br />官网样例是混合部署LodopFuncs.js里已经写好了判断。<br />客户端是浏览器支持np插件，是32位浏览器，就会提示下载32位的Lodop插件：install_lodop32.exe<br />客户端浏览器支持np插件，是64位浏览器，就会提示下载64位的Lodop插件：install_lodop64.exe<br />客户端浏览器不支持np插件（判断如高版本谷歌火狐等），会提示下载C-Lodop方式： CLodop_Setup_for_Win32NT.exe<br />如果是混合部署，像官网一样，根据LodopFuncs.js里判断，安装lodop或c-lodop。<br />也可以修改LodopFuncs.js里needclodop方法直接返回true，强制所有都用c-lodop。参考http://www.c-lodop.com/faq/pp34.html</p>
+<p>参考http://www.c-lodop.com/faq/pp2.html<br />参考http://www.c-lodop.com/faq/pp21.html<br />官网样例是混合部署，提示这个说明走的是Lodop插件方式，需要安装Lodop插件。<br />官网下载中心综合版里共三个安装文件，有c-lodop的，还有两个是lodop插件方式的安装文件。</p>
+<p>提示是关于Lodop控件方式的，需要安装Lodop插件方式。<br />参考http://www.c-lodop.com/faq/pp21.html<br /> Lodop打印控件安装文件两个，与浏览器位数有关，32位浏览器安装32位插件，64位安装64位的插件: 32位安装程序：install_lodop32.exe； 64位安装程序：install_lodop64.exe； <br />可测试官网样例，根据官网样例提示安装http://www.c-lodop.com/LodopDemo.html<br />官网样例是混合部署LodopFuncs.js里已经写好了判断。<br />客户端是浏览器支持np插件，是32位浏览器，就会提示下载32位的Lodop插件：install_lodop32.exe<br />客户端浏览器支持np插件，是64位浏览器，就会提示下载64位的Lodop插件：install_lodop64.exe<br />客户端浏览器不支持np插件（判断如高版本谷歌火狐等），会提示下载C-Lodop方式： CLodop_Setup_for_Win32NT.exe</p>
+<p>参考http://www.c-lodop.com/demolist/t1.html<br />参考链接里的三种场景，是哪种角色。<br />如果是客户端本地打印角色，每个客户端都安装。</p>
+<p><strong>LodopFuncs.js，CLodopFuncs.js：</strong><br />Lodop控件升级到C-Lodop云打印 参考http://www.c-lodop.com/faq/pp7.html<br />参考http://www.c-lodop.com/faq/pp23.html<br />如果是客户端本地打印打印角色，可以直接引用LodopFuncs.js，里面写好了判断，哪些用lodop，哪些用c-lodop，判断为c-lodop会用动态引用http://localhost:8000/CLodopFuncs.js</p>
+<p>参考http://www.c-lodop.com/faq/pp23.html<br />启动C-Lodop时才自动生成该文件，必须确保c-lodop是启动状态，才能访问到该文件。</p>
+<p>双击桌面上的c-lodop快捷方式，在启动界面的设置里，查看一下端口，端口是否正常。</p>
+<div>参考<img src="file:///C:\Users\dell\AppData\Roaming\Tencent\QQ\Temp\%W@GJ$ACOF(TYDYECOKVDYB.png" alt="" />http://www.c-lodop.com/faq/pp23.html<br />启动C-Lodop时才自动生成该文件，不需要下载，启动后可以直接引用。&nbsp;</div>
+<p>&nbsp;</p>
+<p>cnblog链接（带图示）:<a href="https://www.cnblogs.com/huaxie/p/10155208.html" target="_blank">Lodop、c-lodop注册与角色简短问答</a></p>
+<p><a href="../blog_index.html">返回博文列表</a></p>
+</div>
+<div id="footer"><img src="../images/lodopfoot.png"></div>
+</body>
+</html>

@@ -1,0 +1,68 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>WEB打印控件LODOP</title>
+<script language="javascript" src="LodopFuncs.js"></script>
+ <link href="../css/blogback.css" type='text/css' rel="stylesheet">     
+</head>
+<body id="bodyA1">
+<div id="header">
+<div id="head1"></div>
+</div>
+<div class="blogpost-body">
+<h3>LODOP提示、报错、现象，简短问答</h3>
+    <p><strong>提示升级</strong><br /><span style="color: #000080;">提示：&ldquo;打印控件需要升级!点击这里执行升级,升级后请重新进入。"</span><br /><span style="color: #000080;">&ldquo;Web打印服务CLodop需升级!点击这里执行升级,升级后请刷新页面。&rdquo;（新版提示）</span></p>
+<p>参考http://www.c-lodop.com/faq/pp2.html<br />查看LodopFuncs.js里的判断，和实际安装的版本。<br />实际安装的小于LodopFuncs.js判断的版本号会提示升级。<br />查看安装的版本号 参考http://www.c-lodop.com/faq/pp15.html</p>
+<p>下载最新版安装后刷新页面http://www.c-lodop.com/download.html<br />或修改LodopFuncs.js里提示升级的判断版本号，把版本号降低。</p>
+<p>测试一下官网样例http://www.c-lodop.com/demolist/PrintSample2.html<br />官网样例是否有什么提示。提示内容是什么。</p>
+<p><span style="background-color: #ccffff;">相关详细博文：</span><a href="https://www.cnblogs.com/huaxie/p/9635884.html" target="_blank">LODOP打印控件如何提示用户升级下载安装新版本</a>、</p>
+<p><strong>提示安装</strong><br /><span style="color: #000080;">提示：&ldquo;打印控件未安装!点击这里执行安装,安装后请刷新页面或重新进入。&rdquo;</span><br /><span style="color: #000080;">&ldquo;Web打印服务CLodop未安装启动，点击这里下载执行安装（若此前已安装过，可点这里直接再次启动），成功后请刷新本页面。&rdquo;（新版提示）</span></p>
+<p>Lodop页面总提示"未安装"或"请升级"的可能原因 参考http://www.c-lodop.com/faq/pp2.html</p>
+<p>测试参考一下官网样例http://www.c-lodop.com/LodopDemo.html<br />官网样例是否有什么提示，提示内容是什么。<br />官网样例是混合部署LodopFuncs.js里已经写好了判断。<br />客户端是浏览器支持np插件，是32位浏览器，就会提示下载32位的Lodop插件：install_lodop32.exe<br />客户端浏览器支持np插件，是64位浏览器，就会提示下载64位的Lodop插件：install_lodop64.exe<br />客户端浏览器不支持np插件（判断如高版本谷歌火狐等），会提示下载C-Lodop方式： CLodop_Setup_for_Win32NT.exe</p>
+<p>测试一下官网样例http://www.c-lodop.com/demolist/PrintSample2.html<br />点样例的预览试试。<br />如果样例正常，用ie浏览器试试，如果ie浏览器用也不行，联系一下你所使用网站的开发技术人员，让他们排查一下。<br />如果样例正常，联系一下你所使用网站的开发技术人员，让他们排查一下。</p>
+<p>如果是https网站，需要下载32位c-lodop扩展版，有https端口。<br />c-lodop32位扩展版支持32位和64位操作系统，只有32位扩展版有https端口，安装32位c-lodop扩展版就行。http://www.c-lodop.com/download.html</p>
+<p><span style="background-color: #ccffff;">详细相关博文</span>：<a href="https://www.cnblogs.com/huaxie/p/10345805.html" target="_blank">提示&ldquo;Web打印服务CLodop未安装启动&rdquo;的各种原因和解决方法</a>、<a href="https://www.cnblogs.com/huaxie/p/11686494.html" target="_blank">IE浏览器提示打印控件未安装的一些原因</a>、</p>
+<p><strong>c-lodop出现远程预览界面</strong><br />c-lodop预览模式，参考http://www.c-lodop.com/faq/pp28.html<br />如果是集中打印、广域网AO打印等非客户端本地打印方式，出现这个界面是正常的。</p>
+<p>如果是客户端本地打印角色，参考：<br />c-lodop预览模式，参考http://www.c-lodop.com/faq/pp28.html<br />双击桌面上的c-lodop快捷方式，重启一下本机的c-lodop，重启后刷新页面。<br />建议使用最新版c-lodop，最新版有后备进程 http://www.c-lodop.com/download.html<br />当主进程被杀死时，会自动又起来，可以在资源管理器进程管理里测试一下。</p>
+<p><span style="background-color: #ccffcc;">相关详细博文：</span><a href="https://www.cnblogs.com/huaxie/p/9596835.html" target="_blank">C-Lodop打印服务没启动怎么办</a></p>
+<p><strong>开机c-lodop没自启动，提示安装或出现远程预览界面</strong><br />参考http://www.c-lodop.com/faq/pp5.html<br />排查开机启动项，用管理员权限安装最新版http://www.c-lodop.com/download.html，右键以管理员权限运行，再对比试试。<br />排查c-lodop是否能开机自启动，默认情况c-lodop是开机自动启动的，没自动开启可能问题：<br />1. 在系统msconfig启动选项列查看c-lodop是否是开启自启动；<br />2. 当前操作用户权限不足，无系统管理员权限；<br />3. 注意安全软件禁用c-lodop. 目前常用的360及金山已进行了安全认证，其他的杀毒软件请加入白名单，或直接上报提交对应的杀毒软件服务器。</p>
+<p><span style="background-color: #ffff99;">相关详细博文</span>：<a href="https://www.cnblogs.com/huaxie/p/9635884.html" target="_blank">LODOP打印控件如何提示用户升级下载安装新版本</a>、<a href="https://www.cnblogs.com/huaxie/p/9848319.html" target="_blank">Lodop提示安装或升级的注意事项</a>、<a href="https://www.cnblogs.com/huaxie/p/9591791.html" target="_blank">如何设置C-Lodop打印控件的端口</a>。</p>
+<p><strong>提示 Operation not supported on selected printer、Printer selected is not valid、There is no default printer currently selected</strong><br />参考http://www.c-lodop.com/faq/pp1.html</p>
+<p>1.用最新版对比试试http://www.c-lodop.com/download.html<br />最新版对这个问题有优化<br />2.参考http://www.c-lodop.com/faq/pp1.html<br />如果确认是最新版，排查下链接的内容。<br />3.是否没有指定默认打印机，查看一下windows打印机列表，指定一下打印机。<br />4.用最新版测试下http://www.c-lodop.com/download.html<br />如果最新版也是这样，选择其他打印机试试，重装该打印机驱动试试。</p>
+<p>参考http://www.c-lodop.com/faq/pp1.html<br />系统打印服务(Print Spooler)是否开启。<br />查看下windows打印机列表是否有打印机，是否指定了默认打印机，指定有效默认打印机试试。<br />去掉set_print_pagesize语句对比试试。</p>
+<p>参考http://www.c-lodop.com/faq/pp1.html<br />系统打印服务(Print Spooler)是否开启。<br />查看下windows打印机列表是否有打印机，是否指定了默认打印机，指定有效默认打印机试试。<br />先排查下其他条目。<br />然后用虚拟打印机测试下，如果虚拟打印机不提示这个，就用真实打印机的时候去掉该语句测试。<br />如果排查结果最后确认是该语句引起的，只能去掉该语句，可改用真实打印机本身自己的纸张。</p>
+<p><strong>提示&ldquo;C-Lodop未准备好&rdquo;、&ldquo;WebSocket没准备好&rdquo;、&ldquo;网页还没下载完毕，请稍等一下再操作.&rdquo;（新版提示）</strong><br />参考http://www.c-lodop.com/faq/pp3.html 处理一下</p>
+<p>参考http://www.c-lodop.com/faq/pp3.html 新版修改了该提示，是同一问题，参考链接里的方法</p>
+<p>参考http://www.c-lodop.com/faq/pp3.html 新版修改了该提示，是同一问题，参考链接里的方法。<br />如果是页面点击后打印，把获取LODOP对象放在打印按钮里触发。参考样例2http://www.c-lodop.com/demolist/PrintSample2.html</p>
+<p>具体使用方法参考官网样例（官网样例页面 右键-查看源码）<br />方法外 var LODOP; //声明为全局变量<br />在每个需要打印的地方：LODOP=getLodop(); //获得Lodop对象，getLodop()该方法在LodopFuncs.js里。（在按钮或链接等方法里写这句，右键参考样例源码，建议不要一进入页面就加载LODOP对象。）<br />最基本的打印过程至少有初始化语句、添内容语句和打印语句三部分组成，例如：<br />LODOP.PRINT_INIT("打印任务名"); //首先一个初始化语句<br />LODOP.ADD_PRINT_TEXT(0,0,100,20,"文本内容一");//然后多个ADD语句及SET语句<br />LODOP.PRINT(); //最后一个打印(或预览、维护、设计)语句</p>
+<p>如果是需要一进入页面就进行打印，不需要点击页面的按钮等触发，可参考链接里的处理方法，加延迟或等c-lodop加载完再调用。</p>
+<p>参考http://www.c-lodop.com/faq/pp3.html 新版修改了该提示，是同一问题，参考链接里的方法。<br />如果是页面点击后打印，把获取LODOP对象放在打印按钮里触发。参考样例2http://www.c-lodop.com/demolist/PrintSample2.html<br />如果是需要一进入页面就进行打印，不需要点击页面的按钮等触发，可参考链接里的处理方法，加延迟或等c-lodop加载完再调用。</p>
+<p>参考http://www.c-lodop.com/faq/pp3.html 如果是页面点击后打印，把获取LODOP对象放在打印按钮里触发。参考样例2http://www.c-lodop.com/demolist/PrintSample2.html<br />如果是需要一进入页面就进行打印，不需要点击页面的按钮等触发，可参考链接里的处理方法，加延迟或等c-lodop加载完再调用。</p>
+<p><strong><span style="background-color: #ccffcc;">详细相关博文：</span><a href="https://www.cnblogs.com/huaxie/p/9593208.html" target="_blank">C-Lodop设置页面一加载就打印</a>、<a href="https://www.cnblogs.com/huaxie/p/9804744.html" target="_blank">C-Lodop提示&ldquo;网页还没下载完毕，请稍等一下再操作.&rdquo;</a>、</strong></p>
+<p><strong>C-Lodop提示&ldquo;有窗口已打开，先关闭它（持续如此请刷新页面）！&rdquo;</strong></p>
+<p>参考http://www.c-lodop.com/faq/pp27.html<br />是否有共享打印机，删除共享打印机后，重新安装试试。<br />（之后又客户共享打印机出问题，也是老提示这个，而且c-lodop的启动界面也出不来，第一次点击就提示，后来远程了下，删除共享打印机后，重新安装就好了。）</p>
+<p>测试下官网样例http://www.c-lodop.com/demolist/PrintSample2.html<br />双击桌面上的c-lodop快捷方式，重启一下本机的c-lodop，重启c-lodop后刷新页面。<br />重启c-lodop后，刷新下页面后再点击样例的预览试试，只点击一次。</p>
+<p>是否有共享打印机，删除共享打印机后，重新安装试试。<br />如果只点一次样例没反应，查看下浏览器后面，是否窗口被遮挡了。</p>
+<p>双击桌面上的c-lodop快捷方式，重启一下本机的c-lodop，重启c-lodop可强制关闭前面的c-lodop窗口。</p>
+<p>查看下是否设置了windows默认打印机，设置具体的windows默认打印机再测试试试。<br />没有设置默认打印机引起的，设置就好了。<span style="color: #800000;">（客户反馈 ）</span></p>
+<p><span style="background-color: #ccffcc;"><strong>详细相关博文</strong>：</span><a href="https://www.cnblogs.com/huaxie/p/10469437.html" target="_blank">C-Lodop提示&ldquo;有窗口已打开，先关闭它（持续如此请刷新页面）！&rdquo;</a></p>
+<p><strong>安装c-lodop时提示&ldquo;Error:Error writing to registry key:&hellip;&hellip;RegSetValueEx failed;code 5.拒绝访问., click retry again,Ignore to proceed anyway,or Abort to cancel installation.&rdquo;中止、重试、忽略。</strong><br />点重试，如果不行，点忽略，直到安装完成。<br />点重试或忽略，直到安装完成。<br />安装启成功后，刷新浏览器页面，然后测试样例2 http://www.c-lodop.com/demolist/PrintSample2.html</p>
+<p><strong>google提示 此网站使用的插件（application/x-print-lodop）不受支持</strong><br />参考http://www.c-lodop.com/faq/pp21.html<br />高版本的火狐谷歌不再支持np插件，需要使用c-lodop，可参考官网样例混合部署http://www.c-lodop.com/LodopDemo.html<br />Lodop控件升级到C-Lodop云打印 参考http://www.c-lodop.com/faq/pp7.html</p>
+<p>参考http://www.c-lodop.com/faq/pp21.html<br />高版本的火狐谷歌不再支持np插件方式，只能用c-lodop，c-lodop不支持内嵌。<br />可以在ie等支持np插件的浏览器下查看官网的需要内嵌的样例效果。</p>
+<p><strong>C-Lodop出问题，需要重启c-lodop才能解决问题 </strong><br /><strong>例如：writeINI:Unable to write C:\Program Files(x86)MountTaiSoftware\CLodop32\SetupOption\MainOption.imi---错误日期</strong></p>
+<p>查看c-lodop系统信息：http://localhost:8000/c_sysmessage  <br />http://c-lodop服务所在ip:c-lodop端口/c_sysmessage </p>
+<p>重新安装c-lodop，以管理员权限安装，右键以管理员权限运行，然后刷新该错误页面，查看错误是否消失。<br />以管理员权限安装，右键以管理员权限运行后，刷新该错误页面。</p>
+<p><strong>提示未安装或未启动（没详细说是哪个提示）</strong><br />参考http://www.c-lodop.com/faq/pp2.html<br />测试参考一下官网样例http://www.c-lodop.com/demolist/PrintSample2.html<br />查看样例的有什么提示，提示是lodop的还是c-lodop的。<br />官网样例是混合部署LodopFuncs.js里已经写好了判断。<br />客户端是浏览器支持np插件，是32位浏览器，就会提示下载32位的Lodop插件：install_lodop32.exe<br />客户端浏览器支持np插件，是64位浏览器，就会提示下载64位的Lodop插件：install_lodop64.exe<br />客户端浏览器不支持np插件（判断如高版本谷歌火狐等），会提示下载C-Lodop方式： CLodop_Setup_for_Win32NT.exe</p>
+<p>如果是已经安装了c-lodop，提示未安装启动，参考http://www.c-lodop.com/faq/pp5.html<br />双击桌面上的c-lodop快捷方式，重启一下本机的c-lodop，重启后刷新页面。<br />建议以管理员权限安装使用最新版c-lodop。</p>
+<p><strong>覆盖安装c-lodop，提示&ldquo;setup:Stop the running service failure,try again[停止原服务失败，再试一次吗]?&rdquo;</strong><br />建议安装最新版c-lodop http://www.c-lodop.com/download.html<br />以管理员权限安装，可直接覆盖安装，覆盖安装会停止并卸载之前的，如果是这个点确定，停止后进行卸载之前的版本，继续安装新版本。<br />如果点击确定还是没能停止原服务，重启电脑后重新安装试试。</p>
+<p>（未完待续）</p>
+<p>此文为简短问答，详细可参考每个问题下方的详细相关博文。</p>
+<p><a href="https://www.cnblogs.com/huaxie/p/10345805.html" target="_blank">&nbsp;</a></p>
+<p>&nbsp;</p>
+<p>cnblog链接（带图示）:<a href="https://www.cnblogs.com/huaxie/p/10265673.html" target="_blank">LODOP提示、报错、现象，简短问答</a></p>
+<p><a href="../blog_index.html">返回博文列表</a></p>
+</div>
+<div id="footer"><img src="../images/lodopfoot.png"></div>
+</body>
+</html>
