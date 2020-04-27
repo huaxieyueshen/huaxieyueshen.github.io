@@ -1,0 +1,30 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>WEB打印控件LODOP</title>
+<script language="javascript" src="LodopFuncs.js"></script>
+ <link href="../css/blogback.css" type='text/css' rel="stylesheet">     
+</head>
+<body id="bodyA1">
+<div id="header">
+<div id="head1"></div>
+</div>
+<div class="blogpost-body">
+<h3>Lodop扁宽横向241mm*93mm这种怪异的纸张如何设置</h3>
+    <p>Lodop中如果设置<span style="color: #000080;">LODOP.SET_PRINT_PAGESIZE(2,'241mm','93mm','');</span>，会发现实际的纸张和自己设置的不同，不只是打印机不识别，xps和pdf虚拟打印机也不能正常识别。<br />刚开始以为这种纸张比较奇怪，实际测试241mmX93mm如果设置横向打印，确实不能正常显示，但是设置93mm*241mm横向纵向都没有问题。<br />正常情况下的纸张，<span style="background-color: #ccffcc;">一般都类似A4这样，宽度窄高度高的细长状的，扁平状的也可以，但是如果扁平状+内容横向，可能会干扰打印机或虚拟打印机的一些识别</span>，造成一些问题。</p>
+<p>LODOP中SET_PRINT_PAGESIZE第一个参数是打印方向，这个打印方向指的是内容的方向，而非纸张的方向，发现这种扁平横向纸张不能显示设置数值时，或许可以调整进纸方向，也就是把241mmX93mm换成93mm*241mm，这种纸张横向纵向都可以。</p>
+<p>但是如果纸张宽高变了，那么纸张进纸的方向，和走纸的高度就变了，该客户的需求就是用扁平的该纸张进纸，所以这个换进纸方向的方法不行。</p>
+<p>后来客户发了该纸张的样式图片，是三张小纸组成一张大纸，连打的那种，这种让我想到了对公回单，由于有些人付款会选择对公账户，所以月初需要去银行打回单，回单是一条一条的，一张纸上很多条回单，如果最后一页没铺满，会有一堆类似水印的文字<span style="color: #ff6600;">&ldquo;此页空白，此页无效&rdquo;类似的文字</span>，具体文字我忘了，因为这张最后的纸的下半部分是没用的，可以说一张纸浪费了一些，我想既然银行对公回单都可以这样，那么浪费一点也是没问题的。</p>
+<p>解决方法就是把两张，或三张看做一张纸，内容分布在在纸张纸上，一张大纸可以打印两张或三张小纸，<br /><span style="color: #000080;">例如LODOP.SET_PRINT_PAGESIZE(2,'241mm','186mm','');//把两张93*2,小纸高度看做一张。</span><br />后来客户发了样式图片，貌似是三分段的一张纸，其实吧三张小纸看做一张大纸貌似更好。</p>
+<p>不过这样做也有缺点，如果连续打印的数量不是3的倍数，那么最后一张会有空白，我觉得空着也可以，不是很浪费，而且银行的对公回单也会一张纸打不全，最后一张也有浪费的内容。</p>
+<p>除了看做一张纸，客<span style="color: #008000;">户还反馈了一个方法，可以试试看，就是在打印机的设置里添加一个该尺寸扁平纸张，然后用Lodop直接指定纸张名称</span>，这样横向打印就没问题，客户反馈这样打印就没问题，这是在打印机设置的，如果不想把三张看做一张，可尝试下。<br /><span style="color: #000080;">LODOP.SET_PRINT_PAGESIZE(2,0,0,'纸张名称');//在打印机设置个该尺寸纸张，然后用Lodop调用横向，就可以了。</span></p>
+<p><img src="https://img2018.cnblogs.com/blog/1481828/201811/1481828-20181126110255102-244469924.png" alt="" /></p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>cnblog链接（带图示）:<a href="https://www.cnblogs.com/huaxie/p/10008115.html" target="_blank">Lodop扁宽横向241mm*93mm这种怪异的纸张如何设置</a></p>
+<p><a href="../blog_index.html">返回博文列表</a></p>
+</div>
+<div id="footer"><img src="../images/lodopfoot.png"></div>
+</body>
+</html>

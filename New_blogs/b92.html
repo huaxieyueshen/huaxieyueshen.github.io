@@ -1,0 +1,31 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>WEB打印控件LODOP</title>
+<script language="javascript" src="LodopFuncs.js"></script>
+ <link href="../css/blogback.css" type='text/css' rel="stylesheet">     
+</head>
+<body id="bodyA1">
+<div id="header">
+<div id="head1"></div>
+</div>
+<div class="blogpost-body">
+<h3>Lodop打印连续的纸张</h3>
+    <p>连续的纸张，有时有会被误解为没有高度，高度自适应，其实不是，这属于纸张连续打印，纸张高度和实际单个纸张高度相同。<br />纸张高度自适应适用于没有高度的那种小票打印（卷纸没有纸张分界线），不是这种连续纸张。关于图中左侧这种纸张，除了有人把该种纸张误认为没有高度之外，还有客户想要单独设置小张，避免浪费，可查看本博客相关博文：<a href="https://www.cnblogs.com/huaxie/p/10008115.html" target="_blank">Lodop扁宽横向241mm*93mm这种怪异的纸张如何设置</a><br />连续打印纸张高度一定要准确设置，否则打多了会偏移，可查看本博客另一篇博文：<a href="https://www.cnblogs.com/huaxie/p/9599221.html" target="_blank">Lodop连续打印内容逐渐偏移怎么办</a></p>
+<p>有些标签打印机，不只是连续单个纸张，可能标签有两列三列等，连续打印多行多列，这种情况下，不是把纸张设置成一张标签纸的高度，可以设置一排为一张纸，间隔也算上。<br />把两张标签和间隔都看做一张纸，需要打印的内容只要在实际纸张上就行，有的打印机可能自己算间隔，需要实际测试一下。</p>
+<p>如果没有连续打印，是否是打印机的设置问题，有客户反映如果多任务（多页可以连续打印）打印机需要打到连续打印模式，用单页模式不行。</p>
+<p><img src="https://img2018.cnblogs.com/blog/1481828/201811/1481828-20181113150740858-1001585941.png" alt="" /></p>
+<p><strong>简短问答：</strong><br />如果不是小票那种，需要设置具体的纸张高度，打印机对最大纸张高度是有限制的。批量打印，分页分任务，在页数和任务之间平衡一下，参考样例26http://www.c-lodop.com/demolist/PrintSample26.html</p>
+<p>（本文插图的第一个纸张）<br />是类似这种纸张吧，这种也是需要设置纸张高度的，不是小票那种整体的纸张。<br />打印机纸张有最大高度限制。</p>
+<p>自适应高度 本质是根据打印语句明确的输出位置信息，来推断出纸张高度，从而确定纸张的高度，一般使用与专用打印机，比如小票打印机，普通打印没有那么高度的纸张；普通的打印机需要设置具体的纸张。</p>
+<p>需要设置具体的纸张高度，会自动分页，参考http://www.c-lodop.com/faq/pp17.html<br />3.连续打印输出多张，偏移累计越来越大：<br />设置输出的纸张 与实际纸张大小有差异，如果确实无法做到与纸张实物一样大，输出一定任务数量后，发现有偏差时需要手动调整进纸位置以纠正。<br />这种连续的纸张，设置一张大小，连续打印纸张。</p>
+<p>如果打印机不能连续输出，之前有客户反馈打印机有单页模式，和连续打印模式，查看下是否打印机在连续打印模式试试。</p>
+<p>小票打印机那种，可以设置纸张高度自适应，其他普通打印机都有高度限制的，不能高度自适应。<br />不建议在非小票打印机上使用高度自适应。</p>
+<p>&nbsp;</p>
+<p>cnblog链接（带图示）:<a href="https://www.cnblogs.com/huaxie/p/9952308.html" target="_blank">Lodop打印连续的纸张</a></p>
+<p><a href="../blog_index.html">返回博文列表</a></p>
+</div>
+<div id="footer"><img src="../images/lodopfoot.png"></div>
+</body>
+</html>
