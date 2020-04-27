@@ -1,0 +1,25 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>WEB打印控件LODOP</title>
+<script language="javascript" src="LodopFuncs.js"></script>
+ <link href="../css/blogback.css" type='text/css' rel="stylesheet">     
+</head>
+<body id="bodyA1">
+<div id="header">
+<div id="head1"></div>
+</div>
+<div class="blogpost-body">
+<h3>Lodop纯文本英文-等符号自动换行问题</h3>
+    <p>ADD_PRINT_TEXT纯文本，宽度不够，高度足够，超宽会自动换行，高度不够会隐藏后面的内容。<br />在超宽自动换行的时候，如果有-或（）之类的，英文单词不拆分，或其他一些认为是不拆分的情况，会造成还没有到达该宽度就会自动换行，如果想要避免这点，可以加如下语句：<br /><span style="color: #333399;">LODOP.SET_PRINT_STYLEA(0,"TextNeatRow",true);//允许标点溢出，且英文单词拆开。</span></p>
+<p><img src="https://img2018.cnblogs.com/blog/1481828/201811/1481828-20181112162045827-580831636.png" alt="" /></p>
+<p>圆括号也会导致：</p>
+<p><img src="https://img2018.cnblogs.com/blog/1481828/201811/1481828-20181113141853889-577276042.png" alt="" /></p>
+<p>&nbsp;</p>
+<p>cnblog链接（带图示）:<a href="https://www.cnblogs.com/huaxie/p/9947181.html" target="_blank">Lodop纯文本英文-等符号自动换行问题</a></p>
+<p><a href="../blog_index.html">返回博文列表</a></p>
+</div>
+<div id="footer"><img src="../images/lodopfoot.png"></div>
+</body>
+</html>

@@ -1,0 +1,26 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>WEB打印控件LODOP</title>
+<script language="javascript" src="LodopFuncs.js"></script>
+ <link href="../css/blogback.css" type='text/css' rel="stylesheet">     
+</head>
+<body id="bodyA1">
+<div id="header">
+<div id="head1"></div>
+</div>
+<div class="blogpost-body">
+<h3>Lodop输出页面input文本框的最新值</h3>
+    <p>默认使用Lodop打印页面上的文本框等，会发现虽然页面上文本框输入了值，打印预览却是空的，这是由于没有把最新的值传入Lodop。</p>
+<p>如图，演示的是Lodop如何输出文本框内的新值，这里整个页面只有input type="text"，如果有单选等，需要判断一下是input类型是文本框还是单选框 input type="radio"。如果有其他表单输出项，也要添加到判断里，除了input，还可能有select下拉列表。<br />为了简略，图中代码里只让innerHTML获取的内容包含input（整个页面只有type="text"文本框）的最新值。</p>
+<p>同时让innerHTML获取的内容包含input和select(option)的最新值，下图代码可以从如下官网样例里拷贝（或下载中心综合版里自带的样例），页面右键-查看源码，可以查看或拷贝代码写好的refreshData()方法。<br />如果想打印使用页面的最新值，可在打印前调用一下这个方法。</p>
+<p>如下代码，可用Lodop输出文本框，单选框，复选框，下拉列表的最新值。</p>
+
+<p>&nbsp;</p>
+<p>cnblog链接（带图示）:<a href="https://www.cnblogs.com/huaxie/p/9952016.html" target="_blank">Lodop输出页面input文本框的最新值</a></p>
+<p><a href="../blog_index.html">返回博文列表</a></p>
+</div>
+<div id="footer"><img src="../images/lodopfoot.png"></div>
+</body>
+</html>

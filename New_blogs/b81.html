@@ -1,0 +1,28 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>WEB打印控件LODOP</title>
+<script language="javascript" src="LodopFuncs.js"></script>
+ <link href="../css/blogback.css" type='text/css' rel="stylesheet">     
+</head>
+<body id="bodyA1">
+<div id="header">
+<div id="head1"></div>
+</div>
+<div class="blogpost-body">
+<h3>Lodop“对象不支持SET__LICENSES属性或方法”SET__LICENSES is not a function”</h3>
+    <p>Lodop中的方法如果书写错误，就会报错：&ldquo;对象不支持XXX属性或方法&rdquo;<br />调试JS会报错&rdquo;SET__LICENSES is not a function&rdquo;</p>
+<p>LODOP.SET_LICENSES是加注册语句，作为Lodop中的方法，如果写错，也会报类似的错误，&ldquo;对象不支持SET__LICENSES属性或方法&rdquo;SET__LICENSES is not a function&rdquo;<br /><strong>常见的书写错误</strong><br />1.LODOP.SET_LICENSES写成LODOP.SET__LICENSES，（下划线错误）<br />2.LICENSES拼写错误。<br />3.SET_LICENSES中间有空格。<br />4.SET_LICENSE写成SET_LIC_LICENSES。（有不止一个人这么错写，不知道为什么）</p>
+<p>此问题可由SET_LICENSES书写错误导致（无效的一种情况），在注册号参数正确的情况下，如果这个SET_LICENSES写错了，也会报错。<br />购买后可直接复制收注册号邮箱里的语句，避免出错。</p>
+<p>此外，有时候，SET_LICENSES没写错，但是参数注册号写错了，比如少复制了一些内容等，这种时候会表现为注册号无效。<br />预览可能会出现&ldquo;页面曾用过Lodop授权给&ldquo;XXXXXX公司&rdquo;注册号，但本次无效！&rdquo;</p>
+<p><strong>如下图片是三种情况：</strong><br />1.正常注册，去水印，去关于按钮。<br />2.提示&ldquo;对象不支持SET__LICENSES属性或方法&rdquo;，JS会报错&rdquo;SET__LICENSES is not a function&rdquo;。<br />3.预览下方状态栏出现&ldquo;页面曾用过Lodop授权给&ldquo;XXXXXX公司&rdquo;注册号，但本次无效！&rdquo;</p>
+<p><img src="https://img2018.cnblogs.com/blog/1481828/201811/1481828-20181112163651480-812371331.png" alt="" /></p>
+<p>注册号放在LodopFuncs.js里标注处，可以统一执行，每次调用LODOP的时候就调用哦，这里只是演示所以放在页面上。</p>
+<p>&nbsp;</p>
+<p>cnblog链接（带图示）:<a href="https://www.cnblogs.com/huaxie/p/9947310.html" target="_blank">Lodop“对象不支持SET__LICENSES属性或方法”SET__LICENSES is not a function”</a></p>
+<p><a href="../blog_index.html">返回博文列表</a></p>
+</div>
+<div id="footer"><img src="../images/lodopfoot.png"></div>
+</body>
+</html>

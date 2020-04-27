@@ -1,0 +1,53 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>WEB打印控件LODOP</title>
+<script language="javascript" src="LodopFuncs.js"></script>
+ <link href="../css/blogback.css" type='text/css' rel="stylesheet">     
+</head>
+<body id="bodyA1">
+<div id="header">
+<div id="head1"></div>
+</div>
+<div class="blogpost-body">
+<h3>Lodop控件NewPage();测试输出空白页</h3>
+    <p>LODOP.NewPage();和LODOP.NewPageA();是强制分页语句，两者的区别可查看本博客的相关博文：<a href="https://www.cnblogs.com/huaxie/p/9719782.html" target="_blank">Lodop强制分页LODOP.NewPage()和LODOP.NewPageA()</a><br />可在打印项之间强制分页，手动分页，如果一个任务在不添加打印项的情况下一开始就分页，结果会怎样？如果强制分页之间没有任何打印项又会怎样？该文就是测试这两个的。<br />如果按照想法，一开始没打印项就强制分页，那么第一页应该是空白页，分页语句之间没有打印项，应该也会是空白页，实际测试发现不是这样的。</p>
+<p>一开始没打印项就强制分页，在第一个打印项之前，不管多少次分页，都不会有空白页。<br />有打印项之后，该打印项会作为第一页，往后如果强制分页之间没有打印项，会显示成空白页。</p>
+<p>由于多页预览截图较麻烦，因此把纸张设置小，然后用xps虚拟打印机打印出文件，一块用xps查看器查看，一起截图。（打印开发避免浪费纸张，虚拟打印机测试是很有必要的）<br />效果如图所示：</p>
+<p>测试中JS代码：</p>
+<div class="cnblogs_code">
+<pre><span style="color: #0000ff;">&lt;</span><span style="color: #800000;">script </span><span style="color: #ff0000;">language</span><span style="color: #0000ff;">="javascript"</span><span style="color: #ff0000;"> type</span><span style="color: #0000ff;">="text/javascript"</span><span style="color: #0000ff;">&gt;</span>   
+        <span style="background-color: #f5f5f5; color: #0000ff;">var</span><span style="background-color: #f5f5f5; color: #000000;"> LODOP; </span><span style="background-color: #f5f5f5; color: #008000;">//</span><span style="background-color: #f5f5f5; color: #008000;">声明为全局变量 </span>
+    <span style="background-color: #f5f5f5; color: #0000ff;">function</span><span style="background-color: #f5f5f5; color: #000000;"> prn1_preview() {    </span><span style="background-color: #f5f5f5; color: #008000;">//</span><span style="background-color: #f5f5f5; color: #008000;">单个任务循环</span>
+<span style="background-color: #f5f5f5; color: #000000;">      LODOP</span><span style="background-color: #f5f5f5; color: #000000;">=</span><span style="background-color: #f5f5f5; color: #000000;">getLodop();  
+      LODOP.PRINT_INIT(</span><span style="background-color: #f5f5f5; color: #000000;">""</span><span style="background-color: #f5f5f5; color: #000000;">);</span><span style="background-color: #f5f5f5; color: #008000;">//</span><span style="background-color: #f5f5f5; color: #008000;">初始化在循环中</span>
+<span style="background-color: #f5f5f5; color: #000000;">      LODOP.SET_PRINT_PAGESIZE(</span><span style="background-color: #f5f5f5; color: #000000;">1</span><span style="background-color: #f5f5f5; color: #000000;">,</span><span style="background-color: #f5f5f5; color: #000000;">300</span><span style="background-color: #f5f5f5; color: #000000;">,</span><span style="background-color: #f5f5f5; color: #000000;">500</span><span style="background-color: #f5f5f5; color: #000000;">,</span><span style="background-color: #f5f5f5; color: #000000;">""</span><span style="background-color: #f5f5f5; color: #000000;">);
+      </span><span style="background-color: #f5f5f5; color: #008000;">//</span><span style="background-color: #f5f5f5; color: #008000;">不会有空白页</span>
+<span style="background-color: #f5f5f5; color: #000000;">      LODOP.NewPage();
+      </span><span style="background-color: #f5f5f5; color: #008000;">//</span><span style="background-color: #f5f5f5; color: #008000;">不会有空白页</span>
+<span style="background-color: #f5f5f5; color: #000000;">      LODOP.NewPage();
+      </span><span style="background-color: #f5f5f5; color: #008000;">//</span><span style="background-color: #f5f5f5; color: #008000;">不会有空白页</span>
+<span style="background-color: #f5f5f5; color: #000000;">      LODOP.NewPage();
+      LODOP.ADD_PRINT_TEXT(</span><span style="background-color: #f5f5f5; color: #000000;">75</span><span style="background-color: #f5f5f5; color: #000000;">,</span><span style="background-color: #f5f5f5; color: #000000;">6</span><span style="background-color: #f5f5f5; color: #000000;">,</span><span style="background-color: #f5f5f5; color: #000000;">100</span><span style="background-color: #f5f5f5; color: #000000;">,</span><span style="background-color: #f5f5f5; color: #000000;">20</span><span style="background-color: #f5f5f5; color: #000000;">,</span><span style="background-color: #f5f5f5; color: #000000;">"</span><span style="background-color: #f5f5f5; color: #000000;">文本</span><span style="background-color: #f5f5f5; color: #000000;">"</span><span style="background-color: #f5f5f5; color: #000000;">);</span><span style="background-color: #f5f5f5; color: #008000;">//</span><span style="background-color: #f5f5f5; color: #008000;">该任务首个打印项</span>
+<span style="background-color: #f5f5f5; color: #000000;">      LODOP.NewPage();
+      </span><span style="background-color: #f5f5f5; color: #008000;">//</span><span style="background-color: #f5f5f5; color: #008000;">空白页</span>
+<span style="background-color: #f5f5f5; color: #000000;">      LODOP.NewPage();
+      </span><span style="background-color: #f5f5f5; color: #008000;">//</span><span style="background-color: #f5f5f5; color: #008000;">空白页</span>
+<span style="background-color: #f5f5f5; color: #000000;">      LODOP.NewPage();
+      LODOP.ADD_PRINT_TEXT(</span><span style="background-color: #f5f5f5; color: #000000;">75</span><span style="background-color: #f5f5f5; color: #000000;">,</span><span style="background-color: #f5f5f5; color: #000000;">6</span><span style="background-color: #f5f5f5; color: #000000;">,</span><span style="background-color: #f5f5f5; color: #000000;">100</span><span style="background-color: #f5f5f5; color: #000000;">,</span><span style="background-color: #f5f5f5; color: #000000;">20</span><span style="background-color: #f5f5f5; color: #000000;">,</span><span style="background-color: #f5f5f5; color: #000000;">"</span><span style="background-color: #f5f5f5; color: #000000;">文本2</span><span style="background-color: #f5f5f5; color: #000000;">"</span><span style="background-color: #f5f5f5; color: #000000;">);</span><span style="background-color: #f5f5f5; color: #008000;">//</span><span style="background-color: #f5f5f5; color: #008000;">该任务第二个打印项</span>
+<span style="background-color: #f5f5f5; color: #000000;">      LODOP.PREVIEW();
+</span><span style="background-color: #f5f5f5; color: #008000;">//</span><span style="background-color: #f5f5f5; color: #008000;">    LODOP.PRINT_DESIGN();</span>
+<span style="background-color: #f5f5f5; color: #000000;">    };
+</span><span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">script</span><span style="color: #0000ff;">&gt;</span> </pre>
+</div>
+<p>效果：</p>
+<p><img src="https://img2018.cnblogs.com/blog/1481828/201811/1481828-20181121161802084-385589586.png" alt="" /></p>
+<p>这里没测试如果NewPage();在最后，也就是最后一个打印项后多次加强制分页语句，后来测了一下，效果和在初始化后打印项之前加一样，都不会强制分出空白页。这里没测试如果NewPage();在最后，也就是最后一个打印项后多次加强制分页语句，后来测了一下，效果和在初始化后打印项之前加一样，都不会强制分出空白页。</p>
+<p>&nbsp;</p>
+<p>cnblog链接（带图示）:<a href="https://www.cnblogs.com/huaxie/p/9995703.html" target="_blank">Lodop控件NewPage();测试输出空白页</a></p>
+<p><a href="../blog_index.html">返回博文列表</a></p>
+</div>
+<div id="footer"><img src="../images/lodopfoot.png"></div>
+</body>
+</html>
