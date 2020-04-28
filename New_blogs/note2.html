@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>笔记2，定做安装程序修改</title>
+  <style>
+ body{margin:0px;}
+.body {width:100%;}
+a{text-decoration:none;color:black;}
+h1{font-size:1.625em;display:inline-block;margin-top:27px;}
+h2{font-size:1.375em;}
+.imgbox{float:left;}
+.box{float:left;}
+.header_box {width:100%;background-color:#fef8e7;margin-bottom:1%;}
+.header{padding-top:1%;padding-left:1%;padding-right:1%;}
+
+.header_bottom{width:100%;}
+.menuitem {
+    margin-top:0;
+    margin-left:0;
+    margin-bottom:0;
+    padding:1%;
+    border-bottom:1px solid #fef8e7;
+    cursor:pointer;
+}
+
+.main {padding:1%;}
+.main_middle { width:100%;}
+.main p{background-color:#ffe1c7;color:black;}
+
+.box_footer {width:100%;margin-bottom:0;}
+.footer {
+    padding:1%;
+    text-align:center;
+    background-color:#fef8e7;
+    font-size:0.625em;
+}
+
+@media only screen and (max-width: 500px) {
+    .menu_left{width:100%;}
+    .menuitem { margin:1%;padding:1%;}
+
+    .main_middle { width:100%;}
+    .main {padding:1%;}
+
+    .box_right {width:100%;}
+    .right { padding:1%;
+    }
+
+    .box { margin-right:0; float:left; }
+}
+</style>
+<div class="body"><!--body开始-->
+        <div class="box header_box"><!--header开始-->
+            <div class="header">
+                               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<h1>笔记2，定做安装程序修改</h1>
+							   <div class="imgbox"><img src="../images/dqx.png"></div>
+            </div>
+        </div><!--header结束-->
+<div class="header_bottom"> 
+		   <a href="../index.html"><div class="menuitem">花谢悦神的主页</div></a>	
+		   <a href="../JingYan.html"><div class="menuitem">工作生活经验主页</div></a>
+           <a href="./JY_note.html"><div class="menuitem">全部笔记</div></a>
+</div>
+
+
+
+        <div class="box main_middle"><!--main_middle开始-->
+            <div class="main">
+<h1>笔记2，定做安装程序修改</h1>
+<p>工具：Inno Setup </p>
+<p>1.名称更换:WEB-PRINT(32-bit)<br>2.C-Lodop(HTM-WEB-PRINT)64bit<br>
+3.注释：建立桌面快捷方式Create a desktop icon，这个选项。<br>4.UserInfoUTF8.ini，编码的格式，放置一些情况下乱码<br>
+5.定做版注释icons掉Demo.html,<br>6.注释掉icons的commondesktop<br>
+备注：后期版本去掉建立桌面快捷方式这个选项，改为默认就是，减少安装时的勾选项。<br>
+</p>
+<p>
+更新版本:<br>
+新建两个文件夹：一个标准版，一个扩展版的。<br>
+1.安装32位标准版，复制新版本.exe到标准版文件夹。<br>
+2.安装32位扩展版，复制新版本.exe到扩展版文件夹。<br>
+3.安装64位扩展版，复制新版本的.exe到扩展版文件夹。<br>
+4.修改iss里的版本号，两处。<br>
+</p>
+<p>
+定做安装:<br>
+1.修改logo图到合适尺寸和格式，有些需要去背景色或根据需要填上内容<br>
+2.复制logo图到标准版和扩展版文件夹。<br>
+3.修改ini文件中文简体，繁体，英文名，设置c-lodop名称。（名称用英文简称，放置乱码，根据英文名或百度搜索简称或logo图取名）<br>
+4.执行标准版和扩展版的三个iss文件。<br>
+5.在安装程序备份文件夹里，新建日期+名称的文件夹，拷贝上三个.exe文件和logo图<br>
+6.尝试安装一下，一般是安装个32位扩展版查看界面效果，有时间可三个都安装测试下。<br>
+7.查看效果正常后，把三个安装文件个和logo图传给李哥，李哥和他定做的lodop安装程序提交360和金山进行审核。审核通过李哥发邮件交付给客户。<br>
+</p>
+           </div>
+    </div><!--main_middle结束-->
+
+        <div class="box box_footer"><!--box_footer开始-->
+            <div class="footer">
+<p>生活工作经验相关页面</p>
+            </div>
+        </div><!--box_footer结束-->
+
+
+</div><!--body结束-->
+ </body>
+</html>
