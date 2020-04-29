@@ -90,7 +90,46 @@ background-color:#f1f1f1;}
 <p>发一下注册的时间和收注册号的邮箱，这边查一下试试。</p>
 <p><strong>问答10：有的电脑能去掉水印，有的去不掉</strong><br />参考排查一下http://www.c-lodop.com/faq/ph01.html<br />逐条排查下链接里的条目，特别是里面个别电脑出现水印的情况的条目。<br />清理下浏览器缓存试试。</p>
 <p><span style="background-color: #ffff99;"><strong>常见的注册号不正确的使用方法：</strong></span><br />语句错误，之前有相关博文：<a href="https://www.cnblogs.com/huaxie/p/9947310.html" target="_blank">Lodop&ldquo;对象不支持SET__LICENSES属性或方法&rdquo;SET__LICENSES is not a function&rdquo;</a>、<br /><strong>1、在直接打印的时候加注册语句，预览的时候不加注册语句。（错误用法）</strong><br />预览下方状态栏可能也出现&ldquo;页面曾用过Lodop授权给&ldquo;XXXXXX公司&rdquo;注册号，但本次无效！&rdquo;<br />回答：是否是直接打印的时候加注册语句，预览的时候不加注册语句，不能这样使用，不论直接打印还是预览都要加上该注册语句。<br /><strong>2.顶级无限注册语句只用了一句。（错误用法）</strong><br />由于顶级无限注册号支持中文简体繁体英文，其他语言会显示英文，所以目前注册语句不是一句，有的客户可能认为在英文操作系统下只用英文注册语句就行了之类的，实际上需要都加上。<br />回答：直接复制邮箱里的语句，不要自己写语句和参数，邮箱里如果有多个语句，需要多个语句都加上。<br /><strong>4.域名或ip注册，自己在注册号里填写了公司名。</strong><br />域名和ip注册号里无公司名，不要自己填写参数，直接复制邮箱的。<br />回答：直接复制邮箱里的语句，不要自己填写或修改参数。<br /><strong>5.没有每次打印都执行注册语句，注册语句放到方法外了。</strong><br />需要每次打印都执行注册语句。每个任务getLODOP方法之后执行。<br />回答：把注册语句放到每个打印方法里面测试下，如直接放到PRINT语句前面。</p>
-           </div>
+ <hr>
+<span style="color:green;">以上是原来的博文里的，下面逐渐添加新的：</span><br /><br />
+<strong>6.注册号放在lodopFuncs.js标注处里，但是没有每个打印方法都执行getLODOP。</strong><br />
+每个打印方法里都要执行注册语句。如果是放在lodopFuncs.js的getLODOP里，需要每个打印方法里都要调用getLODOP。<br />
+例如：<br />
+var LODOP; //声明为全局变量<br />
+function  某个打印方法(){   <br />                 
+LODOP=getLodop();  <br />                     
+LODOP.PRINT_INIT("打印任务名"); <br />
+LODOP.ADD_PRINT_TEXT(0,0,100,20,"文本内容一");<br />
+LODOP.SET_LICENSES........<br />
+LODOP.PRINTA(); <br />             
+}; <br /> <br /> 
+如果是没用lodopfuncs.js，直接通过端口引用clodopfuncs.js方式：<br /> 
+LODOP.PRINT_INIT("打印任务名"); <br /> 
+LODOP.ADD_PRINT_TEXT(0,0,100,20,"文本内容一");<br /> 
+LODOP.SET_LICENSES........<br /> 
+LODOP.PRINTA(); <br /> <br /> 
+
+<strong>注册了顶级，打印pdf需要顶级注册的弹窗。</strong><br />
+发一下注册日期和邮箱，或注册的域名、公司名，这边查一下，是否是顶级注册号。<br />
+<br />
+参考排查一下http://www.c-lodop.com/faq/ph01.html<br />
+先确保该注册语句执行了，每个打印方法里都要执行。<br />
+可以先做个简单例子测试下，<br />
+例如：<br />
+LODOP.PRINT_INIT("打印任务名"); <br />
+LODOP.ADD_PRINT_TEXT(0,0,100,20,"文本内容一");<br />
+LODOP.SET_LICENSES........<br />
+LODOP.PRINTA(); （直接打印或LODOP.PREVIEW();预览）<br />
+直接放到PRINT()或PRINTA()或PREVIEW()语句前面测试下。<br />
+<br /><br />
+<strong>注册类型</strong><br />
+注册的是什么类型的注册号，是ip域名，还是公司名的。<br />
+参考排查一下http://www.c-lodop.com/faq/ph01.html<br />
+<br />
+<strong>公司名的排查</strong><br />
+进入打印预览，查看打印预览下方状态栏是否显示了公司名。<br />
+私发一下注册语句，这边测试下。<br /><br />          
+		</div>
     </div><!--main_middle结束-->
 
         <div class="box box_footer"><!--box_footer开始-->
