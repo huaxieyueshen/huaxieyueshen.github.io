@@ -1,0 +1,31 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>WEB打印控件LODOP</title>
+<script language="javascript" src="LodopFuncs.js"></script>
+ <link href="../css/blogback.css" type='text/css' rel="stylesheet">     
+</head>
+<body id="bodyA1">
+<div id="header">
+<div id="head1"></div>
+</div>
+<div class="blogpost-body">
+<h3>LODOP中预览界面查看打印机的可打区域具体值</h3>
+    <p>LODOP在打印预览的时候，如果选择的打印机是真实打印机，会发现可能会有虚线，不同打印机虚线的位置不同，这个虚线是打印机的可打区域，Lodop无法控制。</p>
+<p>可打区域，顾名思义，就是打印机可以打印的区域，在这个区域外是打印不出来的，为了避免打印不出来，所以默认LOODOP在定位的时候是以可打区域为基点的，这也就造成了不同打印机的打印项位置可能有差异，由于基点不同，在纸张中的定位也不同。<br />可以通过语句设置以纸张边缘为基点，排除可打区域的基点的影响。<br />可查看相关博文：<a href="https://www.cnblogs.com/huaxie/p/9674296.html" target="_blank">Lodop打印控件打印机可打区域的影响 设置纸张边缘为基点</a><br /><br />打印机千差万别，标准不同，针对不同打印机，可用打印维护开放给客户端微调。</p>
+<p>（纸张大小宽或高-可打区域宽或高）/2，这个应该是可打区域的左边距，或顶边距，但是获取的值有差异，差异不大。<br />特地用安装了几个打印机驱动，试了试：</p>
+<p>Brother Color Type3 Class Driver<br />纸张大小：210*297<br />可打区域大小：202*288<br />LeftMargin:4.2mm     TopMargin:4.2mm</p>
+<p>210-202=8  8/2=4 左边距  LeftMargin:4.2mm 有差值<br />297-288=9  9/2=4.5 右边距 TopMargin:4.2mm 有差值</p>
+<p>Epson ESC/P 9pin V4 Class Driver<br />纸张大小：210*297<br />可打区域大小：204*288</p>
+<p>210-204=6  6/2=3 左边距  LeftMargin:3mm 无差值<br />297-288=9  9/2=4.5 右边距 TopMargin:4.2mm 有差值</p>
+<p><strong>打印预览查看可打区域方法</strong><br />查看可打区域大小（客户端本地打印角色）：<br />鼠标放到打印预览的纸张上，查看预览下方状态栏的size，就是打印机的可打区域。<br />查看可打区域左边距（客户端本地打印角色）：<br />鼠标放到打印预览的左侧的虚线上，查看预览下方状态栏的LeftMargin，就是打印机的可打区域左边距。<br />查看可打区域上边距（客户端本地打印角色）：<br />鼠标放到打印预览的上边的虚线上，查看预览下方状态栏的TopMargin，就是打印机的可打区域上边距。</p>
+<p>查看可打区域大小，左边距，上边距（远程预览界面）<br />直接在打印预览下方状态栏可查看到这三个值。</p>
+<p>&nbsp;<img src="https://img2018.cnblogs.com/blog/1481828/201901/1481828-20190118162536681-833827656.png" alt="" /></p>
+<p>&nbsp;</p>
+<p>cnblog链接（带图示）:<a href="https://www.cnblogs.com/huaxie/p/10270539.html" target="_blank">LODOP中预览界面查看打印机的可打区域具体值</a></p>
+<p><a href="../blog_index.html">返回博文列表</a></p>
+</div>
+<div id="footer"><img src="../images/lodopfoot.png"></div>
+</body>
+</html>

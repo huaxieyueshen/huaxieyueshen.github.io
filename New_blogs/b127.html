@@ -1,0 +1,37 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>WEB打印控件LODOP</title>
+<script language="javascript" src="LodopFuncs.js"></script>
+ <link href="../css/blogback.css" type='text/css' rel="stylesheet">     
+</head>
+<body id="bodyA1">
+<div id="header">
+<div id="head1"></div>
+</div>
+<div class="blogpost-body">
+<h3>二维码中加图片（打印带图片的二维码）</h3>
+    <p>在二维码中，放入图片，遮挡一部分是被允许的。 <br />二维码在少许损伤的情况下还可以读取出来，图片可以放置的位置如图的黄色区域。（具体可以放多大要看二维码生成时的纠错能力）<br />二维码的纠错级别：<br />纠错级别越高，生成图片会越大。 <br />L 水平 7%的字码可被修正 <br />M 水平 15%的字码可被修正 <br />Q 水平 25%的字码可被修正 <br />H 水平 30%的字码可被修正<br />具体可以测试一下，究竟能不能被扫描出来。</p>
+<p>该博文首发于新浪博客dqx-低权限。</p>
+<p><img src="https://img2018.cnblogs.com/blog/1481828/201903/1481828-20190304095028779-2096200987.jpg" alt="" /></p>
+<div>上面试验的几个二维码图片是Photoshop做的，用PS做非常简单，直接两个图层，把图片图层放到二维码图层上面，调整上面图片的大小即可。</div>
+<div>如何用在Lodop生成的二维码中添加图片呢？</div>
+<div>Lodop本身没有图片+二维码的组合类型，但是可以通过二维码和图片的叠加实现。</div>
+<div>打印项叠加，参考本博客的另一篇博文：</div>
+<div>
+<div>Lodop调整打印项输出顺序 覆盖与层级（首发于dqx-低权限，目前在该博文中也有）</div>
+<div><a href="http://blog.sina.com.cn/s/blog_157ebf1370102x1z3.html" target="_blank">&nbsp;</a></div>
+
+
+</div>
+<div>上面这个链接里的博文里有图片和图片叠加，图片和文字叠加等，简单来说，叠加顺序就是打印项的顺序，后输出的在上面，想要实现里面带图片的二维码。</div>
+<div>先输出二维码，然后输出相应的图片，打印二维码带图片。</div>
+<div>LODOP.ADD_PRINT_BARCODE语句在图片LODOP.ADD_PRINT_IMAGE之前即可。</div>
+<p>&nbsp;</p>
+<p>cnblog链接（带图示）:<a href="https://www.cnblogs.com/huaxie/p/10469020.html" target="_blank">二维码中加图片（打印带图片的二维码）</a></p>
+<p><a href="../blog_index.html">返回博文列表</a></p>
+</div>
+<div id="footer"><img src="../images/lodopfoot.png"></div>
+</body>
+</html>

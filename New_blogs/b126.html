@@ -1,0 +1,43 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>WEB打印控件LODOP</title>
+<script language="javascript" src="LodopFuncs.js"></script>
+ <link href="../css/blogback.css" type='text/css' rel="stylesheet">     
+</head>
+<body id="bodyA1">
+<div id="header">
+<div id="head1"></div>
+</div>
+<div class="blogpost-body">
+<h3>LODOP直接用base64码输出图片</h3>
+    <p>Lodop中的ADD_PRINT_IMAGE，也可以直接输出base64码图片，不用加img标签，如果加了img标签，会被当做超文本对待，受浏览器引擎解析的影响。</p>
+<p>什么时候使用base64码直接输出比较好：<br /><strong>1.低版本IE解析不了带img标签的base64码输出方式。</strong><br />一些低版本的的IE不支持base64码图片，这种时候用img+base64码，浏览器引擎不支持就无法解析，例如IE6、IE7等，这时候可以换用直接输出base64码不加img标签方式。</p>
+<p><strong>2.批量打印大量的图片：</strong><br />批量打印很大数量的图片，如果用img标签超文本输出方式，IE引擎需要下载解析很多图片，受IE浏览器本身的限制，浏览器解析影响的，缓存有时不释放或释放的慢，可能打了一段时间后会突然不显示图片了，变成空白页。<br />这种时候可以改用直接输出base64码方式，不需要浏览器解析，不受浏览器引擎的影响。</p>
+<p><a href="https://www.cnblogs.com/huaxie/p/9883291.html" target="_blank">Lodop图片输出ADD_PRINT_IMAGE 有白边</a><br />之前有博文介绍凡是输出img标签的，受浏览器解析的影响，会有浏览器背景色的白边，如果是护眼色，就是护眼色的白边。<br />直接输出base64码方式由于不经过浏览器解析，也不会产生白边。</p>
+<p>由于参数太长，图片和代码省略了很多该base64码，且用了\r\n换行。</p>
+<p>加img标签的base64码输出图片<br />直接输出base64码的图片（不加img标签）<br /><strong>低版本IE解析不了带img标签的base64码输出方式时，可用该直接输出base64码方法。</strong><br /><strong>批量打印大量的图片时，可以用该直接输出base64码方法。</strong><br />效果如图。</p>
+<p>代码 ：</p>
+<div class="cnblogs_code">
+<pre><span style="color: #0000ff;">&lt;</span><span style="color: #800000;">script </span><span style="color: #ff0000;">language</span><span style="color: #0000ff;">="javascript"</span><span style="color: #ff0000;"> type</span><span style="color: #0000ff;">="text/javascript"</span><span style="color: #0000ff;">&gt;</span>   
+        <span style="background-color: #f5f5f5; color: #0000ff;">var</span><span style="background-color: #f5f5f5; color: #000000;"> LODOP; </span><span style="background-color: #f5f5f5; color: #008000;">//</span><span style="background-color: #f5f5f5; color: #008000;">声明为全局变量 </span>
+<span style="background-color: #f5f5f5; color: #0000ff;">function</span><span style="background-color: #f5f5f5; color: #000000;"> prn1_preview() {
+        LODOP</span><span style="background-color: #f5f5f5; color: #000000;">=</span><span style="background-color: #f5f5f5; color: #000000;">getLodop();  
+        LODOP.PRINT_INIT(</span><span style="background-color: #f5f5f5; color: #000000;">""</span><span style="background-color: #f5f5f5; color: #000000;">);</span><span style="background-color: #f5f5f5; color: #008000;">//</span><span style="background-color: #f5f5f5; color: #008000;">初始化</span>
+<span style="background-color: #f5f5f5; color: #000000;">        LODOP.ADD_PRINT_SHAPE(</span><span style="background-color: #f5f5f5; color: #000000;">4</span><span style="background-color: #f5f5f5; color: #000000;">,</span><span style="background-color: #f5f5f5; color: #000000;">-</span><span style="background-color: #f5f5f5; color: #000000;">1</span><span style="background-color: #f5f5f5; color: #000000;">,</span><span style="background-color: #f5f5f5; color: #000000;">0</span><span style="background-color: #f5f5f5; color: #000000;">,</span><span style="background-color: #f5f5f5; color: #000000;">216</span><span style="background-color: #f5f5f5; color: #000000;">,</span><span style="background-color: #f5f5f5; color: #000000;">343</span><span style="background-color: #f5f5f5; color: #000000;">,</span><span style="background-color: #f5f5f5; color: #000000;">0</span><span style="background-color: #f5f5f5; color: #000000;">,</span><span style="background-color: #f5f5f5; color: #000000;">1</span><span style="background-color: #f5f5f5; color: #000000;">,</span><span style="background-color: #f5f5f5; color: #000000;">"</span><span style="background-color: #f5f5f5; color: #000000;">#000000</span><span style="background-color: #f5f5f5; color: #000000;">"</span><span style="background-color: #f5f5f5; color: #000000;">);
+        LODOP.ADD_PRINT_IMAGE(</span><span style="background-color: #f5f5f5; color: #000000;">10</span><span style="background-color: #f5f5f5; color: #000000;">,</span><span style="background-color: #f5f5f5; color: #000000;">10</span><span style="background-color: #f5f5f5; color: #000000;">,</span><span style="background-color: #f5f5f5; color: #000000;">172</span><span style="background-color: #f5f5f5; color: #000000;">,</span><span style="background-color: #f5f5f5; color: #000000;">123</span><span style="background-color: #f5f5f5; color: #000000;">,</span><span style="background-color: #f5f5f5; color: #000000;">"</span><span style="background-color: #f5f5f5; color: #000000;">data:image/png;base64,\r\niVBORw0KGgoAAAANSUhEUgAAAJAAAABfCAIAAACImtmOAAAACXBIWXMAAAsTAAALEwEAmpwYAAAK\r&hellip;&hellip;&hellip;&hellip;（省略）</span><span style="background-color: #f5f5f5; color: #000000;">"</span><span style="background-color: #f5f5f5; color: #000000;">);
+        LODOP.ADD_PRINT_IMAGE(</span><span style="background-color: #f5f5f5; color: #000000;">200</span><span style="background-color: #f5f5f5; color: #000000;">,</span><span style="background-color: #f5f5f5; color: #000000;">10</span><span style="background-color: #f5f5f5; color: #000000;">,</span><span style="background-color: #f5f5f5; color: #000000;">172</span><span style="background-color: #f5f5f5; color: #000000;">,</span><span style="background-color: #f5f5f5; color: #000000;">123</span><span style="background-color: #f5f5f5; color: #000000;">,</span><span style="background-color: #f5f5f5; color: #000000;">"</span><span style="background-color: #f5f5f5; color: #000000;">&lt;img src=\"data:image/png;base64,\r\niVBORw0KGgoAAAANSUhEUgAAAJAAAABfCAIAAACImtmOAAAACXBIWXMAAAsTAAALEwEAmpwYAAAK\r&hellip;&hellip;&hellip;&hellip;（省略）</span><span style="background-color: #f5f5f5; color: #000000;">"/</span><span style="background-color: #f5f5f5; color: #000000;">&gt;");</span>
+<span style="background-color: #f5f5f5; color: #000000;">        LODOP.PRINT_DESIGN(); 
+    };
+</span><span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">script</span><span style="color: #0000ff;">&gt;</span> </pre>
+</div>
+<p>图片：</p>
+<p><img src="https://img2018.cnblogs.com/blog/1481828/201902/1481828-20190218150840676-638323235.png" alt="" /></p>
+<p>&nbsp;</p>
+<p>cnblog链接（带图示）:<a href="https://www.cnblogs.com/huaxie/p/10395704.html" target="_blank">LODOP直接用base64码输出图片</a></p>
+<p><a href="../blog_index.html">返回博文列表</a></p>
+</div>
+<div id="footer"><img src="../images/lodopfoot.png"></div>
+</body>
+</html>
