@@ -1,0 +1,44 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>WEB打印控件LODOP</title>
+<script language="javascript" src="LodopFuncs.js"></script>
+ <link href="../css/blogback.css" type='text/css' rel="stylesheet">     
+</head>
+<body id="bodyA1">
+<div id="header">
+<div id="head1"></div>
+</div>
+<div class="blogpost-body">
+<h3>提示“Web打印服务CLodop未安装启动”的各种原因和解决方法</h3>
+    <p>旧版提示：<span style="color: #993300;">"CLodop云打印服务(localhost本地)未安装启动!"</span><br />新版提示：<span style="color: #993300;">"Web打印服务CLodop未安装启动，点击这里下载执行安装（若此前已安装过，可点这里直接再次启动），成功后请刷新本页面。&rdquo;</span></p>
+<p><strong>可能原因及现象及解决方法：</strong><br /><span style="background-color: #ffffff; color: #003366;"><strong>原因1：没安装，需要安装C-Lodop。</strong></span><br /><span style="background-color: #ffff99;">现象：无桌面快捷方式，无clodop安装配置文件，无进程。</span><br />（1）桌面上没有c-lodop小打印机图标的快捷方式<br />（2）系统盘这两个目录下都没有c-lodop相关文件夹，两个路径下文件名为CLodop32或CLodop64，有文件或里面没有CLodopPrint32.exe或CLodopPrint64.exe等。<br />C:\Program Files (x86)\MountTaiSoftware或C:\Program Files\MountTaiSoftware（系统盘下，以常见的C盘的为例）<br />如果有Lodop文件夹，说明安装了lodop插件方式，并不是c-lodop。<br />（3）任务管理器里没有CLodopPrint32.exe或CLodopPrint64.exe进程。<br /><span style="background-color: #ccffff;">解决方法：可去LODOP官网下载中心下载，下载安装c-lodop后刷新页面即可。</span></p>
+<p><strong><span style="color: #003366;">原因2：已安装，c-lodop没启动。</span></strong><br /><span style="background-color: #ffff99;">现象：有桌面快捷方式，有安装配置文件，无进程。</span><br />（1）桌面上有c-lodop小打印机图标的快捷方式。（很旧的版本没有桌面快捷方式，可在开始菜单中查看是否有c-lodop图标程序）<br />（2）系统盘这两个目录下有c-lodop相关文件夹，两个路径下文件名为CLodop32或CLodop64，里面没有CLodopPrint32.exe或CLodopPrint64.exe等。<br />C:\Program Files (x86)\MountTaiSoftware或C:\Program Files\MountTaiSoftware（系统盘下，以常见的C盘的为例）（有一个即可）<br />（3）任务管理器里没有CLodopPrint32.exe或CLodopPrint64.exe进程。<br /><span style="background-color: #ccffff;">解决方法：双击桌面上的c-lodop快捷方式，重启本机c-lodop，用最新版c-lodop。</span></p>
+<p>补充：如果有clodop安装配置文件，无桌面快捷方式，也可能是安装时取消了勾选创建桌面快捷方式（默认是勾选的），或用的很旧版本，建议用最新版，旧版本可从开始菜单里查找到c-lodop程序进行启动。<br />最新的版本，就是新提示的那个&ldquo;Web打印服务C-Lodop。。。。&rdquo;添加CLodop.protocol功能(一种bs页面调用cs程序的功能)，便于页面主动启动C-Lodop服务。点击该提示里的&ldquo;（若此前已安装过，可点这里直接再次启动）&rdquo;里点这里，也可以重启c-lodop。</p>
+<p>用JS语句重启c-lodop:<br />if (CLodopIsLocal) <br />window.location.href="CLodop.protocol:setup";<br /><span style="background-color: #cc99ff;">注意该功能是在c-lodop的3048版本增加的，在该版本往后的可以用该语句。</span></p>
+<p><strong><span style="color: #003366;">原因3：启动端口与引用端口或协议不一致问题。</span></strong><br /><span style="background-color: #ffff99;">现象：有桌面快捷方式，有安装配置文件，无进程，引用和启动端口号不一致，端口与协议http或https与网站不一致。</span><br />（1）桌面上有c-lodop小打印机图标的快捷方式。（很旧的版本没有桌面快捷方式，可在开始菜单中查看是否有c-lodop图标程序）<br />（2）系统盘这两个目录下有c-lodop相关文件夹，两个路径下文件名为CLodop32或CLodop64，里面没有CLodopPrint32.exe或CLodopPrint64.exe等。<br />C:\Program Files (x86)\MountTaiSoftware或C:\Program Files\MountTaiSoftware（系统盘下，以常见的C盘的为例）（有一个即可）<br />（3）任务管理器里有CLodopPrint32.exe或CLodopPrint64.exe进程。<br />（4）双击桌面上的c-lodop快捷方式，能显示正常启动，欢迎页面正常访问。<br />（5）在安装启动界面查看端口，和LodopFuncs.js里的引用的端口号，是不一致的。<br />（6）LodopFuncs.js里端口和协议引用与实际使用网站和启动端口不一致。<br /><span style="background-color: #ccffff;">解决方法：让端口或协议一致。</span><br /><span style="background-color: #ccffff;">1.让端口一致，更新c-lodop版本和新的LodopFuncs.js。</span><br />如果是版本过旧，可以用新版本，新版面有8000和18000双端口，只要一个能用就行，在新的LodopFuncs.js里就是引用的双端口，如果8000被占用，还有18000。<br />旧版本只有一个8000端口，被占用会加1，旧版本的LodopFuncs.js里有8000和备用端口8001，正常情况下是8000端口启动，调试时会发现8001报错，这个报错不用管，不要删除该备用端口，否则如果LodopFuncs.js里只引用一个端口，而刚好有个终端用户8000被占用了，这个终端用户会启动8001端口，但是LodopFuncs.js没有这个引用，这个终端用户就完全没法用了，旧版本不能删除这个8001的备用端口的JS引用，不能因为报错而删除。<br />最好还是更新到双端口的最新版。</p>
+<p><span style="background-color: #ccffff;">2.协议一致，https网站需要安装32位c-lodop扩展版。</span><br />https网站需要安装32位c-lodop扩展版，并修改LodopFuncs.js里的协议与和端口，默认启动8443端口，但是如果客户端该 端口被占用，会启动8444，因此LodopFuncs.js里也要有备用端口8444，理由同上1，不要因为报错就去掉备用端口语句。<br />标准版c-lodop和扩展版64位c-lodop都是没有https端口的，这点要注意。<br />关于启动和引用端口，可查看本博客另一篇相关博文：<a href="https://www.cnblogs.com/huaxie/p/9591791.html" target="_blank">如何设置C-Lodop打印控件的端口</a></p>
+<p><span style="color: #003366;"><strong>原因4：共享打印机问题</strong></span><br /><span style="background-color: #ffff99;">现象：有桌面快捷方式，有安装配置文件，有进程，而且随着点击桌面快捷方式，进程不断增加，重装到next，不显示c-lodop安装启动界面。</span><br />（1）桌面上有c-lodop小打印机图标的快捷方式<br />（2）系统盘这两个目录下有c-lodop相关文件夹，两个路径下文件名为CLodop32或CLodop64，里面没有CLodopPrint32.exe或CLodopPrint64.exe等。<br />C:\Program Files (x86)\MountTaiSoftware或C:\Program Files\MountTaiSoftware（系统盘下，以常见的C盘的为例）（有一个即可）<br />（3）任务管理器里有CLodopPrint32.exe或CLodopPrint64.exe进程，双击桌面上的c-lodop小打印机图标，进程数量增加，CLodopPrint32.exe随着点击不断增加。<br />（4）双击桌面上的c-lodop快捷方式，不显示c-lodop启动界面，http://localhost:800等欢迎界面无法访问。<br />（5）重装c-lodop安装程序，安装界面到next之后，不显示c-lodop启动界面。卸载也会卡住，卸载不了，必须杀死进程才能在控制面板卸载。<br />（6）安装lodop，使用lodop能正常预览，c-lodop重装不提示启动成功界面，页面一直提示未安装或未启动。<br />（7）本机有共享打印机，且某个共享打印机可能有未知故障。<br /><span style="background-color: #ccffff;">解决方法：删除本机所有共享打印机，然后重新安装c-lodop，直到启动成功界面出现，安装完后刷新页面即可。</span></p>
+<p><span style="color: #003366;"><strong>原因5：localhost无法访问导致</strong></span><br /><span style="background-color: #ffff99;">现象：localhost这个域名无法访问</span><br />localhost是个域名类似www.baidu.com , 不是ip地址，它可以被配置为任意的 IP 地址，不过通常情况host文件里都指向 127.0.0.1(ipv4)和 [::1](ipv6)，在 Windows 中，这个域名是预定义的，从 hosts 文件中可以看出：<br /># localhost name resolution is handled within DNS itself.<br />#	127.0.0.1 localhost<br />注意这个值是可修改的，比如我把它改成<br />192.068.206.1 localhost<br />然后再去 ping localhost，提示就变成了<br />PING localhost (192.168.206.1) 56(84) bytes of data.<br /><span style="background-color: #ccffff;">解决方法：首先确认localhost是指向127.0.0.1的；</span><br /><span style="background-color: #ccffff;">然后Ping 127.0.0.1，如果无法Ping通，则表明本地机TCP/IP协议不能正常工作。此时重新安装一下网卡的驱动应该就OK了（只要你的网卡没坏）。</span></p>
+<p><strong>终端用户遇到这个提示怎么办：（非开发人员遇到这个提示）</strong><br />（1）用同一浏览器测试官网样例，根据提示安装。<br />（2）进入LODOP官网的下载中心，下载安装综合版里的三个.exe安装文件，如果是https网站，不能按照综合版里的clodop安装文件，在下载中心找到32位c-lodop扩展版，安装这个32位扩展版。 ---因为不知道该网站开发人员具体怎么写的，是单独用c-ldoop，还是混合部署，所以可都装上试试。<br />（3）如果是安装c-lodop界面不显示，原因4那种，可删除共享打印机后，重装c-lodop试试。<br />（4）如果按步骤（2）安装完成，测试官网样例也是正常的，则需要联系网站的开发或技术人员。终端用户无法修改程序，只能联系技术人员排查。</p>
+<p><span style="background-color: #ccffff;">以上原因1，原因2，原因4，原因5，终端用户也可以排查是解决。</span><br /><span style="background-color: #ccffff;">如果是原因3，端口和端口引用问题，则终端客户无法解决，只能联系开发人员进行修改或升级网站。</span></p>
+<p>测试下官网样例http://www.c-lodop.com/demolist/PrintSample2.html<br />点这个样例的预览试试。<br />如果样例2的预览是正常的，联系下网站的开发人员。</p>
+<p>先用同一个浏览器测试样例2http://www.c-lodop.com/demolist/PrintSample2.html根据提示下载安装，然后刷新页面，如果样例正常，你所使用的网站不正常，需要联系使用网站的技术人员。</p>
+<p>用同一个浏览器测试样例2http://www.c-lodop.com/demolist/PrintSample2.html根据提示下载安装，然后刷新页面，如果样例正常，你所使用的网站不正常，涉及到程序开发，不知道网站开发人员怎么写的，需要联系使用网站的技术人员，让他们排查一下。</p>
+<p>如果是混合部署，ie等走的是lodop插件方式，先用同一个浏览器测试样例2http://www.c-lodop.com/demolist/PrintSample2.html<br />如果提示下载安装，下载安装lodop插件，如果样例正常，你所使用的网站不正常，需要联系使用网站的技术人员。</p>
+<p>点样例2的预览，查看预览界面是否弹出。http://www.c-lodop.com/demolist/PrintSample2.html<br />如果样例正常，可能和网站的使用方法有关，涉及到程序，不知道网站开发人员怎么写的，终端用户无法修改，需要联系网站的开发技术人员进行排查。</p>
+<p>该控件是提供给开发人员使用的，涉及到程序问题，终端用户需要咨询下网站的技术人员。<br />样例预览正常，说明安装启动时正常的，只能联系网站的技术人员。</p>
+<p><strong>排查步骤：</strong><br />测试下官网样例2http://www.c-lodop.com/demolist/PrintSample2.html<br />点这个样例的预览试试，是否有什么提示。</p>
+<p>按照提示安装后，刷新页面，重新测试样例2http://www.c-lodop.com/demolist/PrintSample2.html。</p>
+<p>双击桌面上的c-ldodop快捷方式，重启本机c-lodop。</p>
+<p>双击桌面上的c-lodop快捷方式，重启一下本机的c-lodop，重启后刷新页面。<br />访问下http://localhost:8000欢迎页面试试，能否访问。</p>
+<p>样例正常，说明安装启动正常，样例页面，右键-查看源码，参考样例源码的使用方法，对照自己的使用方法，排查一下。</p>
+<p><img src="https://img2018.cnblogs.com/blog/1481828/201902/1481828-20190212142330587-1483598379.png" alt="" /></p>
+<p>&nbsp;</p>
+<p>cnblog链接（带图示）:<a href="https://www.cnblogs.com/huaxie/p/10345805.html" target="_blank">提示“Web打印服务CLodop未安装启动”的各种原因和解决方法</a></p>
+<p><a href="../blog_index.html">返回博文列表</a></p>
+</div>
+<div id="footer"><img src="../images/lodopfoot.png"></div>
+</body>
+</html>
