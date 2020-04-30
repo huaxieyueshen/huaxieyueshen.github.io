@@ -1,0 +1,33 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>WEB打印控件LODOP</title>
+<script language="javascript" src="LodopFuncs.js"></script>
+ <link href="../css/blogback.css" type='text/css' rel="stylesheet">     
+</head>
+<body id="bodyA1">
+<div id="header">
+<div id="head1"></div>
+</div>
+<div class="blogpost-body">
+<h3>LodopFuncs.js和CLodopFuncs.js区别和联系</h3>
+    <p><strong>所在位置：</strong><br />LodopFuncs.js可以在官网下载中心综合版里下载到。<br />CLodopfuncs.js在C-Lodop服务缓存中，C-Lodop启动的时候才能访问到。</p>
+<p><strong>需不需要下载放置到项目里：（客户端本地打印角色）</strong><br />LodopFuncs.js放在服务器端，需要放到项目里。<br />CLodopFuncs.js不需要下载放到项目里，这个是客户端本地的安装启动后才生成的，信息也是客户端本地的，不能放到服务器上。（即使是其他角色，c-lodop在服务器上，也不能下载下来用，如下面所述，要通过c-lodop端口引用）<br />相关博文：<a href="https://www.cnblogs.com/huaxie/p/9636061.html" target="_blank">Lodop部署web网站 客户端本地打印角色</a>、<br /><a href="https://www.cnblogs.com/huaxie/p/9639085.html" target="_blank">Lodop打印控件在页面如何使用</a></p>
+<p><strong>内容：</strong><br />LodopFuncs.js中包含了提示下载安装，以及判断哪些浏览器及浏览器版本使用lodop还是c-lodop，具体可查看里面的needclodop()方法，以及判断版本是否升级，提示升级。<br />该文件可以根据需要自行修改，提示下载安装的路径需要变成自己中放置的路径，提示升级的版本号也可以自己控制。也可以修改needclodop()方法返回true，强制所有浏览器使用c-lodop等。<br />CLodopFuncs.js主要内容包含打印机信息、C-Lodop服务信息、相关功能函数信息等内容。js文件较大，通常情况下开发人员可以不用理会。<br />相关博文：<a href="https://www.cnblogs.com/huaxie/p/9635884.html" target="_blank">LODOP打印控件如何提示用户升级下载安装新版本</a></p>
+<p><strong>引用方法：</strong><br /><strong>1.引用LodopFuncs.js后，不必再引用CLodopFuncs.js。</strong><br />就是个普通的JS文件，和普通JS文件引用一样。<br />如果你查看一下LodopFuncs.js，就可以发现该JS中如果判断该浏览器需要使用c-lodop，会动态引用CLodopFuncs.js。<br />客户端本地打印角色，只需要在服务器引用LodopFuncs.js。</p>
+<p><strong>2.引用CLodopFuncs.js</strong><br />引用LodopFuncs.js后，不必引用，因为LodopFuncs.js动态引用了。<br />页面直接http://localhost:8000/CLodopFuncs.js，也可以（如果是https，则是8443端口 <a href="https://www.cnblogs.com/huaxie/p/9591791.html" target="_blank">如何设置C-Lodop打印控件的端口</a>），这样写的时候注意不要用getLodop方法。但是客户端本地打印角色建议不用这种方法，直接引用LodopFuncs.js，里面有很多写好的内容。</p>
+<p>集中打印，客户端本地打印，引用多个CLodopFuncs.js<br />http://[C-Lodop服务所在主机ip或域名]:[C-Lodop端口]/CLodopFuncs.js<br />相关博文：<a href="https://www.cnblogs.com/huaxie/p/9717389.html" target="_blank">c-lodop云打印实现手机打印 JS语句打印</a></p>
+<p>如果引用多个，某个找不到再找下一个优先级。<br />例如：http://localhost:8000/CLodopfuncs.js? priority=1<br />可以用priority设置优先级，该参数值越大优先级越高，默认值为0。</p>
+<p>如果多个c-lodop，需要指定到哪个，可以用name区分。<br />例如：http://192.168.1.1:8000/CLodopfuncs.js?name=LODOPA<br />相关博文：<a href="https://www.cnblogs.com/huaxie/p/10189202.html" target="_blank">C-LODOP设置同一页面 手机电脑都打印</a></p>
+<p><img src="https://img2018.cnblogs.com/blog/1481828/201901/1481828-20190109155641799-569069403.png" alt="" /></p>
+<p><span style="color: #993300;">引用LodopFuncs.js后，不必引用CLodopfuncs.js，因为LodopFuncs.js动态引用了。</span></p>
+<p><span style="color: #993300;"><img src="https://img2018.cnblogs.com/blog/1481828/201901/1481828-20190122112659751-1709485788.png" alt="" /></span></p>
+
+<p>&nbsp;</p>
+<p>cnblog链接（带图示）:<a href="https://www.cnblogs.com/huaxie/p/10243866.html" target="_blank">LodopFuncs.js和CLodopFuncs.js区别和联系</a></p>
+<p><a href="../blog_index.html">返回博文列表</a></p>
+</div>
+<div id="footer"><img src="../images/lodopfoot.png"></div>
+</body>
+</html>

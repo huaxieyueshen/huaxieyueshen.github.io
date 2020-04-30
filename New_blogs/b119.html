@@ -1,0 +1,33 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>WEB打印控件LODOP</title>
+<script language="javascript" src="LodopFuncs.js"></script>
+ <link href="../css/blogback.css" type='text/css' rel="stylesheet">     
+</head>
+<body id="bodyA1">
+<div id="header">
+<div id="head1"></div>
+</div>
+<div class="blogpost-body">
+<h3>C-LODOP设置同一页面 手机电脑都打印</h3>
+    <p>C-Lodop有四种角色，<br /><strong>1：客户端本地打印方式</strong><br />客户端访问web，调用客户端本地的打印机进行打印，这时候调用的安装在客户端本地的c-lodop服务，实际调用的是http://Localhost:8000/CLodopfuncs.js（官网样例是混合部署，当判断为需要使用c-lodop的浏览器的时候，会动态调用引用该语句）<br /><strong>2.局域网集中打印角色和端桥方式</strong><br />集中打印到某一台机器上，手机电脑等都可以访问该机器进行打印<br /><span style="color: #333399;">http://[C-Lodop服务所在主机ip]:[C-Lodop端口]/CLodopFuncs.js</span></p>
+<p><strong>3.端桥方式，</strong><br /><span style="color: #333399;">http://[C-Lodop服务器所在主机ip或域名]:[C-Lodop端口]/CLodopFuncs.js</span><br />客户端也需要安装c-lodop，并开启端桥，指向服务器地址或域名。</p>
+<p><strong>4.AO打印机方式</strong><br />同端桥，只是不在需要客户端安装并开启端桥，直接选择AO打印机（需要特殊的AO打印机，目前只推出了一种）</p>
+<p><strong>相关其他博文介绍：</strong><br /><span style="background-color: #ffff99;">客户端与集中打印：</span><br /><a href="https://www.cnblogs.com/huaxie/p/9850518.html" target="_blank">Lodop客户端本地角色注册号常见误区（以前的博文图，那时候没有端桥打印）</a></p>
+<p><span style="background-color: #ffff99;">客户端，集中打印，端桥打印：</span><br /><a href="https://www.cnblogs.com/huaxie/p/9728197.html" target="_blank">LODOP、C-LODOP注册号的区别</a></p>
+<p><span style="background-color: #ffff99;">集中打印，端桥打印：</span><br /><a href="https://www.cnblogs.com/huaxie/p/9717389.html" target="_blank">c-lodop云打印实现手机打印 JS语句打印</a></p>
+<p><strong>本文介绍页面引用多个CLodopfuncs.js的情况：</strong><br />由各种角色可以知道，客户端本地打印角色，由于lodop和c-lodop只能安装到windows操作系统上，所以客户端如果是手机平板等，就无法使用客户端本地打印角色，但是可以用集中打印或端桥打到其他电脑上。</p>
+<p>如果同一个页面，想要：<br /><strong>1.windows电脑的客户端访问自己本机的c-lodop进行本地打印，</strong><br /><strong>2.手机，平板等客户端，访问一个云主机，在其他windows电脑上进行非本地打印。</strong><br />可这样引用：以非windows电脑客户端访问192.168.1.6的win电脑上进行打印为例<br /><span style="color: #333399;">&lt;script src=&rdquo;http://192.168.1.6:8000/CLodopfuncs.js&rdquo;&gt;&lt;/script&gt;</span><br /><span style="color: #333399;">&lt;script src=&rdquo;http://localhost:8000/CLodopfuncs.js? priority=1&rdquo;&gt;&lt;/script&gt;</span><br />用url参数priority来控制，该参数值越大优先级越高，默认值为0.<br />如上，优先级1是客户端本地打印的方式，如果客户端能访问到http://localhost:8000/CLodopfuncs.js，就说明该客户端安装启动了本地的c-lodop，是win电脑，走的就是优先级1。如果这个访问不了，说明该客户端没有安装启动本地的c-lodop，会走优先级第二个，不加priority默认是0，优先级比1低，当最高优先级无法访问，用第二个，手机平板等会访问另一个电脑的c-lodop进行打印。</p>
+<p>不止可以实现手机<strong>，电脑访问一个页面进行本地打印和云打印，也可以多个云主机的打印，如果同一个页面，要选择不同的云主机，可以用name区分</strong>：<br />通过name指定要用哪个云主机。<br /> <span style="color: #333399;">&lt;script src='http://192.168.1.1:8000/CLodopfuncs.js?name=LODOPA'&gt;&lt;/script&gt;</span><br /><span style="color: #333399;">&lt;script src='http://192.168.1.2:8000/CLodopfuncs.js?name=LODOPB'&gt;&lt;/script&gt;</span></p>
+<p>图示：</p>
+<p>&nbsp;<img src="https://img2018.cnblogs.com/blog/1481828/201901/1481828-20190102164106454-7836885.png" alt="" /></p>
+<p>云主机也可以是服务器，服务器连接打印机，访问方法相同，换成服务器的地址，集中打印到服务器连接的打印机上。</p>
+<p>&nbsp;</p>
+<p>cnblog链接（带图示）:<a href="https://www.cnblogs.com/huaxie/p/10189202.html" target="_blank">C-LODOP设置同一页面 手机电脑都打印</a></p>
+<p><a href="../blog_index.html">返回博文列表</a></p>
+</div>
+<div id="footer"><img src="../images/lodopfoot.png"></div>
+</body>
+</html>
