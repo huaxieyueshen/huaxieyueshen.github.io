@@ -1,0 +1,49 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>WEB打印控件LODOP</title>
+<script language="javascript" src="LodopFuncs.js"></script>
+ <link href="../css/blogback.css" type='text/css' rel="stylesheet">     
+</head>
+<body id="bodyA1">
+<div id="header">
+<div id="head1"></div>
+</div>
+<div class="blogpost-body">
+<h3>【JS新手教程】浏览器弹出div层1</h3>
+    <p>JS中，可以弹出一个层来进行提示等作用，方法是利用css样式display样式，当display等于none时，该元素就不会在页面显示出来，而且元素也不会占空间。<br />就是用户触发某些事件时，动态修改该样式的值，把none改成可以显示值，就可以在页面显示出该样式。<br /><span style="color: #000080;"><strong>控制div的是否展示</strong></span>，来弹出提示或其他用途的层，<strong><span style="color: #000080;">动态修改display样式的值</span></strong>。</p>
+<p>如下，是一个最简单的弹出层，是一个div，里面是个两行一列的表格，一行是提示，一行是关闭该div的链接。</p>
+<p>如果是LODOP内嵌，可以发现会挡住这种类型的弹出层，解决方法查看本博客另一篇博文：<a href="https://www.cnblogs.com/huaxie/p/10784519.html" target="_blank">LODOP内嵌挡住浏览器的div弹出层</a><br />代码：</p>
+<div class="cnblogs_code">
+<pre><span style="color: #0000ff;">&lt;</span><span style="color: #800000;">style</span><span style="color: #0000ff;">&gt;</span><span style="background-color: #f5f5f5; color: #800000;"> 
+ .buledivv</span><span style="background-color: #f5f5f5; color: #000000;">{</span><span style="background-color: #f5f5f5; color: #ff0000;">
+ display</span><span style="background-color: #f5f5f5; color: #000000;">:</span><span style="background-color: #f5f5f5; color: #0000ff;">none</span><span style="background-color: #f5f5f5; color: #000000;">;</span><span style="background-color: #f5f5f5; color: #008000;">/*</span><span style="background-color: #f5f5f5; color: #008000;">默认该div是不展示的</span><span style="background-color: #f5f5f5; color: #008000;">*/</span><span style="background-color: #f5f5f5; color: #ff0000;">
+ position</span><span style="background-color: #f5f5f5; color: #000000;">:</span><span style="background-color: #f5f5f5; color: #0000ff;">absolute</span><span style="background-color: #f5f5f5; color: #000000;">;</span><span style="background-color: #f5f5f5; color: #008000;">/*</span><span style="background-color: #f5f5f5; color: #008000;">设置为绝对定位</span><span style="background-color: #f5f5f5; color: #008000;">*/</span><span style="background-color: #f5f5f5; color: #ff0000;">
+ top</span><span style="background-color: #f5f5f5; color: #000000;">:</span><span style="background-color: #f5f5f5; color: #0000ff;">20%</span><span style="background-color: #f5f5f5; color: #000000;">;</span><span style="background-color: #f5f5f5; color: #008000;">/*</span><span style="background-color: #f5f5f5; color: #008000;">该div上边距是20%</span><span style="background-color: #f5f5f5; color: #008000;">*/</span><span style="background-color: #f5f5f5; color: #ff0000;">
+ left</span><span style="background-color: #f5f5f5; color: #000000;">:</span><span style="background-color: #f5f5f5; color: #0000ff;">20%</span><span style="background-color: #f5f5f5; color: #000000;">;</span><span style="background-color: #f5f5f5; color: #008000;">/*</span><span style="background-color: #f5f5f5; color: #008000;">该div左边距是20%</span><span style="background-color: #f5f5f5; color: #008000;">*/</span><span style="background-color: #f5f5f5; color: #ff0000;">
+ width</span><span style="background-color: #f5f5f5; color: #000000;">:</span><span style="background-color: #f5f5f5; color: #0000ff;">400px</span><span style="background-color: #f5f5f5; color: #000000;">;</span><span style="background-color: #f5f5f5; color: #008000;">/*</span><span style="background-color: #f5f5f5; color: #008000;">该div宽是400px</span><span style="background-color: #f5f5f5; color: #008000;">*/</span><span style="background-color: #f5f5f5; color: #ff0000;">
+ height</span><span style="background-color: #f5f5f5; color: #000000;">:</span><span style="background-color: #f5f5f5; color: #0000ff;">200px</span><span style="background-color: #f5f5f5; color: #000000;">;</span><span style="background-color: #f5f5f5; color: #008000;">/*</span><span style="background-color: #f5f5f5; color: #008000;">该div高是200px</span><span style="background-color: #f5f5f5; color: #008000;">*/</span><span style="background-color: #f5f5f5; color: #ff0000;">
+ background-color</span><span style="background-color: #f5f5f5; color: #000000;">:</span><span style="background-color: #f5f5f5; color: #0000ff;">#7da0e1</span><span style="background-color: #f5f5f5; color: #000000;">;</span><span style="background-color: #f5f5f5; color: #008000;">/*</span><span style="background-color: #f5f5f5; color: #008000;">该div背景色是#7da0e1</span><span style="background-color: #f5f5f5; color: #008000;">*/</span><span style="background-color: #f5f5f5; color: #ff0000;">
+ z-index</span><span style="background-color: #f5f5f5; color: #000000;">:</span><span style="background-color: #f5f5f5; color: #0000ff;">10000</span><span style="background-color: #f5f5f5; color: #000000;">;</span><span style="background-color: #f5f5f5; color: #008000;">/*</span><span style="background-color: #f5f5f5; color: #008000;">该div层级是10000</span><span style="background-color: #f5f5f5; color: #008000;">*/</span>
+ <span style="background-color: #f5f5f5; color: #000000;">}</span> 
+  <span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">style</span><span style="color: #0000ff;">&gt;</span> 
+<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">head</span><span style="color: #0000ff;">&gt;</span> 
+<span style="color: #0000ff;">&lt;</span><span style="color: #800000;">body</span><span style="color: #0000ff;">&gt;</span> 
+<span style="color: #0000ff;">&lt;</span><span style="color: #800000;">p</span><span style="color: #0000ff;">&gt;&lt;</span><span style="color: #800000;">a </span><span style="color: #ff0000;">href</span><span style="color: #0000ff;">="javascript:;"</span><span style="color: #ff0000;"> onclick</span><span style="color: #0000ff;">="document.getElementById('wo').style.display='block'"</span><span style="color: #0000ff;">&gt;</span>点击这里弹出层<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">a</span><span style="color: #0000ff;">&gt;</span><span style="color: #008000;">&lt;!--</span><span style="color: #008000;">点击该链接在当前页把不展示属性改成 为块状展示出来</span><span style="color: #008000;">--&gt;</span><span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">p</span><span style="color: #0000ff;">&gt;</span> 
+
+<span style="color: #0000ff;">&lt;</span><span style="color: #800000;">div </span><span style="color: #ff0000;">id</span><span style="color: #0000ff;">="wo"</span><span style="color: #ff0000;"> class</span><span style="color: #0000ff;">="buledivv"</span><span style="color: #0000ff;">&gt;</span> <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">table</span><span style="color: #0000ff;">&gt;</span><span style="color: #008000;">&lt;!--</span><span style="color: #008000;">id为wo的div，给予该样式</span><span style="color: #008000;">--&gt;</span>
+<span style="color: #0000ff;">&lt;</span><span style="color: #800000;">tr</span><span style="color: #0000ff;">&gt;&lt;</span><span style="color: #800000;">td </span><span style="color: #ff0000;">width</span><span style="color: #0000ff;">=400px </span><span style="color: #ff0000;">height</span><span style="color: #0000ff;">=100px </span><span style="color: #ff0000;">align</span><span style="color: #0000ff;">=center</span><span style="color: #0000ff;">&gt;&lt;</span><span style="color: #800000;">span </span><span style="color: #ff0000;">style</span><span style="color: #0000ff;">="font-size:20px;"</span><span style="color: #0000ff;">&gt;</span>请先输入内容，不能为空！<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">span</span><span style="color: #0000ff;">&gt;&lt;/</span><span style="color: #800000;">td</span><span style="color: #0000ff;">&gt;&lt;/</span><span style="color: #800000;">tr</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #0000ff;">&lt;</span><span style="color: #800000;">tr</span><span style="color: #0000ff;">&gt;&lt;</span><span style="color: #800000;">td </span><span style="color: #ff0000;">width</span><span style="color: #0000ff;">=400px </span><span style="color: #ff0000;">height</span><span style="color: #0000ff;">=100px </span><span style="color: #ff0000;">align</span><span style="color: #0000ff;">=center</span><span style="color: #0000ff;">&gt;&lt;</span><span style="color: #800000;">a </span><span style="color: #ff0000;">href</span><span style="color: #0000ff;">="javascript:void(0)"</span><span style="color: #ff0000;"> onclick</span><span style="color: #0000ff;">="document.getElementById('wo').style.display='none'"</span><span style="color: #0000ff;">&gt;</span><span style="color: #000000;"> 
+    确定，关闭该提示</span><span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">a</span><span style="color: #0000ff;">&gt;</span><span style="color: #008000;">&lt;!--</span><span style="color: #008000;">点击该链接让该div重新不展示</span><span style="color: #008000;">--&gt;</span><span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">td</span><span style="color: #0000ff;">&gt;&lt;/</span><span style="color: #800000;">tr</span><span style="color: #0000ff;">&gt;&lt;/</span><span style="color: #800000;">table</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">div</span><span style="color: #0000ff;">&gt;</span> </pre>
+</div>
+<p>图示：</p>
+<p><img src="https://img2018.cnblogs.com/blog/1481828/201904/1481828-20190428152405425-1291069913.png" alt="" /></p>
+<p>&nbsp;</p>
+<p>cnblog链接（带图示）:<a href="https://www.cnblogs.com/huaxie/p/10784231.html" target="_blank">【JS新手教程】浏览器弹出div层1</a></p>
+<p><a href="../blog_index.html">返回博文列表</a></p>
+</div>
+<div id="footer"><img src="../images/lodopfoot.png"></div>
+</body>
+</html>
