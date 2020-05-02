@@ -1,0 +1,42 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>WEB打印控件LODOP</title>
+<script language="javascript" src="LodopFuncs.js"></script>
+ <link href="../css/blogback.css" type='text/css' rel="stylesheet">     
+</head>
+<body id="bodyA1">
+<div id="header">
+<div id="head1"></div>
+</div>
+<div class="blogpost-body">
+<h3>LODOP打印用JS获取的当前日期</h3>
+    <p>该文详细一步步解释JS获取当前时间的方法，新手小白也看到懂，最后是实际的获取当前年月份的方法。<br />JS中的Date()对象，包含很多当前系统时间的方法，首先建立一个Date()对象，这里取名为date，然后用console.dir(对象名)在控制台输出该对象的全部属性。<br />代码：</p>
+<div class="cnblogs_code">
+<pre><span style="color: #0000ff;">function</span> ConsoleDateProperty() {<span style="color: #008000;">//</span><span style="color: #008000;">控制台输出属性</span>
+        <span style="color: #0000ff;">var</span> date = <span style="color: #0000ff;">new</span><span style="color: #000000;"> Date();
+        console.dir(date);
+    }</span></pre>
+</div>
+<p>图示：</p>
+<p><img src="https://img2018.cnblogs.com/blog/1481828/201904/1481828-20190401163557206-316480950.png" alt="" /></p>
+<p>如图，可看出Date对象里有很多属性，可以利用这些属性获取年月日。<br />本文需要用到的方法：<br />getFullYear() 方法&mdash;&mdash;返回当前年<br />getMonth() 方法&mdash;&mdash;返回当前月<br />getDate()方法&mdash;&mdash;返回当前月的某一天<br />这里的getMonth() 实际返回的数值并不是当前月，而是当前月-1，类似索引，从0开始到11，但是实际月份是1月到12月，所以要获取当前实际月份，可以用它加一。<br />具体返回的值，例如图示中的返回值：</p>
+<p>代码：</p>
+<div class="cnblogs_code">
+<p>function ConsoleDateDPYMD() {<br />        var date = new Date();console.log(date); <br />        var year = date.getFullYear();console.log(year);<br />        var Tmonth = date.getMonth(); console.log(Tmonth);<br />        var month = date.getMonth() + 1; console.log(month);<br />        var strDate = date.getDate();console.log(strDate);<br />    }</p>
+
+</div>
+<p>图示：</p>
+<p><img src="https://img2018.cnblogs.com/blog/1481828/201904/1481828-20190401163606293-1469039719.png" alt="" /></p>
+<p>常见的年月日格式的处理：<br />格式：####-##-##<br />格式特点描述：年月日用&ldquo;-&rdquo;分隔，且年四位，月两位，日两位，月日不足两位，在前面补0，例如&ldquo;2019-01-01&rdquo;这种格式。<br />如上可知，getDate()和getMonth()方法返回的可能是一位，也可能是2位，所以在代码里要判断一下，如果是1-9月份，那么就需要在前面补0，如果是10、11、12月份，本来就是2位数，不用做处理。<br />然后把处理后的年月日组合起来，年和月用-号分隔，月和日中间也加上-分隔。<br />这两步就是通过常见的字符串连接处理，字符串可通过+号连接，在很多语言里用法都是这样的。<br />如图，获取当前系统日期，然后打印预览的时候，预览的时候，自动这个文本的值就是当前的日期，一些快递单之类的，可能会用到这个，打单的时候自动在固定的位置显示日期。</p>
+<p>&nbsp;<img src="https://img2018.cnblogs.com/blog/1481828/201904/1481828-20190408095704400-1333527406.png" alt="" /></p>
+<p>由于博文都是抽空写的，一般都是放草稿箱，每次写一点，所以该文的截图也是时间不同。都是获取的当时的系统时间。这里说的是打印日期，其实是点击预览的时候的日期，不过都是一天内，没有到时间，所以可以看做打印的日期。</p>
+<p>Date对象里也可以获取到具体的时分秒时间，可查看本博客另一篇博文：<a href="https://www.cnblogs.com/huaxie/p/10689344.html" target="_blank">LODOP打印当前日期时间的方法</a></p>
+<p>&nbsp;</p>
+<p>cnblog链接（带图示）:<a href="https://www.cnblogs.com/huaxie/p/10636766.html" target="_blank">LODOP打印用JS获取的当前日期</a></p>
+<p><a href="../blog_index.html">返回博文列表</a></p>
+</div>
+<div id="footer"><img src="../images/lodopfoot.png"></div>
+</body>
+</html>
