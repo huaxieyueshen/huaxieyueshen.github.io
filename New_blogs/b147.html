@@ -1,0 +1,68 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>WEB打印控件LODOP</title>
+<script language="javascript" src="LodopFuncs.js"></script>
+ <link href="../css/blogback.css" type='text/css' rel="stylesheet">     
+</head>
+<body id="bodyA1">
+<div id="header">
+<div id="head1"></div>
+</div>
+<div class="blogpost-body">
+<h3>LODOP设置打印设计返回JS代码是变量</h3>
+    <p>前面有一篇博文是介绍JS模版的加载和赋值，赋值有两种，详细可查看本博客的那篇博文：<br /><a href="https://www.cnblogs.com/huaxie/p/10487691.html" target="_blank">LodopJS代码模版的加载和赋值</a><br />简单来说，就是打印项的值是变量，在添加打印项前进行赋值；打印项的值是字符串，给打印项设置类名，可以在添加打印项只有按照类名赋值（也可以是序号等），详细可查看上面链接里的博文。</p>
+<p>对于打印项的模版本身是变量的这种模版，直接使用打印设计返回的值都不是变量，可以手动修改成变量，或者在需要是变量的打印项后面加这句LODOP.SET_PRINT_STYLEA(1,"ContentVName","v1");//设置第一个打印项内容参数的变量名为v1；这句可以让前面的打印项再次进行设计，返回的时候值变成变量。<br />这里的1是打印项序号，如果有多个打印项都需要改成变量，可以按照序号给多个打印项设置该样式，此外，这个参数也可以用其他只，例如类名，具体可查看本博客相关SET_PRINT_STYLEA的博文。</p>
+<p>测试代码：</p>
+<div class="cnblogs_code">
+<pre><span style="color: #0000ff;">&lt;</span><span style="color: #800000;">head</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #0000ff;">&lt;</span><span style="color: #800000;">meta </span><span style="color: #ff0000;">http-equiv</span><span style="color: #0000ff;">="Content-Type"</span><span style="color: #ff0000;"> content</span><span style="color: #0000ff;">="text/html; charset=utf-8"</span> <span style="color: #0000ff;">/&gt;</span>
+<span style="color: #0000ff;">&lt;</span><span style="color: #800000;">title</span><span style="color: #0000ff;">&gt;</span>WEB打印控件LODOP<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">title</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #0000ff;">&lt;</span><span style="color: #800000;">script </span><span style="color: #ff0000;">language</span><span style="color: #0000ff;">="javascript"</span><span style="color: #ff0000;"> src</span><span style="color: #0000ff;">="LodopFuncs.js"</span><span style="color: #0000ff;">&gt;&lt;/</span><span style="color: #800000;">script</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">head</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #0000ff;">&lt;</span><span style="color: #800000;">body</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #0000ff;">&lt;</span><span style="color: #800000;">a </span><span style="color: #ff0000;">href</span><span style="color: #0000ff;">="javascript:prn1_design()"</span><span style="color: #0000ff;">&gt;</span>打印设计<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">a</span><span style="color: #0000ff;">&gt;&lt;</span><span style="color: #800000;">br</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #0000ff;">&lt;</span><span style="color: #800000;">a </span><span style="color: #ff0000;">href</span><span style="color: #0000ff;">="javascript:prn2_design()"</span><span style="color: #0000ff;">&gt;</span>加载打印设计的JS代码，设置替换成变量的语句后，重新打开并关闭打印设计<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">a</span><span style="color: #0000ff;">&gt;&lt;</span><span style="color: #800000;">br</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #0000ff;">&lt;</span><span style="color: #800000;">a </span><span style="color: #ff0000;">href</span><span style="color: #0000ff;">="javascript:prn3_design()"</span><span style="color: #0000ff;">&gt;</span>使用带变量的JS代码，给变量赋值后的打印预览<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">a</span><span style="color: #0000ff;">&gt;&lt;</span><span style="color: #800000;">br</span><span style="color: #0000ff;">&gt;</span>
+ <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">p</span><span style="color: #0000ff;">&gt;&lt;</span><span style="color: #800000;">textarea </span><span style="color: #ff0000;">rows</span><span style="color: #0000ff;">="12"</span><span style="color: #ff0000;"> id</span><span style="color: #0000ff;">="S1"</span><span style="color: #ff0000;"> cols</span><span style="color: #0000ff;">="107"</span> <span style="color: #0000ff;">&gt;</span>返回的打印设计的JS语句<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">textarea</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #0000ff;">&lt;</span><span style="color: #800000;">script </span><span style="color: #ff0000;">language</span><span style="color: #0000ff;">="javascript"</span><span style="color: #ff0000;"> type</span><span style="color: #0000ff;">="text/javascript"</span><span style="color: #0000ff;">&gt;</span>   
+        <span style="background-color: #f5f5f5; color: #0000ff;">var</span><span style="background-color: #f5f5f5; color: #000000;"> LODOP; </span><span style="background-color: #f5f5f5; color: #008000;">//</span><span style="background-color: #f5f5f5; color: #008000;">声明为全局变量 </span>
+    <span style="background-color: #f5f5f5; color: #0000ff;">function</span><span style="background-color: #f5f5f5; color: #000000;"> prn1_design() {</span><span style="background-color: #f5f5f5; color: #008000;">//</span><span style="background-color: #f5f5f5; color: #008000;">生成不带变量的普通JS代码</span>
+<span style="background-color: #f5f5f5; color: #000000;">        LODOP</span><span style="background-color: #f5f5f5; color: #000000;">=</span><span style="background-color: #f5f5f5; color: #000000;">getLodop();  
+        </span><span style="background-color: #f5f5f5; color: #0000ff;">if</span><span style="background-color: #f5f5f5; color: #000000;"> (LODOP.CVERSION)
+        CLODOP.On_Return</span><span style="background-color: #f5f5f5; color: #000000;">=</span><span style="background-color: #f5f5f5; color: #0000ff;">function</span><span style="background-color: #f5f5f5; color: #000000;">(TaskID,Value){document.getElementById(</span><span style="background-color: #f5f5f5; color: #000000;">'</span><span style="background-color: #f5f5f5; color: #000000;">S1</span><span style="background-color: #f5f5f5; color: #000000;">'</span><span style="background-color: #f5f5f5; color: #000000;">).value</span><span style="background-color: #f5f5f5; color: #000000;">=</span><span style="background-color: #f5f5f5; color: #000000;">Value;};
+        document.getElementById(</span><span style="background-color: #f5f5f5; color: #000000;">'</span><span style="background-color: #f5f5f5; color: #000000;">S1</span><span style="background-color: #f5f5f5; color: #000000;">'</span><span style="background-color: #f5f5f5; color: #000000;">).value</span><span style="background-color: #f5f5f5; color: #000000;">=</span><span style="background-color: #f5f5f5; color: #000000;">LODOP.PRINT_DESIGN();    
+    };
+        </span><span style="background-color: #f5f5f5; color: #0000ff;">function</span><span style="background-color: #f5f5f5; color: #000000;"> prn2_design() {</span><span style="background-color: #f5f5f5; color: #008000;">//</span><span style="background-color: #f5f5f5; color: #008000;">给prn1_design()需要值该变量的打印项加 设置变量名的语句//生成待变量的新代码</span>
+<span style="background-color: #f5f5f5; color: #000000;">        LODOP</span><span style="background-color: #f5f5f5; color: #000000;">=</span><span style="background-color: #f5f5f5; color: #000000;">getLodop(); 
+        eval(document.getElementById(</span><span style="background-color: #f5f5f5; color: #000000;">'</span><span style="background-color: #f5f5f5; color: #000000;">S1</span><span style="background-color: #f5f5f5; color: #000000;">'</span><span style="background-color: #f5f5f5; color: #000000;">).value); 
+        LODOP.SET_PRINT_STYLEA(</span><span style="background-color: #f5f5f5; color: #000000;">1</span><span style="background-color: #f5f5f5; color: #000000;">,</span><span style="background-color: #f5f5f5; color: #000000;">"</span><span style="background-color: #f5f5f5; color: #000000;">ContentVName</span><span style="background-color: #f5f5f5; color: #000000;">"</span><span style="background-color: #f5f5f5; color: #000000;">,</span><span style="background-color: #f5f5f5; color: #000000;">"</span><span style="background-color: #f5f5f5; color: #000000;">v1</span><span style="background-color: #f5f5f5; color: #000000;">"</span><span style="background-color: #f5f5f5; color: #000000;">);</span><span style="background-color: #f5f5f5; color: #008000;">//</span><span style="background-color: #f5f5f5; color: #008000;">设置第一个打印项的内容参数的变量名</span>
+<span style="background-color: #f5f5f5; color: #000000;">        LODOP.SET_PRINT_MODE(</span><span style="background-color: #f5f5f5; color: #000000;">"</span><span style="background-color: #f5f5f5; color: #000000;">PROGRAM_CONTENT_BYVAR</span><span style="background-color: #f5f5f5; color: #000000;">"</span><span style="background-color: #f5f5f5; color: #000000;">,</span><span style="background-color: #f5f5f5; color: #0000ff;">true</span><span style="background-color: #f5f5f5; color: #000000;">);</span><span style="background-color: #f5f5f5; color: #008000;">//</span><span style="background-color: #f5f5f5; color: #008000;">生成程序时，内容参数有变量用变量，无变量用具体值</span>
+        <span style="background-color: #f5f5f5; color: #0000ff;">if</span><span style="background-color: #f5f5f5; color: #000000;"> (LODOP.CVERSION) CLODOP.On_Return</span><span style="background-color: #f5f5f5; color: #000000;">=</span><span style="background-color: #f5f5f5; color: #0000ff;">function</span><span style="background-color: #f5f5f5; color: #000000;">(TaskID,Value){document.getElementById(</span><span style="background-color: #f5f5f5; color: #000000;">'</span><span style="background-color: #f5f5f5; color: #000000;">S1</span><span style="background-color: #f5f5f5; color: #000000;">'</span><span style="background-color: #f5f5f5; color: #000000;">).value</span><span style="background-color: #f5f5f5; color: #000000;">=</span><span style="background-color: #f5f5f5; color: #000000;">Value;};
+        document.getElementById(</span><span style="background-color: #f5f5f5; color: #000000;">'</span><span style="background-color: #f5f5f5; color: #000000;">S1</span><span style="background-color: #f5f5f5; color: #000000;">'</span><span style="background-color: #f5f5f5; color: #000000;">).value</span><span style="background-color: #f5f5f5; color: #000000;">=</span><span style="background-color: #f5f5f5; color: #000000;">LODOP.PRINT_DESIGN();
+
+    };
+        </span><span style="background-color: #f5f5f5; color: #0000ff;">function</span><span style="background-color: #f5f5f5; color: #000000;"> prn3_design() {</span><span style="background-color: #f5f5f5; color: #008000;">//</span><span style="background-color: #f5f5f5; color: #008000;">使用带变量的JS模版，给变量一个值，使用是变量的新JS代码。</span>
+<span style="background-color: #f5f5f5; color: #000000;">        LODOP</span><span style="background-color: #f5f5f5; color: #000000;">=</span><span style="background-color: #f5f5f5; color: #000000;">getLodop(); 
+        </span><span style="background-color: #f5f5f5; color: #0000ff;">var</span><span style="background-color: #f5f5f5; color: #000000;"> v1</span><span style="background-color: #f5f5f5; color: #000000;">=</span><span style="background-color: #f5f5f5; color: #000000;">"</span><span style="background-color: #f5f5f5; color: #000000;">地址的具体值</span><span style="background-color: #f5f5f5; color: #000000;">"</span><span style="background-color: #f5f5f5; color: #000000;">;
+        eval(document.getElementById(</span><span style="background-color: #f5f5f5; color: #000000;">'</span><span style="background-color: #f5f5f5; color: #000000;">S1</span><span style="background-color: #f5f5f5; color: #000000;">'</span><span style="background-color: #f5f5f5; color: #000000;">).value); 
+        LODOP.PREVIEW();
+    };
+</span><span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">script</span><span style="color: #0000ff;">&gt;</span> 
+<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">body</span><span style="color: #0000ff;">&gt;</span></pre>
+</div>
+<p>&nbsp;</p>
+<p>图示：<br />如图，三个方法：<br />1、第一个方法是，返回不带变量的，值是普通字符串值的JS模版代码。<br />2、第二个方法是，让普通字符串值的JS模版代码 变成 由变量替代的JS模版代码。<br />具体方法是，先获取带具体值的JS代码，然后在需要是变量的打印项加这个设置，设置变量名，然后进入打印设计后关闭打印设计，返回的就不再是带具体值的，而是由变量替换的。<br />3、值是变量的模版的使用。<br />1和3前面都有博文介绍，这里是介绍替换成变量名模版的方法。</p>
+<p>此博文加入本博客的模版相关的索引：（本博客所有模版相关的，可查看如下链接）</p>
+<p><a href="https://www.cnblogs.com/huaxie/p/10490119.html" target="_blank">Lodop的JS模版代码、文档式模版 生成加载赋值博文索引</a></p>
+<p>该索引包括：JS模版的生成和加载赋值，文档式模版的生成和加载赋值，返回不带初始化语句的模版JS代码，还有加上这次的博文 把JS带值的替换成变量模版。</p>
+<p><img src="https://img2018.cnblogs.com/blog/1481828/201904/1481828-20190403105532031-1786922199.png" alt="" /></p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>cnblog链接（带图示）:<a href="https://www.cnblogs.com/huaxie/p/10647302.html" target="_blank">LODOP设置打印设计返回JS代码是变量</a></p>
+<p><a href="../blog_index.html">返回博文列表</a></p>
+</div>
+<div id="footer"><img src="../images/lodopfoot.png"></div>
+</body>
+</html>

@@ -1,0 +1,28 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>WEB打印控件LODOP</title>
+<script language="javascript" src="LodopFuncs.js"></script>
+ <link href="../css/blogback.css" type='text/css' rel="stylesheet">     
+</head>
+<body id="bodyA1">
+<div id="header">
+<div id="head1"></div>
+</div>
+<div class="blogpost-body">
+<h3>拷贝文件到服务器 提示FTP文件夹错误</h3>
+    <p><span style="color: #ff0000;">FTP文件夹错误</span><br /><span style="color: #ff0000;">将文件复制到FTP服务器时发生错误。请检查是否有权限将文件放到该服务器上。</span><br /><span style="color: #ff0000;">详细信息:</span><br /><span style="color: #ff0000;">200 Type set to I.</span><br /><span style="color: #ff0000;">227Entering Passive Mode (122,114,49,4,4,87).</span><br /><span style="color: #ff0000;">125 Data connection already open;Transfer starting.</span><br /><span style="color: #ff0000;">426 Connection closed;transfer aborted.</span></p>
+<p>之前更新网站的时候遇到过这个问题，而且问题比较奇怪，一个网站可以更新，另一个网站提示这个不行。<br />因为我还有个专门打发票的电脑，用那台xp的电脑有时候可以复制更新上，所以我就传送文件到那台电脑上，然后拷贝进去。<br />后来有时候遇到两台电脑都有问题，在网上搜了下解决方法，貌似又一次以下这个方法解决了：<br />1.打开&ldquo;Internet选项&rdquo;，选择&ldquo;高级&rdquo;选项卡，在设置中把&ldquo;使用被动FTP（用于防火墙和DSL调制解调器的兼容）&rdquo;前面的勾去掉，并点击&ldquo;确定&rdquo;退出&ldquo;Internet属性&rdquo;。</p>
+<p>但是最近我发现，以前用的这两个方法，换电脑和设置浏览器属性，可能都只是巧合，因为最近我又遇到了这个问题，更新网站时又提示这个，然后我想到以前写过博文，貌似设置什么属性解决了，但是没有找到这个博文，所以又上网搜了搜，没有找到什么有用的方法。<br />还是一个网站可以更新，另一个网站FTP复制不上，我又进一步<span style="background-color: #ccffff;">对比测试了下，现象如下：</span><br />1.一个网站可以登入FTP更新，一个网站不行。<br />2.两台电脑都是一个网站可以，另一个网站不行。<br />3.有问题的网站，从网站上拷贝东西下来，上传不行。<br />4.我在有问题的网站上，上传一个简单的txt文本，发现文本居然可以拷贝上去，而且不提示这个。</p>
+<p>所以我想可能和文件的大小有关，因为我拷贝的是安装文件的压缩包，难道和服务器的储存量有关，所以我删了一些历史下载文件包，然后拷贝，竟然可以上传了。</p>
+<p>所以该提示现象的原因应该是这个，因为我试了很多次，但是一删除腾出空间来，就有效果了。<br /><strong><span style="font-family: 黑体;">1.有的网站可以更新，有的网站不行；不同电脑也是，有问题的网站不行。</span></strong><br /><strong><span style="font-family: 黑体;">2.拷贝下来可以，上传不行。</span></strong><br /><strong><span style="font-family: 黑体;">3.上传小东西可以，上传大东西不行。</span></strong><br /><strong><span style="font-family: 黑体;">如果有以上三个现象，很可能就是这个原因，找到原因以后就好处理了。</span></strong><br /><span style="background-color: #ffff99;">删除部分网站上的文件（不需要的历史文件），再拷贝进去新的文件就不会报错了。</span></p>
+<p>图示：</p>
+<p><img src="https://img2018.cnblogs.com/blog/1481828/201904/1481828-20190402154231886-35209924.png" alt="" /></p>
+<p>&nbsp;</p>
+<p>cnblog链接（带图示）:<a href="https://www.cnblogs.com/huaxie/p/10642316.html" target="_blank">拷贝文件到服务器 提示FTP文件夹错误</a></p>
+<p><a href="../blog_index.html">返回博文列表</a></p>
+</div>
+<div id="footer"><img src="../images/lodopfoot.png"></div>
+</body>
+</html>

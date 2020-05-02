@@ -1,0 +1,62 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>WEB打印控件LODOP</title>
+<script language="javascript" src="LodopFuncs.js"></script>
+ <link href="../css/blogback.css" type='text/css' rel="stylesheet">     
+</head>
+<body id="bodyA1">
+<div id="header">
+<div id="head1"></div>
+</div>
+<div class="blogpost-body">
+<h3>LODOP设置超文本不自动分页的方法</h3>
+    <p>在LODOP中，超文本超过打印项高度会自动分页，自动分页有两种情况：超过设置的打印项高度，超过纸张。<br />这里是指高度，超过纸张宽度的超文本不会显示，会隐藏掉。</p>
+<p>如果你不了解什么是LODOP中的超文本打印项，什么是LODOP中的纯文本打印项，可查看本博客相关介绍博文：</p>
+<p>因为超文本超打印项高度或纸张高度，会自动分页，这个是是无法去掉的，所以以下三种方法只是变通实现。<br /><span style="background-color: #ccffff;">如何只打印一页：</span><br /><span style="background-color: #ccffff;">1.缩放，整页缩放或高度溢出缩放。</span><br /><span style="background-color: #ccffff;">2.如果没有表格项，把内容放到ADD_PRINT_TABLE的一个单元格中。</span><br /><span style="background-color: #ccffff;">3.后面的都不打印，不预览的情况下，设置只打印第一页。（这种情况是自动分页了，但是因为是不预览，所以打印出来只有第一页）,如果预览，那么会是整个任务，不只是第一页。</span></p>
+<p>这三个方法前面对应都有博文介绍：<br /><strong>1.整页缩放和高度溢出缩放</strong><br /><a href="https://www.cnblogs.com/huaxie/p/10594097.html" target="_blank">LODOP整页缩放，宽度、高度溢出缩放</a></p>
+<p><strong>2.放入一个ADD_PRINT_TABLE的一个单元格TD中</strong><br /><a href="https://www.cnblogs.com/huaxie/p/10212656.html" target="_blank">LODOP中ADD_PRINT_TABLE、HTM、HTML表格自动分页测试</a></p>
+<p><strong>3.设置代言该任务的第一页</strong><br /><a href="https://www.cnblogs.com/huaxie/p/9619044.html" target="_blank">Lodop打印控件指定打印任务某几页</a></p>
+<p>如上述三个博文的介绍，第二个放入一个ADD_PRINT_TABLE的一个单元格TD中，上面那个博文可以看出，ADD_PRINT_TABLE不断行，这里输出一页的方法，就是如果内容没有table表格等，只是普通的超文本，可以把超文本内容放到一个table标签里，这个table只有一个单元格，上述第二个博文是两个单元格，所以分页了，第二页是第二个单元格，如果没有第二个单元格，那么第一页的那个表格超过纸张高度的部分，就会隐藏，没有第二页。</p>
+<p>例如，如下的例子，<span style="background-color: #99ccff;">正常情况下该超文本超过纸张会自动分页，但是放入一个table的td中，并用ADD_PRINT_TABLE输出，就不会超过纸张分页</span>，原理就是利用ADD_PRINT_TABLE不切行的特征。</p>
+<p>代码：（由于超文本代码太长，用省略号省略中间部分）</p>
+<div class="cnblogs_code">
+<pre><span style="color: #0000ff;">&lt;</span><span style="color: #800000;">head</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #0000ff;">&lt;</span><span style="color: #800000;">meta </span><span style="color: #ff0000;">http-equiv</span><span style="color: #0000ff;">="Content-Type"</span><span style="color: #ff0000;"> content</span><span style="color: #0000ff;">="text/html; charset=utf-8"</span> <span style="color: #0000ff;">/&gt;</span>
+<span style="color: #0000ff;">&lt;</span><span style="color: #800000;">title</span><span style="color: #0000ff;">&gt;</span>WEB打印控件LODOP<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">title</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #0000ff;">&lt;</span><span style="color: #800000;">script </span><span style="color: #ff0000;">language</span><span style="color: #0000ff;">="javascript"</span><span style="color: #ff0000;"> src</span><span style="color: #0000ff;">="LodopFuncs.js"</span><span style="color: #0000ff;">&gt;&lt;/</span><span style="color: #800000;">script</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">head</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #0000ff;">&lt;</span><span style="color: #800000;">body</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #0000ff;">&lt;</span><span style="color: #800000;">a </span><span style="color: #ff0000;">href</span><span style="color: #0000ff;">="javascript:prn1_preview()"</span><span style="color: #0000ff;">&gt;</span>打印预览<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">a</span><span style="color: #0000ff;">&gt;&lt;</span><span style="color: #800000;">br</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #0000ff;">&lt;</span><span style="color: #800000;">a </span><span style="color: #ff0000;">href</span><span style="color: #0000ff;">="javascript:prn2_preview()"</span><span style="color: #0000ff;">&gt;</span>打印预览2<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">a</span><span style="color: #0000ff;">&gt;&lt;</span><span style="color: #800000;">br</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #0000ff;">&lt;</span><span style="color: #800000;">script </span><span style="color: #ff0000;">language</span><span style="color: #0000ff;">="javascript"</span><span style="color: #ff0000;"> type</span><span style="color: #0000ff;">="text/javascript"</span><span style="color: #0000ff;">&gt;</span>   
+        <span style="background-color: #f5f5f5; color: #0000ff;">var</span><span style="background-color: #f5f5f5; color: #000000;"> LODOP; </span><span style="background-color: #f5f5f5; color: #008000;">//</span><span style="background-color: #f5f5f5; color: #008000;">声明为全局变量 </span>
+    <span style="background-color: #f5f5f5; color: #0000ff;">function</span><span style="background-color: #f5f5f5; color: #000000;"> prn1_preview() {
+        LODOP</span><span style="background-color: #f5f5f5; color: #000000;">=</span><span style="background-color: #f5f5f5; color: #000000;">getLodop(); 
+        LODOP.PRINT_INIT(</span><span style="background-color: #f5f5f5; color: #000000;">""</span><span style="background-color: #f5f5f5; color: #000000;">);
+        LODOP.ADD_PRINT_TABLE(</span><span style="background-color: #f5f5f5; color: #000000;">0</span><span style="background-color: #f5f5f5; color: #000000;">,</span><span style="background-color: #f5f5f5; color: #000000;">0</span><span style="background-color: #f5f5f5; color: #000000;">,</span><span style="background-color: #f5f5f5; color: #000000;">"</span><span style="background-color: #f5f5f5; color: #000000;">100%</span><span style="background-color: #f5f5f5; color: #000000;">"</span><span style="background-color: #f5f5f5; color: #000000;">,</span><span style="background-color: #f5f5f5; color: #000000;">"</span><span style="background-color: #f5f5f5; color: #000000;">100%</span><span style="background-color: #f5f5f5; color: #000000;">"</span><span style="background-color: #f5f5f5; color: #000000;">,</span><span style="background-color: #f5f5f5; color: #000000;">"省略超文本</span><span style="background-color: #f5f5f5; color: #000000;">"</span><span style="background-color: #f5f5f5; color: #000000;">);
+        </span><span style="background-color: #f5f5f5; color: #008000;">//</span><span style="background-color: #f5f5f5; color: #008000;">LODOP.PRINT_DESIGN();</span>
+<span style="background-color: #f5f5f5; color: #000000;">        LODOP.PREVIEW();    
+    };
+</span><span style="background-color: #f5f5f5; color: #0000ff;">function</span><span style="background-color: #f5f5f5; color: #000000;"> prn2_preview() {
+        LODOP</span><span style="background-color: #f5f5f5; color: #000000;">=</span><span style="background-color: #f5f5f5; color: #000000;">getLodop(); 
+        LODOP.PRINT_INIT(</span><span style="background-color: #f5f5f5; color: #000000;">""</span><span style="background-color: #f5f5f5; color: #000000;">);
+        LODOP.ADD_PRINT_HTM(</span><span style="background-color: #f5f5f5; color: #000000;">0</span><span style="background-color: #f5f5f5; color: #000000;">,</span><span style="background-color: #f5f5f5; color: #000000;">0</span><span style="background-color: #f5f5f5; color: #000000;">,</span><span style="background-color: #f5f5f5; color: #000000;">"</span><span style="background-color: #f5f5f5; color: #000000;">100%</span><span style="background-color: #f5f5f5; color: #000000;">"</span><span style="background-color: #f5f5f5; color: #000000;">,</span><span style="background-color: #f5f5f5; color: #000000;">"</span><span style="background-color: #f5f5f5; color: #000000;">100%</span><span style="background-color: #f5f5f5; color: #000000;">"</span><span style="background-color: #f5f5f5; color: #000000;">,</span><span style="background-color: #f5f5f5; color: #000000;">"省略超文本</span><span style="background-color: #f5f5f5; color: #000000;">"</span><span style="background-color: #f5f5f5; color: #000000;">);
+        </span><span style="background-color: #f5f5f5; color: #008000;">//</span><span style="background-color: #f5f5f5; color: #008000;">LODOP.PRINT_DESIGN();</span>
+<span style="background-color: #f5f5f5; color: #000000;">        LODOP.PREVIEW();    
+    };
+</span><span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">script</span><span style="color: #0000ff;">&gt;</span> 
+<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">body</span><span style="color: #0000ff;">&gt;</span></pre>
+</div>
+<p>图示：</p>
+<p><img src="https://img2018.cnblogs.com/blog/1481828/201904/1481828-20190408164032310-1130250219.png" alt="" /><br />如图，同样的超文本，超过了纸张的高度，ADD_PRINT_HTM会自动分页，而把该超文本放入ADD_PRINT_TABLE的一个td中，就会发现超过纸张高度的超文本内容没有输出。</p>
+<p>默认超文本超过打印项高度，和纸张高度，是会自动分页的。上述三个方法，只是变通实现超过纸张隐藏后面的超文本。</p>
+<p>这种需求应该很少吧，毕竟如果只打一页，超出的部分不打，那么数据就打不全了，如果缩放，那么又会变形，估计很少用到，但是既然有人有这个需求，还是试验了几个方法。</p>
+<p>&nbsp;</p>
+<p>cnblog链接（带图示）:<a href="https://www.cnblogs.com/huaxie/p/10670884.html" target="_blank">LODOP设置超文本不自动分页的方法</a></p>
+<p><a href="../blog_index.html">返回博文列表</a></p>
+</div>
+<div id="footer"><img src="../images/lodopfoot.png"></div>
+</body>
+</html>

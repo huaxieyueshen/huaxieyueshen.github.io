@@ -1,0 +1,44 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>WEB打印控件LODOP</title>
+<script language="javascript" src="LodopFuncs.js"></script>
+ <link href="../css/blogback.css" type='text/css' rel="stylesheet">     
+</head>
+<body id="bodyA1">
+<div id="header">
+<div id="head1"></div>
+</div>
+<div class="blogpost-body">
+<h3>LODOP不同电脑打印效果不同排查</h3>
+    <p><strong>1.位置不同，偏移问题。</strong><br />详细的相关偏移问题的博文：<br /><a href="https://www.cnblogs.com/huaxie/p/10564614.html" target="_blank">LODOP不同打印机出现偏移问题</a></p>
+<p><strong>2.样式问题。</strong></p>
+<p>本机浏览器解析样式不同 ，相关超文本样式博文：<br /><a href="https://www.cnblogs.com/huaxie/p/9669963.html" target="_blank">Lodop打印控件传入css样式、看是否传入正确样式</a></p>
+<p><a href="https://www.cnblogs.com/huaxie/p/10082571.html" target="_blank">LODOP超文本简短问答和相关内容</a></p>
+<p><strong>3.缩放问题。</strong><br />某个客户端打印出现缩放，相关博文：<br /><a href="https://www.cnblogs.com/huaxie/p/9854851.html" target="_blank">Lodop某个电脑打印内容大小有问题</a></p>
+<p><strong>4..排查步骤和简短问答：</strong><br />排查步骤，相关博文：<br /><a href="https://www.cnblogs.com/huaxie/p/9933528.html" target="_blank">Lodop简短问答客户反馈篇 及排查步骤 及注册相关</a></p>
+<p>简短问答：<br /><strong>测试排查：</strong><br />先用xps或pdf虚拟打印机测试一下试试。<br />在有问题的机器上先用xps或pdf虚拟打印机测试一下，查看下虚拟打印机的输出效果。</p>
+<p>用虚拟打印机测试，可排查是代码或电脑等问题，还是和打印机或打印机设置有关。<br />如果在该有问题的机器上，用虚拟打印机测试，虚拟打印机输出的文件正常，说明和打印机或打印机设置有关。</p>
+<p><strong>虚拟打印机：</strong><br />只要虚拟打印机没问题 就说明插件代码是正确的。用虚拟打印测试没问题 可排除插件代码问题 排查下打印机重置打印机驱动试下。理论上虚拟打印没问题的话，程序可做的努力就的确很少了，毕竟windows下的打印是微软倡导的设备无关系原则。</p>
+<p><strong>纸张和可打区域</strong><br />纸张设置，参考样例5 http://www.c-lodop.com/demolist/PrintSample5.html<br />用xps或pdf虚拟打印机测试一下（测试可用样例5），如果虚拟打印机输出的是正确的纸张，真实打印机不是，可能是打印机不支持该自定义纸张。<br />选择该真实打印机，在打印预览下方状态栏查看一下纸张大小，有的打印机不支持该自定义纸张。</p>
+<p>&ldquo;可打区域&rdquo;边缘与打印机本身有关，表现在预览里是虚线，可打区域的影响<br />http://www.c-lodop.com/faq/pp26.html<br />预览查看下是否有纸张和可打区域导致的。</p>
+<p>用真实打印机在打印预览下方状态栏查看一下纸张大小，查看下纸张是否是设置的纸张，有的打印机不支持该自定义纸张。<br />小票打印 ，参考样例18 http://www.c-lodop.com/demolist/PrintSample18.html<br />（小票针式打印 建议用 ADD_PRINT_TEXT文本，不用htm超文本，纸张高度不定容易引起 htm 中排版变形）</p>
+<p><strong>偏移</strong><br />打印位置不同，偏移量问题，参考http://www.c-lodop.com/faq/pp17.html<br />如果是累计偏移，尽量做到实际纸张与设置的纸张一致。<br />纸张设置和预览微小差异，换算误差引起的。在打印机内部都是按英寸的，mm换算成in，然后in再换算回来就不一定是原来的mm，可以不设置自定义纸张，如果需要的纸张打印机纸张列表里有，直接用打印机的纸张试试，按打印机本身的纸张走纸。<br />测量多个纸张，取平均值试试。</p>
+<p><strong>超文本：</strong><br />Lodop是基于本机windows底层引擎进行渲染解析的，与ie调用的引擎一致。<br />查看lodop内部解析的html信息，见http://www.c-lodop.com/faq/pp8.html<br />分析差异点，因浏览器版本不同遵循的html标准不同，造成某些标签属性显示有差异，尽量避免使用有差异的属性，可以在ie下不同版本仿真情况下验证差异<br />排查样式，尽量使用使用各浏览器无歧义的通用的 html css js，不支持的样式可尝试用其他样式代替。<br />可尝试把ADD_PRINT_HTM 换成 ADD_PRINT_HTML（图形模式）试试，ADD_PRINT_HTML不如ADD_PRINT_HTM清晰，适合高精度的打印机，两者各有优势。</p>
+<p>1.加载css样式，参考样例10 http://www.c-lodop.com/demolist/PrintSample10.html<br />2.css样式等尽量使用pt等绝对单位，不使用px等相对单位，避免分辨率的影响<br />3.系统和浏览器不要设置缩放，例如 控制板面-显示里设置缩放。<br />4.查看lodop内部解析的html信息，见http://www.c-lodop.com/faq/pp8.html<br />因浏览器版本不同遵循的html标准不同，造成某些标签属性显示有差异，尽量避免使用有差异的属性。<br />5.使用各浏览器无歧义的通用的 html css js，<br />Lodop是基于windows底层引擎，与本机ie引擎一致，进行解析渲染的，不要用本机ie不支持的html css js ，重置ie浏览器试试。<br />6.可尝试把ADD_PRINT_HTM 换成 ADD_PRINT_HTML（图形模式）试试。<br />7.用xps或pdf虚拟打印机测试一下，和真实打印机对比。<br />8.尽量使用最新版Lodop和c-lodop。最新版下载地址 http://www.c-lodop.com/download.html<br />9.是否是浏览器缓存问题，重置ie浏览器试试，清楚缓存。<br />10.页面，图片，js等超文本是否没有加载完全，显示空白或者图片缺失等问题，加延迟试试：<br />LODOP.SET_PRINT_STYLEA(0,"HtmWaitMilSecs",1000)//设置上一项延迟超文本下载1000毫秒<br />是否没有加载完全，给该超文本打印项加延迟试试：<br />LODOP.SET_PRINT_STYLEA(0,"HtmWaitMilSecs",1000)//设置上一项延迟超文本下载1000毫秒</p>
+<p>查看lodop内部解析的html信息，见http://www.c-lodop.com/faq/pp8.html<br />进入打印设计，选中该超文本打印项，右键，设置属性里查看实际传入的内容，复制到ie里查看下效果。<br />删减排查下样式，排查是哪些或哪个样式引起的，http://www.c-lodop.com/faq/pp8.html</p>
+<p><strong>清晰度</strong><br />是否用的ADD_PRINT_HTML语句，换用ADD_PRINT_HTM超文本的普通模式 试试，ADD_PRINT_HTM超文本的普通模式，输出的是解析后的超文本。<br />用xps或pdf虚拟打印机测试一下。</p>
+<p> 如何输出清晰图片 参考http://www.c-lodop.com/faq/pp14.html<br />并用xps或pdf虚拟打印机测试</p>
+<p><strong>排查描述：</strong><br />用虚拟打印机测试（xps或pdf虚拟打印机）   win7以上系统可能自带xps虚拟打印机，或网上下载pdf虚拟打印机<br />虚拟打印机正常<br />（和打印机有关）<br />1.打印机不支持该自定义纸张<br />切换真实和虚拟打印机，<br />查看预览下方状态栏的pagesize纸张大小是否是设置的纸张。<br />查看预览中是否有虚线，虚线是打印机的可打区域。<br />打印机不支持透明图打印，打印机不支持非黑白的浅色打印。<br />打印机不在初始位置，挡板不在初始位置（真实打印机偏移）<br />打印机缺墨，打印机精度不够，打印机驱动有问题，打印机故障。</p>
+<p>调整打印机设置，或打印机本身不支持一些功能，重装打印机驱动。</p>
+<p>虚拟打印机也不正常<br />（和代码或电脑等有关）<br />在代码里设置了整体偏移。<br />打印超文本，客户端解析的浏览器版本不同，样式差异。<br />操作系统显示等设置了缩放，导致内容缩放。<br />打印超文本，客户端ie引擎问题。<br />打印维护缓存的ini文件对客户端本地的影响。</p>
+<p>图示：</p>
+<p><img src="https://img2018.cnblogs.com/blog/1481828/201904/1481828-20190416151255182-1039436148.png" alt="" /></p>
+<p>&nbsp;</p>
+<p>cnblog链接（带图示）:<a href="https://www.cnblogs.com/huaxie/p/10688455.html" target="_blank">LODOP不同电脑打印效果不同排查</a></p>
+<p><a href="../blog_index.html">返回博文列表</a></p>
+</div>
+<div id="footer"><img src="../images/lodopfoot.png"></div>
+</body>
+</html>
