@@ -1,0 +1,29 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>WEB打印控件LODOP</title>
+<script language="javascript" src="LodopFuncs.js"></script>
+ <link href="../css/blogback.css" type='text/css' rel="stylesheet">     
+</head>
+<body id="bodyA1">
+<div id="header">
+<div id="head1"></div>
+</div>
+<div class="blogpost-body">
+<h3>如何强制关闭LODOP或c-lodop已经弹出的预览窗口</h3>
+    <p>该文介绍一下LODOP和C-LODOP关于窗口的弹出，和如何强制关闭已经打开的预览窗口。</p>
+<p>同一个页面，只能弹出一个窗口，lodop是禁止点击动作，而c-lodop会提示已有窗口开的，请关闭之类的默认提示，如果是连续执行多个打开窗口语句造成，也可自行修改自定义该提示，自定义提示查看本博客相关博文：<a href="https://www.cnblogs.com/huaxie/p/10469437.html" target="_blank">C-Lodop提示&ldquo;有窗口已打开，先关闭它（持续如此请刷新页面）！&rdquo;</a></p>
+<p><strong>同一个页面，只能弹出一个窗口，但是不同页面，lodop和c-lodop效果不同：</strong><br />1.lodop是浏览器插件，多个页面可打开多个窗口，以一个页面可打开一个。<br />2.c-lodop是本地服务，和浏览器无关，多个页面不能打开多个窗口，只能打开一个。</p>
+<p><strong>同一个页面已有窗口打开的现象：</strong><br />1.lodop点击打印或预览没反应，因为已经有打开的窗口了，是禁止点击状态。<br />2.c-lodop点打印或预览提示&ldquo;有窗口已打开，先关闭它（持续如此请刷新页面）！&rdquo;。</p>
+<p><strong>强制关闭方法：</strong><br />1.lodop是浏览器插件，可通过<span style="color: #993300;">关闭浏览器</span>关闭所有lodop打开的窗口。<br />2.c-lodop是本地服务，可通过<span style="color: #993300;">双击桌面上的c-lodop快捷方式，重启本机c-lodop</span>方式，关闭所有窗口。</p>
+<p><strong>lodop和c-lodop打开的窗口区别：</strong><br />预览或设计等左上角是小打印机图标，则表明当前窗口是c-lodop打开的。<br />预览或设计等左上角是浏览器图标，则表明当前窗口是lodop打开的。</p>
+<p><strong>如何查看已经打开的窗口：</strong><br />1.看下方任务栏。（有的缩小窗口后不是在任务栏上，建议用2.）<br />2.<span style="background-color: #ccffff;">按住alt+tab键，查看windows当前打开的窗口</span>，有时候任务栏没有显示，该方法也可以显示。</p>
+<p><img src="https://img2018.cnblogs.com/blog/1481828/201903/1481828-20190314102714152-497383443.png" alt="" /></p>
+<p>&nbsp;</p>
+<p>cnblog链接（带图示）:<a href="https://www.cnblogs.com/huaxie/p/10521499.html" target="_blank">如何强制关闭LODOP或c-lodop已经弹出的预览窗口</a></p>
+<p><a href="../blog_index.html">返回博文列表</a></p>
+</div>
+<div id="footer"><img src="../images/lodopfoot.png"></div>
+</body>
+</html>

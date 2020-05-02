@@ -1,0 +1,31 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>WEB打印控件LODOP</title>
+<script language="javascript" src="LodopFuncs.js"></script>
+ <link href="../css/blogback.css" type='text/css' rel="stylesheet">     
+</head>
+<body id="bodyA1">
+<div id="header">
+<div id="head1"></div>
+</div>
+<div class="blogpost-body">
+<h3>Lodop的JS模版代码、文档式模版 生成加载赋值博文索引</h3>
+    <p><a href="https://www.cnblogs.com/huaxie/p/10476371.html" target="_blank">Lodop获取全部JS代码，传统JS模版的生成</a>、<a href="https://www.cnblogs.com/huaxie/p/10647302.html" target="_blank">LODOP设置打印设计返回JS代码是变量</a></p>
+<p><a href="https://www.cnblogs.com/huaxie/p/10487691.html" target="_blank">LodopJS代码模版的加载和赋值</a></p>
+<p><a href="https://www.cnblogs.com/huaxie/p/10477358.html" target="_blank">Lodop生成文档式模版</a></p>
+<p><a href="https://www.cnblogs.com/huaxie/p/10489869.html" target="_blank">LodopJS文档式模版的加载和赋值</a></p>
+<p>由于加载JS传统模版，需要非Lodop方法的eval，该JS方法也介绍了一下：<br /><a href="https://www.cnblogs.com/huaxie/p/10481876.html" target="_blank">JS-JAVASCRIPT的eval()方法</a></p>
+<p><strong>注意，分页分任务的时候：</strong><br />如果模版是带初始化语句的，可以循环多任务，什么是一个任务，参考本博客相关博文：<a href="https://www.cnblogs.com/huaxie/p/9810583.html" target="_blank">Lodop打印语句最基本结构介绍（什么是一个任务）</a></p>
+<p>如果想要一个任务里分页，可循环去掉初始化语句的模版，可查看本博客相关博文：<br />LODOP 获取打印设计代码不带INIT初始化语句</p>
+<p>NewPage();后面必须要有添加打印项语句，不能只有赋值语句，否则就是在一个任务里不停的给打印项重新赋值，还是一页，不会产生分页。<br />后面的新页，和第一页打印项数量和位置相同也好，不相同也好，后面的页必须要有添加打印项语句，或者循环多任务，或者循环添加打印项产生多页。</p>
+<p>一个任务里可以有多页，如果是手动分页：<a href="https://www.cnblogs.com/huaxie/p/9719782.html" target="_blank">Lodop强制分页LODOP.NewPage()和LODOP.NewPageA()</a><br /><a href="https://www.cnblogs.com/huaxie/p/9995703.html" target="_blank">Lodop控件NewPage();测试输出空白页</a><br />注意newpage后面必须要有添加打印项语句，不能只有赋值语句，循环给那几个打印项反复赋值，并不会分页，可以循环除初始化之外的语句，包含打印项语句。</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>cnblog链接（带图示）:<a href="https://www.cnblogs.com/huaxie/p/10490119.html" target="_blank">Lodop的JS模版代码、文档式模版 生成加载赋值博文索引</a></p>
+<p><a href="../blog_index.html">返回博文列表</a></p>
+</div>
+<div id="footer"><img src="../images/lodopfoot.png"></div>
+</body>
+</html>

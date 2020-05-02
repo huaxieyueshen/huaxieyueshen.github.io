@@ -1,0 +1,89 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>WEB打印控件LODOP</title>
+<script language="javascript" src="LodopFuncs.js"></script>
+ <link href="../css/blogback.css" type='text/css' rel="stylesheet">     
+</head>
+<body id="bodyA1">
+<div id="header">
+<div id="head1"></div>
+</div>
+<div class="blogpost-body">
+<h3>C-Lodop提示“有窗口已打开，先关闭它（持续如此请刷新页面）！”</h3>
+    <p>c-lodop显示&ldquo;有窗口已打开，先关闭它（持续如此时请刷新页面）！&rdquo;<br />如果连续执行多个预览语句等导致的，可以预先判断一下，并可以自定义修改窗口已打开的提示，该默认提示的位置如本博客的下图http://localhost:8000/CLodopfuncs.js：</p>
+<p>通过语句后可修改连续打开窗口导致的提示，在执行打印前判断一下。</p>
+<p>会产生本提示的动作语句如下<br />PREVIEW、PRINT_DESIGN、PRINT_SETUP、PRINTA、GET_DIALOG_VALUE，以上语句需要等待返回，无结果时会有以上提示。其他语句不会有该提示，如：PRINT()。</p>
+<p><strong>可能1：有窗口已打开，还没关闭</strong><br />已打开的窗口被浏览器窗口抢了焦点，遮挡到后面了；<br />已打开的窗口最小化了；<br />查看windows任务栏，和浏览器后面，是否窗口最小化或被浏览器遮挡了。<br /><strong>可能2：代码问题，连续执行两个如预览等语句。</strong><br /><strong>可能3：前面的语句执行很慢，结果还没返回又点击了新的打开语句。</strong></p>
+<p><strong>如果是前两个窗口问题，也可以使用f (CLODOP.blOneByone==true)判断一下再执行。</strong></p>
+<p><strong>按住alt+tab可以查看windows当前打开的应用窗口，仔细查找是否有c-lodop的。</strong></p>
+<p>该提示只会在c-lodop产生，如果有窗口已打开，再点击lodop会是禁止点击，点击无效。</p>
+<p>测试代码说明：<br />方法1：正常情况，执行一次打印设计LODOP.PRINT_DESIGN();<br />方法2；连续执行两个LODOP.PRINT_DESIGN();，会弹出c-lodop本身的提示，该提示在clodopfuncs.js里。<br />方法3：在打印前，判断一下是否有窗口已经打开了，弹出自定义的提示。<br />方法4：在打印前，判断一下是否为c-lodop，如果为c-lodop，判断一下是否有窗口已经打开了，弹出自定义的提示。</p>
+<p>测试代码：</p>
+<div class="cnblogs_code">
+<pre><span style="color: #0000ff;">&lt;</span><span style="color: #800000;">head</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #0000ff;">&lt;</span><span style="color: #800000;">meta </span><span style="color: #ff0000;">http-equiv</span><span style="color: #0000ff;">="Content-Type"</span><span style="color: #ff0000;"> content</span><span style="color: #0000ff;">="text/html; charset=utf-8"</span> <span style="color: #0000ff;">/&gt;</span>
+<span style="color: #0000ff;">&lt;</span><span style="color: #800000;">title</span><span style="color: #0000ff;">&gt;</span>WEB打印控件LODOP<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">title</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #0000ff;">&lt;</span><span style="color: #800000;">script </span><span style="color: #ff0000;">language</span><span style="color: #0000ff;">="javascript"</span><span style="color: #ff0000;"> src</span><span style="color: #0000ff;">="LodopFuncs.js"</span><span style="color: #0000ff;">&gt;&lt;/</span><span style="color: #800000;">script</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">head</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #0000ff;">&lt;</span><span style="color: #800000;">body</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #0000ff;">&lt;</span><span style="color: #800000;">a </span><span style="color: #ff0000;">href</span><span style="color: #0000ff;">="javascript:prn1_preview()"</span><span style="color: #0000ff;">&gt;</span>打印设计执行一个正常<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">a</span><span style="color: #0000ff;">&gt;&lt;</span><span style="color: #800000;">br</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #0000ff;">&lt;</span><span style="color: #800000;">a </span><span style="color: #ff0000;">href</span><span style="color: #0000ff;">="javascript:prn2_preview()"</span><span style="color: #0000ff;">&gt;</span>打印设计执行两个<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">a</span><span style="color: #0000ff;">&gt;&lt;</span><span style="color: #800000;">br</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #0000ff;">&lt;</span><span style="color: #800000;">a </span><span style="color: #ff0000;">href</span><span style="color: #0000ff;">="javascript:prn3_preview()"</span><span style="color: #0000ff;">&gt;</span>打印设计执行两个，已有窗口打开提示，lodop会报错<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">a</span><span style="color: #0000ff;">&gt;&lt;</span><span style="color: #800000;">br</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #0000ff;">&lt;</span><span style="color: #800000;">a </span><span style="color: #ff0000;">href</span><span style="color: #0000ff;">="javascript:prn4_preview()"</span><span style="color: #0000ff;">&gt;</span>打印设计已有窗口打开提示2判断是c-lodop再判断<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">a</span><span style="color: #0000ff;">&gt;&lt;</span><span style="color: #800000;">br</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #0000ff;">&lt;</span><span style="color: #800000;">script </span><span style="color: #ff0000;">language</span><span style="color: #0000ff;">="javascript"</span><span style="color: #ff0000;"> type</span><span style="color: #0000ff;">="text/javascript"</span><span style="color: #0000ff;">&gt;</span>   
+        <span style="background-color: #f5f5f5; color: #0000ff;">var</span><span style="background-color: #f5f5f5; color: #000000;"> LODOP; </span><span style="background-color: #f5f5f5; color: #008000;">//</span><span style="background-color: #f5f5f5; color: #008000;">声明为全局变量 </span>
+    <span style="background-color: #f5f5f5; color: #0000ff;">function</span><span style="background-color: #f5f5f5; color: #000000;"> prn1_preview() {
+        LODOP</span><span style="background-color: #f5f5f5; color: #000000;">=</span><span style="background-color: #f5f5f5; color: #000000;">getLodop();
+        LODOP.PRINT_INIT(</span><span style="background-color: #f5f5f5; color: #000000;">""</span><span style="background-color: #f5f5f5; color: #000000;">);
+        LODOP.ADD_PRINT_TEXT(</span><span style="background-color: #f5f5f5; color: #000000;">14</span><span style="background-color: #f5f5f5; color: #000000;">,</span><span style="background-color: #f5f5f5; color: #000000;">27</span><span style="background-color: #f5f5f5; color: #000000;">,</span><span style="background-color: #f5f5f5; color: #000000;">100</span><span style="background-color: #f5f5f5; color: #000000;">,</span><span style="background-color: #f5f5f5; color: #000000;">20</span><span style="background-color: #f5f5f5; color: #000000;">,</span><span style="background-color: #f5f5f5; color: #000000;">"</span><span style="background-color: #f5f5f5; color: #000000;">新加文本1</span><span style="background-color: #f5f5f5; color: #000000;">"</span><span style="background-color: #f5f5f5; color: #000000;">);
+        LODOP.PRINT_DESIGN();
+        </span><span style="background-color: #f5f5f5; color: #008000;">//</span><span style="background-color: #f5f5f5; color: #008000;">LODOP.PREVIEW();    </span>
+<span style="background-color: #f5f5f5; color: #000000;">    };
+    </span><span style="background-color: #f5f5f5; color: #0000ff;">function</span><span style="background-color: #f5f5f5; color: #000000;"> prn2_preview() {
+        LODOP</span><span style="background-color: #f5f5f5; color: #000000;">=</span><span style="background-color: #f5f5f5; color: #000000;">getLodop();
+        LODOP.PRINT_INIT(</span><span style="background-color: #f5f5f5; color: #000000;">""</span><span style="background-color: #f5f5f5; color: #000000;">);
+        LODOP.ADD_PRINT_TEXT(</span><span style="background-color: #f5f5f5; color: #000000;">14</span><span style="background-color: #f5f5f5; color: #000000;">,</span><span style="background-color: #f5f5f5; color: #000000;">27</span><span style="background-color: #f5f5f5; color: #000000;">,</span><span style="background-color: #f5f5f5; color: #000000;">100</span><span style="background-color: #f5f5f5; color: #000000;">,</span><span style="background-color: #f5f5f5; color: #000000;">20</span><span style="background-color: #f5f5f5; color: #000000;">,</span><span style="background-color: #f5f5f5; color: #000000;">"</span><span style="background-color: #f5f5f5; color: #000000;">新加文本1</span><span style="background-color: #f5f5f5; color: #000000;">"</span><span style="background-color: #f5f5f5; color: #000000;">);
+        LODOP.PRINT_DESIGN();
+        LODOP.PRINT_DESIGN();
+        </span><span style="background-color: #f5f5f5; color: #008000;">//</span><span style="background-color: #f5f5f5; color: #008000;">LODOP.PREVIEW();    </span>
+<span style="background-color: #f5f5f5; color: #000000;">    };
+    </span><span style="background-color: #f5f5f5; color: #0000ff;">function</span><span style="background-color: #f5f5f5; color: #000000;"> prn3_preview() {       
+        LODOP</span><span style="background-color: #f5f5f5; color: #000000;">=</span><span style="background-color: #f5f5f5; color: #000000;">getLodop();
+       </span><span style="background-color: #f5f5f5; color: #0000ff;">if</span><span style="background-color: #f5f5f5; color: #000000;"> (CLODOP.blOneByone</span><span style="background-color: #f5f5f5; color: #000000;">==</span><span style="background-color: #f5f5f5; color: #0000ff;">true</span><span style="background-color: #f5f5f5; color: #000000;">){alert(</span><span style="background-color: #f5f5f5; color: #000000;">"</span><span style="background-color: #f5f5f5; color: #000000;">（ゝ&omega;・）先关闭前面的窗口，才能打开新的窗口（ゝ&omega;・）。</span><span style="background-color: #f5f5f5; color: #000000;">"</span><span style="background-color: #f5f5f5; color: #000000;">);}
+       </span><span style="background-color: #f5f5f5; color: #0000ff;">else</span><span style="background-color: #f5f5f5; color: #000000;">
+        {LODOP.PRINT_INIT(</span><span style="background-color: #f5f5f5; color: #000000;">""</span><span style="background-color: #f5f5f5; color: #000000;">);
+        LODOP.ADD_PRINT_TEXT(</span><span style="background-color: #f5f5f5; color: #000000;">14</span><span style="background-color: #f5f5f5; color: #000000;">,</span><span style="background-color: #f5f5f5; color: #000000;">27</span><span style="background-color: #f5f5f5; color: #000000;">,</span><span style="background-color: #f5f5f5; color: #000000;">100</span><span style="background-color: #f5f5f5; color: #000000;">,</span><span style="background-color: #f5f5f5; color: #000000;">20</span><span style="background-color: #f5f5f5; color: #000000;">,</span><span style="background-color: #f5f5f5; color: #000000;">"</span><span style="background-color: #f5f5f5; color: #000000;">新加文本1</span><span style="background-color: #f5f5f5; color: #000000;">"</span><span style="background-color: #f5f5f5; color: #000000;">);      
+        LODOP.PRINT_DESIGN();}
+        </span><span style="background-color: #f5f5f5; color: #008000;">//</span><span style="background-color: #f5f5f5; color: #008000;">LODOP.PREVIEW();    </span>
+<span style="background-color: #f5f5f5; color: #000000;">    };
+    </span><span style="background-color: #f5f5f5; color: #0000ff;">function</span><span style="background-color: #f5f5f5; color: #000000;"> prn4_preview() {
+        LODOP</span><span style="background-color: #f5f5f5; color: #000000;">=</span><span style="background-color: #f5f5f5; color: #000000;">getLodop();
+       </span><span style="background-color: #f5f5f5; color: #0000ff;">if</span><span style="background-color: #f5f5f5; color: #000000;"> (LODOP.CVERSION)
+       {</span><span style="background-color: #f5f5f5; color: #0000ff;">if</span><span style="background-color: #f5f5f5; color: #000000;"> (CLODOP.blOneByone</span><span style="background-color: #f5f5f5; color: #000000;">==</span><span style="background-color: #f5f5f5; color: #0000ff;">true</span><span style="background-color: #f5f5f5; color: #000000;">){alert(</span><span style="background-color: #f5f5f5; color: #000000;">"</span><span style="background-color: #f5f5f5; color: #000000;">（ゝ&omega;・）先关闭前面的窗口，才能打开新的窗口。（ゝ&omega;・）</span><span style="background-color: #f5f5f5; color: #000000;">"</span><span style="background-color: #f5f5f5; color: #000000;">);}}
+       </span><span style="background-color: #f5f5f5; color: #0000ff;">else</span><span style="background-color: #f5f5f5; color: #000000;">
+        {LODOP.PRINT_INIT(</span><span style="background-color: #f5f5f5; color: #000000;">""</span><span style="background-color: #f5f5f5; color: #000000;">);
+        LODOP.ADD_PRINT_TEXT(</span><span style="background-color: #f5f5f5; color: #000000;">14</span><span style="background-color: #f5f5f5; color: #000000;">,</span><span style="background-color: #f5f5f5; color: #000000;">27</span><span style="background-color: #f5f5f5; color: #000000;">,</span><span style="background-color: #f5f5f5; color: #000000;">100</span><span style="background-color: #f5f5f5; color: #000000;">,</span><span style="background-color: #f5f5f5; color: #000000;">20</span><span style="background-color: #f5f5f5; color: #000000;">,</span><span style="background-color: #f5f5f5; color: #000000;">"</span><span style="background-color: #f5f5f5; color: #000000;">新加文本1</span><span style="background-color: #f5f5f5; color: #000000;">"</span><span style="background-color: #f5f5f5; color: #000000;">);   
+        LODOP.PRINT_DESIGN();}
+    };
+</span><span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">script</span><span style="color: #0000ff;">&gt;</span> </pre>
+</div>
+<p>图示：</p>
+<p><img src="https://img2018.cnblogs.com/blog/1481828/201903/1481828-20190304160148676-1277433924.png" alt="" /></p>
+<p>效果：</p>
+<p>关于本测试的描述：</p>
+<p>1.点击一次，正常情况，弹出一次打印设计。</p>
+<p>2.连续执行两个LODOP.PRINT_DESIGN();，会弹出c-lodop的默认提示。</p>
+<p>3.点一次后，不关闭再点一次，弹出自己写的判断的自定义提示。<br />（如果是lodop插件，非c-lodop，这里会报错，注意这个判断只能在c-lodop下使用）</p>
+<p>4.点一次后，不关闭再点一次，每次都先判断是否是c-lodop，再判断是否打开了窗口，弹出自己写的判断的自定义提示。</p>
+<p>如何只使用c-lodop，可修改needclodop方法返回true，也可用欢迎页面的方式，可参考查看本博客的相关博文：</p>
+<p>特别注意：该文中的判断，只使与c-lodop。<br />而lodop，打开没关窗口会禁止点击，如果代码有两个，会弹出一个，关掉接着弹出第二个。</p>
+<p><strong>简短问答：</strong><br /><strong>提示窗口已打开</strong><br />参考http://www.c-lodop.com/faq/pp27.html<br />是否有共享打印机，删除共享打印机后，重新安装试试。<br />（之后又客户共享打印机出问题，也是老提示这个，而且c-lodop的启动界面也出不来，第一次点击就提示，后来远程了下，删除共享打印机后，重新安装就好了。）</p>
+<p>&nbsp;</p>
+<p>cnblog链接（带图示）:<a href="https://www.cnblogs.com/huaxie/p/10469437.html" target="_blank">C-Lodop提示“有窗口已打开，先关闭它（持续如此请刷新页面）！”</a></p>
+<p><a href="../blog_index.html">返回博文列表</a></p>
+</div>
+<div id="footer"><img src="../images/lodopfoot.png"></div>
+</body>
+</html>
