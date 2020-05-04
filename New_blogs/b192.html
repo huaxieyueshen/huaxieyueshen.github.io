@@ -1,0 +1,50 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>WEB打印控件LODOP</title>
+<script language="javascript" src="LodopFuncs.js"></script>
+ <link href="../css/blogback.css" type='text/css' rel="stylesheet">     
+</head>
+<body id="bodyA1">
+<div id="header">
+<div id="head1"></div>
+</div>
+<div class="blogpost-body">
+<h3>LODOP设置纸张无效问题</h3>
+    <p>有的打印机不支持自定义纸张，或不支持当前设置的纸张尺寸，会造成纸张尺寸和代码里设置的尺寸不一致的情况。<br />现象：<br />1.代码一样，纸张语句设置正确，有的打印机纸张正常，有的打印机不正常。<br />2.代码一样，纸张语句设置正确，宽度正常，高度不正常。（或相反）<br />3.代码一样，纸张语句设置正确，虚拟打印机测试正常，真实打印机不正常。</p>
+<p><strong>简短问答区域：</strong><br />纸张设置，参考样例5 http://www.c-lodop.com/demolist/PrintSample5.html<br />用xps或pdf虚拟打印机测试一下（测试可用样例5），如果虚拟打印机输出的是正确的纸张，真实打印机不是，可能是打印机不支持该自定义纸张。<br />选择该真实打印机，在打印预览下方状态栏查看一下纸张大小，有的打印机不支持该自定义纸张。</p>
+<p>用官网样例5直接输入尺寸，在预览里选择不同打印机 ，对比预览效果，有的打印机不支持自定义纸张，有的有可打区域。</p>
+<p>打印机不支持就不行了，不用自定义纸张，选择打印机本身自带的纸张试试，打印机自带的纸张肯定支持。<br />参考样例5步骤3http://www.c-lodop.com/demolist/PrintSample5.html，获取打印机的纸张列表，纸张语句宽高设置成0，第四个参数纸张名称在宽高无效情况下会有效，就会根据纸张名称走，获取的是打印机本身自带的纸张名称，所以一定会支持打印机自带的纸张。<br />如果打印机自带的纸张没有所需要的尺寸，LODOP设置的自定义纸张不支持，那么就没办法了，只能换打印机或换用打印机支持的纸张。<br />纸张的一些优先级 http://blog.sina.com.cn/s/blog_721e77e50100wto6.html</p>
+<p><strong>非简单问答，正文介绍：</strong><br />由于打印机千差万别，不是所有打印机都支持LODOP自定义纸张，而且打印机可打区域本身也有差异。关于不同打印机的不同问题，可以用打印维护微调（相关博文：<a href="https://www.cnblogs.com/huaxie/p/9728450.html" target="_blank">Lodop打印维护PRINT_SETUP本地缓存ini文件</a>、<a href="https://www.cnblogs.com/huaxie/p/10564614.html" target="_blank">LODOP不同打印机出现偏移问题</a>、<a href="https://www.cnblogs.com/huaxie/p/10569975.html" target="_blank">LODOP批量打印多页模版进行维护</a>）</p>
+<p>如果是不支持自定义纸张，而内容又和纸张有关，那么就不好调整了，打印机本身不支持这种纸张就不行了。<br />如何测试某个打印机是否支持当前设置的纸张，可用官网样例5直接输入尺寸，在预览里选择不同打印机 ，对比预览效果。<br />在预览里直接选择不同打印机进行预览对比：<br />测试代码：</p>
+<div class="cnblogs_code">
+<pre><span style="color: #0000ff;">&lt;</span><span style="color: #800000;">head</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #0000ff;">&lt;</span><span style="color: #800000;">meta </span><span style="color: #ff0000;">http-equiv</span><span style="color: #0000ff;">="Content-Type"</span><span style="color: #ff0000;"> content</span><span style="color: #0000ff;">="text/html; charset=utf-8"</span> <span style="color: #0000ff;">/&gt;</span>
+<span style="color: #0000ff;">&lt;</span><span style="color: #800000;">title</span><span style="color: #0000ff;">&gt;</span>WEB打印控件LODOP<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">title</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #0000ff;">&lt;</span><span style="color: #800000;">script </span><span style="color: #ff0000;">language</span><span style="color: #0000ff;">="javascript"</span><span style="color: #ff0000;"> src</span><span style="color: #0000ff;">="LodopFuncs.js"</span><span style="color: #0000ff;">&gt;&lt;/</span><span style="color: #800000;">script</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">head</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #0000ff;">&lt;</span><span style="color: #800000;">body</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #0000ff;">&lt;</span><span style="color: #800000;">a </span><span style="color: #ff0000;">href</span><span style="color: #0000ff;">="javascript:prn1_preview()"</span><span style="color: #0000ff;">&gt;</span>不同打印机纸张不同，纸张无效<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">a</span><span style="color: #0000ff;">&gt;&lt;</span><span style="color: #800000;">br</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #0000ff;">&lt;</span><span style="color: #800000;">script </span><span style="color: #ff0000;">language</span><span style="color: #0000ff;">="javascript"</span><span style="color: #ff0000;"> type</span><span style="color: #0000ff;">="text/javascript"</span><span style="color: #0000ff;">&gt;</span>   
+        <span style="background-color: #f5f5f5; color: #0000ff;">var</span><span style="background-color: #f5f5f5; color: #000000;"> LODOP; </span><span style="background-color: #f5f5f5; color: #008000;">//</span><span style="background-color: #f5f5f5; color: #008000;">声明为全局变量 </span>
+    <span style="background-color: #f5f5f5; color: #0000ff;">function</span><span style="background-color: #f5f5f5; color: #000000;"> prn1_preview() {
+        LODOP</span><span style="background-color: #f5f5f5; color: #000000;">=</span><span style="background-color: #f5f5f5; color: #000000;">getLodop(); 
+        LODOP.PRINT_INIT(</span><span style="background-color: #f5f5f5; color: #000000;">""</span><span style="background-color: #f5f5f5; color: #000000;">);
+        LODOP.SET_PRINT_PAGESIZE(</span><span style="background-color: #f5f5f5; color: #000000;">1</span><span style="background-color: #f5f5f5; color: #000000;">,</span><span style="background-color: #f5f5f5; color: #000000;">800</span><span style="background-color: #f5f5f5; color: #000000;">,</span><span style="background-color: #f5f5f5; color: #000000;">600</span><span style="background-color: #f5f5f5; color: #000000;">,</span><span style="background-color: #f5f5f5; color: #000000;">""</span><span style="background-color: #f5f5f5; color: #000000;">);</span><span style="background-color: #f5f5f5; color: #008000;">//</span><span style="background-color: #f5f5f5; color: #008000;">设置纸张为80mm*60mm</span>
+<span style="background-color: #f5f5f5; color: #000000;">        LODOP.ADD_PRINT_HTM(</span><span style="background-color: #f5f5f5; color: #000000;">42</span><span style="background-color: #f5f5f5; color: #000000;">,</span><span style="background-color: #f5f5f5; color: #000000;">30</span><span style="background-color: #f5f5f5; color: #000000;">,</span><span style="background-color: #f5f5f5; color: #000000;">300</span><span style="background-color: #f5f5f5; color: #000000;">,</span><span style="background-color: #f5f5f5; color: #000000;">100</span><span style="background-color: #f5f5f5; color: #000000;">,</span><span style="background-color: #f5f5f5; color: #000000;">"</span><span style="background-color: #f5f5f5; color: #000000;">&lt;body style=\"margin:50px\"&gt;\r\n HTML Demo content\r\n &lt;br&gt;&lt;font color=\"#FF0000\"&gt;Double click me and modify...&lt;/font&gt;\r\n&lt;/body&gt;</span><span style="background-color: #f5f5f5; color: #000000;">"</span><span style="background-color: #f5f5f5; color: #000000;">);
+        </span><span style="background-color: #f5f5f5; color: #008000;">//</span><span style="background-color: #f5f5f5; color: #008000;">LODOP.PRINT_DESIGN();</span>
+<span style="background-color: #f5f5f5; color: #000000;">        LODOP.PREVIEW();    
+    };
+</span><span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">script</span><span style="color: #0000ff;">&gt;</span> 
+<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">body</span><span style="color: #0000ff;">&gt;</span></pre>
+</div>
+<p>预览选择不同打印机效果图示：</p>
+<p>&nbsp;<img src="https://img2018.cnblogs.com/blog/1481828/201907/1481828-20190718142344027-942838933.png" alt="" /></p>
+<p>&nbsp;</p>
+<p>cnblog链接（带图示）:<a href="https://www.cnblogs.com/huaxie/p/11205519.html" target="_blank">LODOP设置纸张无效问题</a></p>
+<p><a href="../blog_index.html">返回博文列表</a></p>
+</div>
+<div id="footer"><img src="../images/lodopfoot.png"></div>
+</body>
+</html>
