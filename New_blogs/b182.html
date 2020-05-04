@@ -1,0 +1,64 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>WEB打印控件LODOP</title>
+<script language="javascript" src="LodopFuncs.js"></script>
+ <link href="../css/blogback.css" type='text/css' rel="stylesheet">     
+</head>
+<body id="bodyA1">
+<div id="header">
+<div id="head1"></div>
+</div>
+<div class="blogpost-body">
+<h3>如何固定table表格宽度，样式不受容器影响</h3>
+    <p>之前有篇关于LODOP打印超文本表格，两个样式相同的表格，出现错位的情况。<br />该博文地址：<a href="https://www.cnblogs.com/huaxie/p/11045426.html" target="_blank">LODOP打印表格错位的几种情况</a><br />该文试验了两种现象，第一种浏览器页面显示错位，打印预览也错位，第二种浏览器页面表格不错位，打印预览却错位。<br />这两个其实都是和容纳table表格的容器有关，也就是样式有问题的导致的，仔细对比排查样式，可排查出问题。</p>
+<p>想让样式不变形，完全按照代码的宽度，可：在table标签里添加宽度，单元格里加宽度。这种是不受容器影响的。如下面图示，<span style="color: #000080;">按照纸张进行设计表格，而不是浏览器</span>。</p>
+<p>上面那个博文链接中，<br />1.table表格设置了宽度为100%，单元格不设置宽度，导致内容不同每个单元格宽度不同。<br />2.table表格设置了宽度为100%，每个单元格设置了具体的宽度，然后实际中，表格整体的宽度还是按照的百分之百，设置的具体宽度并不是固定的，只是按照一定比例进行了放大，布满了浏览器的宽度。<br />这两种都导致了单元格错位。</p>
+<p>如果table表格不设置宽度为100%，table表格不设置宽度，单元格设置具体的宽度，测试发现，浏览器中确实能正常显示单元格宽度，增大浏览器等没有问题，但是减小的时候，浏览器还是会自动对宽度进行缩小，也就是浏览器中的表格是这样的：table不设置宽度，浏览器宽度拖动减小，会自适应一样的表格宽度本身也会改变，即使每个单元格设置了具体的宽度数值，浏览器还是自适用。</p>
+<p>如果想要去掉样式和容器的影响，就是把table标签本身设置上具体宽度，这样之后，即使浏览器怎么拖动，样式已经固定了，就不会受浏览器样式影响了。</p>
+<p>不受容器影响，也就不会发生内容不同导致的错位现象。<br />表格代码：</p>
+<div class="cnblogs_code">
+<pre>    <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">table </span><span style="color: #ff0000;">border</span><span style="color: #0000ff;">=1 </span><span style="color: #ff0000;">cellSpacing</span><span style="color: #0000ff;">=0 </span><span style="color: #ff0000;">cellPadding</span><span style="color: #0000ff;">=0 </span><span style="color: #ff0000;">style</span><span style="color: #0000ff;">="border-collapse:collapse;width:880px;"</span><span style="color: #0000ff;">&gt;</span>
+        <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">tr</span><span style="color: #0000ff;">&gt;</span>
+            <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">td </span><span style="color: #ff0000;">style</span><span style="color: #0000ff;">="width:600px;"</span><span style="color: #0000ff;">&gt;</span>分析差异点，因浏览器版本不同遵循的html标准不同<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">td</span><span style="color: #0000ff;">&gt;</span>  
+            <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">td </span><span style="color: #ff0000;">style</span><span style="color: #0000ff;">="width:90px;"</span><span style="color: #0000ff;">&gt;</span>分析差异点<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">td</span><span style="color: #0000ff;">&gt;</span> 
+            <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">td </span><span style="color: #ff0000;">style</span><span style="color: #0000ff;">="width:100px;"</span><span style="color: #0000ff;">&gt;</span>排查样式<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">td</span><span style="color: #0000ff;">&gt;</span>
+            <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">td </span><span style="color: #ff0000;">style</span><span style="color: #0000ff;">="width:90px;"</span><span style="color: #0000ff;">&gt;</span>在ie下不同版本仿真情况下验证差异<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">td</span><span style="color: #0000ff;">&gt;</span>
+        <span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">tr</span><span style="color: #0000ff;">&gt;</span>
+    <span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">table</span><span style="color: #0000ff;">&gt;</span></pre>
+</div>
+<p>打印代码：（纸张设置的较小，表格本身的宽度已经超过了纸张）</p>
+<div class="cnblogs_code">
+<pre>    <span style="color: #0000ff;">function</span><span style="color: #000000;"> prn1_preview() {
+        LODOP</span>=<span style="color: #000000;">getLodop(); 
+        LODOP.PRINT_INIT(</span>""<span style="color: #000000;">);
+        LODOP.SET_PRINT_PAGESIZE(</span>1,600,1600,""<span style="color: #000000;">);
+        LODOP.ADD_PRINT_HTM(</span>0,0,"100%","100%",document.getElementById("div1"<span style="color: #000000;">).innerHTML);
+        LODOP.PRINT_DESIGN();
+</span><span style="color: #008000;">//</span><span style="color: #008000;">        LODOP.PREVIEW();    </span>
+    };</pre>
+</div>
+<p>图示见后面，和后面的合成了一张图：</p>
+<p>修改为固定宽度后，表格不会随着容器自适用了，如果想保留自适用，可以合成到一个表格里，或者根据纸张重新设计表格。<br />解决两个表格自适应导致错位的方法：<br />1.合成一个table表格，同一个表格里不会发生单元格错位。(保留自适用）<br />2.两个表格进行重组，设置具体的表格宽度和单元格宽度，<span style="color: #000080;">根据纸张进行设计</span>。（不受容器影响，保持样式不变形，不再自适应，适应设计的表格。）</p>
+<p>代码：(根据纸张设计表格），如该纸张宽度是600， LODOP.SET_PRINT_PAGESIZE中的纸张参数，默认单位是0.1mm，也就是纸张是60mm。<br />表格设计的宽度迎合纸张，可以转换成pt试试，60*（72/25.4）约等于170pt。然后随便分配了下每个单元格占的数值，该表格就能固定宽度显示且能不会超过纸张。<br />表格代码：</p>
+<div class="cnblogs_code">
+<pre>    <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">table </span><span style="color: #ff0000;">border</span><span style="color: #0000ff;">=1 </span><span style="color: #ff0000;">cellSpacing</span><span style="color: #0000ff;">=0 </span><span style="color: #ff0000;">cellPadding</span><span style="color: #0000ff;">=0 </span><span style="color: #ff0000;">style</span><span style="color: #0000ff;">="border-collapse:collapse;width:170pt;"</span><span style="color: #0000ff;">&gt;</span>
+        <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">tr</span><span style="color: #0000ff;">&gt;</span>
+            <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">td </span><span style="color: #ff0000;">style</span><span style="color: #0000ff;">="width:70pt;"</span><span style="color: #0000ff;">&gt;</span>分析差异点，因浏览器版本不同遵循的html标准不同<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">td</span><span style="color: #0000ff;">&gt;</span>  
+            <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">td </span><span style="color: #ff0000;">style</span><span style="color: #0000ff;">="width:50pt;"</span><span style="color: #0000ff;">&gt;</span>分析差异点<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">td</span><span style="color: #0000ff;">&gt;</span> 
+            <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">td </span><span style="color: #ff0000;">style</span><span style="color: #0000ff;">="width:20pt;"</span><span style="color: #0000ff;">&gt;</span>排查样式<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">td</span><span style="color: #0000ff;">&gt;</span>
+            <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">td </span><span style="color: #ff0000;">style</span><span style="color: #0000ff;">="width:30pt;"</span><span style="color: #0000ff;">&gt;</span>在ie下不同版本仿真情况下验证差异<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">td</span><span style="color: #0000ff;">&gt;</span>
+        <span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">tr</span><span style="color: #0000ff;">&gt;</span>
+    <span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">table</span><span style="color: #0000ff;">&gt;</span></pre>
+</div>
+<p>图示：</p>
+<p><span style="background-color: #ffff00;"><strong>table加具体宽度，单元格加具体宽度</strong>，</span>宽度样式不受容器的影响，注意宽度超过纸张会不显示。<br />根据自己需要的纸张设计表格，如图，修改表格宽度到纸张能容纳的大小。</p>
+<p><img src="https://img2018.cnblogs.com/blog/1481828/201906/1481828-20190619152400191-1898736242.png" alt="" /></p>
+<p>&nbsp;</p>
+<p>cnblog链接（带图示）:<a href="https://www.cnblogs.com/huaxie/p/11051242.html" target="_blank">如何固定table表格宽度，样式不受容器影响</a></p>
+<p><a href="../blog_index.html">返回博文列表</a></p>
+</div>
+<div id="footer"><img src="../images/lodopfoot.png"></div>
+</body>
+</html>

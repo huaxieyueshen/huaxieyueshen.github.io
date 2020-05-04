@@ -1,0 +1,27 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>WEB打印控件LODOP</title>
+<script language="javascript" src="LodopFuncs.js"></script>
+ <link href="../css/blogback.css" type='text/css' rel="stylesheet">     
+</head>
+<body id="bodyA1">
+<div id="header">
+<div id="head1"></div>
+</div>
+<div class="blogpost-body">
+<h3>C-Lodop提示Access violation at address ...in module 'CLodopPrint32.exe' write of address</h3>
+    <p>C-Lodop提示 Access violation at address &hellip;&hellip;in module 'CLodopPrint32.exe' write of address &hellip;&hellip;<br />最近遇到了个问题，上午的时候c-lodop是正常的，下午开机却一直提示这个，而且隔几秒就弹出一个这个提示，不断弹出，关了继续弹。<br />但是本人没有对电脑进行什么操作，这个问题突然出现，是怎么回事，经过一段排查，最终终于找到了问题。<br />因为一直弹窗，而且越弹越多，影响了电脑的使用，但是还需要工作，所以我先暂时从进程了把c-lodop杀死了，然而c-lodop有后备进程和免登陆启动服务等，这种进一步确保c-lodop的启动，所以杀死了一会又会生成启动起来，接着是弹窗，但是弹窗内容可能有变化，大体就是图片的这两个：<br />提示1：<span style="color: #333399;">C-Lodop提示 Access violation at address &hellip;&hellip;in module 'CLodopPrint32.exe' write of address &hellip;&hellip;（省略号代表某内存）</span><br />提示2：<span style="color: #333399;">C-Lodop提示Privileged instruction</span>。<br />这两个提示是不断弹出，间隔一小会就弹出一次，如果放着不管会弹出很多，由于c-lodop是开机自启动，所以一开机就会提示，即使不调用LODOP对象也会提示。<br /><span style="background-color: #cc99ff;">&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;如上是该问题的现象&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;</span></p>
+<p>由于此问题不断弹窗，影响电脑的使用，所以我只能暂时把c-lodop卸载掉了，卸载c-lodop后就不在弹窗，能正常用电脑了。<br />虽然出问题之前我没有对电脑或c-lodop进行过什么其他操作，但是考虑到难道是版本问题，卸载后重新安装了一下，安装后还是不断提示，卸载重装没有什么效果，此外安装不同的c-lodop版本也没有效果，所以我只能继续卸载c-lodop以确保c-lodop能正常使用。<br />期间，还定做了个安装程序，定做版安装后，我会实际安装查看下logo等效果，安装后也是提示这个，可见和版本之类的没有关系，可能和系统等有关。<br />之后，我按照常见问题的排查方法，排查下，这个问题看上去是权限问题，无法访问某个内存导致的，但是本人登录用的确实是管理员账户，而且按照常见问答排查步骤，在操作系统更换默认打印机也正常，是有这个操作权限的，权限绝对是正常的，而且还右键以管理员启动过了。<br />1排除版本问题。<br />2排除权限问题。<br />看常见问答access error，也可能是病毒的原因，所以我用杀毒软件扫描修复了下，但是安装后还是不断提示这个。<br />3排除病毒问题。<br />排除这个几个问题后，还重置了下ie浏览器，虽然感觉和ie浏览器无关，还是试了试，也没有效果。<br />4.排除浏览器问题。<br />之后看到有一条：如果是刚刚添加打印机出现该问题，建议重新启动电脑（个别驱动程序要求系统重启打印服务）；<br />想到难道是打印机的关系，但是上午下午自己 也没添加什么 打印机，后来突然想到前几天确实添加了个特别的打印机，是个共享打印机，由于电子发票需要打印出来个备份，我附近的有个用来打纸张发票的打印机，会计那边有个有A4纸盒的打印机，所以装了个共享打印机，这边点打印，就能那边出A4纸，发票占A4纸的一半，可以一张打两个电子发票，直接正常放纸就行（额外话：个人测试过，如果倒过来放纸，结果不是打在倒着的地方，估计这打印机内部其实是打放纸的反面，直接正着放打了半个的发票纸就可以了）,由于51平台上添加了需要的电子发票，所以月底上交发票之前，可以次月或月底统一把发票打出来，省去了平时开关打发票电脑的麻烦。<br />说道最近打印机，也就是这个共享打印机，然后我进网络里查看了下，这共享打印机出了问题，访问不了了，正常情况应该会有用户秘密提示，但是其他同事测试c-lodop注册号中午重装了系统，所以共享打印机出了点问题。然后我删除了该共享打印机，然后再安装c-lodop，不再有这个弹窗了，正常了，所以这问题是共享打印机连接出问题导致的。<br /><span style="color: #339966;">个人排查步骤:</span><br /><span style="color: #339966;">1.排除c-lodop版本问题</span><br /><span style="color: #339966;">2.排除权限问题</span><br /><span style="color: #339966;">3.排除病毒系统问题</span><br /><span style="color: #339966;">4.排除浏览器问题</span><br /><span style="color: #339966;">5最后找到是打印机问题，原来的共享打印机出了问题。</span><br /><span style="background-color: #cc99ff;">&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;以上是该问题的排查&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;</span></p>
+<p><span style="background-color: #cc99ff;"><strong>解决方法：</strong></span><br />删除共享打印机，再重新安装c-lodop试试。</p>
+<p>考虑到有可能还是有其他原因会有这个提示：<br />参考http://www.c-lodop.com/faq/pp1.html<br />并删除共享打印机，再重新安装c-lodop试试。</p>
+<p>图示：</p>
+<p><img src="https://img2018.cnblogs.com/blog/1481828/201907/1481828-20190708143715535-2025708025.png" alt="" /></p>
+<p>&nbsp;</p>
+<p>cnblog链接（带图示）:<a href="https://www.cnblogs.com/huaxie/p/11150048.html" target="_blank">C-Lodop提示Access violation at address ...in module 'CLodopPrint32.exe' write of address</a></p>
+<p><a href="../blog_index.html">返回博文列表</a></p>
+</div>
+<div id="footer"><img src="../images/lodopfoot.png"></div>
+</body>
+</html>
