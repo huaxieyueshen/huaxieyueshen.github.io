@@ -1,0 +1,28 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>WEB打印控件LODOP</title>
+<script language="javascript" src="LodopFuncs.js"></script>
+ <link href="../css/blogback.css" type='text/css' rel="stylesheet">     
+</head>
+<body id="bodyA1">
+<div id="header">
+<div id="head1"></div>
+</div>
+<div class="blogpost-body">
+<h3>如何调试JS查看异常信息</h3>
+    <p>如果页面上有错误，html页面的控制台会报错，可以查看报错信息，找到对应的行，找到出错的位置。<br />也可以通过editplus运行调试，editplus会以弹框的形式出现提示，哪行的什么位置什么错误，需要记住这个提示信息，然后返回去找对应的代码。<br />这两种都需要根据提示去找行列，浏览器本身还有更加直观的方法：可直接通过浏览器异常处断点，直接直观的找到出错的位置和出错的信息。</p>
+<p>例如：如图，qq浏览器和火狐浏览器为例。<br /><strong>1.打开浏览器的开发者模式</strong><br />在需要调试的页面按F12，如果是没小键盘的那种笔记本的，则需要按Fn+F12，打开浏览器的开发者模式。<br /><strong>2.找到异常处断点，并打开这个设置</strong><br />qq浏览器：Sources（右侧）&mdash;&mdash;图标里有个实心圆里有两个竖条的 图标，点击这个图标（鼠标移动到该图标上，会有提示Pause on exceptions），可打开异常处断点。如果想取消，还是点这个图标，这时候（鼠标移动到上面，会在原来的提示前有Don't，表示再次点击就是取消异常处断点的意思）<br />火狐浏览器：调试器里（右侧）&mdash;&mdash;断点下面&mdash;&mdash;异常处暂停，捕捉到异常时暂停，复选框前面打勾。</p>
+<p>如图：</p>
+<p><img src="https://img2018.cnblogs.com/blog/1481828/201906/1481828-20190613151835539-221000117.png" alt="" /></p>
+<p>如果LODOP没安装，或当前浏览器需要使用的是c-lodop，c-lodop虽然安装了但是没启动，一般会提示LODOP未定义之类的，例如 TypeError:LODOP is undefined，并且调用打印的方法也报错，比如打印时最先使用的初始化，说LODOP.PRINT_INIT("")初始化，LODOP没定义。<br />进行调试，会发现进到lodopFuncs.js里，LODOP=getCLodop()；,<br />提示的是ReferenceError:getCLodop is not defined。<br />这是因为，LodopFuncs.js里判断当前需要使用clodop后，会调用http://localhost:8000/CLodopfuncs.js，http://localhost:18000/CLodopfuncs.js，getCLodop方法就在这个clodopFuncs.js的JS里，想要访问到这个JS，就必须c-lodop安装且已经启动，如果没启动，也是访问不到的，所以就报错了。</p>
+<p>此外，浏览器中断点后，可以步进，步出，断点中断后，还可以往下执行，会以绿色的形式，直到再次跳到红色错误里去，然后达到最后的结果，如上，没安装或没启动，最后会根据lodopFuncs.js走页面提示。</p>
+<p><img src="https://img2018.cnblogs.com/blog/1481828/201906/1481828-20190613153727491-1658546773.png" alt="" /></p>
+<p>&nbsp;</p>
+<p>cnblog链接（带图示）:<a href="https://www.cnblogs.com/huaxie/p/11016530.html" target="_blank">如何调试JS查看异常信息</a></p>
+<p><a href="../blog_index.html">返回博文列表</a></p>
+</div>
+<div id="footer"><img src="../images/lodopfoot.png"></div>
+</body>
+</html>

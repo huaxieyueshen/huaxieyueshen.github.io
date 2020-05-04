@@ -1,0 +1,52 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>WEB打印控件LODOP</title>
+<script language="javascript" src="LodopFuncs.js"></script>
+ <link href="../css/blogback.css" type='text/css' rel="stylesheet">     
+</head>
+<body id="bodyA1">
+<div id="header">
+<div id="head1"></div>
+</div>
+<div class="blogpost-body">
+<h3>LODOP条码二维码简短问答及相关博文</h3>
+    <p><strong><strong>LODOP如何输出条码</strong>&nbsp;<br /></strong>条码输出 参考样例11 http://www.c-lodop.com/demolist/PrintSample11.html<br />超文本表格中的条码参考样例47 http://www.c-lodop.com/demolist/PrintSample47.html<br />LODOP对象嵌套在一段要输出的超文本中,表格中的条码参考样例47http://www.c-lodop.com/demolist/PrintSample47.html</p>
+<p>其他相关博文：<a href="https://www.cnblogs.com/huaxie/p/9829953.html" target="_blank">Lodop打印条码二维码的一些设置</a>、<a href="https://www.cnblogs.com/huaxie/p/9679314.html" target="_blank">Lodop打印条码二维码设置多宽不一定是多宽</a>、<a href="https://www.cnblogs.com/huaxie/p/10537362.html" target="_blank">Lodop条形码竖条和值右端不对齐的解决方法</a>、<a href="https://www.cnblogs.com/huaxie/p/10735699.html" target="_blank">Lodop提示BarCode Type(ena13)Invalid!</a>、<a href="https://www.cnblogs.com/huaxie/p/9679459.html" target="_blank">Lodop打印二维码内容长度不同如何大小相同</a>、<a href="https://www.cnblogs.com/huaxie/p/10469020.html" target="_blank">二维码中加图片（打印带图片的二维码）</a>、<a href="https://www.cnblogs.com/huaxie/p/11889087.html" target="_blank">LODOP关联后眉脚条码的遮挡的一种情况</a>、</p>
+<p><strong>条码设置下方数值不显示</strong><br />给条码加该样式 ：<br />参考样例11http://www.c-lodop.com/demolist/PrintSample11.html<br /><span style="color: #000080;">LODOP.SET_PRINT_STYLEA(0,"ShowBarText",0);//设置不显示下方的条码数值</span><br />如图：打印设计&mdash;&mdash;选中该条码打印项&mdash;&mdash;右键属性&mdash;&mdash;条码属性&mdash;&mdash;条码图含文字前面的勾去掉</p>
+<p><img src="https://img2018.cnblogs.com/blog/1481828/201906/1481828-20190617101610607-1085782822.png" alt="" /></p>
+<p>&nbsp;</p>
+<p><strong>条码下方数值相对条码居中</strong><br />参考样例11http://www.c-lodop.com/demolist/PrintSample11.html<br /><span style="color: #000080;">LODOP.SET_PRINT_STYLEA(0,"AlignJustify",2);//设置条码下方的文字相对于条码本身居中</span></p>
+<p><img src="https://img2018.cnblogs.com/blog/1481828/201906/1481828-20190617102417608-504770825.jpg" alt="" /><br />其他：<br />LODOP.SET_PRINT_STYLEA(0,"AlignJustify",1);//设置条码下方的文字相对于条码本身居左<br />LODOP.SET_PRINT_STYLEA(0,"AlignJustify",3);//设置条码下方的文字相对于条码本身居右</p>
+<p><strong>条码粗细</strong><br />二维码及条码大小控制 通过输出的整体宽度调整粗细<br />参考http://www.c-lodop.com/faq/pp10.html</p>
+<p><strong>条码二维码宽度调整</strong><br />参考http://www.c-lodop.com/faq/pp10.html<br />随着条码或二维码的增大或缩小是受每个竖条或横条的宽度合计值影响，通过调整宽度达到想要的效果。条码设置多宽不一定是多宽，可以在打印设计里调整到合适大小，然后在打印设计里生成代码。<br />条码设置多宽不一定是多宽，可以在打印设计里调整到合适大小，然后在打印设计里生成代码。</p>
+<p>参考http://www.c-lodop.com/faq/pp10.html<br />条码设置多宽不一定是多宽，可以在打印设计里调整到合适大小，然后在打印设计里生成代码。</p>
+<p>二维码及条码大小控制<br />参考http://www.c-lodop.com/faq/pp10.html<br />宽度跳跃式放大或缩小，是非线性，受合计值的影响</p>
+<p>参考http://www.c-lodop.com/faq/pp10.html<br />参考链接的说明，宽度跳跃式放大或缩小，是非线性，宽度不能微小的调整，因为受所有条码竖的合计值影响。</p>
+<p>在打印设计里调整宽高试试，无法做到很小的宽度微小调整。<br />或者改用图片方式，但是图片方式不如lodop语句输出的清晰。<br />在打印设计调整，找到合适的大小，不同数值大小可能不同，参考http://www.c-lodop.com/faq/pp10.html<br />计算后的合计宽度一般是小于等于设定宽度。</p>
+<p><strong>条码下方文字字体</strong><br />也可以 LODOP.SET_PRINT_STYLEA(0,"ShowBarText",0);<br />可以设置下方不显示数字，然后用add_print_text文本单独输出数字，放在条形码下方。</p>
+<p><strong>设置条码或二维码一样大小</strong><br />参考http://www.c-lodop.com/faq/pp10.html<br />二维码可以通过设置具体的QRCode版本，让不同数值的二维码统一大小。<br />条码随着数值不同，宽度可能不同，无法做到完全统一大小，可估计最大宽度，最后的实际宽度一般是小于等于设定宽度。</p>
+<p>只有二维码能通过设置具体的版本，让不同数值的二维码统一大小，条码没有这个属性。</p>
+<p><strong>一维码二维码字符限制</strong><br />一维条码能包含的字符内容及长度限制 参考http://www.c-lodop.com/faq/pp18.html<br />如果条码内容为空提示&ldquo;QRCode data null&rdquo;<br />二维码 相对于低容错L 7% 所能输出的最大字符数值http://www.c-lodop.com/faq/pp10.html<br />相对于低容错L 7% 所能输出的最大字符数值如下<br />版本1：最大值17个字符<br />版本2：最大值32个字符<br />版本3：最大值53个字符<br />版本5：最大值106个字符<br />版本7：最大值154个字符<br />版本10：最大值135个汉字 271个字符<br />版本14：最大值229个汉字，458个字符<br />超出了会有内容溢出提示&ldquo;QRCode data overflow"</p>
+<p><strong>条码识别</strong><br />影响条码识别率的可能原因 http://www.c-lodop.com/faq/pp6.html</p>
+<p><strong>二维码扫描出乱码</strong><br />更改其他编码试试：<br />例如：LODOP.SET_PRINT_STYLEA(0,"DataCharset","UTF-8");<br />如图：打印设计&mdash;&mdash;选中该条码打印项&mdash;&mdash;右键属性&mdash;&mdash;条码属性&mdash;&mdash;下方修改编码</p>
+<p><img src="https://img2018.cnblogs.com/blog/1481828/201906/1481828-20190617111028293-1979664705.jpg" alt="" /><br />然后生成代码。</p>
+<p><br /><strong>设置条码下方的字体大小</strong></p>
+<p><img src="https://img2018.cnblogs.com/blog/1481828/201906/1481828-20190617112433017-945958192.jpg" alt="" /><br />例如：<br />LODOP.ADD_PRINT_BARCODE(88,32,206,78,"128B","123456789012");//设置条码位置、宽高、字体、值<br />LODOP.SET_PRINT_STYLEA(0,"FontSize",18);//设置上面这个条码下方的文字字体大小</p>
+<p><strong>打印设计如何插入二维码</strong><br />选择插入条码，然后选中这个条码，选中字体，字体改为二维码相关类型，如QRCode</p>
+<p><img src="https://img2018.cnblogs.com/blog/1481828/201906/1481828-20190617152620285-293043891.jpg" alt="" /></p>
+<p>&nbsp;</p>
+<p><strong>如何旋转二维码</strong><br />参考 样例13 http://www.c-lodop.com/demolist/PrintSample13.html<br />LODOP.SET_PRINT_STYLEA(0,"Angle",90);//设置旋转角度</p>
+<p><img src="https://img2018.cnblogs.com/blog/1481828/201906/1481828-20190617152851043-1304842510.jpg" alt="" /></p>
+<p>&nbsp;</p>
+<p><strong>打印二维码排版</strong><br />打印二维码，参考样例11 http://www.c-lodop.com/demolist/PrintSample11.html<br />设置具体版本号，不同值的二维码统一大小，参考http://www.c-lodop.com/faq/pp10.html<br />打印项的定位可以需要自己设置，用添加打印项的参数的顶边距和左边距可设置在纸张中的位置。</p>
+<p><strong>打印条码图片显示叉号</strong><br />（1）查看lodop内部解析的html信息，见http://www.c-lodop.com/faq/pp8.html<br />查看一下传入的图片路径是否正确，尽量用绝对路径地址，换个图片试试。<br />（2）显示空白或者图片缺失等问题，加延迟试试：<br />LODOP.SET_PRINT_STYLEA(0,"HtmWaitMilSecs",1000)//设置上一项延迟超文本下载1000毫秒<br />（3）权限问题，图片显示叉号 说明服务端拒绝了 可能证书 session等问题，导致没有直接访问该图片的权限，有些需要验证之后才能访问图片。由于Lodop借用IE下载引擎，与非IE浏览器之间目前不能传递Session(cookies)<br />（4）清空ie缓存 重置ie 后在ie中查看下。IE中的URL最大长度限制为2048字节。超过这个长度会不支持。<br />（5） 查看服务器端错误日志排查下 。<br />（6）做个简单的例子验证下，排除其他因素的干扰。Base64输出图片参考样例38。<br />可以用LODOP语句输出条码二维码  参考样例11 http://www.c-lodop.com/demolist/PrintSample11.html</p>
+<p><br /><br /></p>
+<p>&nbsp;</p>
+<p>cnblog链接（带图示）:<a href="https://www.cnblogs.com/huaxie/p/11038280.html" target="_blank">LODOP条码二维码简短问答及相关博文</a></p>
+<p><a href="../blog_index.html">返回博文列表</a></p>
+</div>
+<div id="footer"><img src="../images/lodopfoot.png"></div>
+</body>
+</html>
