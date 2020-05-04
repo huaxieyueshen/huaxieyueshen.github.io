@@ -1,0 +1,44 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>WEB打印控件LODOP</title>
+<script language="javascript" src="LodopFuncs.js"></script>
+ <link href="../css/blogback.css" type='text/css' rel="stylesheet">     
+</head>
+<body id="bodyA1">
+<div id="header">
+<div id="head1"></div>
+</div>
+<div class="blogpost-body">
+<h3>C-LODOP的端口和网站的端口</h3>
+    <p>c-lodop的端口和网站的端口是不同的，不需要修改自己网站的端口。<br />c-lodop32位标准版端口：8000,18000 （http网站）<br />c-lodop32扩展版端口：8000,18000（http网站） 8443（https网站）<br />c-lodop64位扩展版端口：8000,18000 （http网站）</p>
+<p>如下博文中，本地调试的用的网站是localhost:13814，这个是网站的端口，而如果需要调用c-lodop，实际调用的是locahost:8000端口的clodopfuncs.js，这个和网站的端口是不同的。<br /><a href="https://www.cnblogs.com/huaxie/p/9761321.html" target="_blank">Lodop在页面获取打印机列表 选择打印机预览&nbsp;</a></p>
+<p><strong>1.CLodopFuncs.js必须通过端口引用，不能下载到本地。</strong><br />CLodopFuncs.js文件可以放在LodopFuncs.js动态加载，也可以在web页面直接引用。具体参考本博客相关博文：<br /><a href="https://www.cnblogs.com/huaxie/p/10243866.html" target="_blank">LodopFuncs.js和CLodopFuncs.js区别和联系</a><br /><span style="background-color: #ffff00;">最常见的混合部署，只需要引用lodopfuncs.js即可</span>，这里面已经动态引用了该clodopfuncs.js了。<br />一些引用：</p>
+<div class="cnblogs_code">
+<pre><span style="color: #0000ff;">&lt;</span><span style="color: #800000;">script </span><span style="color: #ff0000;">src</span><span style="color: #0000ff;">="http://localhost:8000/CLodopFuncs.js"</span><span style="color: #0000ff;">&gt;&lt;/</span><span style="color: #800000;">script</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #0000ff;">&lt;</span><span style="color: #800000;">script </span><span style="color: #ff0000;">src</span><span style="color: #0000ff;">="http://localhost:18000/CLodopFuncs.js"</span><span style="color: #0000ff;">&gt;&lt;/</span><span style="color: #800000;">script</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #0000ff;">&lt;</span><span style="color: #800000;">script </span><span style="color: #ff0000;">src</span><span style="color: #0000ff;">="https://localhost:8443/CLodopFuncs.js"</span><span style="color: #0000ff;">&gt;&lt;/</span><span style="color: #800000;">script</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #0000ff;">&lt;</span><span style="color: #800000;">script </span><span style="color: #ff0000;">src</span><span style="color: #0000ff;">="http://[C-Lodop服务所在主机ip或域名]:[C-Lodop端口]/CLodopFuncs.js"</span><span style="color: #0000ff;">&gt;&lt;/</span><span style="color: #800000;">script</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #0000ff;">&lt;</span><span style="color: #800000;">script </span><span style="color: #ff0000;">src</span><span style="color: #0000ff;">="https://[域名]:8443/CLodopFuncs.js"</span><span style="color: #0000ff;">&gt;&lt;/</span><span style="color: #800000;">script</span><span style="color: #0000ff;">&gt;</span><span style="color: #000000;">（注意，证书只能是颁发给域名的，集中打印，AO打印机中的https方式，这种只能是域名）
+
+</span><span style="color: #0000ff;">&lt;</span><span style="color: #800000;">script </span><span style="color: #ff0000;">src</span><span style="color: #0000ff;">="http://localhost:8000/CLodopFuncs.js?priority=1"</span><span style="color: #0000ff;">&gt;&lt;/</span><span style="color: #800000;">script</span><span style="color: #0000ff;">&gt;</span>   <span style="color: #008000;">&lt;!--</span><span style="color: #008000;">priority是优先级，数值越大优先级越高!</span><span style="color: #008000;">--&gt;</span>
+<span style="color: #0000ff;">&lt;</span><span style="color: #800000;">script </span><span style="color: #ff0000;">src</span><span style="color: #0000ff;">='http://[C-Lodop服务所在主机ip或域名]:[C-Lodop端口]/CLodopFuncs.js?name=LODOPA'</span><span style="color: #0000ff;">&gt;&lt;/</span><span style="color: #800000;">script</span><span style="color: #0000ff;">&gt;</span> <span style="color: #008000;">&lt;!--</span><span style="color: #008000;">访问不同的云主机，给每个加名字name区分!</span><span style="color: #008000;">--&gt;</span><span style="color: #000000;">
+。。。。等</span></pre>
+</div>
+<p>关于AO打印和集中打印：<br />AO服务的默认打印端口是9200，测试和管理端口是8000。注意AO服务器的防火墙等开放着两个端口。</p>
+<p>关于AO打印和集中打印的https网站（也就是非客户端本地打印角色，后两种角色）：<br />需要添加自己网站域名的证书，添加方法，在c-lodop启动界面的左上角的&mdash;&mdash;设置&mdash;&mdash;扩展功能-SSL(https)设置（S)里，可以设置自己网站域名的SSL证书。<br />（很旧的c-lodop版本，还没有扩展版的时候的https版c-lodop，那种只能用于客户端本地打印角色的localhost的https，这个扩展功能，若没有这个功能，那么就是版本太旧，并不是新的扩展版。）<br />集中打印，AO打印，两个角色是https的，需要添加自己网站的证书。</p>
+<p>如图，32位c-lodop扩展版中，添加自己https网站的证书：</p>
+<p><img src="https://img2018.cnblogs.com/blog/1481828/201905/1481828-20190530111116353-567805874.png" alt="" /></p>
+<p>查看当前c-lodop启动的端口 ：（占用端口会加1，所以也可能会是8001或8444），默认不占用的情况下是http的8000和18000，还有https的8443。</p>
+<p><img src="https://img2018.cnblogs.com/blog/1481828/201905/1481828-20190530150347937-1997420888.png" alt="" /></p>
+<p>AO服务器的默认端口 ，以及端口的修改：（注意服务器防火墙不要禁用这两端口，9200和8000）</p>
+<p>AO服务器安装的时候要勾选服务器端工作模式。</p>
+<p><img src="https://img2018.cnblogs.com/blog/1481828/201905/1481828-20190531111132823-319208218.png" alt="" /></p>
+<p>&nbsp;</p>
+<p>cnblog链接（带图示）:<a href="https://www.cnblogs.com/huaxie/p/10948447.html" target="_blank">C-LODOP的端口和网站的端口</a></p>
+<p><a href="../blog_index.html">返回博文列表</a></p>
+</div>
+<div id="footer"><img src="../images/lodopfoot.png"></div>
+</body>
+</html>
