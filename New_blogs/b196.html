@@ -1,0 +1,32 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>WEB打印控件LODOP</title>
+<script language="javascript" src="LodopFuncs.js"></script>
+ <link href="../css/blogback.css" type='text/css' rel="stylesheet">     
+</head>
+<body id="bodyA1">
+<div id="header">
+<div id="head1"></div>
+</div>
+<div class="blogpost-body">
+<h3>LODOP中的各种宽高和位置简短问答</h3>
+    <p>LODOP中的<span style="background-color: #ffff99;">位置边距，可查看本博客另一篇相关博文：</span><a href="https://www.cnblogs.com/huaxie/p/9828739.html" target="_blank">LODOOP中的各种边距 打印项、整体偏移、可打区域、内部边距</a><br />关于LODOP中的各种宽高，可查看本博文简短问答下方的正文:。该文其实有两个以前的相关博文介绍，该文下方做了张总图。</p>
+<p><strong>简短问答：</strong><br /><strong>打印设计的可视化编辑区域</strong><br />打印设计的可视化编辑区域大小，用PRINT_INITA的三四参数进行设置。和纸张无关。<br />纸张用SET_PRINT_PAGESIZE控制。<br /><span style="background-color: #ffff99;">相关博文：</span><a href="https://www.cnblogs.com/huaxie/p/9707548.html" target="_blank">Lodop打印控件中PRINT_INITA()和PRINT_PAGESIZE()宽高</a></p>
+<p><strong>内容超出纸张</strong><br />内容超出了纸张：参考样例42http://www.c-lodop.com/demolist/PrintSample42.html<br />控制内容在纸张内，或进行宽度溢出缩放。</p>
+<p>各种宽高：<br />如图：<br />打印设计-可视化编辑区域：PRINT_INITA的三四参数控制。<br />打印预览-纸张：用SET_PRINT_PAGESIZE的二三参数控制。<br />打印预览-虚线可打区域：LODOP无法控制，和打印机有关。</p>
+<p><img src="https://img2018.cnblogs.com/blog/1481828/201907/1481828-20190716162440325-411015348.png" alt="" /></p>
+<p>宽高和位置总图：<br />PRINT_INITA(Top,Left,Width,Height,strPrintName)<br />SET_PRINT_PAGESIZE(intOrient, PageWidth,PageHeight,strPageName)<br />ADD_PRINT_HTM(Top,Left,Width,Height,strHtmlContent)</p>
+<p>下图用颜色对应参数语句区分：</p>
+<p>PRINT_INITA颜色为#37a434，SET_PRINT_PAGESIZE颜色为#a2513e，ADD_PRINT_HTM颜色为#3631a0。<br />具体可看下图上方的语句颜色，对应下面的颜色。</p>
+<p>宽高：<br />打印设计-可视化编辑区域：PRINT_INITA的三四参数控制。<br />打印预览-纸张：用SET_PRINT_PAGESIZE的二三参数控制。<br />打印预览-虚线可打区域：LODOP无法控制，和打印机有关。</p>
+<p>边距：<br />该博文最开头链接的相关博文有介绍。</p>
+<p><img src="https://img2018.cnblogs.com/blog/1481828/201907/1481828-20190717111202733-414498371.png" alt="" /></p>
+<p>&nbsp;</p>
+<p>cnblog链接（带图示）:<a href="https://www.cnblogs.com/huaxie/p/11187583.html" target="_blank">LODOP中的各种宽高和位置简短问答</a></p>
+<p><a href="../blog_index.html">返回博文列表</a></p>
+</div>
+<div id="footer"><img src="../images/lodopfoot.png"></div>
+</body>
+</html>

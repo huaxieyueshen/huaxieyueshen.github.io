@@ -1,0 +1,25 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>WEB打印控件LODOP</title>
+<script language="javascript" src="LodopFuncs.js"></script>
+ <link href="../css/blogback.css" type='text/css' rel="stylesheet">     
+</head>
+<body id="bodyA1">
+<div id="header">
+<div id="head1"></div>
+</div>
+<div class="blogpost-body">
+<h3>c-lodop的三个进程和一个服务介绍</h3>
+    <p>在windows任务管理器里，最新版可以看到有三个进程，例如安32位c-lodop的时候，<br />有CLodopPrint32.exe、CLodopPrint32_backup.exe、CLodopService32.exe。<br /><span style="color: #000080;">CLodopPrint32.exe</span>：主进程，只要这个进程在，c-lodop能正常运行，就能正常打印。<br /><span style="color: #000080;">CLodopPrint32_backup.exe</span>：后备进程，当c-lodop主进程被杀死时，会让主进程重新启动，进一步确保c-lodop的启动。<br /><span style="color: #000080;">CLodopService32.exe</span>：免登录启动服务，当同一个电脑的不同的windows用户，例如管理员或其他账号进行切换后，还可以使用c-lodop，不需要登录就可以启动服务。<br />查看进程方法（只要主进程正常运行就可以使用）<br />Windows下方任务栏，右键选择-任务管理器，在任务管理器里选择详细信息，按名称排序，在C开头的进程里找到查看c-lodop的进程。<br />而在任务管理器，只能看到一个免登录启动服务，属于正常，即使这个服务启动，若是主进程没启动，也不能使用，所以只要主进程启动就能用，因此可在进程里查看。</p>
+<p>如果缺少免登录启动服务，查看下是否是最新版，是否是管理员权限安装以管理员权限运行。<br />前两个进程，一个是主进程，一个主进程的备用进程，最后的那个免登录启动服务，之前有版本去掉过，后来又加上了。<br /><span style="color: #800080;">该免登录启动服务从从3.0.3.0版剔除，在3.0.5.6的时候有加上了这个服务</span>。相比老板的免登录启动服务，加上的新的有不同，避免了一些情况，不会再提示交互式服务检测程序兼容问题等。<br />免登录启动服务CLodopService不再有&ldquo;允许与桌面交互&rdquo;功能(避免某些电脑专门设置屏蔽这类服务)；<br />免登录启动服务CLodopService能开启当前用户进程（此前只能开启system进程，造成本机无法弹窗预览，windows频繁提示交互消息）；<br />因此，建议使用最新版。<br />图示：</p>
+<p><img src="https://img2018.cnblogs.com/blog/1481828/201907/1481828-20190724152049388-1793775862.png" alt="" /></p>
+<p>关于c-lodop启动的相关博文：<br /><a href="https://www.cnblogs.com/huaxie/p/10345805.html" target="_blank">提示&ldquo;Web打印服务CLodop未安装启动&rdquo;的各种原因和解决方法</a>&nbsp;<br /><a href="https://www.cnblogs.com/huaxie/p/9596835.html" target="_blank">C-Lodop打印服务没启动怎么办&nbsp;</a></p>
+<p>&nbsp;</p>
+<p>cnblog链接（带图示）:<a href="https://www.cnblogs.com/huaxie/p/11238148.html" target="_blank">c-lodop的三个进程和一个服务介绍</a></p>
+<p><a href="../blog_index.html">返回博文列表</a></p>
+</div>
+<div id="footer"><img src="../images/lodopfoot.png"></div>
+</body>
+</html>
