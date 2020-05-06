@@ -1,0 +1,77 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>WEB打印控件LODOP</title>
+<script language="javascript" src="LodopFuncs.js"></script>
+ <link href="../css/blogback.css" type='text/css' rel="stylesheet">     
+</head>
+<body id="bodyA1">
+<div id="header">
+<div id="head1"></div>
+</div>
+<div class="blogpost-body">
+<h3>HTML布局排版手机上浏览的网页</h3>
+    <p>前面做个几个简单的测试html布局排版的页面，都是在浏览器上查看的，C-LODOP可通过集中打印和广域网AO打印方式，让手机等也可以打印预览和打印。</p>
+<p>集中打印的大体方法是通过一台windows电脑作为云主机，然后手机等通过浏览器访问状态windows云主机上的打印机进行打印。广域网AO打印的端桥打印方式，是通过一台windows云主机作为云服务器，然后需要打印的客户端也需要一台windows电脑安装c-lodop并开启端桥，指向那台云服务器，实际打印端是在windows端桥端。<br />由于c-lodop只能安装到Windows系统上，且用的是按照到windows系统的打印机，所以虽然是手机打印，上述两种方法也需要借助windows完成，只有特殊AO打印机那种，不需要端桥的打印端windows系统，可直接发送到特殊AO打印机。（普通打印机 只能用端桥模式或集中打印模式），以前的相关博文：<a href="https://www.cnblogs.com/huaxie/p/9717389.html" target="_blank">c-lodop云打印实现手机打印 JS语句打印</a>、</p>
+<p>普通网页是针对电脑进行设计的，用手机的浏览器浏览的时候，经常还需要放大等操作，手机一般是点两下，或者两个手指向外滑动放大网页。<br />个人测试了下让网页里的元素本身变大，在手机浏览时会好一些。<br />做了个很简单的页面测试，页面本身是一个按钮一个文本框，打印的内容是一个图片加一个文本，模拟用手机打印一个名片，<span style="background-color: #ccffff;">变大的方法就是加大字体，加大宽高，中间遇到要用textarea文本框，这个文本框中的文本，也可以直接通过加字体大小样式，改变输入的文字大<strong>小</strong></span>，改变字体大小后，对应的宽高也会改变，比如行是3，就是3个改后的较大字号的3行。<br />css样式代码：</p>
+<div class="cnblogs_code">
+<pre><span style="color: #800000;">body</span>{<span style="color: #ff0000;">margin</span>:<span style="color: #0000ff;">0px</span>;<span style="color: #ff0000;">font-size</span>:<span style="color: #0000ff;">50px</span>;}<span style="color: #800000;">
+#bodyA1</span>{<span style="color: #ff0000;">background-color</span>:<span style="color: #0000ff;">#f1f3f5</span>;}<span style="color: #800000;">
+#header</span>{<span style="color: #ff0000;">background-image</span>:<span style="color: #0000ff;">url(../images/topbg.png)</span>;<span style="color: #ff0000;">width</span>:<span style="color: #0000ff;">100%</span>;<span style="color: #ff0000;">height</span>:<span style="color: #0000ff;">100px</span>;}<span style="color: #800000;">
+#head1</span>{<span style="color: #ff0000;">background-image</span>:<span style="color: #0000ff;">url(../images/lodoptest.png)</span>;<span style="color: #ff0000;">width</span>:<span style="color: #0000ff;">400px</span>;<span style="color: #ff0000;">height</span>:<span style="color: #0000ff;">100px</span>;}<span style="color: #800000;">
+#footer</span>{<span style="color: #ff0000;">width</span>:<span style="color: #0000ff;">790px</span>;<span style="color: #ff0000;">height</span>:<span style="color: #0000ff;">100px</span>;<span style="color: #ff0000;">margin</span>:<span style="color: #0000ff;">auto</span>;<span style="color: #ff0000;">text-align</span>:<span style="color: #0000ff;">right</span>;<span style="color: #ff0000;">clear</span>:<span style="color: #0000ff;">both</span>;}<span style="color: #800000;">
+
+.btn2 </span>{<span style="color: #ff0000;">background-color</span>:<span style="color: #0000ff;">#2175bd</span>;<span style="color: #ff0000;">border</span>:<span style="color: #0000ff;">none</span>;<span style="color: #ff0000;">color</span>:<span style="color: #0000ff;">white</span>;<span style="color: #ff0000;">padding</span>:<span style="color: #0000ff;">50px 50px</span>;<span style="color: #ff0000;">text-align</span>:<span style="color: #0000ff;">center</span>;<span style="color: #ff0000;">text-decoration</span>:<span style="color: #0000ff;">none</span>;<span style="color: #ff0000;">margin-left</span>:<span style="color: #0000ff;">5px</span>;<span style="color: #ff0000;">margin-top</span>:<span style="color: #0000ff;">60px</span>;<span style="color: #ff0000;">font-size</span>:<span style="color: #0000ff;">50px</span>}<span style="color: #800000;">
+
+#textareadiv</span>{<span style="color: #ff0000;">float</span>:<span style="color: #0000ff;">left</span>;<span style="color: #ff0000;">width</span>:<span style="color: #0000ff;">500px</span>;<span style="color: #ff0000;">font-size</span>:<span style="color: #0000ff;">100px</span>;<span style="color: #ff0000;">margin-left</span>:<span style="color: #0000ff;">30px</span>;<span style="color: #ff0000;">margin-top</span>:<span style="color: #0000ff;">50px</span>;}<span style="color: #800000;">
+#btn2div</span>{<span style="color: #ff0000;">float</span>:<span style="color: #0000ff;">left</span>}<span style="color: #800000;">
+#S1</span>{<span style="color: #ff0000;">font-size</span>:<span style="color: #0000ff;">50px</span>;}</pre>
+</div>
+<p>页面代码：</p>
+<div class="cnblogs_code">
+<pre><span style="color: #0000ff;">&lt;</span><span style="color: #800000;">head</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #0000ff;">&lt;</span><span style="color: #800000;">meta </span><span style="color: #ff0000;">http-equiv</span><span style="color: #0000ff;">="Content-Type"</span><span style="color: #ff0000;"> content</span><span style="color: #0000ff;">="text/html; charset=utf-8"</span> <span style="color: #0000ff;">/&gt;</span>
+<span style="color: #0000ff;">&lt;</span><span style="color: #800000;">title</span><span style="color: #0000ff;">&gt;</span>WEB打印控件LODOP<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">title</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #008000;">&lt;!--</span><span style="color: #008000;">&lt;script language="javascript" src="LodopFuncs.js"&gt;&lt;/script&gt;</span><span style="color: #008000;">--&gt;</span>
+<span style="color: #0000ff;">&lt;</span><span style="color: #800000;">script </span><span style="color: #ff0000;">src</span><span style="color: #0000ff;">='http://192.168.1.14:8000/CLodopfuncs.js'</span><span style="color: #0000ff;">&gt;&lt;/</span><span style="color: #800000;">script</span><span style="color: #0000ff;">&gt;</span>
+ <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">link </span><span style="color: #ff0000;">href</span><span style="color: #0000ff;">="css/phone1and.css"</span><span style="color: #ff0000;"> type</span><span style="color: #0000ff;">='text/css' </span><span style="color: #ff0000;">rel</span><span style="color: #0000ff;">="stylesheet"</span><span style="color: #0000ff;">&gt;</span>     
+<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">head</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #0000ff;">&lt;</span><span style="color: #800000;">body </span><span style="color: #ff0000;">id</span><span style="color: #0000ff;">="bodyA1"</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #0000ff;">&lt;</span><span style="color: #800000;">div </span><span style="color: #ff0000;">id</span><span style="color: #0000ff;">="header"</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #0000ff;">&lt;</span><span style="color: #800000;">div </span><span style="color: #ff0000;">id</span><span style="color: #0000ff;">="head1"</span><span style="color: #0000ff;">&gt;&lt;/</span><span style="color: #800000;">div</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">div</span><span style="color: #0000ff;">&gt;</span>
+
+<span style="color: #0000ff;">&lt;</span><span style="color: #800000;">div </span><span style="color: #ff0000;">id</span><span style="color: #0000ff;">="textareadiv"</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #0000ff;">&lt;</span><span style="color: #800000;">textarea </span><span style="color: #ff0000;">rows</span><span style="color: #0000ff;">="3"</span><span style="color: #ff0000;"> id</span><span style="color: #0000ff;">="S1"</span><span style="color: #ff0000;"> cols</span><span style="color: #0000ff;">="15"</span><span style="color: #0000ff;">&gt;&lt;/</span><span style="color: #800000;">textarea</span><span style="color: #0000ff;">&gt;&lt;</span><span style="color: #800000;">br</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">div</span><span style="color: #0000ff;">&gt;</span>
+
+ <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">div </span><span style="color: #ff0000;">id</span><span style="color: #0000ff;">="btn2div"</span><span style="color: #0000ff;">&gt;</span>
+ <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">input </span><span style="color: #ff0000;">type</span><span style="color: #0000ff;">="button"</span><span style="color: #ff0000;"> class</span><span style="color: #0000ff;">="btn2"</span><span style="color: #ff0000;"> value</span><span style="color: #0000ff;">="点击预览"</span><span style="color: #ff0000;"> onclick</span><span style="color: #0000ff;">="card()"</span><span style="color: #0000ff;">&gt;</span>
+ <span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">div</span><span style="color: #0000ff;">&gt;</span>
+
+<span style="color: #0000ff;">&lt;</span><span style="color: #800000;">div </span><span style="color: #ff0000;">id</span><span style="color: #0000ff;">="footer"</span><span style="color: #0000ff;">&gt;&lt;</span><span style="color: #800000;">img </span><span style="color: #ff0000;">src</span><span style="color: #0000ff;">="./images/lodopfoot.png"</span><span style="color: #0000ff;">&gt;&lt;/</span><span style="color: #800000;">div</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #0000ff;">&lt;</span><span style="color: #800000;">script </span><span style="color: #ff0000;">language</span><span style="color: #0000ff;">="javascript"</span><span style="color: #ff0000;"> type</span><span style="color: #0000ff;">="text/javascript"</span><span style="color: #0000ff;">&gt;</span>   
+        <span style="background-color: #f5f5f5; color: #0000ff;">function</span><span style="background-color: #f5f5f5; color: #000000;"> card(){                        
+        LODOP.PRINT_INIT(</span><span style="background-color: #f5f5f5; color: #000000;">""</span><span style="background-color: #f5f5f5; color: #000000;">);
+        LODOP.SET_PRINT_PAGESIZE(</span><span style="background-color: #f5f5f5; color: #000000;">1</span><span style="background-color: #f5f5f5; color: #000000;">,</span><span style="background-color: #f5f5f5; color: #000000;">"</span><span style="background-color: #f5f5f5; color: #000000;">20cm</span><span style="background-color: #f5f5f5; color: #000000;">"</span><span style="background-color: #f5f5f5; color: #000000;">,</span><span style="background-color: #f5f5f5; color: #000000;">"</span><span style="background-color: #f5f5f5; color: #000000;">10cm</span><span style="background-color: #f5f5f5; color: #000000;">"</span><span style="background-color: #f5f5f5; color: #000000;">,</span><span style="background-color: #f5f5f5; color: #000000;">""</span><span style="background-color: #f5f5f5; color: #000000;">);
+        LODOP.ADD_PRINT_IMAGE(</span><span style="background-color: #f5f5f5; color: #000000;">0</span><span style="background-color: #f5f5f5; color: #000000;">,</span><span style="background-color: #f5f5f5; color: #000000;">0</span><span style="background-color: #f5f5f5; color: #000000;">,</span><span style="background-color: #f5f5f5; color: #000000;">"</span><span style="background-color: #f5f5f5; color: #000000;">100%</span><span style="background-color: #f5f5f5; color: #000000;">"</span><span style="background-color: #f5f5f5; color: #000000;">,</span><span style="background-color: #f5f5f5; color: #000000;">"</span><span style="background-color: #f5f5f5; color: #000000;">100%</span><span style="background-color: #f5f5f5; color: #000000;">"</span><span style="background-color: #f5f5f5; color: #000000;">,</span><span style="background-color: #f5f5f5; color: #000000;">"</span><span style="background-color: #f5f5f5; color: #000000;">&lt;img src='images/tu1.png'&gt;</span><span style="background-color: #f5f5f5; color: #000000;">"</span><span style="background-color: #f5f5f5; color: #000000;">);
+        LODOP.ADD_PRINT_TEXT(</span><span style="background-color: #f5f5f5; color: #000000;">124</span><span style="background-color: #f5f5f5; color: #000000;">,</span><span style="background-color: #f5f5f5; color: #000000;">167</span><span style="background-color: #f5f5f5; color: #000000;">,</span><span style="background-color: #f5f5f5; color: #000000;">285</span><span style="background-color: #f5f5f5; color: #000000;">,</span><span style="background-color: #f5f5f5; color: #000000;">78</span><span style="background-color: #f5f5f5; color: #000000;">,document.getElementById(</span><span style="background-color: #f5f5f5; color: #000000;">"</span><span style="background-color: #f5f5f5; color: #000000;">S1</span><span style="background-color: #f5f5f5; color: #000000;">"</span><span style="background-color: #f5f5f5; color: #000000;">).value);
+        LODOP.SET_PRINT_STYLEA(</span><span style="background-color: #f5f5f5; color: #000000;">0</span><span style="background-color: #f5f5f5; color: #000000;">,</span><span style="background-color: #f5f5f5; color: #000000;">"</span><span style="background-color: #f5f5f5; color: #000000;">FontSize</span><span style="background-color: #f5f5f5; color: #000000;">"</span><span style="background-color: #f5f5f5; color: #000000;">,</span><span style="background-color: #f5f5f5; color: #000000;">31</span><span style="background-color: #f5f5f5; color: #000000;">);        
+        LODOP.PREVIEW();
+    };
+</span><span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">script</span><span style="color: #0000ff;">&gt;</span>  
+<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">body</span><span style="color: #0000ff;">&gt;</span></pre>
+</div>
+<p>图示：<br />该页面的浏览器预览和手机的浏览器预览页面<br />c-lodop的本地预览窗口，手机上c-lodop的远程预览窗口<br />该打印的内容比较简单，一个图片和一个文本项。页面是一个文本框和一个按钮，模拟打印一个名片，实际的名片内容很多，弄复杂的名片太花时间，这里只是做测试，所以简略。</p>
+<p>如图可以看出，远程预览窗口和本地预览窗口是不同的，c-lodop可以支持远程预览。</p>
+<p><img src="https://img2018.cnblogs.com/blog/1481828/201908/1481828-20190819162640150-352331021.png" alt="" /></p>
+<p>测试途中遇到点小问题，这个网站是自己电脑当作服务器，发布到内网自己访问测试的，途中用手机点打印预览的打印总是弹出一个放大的部分。访问c-lodop自己的欢迎页面的预览，点预览的打印也是这个效果，可能和手机有关，之后用其他手机浏览器测试，也是这样。<br />再之后我用直接打印测试了下，直接打印是正常的，手机点直接打印按钮，电脑上弹出虚拟打印机的保存框（模拟的是集中打印模式，用的虚拟打印机）。<br />比较奇怪，刷新几次，点了几次之后又正常了，点打印预览可以弹出选择打印机等的弹窗。<br />这个问题可能和自己的手机有关，手机上可能有什么点击放大的功能之类的被启动了，后来又好了。</p>
+<p>&nbsp;<img src="https://img2018.cnblogs.com/blog/1481828/201908/1481828-20190819164849710-1768246530.png" alt="" /></p>
+<p>&nbsp;</p>
+<p>cnblog链接（带图示）:<a href="https://www.cnblogs.com/huaxie/p/11377280.html" target="_blank">HTML布局排版手机上浏览的网页</a></p>
+<p><a href="../blog_index.html">返回博文列表</a></p>
+</div>
+<div id="footer"><img src="../images/lodopfoot.png"></div>
+</body>
+</html>

@@ -1,0 +1,46 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>WEB打印控件LODOP</title>
+<script language="javascript" src="LodopFuncs.js"></script>
+ <link href="../css/blogback.css" type='text/css' rel="stylesheet">     
+</head>
+<body id="bodyA1">
+<div id="header">
+<div id="head1"></div>
+</div>
+<div class="blogpost-body">
+<h3>line-height超出隐藏显示的行数和垂直居中</h3>
+    <p>line-height是css样式里设置行高的方法，在div中有overflow:hidden，可以隐藏超出div的内容，配合行高和div的高，可以设置该div里可以显示几行内容，div可以容纳几个行高就显示几行，<br />如下面的代码和图示测试的，在div设置了超出隐藏样式后：div是40px，设置行高为20px，div高度可以容纳两个行高，就会显示两行。行高为10px，div可以容纳四个行，就会会显示四行。</p>
+<p>行高还可以让一行文字在div中垂直居中，如下代码和图示，行高上上下的，在该div中文字距离div上下的距离是相等的。</p>
+<p>之前的超出后隐藏的css样式<span style="color: #000080;">overflow:hidden</span>相关博文：<a href="https://www.cnblogs.com/huaxie/p/10736086.html" target="_blank">LODOP打印超过后隐藏内容样式</a>、</p>
+<p>此外，注意：<br />1.行高要是文字大小的倍数<br />文字本身的大小，行高不是文字大小的倍数，会出现切割文字的现象，div超出隐藏，会把文字的部分隐藏掉，看起来就像是文字被切割了，这种不是超文本没加载完引起的，还是样式本身导致的文字显示不全，这里div用了背景色，如果是默认的白色，会看起来像是文字没显示全。</p>
+<p>2.行高必须大于等于文字大小<br />行高小于文字大小，文字会重叠，行高也是多行文字的行间距，如果行间距比文字还小，自然会重叠起来，造成文字重叠现象。</p>
+<p>测试代码：</p>
+<div class="cnblogs_code">
+<pre><span style="color: #0000ff;">&lt;</span><span style="color: #800000;">div </span><span style="color: #ff0000;">id</span><span style="color: #0000ff;">="d1"</span><span style="color: #ff0000;"> style</span><span style="color: #0000ff;">="float:left;"</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #0000ff;">&lt;</span><span style="color: #800000;">div </span><span style="color: #ff0000;">style</span><span style="color: #0000ff;">="width:135px;height:40px;overflow:hidden;line-height:20px;font-size:10px;background-color:#265d19;color:white;"</span><span style="color: #0000ff;">&gt;</span><span style="color: #000000;">    
+Lodop(标音:劳道谱,俗称:露肚皮)是专业WEB控件,用它既可裁剪输出页面内容，又可用程序代码直接实现复杂打印。控件功能强大,却简单易用,所有调用如同JavaScript扩展语句,主要接口函数如下：</span><span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">div</span><span style="color: #0000ff;">&gt;</span><span style="color: #008000;">&lt;!--</span><span style="color: #008000;">div的hegiht除以line-height，就是显示的行数，40/20=2行</span><span style="color: #008000;">--&gt;</span>
+<span style="color: #0000ff;">&lt;</span><span style="color: #800000;">div </span><span style="color: #ff0000;">style</span><span style="color: #0000ff;">="width:135px;height:40px;overflow:hidden;line-height:10px;font-size:10px;background-color:#e88383;color:white;"</span><span style="color: #0000ff;">&gt;</span><span style="color: #000000;">    
+Lodop(标音:劳道谱,俗称:露肚皮)是专业WEB控件,用它既可裁剪输出页面内容，又可用程序代码直接实现复杂打印。控件功能强大,却简单易用,所有调用如同JavaScript扩展语句,主要接口函数如下：</span><span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">div</span><span style="color: #0000ff;">&gt;</span><span style="color: #008000;">&lt;!--</span><span style="color: #008000;">div的hegiht除以line-height，就是显示的行数，40/10=4行</span><span style="color: #008000;">--&gt;</span>
+<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">div</span><span style="color: #0000ff;">&gt;</span>
+
+<span style="color: #0000ff;">&lt;</span><span style="color: #800000;">div </span><span style="color: #ff0000;">id</span><span style="color: #0000ff;">="d2"</span><span style="color: #ff0000;"> style</span><span style="color: #0000ff;">="float:left;"</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #0000ff;">&lt;</span><span style="color: #800000;">div </span><span style="color: #ff0000;">style</span><span style="color: #0000ff;">="margin-left:10px;width:135px;height:40px;overflow:hidden;line-height:40px;font-size:10px;background-color:#7edce4;color:white;"</span><span style="color: #0000ff;">&gt;</span>Lodop(标音:劳道谱,俗称:露肚皮)是专业WEB控件,用它既可裁剪输出页面内容，又可用程序代码直接实现复杂打印。控件功能强大,却简单易用,所有调用如同JavaScript扩展语句,主要接口函数如下：<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">div</span><span style="color: #0000ff;">&gt;</span><span style="color: #008000;">&lt;!--</span><span style="color: #008000;">div的hegiht除以line-height，就是显示的行数，40/40=1行,该行在div中垂直居中</span><span style="color: #008000;">--&gt;</span>
+<span style="color: #0000ff;">&lt;</span><span style="color: #800000;">div  </span><span style="color: #ff0000;">style</span><span style="color: #0000ff;">="margin-left:10px;width:135px;height:32px;overflow:hidden;line-height:21px;font-size:16px;background-color:#d4e680;"</span><span style="color: #0000ff;">&gt;</span>高版本的火狐谷歌不再支持np插件，需要使用c-lodop，可参考官网样例混合部署Lodop控件升级到C-Lodop云打印<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">div</span><span style="color: #0000ff;">&gt;</span><span style="color: #008000;">&lt;!--</span><span style="color: #008000;">line-height不是font-size的倍数，切文字</span><span style="color: #008000;">--&gt;</span>
+<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">div</span><span style="color: #0000ff;">&gt;</span>
+
+<span style="color: #008000;">&lt;!--</span><span style="color: #008000;">line-height小于font-size，行高小于字体大小 </span><span style="color: #008000;">--&gt;</span>
+<span style="color: #0000ff;">&lt;</span><span style="color: #800000;">div </span><span style="color: #ff0000;">style</span><span style="color: #0000ff;">="clear:both;margin-top:90px;line-height:10px;font-size:40px;background-color:#7edce4;color:white;"</span><span style="color: #0000ff;">&gt;</span>Lodop(标音:劳道谱,俗称:露肚皮)是专业WEB控件,用它既可裁剪输出页面内容，又可用程序代码直接实现复杂打印。控件功能强大,却简单易用,所有调用如同JavaScript扩展语句,主要接口函数如下：<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">div</span><span style="color: #0000ff;">&gt;</span></pre>
+</div>
+<p>图示：</p>
+<p>div的hegiht除以line-height，就是显示的行数<br />div的hegiht=line-height,就是一行在div中垂直居中<br />line-height不是font-size的倍数，切文字<br />line-height小于font-size，文字重叠</p>
+<p><img src="https://img2018.cnblogs.com/blog/1481828/201909/1481828-20190902154209285-613570633.png" alt="" /></p>
+<p>&nbsp;</p>
+<p>cnblog链接（带图示）:<a href="https://www.cnblogs.com/huaxie/p/11445533.html" target="_blank">line-height超出隐藏显示的行数和垂直居中</a></p>
+<p><a href="../blog_index.html">返回博文列表</a></p>
+</div>
+<div id="footer"><img src="../images/lodopfoot.png"></div>
+</body>
+</html>

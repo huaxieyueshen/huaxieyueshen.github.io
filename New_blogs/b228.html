@@ -1,0 +1,57 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>WEB打印控件LODOP</title>
+<script language="javascript" src="LodopFuncs.js"></script>
+ <link href="../css/blogback.css" type='text/css' rel="stylesheet">     
+</head>
+<body id="bodyA1">
+<div id="header">
+<div id="head1"></div>
+</div>
+<div class="blogpost-body">
+<h3>HTML布局水平导航条2制作</h3>
+    <p>前两个博文导航条都不是铺满水平的浏览器的，很多导航条样式都是随着浏览器的移动，是100%。<br />此外前两个博文导航条都是块状点击的，也就是给a标签加宽高，设置成块状显示，点击的时候不一定要点文字，只要点击该a标签的区块就能跳转。<br />直接点文字的导航条也比较常见，这种的话就不需要什么竖线分隔，颜色分隔，或背景图分隔了，可以作为一个整体，因为点击的是文字本身，并不是区块。</p>
+<p><span style="background-color: #ffff99;">1.点击文字跳转</span><br />点击文字跳转的方法，前两篇是给a标签加块状，加宽高，去掉a标签的这三个样式，把该样式移动放到li标签里，<span style="background-color: #ffff99;">给li标签加宽高和块状显示</span>就行了。<br /><span style="background-color: #ccffff;">2.铺满整个浏览器的水平</span><br /><span style="background-color: #ccffff;">包在div里，给div加加背景色或背景图平铺，div本身不设宽度</span>，宽度会随浏览器变化而变化，总是铺满水平。</p>
+<p>此外块状的，也可以直接给img图片加a链接，这样直接就是点击图片区域进行跳转.</p>
+<p>测试代码css样式：</p>
+<div class="cnblogs_code">
+<pre><span style="color: #800000;">#d</span>{<span style="color: #ff0000;">background-color</span>:<span style="color: #0000ff;">#e88383</span>;<span style="color: #ff0000;">height</span>:<span style="color: #0000ff;">50px</span>;}<span style="color: #800000;">
+ul</span>{<span style="color: #ff0000;">list-style-type</span>:<span style="color: #0000ff;">none</span>;<span style="color: #ff0000;">margin</span>:<span style="color: #0000ff;">0px</span>;}<span style="color: #800000;">
+li</span>{<span style="color: #ff0000;">float</span>:<span style="color: #0000ff;">left</span>;<span style="color: #ff0000;">display</span>:<span style="color: #0000ff;">block</span>;<span style="color: #ff0000;">width</span>:<span style="color: #0000ff;">100px</span>;<span style="color: #ff0000;">height</span>:<span style="color: #0000ff;">50px</span>;<span style="color: #ff0000;">background-color</span>:<span style="color: #0000ff;">#e88383</span>;}<span style="color: #800000;">
+a</span>{<span style="color: #ff0000;">text-align</span>:<span style="color: #0000ff;">center</span>;<span style="color: #ff0000;">text-decoration</span>:<span style="color: #0000ff;">none</span>;<span style="color: #ff0000;">line-height</span>:<span style="color: #0000ff;">50px</span>;<span style="color: #ff0000;">color</span>:<span style="color: #0000ff;">#ffffff</span>;<span style="color: #ff0000;">overflow</span>:<span style="color: #0000ff;">hidden</span>;}<span style="color: #800000;">
+
+#d1</span>{<span style="color: #ff0000;">background-image</span>:<span style="color: #0000ff;">url(../images/bg_cd.png)</span>;<span style="color: #ff0000;">height</span>:<span style="color: #0000ff;">50px</span>;<span style="color: #ff0000;">margin-top</span>:<span style="color: #0000ff;">10px</span>;}<span style="color: #800000;">
+#d1 ul</span>{<span style="color: #ff0000;">clear</span>:<span style="color: #0000ff;">both</span>;}<span style="color: #800000;">
+#d1 li</span>{<span style="color: #ff0000;">float</span>:<span style="color: #0000ff;">left</span>;<span style="color: #ff0000;">border</span>:<span style="color: #0000ff;">none</span>;<span style="color: #ff0000;">display</span>:<span style="color: #0000ff;">block</span>;<span style="color: #ff0000;">width</span>:<span style="color: #0000ff;">130px</span>;<span style="color: #ff0000;">height</span>:<span style="color: #0000ff;">50px</span>;<span style="color: #ff0000;">background-image</span>:<span style="color: #0000ff;">url(../images/bg_cd.png)</span>;}<span style="color: #800000;">
+#d1 a</span>{<span style="color: #ff0000;">text-align</span>:<span style="color: #0000ff;">center</span>;<span style="color: #ff0000;">overflow</span>:<span style="color: #0000ff;">hidden</span>;}<span style="color: #800000;"><br /></span></pre>
+</div>
+<p>页面代码：</p>
+<div class="cnblogs_code">
+<pre><span style="color: #0000ff;">&lt;</span><span style="color: #800000;">div </span><span style="color: #ff0000;">id</span><span style="color: #0000ff;">="d"</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #0000ff;">&lt;</span><span style="color: #800000;">ul</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #0000ff;">&lt;</span><span style="color: #800000;">li</span><span style="color: #0000ff;">&gt;&lt;</span><span style="color: #800000;">a </span><span style="color: #ff0000;">href</span><span style="color: #0000ff;">=""</span><span style="color: #0000ff;">&gt;</span>简短问答<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">a</span><span style="color: #0000ff;">&gt;&lt;/</span><span style="color: #800000;">li</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #0000ff;">&lt;</span><span style="color: #800000;">li</span><span style="color: #0000ff;">&gt;&lt;</span><span style="color: #800000;">a </span><span style="color: #ff0000;">href</span><span style="color: #0000ff;">="bloglistindex.html"</span><span style="color: #0000ff;">&gt;</span>博文备份<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">a</span><span style="color: #0000ff;">&gt;&lt;/</span><span style="color: #800000;">li</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #0000ff;">&lt;</span><span style="color: #800000;">li</span><span style="color: #0000ff;">&gt;&lt;</span><span style="color: #800000;">a </span><span style="color: #ff0000;">href</span><span style="color: #0000ff;">=""</span><span style="color: #0000ff;">&gt;</span>测试用<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">a</span><span style="color: #0000ff;">&gt;&lt;/</span><span style="color: #800000;">li</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #0000ff;">&lt;</span><span style="color: #800000;">li</span><span style="color: #0000ff;">&gt;&lt;</span><span style="color: #800000;">a </span><span style="color: #ff0000;">href</span><span style="color: #0000ff;">=""</span><span style="color: #0000ff;">&gt;</span>关于<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">a</span><span style="color: #0000ff;">&gt;&lt;/</span><span style="color: #800000;">li</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">ul</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">div</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #0000ff;">&lt;</span><span style="color: #800000;">div </span><span style="color: #ff0000;">id</span><span style="color: #0000ff;">="d1"</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #0000ff;">&lt;</span><span style="color: #800000;">ul</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #0000ff;">&lt;</span><span style="color: #800000;">li</span><span style="color: #0000ff;">&gt;&lt;</span><span style="color: #800000;">a </span><span style="color: #ff0000;">href</span><span style="color: #0000ff;">=""</span><span style="color: #0000ff;">&gt;&lt;</span><span style="color: #800000;">img </span><span style="color: #ff0000;">src</span><span style="color: #0000ff;">="images/x1.png"</span><span style="color: #0000ff;">&gt;&lt;/</span><span style="color: #800000;">a</span><span style="color: #0000ff;">&gt;&lt;/</span><span style="color: #800000;">li</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #0000ff;">&lt;</span><span style="color: #800000;">li</span><span style="color: #0000ff;">&gt;&lt;</span><span style="color: #800000;">a </span><span style="color: #ff0000;">href</span><span style="color: #0000ff;">="bloglistindex.html"</span><span style="color: #0000ff;">&gt;&lt;</span><span style="color: #800000;">img </span><span style="color: #ff0000;">src</span><span style="color: #0000ff;">="images/x2.png"</span><span style="color: #0000ff;">&gt;&lt;/</span><span style="color: #800000;">a</span><span style="color: #0000ff;">&gt;&lt;/</span><span style="color: #800000;">li</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #0000ff;">&lt;</span><span style="color: #800000;">li</span><span style="color: #0000ff;">&gt;&lt;</span><span style="color: #800000;">a </span><span style="color: #ff0000;">href</span><span style="color: #0000ff;">=""</span><span style="color: #0000ff;">&gt;&lt;</span><span style="color: #800000;">img </span><span style="color: #ff0000;">src</span><span style="color: #0000ff;">="images/x3.png"</span><span style="color: #0000ff;">&gt;&lt;/</span><span style="color: #800000;">a</span><span style="color: #0000ff;">&gt;&lt;/</span><span style="color: #800000;">li</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #0000ff;">&lt;</span><span style="color: #800000;">li</span><span style="color: #0000ff;">&gt;&lt;</span><span style="color: #800000;">a </span><span style="color: #ff0000;">href</span><span style="color: #0000ff;">=""</span><span style="color: #0000ff;">&gt;&lt;</span><span style="color: #800000;">img </span><span style="color: #ff0000;">src</span><span style="color: #0000ff;">="images/x4.png"</span><span style="color: #0000ff;">&gt;&lt;/</span><span style="color: #800000;">a</span><span style="color: #0000ff;">&gt;&lt;/</span><span style="color: #800000;">li</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">ul</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">div</span><span style="color: #0000ff;">&gt;</span></pre>
+</div>
+<p>图示：</p>
+<p><img src="https://img2018.cnblogs.com/blog/1481828/201909/1481828-20190910144607424-1542970790.png" alt="" /></p>
+<p>&nbsp;</p>
+<p>cnblog链接（带图示）:<a href="https://www.cnblogs.com/huaxie/p/11492641.html" target="_blank">HTML布局水平导航条2制作</a></p>
+<p><a href="../blog_index.html">返回博文列表</a></p>
+</div>
+<div id="footer"><img src="../images/lodopfoot.png"></div>
+</body>
+</html>
