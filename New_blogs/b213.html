@@ -1,0 +1,42 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>WEB打印控件LODOP</title>
+<script language="javascript" src="LodopFuncs.js"></script>
+ <link href="../css/blogback.css" type='text/css' rel="stylesheet">     
+</head>
+<body id="bodyA1">
+<div id="header">
+<div id="head1"></div>
+</div>
+<div class="blogpost-body">
+<h3>HTML布局排版2 div的和图片平铺方便管理</h3>
+    <p>在HTML里，由于浏览器显示器等差异，浏览器的宽度也会有变化，为了适应不同的宽度，需要用到平铺。<br />例如页面前面的固定的条等，如果是纯色，可以用背景色，如果不是纯色，是渐变等，可以用条状图平铺。<br />常见的布局方式一般有table和div，如果需要单个图片和渐变平铺都需要，则不能放到一个td里，或一个div里。<br />可以的形式：<br />图片是固定大小的：<br />div(固定宽高，盛放图片）div(盛放条状平铺）两个div并排float。<br />div(固定宽高，背景图）div(盛放条状平铺）两个div并排float。<br />div(盛放条状平铺），div(固定宽高，背景图）嵌套进前的div。</p>
+<p>例如前面博文（相关博文：），页面上面的条状，为了方便管理，上面的元素统一放到大分区里名字叫header的div里，可以给header平铺渐变的条状图，该大div设置为100%，然后里面嵌套一个小div盛放图片，这里盛放的是背景图。<br />这样header的div里就有了本身平铺的条状背景图，和嵌套在里面的小div的背景图。<br />代码：</p>
+<div class="cnblogs_code">
+<pre><span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">head</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #0000ff;">&lt;</span><span style="color: #800000;">body</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #0000ff;">&lt;</span><span style="color: #800000;">div </span><span style="color: #ff0000;">id</span><span style="color: #0000ff;">="header"</span><span style="color: #ff0000;"> style</span><span style="color: #0000ff;">="background-image:url(images/topb2.jpg);width:100%;height:200px;"</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #0000ff;">&lt;</span><span style="color: #800000;">div </span><span style="color: #ff0000;">style</span><span style="color: #0000ff;">="background-image:url(images/topb1.jpg);width:176px;height:200px;"</span><span style="color: #0000ff;">&gt;&lt;/</span><span style="color: #800000;">div</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">div</span><span style="color: #0000ff;">&gt;</span>
+
+省略。。。。。
+
+<span style="color: #0000ff;">&lt;</span><span style="color: #800000;">div </span><span style="color: #ff0000;">id</span><span style="color: #0000ff;">="footer"</span><span style="color: #ff0000;"> style</span><span style="color: #0000ff;">="background-image:url(images/bom2.jpg);width:100%;height:200px;clear:both;"</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #0000ff;">&lt;</span><span style="color: #800000;">div </span><span style="color: #ff0000;">style</span><span style="color: #0000ff;">="background-image:url(images/bom1.jpg);width:176px;height:200px;"</span><span style="color: #0000ff;">&gt;&lt;/</span><span style="color: #800000;">div</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">div</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">body</span><span style="color: #0000ff;">&gt;</span></pre>
+</div>
+<p>图示：</p>
+<p><img src="https://img2018.cnblogs.com/blog/1481828/201908/1481828-20190807164053923-1536618642.png" alt="" /></p>
+<p>但是这种切片方式，如果后期需要改的话，而前面的图片没有分层的情况下，不好改。<br />如果有分层图备份的话，直接替换背景渐变再切两个也比较麻烦，但是比没有分层图备份要容易。<br />如果是用上诉方式，要改渐变，就要改两张图，切条和图片都要改，没有分层还有把图片选区处理，但图片一旦合成，由前面的博文（相关博文：<a href="https://www.cnblogs.com/huaxie/p/11008312.html" target="_blank">PS弧形边缘的去黑色背景色</a>）可知，<span style="background-color: #ccffff;">越复杂的图片越难分层还原回去，再选区回分层图就有误差</span>。<br />所以还可以这样做，渐变和图片分开，这样改图就改图，不动渐变，改渐变就改渐变，不需要改图，两者分开，就更容易修改了。<br />需要改渐变，只需要做个渐变，切个条，需要改图，就可以把透明图改掉。</p>
+<p>这种情况下，可以嵌套div，也可以分两个div，一个背景图渐变平铺并且盛放那个透明图，但是这样修改渐变平铺要修改两个div的背景。<br />嵌套可以只修改一次，大div盛放背景渐变，内部小div盛放透明图（或把透明图设置成背景图）<br />简单点说，就是背景平铺和图片分开，这样改哪个只改一个就行。</p>
+<p><img src="https://img2018.cnblogs.com/blog/1481828/201908/1481828-20190808132804207-580120565.png" alt="" /></p>
+<p>&nbsp;</p>
+<p>cnblog链接（带图示）:<a href="https://www.cnblogs.com/huaxie/p/11316078.html" target="_blank">HTML布局排版2 div的和图片平铺方便管理</a></p>
+<p><a href="../blog_index.html">返回博文列表</a></p>
+</div>
+<div id="footer"><img src="../images/lodopfoot.png"></div>
+</body>
+</html>
