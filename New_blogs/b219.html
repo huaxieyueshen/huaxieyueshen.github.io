@@ -1,0 +1,40 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>WEB打印控件LODOP</title>
+<script language="javascript" src="LodopFuncs.js"></script>
+ <link href="../css/blogback.css" type='text/css' rel="stylesheet">     
+</head>
+<body id="bodyA1">
+<div id="header">
+<div id="head1"></div>
+</div>
+<div class="blogpost-body">
+<h3>[简短问答]lodop打印过慢或有进度条</h3>
+    <p><strong>问法1：打印预览显示进度条，过慢</strong><br />出现进度条，打印过慢，可能和很多原因有关：打印内容或样式或图片等过多，有需要下载有脚步执行或本身网络慢；<br />机器性能过低 系统ie有问题或缓存过多；或使用的是共享打印机。<br />如果预览页数多，可以多分一些任务，太多不建议预览，建议直接打印，在任务和页数之间平衡一下，参考样例26 http://www.c-lodop.com/demolist/PrintSample26.html</p>
+<p><strong>问法2：<span style="color: #993300;">内容就一页</span>，打印预览很慢</strong><br />出现进度条，打印过慢，可能和很多原因有关：打印内容或样式或图片等过多，有需要下载有脚步执行或本身网络慢；<br />机器性能过低 系统ie有问题或缓存过多；或使用的是共享打印机。<br />先测试下是否和内容有关，比如测试样例26，那种简单的纯文本试试，样例26如果测试很快，很可能和内容有关，比如自己内容过多需要下载有脚步执行或本身网络慢，打印内容或样式等过多。</p>
+<p><strong>问法3：<span style="color: #993300;">不是共享打印机</span>，打印预览很慢</strong><br />排查下其他条目：出现进度条，打印过慢，可能和很多原因有关：打印内容或样式或图片等过多，有需要下载有脚步执行或本身网络慢；机器性能过低 系统ie有问题或缓存过多</p>
+<p><strong>问法4：批量打印不预览，<span style="color: #993300;">直接打印</span>很慢</strong><br />批量打印，分页分任务，在页数和任务之间平衡一下，参考样例26http://www.c-lodop.com/demolist/PrintSample26.html<br />用虚拟打印机测试一下，或打印机脱机，查看队列的任务，是打印机停顿 还是任务发送到队列的停顿。<br />是否是大量打印超文本造成的，Lodop大量打印超文本，调用ie引擎解析，ie缓存过多不释放，可能造成一些影响，如果大量打印，可以试试用纯文本方式。</p>
+<p><strong>问法5：打印<span style="color: #800000;">表格</span>很慢，纯文本很快</strong><br />输出个简单的add_Print_text测试下，试试纯文本是否快一些。<br />超文本需要浏览器引擎解析。</p>
+<p>纯文本+线输出表格：ADD_PRINT_TEXT、ADD_PRINT_LINE<br />画线输出表格，参考http://www.c-lodop.com/demolist/PrintSampleA1.html<br />重置ie浏览器试试，或尝试用纯文本画线方式。</p>
+<p>重置ie浏览器试试，输出个最简单的表格，去掉样式等对比试试。<br />调试代码 ，排查慢在什么地方。<br />用虚拟打印机测试下，对比真实打印机，有的打印机可能解析的任务较大。</p>
+<p><strong>1.批量打印图片：</strong><br />图片批量打印，src 方式输出，需要通过浏览器引擎解析，存在不释放缓存的现象，可尝试base64码输出，参考样例38http://www.c-lodop.com/demolist/PrintSample38.html<br />base64位码输出直接通过本地lodop程序解析，无需经过浏览器引擎解析</p>
+<p><strong>2.如何批量打印很多张</strong><br />如果是批量打印相同内容，可设置份数参考样例7http://www.c-lodop.com/demolist/PrintSample7.html<br />如果是批量打不同的，批量打印，分页分任务，参考样例26 http://www.c-lodop.com/demolist/PrintSample26.html</p>
+<p><strong>3.导出excel过慢</strong><br />导出excel，<br />参考http://www.c-lodop.com/demolist/PrintSample27.html<br />参考http://www.c-lodop.com/demolist/PrintSample12.html<br />样例27的方法，如果导出不要样式，LODOP.SET_SAVE_MODE("QUICK_SAVE",true);//快速生成（无表格样式,数据量较大时或许用到） <br />用样例12的方式试试，<br />表格数据太大，一次导出如果慢，拆分后多次导出试试。</p>
+<p><strong>导出excel，提示需要先安装</strong><br />确认系统 print spooler 打印服务是开启的<br />由于lodop采用&ldquo;Excel.Application&rdquo;来导出excel，所以要求系统必须安装excel相关软件且非绿色安装那种。<br />大量复杂的导出建议采用样例12的办法。样例12导出不需要excel支持。打开是转换需要excel支持.</p>
+<p><strong>界面不是样例那种简单界面，有的机器安装c-lodop，不打印的机器不想安装，不安装的影响界面打开，慢。</strong><br />不打印的机器可以不调用LODOP对象。或者都安装上。<br />安装一次后每次开机自启动，参考http://www.c-lodop.com/faq/pp5.html<br />一台机器只需要安装一次，以后每次开机自启动，不需要再安装了。<br />或者把修改打印界面，打印界面设置简单一些，例如官网样例这种简单页面，不会影响界面的打开。</p>
+<p><strong>其他：</strong><br />出现进度条，打印过慢<br />远程共享打印机 打印机驱动有问题 内容过多需要下载有脚步执行或本身网络慢 <br />机器性能过低 系统ie有问题或缓存过多<br />可能会出现这种问题 。跟机器 网络 内容都相关。<br />尽量减少单个任务数据量 参考样例26 ，重置下ie， 用本机虚拟打印机测试对比<br />预览页数多可以多分一些任务，太多不建议预览，建议直接打印，在任务和页数之间平衡一下，参考样例26 http://www.c-lodop.com/demolist/PrintSample26.html</p>
+<p>批量打印，分页分任务，在页数和任务之间平衡一下，参考样例26http://www.c-lodop.com/demolist/PrintSample26.html</p>
+<p>1.重置浏览器，清理浏览器缓存。<br />2.清理操作系统缓存等，关闭一些不常用的软件，保证系统内存充足。<br />3.是否是打印内容或样式等过多引起的（表现为打印预览弹出很慢，或有进度条，进度条卡住等，如果是数据过多引起，建议拆分一下数据分多任务）：<br />批量打印，分多任务，在页数和任务数量之间平衡一下，页数太多建议多分一些任务，<br />参考http://www.c-lodop.com/demolist/PrintSample26.html<br />4.测试官网样例http://www.c-lodop.com/LodopDemo.html，是否有提示。<br />5.测试参考样例7http://www.c-lodop.com/demolist/PrintSample7.html，选择xps或pdf虚拟打印机试试，换个打印机试试。<br />6.删除网络共享打印机试试，可能是导致这个原因。<br />（网络共享打印机还可能导致c-lodop安装界面始终打不开，可尝试删除网络共享打印机）<br />7.c-lodop启动界面未响应问题，可等待响应，或关闭程序，然后双击桌面上的c-lodop快捷方式重启本地的c-lodop。</p>
+<p>批量打印，分页分任务，在页数和任务之间平衡一下，参考样例26http://www.c-lodop.com/demolist/PrintSample26.html<br />用虚拟打印机测试为一下，查看队列的任务，是打印机停顿 还是任务发送到队列的停顿。<br />是否是大量打印超文本造成的，Lodop大量打印超文本，调用ie引擎解析，ie缓存过多不释放，可能造成一些影响，如果大量打印，可以试试用纯文本方式。</p>
+<p>图片批量打印，src 方式输出，需要通过浏览器引擎解析，存在不释放缓存的现象，可尝试base64码输出，参考样例38http://www.c-lodop.com/demolist/PrintSample38.html<br />base64位码输出直接通过本地lodop程序解析，无需经过浏览器引擎解析</p>
+<p>如果是批量打印相同内容，可设置份数参考样例7http://www.c-lodop.com/demolist/PrintSample7.html<br />如果是批量打不同的，批量打印，分页分任务，参考样例26 http://www.c-lodop.com/demolist/PrintSample26.html</p>
+<p>速度慢一般从以下几个方面排查<br />1.访问不存在的地址有等待的时间<br />2.共享打印机的网络地址，网络故障访问不到共享打印机<br />3.硬件性能问题，硬件反应慢，<br />4.网络数据传输速度的慢<br />5.打印任务加载的内容过多或过大</p>
+<p>&nbsp;</p>
+<p>cnblog链接（带图示）:<a href="https://www.cnblogs.com/huaxie/p/11381365.html" target="_blank">[简短问答]lodop打印过慢或有进度条</a></p>
+<p><a href="../blog_index.html">返回博文列表</a></p>
+</div>
+<div id="footer"><img src="../images/lodopfoot.png"></div>
+</body>
+</html>
