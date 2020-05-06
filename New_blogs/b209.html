@@ -1,0 +1,63 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>WEB打印控件LODOP</title>
+<script language="javascript" src="LodopFuncs.js"></script>
+ <link href="../css/blogback.css" type='text/css' rel="stylesheet">     
+</head>
+<body id="bodyA1">
+<div id="header">
+<div id="head1"></div>
+</div>
+<div class="blogpost-body">
+<h3>LODOP纸张/打印机/份数/打印方向/双面打印 简短问答</h3>
+    <p><span style="background-color: #ffff99;"><strong>纸张</strong></span><br /><strong>#如何设置纸张</strong><br />纸张设置，参考样例5 http://www.c-lodop.com/demolist/PrintSample5.html<br />纸张的一些优先级&nbsp;http://www.c-lodop.com/blogs/Blog002.html</p>
+<p><strong>#不支持自定义纸张</strong><br />纸张设置，参考样例5 http://www.c-lodop.com/demolist/PrintSample5.html<br />用xps或pdf虚拟打印机测试一下（测试可用样例5），如果虚拟打印机输出的是正确的纸张，真实打印机不是，可能是打印机不支持该自定义纸张。<br />选择该真实打印机，在打印预览下方状态栏查看一下纸张大小，有的打印机不支持该自定义纸张。</p>
+<p>参考上面链接，用虚拟打印机对比测试下。<br />如果虚拟打印机正常，真实打印机不是，是真实打印机的限制。</p>
+<p>纸张设置，参考样例5 http://www.c-lodop.com/demolist/PrintSample5.html<br />纸张的一些优先级&nbsp;http://www.c-lodop.com/blogs/Blog002.html<br />用xps或pdf虚拟打印机测试一下（测试可用样例5），如果虚拟打印机输出的是正确的纸张，真实打印机不是，可能是打印机不支持该自定义纸张。<br />选择该真实打印机，在打印预览下方状态栏查看一下纸张大小，有的打印机不支持该自定义纸张。</p>
+<p>如果实际测试该打印机不支持该设置的纸张，只能换用支持的纸张大小，或用打印机自带的纸张。</p>
+<p><strong>连续打印纸张，连续出纸</strong><br />如（相关博文：）的纸张，容易被误认为没有纸张高度，但是打印机又有打印高度限制，不是小票那种，所以打到一定高度就大不了了，这种也是需要设置纸张高度的。</p>
+<p>如果不是小票那种，需要设置具体的纸张高度，打印机对最大纸张高度是有限制的。批量打印，分页分任务，在页数和任务之间平衡一下，参考样例26http://www.c-lodop.com/demolist/PrintSample26.html</p>
+<p>需要设置具体的纸张高度，会自动分页，参考http://www.c-lodop.com/faq/pp17.html<br />3.连续打印输出多张，偏移累计越来越大：<br />设置输出的纸张 与实际纸张大小有差异，如果确实无法做到与纸张实物一样大，输出一定任务数量后，发现有偏差时需要手动调整进纸位置以纠正。<br />这种连续的纸张，设置一张大小，连续打印纸张。</p>
+<p>打印机应该有连续打印模式，之前有客户没有连续打印，是用的打印机单页模式，调整成连续打印模式后可以连续打印了</p>
+<p><span style="background-color: #ffff99;"><strong>打印机</strong></span><br /><strong>#如何设置打印机</strong><br />选择打印机，参考样例5,7http://www.c-lodop.com/LodopDemo.html<br />打印机优先级，参考http://www.c-lodop.com/blogs/Blog002.html</p>
+<p><strong>#获取不到某打印机</strong><br />选择打印机，参考样例5、7<br />http://www.c-lodop.com/demolist/PrintSample5.html<br />http://www.c-lodop.com/demolist/PrintSample7.html<br />打印机的一些优先级 http://blog.sina.com.cn/s/blog_721e77e50100wto6.html<br />测试一样例5,7，是否能获取到该打印机，获取的是安装到windows操作系统打印机列表的打印机。如果获取不到，重新安装驱动或重新共享试试。</p>
+<p><strong>#获取默认打印机</strong><br />参考样例7 http://www.c-lodop.com/demolist/PrintSample7.html<br />-1特指默认打印机</p>
+<p>获取打印机个数、打印机名称、指定打印机打印 参考样例7<br />http://www.c-lodop.com/demolist/PrintSample7.html<br />-1特指默认打印机</p>
+<p><strong>#用set_print_index指定了，走的另一个打印机</strong><br />测试下样例5,7http://www.c-lodop.com/LodopDemo.html<br />打印机的一些优先级，参考http://www.c-lodop.com/blogs/Blog002.html<br />参考样例7右键查看源码，给打印机指定语句加判断试试，防止走下一个优先级。</p>
+<p>直接测试下样例7和样例5试试<br />在样例5里选择下，查看下预览界面是否是选择的打印机。</p>
+<p>安装最新版测试下http://www.c-lodop.com/download.html</p>
+<p><strong>#设置windows默认打印机</strong><br />设置windows默认打印机 参考样例5 http://www.c-lodop.com/demolist/PrintSample5.html</p>
+<p><strong>#选择临时默认打印机后，再选择就无效了</strong>（相关博文：<a href="https://www.cnblogs.com/huaxie/p/11242743.html" target="_blank">LODOP指定window默认打印机和临时默认打印机</a>、）</p>
+<p>
+不要用哪个临时默认打印机，那个c-lodop下，选择后，再选打印机就无效了。<br />刷新页面可以重新其他打印机。<br />用其他打印机选择方法，打印机优先级，参考http://www.c-lodop.com/blogs/Blog002.html</p>
+<p>临时默认打印机那个不符合你的业务需要，可以试试样例5的2的纸钉大打印机的 这个打印机列表。<br />http://www.c-lodop.com/demolist/PrintSample5.html<br />选择打印机及优先级，参考http://www.c-lodop.com/blogs/Blog002.html</p>
+<p>临时默认打印机那个选择后，该页面再指定其他打印机，还是会是那个，刷新页面后可重选。<br />页面需要多次选择打印机，可参考样例5,7的其他指定打印机的方法。</p>
+<p><strong>#同一个任务同时发送到不同的打印机打印</strong><br />参考样例44，第3步<br />例如：<br />LODOP. SET_PRINT_MODE("NOCLEAR_AFTER_PRINT",true);//设置打印完毕不清理打印信息<br />LODOP. SET_PRINTER_INDEXA("SG");//设置打印机SG<br />LODOP.PRINT();//打印<br />LODOP. SET_PRINTER_INDEXA("HY");//设置打印机HY<br />LODOP.PRINT();//打印</p>
+<p>这几张内容是否是相同的，如果是相同的，可以参考上面的一个任务发送不同打印机。<br />如果这几张内容是不同的，只能发多个任务，每个任务不同的打印机。</p>
+<p><strong>*指定别的打印机才能在某个打印机打印预览，直接指定该打印机不行</strong><br />直接测试下样例7试试，指定那个打印机。http://www.c-lodop.com/demolist/PrintSample7.html</p>
+<p>选择打印机，参考http://www.c-lodop.com/demolist/PrintSample7.html<br />用样例7获取到的打印机名称，如果名称错误，会按照优先级走其他打印机。</p>
+<p>打印机的一些优先级 http://blog.sina.com.cn/s/blog_721e77e50100wto6.html<br />代码里指定了打印机，会按照指定的打印机走。</p>
+<p>把有问题的打印机设置成windows默认打印机，指定-1试试，-1特指默认打印机。</p>
+<p>选择该打印机，测试下样例试试，重装打印机驱动试试。</p>
+<p><strong>**选择某打印机无法预览，10页一下可以，其他打印机可以</strong><br />不好判断，应该和打印机有关。<br />打印张数少的时候如果可以预览，或者把内容拆分下，预览页数多可以多分一些任务，太多不建议预览，建议直接打印，在任务和页数之间平衡一下，参考样例26 http://www.c-lodop.com/demolist/PrintSample26.html<br />如果任务里内容可以拆分，可以分多次任务打印试试，比如一次打印一页。<br />其他打印机没问题，或者换打印机。</p>
+<p>试试一页内容，该打印机是否可以预览。<br />如果测试该打印机没法预览10页以上，拆分任务，每次打印10页试试。<br />没有很好的方法，或者不预览，直接打印。</p>
+<p><span style="background-color: #ffff99;"><strong>份数</strong></span><br /><strong>#设置份数</strong><br />打印机份数 参考样例7 http://www.c-lodop.com/demolist/PrintSample7.html</p>
+<p><strong>#设置非逐份输出</strong>（相关博文：<a href="https://www.cnblogs.com/huaxie/p/11040599.html" target="_blank">LODOP设置打印份数及是否逐份输出</a>）<br />LODOP.SET_PRINT_MODE("PRINT_NOCOLLATE",1);//设置为非逐份打印，1-1  2-2  3-3</p>
+<p><strong>打印份数报错，打印机报错</strong><br />直接测试样例7的打印份数试试 http://www.lodop.net/demolist/PrintSample7.html<br />选择其他打印机或虚拟打印机测试下。如果其他打印机和虚拟打印机份数都不报错，那么就是和这个打印机有关。<br />重装打印机驱动试试，如果重装驱动不行，咨询打印机客服，或者试试不用LODOP语句控制份数，用打印机的设置控制份数。<br />如果打印机自带的份数也会出问题，可能是打印机故障，联系打印机客服。</p>
+<p>直接测试样例7的打印份数试试 http://www.lodop.net/demolist/PrintSample7.html<br />选择其他打印机或虚拟打印机测试下。如果其他打印机和虚拟打印机份数都不报错，那么就是和这个打印机有关。<br />先确定是是否和打印机有关。</p>
+<p>截图一下错误给打印机客服试试，因为虚拟打印机是正常的，可能和打印机有关。<br />如果是打印机报出的错误，咨询下打印机客服，截图给打印机客服，他们应该对自己的提示报错知道原因。</p>
+<p><span style="background-color: #ffff99;"><strong>打印方向</strong></span><br /><strong>#设置打印方向</strong><br />横向纵向，参考http://blog.sina.com.cn/s/blog_721e77e5010143gh.html<br />设置打印方向，参考样例5 http://www.c-lodop.com/demolist/PrintSample5.html<br />横向打印，纵向预览，参考样例16的E http://www.c-lodop.com/demolist/PrintSample16.html</p>
+<p><span style="background-color: #ffff99;"><strong>双面打印</strong></span><br /><strong>#如何设置双面打印</strong><br />双面打印 参考http://www.c-lodop.com/demolist/PrintSample6.html<br />需要用打印机实际测试，有可能打印机不支持双面打印。</p>
+<p><strong>#某打印机的双面控制不了</strong><br />如果实际测试语句控制不了，只能在打印机上设置了。<br />打印机的设置里可以设置。在windows的打印机设备列表里，选中打印机，高级里可能有。<br />具体可以咨询下打印机客服。</p>
+<p>刷新下页面，清理下浏览器缓存，刷新打印机列表试试，是否是缓存的影响。</p>
+<p>可能lodop控制不了这个打印机的双面，没有很好的办法，打印机的限制。<br />只能尝试用打印机的本身设置修改试试。如果打印机本身的设置也无效，咨询下打印机客服，有没有什么其他方法强制设置双面，lodop没有其他控制方法了。</p>
+<p><span style="background-color: #ffff99;"><strong>指定打印哪页到哪页（</strong></span>相关博文：<a href="https://www.cnblogs.com/huaxie/p/9619044.html" target="_blank">Lodop打印控件指定打印任务某几页</a>）<br />指定打印哪页到哪页，参考样例22http://www.c-lodop.com/demolist/PrintSample22.html<br />例如，要打一个任务的2,3页，可以用如下语句：<br />LODOP.SET_PRINT_MODE ("PRINT_START_PAGE",2);//设置从第2页开始打印<br />LODOP.SET_PRINT_MODE ("PRINT_END_PAGE",3);//设置从第3页结束打印</p>
+<p>&nbsp;</p>
+<p>cnblog链接（带图示）:<a href="https://www.cnblogs.com/huaxie/p/11301778.html" target="_blank">LODOP纸张/打印机/份数/打印方向/双面打印 简短问答</a></p>
+<p><a href="../blog_index.html">返回博文列表</a></p>
+</div>
+<div id="footer"><img src="../images/lodopfoot.png"></div>
+</body>
+</html>

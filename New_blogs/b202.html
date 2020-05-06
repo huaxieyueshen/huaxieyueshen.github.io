@@ -1,0 +1,50 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>WEB打印控件LODOP</title>
+<script language="javascript" src="LodopFuncs.js"></script>
+ <link href="../css/blogback.css" type='text/css' rel="stylesheet">     
+</head>
+<body id="bodyA1">
+<div id="header">
+<div id="head1"></div>
+</div>
+<div class="blogpost-body">
+<h3>html如何修改hr水平直线的粗细</h3>
+    <p>hr是常见的超文本标签，是一条水平直线，要设置该直线变粗一些。可以先把hr本身的border隐藏掉，然后设置border-top-width，也就是只留上边框，如图：hr的默认高度height是0，所以不会显示矩形边框，实际hr是有边框的，而且是上下左右四个边框值为1的，可以在浏览器里查看下默认hr的各种边距和边框，但height设置高之后，就可以看出hr本身的带的矩形边框。<br />必须要把hr本身的border设置为none，因为hr默认是有个四边为1的边框的，去掉其他个边框，然后设置只对上边框进行设置。</p>
+<p>hr一般用于水平直线，所以不需要给hr加这种矩形边框，可以只设置上边框，上边框是一个真正的一条线，然后设置上边框的宽度（粗细），就可以设置粗一些的水平直线。<br />代码：border:none;border-top:30px solid #00ff00;<br />上面这个代码是简写形式，border-top后面跟的是三个参数分别写：<br />分别写代码：border:none;border-top-width:30px;border-top-style:solid;border-top-color:#00ff00;</p>
+<p>测试代码：</p>
+<div class="cnblogs_code">
+<pre><span style="color: #0000ff;">&lt;</span><span style="color: #800000;">div </span><span style="color: #ff0000;">id</span><span style="color: #0000ff;">="d1"</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #0000ff;">&lt;</span><span style="color: #800000;">p </span><span style="color: #ff0000;">style</span><span style="color: #0000ff;">="margin:0;"</span><span style="color: #0000ff;">&gt;</span><span style="color: #ff0000;">&amp;nbsp;</span>（1）<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">p</span><span style="color: #0000ff;">&gt;</span><span style="color: #008000;">&lt;!--</span><span style="color: #008000;">默认height是0</span><span style="color: #008000;">--&gt;</span>
+<span style="color: #0000ff;">&lt;</span><span style="color: #800000;">hr </span><span style="color: #ff0000;">style</span><span style="color: #0000ff;">="border-color:#0000ff;"</span> <span style="color: #0000ff;">&gt;</span>
+
+<span style="color: #0000ff;">&lt;</span><span style="color: #800000;">p </span><span style="color: #ff0000;">style</span><span style="color: #0000ff;">="margin:0;"</span><span style="color: #0000ff;">&gt;</span><span style="color: #ff0000;">&amp;nbsp;</span>（2）<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">p</span><span style="color: #0000ff;">&gt;</span><span style="color: #008000;">&lt;!--</span><span style="color: #008000;">高度不为0，显示出边框</span><span style="color: #008000;">--&gt;</span>
+<span style="color: #0000ff;">&lt;</span><span style="color: #800000;">hr </span><span style="color: #ff0000;">style</span><span style="color: #0000ff;">="height:5px;border-color:#0000ff;"</span><span style="color: #0000ff;">/&gt;</span>
+
+<span style="color: #0000ff;">&lt;</span><span style="color: #800000;">p </span><span style="color: #ff0000;">style</span><span style="color: #0000ff;">="margin:0;"</span><span style="color: #0000ff;">&gt;</span><span style="color: #ff0000;">&amp;nbsp;</span>（3）<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">p</span><span style="color: #0000ff;">&gt;</span><span style="color: #008000;">&lt;!--</span><span style="color: #008000;">不显示边框，设置上边框30px 实线 颜色</span><span style="color: #008000;">--&gt;</span>
+<span style="color: #0000ff;">&lt;</span><span style="color: #800000;">hr </span><span style="color: #ff0000;">style</span><span style="color: #0000ff;">="border:none;border-top:30px solid #00ff00;"</span> <span style="color: #0000ff;">/&gt;</span>
+
+<span style="color: #0000ff;">&lt;</span><span style="color: #800000;">p </span><span style="color: #ff0000;">style</span><span style="color: #0000ff;">="margin:0;"</span><span style="color: #0000ff;">&gt;</span><span style="color: #ff0000;">&amp;nbsp;</span>（4）<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">p</span><span style="color: #0000ff;">&gt;</span><span style="color: #008000;">&lt;!--</span><span style="color: #008000;">同（3），分开写模式</span><span style="color: #008000;">--&gt;</span>
+<span style="color: #0000ff;">&lt;</span><span style="color: #800000;">hr </span><span style="color: #ff0000;">style</span><span style="color: #0000ff;">="border:none;border-top-width:30px;border-top-style:solid;border-top-color:#00ff00;"</span> <span style="color: #0000ff;">/&gt;</span><span style="color: #000000;">
+
+-----------------------------------------------------------------------------------------------------
+</span><span style="color: #0000ff;">&lt;</span><span style="color: #800000;">p </span><span style="color: #ff0000;">style</span><span style="color: #0000ff;">="margin:0;"</span><span style="color: #0000ff;">&gt;</span><span style="color: #ff0000;">&amp;nbsp;</span>（5）错误<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">p</span><span style="color: #0000ff;">&gt;</span><span style="color: #008000;">&lt;!--</span><span style="color: #008000;">没把border设置为none</span><span style="color: #008000;">--&gt;</span>
+<span style="color: #0000ff;">&lt;</span><span style="color: #800000;">hr </span><span style="color: #ff0000;">style</span><span style="color: #0000ff;">="border-top:30px solid #00ff00;"</span> <span style="color: #0000ff;">/&gt;</span>
+
+<span style="color: #0000ff;">&lt;</span><span style="color: #800000;">p </span><span style="color: #ff0000;">style</span><span style="color: #0000ff;">="margin:0;"</span><span style="color: #0000ff;">&gt;</span><span style="color: #ff0000;">&amp;nbsp;</span>（6）错误<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">p</span><span style="color: #0000ff;">&gt;</span><span style="color: #008000;">&lt;!--</span><span style="color: #008000;">错误写法的1,设置border-style而不是border-top-style</span><span style="color: #008000;">--&gt;</span>
+<span style="color: #0000ff;">&lt;</span><span style="color: #800000;">hr </span><span style="color: #ff0000;">style</span><span style="color: #0000ff;">="border:none;border-top-width:30px;border-style:solid;border-top-color:#00ff00;"</span> <span style="color: #0000ff;">/&gt;</span>
+<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">div</span><span style="color: #0000ff;">&gt;</span></pre>
+</div>
+<p>图示：</p>
+<p>如图：<br />默认hr的默认样式：上边距margin 8px，下边距margin 8px，左右无margin，上下左右border都为1px，高为0.<br />给默认hr加了height:5px的样式：其余同上，高度变为5px（由于高度改变，四周的1px的边框都显现出来）<br />设置单上边线并加粗的样式：margin和高同默认，左右和下边无边框，上边框为 30px。</p>
+<p><img src="https://img2018.cnblogs.com/blog/1481828/201907/1481828-20190725154656735-1099800894.png" alt="" /></p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>cnblog链接（带图示）:<a href="https://www.cnblogs.com/huaxie/p/11239166.html" target="_blank">html如何修改hr水平直线的粗细</a></p>
+<p><a href="../blog_index.html">返回博文列表</a></p>
+</div>
+<div id="footer"><img src="../images/lodopfoot.png"></div>
+</body>
+</html>

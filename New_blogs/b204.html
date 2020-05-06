@@ -1,0 +1,24 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>WEB打印控件LODOP</title>
+<script language="javascript" src="LodopFuncs.js"></script>
+ <link href="../css/blogback.css" type='text/css' rel="stylesheet">     
+</head>
+<body id="bodyA1">
+<div id="header">
+<div id="head1"></div>
+</div>
+<div class="blogpost-body">
+<h3>Excel如何输入负数</h3>
+    <p>一般红字发票很少开，以前都是单独把红字发票摘出来放到一行里，然后加减一下，前段时间有个客户因为普票无法报销，改要了专票，因为是电子发票，无法作废，开了张红字。<br />虽然红字很少开，但是想着百度一下如何在excel输入负数，这样就可以把红字负数发票放到一起，到月底的时候直接拖动选中单元格，查看下方状态栏就行了，不用自己再减一下。<br />本人使用的是excel2016，百度到的方法是：<span style="color: #000080;"><strong>把数字放到（）圆括号里，数字就会变成负数，试了一下，无论是中文的圆括号，还是英文的，都可以让数字变成负数。<span style="background-color: #ffff99;">（把正数放到圆括号里，会变成负数）</span></strong></span><br />拖动任务栏统计了一下，结果确实是把负数也减去的合计值。这样就可以直接和金税盘的实际销售金额核对了。<br />之前有篇博文介绍excel自带的拖动后状态栏自动统计的：<a href="https://www.cnblogs.com/huaxie/p/10365562.html" target="_blank">如何使用Excel表格状态栏动态查看统计</a><br />该博文中：<br />实际销售金额（就是去掉废票，剩下发票金额减去负数发票金额）=所有正数发票总的金额（废票除外）-负数发票的总金额<br />由于金税盘中作废的发票是单独统计的，所以在excel中一般单独设置一列作为作废发票，由于之前的色带问题已经调整好（相关博文：<a href="https://www.cnblogs.com/huaxie/p/10968207.html" target="_blank">【解决篇】映美FP-530K+打印发票卡纸，色带安装问题</a>）作废发票也很少出现。<br />使用了()括号里数字，是负数这个方法，就可以<span style="color: #000080;">直接把所有非作废的条目都拖动统计一下，直接和金税盘实际销售金额核对</span>。</p>
+<p>由于电子发票和普通纸张发票在金税盘统计是分开的，所以excel里需要设置两个部分，电子发票和纸质发票单独统计。<br />统计方法就是拖动选中需要的单元格，行数就是发票张数，合计值就是实际销售金额，可与金税盘核对。</p>
+<p><img src="https://img2018.cnblogs.com/blog/1481828/201907/1481828-20190731162411156-1344948522.png" alt="" /></p>
+<p>&nbsp;</p>
+<p>cnblog链接（带图示）:<a href="https://www.cnblogs.com/huaxie/p/11276448.html" target="_blank">Excel如何输入负数</a></p>
+<p><a href="../blog_index.html">返回博文列表</a></p>
+</div>
+<div id="footer"><img src="../images/lodopfoot.png"></div>
+</body>
+</html>

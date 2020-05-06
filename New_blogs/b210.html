@@ -1,0 +1,52 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>WEB打印控件LODOP</title>
+<script language="javascript" src="LodopFuncs.js"></script>
+ <link href="../css/blogback.css" type='text/css' rel="stylesheet">     
+</head>
+<body id="bodyA1">
+<div id="header">
+<div id="head1"></div>
+</div>
+<div class="blogpost-body">
+<h3>【各种误解解释】纸张打印机操作系统等误解相关</h3>
+    <p><span style="background-color: #ffffff;">本文是简短问答，相关详细博文：<a href="https://www.cnblogs.com/huaxie/p/11301778.html" target="_blank">LODOP纸张/打印机/份数/打印方向/双面打印 简短问答</a>、<a href="https://www.cnblogs.com/huaxie/p/10280824.html" target="_blank">LODOP设置打印机不存在不打印</a>、</span></p>
+<p><span style="background-color: #ffff99;"><strong>常见误解1：代码设置了自定义纸张，可适配所有打印机（错误）</strong></span><br />纸张设置，参考样例5 http://www.c-lodop.com/demolist/PrintSample5.html<br />用xps或pdf虚拟打印机测试一下（测试可用样例5），如果虚拟打印机输出的是正确的纸张，真实打印机不是，可能是打印机不支持该自定义纸张。<br />选择该真实打印机，在打印预览下方状态栏查看一下纸张大小，有的打印机不支持该自定义纸张。</p>
+<p>纸张设置，参考样例5 http://www.c-lodop.com/demolist/PrintSample5.html<br />用xps或pdf虚拟打印机测试一下（测试可用样例5），如果虚拟打印机输出的是正确的纸张，真实打印机不是，可能是打印机不支持自定义纸张。不支持自定义纸张，纸张大小会有问题，或走优先级走默认纸张等。<br />纸张的一些优先级 http://blog.sina.com.cn/s/blog_721e77e50100wto6.html</p>
+<p>打印机不支持这种自定义纸张，可以换用打印机本身自带的纸张，用打印机自带的纸张的纸张名称，参考样例5，宽高设置为0，纸张名称会有效。打印机肯定支持打印机自带的那些纸张尺寸。</p>
+<p><span style="background-color: #ccffcc;"><strong>误解1.1：</strong>预览就有问题，还没打印，和打印机无关（错误）</span><br />可以用xps或pdf虚拟打印机预览对比下。<br />预览是打印机的反显，打印机不同，预览结果不同。</p>
+<p><span style="background-color: #ffff99;"><strong>常见误解2：打印机可打区域可以用LODOP调整（错误）</strong></span><br />&ldquo;可打区域&rdquo;边缘与打印机本身有关，表现在预览里是虚线，可打区域的影响<br />http://www.c-lodop.com/faq/pp26.html<br />参考链接，可打区域和打印机有关，LODOP无法控制。</p>
+<p>查看下打印机相关设置，咨询下自己用的打印机的相关客服试试。<br />可以用xps或pdf虚拟打印机测试下，虚拟打印机无可打区域，这个可打区域和打印机有关。</p>
+<p><span style="background-color: #ffff99;"><strong>常见误解3：连续打印纸张需要设置纸张高度自适应（错误）</strong></span><br />相关博文：Lodop打印连续的纸张、<br />小票打印机那种，可以设置纸张高度自适应，其他普通打印机都有高度限制的，不能高度自适应。如果不是小票那种，需要设置具体的纸张高度，打印机对最大纸张高度是有限制的。</p>
+<p>自适应高度 本质是根据打印语句明确的输出位置信息，来推断出纸张高度，从而确定纸张的高度，一般使用与专用打印机，比如小票打印机，普通打印没有那么高度的纸张；普通的打印机需要设置具体的纸张。</p>
+<p>如果不是小票那种，需要设置具体的纸张高度，打印机对最大纸张高度是有限制的。内容多，可分页，进行批量打印，连续输出纸张，批量打印，分页分任务，在页数和任务之间平衡一下，参考样例26http://www.c-lodop.com/demolist/PrintSample26.html</p>
+<p>超文本会按照打印项高度或纸张高度进行分页，需要设置具体的纸张高度，会自动分页，不要纸张高度自适应，参考http://www.c-lodop.com/faq/pp17.html</p>
+<p>如果打印机不能连续输出，之前有客户反馈打印机有单页模式，和连续打印模式，查看下是否打印机在连续打印模式试试。</p>
+<p><span style="background-color: #ffff99;"><strong>常见误解4：横向打印需要旋转纸张（错误）</strong></span><br />横向纵向，参考http://blog.sina.com.cn/s/blog_721e77e5010143gh.html<br />设置打印方向，参考样例5 http://www.c-lodop.com/demolist/PrintSample5.html<br />横向打印，纵向预览，参考样例16的E http://www.c-lodop.com/demolist/PrintSample16.html</p>
+<p>横向纵向 参考http://www.c-lodop.com/blogs/Blog010.html （官网备用链接，当新浪出问题时用）</p>
+<p><strong><span style="background-color: #ffff99;">常见误解5：LODOP可以控制打印机的切纸（错误）</span></strong><br />切纸是打印机的功能，lodop无法控制，可以测试下是按照任务还是页数切纸。</p>
+<p><span style="background-color: #ffff99;"><strong>误解6：打印机不按份数切纸，lodop可控制（错误）</strong></span><br />可能打印机不按照份数切纸，或者执行多次任务试试。<br />或者咨询下打印机客服，能否按照份数切纸，如果不支持按份数切纸，只能循环多任务或多页试试。参考样例26http://www.lodop.net/demolist/PrintSample26.html</p>
+<p><span style="background-color: #ffff99;"><strong>误解7：打印机队列显示错误-正在打印，lodop可以解决</strong></span><br />这个是打印机队列的状态，排查下电脑和打印机的连线是否正常，是否打印机脱机。<br />用xps或pdf虚拟打印机测试下，虚拟打印机正常，说明和打印机或打印机驱动有关。</p>
+<p>用xps或pdf虚拟打印机测试下。用其他如word软件测试打印下。<br />选择该打印机，测试样例7http://www.c-lodop.com/demolist/PrintSample7.html</p>
+<p>（1）选择该打印机样例7打印正常，就是自己的程序打印，队列显示错误-正在打印<br />样例7用这个打印机是可以打印的，说明安装启动正常，打印机连接也正常。<br />样例7选择这个打印机是正常的，说明这个打印机可以打印样例7的内容。<br />再选择xps或pdf虚拟打印机测试下，虚拟打印机是否正常。</p>
+<p>先用本机虚拟打印机测试下（如win7之后的系统自带xps虚拟打印机，或群文件里的Doro PDF Writer虚拟打印机）<br />理论上本机虚拟打印没问题的话，说明插件代码没问题，程序可做的努力就的确很少了，毕竟windows下的打印是微软倡导的设备无关系原则，要在打印机和打印驱动程序 系统上排查下。</p>
+<p>本机虚拟打印没问题的话，说明插件代码没问题，程序可做的努力就的确很少了，毕竟windows下的打印是微软倡导的设备无关系原则，要在打印机和打印驱动程序 系统上排查下，重装打印机驱动试试。</p>
+<p>这个是打印机队列的错误，查看下打印机连接是否正常。<br />进入队列后就交给windows打印机服务进行打印了，进入队列说明已经成功发送了打印任务，需要排查打印机连接问题等。</p>
+<p><span style="background-color: #ffff99;"><strong>常见误解8：word能打，lodop有问题，所以不是打印机原因（错误）</strong></span><br />某些标准的功能引起了打印机驱动的故障，而word没有用到这些功能。<br />删减下语句排查下是哪些LODOP功能引起的。</p>
+<p>可以做个简单例子试试，用该打印机测试下样例7http://www.c-lodop.com/demolist/PrintSample7.html<br />如果样例正常，删减语句排查下是哪些语句功能引起的。</p>
+<p><span style="background-color: #ffff99;"><strong>误解9：官网提供的两个钱箱的语句都打不开，lodop可提供更多打开钱箱指令（错误）</strong></span><br />打开钱箱，参考http://www.c-lodop.com/faq/pp11.html<br />如果我们给您的两个例子语句 打不开，就需要咨询一下打印机厂家了<br />两个例子语句也是其他朋友测试后 能打开的 给我们的，需要自己联系打印机厂商 再验证摸索一下</p>
+<p><span style="background-color: #ffff99;"><strong>误解10：在windows某操作系统下，lodop无法使用</strong></span><br />和win  win 无关，只要是windows系统都可以。<br />测试下官网样例http://www.c-lodop.com/demolist/PrintSample2.html 是否有什么提示。<br />右键查看源码，按照官网样例的使用方法。</p>
+<p>注意高版本的火狐谷歌需要使用c-lodop，升级到c-lodop或混合部署方式。<br />参考http://www.c-lodop.com/faq/pp21.html<br />高版本的火狐谷歌不再支持np插件，需要使用c-lodop，可参考官网样例混合部署http://www.c-lodop.com/LodopDemo.html<br />Lodop控件升级到C-Lodop云打印 参考http://www.c-lodop.com/faq/pp7.html</p>
+<p>测试参考一下官网样例http://www.c-lodop.com/LodopDemo.html<br />官网样例是混合部署LodopFuncs.js里已经写好了判断。<br />客户端是浏览器支持np插件，是32位浏览器，就会提示下载32位的Lodop插件：install_lodop32.exe<br />客户端浏览器支持np插件，是64位浏览器，就会提示下载64位的Lodop插件：install_lodop64.exe<br />客户端浏览器不支持np插件（判断如高版本谷歌火狐等），会提示下载C-Lodop方式： CLodop_Setup_for_Win32NT.exe</p>
+<p><span style="background-color: #ffff99;"><strong>误解11：代码里选择了某打印机，一定会从该打印机出来（错误）</strong></span><br />选择打印机，参考测试样例5,7http://www.c-lodop.com/LodopDemo.html<br />打印机的一些优先级，参考http://www.c-lodop.com/blogs/Blog002.html<br />在哪个打印机输出，根据优先级走，<br />参考样例7右键查看源码，可以指定打印机前加判断，打印机不存在等情况选择不成功不会走下一个优先级。</p>
+<p><span style="background-color: #ffff99;"><strong>误解12：LODOP能准确获取所有打印机的脱机状态（错误）</strong></span><br />参考http://www.mtsoftware.cn/demolist/PrintSample45.html<br />获取打印机状态，需要实际测试，不同打印机状态可能不同，脱机不一定获取到。</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>cnblog链接（带图示）:<a href="https://www.cnblogs.com/huaxie/p/11350133.html" target="_blank">【各种误解解释】纸张打印机操作系统等误解相关</a></p>
+<p><a href="../blog_index.html">返回博文列表</a></p>
+</div>
+<div id="footer"><img src="../images/lodopfoot.png"></div>
+</body>
+</html>

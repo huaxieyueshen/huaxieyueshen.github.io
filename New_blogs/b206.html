@@ -1,0 +1,41 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>WEB打印控件LODOP</title>
+<script language="javascript" src="LodopFuncs.js"></script>
+ <link href="../css/blogback.css" type='text/css' rel="stylesheet">     
+</head>
+<body id="bodyA1">
+<div id="header">
+<div id="head1"></div>
+</div>
+<div class="blogpost-body">
+<h3>超文本css样式换行</h3>
+    <p>之前有关于LODOP中纯文本换行的相关博文：<a href="https://www.cnblogs.com/huaxie/p/9947181.html" target="_blank">Lodop纯文本英文-等符号自动换行问题</a><br />纯文本的遇到不拆分的单词的时候，可以通过LODOP 语句设置允许标点溢出，且英文单词拆开。<br />超文本需要通过css样式控制，相关博文：<a href="https://www.cnblogs.com/huaxie/p/9669963.html" target="_blank">Lodop打印控件传入css样式、看是否传入正确样式</a><br />Lodop是基于本机windows底层引擎进行渲染解析的，与ie调用的引擎一致，注意调用的css样式是否支持问题，通过调试样式，更换样式等，达到需要的效果。<br />关于table中不换行隐藏等相关博文：<a href="https://www.cnblogs.com/huaxie/p/11045192.html" target="_blank">LODOP表格table简短问答及相关博文</a></p>
+<p>在div中，即使设置div的宽度，由于样式原因，也可能会超出，甚至超出自己想要的打印区域，也可能造成打印不全。<br />有背景色会更加清楚，这里给div加了背景色，只设置了宽度，高度按照内容自适应。<br />最后是是三个div，div加的是背景图，中间的div是是条状平铺，实现高度按照内容。</p>
+<p>第一个div：只加了宽度和背景色(word-break和word-wrap默认值 normal）<br />第二个div：加了word-break:break-all;<br />第三个div：加了word-wrap:break-word;<br />第四个区域（三个div）:中间的div加了加了word-break:break-all;（另外div两个是上边的图片，和下边的图片高度都是10px）</p>
+<p>代码：</p>
+<div class="cnblogs_code">
+<pre><span style="color: #0000ff;">&lt;</span><span style="color: #800000;">div </span><span style="color: #ff0000;">id</span><span style="color: #0000ff;">="d1"</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #0000ff;">&lt;</span><span style="color: #800000;">div </span><span style="color: #ff0000;">style</span><span style="color: #0000ff;">="width:100px;background-color:#00ff00;"</span><span style="color: #0000ff;">&gt;</span>尽量使用最新版Lodop和c-lodop。http://www.c-lodop.com/download.html最新版下载地址 <span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">div</span><span style="color: #0000ff;">&gt;&lt;</span><span style="color: #800000;">br</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #0000ff;">&lt;</span><span style="color: #800000;">div </span><span style="color: #ff0000;">style</span><span style="color: #0000ff;">="width:100px;background-color:#db7d7d;word-break:break-all;"</span><span style="color: #0000ff;">&gt;</span>尽量使用最新版Lodop和c-lodop。http://www.c-lodop.com/download.html最新版下载地址 <span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">div</span><span style="color: #0000ff;">&gt;&lt;</span><span style="color: #800000;">br</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #0000ff;">&lt;</span><span style="color: #800000;">div </span><span style="color: #ff0000;">style</span><span style="color: #0000ff;">="width:100px;background-color:#45e3d2;word-wrap:break-word;"</span><span style="color: #0000ff;">&gt;</span>尽量使用最新版Lodop和c-lodop。http://www.c-lodop.com/download.html最新版下载地址 <span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">div</span><span style="color: #0000ff;">&gt;&lt;</span><span style="color: #800000;">br</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #0000ff;">&lt;</span><span style="color: #800000;">div </span><span style="color: #ff0000;">style</span><span style="color: #0000ff;">="background-image:url(images/top1.jpg);height:10px;margin-left:0px;width:100px;clear:both;"</span><span style="color: #0000ff;">&gt;&lt;/</span><span style="color: #800000;">div</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #0000ff;">&lt;</span><span style="color: #800000;">div </span><span style="color: #ff0000;">style</span><span style="color: #0000ff;">="background-image:url(images/mid.jpg);margin-left:0px;width:100px;word-break:break-all;"</span><span style="color: #0000ff;">&gt;</span>尽量使用最新版Lodop和c-lodop。http://www.c-lodop.com/download.html最新版下载地址<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">div</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #0000ff;">&lt;</span><span style="color: #800000;">div </span><span style="color: #ff0000;">style</span><span style="color: #0000ff;">="background-image:url(images/bot.jpg);height:10px;margin-left:0px;width:100px;"</span><span style="color: #0000ff;">&gt;&lt;/</span><span style="color: #800000;">div</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #0000ff;">&lt;</span><span style="color: #800000;">br</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">div</span><span style="color: #0000ff;">&gt;</span></pre>
+</div>
+<p>图示：由于只设置了宽度，内容是否换行，也会导致行数的差异，导致div的高度不同。PS：那个用图片平铺的只是中间，上下边框的条状图都是10px。</p>
+<p>&nbsp;<img src="https://img2018.cnblogs.com/blog/1481828/201908/1481828-20190801112704968-887750478.png" alt="" /></p>
+<p>注意lodop不输出css背景图，可以输出背景色，所以那个图片平铺的会失去背景图（相关博文：<a href="https://www.cnblogs.com/huaxie/p/9604650.html" target="_blank">Lodop打印控件不打印css背景图怎么办</a>）。<br />注意Lodop是基于本机windows底层引擎进行渲染解析的，与ie调用的引擎一致，所以如果用lodop打印，注意css样式解析的不同，在ie下查看效果。<br />例如，同样的代码，在qq浏览器极速模式和兼容模式下的效果是不同的：</p>
+<p>这是某版本的qq浏览器和火狐浏览器测试的，qq浏览器的极速模式和兼容模式内核不同，lodop中效果类似兼容模式。<br />火狐浏览器的样式和qq浏览器的极速模式相似，但是大概是浏览器默认字体大小有差异，导致了字体和换行都有差异，所以显示出了三种效果。三种效果我分别用三种色块区域划分出来。</p>
+<p><img src="https://img2018.cnblogs.com/blog/1481828/201908/1481828-20190801141803545-1308503972.png" alt="" /></p>
+<p>&nbsp;</p>
+<p>cnblog链接（带图示）:<a href="https://www.cnblogs.com/huaxie/p/11281082.html" target="_blank">超文本css样式换行</a></p>
+<p><a href="../blog_index.html">返回博文列表</a></p>
+</div>
+<div id="footer"><img src="../images/lodopfoot.png"></div>
+</body>
+</html>
