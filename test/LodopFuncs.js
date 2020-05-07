@@ -54,7 +54,7 @@ if (needCLodop()) {
     head.insertBefore(JS1, head.firstChild);
 
     var JS2 = document.createElement("script");
-    JS2.src = "http://localhost:8444/CLodopfuncs.js?priority=0";
+    JS2.src = "https://localhost:8444/CLodopfuncs.js?priority=0";
     head.insertBefore(JS2, head.firstChild);
 
     CLodopIsLocal = !!((JS1.src + JS2.src).match(/\/\/localho|\/\/127.0.0./i));
