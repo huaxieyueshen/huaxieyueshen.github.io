@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>test图片</title>
+  <script language="javascript" src="LodopFuncs.js"></script>
+ </head>
+ <body>
+ <style>
+  body{margin:0px;font-size:12px;}
+#body{width:100%;}
+#bodyleft{background-image:url(../images/tt1.png);width:790px;height:25px;margin:auto;}
+#bodymiddle{background-image:url(../images/tt2.png);width:790px;text-align:center;margin:auto;}
+#bodyright{background-image:url(../images/tt3.png);width:790px;height:25px;margin:auto;}
+.btn1{background-color: #5ff6ed;font-size: 12px;}
+.next{color:blue;}
+#header{background-image:url(../images/topbg.png);width:100%;height:100px;}
+#head1{background-image:url(../images/lodoptest.png);width:400px;height:100px;}
+#footer{width:790px;height:100px;margin:auto;text-align:right;}
+</style>
+<div id="header">
+<div id="head1"></div>
+</div>
+
+<div id="body">
+<div id="bodyleft"></div> 
+<div id="bodymiddle">测试图片请放在D盘testimg文件夹下<br>
+输入需要测试的图片名称：<input type="text" id="T1" size=40>例如：1.jpg
+<input type="button" class="btn1" value="点击预览测试" onclick="prndefpageimage()" ><br>
+<p class="next">用lodop语句缩放图片的测试，请填下面：</p>
+<input type="radio" id="r1" name="rs" value="0" checked="checked">可变形缩放
+<input type="radio" id="r2" name="rs" value="1">不可变形缩放<br>
+输入需要缩放的宽度<input type="text" id="T2">输入需要缩放的高度<input type="text" id="T3">
+<input type="button" class="btn1" value="点击预览测试缩放图片" onclick="prndefpageimagesf()">
+<p class="next">用lodop语句缩放图片且在一定纸张里的测试，请填下面：</p>
+纵向纸张，输入纸张宽度<input type="text" id="T4">输入纸张宽度<input type="text" id="T5">
+<input type="button" class="btn1" value="点击预览测试缩放图片在一定纸张中" onclick="prndefpageimagesf()">
+<div id="bodyright"></div>
+</div>
+</div>
+<div id="body">
+<div id="bodyleft"></div> 
+<div id="bodymiddle">直接测试网络地址图片<br>
+输入需要测试的图片地址：<input type="text" id="TW" size=60 value="http://www.c-lodop.com/demolist/PrintSample37.png">
+<input type="button" class="btn1" value="点击预览测试" onclick="prnnet()" ><br>
+<div id="bodyright"></div>
+</div>
+</div>
+
+<div id="body">
+<div id="bodyleft"></div> 
+<div id="bodymiddle">（1）查看lodop内部解析的html信息，见http://www.c-lodop.com/faq/pp8.html<br>
+查看一下传入的图片路径是否正确，尽量用绝对路径地址，换个图片试试。<br>
+（2）显示空白或者图片缺失等问题，加延迟试试：<br>
+LODOP.SET_PRINT_STYLEA(0,"HtmWaitMilSecs",1000)//设置上一项延迟超文本下载1000毫秒<br>
+（3）权限问题，图片显示叉号 说明服务端拒绝了 可能证书 session等问题，导致没有直接访问该图片的权限，有些需要验证之后才能访问图片。由于Lodop借用IE下载引擎，与非IE浏览器之间目前不能传递Session(cookies)<br>
+（4）清空ie缓存 重置ie 后在ie中查看下。IE中的URL最大长度限制为2048字节。超过这个长度会不支持。<br>
+（5） 查看服务器端错误日志排查下 。<br>
+（6）做个简单的例子验证下，排除其他因素的干扰。Base64输出图片参考样例38。<br>
+直接把图片地址放到ie浏览器里是试验下。能否直接在浏览器里访问到。<br><br>
+图片批量打印，src 方式输出，需要通过浏览器引擎解析，存在不释放缓存的现象，可尝试base64码输出，参考样例38http://www.c-lodop.com/demolist/PrintSample38.html
+base64位码输出直接通过本地lodop程序解析，无需经过浏览器引擎解析<br>
+</div>
+<div id="bodyright"></div>
+</div>
+</div>
+
+<div id="footer"><img src="../images/cnblog.png"></div>
+<script language="javascript" type="text/javascript">   
+        var LODOP; //声明为全局变量 
+       function prndefpageimage() {
+        LODOP=getLodop(); 
+        LODOP.PRINT_INIT("");
+        LODOP.ADD_PRINT_IMAGE(0,0,"100%","100%","<img border='0' src='D://testimg//"+document.getElementById("T1").value+"'/>");
+        //LODOP.PRINT_DESIGN();
+        LODOP.PREVIEW();    
+    };
+       function prndefpageimagesf() {
+        LODOP=getLodop(); 
+        LODOP.PRINT_INIT("");
+        LODOP.ADD_PRINT_IMAGE(0,0,document.getElementById("T2").value,document.getElementById("T3").value,"<img border='0' src='D://testimg//"+document.getElementById("T1").value+"'/>");
+        if(document.getElementById("r1").checked==true)
+        LODOP.SET_PRINT_STYLEA(0,"Stretch",1);//(可变形)扩展缩放模式
+        else if(document.getElementById("r2").checked==true)
+        LODOP.SET_PRINT_STYLEA(0,"Stretch",2);//按原图比例(不变形)缩放模式
+        //LODOP.PRINT_DESIGN();
+        LODOP.PREVIEW();    
+    };
+          function prndiypage() {
+        LODOP=getLodop(); 
+        LODOP.PRINT_INIT("");
+        LODOP.SET_PRINT_PAGESIZE(1, document.getElementById("T4").value, document.getElementById("T5").value,"");
+        LODOP.ADD_PRINT_IMAGE(0,0,document.getElementById("T2").value,document.getElementById("T3").value,"<img border='0' src='D://testimg//"+document.getElementById("T1").value+"'/>");
+        if(document.getElementById("r1").checked==true)
+        LODOP.SET_PRINT_STYLEA(0,"Stretch",1);//(可变形)扩展缩放模式
+        else if(document.getElementById("r2").checked==true)
+        LODOP.SET_PRINT_STYLEA(0,"Stretch",2);//按原图比例(不变形)缩放模式
+        //LODOP.PRINT_DESIGN();
+        LODOP.PREVIEW();    
+    };
+          function prnnet() {
+        LODOP=getLodop(); 
+        LODOP.PRINT_INIT("");
+        LODOP.ADD_PRINT_IMAGE(0,0,"100%","100%","<img border='0' src='"+document.getElementById("TW").value+"'/>");
+        //LODOP.PRINT_DESIGN();
+        LODOP.PREVIEW();    
+    };
+</script> 
+ </body>
+</html>
