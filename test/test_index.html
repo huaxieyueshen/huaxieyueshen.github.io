@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>test图片</title>
+  <script language="javascript" src="LodopFuncs.js"></script>
+ </head>
+ <body>
+ <style>
+  body{margin:0px;font-size:12px;}
+#body{width:100%;}
+#bodyleft{background-image:url(../images/tt1.png);width:790px;height:25px;margin:auto;}
+#bodymiddle{background-image:url(../images/tt2.png);width:790px;text-align:center;margin:auto;}
+#bodyright{background-image:url(../images/tt3.png);width:790px;height:25px;margin:auto;}
+.btn1{background-color: #5ff6ed;font-size: 12px;}
+.next{color:blue;}
+#header{background-image:url(../images/topbg.png);width:100%;height:100px;}
+#head1{background-image:url(../images/lodoptest.png);width:400px;height:100px;}
+#footer{width:790px;height:100px;margin:auto;text-align:right;}
+</style>
+<div id="header">
+<div id="head1"></div>
+</div>
+</div>
+
+<div id="body">
+<div id="bodyleft"></div> 
+<div id="bodymiddle">(1)测试某个图片，网络本地，可变形不可变形缩放，一定纸张内。<a href="./testimg.html" target="_blank">点击测试</a><br>
+<br>
+(1)测试某个图片，网络本地，可变形不可变形缩放，一定纸张内。<a href="./testimg.html" target="_blank">点击测试</a><br>
+</div>
+<div id="bodyright"></div>
+</div>
+</div>
+
+<div id="footer"><img src="../images/cnblog.png"></div>
+<script language="javascript" type="text/javascript">   
+        var LODOP; //声明为全局变量 
+       function prndefpageimage() {
+        LODOP=getLodop(); 
+        LODOP.PRINT_INIT("");
+        LODOP.ADD_PRINT_IMAGE(0,0,"100%","100%","<img border='0' src='D://testimg//"+document.getElementById("T1").value+"'/>");
+        //LODOP.PRINT_DESIGN();
+        LODOP.PREVIEW();    
+    };
+       function prndefpageimagesf() {
+        LODOP=getLodop(); 
+        LODOP.PRINT_INIT("");
+        LODOP.ADD_PRINT_IMAGE(0,0,document.getElementById("T2").value,document.getElementById("T3").value,"<img border='0' src='D://testimg//"+document.getElementById("T1").value+"'/>");
+        if(document.getElementById("r1").checked==true)
+        LODOP.SET_PRINT_STYLEA(0,"Stretch",1);//(可变形)扩展缩放模式
+        else if(document.getElementById("r2").checked==true)
+        LODOP.SET_PRINT_STYLEA(0,"Stretch",2);//按原图比例(不变形)缩放模式
+        //LODOP.PRINT_DESIGN();
+        LODOP.PREVIEW();    
+    };
+          function prndiypage() {
+        LODOP=getLodop(); 
+        LODOP.PRINT_INIT("");
+        LODOP.SET_PRINT_PAGESIZE(1, document.getElementById("T4").value, document.getElementById("T5").value,"");
+        LODOP.ADD_PRINT_IMAGE(0,0,document.getElementById("T2").value,document.getElementById("T3").value,"<img border='0' src='D://testimg//"+document.getElementById("T1").value+"'/>");
+        if(document.getElementById("r1").checked==true)
+        LODOP.SET_PRINT_STYLEA(0,"Stretch",1);//(可变形)扩展缩放模式
+        else if(document.getElementById("r2").checked==true)
+        LODOP.SET_PRINT_STYLEA(0,"Stretch",2);//按原图比例(不变形)缩放模式
+        //LODOP.PRINT_DESIGN();
+        LODOP.PREVIEW();    
+    };
+          function prnnet() {
+        LODOP=getLodop(); 
+        LODOP.PRINT_INIT("");
+        LODOP.ADD_PRINT_IMAGE(0,0,"100%","100%","<img border='0' src='"+document.getElementById("TW").value+"'/>");
+        //LODOP.PRINT_DESIGN();
+        LODOP.PREVIEW();    
+    };
+</script> 
+ </body>
+</html>
