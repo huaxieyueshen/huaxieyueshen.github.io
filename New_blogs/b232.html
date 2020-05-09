@@ -1,0 +1,29 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>WEB打印控件LODOP</title>
+<script language="javascript" src="LodopFuncs.js"></script>
+ <link href="../css/blogback.css" type='text/css' rel="stylesheet">     
+</head>
+<body id="bodyA1">
+<div id="header">
+<div id="head1"></div>
+</div>
+<div class="blogpost-body">
+<h3>[简短问答]LODOP打印不清晰</h3>
+    <p><strong>用什么语句输出的：</strong><br />使用的的是什么语句输出的，是ADD_PRINT_TEXT纯文本，还是html的超文本。</p>
+<p><strong>超文本不清晰：</strong><br />如果用的是ADD_PRINT_HTML ，换成 ADD_PRINT_HTM试试，这种是解析后的超文本，放大也不会模糊。<br />ADD_PRINT_HTML是图形模式，适合高精度的图文打印机等，有的打印机会模糊，换用ADD_PRINT_HTM试试，这种是解析后的超文本。</p>
+<p><strong>虚拟打印机测试：</strong><br />用xps或pdf虚拟打印机直接打印查看下效果，查看下虚拟打印机直接打印生成的文件。</p>
+<p>理论上本机虚拟打印没问题的话，说明插件代码没问题，程序可做的努力就的确很少了，毕竟windows下的打印是微软倡导的设备无关系原则，要在打印机和打印驱动程序 系统上排查下，尝试重装驱动 或者 打印机不支持一些功能 打印机精度太低。<br /> <br /><strong>图片不清晰：</strong><br />如何输出清晰图片 参考http://www.c-lodop.com/faq/pp14.html<br />并用xps或pdf虚拟打印机测试</p>
+<p>如何输出清晰图片 参考http://www.c-lodop.com/faq/pp14.html不要在img标签里缩放。<br />预览是缩略图，用xps或pdf虚拟打印机直接打印查看下效果，查看下虚拟打印机直接打印生成的文件。</p>
+<p>用管理员权限安装最新版http://www.c-lodop.com/download.html，用最新版测试下。</p>
+<p><strong>小票标签等用了超文本方式：</strong><br />小票打印 ，参考样例18 http://www.c-lodop.com/demolist/PrintSample18.html<br />（小票针式打印 建议用 ADD_PRINT_TEXT文本，不用htm超文本，纸张高度不定容易引起 htm 中排版变形）</p>
+<p>标签，建议使用ADD_PRINT_TEXT纯文本，纯文本不会受容器或浏览器引擎解析的影响。</p>
+<p>&nbsp;</p>
+<p>cnblog链接（带图示）:<a href="https://www.cnblogs.com/huaxie/p/11550450.html" target="_blank">[简短问答]LODOP打印不清晰</a></p>
+<p><a href="../blog_index.html">返回博文列表</a></p>
+</div>
+<div id="footer"><img src="../images/lodopfoot.png"></div>
+</body>
+</html>

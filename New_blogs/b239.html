@@ -1,0 +1,34 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>WEB打印控件LODOP</title>
+<script language="javascript" src="LodopFuncs.js"></script>
+ <link href="../css/blogback.css" type='text/css' rel="stylesheet">     
+</head>
+<body id="bodyA1">
+<div id="header">
+<div id="head1"></div>
+</div>
+<div class="blogpost-body">
+<h3>HTML中设置在浏览器中固定位置fixed定位</h3>
+    <p>之前的博文 <a href="https://www.cnblogs.com/huaxie/p/11585062.html" target="_blank">HTML布局排版之制作个人网站的文章列表</a>，中链接到的文章本身，也需要返回到列表主页，可在每个文章页面加导航条，也可以只加个返回到列表主页的链接。<br />刚开始是想在博文最下方，加个返回文章列表的链接，但是有些博文很长，需要到最下方再返回比较麻烦，如果在每个页面加导航条也可以，但是长博文需要回到上面再点导航条，也有点麻烦。<br />如果有个方法在页面滚动条滚动后，还能让某元素固定在浏览器的固定位置就比较方便了，查看了下css样式里的position定位，里面个fixed定位。</p>
+<p>把返回这个链接用fixed定位后，<span style="color: #000000; background-color: #ccffcc;">位置固定，无论浏览到文章的哪个地方，都可以直接找到返回链接</span>，不用再拖滚动条，或者鼠标滑轮，感觉还是挺方便的。返回链接设置的比较小，也不会遮挡文章内容，可以挂在浏览器右侧效果感觉还可以。</p>
+<p>本文测试用的是一个图片，本来是用的给图片加上链接，但是由于这个返回图片做的不是很喜欢，考虑到以后需要更换，如果用img图片，给图片加链接，那么一旦更换图片，需要每个文章页面都要更换图片的src路径，比较麻烦，所以用了css样式背景图的方式，这样需要修改图片，只需要修改css里的样式路径，修改一次就行了。<br />给需要的a标签设置样式。<br />1.a标签设置宽高，给a标签加背景图。<br />2.给a标签设置fixed定位，设置位置，例如top,right。</p>
+<p>页面代码：</p>
+<div class="cnblogs_code">
+<pre><span style="color: #0000ff;">&lt;</span><span style="color: #800000;">div </span><span style="color: #ff0000;">id</span><span style="color: #0000ff;">="back"</span><span style="color: #0000ff;">&gt;&lt;</span><span style="color: #800000;">a </span><span style="color: #ff0000;">href</span><span style="color: #0000ff;">="../p1.html"</span><span style="color: #0000ff;">&gt;&lt;</span><span style="color: #800000;">img </span><span style="color: #ff0000;">src</span><span style="color: #0000ff;">="../images/fixedback.png"</span><span style="color: #0000ff;">&gt;&lt;/</span><span style="color: #800000;">a</span><span style="color: #0000ff;">&gt;&lt;/</span><span style="color: #800000;">div</span><span style="color: #0000ff;">&gt;</span></pre>
+</div>
+<p>样式代码：</p>
+<div class="cnblogs_code">
+<pre><span style="color: #800000;">#back a</span>{<span style="color: #ff0000;">position</span>:<span style="color: #0000ff;">fixed</span>;<span style="color: #ff0000;">width</span>:<span style="color: #0000ff;">97px</span>;<span style="color: #ff0000;">height</span>:<span style="color: #0000ff;">62px</span>;<span style="color: #ff0000;">top</span>:<span style="color: #0000ff;">30px</span>;<span style="color: #ff0000;">right</span>:<span style="color: #0000ff;">5px</span>;<span style="color: #ff0000;">background-image</span>:<span style="color: #0000ff;">url(../images/fixedback.png)</span>;}</pre>
+</div>
+<p>图示：</p>
+<p><img src="https://img2018.cnblogs.com/blog/1481828/201909/1481828-20190926150647639-1569114960.png" alt="" /></p>
+<p>&nbsp;</p>
+<p>cnblog链接（带图示）:<a href="https://www.cnblogs.com/huaxie/p/11590704.html" target="_blank">HTML中设置在浏览器中固定位置fixed定位</a></p>
+<p><a href="../blog_index.html">返回博文列表</a></p>
+</div>
+<div id="footer"><img src="../images/lodopfoot.png"></div>
+</body>
+</html>

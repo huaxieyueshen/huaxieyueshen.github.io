@@ -1,0 +1,76 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>WEB打印控件LODOP</title>
+<script language="javascript" src="LodopFuncs.js"></script>
+ <link href="../css/blogback.css" type='text/css' rel="stylesheet">     
+</head>
+<body id="bodyA1">
+<div id="header">
+<div id="head1"></div>
+</div>
+<div class="blogpost-body">
+<h3>css样式writing-mode垂直书写测试</h3>
+    <p>writing-mode:控制文字的属性方向，但是不是所有的浏览器都兼容，在网页上使用时，有的浏览器显示不出该样式。<br />该文测试的是垂直书写：<br />网上对于测试的属性值的解释是：<br />tb-rl：<br />上-下，右-左。对象中的内容在垂直方向上从上向下流入，自右向左。后一竖行在前一竖行的左面。全角字符是竖直向上的，半角字符如拉丁字母或片假名顺时针旋转90度。这种布局是东亚语系通常使用的（IE）<br />vertical-rl：<br />垂直方向自右而左的书写方式。即 top-bottom-right-left（类似IE私有值tb-rl）</p>
+<p>测试浏览器：<span style="background-color: #ccffcc;">IE、QQ浏览器兼容模式</span>。<br />tb-rl：在div中和td中，从右向左写，竖着写，从容器的右侧开始写。（三项正常）<br />vertical-rl：div和td中，从左向右写，横着写，从容器左侧开始写。（无效）</p>
+<p>测试浏览器：<span style="background-color: #ccffcc;">QQ浏览器极速模式</span><br />tb-rl：div中，从右向左写，竖着写，从容器的右侧开始写。（三项正常）<br />vertical-rl：在div中，从左向右写，竖着写，从容器左侧开始写。（竖着正常，一项正常）<br />td中两个值的效果都是:从左向右写，横着写，从容器左侧开始写，中文日文 文字被旋转，（都不正常）</p>
+<p>测试浏览器：<span style="background-color: #ccffcc;">火狐</span><br />tb-rl：div中，从右向左写，竖着写，从容器的右侧开始写。（三项正常）<br />在td中，从右向左，竖着写，在容器左侧。（竖着，和从右向左两项正常）<br />vertical-rl：在div和td中，从左向右写，竖着写，从容器左侧开始写。（竖着正常，一项正常）</p>
+<p><span style="background-color: #ff99cc;">测试结果：</span>就测试的几个浏览器和自己浏览器的当前版本来说，<span style="color: #000080;">tb-rl</span>在div中效果都是一致的。中文和英文的文字方向不同，因为一般就亚洲字有垂直写法。</p>
+<p>测试代码：</p>
+<div class="cnblogs_code">
+<pre>  <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">div </span><span style="color: #ff0000;">style</span><span style="color: #0000ff;">="width:400px;height:100px;background:#8ee09f;"</span><span style="color: #0000ff;">&gt;</span><span style="color: #000000;">
+div中文まで</span><span style="color: #0000ff;">&lt;</span><span style="color: #800000;">br</span><span style="color: #0000ff;">&gt;</span><span style="color: #000000;">LODOP劳道谱
+</span><span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">div</span><span style="color: #0000ff;">&gt;</span>
+
+<span style="color: #0000ff;">&lt;</span><span style="color: #800000;">div </span><span style="color: #ff0000;">style</span><span style="color: #0000ff;">="width:400px;height:100px;background:#8ea5e0;writing-mode:tb-rl;"</span><span style="color: #0000ff;">&gt;</span><span style="color: #000000;">
+div中文まで</span><span style="color: #0000ff;">&lt;</span><span style="color: #800000;">br</span><span style="color: #0000ff;">&gt;</span><span style="color: #000000;">LODOP劳道谱
+</span><span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">div</span><span style="color: #0000ff;">&gt;</span>
+
+<span style="color: #0000ff;">&lt;</span><span style="color: #800000;">div </span><span style="color: #ff0000;">style</span><span style="color: #0000ff;">="width:400px;height:100px;background:#dd8ee0;writing-mode:vertical-lr;"</span><span style="color: #0000ff;">&gt;</span><span style="color: #000000;">
+div中文まで</span><span style="color: #0000ff;">&lt;</span><span style="color: #800000;">br</span><span style="color: #0000ff;">&gt;</span><span style="color: #000000;">LODOP劳道谱
+</span><span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">div</span><span style="color: #0000ff;">&gt;</span>
+
+<span style="color: #0000ff;">&lt;</span><span style="color: #800000;">table </span><span style="color: #ff0000;">border</span><span style="color: #0000ff;">=1</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #0000ff;">&lt;</span><span style="color: #800000;">tr</span><span style="color: #0000ff;">&gt;</span>
+    <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">td </span><span style="color: #ff0000;">style</span><span style="color: #0000ff;">="width:400px;height:100px;writing-mode:tb-rl;background:#8ee0df;"</span><span style="color: #0000ff;">&gt;</span>td中文まで<span style="color: #0000ff;">&lt;</span><span style="color: #800000;">br</span><span style="color: #0000ff;">&gt;</span>LODOP劳道谱<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">td</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">tr&gt;</span>
+<span style="color: #0000ff;">&lt;</span><span style="color: #800000;">tr</span><span style="color: #0000ff;">&gt;</span>
+    <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">td </span><span style="color: #ff0000;">style</span><span style="color: #0000ff;">="width:400px;height:100px;writing-mode:vertical-lr;background:#e0d58e;"</span><span style="color: #0000ff;">&gt;</span>td中文まで<span style="color: #0000ff;">&lt;</span><span style="color: #800000;">br</span><span style="color: #0000ff;">&gt;</span>LODOP劳道谱<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">td</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">tr</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">table</span><span style="color: #0000ff;">&gt;</span></pre>
+</div>
+<p>&nbsp;图示：就测试的几个浏览器和自己浏览器的当前版本来说，tb-rl在div中效果都是一致的,且tb-rl在IE和兼容模式里，在td里也和div中效果一样。</p>
+<p><img src="https://img2018.cnblogs.com/blog/1481828/201909/1481828-20190917135945437-210600457.png" alt="" /></p>
+<p>在qq浏览器兼容和极速模式下测试了下在div中居中的垂直的文字，结果也是tb-rl在qq浏览器兼容和极速里都正常，加上行高等后，在qq兼容模式里，vertical-rl在div里显示有问题，加了行高后就是水平的了文字跑到了下面。<br />测试代码：</p>
+<div class="cnblogs_code">
+<pre>  <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">div </span><span style="color: #ff0000;">style</span><span style="color: #0000ff;">="width:400px;height:100px;background:#8ee09f;text-align:center;line-height:100px;"</span><span style="color: #0000ff;">&gt;</span><span style="color: #000000;">
+div中文まで
+</span><span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">div</span><span style="color: #0000ff;">&gt;</span>
+
+<span style="color: #0000ff;">&lt;</span><span style="color: #800000;">div </span><span style="color: #ff0000;">style</span><span style="color: #0000ff;">="width:400px;height:100px;background:#8ea5e0;text-align:center;line-height:400px;writing-mode:tb-rl;"</span><span style="color: #0000ff;">&gt;</span><span style="color: #000000;">
+div中文まで
+</span><span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">div</span><span style="color: #0000ff;">&gt;</span>
+
+<span style="color: #0000ff;">&lt;</span><span style="color: #800000;">div </span><span style="color: #ff0000;">style</span><span style="color: #0000ff;">="width:400px;height:100px;background:#dd8ee0;text-align:center;line-height:400px;writing-mode:vertical-lr;"</span><span style="color: #0000ff;">&gt;</span><span style="color: #000000;">
+div中文まで
+</span><span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">div</span><span style="color: #0000ff;">&gt;</span>
+
+<span style="color: #0000ff;">&lt;</span><span style="color: #800000;">table </span><span style="color: #ff0000;">border</span><span style="color: #0000ff;">=1</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #0000ff;">&lt;</span><span style="color: #800000;">tr</span><span style="color: #0000ff;">&gt;</span>
+    <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">td </span><span style="color: #ff0000;">style</span><span style="color: #0000ff;">="width:400px;height:100px;writing-mode:tb-rl;background:#8ee0df;"</span><span style="color: #0000ff;">&gt;</span>td中文まで<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">td</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">tr</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #0000ff;">&lt;</span><span style="color: #800000;">tr</span><span style="color: #0000ff;">&gt;</span>
+    <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">td </span><span style="color: #ff0000;">style</span><span style="color: #0000ff;">="width:400px;height:100px;writing-mode:vertical-lr;background:#e0d58e;"</span><span style="color: #0000ff;">&gt;</span>td中文まで<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">td</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">tr</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">table</span><span style="color: #0000ff;">&gt;</span></pre>
+</div>
+<p>图示:</p>
+<p>&nbsp;<img src="https://img2018.cnblogs.com/blog/1481828/201909/1481828-20190917143822407-1233299815.png" alt="" /></p>
+<p>&nbsp;</p>
+<p>cnblog链接（带图示）:<a href="https://www.cnblogs.com/huaxie/p/11526301.html" target="_blank">css样式writing-mode垂直书写测试</a></p>
+<p><a href="../blog_index.html">返回博文列表</a></p>
+</div>
+<div id="footer"><img src="../images/lodopfoot.png"></div>
+</body>
+</html>

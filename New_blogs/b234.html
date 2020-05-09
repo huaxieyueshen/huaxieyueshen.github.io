@@ -1,0 +1,67 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>WEB打印控件LODOP</title>
+<script language="javascript" src="LodopFuncs.js"></script>
+ <link href="../css/blogback.css" type='text/css' rel="stylesheet">     
+</head>
+<body id="bodyA1">
+<div id="header">
+<div id="head1"></div>
+</div>
+<div class="blogpost-body">
+<h3>HTML用table布局排版 padding清零</h3>
+    <p>之前博文：<a href="https://www.cnblogs.com/huaxie/p/11321367.html%20" target="_blank">HTML布局排版2如何设置div总是相对于页面居中</a> 中是用div进行排版的，div是切了三条，顶部的图片，下部的图片，中间的平铺条，中间的div不设高度，根据内容，该区域的大小不固定，便于后期增删内容不用再改样式。</p>
+<p>前面的博文用div平铺的，此外，用table也能实现这个效果，table需要注意要把td的padding清零，否则td单元格里上下有padding，会出现裂缝。图片高度是按照单元格高度裁剪的，所以主要是上下padding引起的。<br />如图，第一个table排版中td里没有设置padding是0，在浏览器开发者模式里可以看到有padding存在。<br />第二个table排版中td里都设置了padding是0，所以没有裂缝。</p>
+<p>图片都是根据单元格大小裁剪的，图片尺寸和单元格大小一致。<br />如图，第一个table里出现了裂纹，底部的图还出现了一条线，原因就是由于padding的存在导致单元格本身高度高于图片切片裁剪的高度。<br />第一个td，剩下的区域显示了一条白色线，裂纹状（顶图上边有白色区域）<br />第二个td由于是平铺，把多出来的pddding铺上了。<br />第三个td由于是底图，底图的最上方不是白色区域，是颜色，多出来的部分被铺上了顶面的图片。（底图上有颜色，所以平铺处理底图顶部的颜色）</p>
+<p>测试代码：</p>
+<div class="cnblogs_code">
+<pre><span style="color: #0000ff;">&lt;</span><span style="color: #800000;">body</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #0000ff;">&lt;</span><span style="color: #800000;">h5</span><span style="color: #0000ff;">&gt;</span>存在padding，有裂缝和问题的：<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">h5</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #0000ff;">&lt;</span><span style="color: #800000;">div </span><span style="color: #ff0000;">id</span><span style="color: #0000ff;">="t2"</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #0000ff;">&lt;</span><span style="color: #800000;">table </span><span style="color: #ff0000;">width</span><span style="color: #0000ff;">="900px"</span><span style="color: #ff0000;"> border</span><span style="color: #0000ff;">=0 </span><span style="color: #ff0000;">style</span><span style="color: #0000ff;">="border-collapse:collapse;"</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #0000ff;">&lt;</span><span style="color: #800000;">tr</span><span style="color: #0000ff;">&gt;</span>
+    <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">td </span><span style="color: #ff0000;">width</span><span style="color: #0000ff;">="900px"</span><span style="color: #ff0000;"> height</span><span style="color: #0000ff;">="165px"</span><span style="color: #ff0000;"> style</span><span style="color: #0000ff;">="background-image:url(./images/top.png);"</span><span style="color: #0000ff;">&gt;&lt;/</span><span style="color: #800000;">td</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">tr</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #0000ff;">&lt;</span><span style="color: #800000;">tr</span><span style="color: #0000ff;">&gt;</span>
+    <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">td </span><span style="color: #ff0000;">width</span><span style="color: #0000ff;">="900px"</span><span style="color: #ff0000;"> style</span><span style="color: #0000ff;">="background-image:url(./images/mid.png);padding-left:50px;padding-right:50px;"</span><span style="color: #0000ff;">&gt;</span>官网样例是混合部署LodopFuncs.js里已经写好了判断。<span style="color: #0000ff;">&lt;</span><span style="color: #800000;">br</span><span style="color: #0000ff;">&gt;</span><span style="color: #000000;">
+客户端是浏览器支持np插件，是32位浏览器，就会提示下载32位的Lodop插件：install_lodop32.exe</span><span style="color: #0000ff;">&lt;</span><span style="color: #800000;">br</span><span style="color: #0000ff;">&gt;</span><span style="color: #000000;">
+客户端浏览器支持np插件，是64位浏览器，就会提示下载64位的Lodop插件：install_lodop64.exe</span><span style="color: #0000ff;">&lt;</span><span style="color: #800000;">br</span><span style="color: #0000ff;">&gt;</span><span style="color: #000000;">
+客户端浏览器不支持np插件（判断如高版本谷歌火狐等），会提示下载C-Lodop方式： CLodop_Setup_for_Win32NT.exe</span><span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">td</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">tr</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #0000ff;">&lt;</span><span style="color: #800000;">tr</span><span style="color: #0000ff;">&gt;</span>
+    <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">td </span><span style="color: #ff0000;">width</span><span style="color: #0000ff;">="900px"</span><span style="color: #ff0000;"> height</span><span style="color: #0000ff;">="75px"</span><span style="color: #ff0000;"> style</span><span style="color: #0000ff;">="background-image:url(./images/bottom.png);"</span><span style="color: #0000ff;">&gt;&lt;/</span><span style="color: #800000;">td</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">tr</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">table</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">div</span><span style="color: #0000ff;">&gt;</span>
+
+<span style="color: #0000ff;">&lt;</span><span style="color: #800000;">h5</span><span style="color: #0000ff;">&gt;</span>清除padding，正常的：<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">h5</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #0000ff;">&lt;</span><span style="color: #800000;">div </span><span style="color: #ff0000;">id</span><span style="color: #0000ff;">="t1"</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #0000ff;">&lt;</span><span style="color: #800000;">table </span><span style="color: #ff0000;">width</span><span style="color: #0000ff;">="900px"</span><span style="color: #ff0000;"> border</span><span style="color: #0000ff;">=0 </span><span style="color: #ff0000;">style</span><span style="color: #0000ff;">="border-collapse:collapse;"</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #0000ff;">&lt;</span><span style="color: #800000;">tr</span><span style="color: #0000ff;">&gt;</span>
+    <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">td </span><span style="color: #ff0000;">width</span><span style="color: #0000ff;">="900px"</span><span style="color: #ff0000;"> height</span><span style="color: #0000ff;">="165px"</span><span style="color: #ff0000;"> style</span><span style="color: #0000ff;">="background-image:url(./images/top.png);padding:0px;"</span><span style="color: #0000ff;">&gt;&lt;/</span><span style="color: #800000;">td</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">tr</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #0000ff;">&lt;</span><span style="color: #800000;">tr</span><span style="color: #0000ff;">&gt;</span>
+    <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">td </span><span style="color: #ff0000;">width</span><span style="color: #0000ff;">="900px"</span><span style="color: #ff0000;"> style</span><span style="color: #0000ff;">="background-image:url(./images/mid.png);padding:0px;padding-left:50px;padding-right:50px;"</span><span style="color: #0000ff;">&gt;</span>官网样例是混合部署LodopFuncs.js里已经写好了判断。<span style="color: #0000ff;">&lt;</span><span style="color: #800000;">br</span><span style="color: #0000ff;">&gt;</span><span style="color: #000000;">
+客户端是浏览器支持np插件，是32位浏览器，就会提示下载32位的Lodop插件：install_lodop32.exe</span><span style="color: #0000ff;">&lt;</span><span style="color: #800000;">br</span><span style="color: #0000ff;">&gt;</span><span style="color: #000000;">
+客户端浏览器支持np插件，是64位浏览器，就会提示下载64位的Lodop插件：install_lodop64.exe</span><span style="color: #0000ff;">&lt;</span><span style="color: #800000;">br</span><span style="color: #0000ff;">&gt;</span><span style="color: #000000;">
+客户端浏览器不支持np插件（判断如高版本谷歌火狐等），会提示下载C-Lodop方式： CLodop_Setup_for_Win32NT.exe</span><span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">td</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">tr</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #0000ff;">&lt;</span><span style="color: #800000;">tr</span><span style="color: #0000ff;">&gt;</span>
+    <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">td </span><span style="color: #ff0000;">width</span><span style="color: #0000ff;">="900px"</span><span style="color: #ff0000;"> height</span><span style="color: #0000ff;">="75px"</span><span style="color: #ff0000;"> style</span><span style="color: #0000ff;">="background-image:url(./images/bottom.png);padding:0px;"</span><span style="color: #0000ff;">&gt;&lt;/</span><span style="color: #800000;">td</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">tr</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">table</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">div</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">body</span><span style="color: #0000ff;">&gt;</span></pre>
+</div>
+<p>图示：</p>
+<p>单元格大小和图片大小是一致的，但是平铺的时候高度超出了一点，导致上图和下图出现问题。<br />经过浏览器自带的开发者模式查看到，原来是td有默认的padding，清除后就好了。<br />也可以算上padding的大小对图片进行裁剪，但是那样不如td和图片一致比较好。</p>
+<p><img src="https://img2018.cnblogs.com/blog/1481828/201909/1481828-20190924162809715-912007661.png" alt="" /></p>
+<p>&nbsp;</p>
+<p>cnblog链接（带图示）:<a href="https://www.cnblogs.com/huaxie/p/11578661.html" target="_blank">HTML用table布局排版 padding清零</a></p>
+<p><a href="../blog_index.html">返回博文列表</a></p>
+</div>
+<div id="footer"><img src="../images/lodopfoot.png"></div>
+</body>
+</html>

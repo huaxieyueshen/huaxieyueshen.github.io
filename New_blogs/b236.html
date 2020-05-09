@@ -1,0 +1,84 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>WEB打印控件LODOP</title>
+<script language="javascript" src="LodopFuncs.js"></script>
+ <link href="../css/blogback.css" type='text/css' rel="stylesheet">     
+</head>
+<body id="bodyA1">
+<div id="header">
+<div id="head1"></div>
+</div>
+<div class="blogpost-body">
+<h3>HTML布局排版之制作个人网站的文章列表</h3>
+    <p>文章列表、博文列表，一般是有文章名字和时间构成的，文章名字后面是时间，点击文章的名字，可进入该文章。<br />为了美观，一般文章名字都有一定的最大字数限制，长宽对齐，等长宽的统一格式比较美观，这种用表格来做比较简单，更新时值需要加表格行就行了。</p>
+<p>1.本文的页面效果，网页主体采用了三部分，上部分是标题栏导航栏，中间是内容栏，下边有个网页底部。（<span style="color: #800000;">三部分，相关博文：</span><a href="https://www.cnblogs.com/huaxie/p/11327995.html" target="_blank">HTML布局排版4三部分测试图片页面</a>、）<br />2.导航栏和标题栏布满整个浏览器宽度，宽度自适用，导航栏采用的是点击导航栏上的链接进行跳转的方法，此外，也可以是块状链接，由于本人喜欢点导航条的文字，点着习惯，所以采用不块状的方法。（<span style="color: #800000;">导航条，相关博文：</span><a href="https://www.cnblogs.com/huaxie/p/11492641.html" target="_blank">HTML布局水平导航条2制作、</a>）<br />3.中间的主体部分，用的是table布局，中间是平铺条，这样不管中间有多少内容，都会自动自适应，便于以后增删文章。（相关博文：<a href="https://www.cnblogs.com/huaxie/p/11578661.html%20" target="_blank">HTML用table布局排版 padding清零</a>、）<br />4.主体里面内部文字和时间用table进行格式一下，中间平铺的单元格里嵌套了一个table用来设置文章和时间格式。<br />之前的博文里有制作的介绍，这里把前面的内容整合了一下，组成了一个页面，并在3主体里加了个嵌套表格，用来格式文章列表样式。</p>
+<p>1.2.3都有相关博文，介绍样式，这里介绍表格嵌套。由于表格嵌套表格，所以代码看起来杂乱，一般是通过缩进进行区分，嵌套在大table的单元格里的table缩进一下，格式化代码，看出没对table标签的区域，这里用注释标注出来嵌套的表格。<br /><strong>大致结构：</strong>大主体表格，分为三行，第一行是顶部的图片，第二行中嵌套了表格，第三行是底部的图片。<br />第二行是平铺，不设置高度，所以嵌套的表格可以高度自适应，之后可以随意增加内容。</p>
+<p>PS：之前的博文有的是介绍div的，有的是表格的，上面的相关博文是这里用到的排版方式。</p>
+<p>页面代码：共空行分开了代码&nbsp;区域，第一区域就是标题条，第二区域是导航，第三区域是内容，第四区域是页脚。</p>
+<div class="cnblogs_code">
+<pre><span style="color: #0000ff;">&lt;</span><span style="color: #800000;">body </span><span style="color: #ff0000;">id</span><span style="color: #0000ff;">="bodyA1"</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #0000ff;">&lt;</span><span style="color: #800000;">div </span><span style="color: #ff0000;">id</span><span style="color: #0000ff;">="header"</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #0000ff;">&lt;</span><span style="color: #800000;">div </span><span style="color: #ff0000;">id</span><span style="color: #0000ff;">="head1"</span><span style="color: #0000ff;">&gt;&lt;/</span><span style="color: #800000;">div</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">div</span><span style="color: #0000ff;">&gt;</span>
+
+<span style="color: #0000ff;">&lt;</span><span style="color: #800000;">div </span><span style="color: #ff0000;">id</span><span style="color: #0000ff;">="d"</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #0000ff;">&lt;</span><span style="color: #800000;">ul</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #0000ff;">&lt;</span><span style="color: #800000;">li</span><span style="color: #0000ff;">&gt;&lt;</span><span style="color: #800000;">a </span><span style="color: #ff0000;">href</span><span style="color: #0000ff;">=""</span><span style="color: #0000ff;">&gt;</span>简短问答<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">a</span><span style="color: #0000ff;">&gt;&lt;/</span><span style="color: #800000;">li</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #0000ff;">&lt;</span><span style="color: #800000;">li</span><span style="color: #0000ff;">&gt;&lt;</span><span style="color: #800000;">a </span><span style="color: #ff0000;">href</span><span style="color: #0000ff;">="bloglistindex.html"</span><span style="color: #0000ff;">&gt;</span>博文备份<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">a</span><span style="color: #0000ff;">&gt;&lt;/</span><span style="color: #800000;">li</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #0000ff;">&lt;</span><span style="color: #800000;">li</span><span style="color: #0000ff;">&gt;&lt;</span><span style="color: #800000;">a </span><span style="color: #ff0000;">href</span><span style="color: #0000ff;">=""</span><span style="color: #0000ff;">&gt;</span>测试用<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">a</span><span style="color: #0000ff;">&gt;&lt;/</span><span style="color: #800000;">li</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #0000ff;">&lt;</span><span style="color: #800000;">li</span><span style="color: #0000ff;">&gt;&lt;</span><span style="color: #800000;">a </span><span style="color: #ff0000;">href</span><span style="color: #0000ff;">=""</span><span style="color: #0000ff;">&gt;</span>关于<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">a</span><span style="color: #0000ff;">&gt;&lt;/</span><span style="color: #800000;">li</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">ul</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">div</span><span style="color: #0000ff;">&gt;</span>
+
+<span style="color: #0000ff;">&lt;</span><span style="color: #800000;">div </span><span style="color: #ff0000;">id</span><span style="color: #0000ff;">="t1"</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #0000ff;">&lt;</span><span style="color: #800000;">table </span><span style="color: #ff0000;">width</span><span style="color: #0000ff;">="900px"</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #0000ff;">&lt;</span><span style="color: #800000;">tr</span><span style="color: #0000ff;">&gt;</span>
+    <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">td </span><span style="color: #ff0000;">colspan</span><span style="color: #0000ff;">=2 </span><span style="color: #ff0000;">width</span><span style="color: #0000ff;">="900px"</span><span style="color: #ff0000;"> height</span><span style="color: #0000ff;">="165px"</span><span style="color: #ff0000;"> class</span><span style="color: #0000ff;">="td_top"</span><span style="color: #0000ff;">&gt;&lt;/</span><span style="color: #800000;">td</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">tr</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #0000ff;">&lt;</span><span style="color: #800000;">tr</span><span style="color: #0000ff;">&gt;</span>
+    <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">td </span><span style="color: #ff0000;">class</span><span style="color: #0000ff;">="td_mid"</span><span style="color: #ff0000;"> width</span><span style="color: #0000ff;">="900px"</span><span style="color: #0000ff;">&gt;</span>
+    <span style="color: #008000;">&lt;!--</span><span style="color: #008000;">嵌套的表格开始</span><span style="color: #008000;">--&gt;</span>
+    <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">table</span><span style="color: #0000ff;">&gt;</span>
+    <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">tr</span><span style="color: #0000ff;">&gt;</span>
+     <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">td </span><span style="color: #ff0000;">width</span><span style="color: #0000ff;">="600px"</span> <span style="color: #0000ff;">&gt;&lt;</span><span style="color: #800000;">a </span><span style="color: #ff0000;">href</span><span style="color: #0000ff;">="./blogbacklist/b220.html"</span><span style="color: #0000ff;">&gt;</span>[简短问答]如何用虚拟打印机测试，虚拟打印机相关<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">a</span><span style="color: #0000ff;">&gt;&lt;/</span><span style="color: #800000;">td</span><span style="color: #0000ff;">&gt;</span>
+     <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">td </span><span style="color: #ff0000;">width</span><span style="color: #0000ff;">="300px"</span> <span style="color: #0000ff;">&gt;</span>2019-09-23 14:30<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">td</span><span style="color: #0000ff;">&gt;</span>
+    <span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">tr</span><span style="color: #0000ff;">&gt;</span>
+     <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">tr</span><span style="color: #0000ff;">&gt;</span>
+     <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">td </span><span style="color: #ff0000;">width</span><span style="color: #0000ff;">="600px"</span><span style="color: #0000ff;">&gt;&lt;</span><span style="color: #800000;">a </span><span style="color: #ff0000;">href</span><span style="color: #0000ff;">="./blogbacklist/b209.html"</span><span style="color: #0000ff;">&gt;</span>LODOP纸张/打印机/份数/打印方向/双面打印 简短问答<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">a</span><span style="color: #0000ff;">&gt;&lt;/</span><span style="color: #800000;">td</span><span style="color: #0000ff;">&gt;</span>
+     <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">td </span><span style="color: #ff0000;">width</span><span style="color: #0000ff;">="300px"</span><span style="color: #0000ff;">&gt;</span>2019-09-23 14:36<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">td</span><span style="color: #0000ff;">&gt;</span>
+     <span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">tr</span><span style="color: #0000ff;">&gt;</span>
+省略。。。。。。。。。。。。多个tr行
+   <span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">table</span><span style="color: #0000ff;">&gt;</span>
+   <span style="color: #008000;">&lt;!--</span><span style="color: #008000;">嵌套的表格结束</span><span style="color: #008000;">--&gt;</span>
+    <span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">td</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">tr</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #0000ff;">&lt;</span><span style="color: #800000;">tr</span><span style="color: #0000ff;">&gt;</span>
+    <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">td </span><span style="color: #ff0000;">colspan</span><span style="color: #0000ff;">=2 </span><span style="color: #ff0000;">width</span><span style="color: #0000ff;">="900px"</span><span style="color: #ff0000;"> height</span><span style="color: #0000ff;">="75px"</span><span style="color: #ff0000;"> class</span><span style="color: #0000ff;">="td_bottom"</span><span style="color: #0000ff;">&gt;&lt;/</span><span style="color: #800000;">td</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">tr</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">table</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">div</span><span style="color: #0000ff;">&gt;</span>
+
+<span style="color: #0000ff;">&lt;</span><span style="color: #800000;">div </span><span style="color: #ff0000;">id</span><span style="color: #0000ff;">="footer"</span><span style="color: #0000ff;">&gt;&lt;</span><span style="color: #800000;">img </span><span style="color: #ff0000;">src</span><span style="color: #0000ff;">="./images/huaxie.png"</span><span style="color: #0000ff;">&gt;&lt;/</span><span style="color: #800000;">div</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">body</span><span style="color: #0000ff;">&gt;</span></pre>
+</div>
+<p>嵌套表格的样式代码：（页面其余部分样式代码再上面链接的相关博文中有介绍）</p>
+<div class="cnblogs_code">
+<pre><span style="color: #800000;">table</span>{<span style="color: #ff0000;">margin</span>:<span style="color: #0000ff;">auto</span>;<span style="color: #ff0000;">border-collapse</span>:<span style="color: #0000ff;">collapse</span>;}<span style="color: #800000;">
+td</span>{<span style="color: #ff0000;">padding</span>:<span style="color: #0000ff;">0px</span>;}<span style="color: #800000;">
+.td_top</span>{<span style="color: #ff0000;">background-image</span>:<span style="color: #0000ff;">url(../images/top.png)</span>;}<span style="color: #800000;">
+.td_mid</span>{<span style="color: #ff0000;">background-image</span>:<span style="color: #0000ff;">url(../images/mid.png)</span>;<span style="color: #ff0000;">padding-left</span>:<span style="color: #0000ff;">50px</span>;<span style="color: #ff0000;">line-height</span>:<span style="color: #0000ff;">30px</span>;}<span style="color: #800000;">
+.td_bottom</span>{<span style="color: #ff0000;">#8ea5e0;background-image</span>:<span style="color: #0000ff;">url(../images/bottom.png)</span>;}<span style="color: #800000;">
+#t1</span>{<span style="color: #ff0000;">font-size</span>:<span style="color: #0000ff;">14px</span>;}<span style="color: #800000;">
+#t1 a</span>{<span style="color: #ff0000;">text-decoration</span>:<span style="color: #0000ff;">none</span>;<span style="color: #ff0000;">color</span>:<span style="color: #0000ff;">blue</span>;}</pre>
+</div>
+<p>图示：</p>
+<p><img src="https://img2018.cnblogs.com/blog/1481828/201909/1481828-20190925162921211-1427772978.png" alt="" /></p>
+<p>&nbsp;</p>
+<p>cnblog链接（带图示）:<a href="https://www.cnblogs.com/huaxie/p/11585062.html" target="_blank">HTML布局排版之制作个人网站的文章列表</a></p>
+<p><a href="../blog_index.html">返回博文列表</a></p>
+</div>
+<div id="footer"><img src="../images/lodopfoot.png"></div>
+</body>
+</html>
