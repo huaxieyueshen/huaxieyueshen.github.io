@@ -1,0 +1,31 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>WEB打印控件LODOP</title>
+<script language="javascript" src="LodopFuncs.js"></script>
+ <link href="../css/blogback.css" type='text/css' rel="stylesheet">     
+</head>
+<body id="bodyA1">
+<div id="header">
+<div id="head1"></div>
+</div>
+<div class="blogpost-body">
+<h3>LODOP打印维护适应不同的客户端</h3>
+    <p><span style="color: #000080;">之前的博文：</span><a href="https://www.cnblogs.com/huaxie/p/9708109.html" target="_blank">Lodop打印设计、维护、预览、直接打印简单介绍</a>，介绍了打印设计、打印维护、打印预览，直接打印等的区别和使用。</p>
+<p>如上面以前博文描述的，打印维护是针对客户端进行调整的，开放打印维护给客户端，客户端调整后，点应用，会在自己本地生成一个ini文件，针对该客户端就调整了，不影响其他客户端。</p>
+<p>用户访问网站后在自己的电脑上进行打印，这种是客户端本地打印角色，实际打印端是在客户端，服务器不需要安装lodop或c-lodop，只需要引用LodopFuncs.js就可以了，<span style="color: #000080;">相关博文：</span><a href="https://www.cnblogs.com/huaxie/p/9636061.html" target="_blank">Lodop部署web网站 客户端本地打印角色</a>&nbsp;</p>
+<p><strong>客户端本地打印角色，服务端不能用打印维护</strong><br />服务器只需要放代码和lodopFuncs.js就可以了 ，服务器端不需要打印维护，因为服务器端不是打印端，实际打印是在客户端的。<br />如果在服务器上用打印维护，保存在服务器端本地，对客户端是没有影响的，没有效果的，如果想修改模版代码，修改所有客户端都要修改的代码，可在服务器上想修改代码，直接改程序模版代码 ，这种直接改代码的，对所有客户端都有影响，因为模版代码实质是一些JS语句，执行的模版改变了，所有客户端客户执行的JS代码也改变了。</p>
+<p><strong>lodop中的打印维护在客户端</strong><br />打印维护是为了适应不同的打印机，不同的客户端，针对客户端维护的，维护是在客户端本地的，访问的也是客户端本地的ini文件。</p>
+<p>可以开放打印维护给客户端，例如设置一个按钮专门维护，<span style="background-color: #ccffff;">客户端调整后，点应用，会在自己本地生成一个ini文件，针对该客户端就调整了，不影响其他客户端</span>。</p>
+<p>开放打印维护给客户端，客户端自己维护，针对该客户端维护一次后点应用，以后会每次走维护后的。</p>
+<p><span style="color: #000080;">关于打印维护和在本地的ini配置文件：</span><a href="https://www.cnblogs.com/huaxie/p/9728450.html" target="_blank">Lodop打印维护PRINT_SETUP本地缓存ini文件</a>、</p>
+<p>关于不同客户端打印偏移问题：<a href="关于不同客户端打印偏移问题：LODOP不同打印机出现偏移问题、" target="_blank">LODOP不同打印机出现偏移问题</a>、</p>
+<p><img src="https://img2018.cnblogs.com/common/1481828/201911/1481828-20191114112956164-715546436.png" alt="" /></p>
+<p>&nbsp;</p>
+<p>cnblog链接（带图示）:<a href="https://www.cnblogs.com/huaxie/p/11850536.html" target="_blank">LODOP打印维护适应不同的客户端</a></p>
+<p><a href="../blog_index.html">返回博文列表</a></p>
+</div>
+<div id="footer"><img src="../images/lodopfoot.png"></div>
+</body>
+</html>

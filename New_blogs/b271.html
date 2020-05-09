@@ -1,0 +1,49 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>WEB打印控件LODOP</title>
+<script language="javascript" src="LodopFuncs.js"></script>
+ <link href="../css/blogback.css" type='text/css' rel="stylesheet">     
+</head>
+<body id="bodyA1">
+<div id="header">
+<div id="head1"></div>
+</div>
+<div class="blogpost-body">
+<h3>JS正则匹配邮箱格式</h3>
+    <p>观察一些邮箱格式，有些邮箱格式简单，有些复杂，在网上找了个邮箱的正则表达式，分析一下邮箱的规则。<br /><strong>该表达式：</strong><br />/^\w+([\.\-]\w+)*\@\w+([\.\-]\w+)*\.\w+$/</p>
+<p><strong>拆分：</strong><br />【1】/^\w+<br />以英文，数字，下划线开头，（一个或多个。）<br /><span style="color: #000080;">【2】</span>([\.\-]\w+)*<br />跟着点或中线任意一个，然后再跟着的英文、数字、下划线（一个或多个）。<br />这个整个部分用圆括号括起来，可以零个一个或多个。<span style="color: #000080;">（可有可无，可多个）</span><br />【3】\@\w+<br />跟着一个@符号,后面英文、数字、下划线（一个或多个）<br /><span style="color: #000080;">【4】</span>([\.\-]\w+)*<br />跟着点或中线任意一个，然后再跟着的英文、数字、下划线（一个或多个）。<br />这个整个部分用圆括号括起来，可以零个一个或多个。<span style="color: #000080;">（可有可无，可多个）</span><br />【5】\.\w+<br />跟着一个点，后面跟着英文、数字、字母、下划线（一个或多个）</p>
+<p>整个表达式没有|或这种情况，所以就是一个从左到右的整体。其中有两个一样的部分【2】和【4】都是*，*代表零个一个或多个，是可有可无，这里面有两个*的地方。可以用匹配简单邮箱和复杂邮箱。<br />这两个可有可无的部分，一个在@符号前面，一个在@符号后面，这个组合是点或中线，加至少一个字母下划线英文的组合。<br />根据这个组合写几个情况例如:<br />这个组合不存在<br />.a（一个点后面跟着一个字母）<br />.abc.abc（这个组合有两个）<br />-34dvd-dege-derg(三个以-开头的组合）<br />.adf-dreg.der(两个以.开头带数字的，一个以短线开头带数字的）<br />这两个部分的数量词是星号，可有可无。</p>
+<p>根据该表达式，先写最简单，<strong>这两个部分【2】和【4】是零个的情况：</strong><br />55448934@dd.com<br />tayood@sod.comm<br />_ete_derg3748edfe@_egiou_die4355.diouue</p>
+<p>5544893、tayood、_ete_derg3748edfe匹配【1】<br />@dd、@sod、@_egiou_die4355匹配【3】<br />.com、.comm、.diouue匹配的【5】</p>
+<p>在写个<strong>有两个【2】的情况：</strong><br />dged_derw.ergd-eges@doud.sed<br />.ergd-eges匹配的是【2】</p>
+<p>写个<strong>有三个个【2】和三个【4】的情况</strong>。<br />dsfe_derd.erg.erd23_we-derw@_343de-eres-edd.34.com<br />.erg.erd23_we-derw匹配的是【2】<br />-eres-edd.34批评的是【4】<br />最后一个虽然也是点加数字字母下划线的组合，但是.com是【5】匹配的，因为【5】的是必须存在的，不是可有可无的。</p>
+<p><strong>根据表达式应该匹配到的邮箱格式：</strong><br />55448934@dd.com<br />tayood@sod.comm<br />_ete_derg3748edfe@_egiou_die4355.diouue<br />dged_derw.ergd-eges@doud.sed<br />dsfe_derd.erg.erd23_we-derw@_343de-eres-edd.34.com</p>
+<p><strong>不该匹配到的几种格式：</strong><br />.derg@dfo.com(以点开头，不匹配【1】）<br />der*g@dfo.com(含有*特殊字符，不匹配【1】）<br />34.cm（不匹配【3】）<br />der.34@@.con（不匹配【3】）<br />dwll@dooe（不匹配【5】）<br />dao3243（不匹配【3】【5】）</p>
+<p>测试代码：</p>
+<div class="cnblogs_code">
+<pre>       console.log("----------应该匹配到的----------"<span style="color: #000000;">);
+       console.log(</span>"55448934@dd.com，结果:"+/^\w+([\.\-]\w+)*\@\w+([\.\-]\w+)*\.\w+$/.test("55448934@dd.com"<span style="color: #000000;">));
+       console.log(</span>"tayood@sod.comm，结果:"+/^\w+([\.\-]\w+)*\@\w+([\.\-]\w+)*\.\w+$/.test("tayood@sod.comm"<span style="color: #000000;">));
+       console.log(</span>"_ete_derg3748edfe@_egiou_die4355.diouue，结果:"+/^\w+([\.\-]\w+)*\@\w+([\.\-]\w+)*\.\w+$/.test("_ete_derg3748edfe@_egiou_die4355.diouue"<span style="color: #000000;">));
+       console.log(</span>"dged_derw.ergd-eges@doud.sed，结果:"+/^\w+([\.\-]\w+)*\@\w+([\.\-]\w+)*\.\w+$/.test("dged_derw.ergd-eges@doud.sed"<span style="color: #000000;">));
+       console.log(</span>"dsfe_derd.erg.erd23_we-derw@_343de-eres-edd.34.com，结果:"+/^\w+([\.\-]\w+)*\@\w+([\.\-]\w+)*\.\w+$/.test("dsfe_derd.erg.erd23_we-derw@_343de-eres-edd.34.com"<span style="color: #000000;">));
+       console.log(</span>"----------不该匹配到的----------"<span style="color: #000000;">);
+       console.log(</span>".derg@dfo.com，结果:"+/^\w+([\.\-]\w+)*\@\w+([\.\-]\w+)*\.\w+$/.test(".derg@dfo.com"<span style="color: #000000;">));
+       console.log(</span>"der*g@dfo.com.com，结果:"+/^\w+([\.\-]\w+)*\@\w+([\.\-]\w+)*\.\w+$/.test("der*g@dfo.com.com"<span style="color: #000000;">));
+       console.log(</span>"34.cm，结果:"+/^\w+([\.\-]\w+)*\@\w+([\.\-]\w+)*\.\w+$/.test("34.cm"<span style="color: #000000;">));
+       console.log(</span>"der.34@@.con，结果:"+/^\w+([\.\-]\w+)*\@\w+([\.\-]\w+)*\.\w+$/.test("5der.34@@.con"<span style="color: #000000;">));
+       console.log(</span>"dwll@dooe，结果:"+/^\w+([\.\-]\w+)*\@\w+([\.\-]\w+)*\.\w+$/.test("dwll@dooe"<span style="color: #000000;">));
+       console.log(</span>"dao3243，结果:"+/^\w+([\.\-]\w+)*\@\w+([\.\-]\w+)*\.\w+$/.test("dao3243"));</pre>
+</div>
+<p>图示：</p>
+<p><img src="https://img2018.cnblogs.com/common/1481828/201911/1481828-20191122155405348-1111036142.png" alt="" /></p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>cnblog链接（带图示）:<a href="https://www.cnblogs.com/huaxie/p/11911192.html" target="_blank">JS正则匹配邮箱格式</a></p>
+<p><a href="../blog_index.html">返回博文列表</a></p>
+</div>
+<div id="footer"><img src="../images/lodopfoot.png"></div>
+</body>
+</html>
