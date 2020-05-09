@@ -1,0 +1,42 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>WEB打印控件LODOP</title>
+<script language="javascript" src="LodopFuncs.js"></script>
+ <link href="../css/blogback.css" type='text/css' rel="stylesheet">     
+</head>
+<body id="bodyA1">
+<div id="header">
+<div id="head1"></div>
+</div>
+<div class="blogpost-body">
+<h3>多个c-lodop取名区分</h3>
+    <p>之前的博文：<a href="https://www.cnblogs.com/huaxie/p/10189202.html" target="_blank">C-LODOP设置同一页面 手机电脑都打印</a>、<br />中介绍了引用多个c-lodop的时候的区分方法，不过不是例子，这里写个例子，分别获取两个c-lodop的打印机列表，一个是localhost自己本机的，另一个是lodop官方的AO端桥服务的公开在线测试地址。这里是两个，如果有多个地址，以此类推，可以通过取不同的名字区分。</p>
+<p>如果是需要电脑用本地的，手机用远程的，可用优先级，优先本地的，手机等本地没有c-lodop，就会走远程的那个优先级。如果是需要区分，可以用取名方式，这样电脑可以选择打印到本地的，也可以选打印到远程的。</p>
+<p>关于c-lodop独有的获取打印机列表的方法，之前有博文介绍过：<a href="https://www.cnblogs.com/huaxie/p/9766886.html" target="_blank">C-Lodop获取打印机列表Create_Printer_List</a>、</p>
+<p>测试代码：</p>
+<div class="cnblogs_code">
+<pre><span style="color: #0000ff;">&lt;</span><span style="color: #800000;">script </span><span style="color: #ff0000;">src</span><span style="color: #0000ff;">='http://localhost:8000/CLodopfuncs.js?name=LODOPA'</span><span style="color: #0000ff;">&gt;&lt;/</span><span style="color: #800000;">script</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #0000ff;">&lt;</span><span style="color: #800000;">script </span><span style="color: #ff0000;">src</span><span style="color: #0000ff;">='http://121.196.197.102:8000/CLodopfuncs.js?name=LODOPB'</span><span style="color: #0000ff;">&gt;&lt;/</span><span style="color: #800000;">script</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">head</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #0000ff;">&lt;</span><span style="color: #800000;">body </span><span style="color: #ff0000;">onload</span><span style="color: #0000ff;">="p1()"</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #0000ff;">&lt;</span><span style="color: #800000;">select </span><span style="color: #ff0000;">id</span><span style="color: #0000ff;">="Select01"</span><span style="color: #ff0000;"> size</span><span style="color: #0000ff;">="1"</span><span style="color: #0000ff;">&gt;&lt;/</span><span style="color: #800000;">select</span><span style="color: #0000ff;">&gt;</span><span style="color: #ff0000;">&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;</span>
+<span style="color: #0000ff;">&lt;</span><span style="color: #800000;">select </span><span style="color: #ff0000;">id</span><span style="color: #0000ff;">="Select02"</span><span style="color: #ff0000;"> size</span><span style="color: #0000ff;">="1"</span><span style="color: #0000ff;">&gt;&lt;/</span><span style="color: #800000;">select</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #0000ff;">&lt;</span><span style="color: #800000;">script </span><span style="color: #ff0000;">language</span><span style="color: #0000ff;">="javascript"</span><span style="color: #ff0000;"> type</span><span style="color: #0000ff;">="text/javascript"</span><span style="color: #0000ff;">&gt;</span>   
+    <span style="background-color: #f5f5f5; color: #0000ff;">function</span><span style="background-color: #f5f5f5; color: #000000;"> p1(){  
+        LODOPA.Create_Printer_List(document.getElementById(</span><span style="background-color: #f5f5f5; color: #000000;">"</span><span style="background-color: #f5f5f5; color: #000000;">Select01</span><span style="background-color: #f5f5f5; color: #000000;">"</span><span style="background-color: #f5f5f5; color: #000000;">));
+        LODOPB.Create_Printer_List(document.getElementById(</span><span style="background-color: #f5f5f5; color: #000000;">"</span><span style="background-color: #f5f5f5; color: #000000;">Select02</span><span style="background-color: #f5f5f5; color: #000000;">"</span><span style="background-color: #f5f5f5; color: #000000;">));
+        };
+</span><span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">script</span><span style="color: #0000ff;">&gt;</span> 
+<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">body</span><span style="color: #0000ff;">&gt;</span></pre>
+</div>
+<p>图示：</p>
+<p><img src="https://img2018.cnblogs.com/common/1481828/202001/1481828-20200115135524654-46037131.png" alt=""></p>
+<p>&nbsp;</p>
+<p>cnblog链接（带图示）:<a href="https://www.cnblogs.com/huaxie/p/12196199.html" target="_blank">多个c-lodop取名区分</a></p>
+<p><a href="../blog_index.html">返回博文列表</a></p>
+</div>
+<div id="footer"><img src="../images/lodopfoot.png"></div>
+</body>
+</html>

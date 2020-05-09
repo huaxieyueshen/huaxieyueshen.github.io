@@ -1,0 +1,39 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>WEB打印控件LODOP</title>
+<script language="javascript" src="LodopFuncs.js"></script>
+ <link href="../css/blogback.css" type='text/css' rel="stylesheet">     
+</head>
+<body id="bodyA1">
+<div id="header">
+<div id="head1"></div>
+</div>
+<div class="blogpost-body">
+<h3>简短排查语句-QA手机友好版001</h3>
+    <p><strong>1.虚拟打印机</strong><br />&nbsp;用xps或pdf虚拟打印机测试下</p>
+<p>win7以后系统自带Microsoft XPS Document Writer虚拟打印机 或者 下载安装群文件里的Doro PDF Writer虚拟打印机。</p>
+<p>&nbsp;理论上本机虚拟打印没问题的话，说明插件代码没问题，程序可做的努力就的确很少了，毕竟windows下的打印是微软倡导的设备无关系原则，要在打印机和打印驱动程序 系统上排查下，尝试重装驱动 或者 打印机不支持一些功能 打印机精度太低。</p>
+<p>&nbsp;用xps或pdf虚拟打印机测试下，先排查是代码问题还是打印机等问题。 如果虚拟打印机正常，说明和打印机或打印机设置有关，如打印机不支持自定义纸张，不同打印机可打区域不同等影响。<br />&nbsp;如果虚拟打印机也不正常，可能和内容样式等有关，参考http://www.c-lodop.com/faq/pp8.html</p>
+<p><strong>2.c-lodop没启动</strong><br />&nbsp;双击桌面上的c-lodop快捷方式，重启一下本机的c-lodop，重启c-lodop后刷新页面试试。</p>
+<p>&nbsp;参考http://www.c-lodop.com/faq/pp5.html<br />排查开机启动项，用管理员权限安装最新版http://www.c-lodop.com/download.html，右键以管理员权限运行，再对比试试。<br />&nbsp;排查c-lodop是否能开机自启动，默认情况c-lodop是开机自动启动的，没自动开启可能问题：<br />1. 在系统msconfig启动选项列查看c-lodop是否是开启自启动；<br />2. 当前操作用户权限不足，无系统管理员权限；<br />3. 注意安全软件禁用c-lodop. 目前常用的360及金山已进行了安全认证，其他的杀毒软件请加入白名单，或直接上报提交对应的杀毒软件服务器。</p>
+<p>c-lodop预览模式，参考http://www.c-lodop.com/faq/pp28.html<br />双击桌面上的c-lodop快捷方式，重启一下本机的c-lodop，重启c-lodop后刷新页面。</p>
+<p><strong>3.https网站使用</strong><br />https扩展版C-Lodop如何使用 参考http://www.c-lodop.com/faq/pp32.html</p>
+<p>参考http://www.c-lodop.com/faq/pp32.html<br />安装32位c-lodop扩展版。32位的c-lodop支持32位和64位操作系统，用32位的c-lodop就行。</p>
+<p>8444是备用端口，报错不用管，当8443占用时，这个端口会有用。</p>
+<p><strong>4.提示未安装</strong><br />&nbsp;参考http://www.c-lodop.com/faq/pp2.html</p>
+<p>测试下官网样例http://www.c-lodop.com/demolist/PrintSample2.html 是否有什么提示。<br />&nbsp;根据样例提示下载安装</p>
+<p>&nbsp;测试参考一下官网样例http://www.c-lodop.com/LodopDemo.html<br />官网样例是混合部署LodopFuncs.js里已经写好了判断。<br />&nbsp;客户端是浏览器支持np插件，是32位浏览器，就会提示下载32位的Lodop插件：install_lodop32.exe<br />客户端浏览器支持np插件，是64位浏览器，就会提示下载64位的Lodop插件：install_lodop64.exe<br />客户端浏览器不支持np插件（判断如高版本谷歌火狐等），会提示下载C-Lodop方式： CLodop_Setup_for_Win32NT.exe</p>
+<p><strong>5.测试地址</strong><br />&nbsp;访问http://localhost:8000欢迎页面试试<br />&nbsp;访问http://localhost:18000欢迎页面试试。<br />&nbsp;用管理员权限安装最新版http://www.c-lodop.com/download.html<br />最新版是双端口，8000和18000一个能用就行。</p>
+<p>&nbsp;访问下http://[C-Lodop服务所在主机ip]:[C-Lodop端口]，点欢迎页面的预览试试<br />&nbsp;重启集中打印的云主机上的c-lodop，用最新版c-lodop，确保在启动状态。</p>
+<p>&nbsp;访问下http://localhost:8000/c_sysmessage，查看本机c-lodop的出错信息<br />&nbsp;访问下http://[C-Lodop服务所在主机ip或域名]:[C-Lodop端口]/c_sysmessage，查看AO服务器端c-lodop的出错信息</p>
+<p>&nbsp;访问下http://[C-Lodop服务所在主机ip或域名]:[C-Lodop端口]/c_aoprint 欢迎页面，查看下端桥是否在线，点预览试试<br />&nbsp;访问下http://[C-Lodop服务所在主机ip或域名]:[C-Lodop端口]/c_aobridge 测试某端桥下的其他打印机，点预览试试</p>
+<p>6.三种角色<br />&nbsp;目前lodop和c-lodop只能安装到windows操作系统上，其他操作系统无法安装，无法用客户端本地打印角色，其他操作系统可以用集中打印，或广域网打印角色。 三种角色及使用方法 参考http://www.c-lodop.com/demolist/t1.html</p>
+<p>&nbsp;</p>
+<p>cnblog链接（带图示）:<a href="https://www.cnblogs.com/huaxie/p/12572817.html" target="_blank">简短排查语句-QA手机友好版001</a></p>
+<p><a href="../blog_index.html">返回博文列表</a></p>
+</div>
+<div id="footer"><img src="../images/lodopfoot.png"></div>
+</body>
+</html>
