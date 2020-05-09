@@ -1,0 +1,26 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>WEB打印控件LODOP</title>
+<script language="javascript" src="LodopFuncs.js"></script>
+ <link href="../css/blogback.css" type='text/css' rel="stylesheet">     
+</head>
+<body id="bodyA1">
+<div id="header">
+<div id="head1"></div>
+</div>
+<div class="blogpost-body">
+<h3>lodop打印透明图简短问答</h3>
+    <p>相关博文：<a href="https://www.cnblogs.com/huaxie/p/9708182.html" target="_blank">Lodop打印控件 打印透明图问题</a>、<a href="https://www.cnblogs.com/huaxie/p/11646496.html" target="_blank">LODOP中设置设置图片平铺水印，超文本透明</a>、<a href="https://www.cnblogs.com/huaxie/p/9604650.html" target="_blank">Lodop打印控件不打印css背景图怎么办</a>、<a href="https://www.cnblogs.com/huaxie/p/12073862.html" target="_blank">LODOP打印公章的白色透明2</a>、<br /><strong>1.设置了transcolor，还是有白底</strong><br />测试下样例37http://www.lodop.net/demolist/PrintSample37.html<br />不是所有打印机都支持透明图打印，需要实际测试下，如果打印机不支持，就是不透明的。<br />如果实际测试打印机不支持，只能换用其他方法，例如样例37的左侧的把图片z-index设为负值来实现，本质是公章变为背景图。</p>
+<p><strong>2.有多个图片，有的打印出来透明，有的白底</strong><br />正常情况下打印机不支持，都无法透明。<br />能透明和不能透明的底色是否都是纯白色，<br />transcolor="#FFFFFF"这个是把白色转换成透明，需要背景都是纯白色。</p>
+<p><strong>3.设置了transcolor，选择了个pdf虚拟打印机，还是有白底</strong><br />不是所有打印机都支持透明图打印，有的虚拟打印机也不支持。</p>
+<p><strong>4.想把图章变成背景图，前面的超文本挡住背景图了</strong><br />参考样例35http://www.c-lodop.com/demolist/PrintSample35.html的打印设计里，有个透明的超文本，可以试试把超文本设置成透明。</p>
+<p><strong>其他：</strong><br />参考测试样例37http://www.c-lodop.com/demolist/PrintSample37.html<br />直接测试下样例37，样例37右键查看源码，有的打印机不支持透明图，会显示白底。<br />如果打印机不支持，可换用其他方式，如样37的图章1，把图章变成背景图。</p>
+<p>&nbsp;</p>
+<p>cnblog链接（带图示）:<a href="https://www.cnblogs.com/huaxie/p/12073802.html" target="_blank">lodop打印透明图简短问答</a></p>
+<p><a href="../blog_index.html">返回博文列表</a></p>
+</div>
+<div id="footer"><img src="../images/lodopfoot.png"></div>
+</body>
+</html>

@@ -1,0 +1,165 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>WEB打印控件LODOP</title>
+<script language="javascript" src="LodopFuncs.js"></script>
+ <link href="../css/blogback.css" type='text/css' rel="stylesheet">     
+</head>
+<body id="bodyA1">
+<div id="header">
+<div id="head1"></div>
+</div>
+<div class="blogpost-body">
+<h3>LODOP具体的分类的简短问答</h3>
+    <style><!--
+#Ttop{width:900px;height:165px;background-image:url(https://img2018.cnblogs.com/common/1481828/201912/1481828-20191230151715991-1871933535.png);}
+#Tmiddle{width:900px;background-image:url(https://img2018.cnblogs.com/common/1481828/201912/1481828-20191230151727102-417515572.png);}
+#Tbottom{width:900px;height:75px;background-image:url(https://img2018.cnblogs.com/common/1481828/201912/1481828-20191230151734229-1792811062.png);}
+#nr{width:600px;margin-left:50px;}
+#Tmiddle #nr .le1{text-decoration:none;color:blue;font-size:14px;}
+#Tmiddle #nr .le2{text-decoration:none;color:red;font-size:14px;}
+#Txie{width:900px;height:165px;background-image:url(https://img2018.cnblogs.com/common/1481828/201912/1481828-20191231150109811-366963768.png);}
+--></style>
+<div id="Ttop">&nbsp;</div>
+<div id="Tmiddle">
+<div id="nr"> <a class="le2" href="https://www.cnblogs.com/huaxie/p/11045192.html">表格</a>| <a class="le1" href="https://www.cnblogs.com/huaxie/p/11038280.html">条码</a>| <a class="le2" href="https://www.cnblogs.com/huaxie/p/11988181.html">居中</a>| <a class="le1" href="https://www.cnblogs.com/huaxie/p/12058752.html">维护、整体偏移</a>| <a class="le2" href="https://www.cnblogs.com/huaxie/p/11038280.html">回调值、成功、状态码</a>| <a class="le1" href="https://www.cnblogs.com/huaxie/p/12073802.html">透明图</a>| <a class="le2" href="https://www.cnblogs.com/huaxie/p/11840694.html">字体</a>|<br />
+<a class="le1" href="https://www.cnblogs.com/huaxie/p/11737021.html">注册</a>|
+<a class="le2" href="https://www.cnblogs.com/huaxie/p/10860746.html">注册与角色</a>|
+<a class="le1" href="https://www.cnblogs.com/huaxie/p/11840328.html">注册（图形式）</a>|
+<a class="le2" href="https://www.cnblogs.com/huaxie/p/12073539.html">注册号无效</a>|
+<a class="le1" href="https://www.cnblogs.com/huaxie/p/11349889.html">c-lodop注册误解</a>|
+<a class="le2" href="https://www.cnblogs.com/huaxie/p/9728197.html">lodop与c注册区别</a>|<br />
+<a class="le1" href="https://www.cnblogs.com/huaxie/p/11364736.html">虚拟打印机</a>|
+<a class="le2" href="https://www.cnblogs.com/huaxie/p/11532205.html">套打</a>|
+<a class="le1" href="https://www.cnblogs.com/huaxie/p/11550450.html">不清晰</a>|
+<a class="le2" href="https://www.cnblogs.com/huaxie/p/9854851.html">系统缩放大小</a>|
+<a class="le1" href="https://www.cnblogs.com/huaxie/p/11301778.html">纸张打印机双面份数</a>|
+<a class="le2" href="https://www.cnblogs.com/huaxie/p/11683913.html">set_print_stylea</a>|<br />
+<a class="le1" href="https://www.cnblogs.com/huaxie/p/9790615.html">简短问答大全</a>|
+<a class="le2" href="https://www.cnblogs.com/huaxie/p/11381365.html">慢和进度条</a>|
+<a class="le1" href="https://www.cnblogs.com/huaxie/p/11550645.html">c-lodop测试地址</a>|
+<a class="le2" href="https://www.cnblogs.com/huaxie/p/9933528.html">客户反馈</a>|
+<a class="le1" href="https://www.cnblogs.com/huaxie/p/10082571.html">html超文本</a>|<br />
+<a class="le2" href="https://www.cnblogs.com/huaxie/p/10132472.html">简短排查</a>|
+<a class="le2" href="https://www.cnblogs.com/huaxie/p/10265673.html">提示报错现象</a>|
+<a class="le1" href="https://www.cnblogs.com/huaxie/p/11890022.html">行间距字间距</a>|
+<a class="le2" href="https://www.cnblogs.com/huaxie/p/12095388.html">纸张高度不定</a>|
+<a class="le2" href="https://www.cnblogs.com/huaxie/p/11350133.html">纸张打印机误解</a>|
+<br />------------------------------------------------------------------------------<br />
+
+<a class="le1" href="https://www.cnblogs.com/huaxie/p/10132472.html">navigator.userAgent</a>|
+<a class="le2" href="https://www.cnblogs.com/huaxie/p/12096719.html">屏蔽c-lodop欢迎页面</a>|
+<a class="le1" href="https://www.cnblogs.com/huaxie/p/9591791.html">c-lodop端口</a>|
+<a class="le2" href="https://www.cnblogs.com/huaxie/p/10948447.html">clodop端口和网站端口</a>|<br />
+<a class="le1" href="https://www.cnblogs.com/huaxie/p/9603229.html">对象类型，眉脚项</a>|
+<a class="le2" href="https://www.cnblogs.com/huaxie/p/9602879.html">隐藏table某一列</a>|
+<a class="le1" href="https://www.cnblogs.com/huaxie/p/9599718.html">接下一页以下空白</a>|
+<a class="le2" href="https://www.cnblogs.com/huaxie/p/9599221.html">内容逐渐偏移</a>|<br />
+
+<a class="le1" href="https://www.cnblogs.com/huaxie/p/9593208.html">c-lodop一加载就打印</a>|
+<a class="le2" href="https://www.cnblogs.com/huaxie/p/9593316.html">LODOP.FORMAT与回调</a>|
+<a class="le1" href="https://www.cnblogs.com/huaxie/p/9604650.html">不打印css背景图</a>|
+<a class="le2" href="https://www.cnblogs.com/huaxie/p/9619044.html">指定打印哪页到哪页</a>|<br />
+<a class="le1" href="https://www.cnblogs.com/huaxie/p/9619462.html">表格次页偏移</a>|
+<a class="le2" href="https://www.cnblogs.com/huaxie/p/9635884.html">提示用户升级</a>|
+<a class="le1" href="https://www.cnblogs.com/huaxie/p/9636061.html">lodop部署web网站</a>|
+<a class="le2" href="https://www.cnblogs.com/huaxie/p/9639085.html">lodop如何使用</a>|
+<a class="le1" href="https://www.cnblogs.com/huaxie/p/9640491.html">超文本自动分页</a>|<br />
+
+<a class="le2" href="https://www.cnblogs.com/huaxie/p/9669963.html">传入css样式</a>|
+<a class="le1" href="https://www.cnblogs.com/huaxie/p/9673090.html">SET_PRINT_STYLE与STYLEA</a>|
+<a class="le2" href="https://www.cnblogs.com/huaxie/p/9674296.html">可打区域纸张边缘为基点</a>|<br />
+<a class="le1" href="https://www.cnblogs.com/huaxie/p/9679314.html">条码二维码不一定多宽</a>|
+<a class="le2" href="https://www.cnblogs.com/huaxie/p/9679459.html">二维码版本相同大小</a>|
+<a class="le1" href="https://www.cnblogs.com/huaxie/p/9700435.html">页码</a>|
+<a class="le2" href="https://www.cnblogs.com/huaxie/p/9705241.html">打印机等可重选</a>|
+<a class="le1" href="https://www.cnblogs.com/huaxie/p/9705355.html">当前lodop还是c-lodop</a>|<br />
+
+<a class="le2" href="https://www.cnblogs.com/huaxie/p/9705530.html">关联</a>|
+<a class="le1" href="https://www.cnblogs.com/huaxie/p/10870329.html">关联序号注意</a>|
+<a class="le2" href="https://www.cnblogs.com/huaxie/p/10245313.html">关联新起一页</a>|
+<a class="le1" href="https://www.cnblogs.com/huaxie/p/11889087.html">关联眉脚条码遮挡</a>|
+<a class="le2" href="https://www.cnblogs.com/huaxie/p/11662351.html">关联表格caption</a>|
+<a class="le1" href="https://www.cnblogs.com/huaxie/p/9707548.html">INITA与pagesize</a>|<br />
+<a class="le2" href="https://www.cnblogs.com/huaxie/p/9707717.html">打印设计快捷键</a>|
+<a class="le1" href="https://www.cnblogs.com/huaxie/p/9707880.html">CS的C#winform调用LODOP</a>|
+<a class="le2" href="https://www.cnblogs.com/huaxie/p/9708109.html">设计维护预览直接打印</a>|
+<a class="le1" href="https://www.cnblogs.com/huaxie/p/9708290.html">窗口按钮</a>|<br />
+
+<a class="le2" href="https://www.cnblogs.com/huaxie/p/9711631.html">打印虚线</a>|
+<a class="le1" href="https://www.cnblogs.com/huaxie/p/9712832.html">打印直线</a>|
+<a class="le2" href="https://www.cnblogs.com/huaxie/p/9717172.html">护眼色边框色</a>|
+<a class="le1" href="https://www.cnblogs.com/huaxie/p/9717389.html">手机打印</a>|
+<a class="le2" href="https://www.cnblogs.com/huaxie/p/9719782.html">newpage与newpagea</a>|
+<a class="le1" href="https://www.cnblogs.com/huaxie/p/9728450.html">打印维护ini文件</a>|<br />
+<a class="le2" href="https://www.cnblogs.com/huaxie/p/9729568.html">回调函数触发</a>|
+<a class="le1" href="https://www.cnblogs.com/huaxie/p/9732169.html">excel导出提示成功</a>|
+<a class="le2" href="https://www.cnblogs.com/huaxie/p/9732406.html">层级与覆盖</a>|
+<a class="le1" href="https://www.cnblogs.com/huaxie/p/9761321.html">打印机列表</a>|
+<a class="le2" href="https://www.cnblogs.com/huaxie/p/10857490.html">不重复加载打印机列表</a>|<br />
+
+<a class="le1" href="https://www.cnblogs.com/huaxie/p/11242743.html">临时默认打印机</a>|
+<a class="le2" href="https://www.cnblogs.com/huaxie/p/11205519.html">纸张无效</a>|
+<a class="le1" href="https://www.cnblogs.com/huaxie/p/10036824.html">导出图片与打印机无关</a>|
+<a class="le2" href="https://www.cnblogs.com/huaxie/p/9766886.html">Create_Printer_List</a>|
+<a class="le1" href="https://www.cnblogs.com/huaxie/p/9767127.html">获取文件路径</a>|<br />
+<a class="le2" href="https://www.cnblogs.com/huaxie/p/9767454.html">写入word</a>|
+<a class="le1" href="https://www.cnblogs.com/huaxie/p/9777750.html">生成代码带省略</a>|
+<a class="le2" href="https://www.cnblogs.com/huaxie/p/9810583.html">打印基本结构</a>|
+<a class="le1" href="https://www.cnblogs.com/huaxie/p/9828739.html">各种边距</a>|
+<a class="le2" href="https://www.cnblogs.com/huaxie/p/9829953.html">条码二维码一些设置</a>|
+<a class="le1" href="https://www.cnblogs.com/huaxie/p/9837320.html">平铺打印项</a>|<br />
+
+<a class="le2" href="https://www.cnblogs.com/huaxie/p/9842194.html">asp.net打印gridview</a>|
+<a class="le1" href="https://www.cnblogs.com/huaxie/p/9843840.html">页面不同位置页眉页脚</a>|
+<a class="le2" href="https://www.cnblogs.com/huaxie/p/9850518.html">本地角色误区</a>|
+<a class="le1" href="https://www.cnblogs.com/huaxie/p/9848319.html">提示安装升级注意</a>|
+<a class="le2" href="https://www.cnblogs.com/huaxie/p/9870205.html">火狐添加例外</a>|<br />
+<a class="le1" href="https://www.cnblogs.com/huaxie/p/9870324.html">开启Print Spooler</a>|
+<a class="le2" href="https://www.cnblogs.com/huaxie/p/9875458.html">不要共享一台集中再客户端</a>|
+<a class="le1" href="https://www.cnblogs.com/huaxie/p/9883291.html">输出图片有白边</a>|
+<a class="le2" href="https://www.cnblogs.com/huaxie/p/9888151.html">获取网卡都0</a>|<br />
+<a class="le1" href="https://www.cnblogs.com/huaxie/p/9913801.html">多任务队列不同名</a>|
+<a class="le2" href="https://www.cnblogs.com/huaxie/p/9915137.html">打印设计对齐</a>|
+<a class="le1" href="https://www.cnblogs.com/huaxie/p/9915872.html">打印设计介绍</a>|
+<a class="le2" href="https://www.cnblogs.com/huaxie/p/9923162.html">打印安装特殊字体</a>|
+<a class="le1" href="https://www.cnblogs.com/huaxie/p/9947009.html">￥设计预览不同</a>|
+<a class="le2" href="https://www.cnblogs.com/huaxie/p/9928005.html">多页项</a>|<br />
+
+<a class="le2" href="https://www.cnblogs.com/huaxie/p/9947409.html">倒着打180度</a>|
+<a class="le1" href="https://www.cnblogs.com/huaxie/p/9928785.html">两端对齐</a>|
+<a class="le2" href="https://www.cnblogs.com/huaxie/p/9952016.html">打印input最新值</a>|
+<a class="le1" href="https://www.cnblogs.com/huaxie/p/9947090.html">背景图叉号放大</a>|
+<a class="le2" href="https://www.cnblogs.com/huaxie/p/9946940.html">卸载l,clodop</a>|
+<a class="le1" href="https://www.cnblogs.com/huaxie/p/9947181.html">允许标点溢出拆词</a>|<br />
+<a class="le2" href="https://www.cnblogs.com/huaxie/p/9995703.html">newpage测试空白</a>|
+<a class="le1" href="https://www.cnblogs.com/huaxie/p/10000767.html">批量打印</a>|
+<a class="le2" href="https://www.cnblogs.com/huaxie/p/9952308.html">连续纸张</a>|
+<a class="le1" href="https://www.cnblogs.com/huaxie/p/10008115.html">宽大高小怪异纸张</a>|
+<a class="le2" href="https://www.cnblogs.com/huaxie/p/10024973.html">矩形重合线粗</a>|
+<a class="le1" href="https://www.cnblogs.com/huaxie/p/10064469.html">超大图片</a>|<br />
+
+<a class="le2" href="https://www.cnblogs.com/huaxie/p/10083573.html">page-break-before</a>|
+<a class="le1" href="https://www.cnblogs.com/huaxie/p/10069941.html">c-lodop大小写敏感</a>|
+<a class="le2" href="https://www.cnblogs.com/huaxie/p/10097082.html">字体字母连起来</a>|
+<a class="le1" href="https://www.cnblogs.com/huaxie/p/10107893.html">rgba不透明，黑色区块</a>|<br />
+<a class="le2" href="https://www.cnblogs.com/huaxie/p/10120381.html">注意判断后的括号</a>|
+<a class="le1" href="https://www.cnblogs.com/huaxie/p/10118373.html">暂存应用</a>|
+<a class="le2" href="https://www.cnblogs.com/huaxie/p/10138077.html">删除内嵌</a>|
+<a class="le1" href="https://www.cnblogs.com/huaxie/p/10212656.html">自动分页测试</a>|
+<a class="le2" href="https://www.cnblogs.com/huaxie/p/10250558.html">table内容格式化</a>|
+<a class="le1" href="https://www.cnblogs.com/huaxie/p/10255546.html">缩放图片</a>|<br />
+<a class="le2" href="https://www.cnblogs.com/huaxie/p/10189202.html">手机电脑打印</a>|
+<a class="le1" href="https://www.cnblogs.com/huaxie/p/10280824.html">打印机不存在不打印</a>|
+<a class="le2" href="https://www.cnblogs.com/huaxie/p/10243866.html">lodopfunc.js与cjs</a>|
+<a class="le1" href="https://www.cnblogs.com/huaxie/p/10315292.html">数字间隔</a>|
+<a class="le2" href="https://www.cnblogs.com/huaxie/p/10469020.html">二维码加图</a>|
+</div>
+<p>&nbsp;</p>
+<p>cnblog链接（带图示）:<a href="https://www.cnblogs.com/huaxie/p/12120081.html" target="_blank">LODOP具体的分类的简短问答</a></p>
+<p><a href="../blog_index.html">返回博文列表</a></p>
+</div>
+<div id="footer"><img src="../images/lodopfoot.png"></div>
+</body>
+</html>
