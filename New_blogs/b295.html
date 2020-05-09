@@ -1,0 +1,39 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>WEB打印控件LODOP</title>
+<script language="javascript" src="LodopFuncs.js"></script>
+ <link href="../css/blogback.css" type='text/css' rel="stylesheet">     
+</head>
+<body id="bodyA1">
+<div id="header">
+<div id="head1"></div>
+</div>
+<div class="blogpost-body">
+<h3>纸张高度不定的简短问答</h3>
+    <p>相关博文：<a href="https://www.cnblogs.com/huaxie/p/11193320.html" target="_blank">LODOP纸张高度不定的纯文本累计高度</a>、<a href="https://www.cnblogs.com/huaxie/p/11248643.html" target="_blank">LODOP中纸张高度不定超文本和纯文本对比</a>、<br />
+不需要纸张高度不定：<a href="https://www.cnblogs.com/huaxie/p/9952308.html" target="_blank">Lodop打印连续的纸张</a>、</p>
+<p><strong>1.小票打印</strong><br />.小票打印 ，参考样例18 http://www.c-lodop.com/demolist/PrintSample18.html<br />（小票针式打印 建议用 ADD_PRINT_TEXT文本，不用htm超文本，纸张高度不定容易引起 htm 中排版变形）</p>
+<p><strong>2.虚拟打印机正常，真实打印机高度不正常</strong><br />用xps或pdf虚拟打印机测试下，如果虚拟打印机正常，可能是该打印机不支持该自定义纸张。<br />不是所有的打印机都支持纸张不定高，需要实际测试下，可用虚拟打印机对比测试。</p>
+<p><strong>3.连续打印，设置纸张不定高，却分页了（不需要设置纸张不定高）</strong><br />自适应高度 本质是根据打印语句明确的输出位置信息，来推断出纸张高度，从而确定纸张的高度，一般使用与专用打印机，比如小票打印机，普通打印没有那么高度的纸张；普通的打印机需要设置具体的纸张。</p>
+<p>如果不是小票那种特殊打印机，需要设置具体的纸张高度，打印机对最大纸张高度是有限制的。批量打印，分页分任务，在页数和任务之间平衡一下，参考样例26http://www.c-lodop.com/demolist/PrintSample26.html</p>
+<p>特殊的小票打印机等那种，可以设置纸张高度自适应，其他普通打印机都有高度限制的，不能高度自适应。<br />不建议在非小票打印机上使用高度自适应。</p>
+<p><strong>4.虚拟打印机正常，真实打印机高度不定高下方有空白</strong><br />理论上本机虚拟打印没问题的话，说明插件代码没问题，程序可做的努力就的确很少了，毕竟windows下的打印是微软倡导的设备无关系原则，要在打印机和打印驱动程序 系统上排查下，尝试重装驱动 或者 打印机不支持一些功能 打印机精度太低。</p>
+<p>用虚拟打印机测试下，如果虚拟打印机正常，就是的打印机不支持。</p>
+<p>虚拟打印机正常了，就只能和打印机有关了、<br />或者用打印机自带的纸张，浏览器打印是无法自定义纸张的，用打印机自带的就不会出现不支持的情况。</p>
+<p><strong><span style="color: #333399;">虚拟打印机也不正常</span>&mdash;&mdash;&mdash;&mdash;（具体可查看本简短问答上方的相关博文）</strong><br />1.小票打印 ，参考样例18 http://www.c-lodop.com/demolist/PrintSample18.html<br />右键查看源码，内容高度和打印项高度也有关，调整下打印项高度试试，查看是否最后一个打印项过高，造成空白。</p>
+<p>2.有的虚拟打印机也有最大高度限制，不能打到无限高。可通过真实打印和虚拟打印机预览对比查看下效果。</p>
+<p>3.小票打印用的超文本，打印变形<br />.小票打印 ，参考样例18 http://www.c-lodop.com/demolist/PrintSample18.html<br />（小票针式打印 建议用 ADD_PRINT_TEXT文本，不用htm超文本，纸张高度不定容易引起 htm 中排版变形）</p>
+<p>超文本由于样式问题，纸张高度不定可能会导致排版变形，建议用纯文本进行设计。</p>
+<p><strong>4.小票打印超文本，下方有空白</strong><br />虚拟打印机也有空白，可能和打印项内容有关，不建议用超文本进行小票设计。<br />虚拟打印机也有空白，排查超文本打印项内部是否有空白，给超文本打印项整个加上背景色查看下，是否有不可见内容。<br />打印项高度是否过高，减小打印项高度试试。</p>
+<p><strong>用的是小票打印机，有空白：</strong><br />先用xps或pdf虚拟打印机测试下。<br /><strong>1.用的是小票打印机，小票打印超文本，<span style="color: #333399;">虚拟打印机打印出来正常</span>，真实打印机下方有空白。</strong><br />虚拟打印机正常，说明和打印机有关，小票建议用纯文本输出，小票打印机应该是支持纸张高度不定的，咨询下打印机客服试试，或用打印机自带的纸张试试。</p>
+<p><strong>2，小票打印机打印，<span style="color: #333399;">虚拟打印机下方也有空白</span></strong><br />小票打印 ，参考样例18 http://www.c-lodop.com/demolist/PrintSample18.html<br />（小票针式打印 建议用 ADD_PRINT_TEXT文本，不用htm超文本，纸张高度不定容易引起 htm 中排版变形）<br />LODOP.SET_PRINT_PAGESIZE(3,1385,45,"");//这里3表示纵向打印且纸高&ldquo;按内容的高度&rdquo;；1385表示纸宽138.5mm；45表示页底空白4.5mm<br />排查参数是否正常。
+<br />参数正常，排查打印机高度是否正常，例如add_print_text的第四个参数就是打印项高度。</p>
+<p>&nbsp;</p>
+<p>cnblog链接（带图示）:<a href="https://www.cnblogs.com/huaxie/p/12095388.html" target="_blank">纸张高度不定的简短问答</a></p>
+<p><a href="../blog_index.html">返回博文列表</a></p>
+</div>
+<div id="footer"><img src="../images/lodopfoot.png"></div>
+</body>
+</html>

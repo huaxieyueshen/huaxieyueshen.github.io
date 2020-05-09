@@ -1,0 +1,31 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>WEB打印控件LODOP</title>
+<script language="javascript" src="LodopFuncs.js"></script>
+ <link href="../css/blogback.css" type='text/css' rel="stylesheet">     
+</head>
+<body id="bodyA1">
+<div id="header">
+<div id="head1"></div>
+</div>
+<div class="blogpost-body">
+<h3>打印维护和整体偏移相关简短问答</h3>
+    <p>打印维护相关博文：<a href="https://www.cnblogs.com/huaxie/p/9728450.html" target="_blank">Lodop打印维护PRINT_SETUP本地缓存ini文件</a>、<a href="https://www.cnblogs.com/huaxie/p/11850536.html" target="_blank">LODOP打印维护适应不同的客户端</a>、<a href="https://www.cnblogs.com/huaxie/p/10569975.html" target="_blank">LODOP批量打印多页模版进行维护</a>、<a href="https://www.cnblogs.com/huaxie/p/11698573.html" target="_blank">LODOP一个任务多列，只打一列如何维护</a>、<a href="https://www.cnblogs.com/huaxie/p/9829104.html" target="_blank">Lodop设置打印维护返回打印语句代码</a>、<a href="https://www.cnblogs.com/huaxie/p/9708109.html" target="_blank">Lodop打印设计、维护、预览、直接打印简单介绍</a>、<a href="https://www.cnblogs.com/huaxie/p/10118373.html" target="_blank">LODOP暂存、应用、复原 按钮的区别</a>、<br />整体偏移相关博文：<a href="https://www.cnblogs.com/huaxie/p/10564614.html" target="_blank">LODOP不同打印机出现偏移问题</a>、<a href="https://www.cnblogs.com/huaxie/p/9828739.html" target="_blank">LODOOP中的各种边距 打印项、整体偏移、可打区域、内部边距</a>、<a href="https://www.cnblogs.com/huaxie/p/12058491.html" target="_blank">PRINT_INITA整体偏移值传变量</a>、</p>
+<p><strong>1.如何调整所有的打印项的位置，增加或减少同一个值</strong><br />参考http://www.lodop.net/faq/pp17.html<br />如果想修改模版，对所有客户端都有效，可每个打印项的左边距都调整。</p>
+<p>整体偏移吗，PRINT_INITA的前两个参数可以整体偏移。<br />但是不建议在原始模版代码里设置，可让根据客户端在客户端本地打印维护。</p>
+<p>参考http://www.c-lodop.com/demolist/PrintSample21.html<br />参考http://www.c-lodop.com/faq/pp9.html<br />设置具体的任务名，可让客户端调整后点应用，调整结果只针对该客户端有影响。<br />这个可解决不同客户端的打印机不同导致的整体偏移等问题。</p>
+<p><strong>2.如何在客户端进行打印维护</strong><br />PRINT_SETUP打印维护<br />就是把打印设计或直接打印语句替换成打印维护语句。<br />INIT或INITA的初始化里要设置任务名，不同的模版设置不同的任务名。</p>
+<p>例如：<br />LODOP.PRINT_INIT("打印任务名");               //首先一个初始化语句 <br />LODOP.ADD_PRINT_TEXT(0,0,100,20,"文本内容一");//然后多个ADD语句及SET语句 <br />LODOP.PRINT();                               //最后一个打印(或预览、维护、设计)语句<br />最后一句改成打印维护，然后维护后点应用，有个该任务名的ini文件被缓存，以后无论预览还是直接打印都维护后的。</p>
+<p>参考样例4http://www.c-lodop.com/demolist/PrintSample4.html<br />和直接打印预览打印，前面都是相同的，就是最后一句不同。<br />可实际测试下样例4，维护后点应用，然后再进样例4的预览。</p>
+<p><strong>3.打印维护没生效</strong><br />1.查看下是否设置了具体的任务名。<br />2.点应用后，查看目录下是否生成了该任务名的ini文件。<br />3.是发有其他同名的任务名相互干扰了,不同模版设置不同的任务名。</p>
+<p>如果该目录下没有ini文件：<br />权限不足的时候，该ini文件会在C目录下的C:\MountTaiSoftware，这种时候，对桌面的c-lodop快捷方式，右键以管理员权限运行下，再重新维护下，查看下是否在正确的路径里。</p>
+<p>对桌面的c-lodop快捷方式，右键以管理员权限运行下，再重新维护下，查看是否生成该ini文件。</p>
+<p>&nbsp;</p>
+<p>cnblog链接（带图示）:<a href="https://www.cnblogs.com/huaxie/p/12058752.html" target="_blank">打印维护和整体偏移相关简短问答</a></p>
+<p><a href="../blog_index.html">返回博文列表</a></p>
+</div>
+<div id="footer"><img src="../images/lodopfoot.png"></div>
+</body>
+</html>
