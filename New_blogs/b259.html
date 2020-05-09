@@ -1,0 +1,29 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>WEB打印控件LODOP</title>
+<script language="javascript" src="LodopFuncs.js"></script>
+ <link href="../css/blogback.css" type='text/css' rel="stylesheet">     
+</head>
+<body id="bodyA1">
+<div id="header">
+<div id="head1"></div>
+</div>
+<div class="blogpost-body">
+<h3>[图片问答]LODOP字体设置方法</h3>
+    <p>字体设置方法：<br />一、整体设置（针对文本项），打印初始化后、增加打印项之前调用本函数<br />LODOP.SET_PRINT_STYLE("FontSize",11);<br />二、单个打印项（针对文本项）进行字体设置，例如：<br />LODOP.SET_PRINT_STYLEA(3,"FontName","隶书");<br />设置第3个内容项的字体为隶书。<br />LODOP.SET_PRINT_STYLEA(3,"FontSize",15);<br />设置第3个内容项字体为15号字体<br />单独设置某个打印项的字体，可以参考样例3。<br />一、二、是对所有内容字体的设置，只对文本项起作用，超文本不起作用。css样式参见样例10.<br />另外：超文本方式输出字体时，此时最好用pt这个单位设置字体大小，不要用px，否则会受打印分辨率影响。px是相对计量单位，显示屏幕上12点和打印机上的12点可能不一样大。但都用9pt就差不多大了，9pt在打印机上或许是11px或12px。套打最好不要用htm语句，要用add_print_text语句。不设置就会被浏览器引擎设置为默认字体，默认字体大小是9号字体。</p>
+<p>&nbsp;</p>
+<p><strong>字体设置方法图片：</strong>&nbsp;</p>
+<p><img src="https://img2018.cnblogs.com/common/1481828/201911/1481828-20191112112449657-1332811230.jpg" alt="" /></p>
+<p><strong>LODOP可以打印某种字体吗</strong><br />方法1：<br />进入打印设计，添加一个纯文本打印项，选中查看下打印设计里的字体。<br />是本机windows操作系统安装的字体，如果获取到了，安装过了可以用，如果没有需要安装下字体。</p>
+<p>进入打印设计，选中纯文本打印项，上方的字体下拉列表可以看到当前安装的字体。</p>
+<p>方法2：<br />查看本机操作系统安装的字体库是否有该字体。</p>
+<p><strong><span style="background-color: #ccffcc;">操作系统字体库</span></strong>和<strong><span style="background-color: #ccffcc;">打印设计下拉列表字体</span></strong>的图示，<strong><span style="color: #000080;">可查看本博客相关博文</span></strong>：<a href="https://www.cnblogs.com/huaxie/p/9923162.html" target="_blank">LODOP打印安装到win的特殊字体</a>、</p>
+<p>&nbsp;</p>
+<p>cnblog链接（带图示）:<a href="https://www.cnblogs.com/huaxie/p/11840694.html" target="_blank">[图片问答]LODOP字体设置方法</a></p>
+<p><a href="../blog_index.html">返回博文列表</a></p>
+</div>
+<div id="footer"><img src="../images/lodopfoot.png"></div>
+</body>
+</html>

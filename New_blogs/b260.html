@@ -1,0 +1,80 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>WEB打印控件LODOP</title>
+<script language="javascript" src="LodopFuncs.js"></script>
+ <link href="../css/blogback.css" type='text/css' rel="stylesheet">     
+</head>
+<body id="bodyA1">
+<div id="header">
+<div id="head1"></div>
+</div>
+<div class="blogpost-body">
+<h3>【JS新手教程】replace替换一个字符串中所有的某单词</h3>
+    <p>JS中的replace方法可以替换一个字符串中的单词。<br />语句的格式是: <span style="color: #000080;">需要改的字符串.replace(字符串或正则表达式,替换成的字符串)</span></p>
+<p>如果第一个参数用字符串，默认是找到该字符串中的第一个匹配的字符串进行替换，剩下的不会替换。<br />如果是只想替换第一个匹配的内容，可以用字符串或者正则表达式都可以，效果一样，正则表达式的写法是，用斜杠包裹需要替换的内容。</p>
+<p>如果想要替换整个字符串中所有的地方，正则表达式加g，<span style="color: #000080;">g代表全局，所有的地方都会替换</span>。<br />如果想要替换整个字符串中所有地方，且不区分大小写，加ig，<span style="color: #000080;">i代表不区分大小写，g是全局</span>。</p>
+<p>由于英文是字母组成的，有的字母很长，里面包含需要替换的字母组合，就会造成错误替换，如下面例子的he，但是the,them等单词里 都包含he这两个字母组合，就会造成错误替换，正则表达式里<span style="color: #000080;">加一对反斜杠b包裹需要的字母组合</span>，就会忽略前后有字母的其他单词，英文中单个单词前后一般是空格或标点符号，用这个可以找单词。</p>
+<p>正则表达式：用斜杠包裹所需要的内容和一些规则。<br />加g:全局，替换所有匹配的内容<br />加i：忽略大小写，替换所有忽略大小写后的匹配的内容<br />加ig:忽略大小写，且全局，替换所有匹配的内容<br />用/b内容/b，用反斜杠b包裹：找单词，去掉字母组合前后有其他单词的内容。</p>
+<p>测试代码：结果在图示里。</p>
+<div class="cnblogs_code">
+<pre>window.onload=<span style="color: #0000ff;">function</span><span style="color: #000000;">(){
+</span><span style="color: #0000ff;">var</span> stoy1=" them HE he the he He"<span style="color: #000000;">;
+</span><span style="color: #008000;">//</span><span style="color: #008000;">两边有字母也算</span><span style="color: #008000;">
+//</span><span style="color: #008000;">只替换第一个he</span>
+stoyRe1=stoy1.replace("he","she");<span style="color: #008000;">//</span><span style="color: #008000;">（字符串）</span>
+stoyRe2=stoy1.replace(/he/,"she");<span style="color: #008000;">//</span><span style="color: #008000;">（正则表达式）</span><span style="color: #008000;">
+//</span><span style="color: #008000;">替换全部的he</span>
+stoyRe4=stoy1.replace(/he/g,"she");<span style="color: #008000;">//</span><span style="color: #008000;">替换字符串全部的he</span>
+stoyRe6=stoy1.replace(/he/ig,"she");<span style="color: #008000;">//</span><span style="color: #008000;">忽略大小写的，替换全部的he</span>
+
+<span style="color: #008000;">//</span><span style="color: #008000;">两边有字母不算，找到单词</span>
+stoyRe3=stoy1.replace(/\bhe\b/,"she");<span style="color: #008000;">//</span><span style="color: #008000;">替换找到的第一个he，找单词</span>
+stoyRe5=stoy1.replace(/\bhe\b/g,"she");<span style="color: #008000;">//</span><span style="color: #008000;">替换全部的he，找单词</span>
+stoyRe7=stoy1.replace(/\bhe\b/ig,"she");<span style="color: #008000;">//</span><span style="color: #008000;">i忽略大小写，全局，找单词</span>
+<span style="color: #000000;">
+document.write(</span>"原字符串："+stoy1+
+"&lt;br&gt;\"he\"结果："+stoyRe1+      <span style="color: #008000;">//</span><span style="color: #008000;">----"he" </span>
+"&lt;br&gt;/he/结果："+stoyRe2+       <span style="color: #008000;">//</span><span style="color: #008000;">----/he/</span>
+"&lt;br&gt;/he/g结果："+stoyRe4+   <span style="color: #008000;">//</span><span style="color: #008000;">----/he/g</span>
+"&lt;br&gt;/he/ig结果："+stoyRe6+  <span style="color: #008000;">//</span><span style="color: #008000;">---/he/ig</span>
+"&lt;br&gt;/\\bhe\\b/结果："+stoyRe3+  <span style="color: #008000;">//</span><span style="color: #008000;">-----/\bhe\b/</span>
+"&lt;br&gt;/\\bhe\\b/g结果："+stoyRe5+  <span style="color: #008000;">//</span><span style="color: #008000;">-----/\bhe\b/g</span>
+"&lt;br&gt;/\\bhe\\b/ig结果："+stoyRe7);     <span style="color: #008000;">//</span><span style="color: #008000;">-----/\bhe\b/ig </span>
+}</pre>
+</div>
+<p>图示：</p>
+<p><img src="https://img2018.cnblogs.com/blog/1481828/201909/1481828-20190930153049645-1094906025.png" alt="" /></p>
+<p>&nbsp;</p>
+<p>如下，做了个测试例子，是在文本框中输入一段内容，然后替换里面的部分单词，再重新赋值给文本框。<br />在百度上搜了一篇小英文故事，是男第三人称描述的，用替换内容的方法，替换成了女第三人称，可以点击链接一键转换，比人工查找替换要快捷。<br />测试用的小故事放到JS的注释里了，复制到文本框里，点击链接可转换。<br />前面的测试后面的变量没有加var，这里是直接对一个字符串进行多次替换，然后再把变量赋值给原来的文本框。<br />这里面有点小问题，故事里第三人称的不只是猴子，还有大象，大象也用第三人称描述，所以也被替换成了女的第三人称，这个是无法区分的，<span style="background-color: #ccffcc;">具体he指代的是猴子还是大象，程序无法区分，只是把所有的he给替换掉了</span>。<br />测试代码：<br />图示：</p>
+<p>替换：<br />he----she<br />He----He<br />his---her<br />him---her</p>
+<p>测试代码：</p>
+<div class="cnblogs_code">
+<pre><span style="color: #0000ff;">&lt;</span><span style="color: #800000;">body</span><span style="color: #0000ff;">&gt;</span><span style="color: #000000;">
+ 输入男第三人称的故事：</span><span style="color: #0000ff;">&lt;</span><span style="color: #800000;">br</span><span style="color: #0000ff;">&gt;</span>
+ <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">textarea </span><span style="color: #ff0000;">id</span><span style="color: #0000ff;">="t2"</span><span style="color: #ff0000;"> cols</span><span style="color: #0000ff;">=100 </span><span style="color: #ff0000;">rows</span><span style="color: #0000ff;">=10</span><span style="color: #0000ff;">&gt;&lt;/</span><span style="color: #800000;">textarea</span><span style="color: #0000ff;">&gt;</span>
+ <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">br</span><span style="color: #0000ff;">&gt;</span>
+ <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">a </span><span style="color: #ff0000;">href</span><span style="color: #0000ff;">="javascript:Re()"</span><span style="color: #0000ff;">&gt;</span>点击转成女第三人称<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">a</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #0000ff;">&lt;</span><span style="color: #800000;">script</span><span style="color: #0000ff;">&gt;</span>
+<span style="background-color: #f5f5f5; color: #0000ff;">function</span><span style="background-color: #f5f5f5; color: #000000;"> Re(){
+</span><span style="background-color: #f5f5f5; color: #0000ff;">var</span><span style="background-color: #f5f5f5; color: #000000;"> stoy1</span><span style="background-color: #f5f5f5; color: #000000;">=</span><span style="background-color: #f5f5f5; color: #000000;">document.getElementById(</span><span style="background-color: #f5f5f5; color: #000000;">"</span><span style="background-color: #f5f5f5; color: #000000;">t2</span><span style="background-color: #f5f5f5; color: #000000;">"</span><span style="background-color: #f5f5f5; color: #000000;">).value;
+stoy1</span><span style="background-color: #f5f5f5; color: #000000;">=</span><span style="background-color: #f5f5f5; color: #000000;">stoy1.replace(</span><span style="background-color: #f5f5f5; color: #000000;">/</span><span style="background-color: #f5f5f5; color: #000000;">\bhe\b</span><span style="background-color: #f5f5f5; color: #000000;">/</span><span style="background-color: #f5f5f5; color: #000000;">g,</span><span style="background-color: #f5f5f5; color: #000000;">"</span><span style="background-color: #f5f5f5; color: #000000;">she</span><span style="background-color: #f5f5f5; color: #000000;">"</span><span style="background-color: #f5f5f5; color: #000000;">);
+stoy1</span><span style="background-color: #f5f5f5; color: #000000;">=</span><span style="background-color: #f5f5f5; color: #000000;">stoy1.replace(</span><span style="background-color: #f5f5f5; color: #000000;">/</span><span style="background-color: #f5f5f5; color: #000000;">\bHe\b</span><span style="background-color: #f5f5f5; color: #000000;">/</span><span style="background-color: #f5f5f5; color: #000000;">g,</span><span style="background-color: #f5f5f5; color: #000000;">"</span><span style="background-color: #f5f5f5; color: #000000;">She</span><span style="background-color: #f5f5f5; color: #000000;">"</span><span style="background-color: #f5f5f5; color: #000000;">);
+stoy1</span><span style="background-color: #f5f5f5; color: #000000;">=</span><span style="background-color: #f5f5f5; color: #000000;">stoy1.replace(</span><span style="background-color: #f5f5f5; color: #000000;">/</span><span style="background-color: #f5f5f5; color: #000000;">\bhis\b</span><span style="background-color: #f5f5f5; color: #000000;">/</span><span style="background-color: #f5f5f5; color: #000000;">g,</span><span style="background-color: #f5f5f5; color: #000000;">"</span><span style="background-color: #f5f5f5; color: #000000;">her</span><span style="background-color: #f5f5f5; color: #000000;">"</span><span style="background-color: #f5f5f5; color: #000000;">);
+stoy1</span><span style="background-color: #f5f5f5; color: #000000;">=</span><span style="background-color: #f5f5f5; color: #000000;">stoy1.replace(</span><span style="background-color: #f5f5f5; color: #000000;">/</span><span style="background-color: #f5f5f5; color: #000000;">\bhim\b</span><span style="background-color: #f5f5f5; color: #000000;">/</span><span style="background-color: #f5f5f5; color: #000000;">g,</span><span style="background-color: #f5f5f5; color: #000000;">"</span><span style="background-color: #f5f5f5; color: #000000;">her</span><span style="background-color: #f5f5f5; color: #000000;">"</span><span style="background-color: #f5f5f5; color: #000000;">);
+document.getElementById(</span><span style="background-color: #f5f5f5; color: #000000;">"</span><span style="background-color: #f5f5f5; color: #000000;">t2</span><span style="background-color: #f5f5f5; color: #000000;">"</span><span style="background-color: #f5f5f5; color: #000000;">).value</span><span style="background-color: #f5f5f5; color: #000000;">=</span><span style="background-color: #f5f5f5; color: #000000;">stoy1;
+}
+</span><span style="background-color: #f5f5f5; color: #008000;">//</span><span style="background-color: #f5f5f5; color: #008000;">"One day, a monkey rides his bike near the river. This time he sees a lion under a tree. The lion runs at him. He is afraid and falls into the river. He can&rsquo;t swim. He shouts. The rabbit hears him. He jumps into the river. The rabbit swims to the monkey, but he can&rsquo;t help him. Luckily, an elephant comes along. He is very strong. He helps the rabbit and monkey. Three friends are very happy. They go to the elephant&rsquo;s home. Then, three of them become good friends."</span>
+<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">script</span><span style="color: #0000ff;">&gt;</span>
+ <span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">body</span><span style="color: #0000ff;">&gt;</span></pre>
+</div>
+<p>图示：这个程序替换，无法详细区分单词代指的是哪个动物，只是把所有单词替换了。只是做了个例子。</p>
+<p><img src="https://img2018.cnblogs.com/blog/1481828/201909/1481828-20190930162130012-1221648763.png" alt="" /></p>
+<p>&nbsp;</p>
+<p>cnblog链接（带图示）:<a href="https://www.cnblogs.com/huaxie/p/11612746.html" target="_blank">【JS新手教程】replace替换一个字符串中所有的某单词</a></p>
+<p><a href="../blog_index.html">返回博文列表</a></p>
+</div>
+<div id="footer"><img src="../images/lodopfoot.png"></div>
+</body>
+</html>

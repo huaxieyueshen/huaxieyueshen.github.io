@@ -1,0 +1,28 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>WEB打印控件LODOP</title>
+<script language="javascript" src="LodopFuncs.js"></script>
+ <link href="../css/blogback.css" type='text/css' rel="stylesheet">     
+</head>
+<body id="bodyA1">
+<div id="header">
+<div id="head1"></div>
+</div>
+<div class="blogpost-body">
+<h3>c-lodop回调函数简短问答及相关博文</h3>
+    <p>回调函数相关博文:<a href="https://www.cnblogs.com/huaxie/p/9729568.html" target="_blank">C-Lodop回调函数的触发</a>、<a href="https://www.cnblogs.com/huaxie/p/9593316.html" target="_blank">LODOP.FORMAT格式转换【回调和直接返回值】</a>、<a href="https://www.cnblogs.com/huaxie/p/9732169.html" target="_blank">Lodop导出excel及提示成功【回调和直接返回值】</a>、<a href="https://www.cnblogs.com/huaxie/p/11195400.html" target="_blank">c-lodop获取任务页数-回调里给全局变量赋值并加减</a>、<a href="https://www.cnblogs.com/huaxie/p/10120381.html" target="_blank">JS判断语句 注意多句时加大括号 回调函数LODOP兼顾写法</a>、<a href="https://www.cnblogs.com/huaxie/p/9777750.html" target="_blank">Lodop打印设计界面生成代码带&rdquo;...(省略)&rdquo;</a>、<a href="https://www.cnblogs.com/huaxie/p/9829104.html" target="_blank">Lodop设置打印维护返回打印语句代码</a>、<a href="https://www.cnblogs.com/huaxie/p/10789338.html" target="_blank">LODOP获取打印成功，是否加入队列</a>、<a href="https://www.cnblogs.com/huaxie/p/9767127.html" target="_blank">LODOP弹出对话框获取保存文件的路径</a>、<a href="https://www.cnblogs.com/huaxie/p/11127243.html" target="_blank">LODOP判断没成功发送任务-重打一下</a>、<a href="https://www.cnblogs.com/huaxie/p/10476371.html" target="_blank">Lodop获取全部JS代码，传统JS模版的生成</a>、<a href="https://www.cnblogs.com/huaxie/p/11730651.html" target="_blank">lodop和c-lodop通过打印状态和任务不在队列获取打印成功</a>、<a href="https://www.cnblogs.com/huaxie/p/12133664.html" target="_blank">LODOP批量打印判断是否加入队列1</a>、</p>
+<p><strong>简短问答：</strong><br /><strong>1.返回值不对</strong><br />c-lodop需要回调函数，参考c-lodop技术手册<br />和一些含有回调函数的官网样例的源码，例如样例35http://www.c-lodop.com/demolist/PrintSample35.html<br />样例4，样例28等等。</p>
+<p>c-lodop需要回调函数On_Return，参考样例源码和c-lodop技术手册http://www.c-lodop.com/download.html</p>
+<p><strong>2.打印成功</strong><br />参考样例35 http://www.c-lodop.com/demolist/PrintSample35.html<br />样例45的13 http://www.c-lodop.com/demolist/PrintSample45.html<br />样例35返回的&ldquo;打印成功&rdquo;实际仅是成功加入后台队列。<br />样例45的13 判断&ldquo;JOB不在队列&rdquo;就足可认定已经打印成功。<br />一般建议使用样例4，35方法简单判断打印成功，发送打印指令加入打印机队列算打印成功。</p>
+<p>参考样例45http://www.c-lodop.com/demolist/PrintSample45.html<br />获取打印状态，需要实际测试下，不同打印机状态码可能不同。</p>
+<p><strong>3.打印状态返回值不对</strong><br />参考样例45，样例右键，查看源码<br />c-lodop需要回调函数http://www.c-lodop.com/demolist/PrintSample45.html<br />该回调函数的介绍在c-lodop技术手册里。</p>
+<p><strong>4.获取不到脱机状态</strong><br />参考样例45http://www.c-lodop.com/demolist/PrintSample45.html<br />获取打印状态，需要实际测试下，不同打印机状态码可能不同。<br />如果实际测试该打印机获取不到脱机状态，就是获取不到。<br /><span style="color: #333399;">相关博文：</span><a href="https://www.cnblogs.com/huaxie/p/10174903.html" target="_blank">LODOP获取打印机状态码和状态码含义测试</a>、</p>
+<p>&nbsp;</p>
+<p>cnblog链接（带图示）:<a href="https://www.cnblogs.com/huaxie/p/11736705.html" target="_blank">c-lodop回调函数简短问答及相关博文</a></p>
+<p><a href="../blog_index.html">返回博文列表</a></p>
+</div>
+<div id="footer"><img src="../images/lodopfoot.png"></div>
+</body>
+</html>
