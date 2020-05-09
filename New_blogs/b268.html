@@ -1,0 +1,27 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>WEB打印控件LODOP</title>
+<script language="javascript" src="LodopFuncs.js"></script>
+ <link href="../css/blogback.css" type='text/css' rel="stylesheet">     
+</head>
+<body id="bodyA1">
+<div id="header">
+<div id="head1"></div>
+</div>
+<div class="blogpost-body">
+<h3>[图片问答]LODOP打印的行间距字间距</h3>
+    <p>LODOP可以打印纯文本，也可以是超文本，关于哪些打印项是纯文本，哪些打印项是超文本，之前有博文相关介绍：<a href="https://www.cnblogs.com/huaxie/p/10677369.html" target="_blank">LODOP中的纯文本和超文本打印项</a>、</p>
+<p>之前的关于纯文本的行间距字间距介绍：<br /><a href="https://www.cnblogs.com/huaxie/p/9843115.html" target="_blank">Lodop设置文本项行间距、字间距</a>、</p>
+<p><strong>行间距：</strong><br />如果是纯文本：<br />LODOP.ADD_PRINT_TEXT(115,169,100,20,"新加文本2");<br />LODOP.SET_PRINT_STYLEA(0,"LineSpacing",3);//设置行间距为3，也可以设置负值<br />如果是超文本：需要通过css样式控制，传入css样式参考样例10</p>
+<p><strong>字间距：</strong><br />如果是纯文本：<br />LODOP.ADD_PRINT_TEXT(115,169,100,20,"新加文本2");<br />LODOP.SET_PRINT_STYLEA(0,"LetterSpacing",3);//设置字间距为3<br />如果是超文本：需要通过css样式控制，传入css样式参考样例10</p>
+<p><strong>整体回答图：</strong><br />如果是纯文本，如下设置纯文本行间、距字间距。<br />LODOP.ADD_PRINT_TEXT(115,169,100,20,"新加文本2");<br />LODOP.SET_PRINT_STYLEA(0,"LineSpacing",3);//设置行间距为3<br />LODOP.SET_PRINT_STYLEA(0,"LetterSpacing",3);//设置字间距为3<br />可以是负值。<br />如果是超文本：需要通过css样式控制，传入css样式参考样例10<br />打印设计选中打印项，右键属性里设置：</p>
+<p><img src="https://img2018.cnblogs.com/common/1481828/201911/1481828-20191119154854776-489226070.jpg" alt="" /></p>
+<p>&nbsp;</p>
+<p>cnblog链接（带图示）:<a href="https://www.cnblogs.com/huaxie/p/11890022.html" target="_blank">[图片问答]LODOP打印的行间距字间距</a></p>
+<p><a href="../blog_index.html">返回博文列表</a></p>
+</div>
+<div id="footer"><img src="../images/lodopfoot.png"></div>
+</body>
+</html>

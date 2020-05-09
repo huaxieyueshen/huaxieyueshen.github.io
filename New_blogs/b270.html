@@ -1,0 +1,46 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>WEB打印控件LODOP</title>
+<script language="javascript" src="LodopFuncs.js"></script>
+ <link href="../css/blogback.css" type='text/css' rel="stylesheet">     
+</head>
+<body id="bodyA1">
+<div id="header">
+<div id="head1"></div>
+</div>
+<div class="blogpost-body">
+<h3>JS正则验证数字格式2</h3>
+    <p>之前的博文：JS验证正数字，正则的一种正数规则1，中isNaN可以判断内容是否为数字，但是这种判断出来的数字，有的不是数字的标准格式。那篇博文中尝试了下用正则验证，但是忘了一种情况，小数点后无数字，小数点后跟着的内容应该是+一个或多个，而不是*零个一个或多个，小数点后无数字不符合要求。<br />而且测试的几种情况把0忘了，0后面紧跟着小数点，但是还有单独的0也算是数字。<br />写了几个数字组成应该匹配到的，和不该匹配到的情况，并根据测试情况逐步修改。</p>
+<p><strong>个人目前想到的情况：</strong><br /><strong>应该匹配到的情况：</strong><br />0（一位0）<br />5（一位数<br />7068404（一位或多位正整数）<br />-23403（负数开头的正整数）<br />0.3504（零和点开头的小数）<br />405.3803（不是零开头的小数）<br /><strong>不该匹配到的情况</strong><br />09456（零开头的第二位不是点的数）<br />-0345（负号后面紧跟着零，零的第二位不是点的数）<br />3403.（点后面没有数字跟着）<br />a345.46d（前后有非数字）<br />0..456(有多个小数点)<br />-0(负的单独的0似乎也没有意义）</p>
+<p><strong>修改版本1：</strong><br />如图，是修改后的表达式，负号可以有零个或一个，后面的分了两种情况：<br />1.以非零开头，1-9开头，后面可跟着任意数量数字，然后跟着一个点（零个或一个），后面再跟着任意数字。<br />匹配非零开头的整数和小数<br />2.以零开头，后面紧跟着小数点（一个或零个），后面跟着任意数字（一个或多个，不能没有）。</p>
+<p>相比于前一个博文，加的内容：<br />（1）第一位可以是负号（零个或一个）<br />（2）两种情况的点后面有数字（一个或多个）</p>
+<p><strong>测试结果：</strong><br />这种情况在上面列出的中有两种情况匹配不到，数字0和数字5，<br />根据 表达式，让小数点后必须跟着至少一位数字，而小数点是一个或零个，可有可无，所以造成了无法匹配到一位数字的情况。<br />小数点可有可无，第一位是1-9中的一个，第二位是0-9一个或多个,这样就限制了第一种情况至少两位数字。<br />且表达式限制了0后面必须紧跟着小数点，所以也匹配不到0。</p>
+<p><strong>修改版本2（目前最终版）：</strong><br />分情况：<br />1.分了四种情况，都用括号括起来，并用|或分割，修改版本2里的两种情况，再加上0和单正负个位数，共四种情况 。<br />所有的括号括起来，<br /><strong>测试结果：</strong><br />上面列出的这些应该匹配到的，和不该匹配到的都正常了。</p>
+<p>由于写正则需要考虑到各种情况，<span style="background-color: #ccffff;">该文上面的列出的几种情况匹配到了，不排除有其他情况</span>。</p>
+<p>测试代码：（这是修改版本2的）</p>
+<div class="cnblogs_code">
+<pre>       console.log("----------应该匹配到的----------"<span style="color: #000000;">);
+       console.log(</span>"0，结果:"+/^((-?[1-9])|0|(-?[1-9]\d*\.?\d+)|(0\.\d+))$/.test("0"<span style="color: #000000;">));
+       console.log(</span>"5，结果:"+/^((-?[1-9])|0|(-?[1-9]\d*\.?\d+)|(0\.\d+))$/.test("5"<span style="color: #000000;">));
+       console.log(</span>"7068404，结果:"+/^((-?[1-9])|0|(-?[1-9]\d*\.?\d+)|(0\.\d+))$/.test("7068404"<span style="color: #000000;">));
+       console.log(</span>"-23403，结果:"+/^((-?[1-9])|0|(-?[1-9]\d*\.?\d+)|(0\.\d+))$/.test("-23403"<span style="color: #000000;">));
+       console.log(</span>"0.3504，结果:"+/^((-?[1-9])|0|(-?[1-9]\d*\.?\d+)|(0\.\d+))$/.test("0.3504"<span style="color: #000000;">));
+       console.log(</span>"405.3803，结果:"+/^((-?[1-9])|0|(-?[1-9]\d*\.?\d+)|(0\.\d+))$/.test("405.3803"<span style="color: #000000;">));
+       console.log(</span>"----------不该匹配到的----------"<span style="color: #000000;">);
+       console.log(</span>"09456，结果:"+/^((-?[1-9])|0|(-?[1-9]\d*\.?\d+)|(0\.\d+))$/.test("09456"<span style="color: #000000;">));
+       console.log(</span>"-0345，结果:"+/^((-?[1-9])|0|(-?[1-9]\d*\.?\d+)|(0\.\d+))$/.test("-0345"<span style="color: #000000;">));
+       console.log(</span>"3403.，结果:"+/^((-?[1-9])|0|(-?[1-9]\d*\.?\d+)|(0\.\d+))$/.test("3403."<span style="color: #000000;">));
+       console.log(</span>"a345.46d，结果:"+/^((-?[1-9])|0|(-?[1-9]\d*\.?\d+)|(0\.\d+))$/.test("a345.46d"<span style="color: #000000;">));
+       console.log(</span>"0..456，结果:"+/^((-?[1-9])|0|(-?[1-9]\d*\.?\d+)|(0\.\d+))$/.test("0..456"));</pre>
+</div>
+<p>图示：</p>
+<p><img src="https://img2018.cnblogs.com/common/1481828/201911/1481828-20191122112736571-553606811.png" alt="" /></p>
+<p>&nbsp;</p>
+<p>cnblog链接（带图示）:<a href="https://www.cnblogs.com/huaxie/p/11906210.html" target="_blank">JS正则验证数字格式2</a></p>
+<p><a href="../blog_index.html">返回博文列表</a></p>
+</div>
+<div id="footer"><img src="../images/lodopfoot.png"></div>
+</body>
+</html>
