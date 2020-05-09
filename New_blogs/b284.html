@@ -1,0 +1,32 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>WEB打印控件LODOP</title>
+<script language="javascript" src="LodopFuncs.js"></script>
+ <link href="../css/blogback.css" type='text/css' rel="stylesheet">     
+</head>
+<body id="bodyA1">
+<div id="header">
+<div id="head1"></div>
+</div>
+<div class="blogpost-body">
+<h3>LODOP中打印项水平居中简短问答</h3>
+    <p>相关博文：<br /><a href="https://www.cnblogs.com/huaxie/p/10904313.html%20" target="_blank">LODOP打印项水平居中</a>（超文本纯文本居中）<br /><a href="https://www.cnblogs.com/huaxie/p/11988011.html" target="_blank">LODOP打印超文本有边距不居中的情况2</a>（超文本居中的一种）<br />
+<a href="https://www.cnblogs.com/huaxie/p/12054121.html" target="_blank">LODOP表格水平居中3（宽度为百分比）</a>（超文本居中的一种）<br />
+<a href="https://www.cnblogs.com/huaxie/p/12054653.html" target="_blank">LODOP打印图片水平居中</a>（单个图片）<br />
+<a href="https://www.cnblogs.com/huaxie/p/9928785.html" target="_blank">Lodop文本项相对于文本框居中 两端对齐</a>（纯文本内）</p>
+<p><strong>居中打印</strong><br />1. 打印项居中 参考样例23 http://www.c-lodop.com/demolist/PrintSample23.html<br />LODOP.SET_PRINT_STYLEA(0,"Horient",2);//打印项在纸张中水平居中<br />LODOP.SET_PRINT_STYLEA(0,"Vorient",2);//打印项在纸张中垂直居中<br />2. add_pirnt_text纯文本打印项里面的内容居中 <br />纯文本设置Alignment设置水平居中LODOP.SET_PRINT_STYLEA(0,"Alignment",2);//文本框里 内容对于文本框居中，<br />不支持垂直居中， 具体参考技术手册; <br />3.AlignJustify设置纯文本两端对齐和条码文字对齐<br />LODOP.SET_PRINT_STYLEA(0,"AlignJustify",1);//纯文本两端对齐<br />LODOP.SET_PRINT_STYLEA(0,"AlignJustify",2);//设置条码下方的文字相对于条码本身居中<br />4.Html 通过css 控制 参考样例2 ，10;http://www.c-lodop.com/demolist/PrintSample10.html</p>
+<p>由于LODOP生成的条码二维码，设置多宽并不一定是多宽，受合计值的影响，因此条码如果数值不同，在纸张中居中比较难控制，无法做到条码在纸张中居中，最好留够最大条码的宽度，放在一定区域内。</p>
+<p>二维码可以通过打印设计找到在纸张中的居中点，然后设置具体的版本号，统一所有二维码的大小。<br />相关博文：<a href="https://www.cnblogs.com/huaxie/p/9679314.html" target="_blank">Lodop打印条码二维码设置多宽不一定是多宽</a>、<a href="%20https://www.cnblogs.com/huaxie/p/9679459.html" target="_blank">Lodop打印二维码内容长度不同如何大小相同</a>、</p>
+<p><strong>水平居中</strong><br />如果是add_print_text纯文本：<br />LODOP.SET_PRINT_STYLEA(0,"Alignment",2);//文本框里 内容对于文本框居中，<br />LODOP.SET_PRINT_STYLEA(0,"Horient",2);//打印项在纸张中水平居中<br />如果是超文本:<br />参考样例23 http://www.c-lodop.com/demolist/PrintSample23.html<br />除了设置打印项居中，还要确保打印项内容相对于打印项宽度居中。</p>
+<p><strong>超文本水平居中</strong><br />超文本居中，参考样例23 http://www.c-lodop.com/demolist/PrintSample23.html</p>
+<p><strong>超文本水平方向没有居中</strong><br />进入打印设计，选中该超文本打印项，查看打印项内容是否相对于打印项本身居中。<br />选中打印项后，周围有蓝色的圆点，查看水平方向打印项内容是否相对于打印项居中。</p>
+<p>例如ADD_PRINT_HTM(intTop,intLeft,intWidth,intHeight,strHtml)增加超文本项<br />里，intWidth就是打印项宽度。可进入打印设计可视化调整。</p>
+<p>&nbsp;</p>
+<p>cnblog链接（带图示）:<a href="https://www.cnblogs.com/huaxie/p/11988181.html" target="_blank">LODOP中打印项水平居中简短问答</a></p>
+<p><a href="../blog_index.html">返回博文列表</a></p>
+</div>
+<div id="footer"><img src="../images/lodopfoot.png"></div>
+</body>
+</html>
