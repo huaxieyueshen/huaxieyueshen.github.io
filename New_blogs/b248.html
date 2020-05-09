@@ -1,0 +1,30 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>WEB打印控件LODOP</title>
+<script language="javascript" src="LodopFuncs.js"></script>
+ <link href="../css/blogback.css" type='text/css' rel="stylesheet">     
+</head>
+<body id="bodyA1">
+<div id="header">
+<div id="head1"></div>
+</div>
+<div class="blogpost-body">
+<h3>LODOP注册语句相关简短问答</h3>
+    <p><strong>注册和角色相关博文：</strong><a href="https://www.cnblogs.com/huaxie/p/9728197.html" target="_blank">LODOP、C-LODOP注册号的区别</a>、<a href="https://www.cnblogs.com/huaxie/p/9850518.html" target="_blank">Lodop客户端本地角色注册号常见误区</a>、<a href="https://www.cnblogs.com/huaxie/p/10155208.html" target="_blank">Lodop、c-lodop注册与角色简短问答</a>、<a href="https://www.cnblogs.com/huaxie/p/10860746.html" target="_blank">LODOP和C-LODOP注册与角色等简短问答【增强版】</a>、<a href="https://www.cnblogs.com/huaxie/p/11349889.html" target="_blank">【各种误解解释】C-LODOP的三种角色及注册号</a>、<a href="https://www.cnblogs.com/huaxie/p/9947310.html" target="_blank">Lodop&ldquo;对象不支持SET__LICENSES属性或方法&rdquo;SET__LICENSES is not a function&rdquo;</a>、</p>
+<p><strong>注册号无效排查：</strong><br />参考排查一下http://www.c-lodop.com/faq/ph01.html</p>
+<p><strong>注册语句测试:</strong><br />参考排查一下http://www.c-lodop.com/faq/ph01.html<br />可以先做个简单的例子，直接复制邮箱里的注册号语句放到打印方法里，测试一下。<br />例如，直接把注册号放到打印方法里，测试一下。</p>
+<p>可以用写在每个打印方法里，每次打印的时候都要执行，也可以放在链接里的LodopFuncs.js标注处，每次调用LODOP的时候统一调用。</p>
+<p><strong>不是直接复制的，填了其他参数：</strong><br />直接复制邮箱里的语句，不需要填其他东西。</p>
+<p><strong>注册语句放到方法外，没有每次调用：</strong><br />把注册语句放到打印方法里，那个直接打印的按钮方法里，每次打印都要调用。<br />放到打印方法里测试下，并清理下缓存。</p>
+<p>可以放到lodopFUncs.js标注处，统一调用，每次getLODOP方法时会调用。<br />或者加到每个打印方法里。</p>
+<p>该方法在lodopFuncs.js里，<br />参考样例http://www.c-lodop.com/LodopDemo.html<br />每个打印方法里调用该方法获取LODOP对象。</p>
+<p><strong>域名或ip注册语句：</strong><br />如果是注册的ip或域名，是否是访问的注册地址。<br />（1）.单独注册服务器ip地址，登陆访问方式是ip地址访问，例如：注册ip地址：192.168.0.1，登陆方式如下：http：//192.168.0.1:8000/index.jsp等，域名访问时，注册信息无效。<br />（2）.单独注册域名：登陆访问方式是域名地址访问，例如：注册域名： www.c-lodop.com 登陆方式如下：http://www.c-lodop.com/index.html等，ip地址访问时，注册信息无效<br />IP和域名注册号，是一次性注册，更换需要重新购买</p>
+<p>&nbsp;</p>
+<p>cnblog链接（带图示）:<a href="https://www.cnblogs.com/huaxie/p/11737021.html" target="_blank">LODOP注册语句相关简短问答</a></p>
+<p><a href="../blog_index.html">返回博文列表</a></p>
+</div>
+<div id="footer"><img src="../images/lodopfoot.png"></div>
+</body>
+</html>

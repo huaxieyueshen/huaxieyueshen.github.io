@@ -1,0 +1,35 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>WEB打印控件LODOP</title>
+<script language="javascript" src="LodopFuncs.js"></script>
+ <link href="../css/blogback.css" type='text/css' rel="stylesheet">     
+</head>
+<body id="bodyA1">
+<div id="header">
+<div id="head1"></div>
+</div>
+<div class="blogpost-body">
+<h3>IE浏览器提示打印控件未安装的一些原因</h3>
+    <p>打印控件未安装!点击这里执行安装,安装后请刷新页面或重新进入。--该提示是写在LodopFuncs.js里的。<br />相关本博客其他博文：<a href="https://www.cnblogs.com/huaxie/p/10345805.html" target="_blank">提示&ldquo;Web打印服务CLodop未安装启动&rdquo;的各种原因和解决方法</a>、<a href="https://www.cnblogs.com/huaxie/p/9596835.html" target="_blank">C-Lodop打印服务没启动怎么办</a>、<a href="https://www.cnblogs.com/huaxie/p/9848319.html" target="_blank">Lodop提示安装或升级的注意事项</a>、</p>
+<p>IE提示控件未安装的一些原因：<br /><strong>原因1：安装了错误位数的lodop插件（lodop插件的位数和操作系统位数无关）</strong><br />现象：（1）安装了lodop插件，总是提示打印控件未安装，IE安全设置最低也没用。<br />原因1：有些不是按照LodopFuncs.js里自带的判断安装的，误认为64位操作系统需要安装64位的lodop插件。</p>
+<p><span style="background-color: #ccffcc;">原因1的简单问答：</span><br />用IE访问下官网样例，http://www.c-lodop.com/demolist/PrintSample2.html<br />点样例的预览试试，试试官网样例是否有提示<br />根据官网的提示下载安装试试。安装后刷新页面再测试</p>
+<p>lodop的位数和操作系统位数无关，和浏览器位数有关。<br />可以两个lodop插件都装上。</p>
+<p>根据官网样例的提示下载也可以，或百度下查看浏览器位数的方法。<br />测试参考一下官网样例http://www.c-lodop.com/LodopDemo.html<br />官网样例是混合部署LodopFuncs.js里已经写好了判断。<br />客户端是浏览器支持np插件，是32位浏览器，就会提示下载32位的Lodop插件：install_lodop32.exe<br />客户端浏览器支持np插件，是64位浏览器，就会提示下载64位的Lodop插件：install_lodop64.exe<br />客户端浏览器不支持np插件（判断如高版本谷歌火狐等），会提示下载C-Lodop方式： CLodop_Setup_for_Win32NT.exe</p>
+<p><strong>原因2：浏览器的安全设置问题</strong><br />现象：进入IE，提示未安装，IE下方有个提示插件有风险，点允许可以正常用，点叉号，还是会提示未安装。<br /><span style="background-color: #ccffcc;">简短问答：</span><br />是否有其他浏览器，用其他浏览器的兼容模式试试。<br />如果其他浏览器的兼容模式可以，排查下IE浏览器是否有安全设置阻挡了该插件。</p>
+<p>修改下IE浏览器的安全级别试试，设置安全级别最低。<br />重置ie浏览器，有些IE默认级别可能就是中高，设置成安全级别最低。</p>
+<p><strong>原因3：IE浏览器访问方式存在问题</strong><br />现象：（1）根据官网提示下载了正确的安装文件，测试官网样例总是提示未安装，修改了安全设置为最低也是未安装.<br />（2）在lodop安装界面右侧下方的链接，点进去进入官网样例，不显示未安装，正常，就是打开IE浏览器进入官网提示未安装。</p>
+<p><span style="background-color: #ccffcc;">简短问答：（此问题比较奇怪，最近远程客户才发现的现象。）</span><br />是否有其他浏览器，用其他浏览器的兼容模式试试。<br />如果其他浏览器的兼容模式可以，排查下IE浏览器是否有安全设置阻挡了该插件。</p>
+<p>那些壳浏览器的兼容模式用的也是IE内核，只有IE有问题，肯定和该IE浏览器有关。</p>
+<p>进入IE时是否有如图的IE的页面提示<br /><img src="https://img2018.cnblogs.com/blog/1481828/201910/1481828-20191017105609373-1803915493.jpg" alt="" /><br />百度下这个提示，参考网上的处理方法试试。</p>
+<p>PS：此问题表现为：<br />1.只有IE浏览器提示打印控件未安装，且其他如qq,360等壳浏览器的兼容模式可以。<br />2.根据官网样例的提示下载安装，安装了正确的安装程序，还是提示未安装。</p>
+<p><span style="background-color: #ccffff;"><strong>其他不该提示这个的浏览器提示这个的相关：</strong></span><br />如果是高版本的火狐谷歌提示这个，是不正常的，如果是LODOP的老用户，很多年前的时候，只有LODOP插件，但是随着高版本的火狐谷歌不再支持np插件，所以推出了不再受浏览器的c-lodop解决这一问题。<br /><strong>1.高版本火狐谷歌提示这个，旧版本的LodopFuncs.js，没有用c-lodop。</strong><br />参考http://www.c-lodop.com/faq/pp21.html<br />高版本的火狐谷歌不再支持np插件，需要使用c-lodop，可参考官网样例混合部署http://www.c-lodop.com/LodopDemo.html<br />Lodop控件升级到C-Lodop云打印 参考http://www.c-lodop.com/faq/pp7.html</p>
+<p><strong>2.用了新版本的LodopFuncs.js，但是高版本的火狐谷歌却提示这个</strong><br />查看下LodopFuncs.js里判断部分，高版本的火狐谷歌判断有问题，是否用的不是谷歌或火狐官方的浏览器，是否自己修改了浏览器的信息，或是自己制作的浏览器。导致lodopFuncs.js里面的判断的JS语句无法正确判断是哪个浏览器。</p>
+<p>&nbsp;</p>
+<p>cnblog链接（带图示）:<a href="https://www.cnblogs.com/huaxie/p/11686494.html" target="_blank">IE浏览器提示打印控件未安装的一些原因</a></p>
+<p><a href="../blog_index.html">返回博文列表</a></p>
+</div>
+<div id="footer"><img src="../images/lodopfoot.png"></div>
+</body>
+</html>
