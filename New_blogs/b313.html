@@ -1,0 +1,25 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>WEB打印控件LODOP</title>
+<script language="javascript" src="LodopFuncs.js"></script>
+ <link href="../css/blogback.css" type='text/css' rel="stylesheet">     
+</head>
+<body id="bodyA1">
+<div id="header">
+<div id="head1"></div>
+</div>
+<div class="blogpost-body">
+<h3>LODOP导出Excel简短问答和相关博文</h3>
+    <p>导出excel相关博文：<a href="https://www.cnblogs.com/huaxie/p/9732169.html" target="_blank">Lodop导出excel及提示成功【回调和直接返回值】</a>、<a href="https://www.cnblogs.com/huaxie/p/12106866.html" target="_blank">LODOP导出excel的table合计值</a>、<a href="https://www.cnblogs.com/huaxie/p/12156271.html" target="_blank">Lodop导出excel带数字格式</a>、<a href="https://www.cnblogs.com/huaxie/p/12143560.html" target="_blank">LODOP导出和写入excel测试</a>、<a href="https://www.cnblogs.com/huaxie/p/12118281.html" target="_blank">LODOP导出excel的页眉页脚</a>、<br />其他excel使用相关博文：<a href="https://www.cnblogs.com/huaxie/p/11276448.html" target="_blank">Excel如何输入负数</a>、<a href="https://www.cnblogs.com/huaxie/p/11792294.html" target="_blank">Excel统计发票和金税盘核对新版</a>、<a href="https://www.cnblogs.com/huaxie/p/10365562.html" target="_blank">如何使用Excel表格状态栏动态查看统计</a>、</p>
+<p><strong>简短问答：</strong></p>
+<p><strong>样例27导出excel提示要先安装</strong><br />确认系统 print spooler 打印服务是开启的<br />由于lodop采用&ldquo;Excel.Application&rdquo;来导出excel，所以要求系统必须安装excel相关软件且非绿色安装那种。<br />大量复杂的导出建议采用样例12的办法。样例12导出不需要excel支持。打开是转换需要excel支持.</p>
+<p><strong>导出excel速度过慢</strong><br />导出excel，<br />参考http://www.c-lodop.com/demolist/PrintSample27.html<br />参考http://www.c-lodop.com/demolist/PrintSample12.html<br />样例27的方法，如果导出不要样式，LODOP.SET_SAVE_MODE("QUICK_SAVE",true);//快速生成（无表格样式,数据量较大时或许用到） <br />用样例12的方式试试，<br />表格数据太大，一次导出如果慢，拆分后多次导出试试。</p>
+<p>&nbsp;</p>
+<p>cnblog链接（带图示）:<a href="https://www.cnblogs.com/huaxie/p/12157195.html" target="_blank">LODOP导出Excel简短问答和相关博文</a></p>
+<p><a href="../blog_index.html">返回博文列表</a></p>
+</div>
+<div id="footer"><img src="../images/lodopfoot.png"></div>
+</body>
+</html>
