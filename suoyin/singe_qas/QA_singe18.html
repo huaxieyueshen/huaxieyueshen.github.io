@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>偶尔出现，漏打，重打，偶尔奇怪的提示</title>
+ </head>
+ <body>
+ <style>
+ body{margin:0px;}
+.body {width:100%;}
+a{text-decoration:none;color:black;}
+h1{font-size:1.625em;}
+h2{font-size:1.375em;}
+/**.box{float:left;}**/
+.header_box {width:100%;}
+.header{padding:1%;
+background-color:#f1f1f1;}
+/**border:1px solid #e9e9e9;}**/
+
+.header_bottom{width:100%;}
+.menuitem {
+    margin-top:0;
+    margin-left:0;
+    margin-bottom:0;
+    padding:1%;
+    border-bottom:1px solid #e9e9e9;
+    cursor:pointer;
+}
+
+.main {padding:1%;}
+.main_middle { width:100%;}
+.blue{color:#95bfc7;}
+
+
+.box_footer {width:100%;margin-bottom:0;}
+.footer {
+    padding:1%;
+    text-align:center;
+    background-color:#f1f1f1;
+    font-size:0.625em;
+}
+
+@media only screen and (max-width: 500px) {
+    .menu_left{width:100%;}
+    .menuitem { margin:1%;padding:1%;}
+
+    .main_middle { width:100%;}
+    .main {padding:1%;}
+
+    .box_right {width:100%;}
+    .right { padding:1%;
+    }
+
+    .box { margin-right:0; float:left; }
+}
+
+</style>
+<div class="body"><!--body开始-->
+        <div class="box header_box"><!--header开始-->
+            <div class="header">
+                <h1>LODOP超简短问答-偶尔出现，漏打，重打，偶尔奇怪的提示</h1>
+            </div>
+        </div><!--header结束-->
+<div class="header_bottom"> 
+		   <a href="../../index.html"><div class="menuitem">花谢悦神的主页</div></a>	
+		   <a href="../phoneQA004.html"><div class="menuitem">lodop问答主页</div></a> 
+		   <a href="../phoneQA_dange.html"><div class="menuitem">问答主页（单个问答链接）</div></a> 
+</div>
+        <div class="box main_middle"><!--main_middle开始-->
+            <div class="main">
+<h1>偶尔出现，漏打，重打，偶尔奇怪的提示</h1>
+打印机脱机，查看下打印机队列的状况，任务和页数，是漏任务还是漏页数。<br>
+<br>
+<span style="color:blue;font-weight:bold">偶尔出现漏打任务</span><br>
+<br>
+用最新版对比试试http://www.c-lodop.com/download.html<br>
+参考样例4http://www.c-lodop.com/demolist/PrintSample4.html判断打印的返回值，设置如果漏打，重新打印该任务试试。<br>
+<br>
+参考样例4 http://www.c-lodop.com/demolist/PrintSample4.html,判断下print的返回值。<br>
+调试JS，排查是否执行了足够次数的pirnt。<br>
+并查看版本，用最新版http://www.c-lodop.com/download.html<br>
+<br>
+用最新版试试http://www.c-lodop.com/download.html<br>
+打印机脱机查看下打印机队列的任务数量是否正常<br>
+安装最新版32位c-lodop扩展版，开启日志功能，查看下日志是否正常。<br>
+<br>
+日志功能，在端口设置界面的右键菜单里勾选 Run Logs<br>
+日志存放目录：MountTaiSoftware/CLodop32/Logs，保留最新7天日志，每天不超过200k（约2千条）<br>
+日志有对话REQUEST类和打印PRINTED类两类成功日志(暂无失败日志)，<br>
+前者保存了请求目的、对方IP、对话协议、对话端口和对话时间;<br>
+后者保存了打印机名、打印标题、打印任务页数、打印份数、打印时间；<br>
+<br>
+参考样例4http://www.c-lodop.com/demolist/PrintSample4.html判断打印的返回值，设置如果漏打，重新打印该任务试试。<br>
+<br>
+如果打印机队列的任务和页数都是正常的，而打印机多打了，打印机队列和打印机实际数量不一致，重装打印机驱动试试。<br>
+如果打印机队列任务和页数不正常，比如打印机队列里多了一个任务，查看下C-LODOP的日志里，请求和打印是否一致，是否多请求了一次，如果请求和打印一致，多请求了一下，调试下JS，排查下代码 。<br>
+<br>
+1.用最新版http://www.c-lodop.com/download.html<br>
+2.参考样例4http://www.c-lodop.com/demolist/PrintSample4.html<br>
+直接判断print的返回值，判断是否加入了队列。<br>
+批量打印，参考样例26，尽量多分一些任务试试。<br>
+<br>
+1.用最新版http://www.c-lodop.com/download.html<br>
+2,判断print的返回值，参考样例4.http://www.c-lodop.com/demolist/PrintSample4.html<br>
+返回值判断的是是否加入队列，如果已经加入了队列，就不是程序漏打了。<br>
+3.脱机测试打印，偶尔出现不好排查，最好能找到规律，查看队列是否正常。<br>
+<br>
+<span style="color:blue;font-weight:bold">偶尔出现漏部分内容</span><br>
+<br>
+如果是批量打印超文本，中间漏打的是空白，可以加延迟等方式试试，尽量多分一些任务试试。<br>
+是否没有加载完全，给该超文本打印项加延迟试试：<br>
+LODOP.SET_PRINT_STYLEA(0,"HtmWaitMilSecs",1000)//设置上一项延迟超文本下载1000毫秒<br>
+<br>
+批量打印大量较大的图片，可以试试直接输出base64码方式，参考样例38，不要加img标签。<br>
+批量点大量的超文本和图片，可能会有影响。尽量用add_print_text纯文本等进行设计，这种是lodop直接输出的，不需要经过浏览器解析。<br>
+<br>
+偶尔出现且无法还原不好排查，最好能找到规律。<br>
+如果是单个用户，是否是该用户电脑或系统等问题，最好在出问题的时候去用户电脑上排查下，找到和什么原因有关。<br>
+<br>
+<span style="color:blue;font-weight:bold">偶尔出现重复打印任务</span><br>
+<br>
+用最新版对比试试http://www.c-lodop.com/download.html，<br>
+新版本对重打问题有优化。<br>
+<br>
+重打时总的任务数量是否正常，是有任务重复输出，多了任务。<br>
+还是任务数量正常，有的任务没输出，有的任务输出了多次。<br>
+<br>
+调试JS，排查每次传入的内容数据是否正常，<br>
+传入的超文本是否是新的数据。<br>
+<br>
+之前有客户第一个任务加了超文本延迟，后面的没加，导致传入加载的超文本内容出现有规律的重复。<br>
+<br>
+<span style="color:blue;font-weight:bold">以前是可以的，某台电脑提示，偶尔提示，奇怪的提示</span><br>
+<br>
+关闭浏览器重试一下。<br>
+这个问题是什么时候发生的，是调用打印的时候吗，测试下官网样例http://www.c-lodop.com/demolist/PrintSample2.html<br>
+如果是调用打印的时候发生的，删减代码，排查是那句代码引起的。<br>
+<br>
+可能和打印机，浏览器，打印内容，操作系统，电脑硬件本身等有关。<br>
+1.可能和打印机有关，用该客户的电脑选择xps或pdf虚拟打印机对比测试下。<br>
+如果虚拟打印机正常，测不出这个问题来，那么就可能是和打印机有关。<br>
+2.如果内容有超文本，也可能和浏览器有关，lodop用本机windows底层引擎解析超文本，与ie一致，重置下ie浏览器试试。<br>
+3.也可能和当前访问的浏览器有关，换个浏览器试试，重置浏览器试试。<br>
+4.也可能和打印内容有关，做个简单例子对比排查下试试。<br>
+5.也可能和操作系统电脑等有关，不过先打印点其他内容对比试试，排除内容的影响。<br>
+<br>
+不好判断，只能先测试下，排查是否和打印机（用虚拟打印机对比测试），内容（输出简单内容对比测试），浏览器（重置ie浏览器）如果排除了这些影响，也可能和操作系统硬件等有问题有关，可以用其他相同操作系统对比测试下。<br>
+<br>
+不好判断和什么有关，只能先通过对比排查，定位到和什么有关。<br>
+<br>
+</div>
+    </div><!--main_middle结束-->
+
+        <div class="box box_footer"><!--box_footer开始-->
+            <div class="footer">
+<p>lodop简短问答页面.</p>
+            </div>
+        </div><!--box_footer结束-->
+</div><!--body结束-->
+ </body>
+</html>
