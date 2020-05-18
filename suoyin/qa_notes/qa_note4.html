@@ -1,0 +1,266 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>【非常见问题杂笔记】预览，打印框会被预览框遮住，文件（类型Excel）打开失败等</title>
+ </head>
+ <body>
+ <style>
+ body{margin:0px;}
+.body {width:100%;}
+a{text-decoration:none;color:black;}
+h1{font-size:1.625em;}
+h2{font-size:1.375em;}
+/**.box{float:left;}**/
+.header_box {width:100%;}
+.header{padding:1%;
+background-color:#f1f1f1;}
+/**border:1px solid #e9e9e9;}**/
+
+.header_bottom{width:100%;}
+.menuitem {
+    margin-top:0;
+    margin-left:0;
+    margin-bottom:0;
+    padding:1%;
+    border-bottom:1px solid #e9e9e9;
+    cursor:pointer;
+}
+
+.main {padding:1%;}
+.main_middle { width:100%;}
+
+
+.box_footer {width:100%;margin-bottom:0;}
+.footer {
+    padding:1%;
+    text-align:center;
+    background-color:#f1f1f1;
+    font-size:0.625em;
+}
+
+@media only screen and (max-width: 500px) {
+    .menu_left{width:100%;}
+    .menuitem { margin:1%;padding:1%;}
+
+    .main_middle { width:100%;}
+    .main {padding:1%;}
+
+    .box_right {width:100%;}
+    .right { padding:1%;
+    }
+
+    .box { margin-right:0; float:left; }
+}
+
+</style>
+<div class="body"><!--body开始-->
+        <div class="box header_box"><!--header开始-->
+            <div class="header">
+                <h1>LODOP超简短问答-【非常见问题杂笔记】预览，弹出的打印框会被预览框遮住，文件（类型Excel）打开失败等</h1>
+            </div>
+        </div><!--header结束-->
+<div class="header_bottom"> 
+		   <a href="../../index.html"><div class="menuitem">花谢悦神的主页</div></a>	
+		   <a href="../phoneQA004.html"><div class="menuitem">lodop问答主页</div></a> 
+		   <a href="../phoneQA_dange.html"><div class="menuitem">问答主页（单个问答链接）</div></a> 
+		   <a href="../qa_notes.html"><div class="menuitem">问答等记录笔记，具体问题</div></a>
+</div>
+
+
+
+        <div class="box main_middle"><!--main_middle开始-->
+            <div class="main">
+<h1>【非常见问题杂笔记】预览，弹出的打印框会被预览框遮住，文件（类型Excel）打开失败等</h1>
+1.<span style="color:blue;font-weight:bold">预览，弹出的打印框会被预览框遮住等</span><br>
+是指预览界面的打印按钮弹出的框 被预览覆盖吗。<br>
+<br>
+<span style="color:blue;font-weight:bold">不是每次都能复现，偶尔会出现，频率比较大</span><br>
+不能复现不好排查，不好判断和什么有关。<br>
+这边测试是正常的，测试下官网样例。<br>
+<br>
+<span style="color:blue;font-weight:bold">LODOP.SET_PRINTER_INDEX("Adobe PDF");，打印是这个导出pdf文件。</span><br>
+是虚拟打印机的弹框被预览遮挡了，还是打印预览弹出的打印机选择窗口被遮挡了。<br>
+这边测试是正常的，群文件里有个doro pdf虚拟打印机。<br>
+<br>
+这个是虚拟打印机弹出的，不是lodop弹出的。<br>
+用其他虚拟打印机试试。<br>
+<br>
+lodop本身预览界面没有导出pdf的功能。只能借助pdf虚拟打印机。这个弹窗是pdf打印机选择保存路径的弹窗。<br>
+<br>
+lodop的打印预览的打印按钮的弹出是这样的。（图示）这个是虚拟打印机的弹窗。虚拟打印机的弹窗和虚拟打印机有关。<br>
+<br>
+2.<span style="color:blue;font-weight:bold">现在是设置横向0  一台电脑可以了 其他电脑出来的都是纵向的</span><br>
+设置打印方向，参考样例5 http://www.c-lodop.com/demolist/PrintSample5.html<br>
+0不是横向。<br>
+<br>
+2---横向打印，固定纸张；<br>  
+设置2试试。<br>
+<br>
+3.<span style="color:blue;font-weight:bold">太久了我已经忘记怎么弄注册号了</span><br>
+参考排查一下http://www.c-lodop.com/faq/ph01.html<br>  
+先确保该注册语句执行了，每个打印方法里都要执行。<br>  
+<br>  
+每个打印方法里都加上注册语句。<br>  
+<br>  
+可以先做个简单例子测试下，<br>  
+例如：<br>  
+LODOP.PRINT_INIT("打印任务名"); <br>  
+LODOP.ADD_PRINT_TEXT(0,0,100,20,"文本内容一");<br>  
+LODOP.SET_LICENSES........<br>  
+LODOP.PRINT(); 
+直接放到PRINT()语句前面测试下。<br>  
+<br>  
+也可以写在lodopFuncs.js里标注处统一调用。<br>  
+<br>  
+只要确保打印方法里执行了这个注册语句就行。<br>  
+可以用先做个简单例子，直接放到PRINT()语句前面测试下。<br>  
+<br>  
+LODOP.SET_LICENSES........<br>  
+这个语句，是否还在<br>  
+<br>  
+查看下购买注册号的邮箱里，如果是ip或域名注册，只要访问的还是注册的ip或域名就行。<br>  
+公司名的不限制。<br>  
+<br>  
+3.<span style="color:blue;font-weight:bold">c-lodop不能使用</span><br>
+测试下官网样例http://www.c-lodop.com/demolist/PrintSample2.html，点预览试试<br>
+进入欢迎页面http://localhost:8000，点欢迎页面的预览试试<br>
+能使用说明安装启动正常。<br>
+<br>
+点启动界面右下角的链接进去试试（图示)<br>
+<br>
+双击桌面上的c-lodop快捷方式，重启一下本机的c-lodop，重启c-lodop后刷新页面。<br>
+<br>
+4.<span style="color:blue;font-weight:bold">导出excel提示“文件（类型Excel）打开失败！</span><br>
+由于lodop采用“Excel.Application”来导出excel，所以要求系统必须安装excel相关软件且非绿色安装那种。<br>
+大量复杂的导出建议采用样例12的办法。样例12导出不需要excel支持。打开是转换需要excel支持.<br>
+<br>
+参考http://www.c-lodop.com/demolist/PrintSample12.html<br>
+<br>
+<span style="color:blue;font-weight:bold">用样例12提示“客户端没有所需要的权限”</span><br>
+没有权限，换个不是C盘的路径试试，<br>
+以管理员权限登录安装，使用试试。<br>
+<br>
+当前登录的windows账户是否是管理员账户，写入本地文件可能需要更多的权限 。<br>
+<br>
+可以用选择路径的文本框，把返回的选择路径显示在text文本框里，然后点保存。<br>
+<br>
+样例12导出是这种没线框样式，可以尝试css样式控制试试。<br>
+是所有的样式都能导出。<br>
+<br>
+没有很好的方法，只能测试下那些样式能导出 ，如果不行，样例12就是导出不了那种样式。<br>
+<br>
+只有样例27那种导出的带数字格式等，<br>
+样例12的那种不行。<br>
+<br>
+或者安装excel相关软件且非绿色安装那种。<br>
+然后用样例27的方法导出。<br>
+<br>
+样例27可以导出一些样式，可以做简单例子测试下。<br>
+逐步排查哪些css样式显示正常。<br>
+<br>
+加载css样式，参考样例10 http://www.c-lodop.com/demolist/PrintSample10.html<br>
+试试传入样式。可以用字符串拼接，把样式和内容，拼接出需要的html内容试试。<br>
+<br>
+没有很好的方法，只能逐测试下这些样式。<br>
+<br>
+没有很好的方法，内部导出细节不清楚，只能实际测试查看一些样式的导出效果。<br>
+<br>
+5.<span style="color:blue;font-weight:bold">页面只有第四行的代码，运行的时候自己出现了前面3行，这是为什么呀？（其中还有一个./路径的CLodopFuncs.js</span><br>
+用下载中心综合版里的lodopFuncs.js。<br>
+<br>
+./CLodopFuncs.js这个只是适用于clodop例子的。<br>
+综合版里的是不带这个。都是通过端口引用的。<br>
+<br>
+参考lodopFuncs.js里，判断为clodop会通过端口引用clodopfucns.js<br>
+<br>
+参考lodopFuncs.js里，动态引用了这个clodopFuncs.js。<br>
+参考http://www.c-lodop.com/faq/pp23.html<br>
+<br>
+这个安装启动后，会通过端口引用。<br>
+需要安装启动 本地clodop。<br>
+<br>
+带./CLodopFuncs.js的这个是clodop的例子文件。<br>
+lodopFuncs.js从下载中心综合版里下载<br>
+<br>
+5.<span style="color:blue;font-weight:bold">广域网AO打印,打印预览怎么变空白了，最近没有修改程序，上线前一直正常用的，有一段时间没有用过预览功能了，现在预览都是空白的</span><br>
+重启一下云主机上的c-lodop，重启c-lodop后刷新页面。<br>
+<br>
+是否开了服务器端工作模式，禁用虚拟打印机。<br>
+<br>
+访问下http://[C-Lodop服务所在主机ip或域名]:[C-Lodop端口]/c_aoprint 欢迎页面，查看下端桥是否在线，点预览试试<br>
+<br>
+<span style="color:blue;font-weight:bold">服务器不登陆任何用户，AO端桥可以打印，但预览不行。登陆管理员后，不注消，只断开，则正常</span><br>
+如果可以打印，预览也应该是可以的。<br>
+测试下欢迎页面的例子试试，建议登录上管理员账户试试。<br>
+<br>
+访问下http://[C-Lodop服务所在主机ip或域名]:[C-Lodop端口]/c_sysmessage，查看AO服务器端c-lodop的出错信息<br>
+查看下错误信息试试，是否是权限问题。<br>
+<br>
+并排查是否和内容有关，预览欢迎页面的例子，打印预览试试。<br>
+<br>
+并用最新版对比试试http://www.lodop.net/download.html<br>
+<br>
+重启下云主机上的c-lodop试试。<br>
+<br>
+预览后是否没有关闭预览界面，c-lodop只能一次开启一个界面。<br>
+<br>
+6.<span style="color:blue;font-weight:bold">3.0后的c-lodop，这个版本能打印pdf吗</span><br>
+不支持，要4.0后的<br>
+<br>
+下载中心，目前是4XX<br>
+http://www.lodop.net/download.html<br>
+<br>
+这个4.0X是32位c-lodop,支持32和64位操作系统。<br>
+<br>
+7.<span style="color:blue;font-weight:bold">买了公司名的高级注册，后续如果发现需要用到顶级注册的功能，可以补全顶级的钱升级么</span><br>
+可以，公司名的高级可以补差价升级到顶级。<br>
+会发一个JS注册语句，程序可在下载中心下载。http://www.c-lodop.com/download.html<br>
+<br>
+8.<span style="color:blue;font-weight:bold">怎么设置自适应打印？就是不换行text</span><br>
+打印项是什么语句输出的，是add_print_text纯文本，还是add_print_htm超文本<br>
+不支持自适应，可以JS判断下传入的字符个数，更改文字大小试试。<br>
+<br>
+默认超过宽度，高度不够，会隐藏后面的。<br>
+<br>
+9.<span style="color:blue;font-weight:bold">ADD_PRINT_HTM方法支持某个样式吗</span><br>
+查看lodop内部解析的html信息，见http://www.c-lodop.com/faq/pp8.html<br>
+分析差异点，因浏览器版本不同遵循的html标准不同，造成某些标签属性显示有差异，尽量避免使用有差异的属性，可以在ie下不同版本仿真情况下验证差异<br>
+排查样式，尽量使用使用各浏览器无歧义的通用的 html css js，不支持的样式可尝试用其他样式代替。<br>
+需要实际测试下，和本机调用的解析引擎有关。<br>
+<br>
+10.<span style="color:blue;font-weight:bold">怎么设置自适应打印？就是不换行text</span><br>
+参考http://www.c-lodop.com/faq/pp12.html<br>
+高度设置很小。<br>
+<br>
+11.<span style="color:blue;font-weight:bold">自己的电脑打印没问题，客户端偏移</span><br>
+参考http://www.c-lodop.com/faq/pp17.html<br>
+调整打印机到初始位置。<br>
+或针对该客户端用打印维护进行整体偏移，结果在客户端本地。<br>
+<br>
+12.<span style="color:blue;font-weight:bold">打印图片的时候，运行一段时间，就是打印一段时间之后，会打印空白的问题。这个怎么解决？</span><br>
+批量打印图片吗，由于lodop借助ie引擎解析超文本，img标签的那种受浏览器引擎解析影响。<br>
+大量打印图片会造成缓存不释放问题，造成空白。<br>
+<br>
+尽量减少每次批量的打印的图片数量，或图片大小。<br>
+或换用basee64直接输出方式，不带img标签，参考样例 38http://www.c-lodop.com/demolist/PrintSample38.html<br>
+<br>
+
+
+           </div>
+    </div><!--main_middle结束-->
+
+        <div class="box box_footer"><!--box_footer开始-->
+            <div class="footer">
+<p>lodop简短问答页面.</p>
+            </div>
+        </div><!--box_footer结束-->
+
+
+</div><!--body结束-->
+ </body>
+</html>
