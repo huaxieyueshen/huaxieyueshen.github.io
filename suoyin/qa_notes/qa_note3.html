@@ -1,0 +1,210 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>【非常见问题杂笔记】续打重叠，字体重叠部分等</title>
+ </head>
+ <body>
+ <style>
+ body{margin:0px;}
+.body {width:100%;}
+a{text-decoration:none;color:black;}
+h1{font-size:1.625em;}
+h2{font-size:1.375em;}
+/**.box{float:left;}**/
+.header_box {width:100%;}
+.header{padding:1%;
+background-color:#f1f1f1;}
+/**border:1px solid #e9e9e9;}**/
+
+.header_bottom{width:100%;}
+.menuitem {
+    margin-top:0;
+    margin-left:0;
+    margin-bottom:0;
+    padding:1%;
+    border-bottom:1px solid #e9e9e9;
+    cursor:pointer;
+}
+
+.main {padding:1%;}
+.main_middle { width:100%;}
+
+
+.box_footer {width:100%;margin-bottom:0;}
+.footer {
+    padding:1%;
+    text-align:center;
+    background-color:#f1f1f1;
+    font-size:0.625em;
+}
+
+@media only screen and (max-width: 500px) {
+    .menu_left{width:100%;}
+    .menuitem { margin:1%;padding:1%;}
+
+    .main_middle { width:100%;}
+    .main {padding:1%;}
+
+    .box_right {width:100%;}
+    .right { padding:1%;
+    }
+
+    .box { margin-right:0; float:left; }
+}
+
+</style>
+<div class="body"><!--body开始-->
+        <div class="box header_box"><!--header开始-->
+            <div class="header">
+                <h1>LODOP超简短问答-【非常见问题杂笔记】续打重叠，字体重叠部分等</h1>
+            </div>
+        </div><!--header结束-->
+<div class="header_bottom"> 
+		   <a href="../../index.html"><div class="menuitem">花谢悦神的主页</div></a>	
+		   <a href="../phoneQA004.html"><div class="menuitem">lodop问答主页</div></a> 
+		   <a href="../phoneQA_dange.html"><div class="menuitem">问答主页（单个问答链接）</div></a> 
+		   <a href="../qa_notes.html"><div class="menuitem">问答等记录笔记，具体问题</div></a>
+</div>
+
+
+
+        <div class="box main_middle"><!--main_middle开始-->
+            <div class="main">
+<h1>【非常见问题杂笔记】续打重叠，字体重叠部分等</h1>
+1.<span style="color:blue;font-weight:bold">续打，部分内容重叠，</span><br>
+发一下预览，是和 第二页上方内容重叠吗，可以次页向下偏移<br>
+LODOP.SET_PRINT_STYLEA(0,"Offset2Top",-140);//设置次页向上偏移140<br>
+<br>
+<span style="color:blue;font-weight:bold">预览看不出来。要打印了才看的出来。 做的是续打</span><br>
+参考http://www.c-lodop.com/faq/pp17.html<br>
+如果是连续打印累计偏移，<br>
+3.	连续打印输出多张，偏移累计越来越大：<br>
+设置输出的纸张 与实际纸张大小有差异，如果确实无法做到与纸张实物一样大，输出一定任务数量后，发现有偏差时需要手动调整进纸位置以纠正。<br>
+<br>
+这种单个任务正常，就是连续打印的时候会逐渐偏移。<br>
+<br>
+参考http://www.c-lodop.com/faq/pp17.html<br>
+如果是连续打印，尽量和实际纸张一致，否则会逐渐偏移，这种连续打印的时候出现。<br>
+<br>
+<span style="color:blue;font-weight:bold">不是连续输出的，续打是指接着我上一次未打完的继续打印，不是指连续打印</span><br>
+如果是一次打印就偏移，可能是打印机初始位置问题。<br>
+可用打印维护整体偏移下，只针对该打印机有效。<br>
+<br>
+任务是按纸张走纸的。纸张是怎样设置的。<br>
+<br>
+续打是另一个任务吗。<br>
+之前打印的和现在的续打是两个任务吗<br>
+<br>
+<span style="color:blue;font-weight:bold">比如一张A4纸，我第一天的打了5行，剩下不是还有一大半的纸还没有打完，第二天还是用这张纸继续 放进去打今天 写的10行东西。就这样 的打，碰到要换页的时候，有几天是正常转页，不重叠 的。有几天是会重叠 的（发预览图，预览是重叠了部分）</span><br>
+NewPageA和NewPage使用特性区分，参考http://www.lodop.net/faq/pp19.html<br>
+是不是前面打的是另一个的打印项，可以用newpagea。<br>
+<br>
+如果不是另一个的打印项，前面的打印项自动分页的，进行偏移，向下偏移。<br>
+LODOP.SET_PRINT_STYLEA(0,"Offset2Top",-140);//设置次页向上偏移140<br>
+正值就是向下偏移。<br>
+<br>
+2.<span style="color:blue;font-weight:bold">lodop是免费的clodop是收费的，对吧？</span><br>
+不是，参考http://www.c-lodop.com/demolist/t1.html<br>
+参考链接里的三种角色及使用方法。<br>
+<br>
+如果是第一种角色：<br>
+控件注册号 注意事项 最新价格表、购买方式和使用方法见(官网)：<br>
+http://www.c-lodop.com/Lodop_Lic.html<br>
+<br>
+Lodop c-lodop是一款专业共享软件，公开版本未限制功能，多数用户可免费长期使用。仅如下情况需要注册收费(费用很少)：您希望用到(不经过弹出预览窗口的)“直接打印”功能时。不注册时该功能直接打印的纸张左下角会有“本页由XXX试用版输出”小字样水印。另外导出Excel文件或图片也需要注册。
+控件注册号 注意事项 最新价格表、购买方式和使用方法见(官网)：<br>
+http://www.c-lodop.com/Lodop_Lic.html<br>
+<br>
+参考http://www.c-lodop.com/demolist/t1.html<br>
+参考链接里的三种角色及使用方法。<br>
+<br>
+c-lodop注册号是后两种角色的，绑定云主机机器硬件。<br>
+<br>
+3.<span style="color:blue;font-weight:bold">一个任务里能不能多次重新计算分页页码</span><br>
+不支持，页码是一个任务的。<br>
+<br>
+如果知道中途需要在第几页重新设置页面，可以试试设置从第几页开始显示，设置多个页码。<br>
+如果内容中间是自动分页，不能知道在第几页重新计算，只能多分任务，一个任务一种页码。<br>
+<br>
+LODOP.SET_PRINT_STYLEA(0,"NumberStartPage",2);//设置从哪一页开始显示<br>
+LODOP.SET_PRINT_STYLEA(0,"StartNumberValue",3);//设置页码从几开始显示<br>
+<br>
+4.<span style="color:blue;font-weight:bold"> 打印特殊字符怎么转义？？ 例如 逗号句号 “”，。</span><br>
+打印项是什么语句输出的，是add_print_text纯文本，还是add_print_htm超文本<br>
+<br>
+纯文本可以直接输出，可以在打印设计里输入文本，然后生成代码 。<br>
+如果是英文的双引号，可以用JS里的转义字符，加反斜杠<br>
+例如：LODOP.ADD_PRINT_TEXT(17,12,100,20,",.。“”\"\"");<br>
+<br>
+（打印设计图示）<br>
+<br>
+5.<span style="color:blue;font-weight:bold"> 同样一台电脑，我访问本地就可以打印，访问远程服务器就不能打印</span><br>
+参考http://www.c-lodop.com/demolist/t1.html<br>
+参考链接里的三种角色及使用方法。<br>
+是哪种角色<br>
+<br>
+客户端本地打印角色，服务器端不用安装，最后访问的也是客户端本地的c-lodop。<br>
+<br>
+第一种角色，服务器端只需要引用lodopFucs.js，不需要安装。<br>
+<br>
+可以查看lodopfuncs.js，最后访问的是http://localhost:8000/CLodopFuncs.js<br>
+是客户端本地的，每个客户端都要安装。服务器端只是提示客户下载安装。<br>
+<br>
+使用方法是否正确，客户端必须要安装。<br>
+<br>
+http://localhost:8000/CLodopFuncs.js<br>
+这个地址只有客户端安装启动成功后才能访问到。<br>
+<br>
+排查下使用方法是否正确，对照官网样例，右键查看源码，对比下。<br>
+<br>
+6.<span style="color:blue;font-weight:bold"> 有些机器预览和打印HTML的时候，中文出现了重叠</span><br>
+输出个简单的内容测试下，在css样式里指定具体的字体名称多试试，比如宋体。<br>
+不要用字体的英文别名。<br>
+<br>
+例如，测试下样例3的这个打印htm的步骤7：http://www.lodop.net/demolist/PrintSample3.html<br>
+指定下字体名称试试。<br>
+<br>
+7.<span style="color:blue;font-weight:bold"> 打印add_print_text，指定了字体，英文出现了重叠</span><br>
+发一下这个纯文本语句，和对这个纯文本设置的样式，<br>
+<br>
+这边用这两句测的是正常的。<br>
+放大也是正常的，是否有其他打印项或样式等的影响。单独测试这个打印项试试。（图示）<br>
+<br>
+用最新版试试http://www.c-lodop.com/download.html<br>
+<br>
+进入打印设计，查看字体列表是否有这个字体名，如果操作系统没有这个字体，不会按照这个字体显示。<br>
+<br>
+在打印设计里换成其他字体试试<br>
+<br>
+参考http://www.c-lodop.com/demolist/PrintSample35.html<br>
+打印设计也是根据代码生成的，效果应该是一样的。<br>
+单独做个简单的例子试试，先不设置其他语句，单独调试下这个语句试试。<br>
+并换电脑等测试下。<br>
+可以在样例35里进行测试。
+<br>
+这边没有测出来，比较奇怪，用其他电脑测试下，换个字体试试。<br>
+<br>
+<span style="color:blue;font-weight:bold"> Arial字体也有问题</span><br>
+比较奇怪，这边没有出现这个问题。不好判断和什么有关。<br>
+<br>
+相关博文（在cnblog上，图文）：<a href="https://www.cnblogs.com/huaxie/p/10097082.html"><span style="color:blue">LODOP字体不识别 英文字母连起来 引号不正常</span></a><br>
+
+
+           </div>
+    </div><!--main_middle结束-->
+
+        <div class="box box_footer"><!--box_footer开始-->
+            <div class="footer">
+<p>lodop简短问答页面.</p>
+            </div>
+        </div><!--box_footer结束-->
+
+
+</div><!--body结束-->
+ </body>
+</html>
