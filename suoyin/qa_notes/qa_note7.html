@@ -1,0 +1,330 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>【非常见问题杂笔记】截取图片显示空白，该打印机在云服务器模式下被禁用等</title>
+ </head>
+ <body>
+ <style>
+ body{margin:0px;}
+.body {width:100%;}
+a{text-decoration:none;color:black;}
+h1{font-size:1.625em;}
+h2{font-size:1.375em;}
+/**.box{float:left;}**/
+.header_box {width:100%;}
+.header{padding:1%;
+background-color:#f1f1f1;}
+/**border:1px solid #e9e9e9;}**/
+
+.header_bottom{width:100%;}
+.menuitem {
+    margin-top:0;
+    margin-left:0;
+    margin-bottom:0;
+    padding:1%;
+    border-bottom:1px solid #e9e9e9;
+    cursor:pointer;
+}
+
+.main {padding:1%;}
+.main_middle { width:100%;}
+
+
+.box_footer {width:100%;margin-bottom:0;}
+.footer {
+    padding:1%;
+    text-align:center;
+    background-color:#f1f1f1;
+    font-size:0.625em;
+}
+
+@media only screen and (max-width: 500px) {
+    .menu_left{width:100%;}
+    .menuitem { margin:1%;padding:1%;}
+
+    .main_middle { width:100%;}
+    .main {padding:1%;}
+
+    .box_right {width:100%;}
+    .right { padding:1%;
+    }
+
+    .box { margin-right:0; float:left; }
+}
+
+</style>
+<div class="body"><!--body开始-->
+        <div class="box header_box"><!--header开始-->
+            <div class="header">
+                <h1>LODOP超简短问答-【非常见问题杂笔记】截取图片显示空白，该打印机在云服务器模式下被禁用等</h1>
+            </div>
+        </div><!--header结束-->
+<div class="header_bottom"> 
+		   <a href="../../index.html"><div class="menuitem">花谢悦神的主页</div></a>	
+		   <a href="../phoneQA004.html"><div class="menuitem">lodop问答主页</div></a> 
+		   <a href="../phoneQA_dange.html"><div class="menuitem">问答主页（单个问答链接）</div></a> 
+		   <a href="../qa_notes.html"><div class="menuitem"><span style="color:blue;">问答等记录笔记，具体问题</span></div></a>
+</div>
+
+
+
+        <div class="box main_middle"><!--main_middle开始-->
+            <div class="main">
+<h1>【非常见问题杂笔记】截取图片显示空白，该打印机在云服务器模式下被禁用等</h1>
+1.<span style="color:blue;font-weight:bold">图片显示空白</span><br>
+（1）查看lodop内部解析的html信息，见http://www.c-lodop.com/faq/pp8.html
+查看一下传入的图片路径是否正确，尽量用绝对路径地址，换个图片试试。<br>
+（2）显示空白或者图片缺失等问题，加延迟试试：<br>
+LODOP.SET_PRINT_STYLEA(0,"HtmWaitMilSecs",1000)//设置上一项延迟超文本下载1000毫秒<br>
+（3）权限问题，图片显示叉号 说明服务端拒绝了 可能证书 session等问题，导致没有直接访问该图片的权限，有些需要验证之后才能访问图片。由于Lodop借用IE下载引擎，与非IE浏览器之间目前不能传递Session(cookies)<br>
+（4）清空ie缓存 重置ie 后在ie中查看下。IE中的URL最大长度限制为2048字节。超过这个长度会不支持。<br>
+（5） 查看服务器端错误日志排查下 。<br>
+（6）做个简单的例子验证下，排除其他因素的干扰。Base64输出图片参考样例38。<br>
+<br>
+缩放下图片试试，查看图片大小是否正常http://www.c-lodop.com/faq/pp14.html<br>
+<br>
+默认是截取模式，添加缩放语句试试。<br>
+例如LODOP.SET_PRINT_STYLEA(0,"Stretch",1);//(可变形)扩展缩放模式<br>
+<br>
+宽高较小 ，增加宽高，或增加缩放，如果不加缩放，这个图会截取是空白的。<br>
+<br>
+2.<span style="color:blue;font-weight:bold">条码设置了RightMargin，右边距无效</span><br>
+参考http://www.c-lodop.com/demolist/PrintSample46.html<br>
+这个RightMargin是变相控制内容宽度的，比如表格设置百分比后的宽度。<br>
+条码需要设置具体的宽度。<br>
+<br>
+设置条码打印项的left值，靠右显示，<br>
+参考http://www.c-lodop.com/faq/pp10.html<br>
+条码设置多宽不一定是多宽，可以在打印设计里调整到合适大小，然后在打印设计里生成代码。<br>
+<br>
+3.<span style="color:blue;font-weight:bold">断网的话也可以用吗？</span><br>
+可以，与网络无关，c-lodop本地安装启动后，访问的是localhost本地。<br>
+<br>
+可以测试下下载中心的综合版的例子，都可以本地运行。<br>
+<br>
+IP和域名注册，根据浏览器地址栏访问方式注册，P访问，注册IP；域名访问，注册域名；不限IP域名，可做企业名称注册。<br>
+（1）.单独注册服务器ip地址，登陆访问方式是ip地址访问，例如：注册ip地址：192.168.0.1，登陆方式如下<br>http：//192.168.0.1:8000/index.jsp等，域名访问时，注册信息无效。<br>
+（2）.单独注册域名：登陆访问方式是域名地址访问，例如：注册域名： www.c-lodop.com 登陆方式如下<br>：http://www.c-lodop.com/index.html等，ip地址访问时，注册信息无效<br>
+<br>
+只要访问的是注册的地址就行，局域网也可以。<br>
+<br>
+客户访问的时候是否是ip访问方式，如果是，可以注册ip地址。<br>
+<br>
+客户访问时浏览器地址栏输入的地址，<br>
+如果是ip访问，是可以的。<br>
+如果是域名访问，必须注册域名 。<br>
+<br>
+和内外网无关，只验证浏览器地址栏的访问地址。<br>
+<br>
+发一下客户端访问的时候的访问地址，<br>
+ip访问，注册ip，<br>
+域名访问，注册域名。<br>
+<br>
+4.<span style="color:blue;font-weight:bold">数据量很大的是，预览基本就会卡死</span><br>
+可能和很多原因有关：打印内容或样式或图片等过多，有需要下载有脚步执行或本身网络慢；<br>
+机器性能过低 系统ie有问题或缓存过多；或使用的是共享打印机。<br>
+如果预览页数多，可以多分一些任务，太多不建议预览，建议直接打印，在任务和页数之间平衡一下，参考样例26 <br>http://www.c-lodop.com/demolist/PrintSample26.html<br>
+<br>
+不建议预览，建议直接打印，并拆分成多任务输出。<br>
+<br>
+<span style="color:blue;font-weight:bold">多少页建议拆分？</span><br>
+在任务和页数之间平衡一下，参考样例26 http://www.c-lodop.com/demolist/PrintSample26.html<br>
+<br>
+和内容也有关。只能自己平衡一下。<br>
+<br>
+只能自己平衡下，如果一页里样式和内容都很多，可以多分一些任务。<br>
+如果每页内容很少，样式也很少，可少分一些任务。<br>
+<br>
+5.<span style="color:blue;font-weight:bold">，js 文件我直接使用安装clodop扩展版后的文件MountTaiSoftware\CLodop32\Rootdir\CLodopDemos中LodopFuncs.js，这样可以不？</span><br>
+<br>
+不可以，这个是c-lodop例子用的。<br>
+用下载中心综合版里的lodopFuncs.js。<br>
+<br>
+参考http://www.c-lodop.com/faq/pp34.html<br>
+<br>
+那个./CLodopFuncs.js那个，是用于clodop自带例子的，实际需要 <br>
+通过端口访问，例如http://localhost:8000/CLodopFuncs.js<br>
+<br>
+<span style="color:blue;font-weight:bold">单独使用clodop和之前是否安装过lodop有关系没，之前安装lodop不卸载对clodop使用有影响没</span><br>
+没有影响。lodop是个浏览器插件。<br>
+<br>
+单独使用c-lodop方式，并没有调用插件，两者无关，没有影响。<br>
+<br>
+6.<span style="color:blue;font-weight:bold">条码数量不固定，改怎么处理呢，地下的表格要在条码下面</span><br>
+条码数量不固定吗，那么高度也没法固定。<br>
+<br>
+或者通过JS判断累加下打印项的高度<br>
+http://www.c-lodop.com/demolist/PrintSampleA1.html<br>
+用纯文本输出。<br>
+<br>
+没有很好的方法，只能JS判断下，需要输出多少条码，留够多少顶边距给表格。<br>
+<br>
+相关博文：<a href="https://www.cnblogs.com/huaxie/p/12204666.html">LODOP某内容关联条码后自动分页</a>、
+关联前面的打印项，只能是高度不定的那种，条码作打印项高度固定的，不能被关联。<br>
+<br>
+7.<span style="color:blue;font-weight:bold">在端桥模式下 提示该打印机在云服务器模式下被禁用</span><br>
+三种角色及使用方法：<br>
+参考http://www.c-lodop.com/demolist/t1.html<br>
+服务器端工作模式禁用虚拟打印机，选择一个真实打印机。<br>
+<br>
+http://[C-Lodop服务所在主机ip]:[C-Lodop端口]/<br>
+访问下欢迎页面，选择其他打印机试试。<br>
+<br>
+如果其他打印机正常，重装该打印机驱动试试。<br>
+<br>
+目前只有虚拟打印机在后两种角色中禁用。<br>
+测试下欢迎页面，在欢迎页面里选择打印机试试。<br>
+<br>
+删除该打印机驱动，重新安装试试。<br>
+如果本机有共享打印机，删除共享打印机后，刷新页面再测试下。<br>
+<br>
+目前被禁用的只有虚拟打印机。<br>
+选择其他打印机试试。是否和该打印机或该打印机驱动有关。<br>
+<br>
+<span style="color:blue;font-weight:bold">只有这一台打印机 驱动也重新安装了 还是不行</span><br>
+目前只禁用虚拟打印机。<br>
+真实打印机驱动应该不会被禁用，不好判断。<br>
+找个有多台打印机的客户测试下。<br>
+<br>
+只要是能安装到windows打印机列表的都支持。<br>
+不好判断，多找些客户测试下试试。<br>
+<br>
+<span style="color:blue;font-weight:bold">别的客户，都可以的（这个一个客户一台打印机有问题）</span><br>
+那么就是和这个客户有关，不好判断，给这个客户装其他打印机驱动试试，选择其他打印机测试下。<br>
+排查是否和该打印机有关。<br>
+<br>
+如果其他打印机都正常，只有这一台打印机提示被禁用。<br>
+可能和这个打印机有关，发一下这个打印机型号等信息试试。<br>
+<br>
+先安装其他打印机驱动试试，如果确认是该打印机问题，这边会向开发人员反馈下试试。<br>
+（panasonic kx-mb2033cn  这台是松下的）<br>
+<br>
+8.<span style="color:blue;font-weight:bold">使用html模板打印的时候，需要等待比较长一段时间</span><br>
+通过做简单例子或删减代码排查下。<br>
+如果怀疑和内容有关，输出个简单的超文本测试下。<br>
+<br>
+用LODOP语句输出试试，参参考样例11 http://www.c-lodop.com/demolist/PrintSample11.html<br>
+<br>
+超文本生成的内容都需要经过浏览器解析，换成lodop语句输出试试，这种比较快。<br>
+<br>
+参考http://www.c-lodop.com/demolist/PrintSample47.html<br>
+如果这个样例预览不显示条码 。<br>
+只能定位到合适的位置。<br>
+<br>
+这种小票用纯文本比较好。<br>
+小票打印 ，参考样例18 http://www.c-lodop.com/demolist/PrintSample18.html<br>
+（小票针式打印 建议用 ADD_PRINT_TEXT文本，不用htm超文本，纸张高度不定容易引起 htm 中排版变形）<br>
+<br>
+9.<span style="color:blue;font-weight:bold">有一个客户那边打印时，打印机没反应</span><br>
+让该客户测试下官网样例http://www.c-lodop.com/demolist/PrintSample2.html，点预览试试
+试试官网样例是否有提示<br>
+<br>
+可以先点预览，预览能显示，说明安装启动正常。<br>
+<br>
+这个样例没选打印机，可以在预览界面里选择下，打印试试。<br>
+<br>
+选择需要的打印机，打印试试。<br>
+点打印后查看下打印机队列。<br>
+<br>
+样例打印正常，说明打印机也正常，对照样例排查下代码。<br>
+<br>
+如果代码没选打印机，排查打印机的一些优先级，参考http://www.c-lodop.com/blogs/Blog002.html<br>
+是否是选的这个需要的打印机。<br>
+<br>
+对照着两个页面排查下。如果怀疑和内容有关，单独在该机器上测试下这个内容。<br>
+<br>
+10.<span style="color:blue;font-weight:bold">按IP注册的话，我在http网站上可以使用打印服务吗</span><br>
+只要访问的是注册的ip就行。<br>
+<br>
+IP和域名注册，根据浏览器地址栏访问方式注册，P访问，注册IP；域名访问，注册域名；不限IP域名，可做企业名称注册。<br>
+（1）.单独注册服务器ip地址，登陆访问方式是ip地址访问，例如：注册ip地址：192.168.0.1，登陆方式如下<br>http：//192.168.0.1:8000/index.jsp等，域名访问时，注册信息无效。<br>
+（2）.单独注册域名：登陆访问方式是域名地址访问，例如：注册域名： www.c-lodop.com 登陆方式如下<br>：http://www.c-lodop.com/index.html等，ip地址访问时，注册信息无效<br>
+<br>
+控件注册号 注意事项 最新价格表、购买方式和使用方法见(官网)：<br>
+http://www.c-lodop.com/Lodop_Lic.html<br>
+<br>
+可以。620的可注册二级 三级域名。<br>
+该域名下子域名可用。<br>
+<br>
+970的可注册顶级，所有子域名可以用。<br>
+<br>
+网站后面的端口不限制，只要是访问的这个域名就行。<br>
+<br>
+注册哪个域名 <br>
+这个吗 ，这个下面的 子域名可用。<br>
+<br>
+970的，如果想顶级域名下都能用，可以注册这个970的。子域名不限制<br>
+如果是file//等本地路径，不带域名 不行。限制域名下使用。<br>
+<br>
+11.<span style="color:blue;font-weight:bold">一维码的打印浓度是通过调整宽度来调整？</span><br>
+参考http://www.c-lodop.com/faq/pp6.html<br>
+调整条码的宽度试试。<br>
+<br>
+如果是指打印机的浓度，lodop无法控制。<br>
+<br>
+12.<span style="color:blue;font-weight:bold">RightMargin和宽度溢出缩放同时使用</span><br>
+参考http://www.c-lodop.com/demolist/PrintSample46.html<br>
+RightMargin是变相控制宽高的。<br>
+<br>
+这个右边距是变相控制宽度的，受内部样式影响，不是设置右边距的。<br>
+参考http://www.c-lodop.com/demolist/PrintSample46.htm<br>
+<br>
+宽度溢出缩放是针对超过纸张宽度内容的。也就是内部样式规定超过了纸张。<br>
+<br>
+13.<span style="color:blue;font-weight:bold">打印任务 无法发到打印机列表中</span><br>
+选择该打印机，测试下样例4<br>
+http://www.c-lodop.com/demolist/PrintSample4.html<br>
+<br>
+对照样例排查代码 ，选择的是否是同一个打印机。<br>
+并参考样例源码，如果是用的c-lodop,返回值需要回调函数。<br>
+<br>
+排查选择的打印机是否正确，如果是按照序号指定的打印机。<br>
+打印机删减，会造成序号改变，可以用打印机名称指定。<br>
+<br>
+调试JS，排查指定打印机的参数是否正确。<br>
+测试样例7，用样例7获取的打印机名称。<br>
+<br>
+测试样例5，7，获取打印机名称，<br>
+查看是否是这个名称。<br>
+<br>
+在样例5里预览或打印试试。<br>
+<br>
+参考样例4源码，如果是用的c-lodop,返回值需要回调函数。<br>
+对照样例排查下自己的代码 ，样例右键查看源码。<br>
+<br>
+14.<span style="color:blue;font-weight:bold">如何生成 1/120  这样的页码 表示 120页的第一页 同时可以生成001的条形码</span><br>
+页码，参考样例6 http://www.c-lodop.com/demolist/PrintSample6.html<br>
+样例43http://www.c-lodop.com/demolist/PrintSample43.html<br>
+<br>
+条形码的数值需要传入参数。<br>
+如果预先知道页数，可以赋值。<br>
+<br>
+15.<span style="color:blue;font-weight:bold">oOBJECT,oEMBED指什么</span><br>
+lodop插件的，参考http://www.c-lodop.com/demolist/PrintSample1.html<br>
+<br>
+当页面不添加以上代码时，getLodop过程会动态建立它们，语句简化如下(推荐)：<br>
+var LODOP=getLodop();<br>
+<br>
+16.<span style="color:blue;font-weight:bold">图片超过纸张</span><br>
+超出纸张了，缩放图片，参考http://www.c-lodop.com/faq/pp14.html<br>
+<br>
+预览下方状态栏查看下纸张，设置的图片宽高是否超出了纸张。<br>
+<br>
+           </div>
+    </div><!--main_middle结束-->
+
+        <div class="box box_footer"><!--box_footer开始-->
+            <div class="footer">
+<p>lodop简短问答页面.</p>
+            </div>
+        </div><!--box_footer结束-->
+
+
+</div><!--body结束-->
+ </body>
+</html>
