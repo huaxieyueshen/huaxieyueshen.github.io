@@ -1,0 +1,374 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>【非常见问题杂笔记】批量打印任务过快，条码较短等</title>
+ </head>
+ <body>
+ <style>
+ body{margin:0px;}
+.body {width:100%;}
+a{text-decoration:none;color:black;}
+h1{font-size:1.625em;}
+h2{font-size:1.375em;}
+/**.box{float:left;}**/
+.header_box {width:100%;}
+.header{padding:1%;
+background-color:#f1f1f1;}
+/**border:1px solid #e9e9e9;}**/
+
+.header_bottom{width:100%;}
+.menuitem {
+    margin-top:0;
+    margin-left:0;
+    margin-bottom:0;
+    padding:1%;
+    border-bottom:1px solid #e9e9e9;
+    cursor:pointer;
+}
+
+.main {padding:1%;}
+.main_middle { width:100%;}
+
+
+.box_footer {width:100%;margin-bottom:0;}
+.footer {
+    padding:1%;
+    text-align:center;
+    background-color:#f1f1f1;
+    font-size:0.625em;
+}
+
+@media only screen and (max-width: 500px) {
+    .menu_left{width:100%;}
+    .menuitem { margin:1%;padding:1%;}
+
+    .main_middle { width:100%;}
+    .main {padding:1%;}
+
+    .box_right {width:100%;}
+    .right { padding:1%;
+    }
+
+    .box { margin-right:0; float:left; }
+}
+
+</style>
+<div class="body"><!--body开始-->
+        <div class="box header_box"><!--header开始-->
+            <div class="header">
+                <h1>LODOP超简短问答-【非常见问题杂笔记】批量打印任务过快，条码较短等</h1>
+            </div>
+        </div><!--header结束-->
+<div class="header_bottom"> 
+		   <a href="../../index.html"><div class="menuitem">花谢悦神的主页</div></a>	
+		   <a href="../phoneQA004.html"><div class="menuitem">lodop问答主页</div></a> 
+		   <a href="../phoneQA_dange.html"><div class="menuitem">问答主页（单个问答链接）</div></a> 
+		   <a href="../qa_notes.html"><div class="menuitem"><span style="color:blue;">问答等记录笔记，具体问题</span></div></a>
+</div>
+
+
+
+        <div class="box main_middle"><!--main_middle开始-->
+            <div class="main">
+<h1>【非常见问题杂笔记】批量打印任务过快，条码较短等</h1>
+1.<span style="color:blue;font-weight:bold">创建打印任务跟不上打印速度的现象，也就是说打印快，创建任务慢，打印机会停止工作然后又启动，周而复始，如何解决批量打印创建任务慢的问题。</span><br>
+样例26是纯文本方式，或者改用纯文本进行设计，那种不经过浏览器解析。<br>
+<br>
+可以尝试用纯文本设计，超文本需要浏览器解析和加载内容，可能会比较慢。<br>
+纯文本+线输出表格：ADD_PRINT_TEXT、ADD_PRINT_LINE<br>
+画线输出表格，参考http://www.c-lodop.com/demolist/PrintSampleA1.html<br>
+<br>
+查看下打印机队列的状况是否正常。<br>
+可以先打印机脱机，查看下每个 任务进入队列的时间。<br>
+排查哪些内容引起的过慢。<br>
+<br>
+打印机停止的时候，队列里是否有任务在排队。<br>
+可能是内容太少，导致打印机打印很快打印完。<br>
+<br>
+可以先脱机，然后再选择不脱机，连上打印机，这时候会打印队列里任务。<br>
+任务在队列里排队 ，观察打印机的现象是否是连续打印。<br>
+<br>
+任务执行快，说明内容少，打印机一直在打印，队列里没有留存的任务。<br>
+<br>
+批量打印，分页分任务，在页数和任务之间平衡一下，参考样例26http://www.c-lodop.com/demolist/PrintSample26.html<br>
+或者分页<br>
+<br>
+没有很好的方法，如果是分页，会一个任务打印完 。<br>
+如果是一个任务一个任务的，打印机打印的很快，没有留存的任务，打印机会出现停顿。<br>
+<br>
+放到一个任务里，就是一个任务输出了，一个任务肯定是连续打印的。<br>
+<br>
+可以试试一个任务多页。<br>
+<br>
+或改用纯文本方式，纯文本输出较快，比打印机输出任务快，就能表现为连续打印。<br>
+<br>
+2.<span style="color:blue;font-weight:bold">预览有空白页，打印正常，第二页有内容边线。</span><br>
+用xps或pdf虚拟打印机测试一下。<br>
+如果虚拟打印机也有问题，传入的整个超文本添加背景色，看输出的空白页中是否有背景色<br>
+<br>
+说明内容超出纸张或了，超文本超过纸张或打印项高度，会自动分页。<br>
+查看预览下方状态栏纸张是否和实际纸张一致。<br>
+<br>
+第二页有内容，说明打印项超过纸张高度了。<br>
+如果实际打印出来在一张纸上，是否是实际纸张大于设置的纸张高度。<br>
+<br>
+参考http://www.c-lodop.com/demolist/PrintSample42.html<br>
+可以设置高度溢出缩放<br>
+<br>
+3.<span style="color:blue;font-weight:bold">打印预览下面的rightMargin这个值是哪来的</span><br>
+是可打区域的影响，和打印机有关。不可打边距。<br>
+<br>
+预览里的虚线和打印机有关，是可打区域，咨询下打印机客服试试。<br>
+或确保内容在虚线范围内。<br>
+<br>
+4.<span style="color:blue;font-weight:bold">只要下面的字一长，条码就会变短</span><br>
+参考http://www.c-lodop.com/faq/pp10.html<br>
+条码设置多宽不一定是多宽，可以在打印设计里调整到合适大小，然后在打印设计里生成代码。<br>
+<br>
+增大条码宽度，或缩小条码下方的字体。<br>
+<br>
+第三个参数是打印项宽度。<br>
+<br>
+字体大小，例如LODOP.ADD_PRINT_BARCODE(245,55,77,44,"Code39","123456789012");<br>
+LODOP.SET_PRINT_STYLEA(0,"FontSize",5)<br>
+<br>
+影响条码识别率的可能原因 http://www.c-lodop.com/faq/pp6.html<br>
+增大条码宽度试试，增大的宽度值大一些。<br>
+在打印设计里调整下试试。<br>
+<br>
+5.<span style="color:blue;font-weight:bold">客户端打印不同，偏移</span><br>
+是电脑不同，位置不同，还是样式不同。<br>
+<br>
+偏移，参考http://www.c-lodop.com/faq/pp17.html<br>
+可用打印维护针对该客户端进行调整，结果在客户端本地<br>
+<br>
+参考http://www.c-lodop.com/demolist/PrintSample21.html<br>
+<br>
+6.<span style="color:blue;font-weight:bold">能实现配置好的模板保存到数据库不，下次打印直接读取回来</span><br>
+返回设计的JS代码 参考样例35 http://www.lodop.net.cn/demolist/PrintSample35.html<br>
+文档式模版生成和使用 参考样例50 http://www.lodop.net.cn/demolist/PrintSample50.html<br>
+保存到数据库,和从数据库中读取，需要自己处理。<br>
+<br>
+7.<span style="color:blue;font-weight:bold">集中打印，超过5个访问端，怎么没有提示超过5个的限制呢</span><br>
+是按照ip地址累计的，累计访问云主机5个客户端会有提示。<br>
+中途是否有重启c-lodop，会重新计数，不要重启c-lodop测试下。<br>
+<br>
+三种角色及使用方法：<br>
+参考http://www.c-lodop.com/demolist/t1.html<br>
+使用方法是否正确。用5个终端访问欢迎页面测试下。<br>
+和内外网无关。<br>
+<br>
+对照欢迎页面排查代码，可以先重启下c-lodop，重新计数，重新测试下。<br>
+<br>
+8.<span style="color:blue;font-weight:bold">从打印预览来打印的话 怎么去获取JOB代码</span><br>
+打印预览返回值，参考http://www.c-lodop.com/demolist/PrintSample35.html<br>
+打印预览不会返回job代码。直接打印加上捕捉状态那句会，参考样例45<br>
+<br>
+9.<span style="color:blue;font-weight:bold"> LODOP.ADD_PRINT_SETUP_BKIMG， 怎么把图片存到云上</span><br>
+lodop不支持把图片上传服务器<br>
+只能自己找其他方法上传图片<br>
+<br>
+图片上传服务器，属于客户端和服务器端的交互。<br>
+lodop是前台JS控制的打印控件，只能找方法实现。<br>
+<br>
+参考http://www.c-lodop.com/demolist/PrintSample9.html<br>
+是在服务器上的图片吗，可以用url访问<br>
+例如LODOP.ADD_PRINT_SETUP_BKIMG("img border='0' src='http://www.c-lodop.com/demolist/PrintSample9.jpg'>");<br>
+<br>
+如果是已经上传服务器的，<br>
+这个是网站上的图片，服务上的图片一般可以通过网址访问。<br>
+<br>
+10.<span style="color:blue;font-weight:bold">lodop可以自动识别打印横向纵向打印方式吗</span><br>
+横向纵向 参考http://www.c-lodop.com/blogs/Blog010.html<br>
+设置打印方向，参考样例5 http://www.c-lodop.com/demolist/PrintSample5.html<br>
+横向打印，纵向预览，参考样例16的E http://www.c-lodop.com/demolist/PrintSample16.html<br>
+不支持自动，需要设置或让客户选择。<br>
+<br>
+不支持自动设置打印方向，可以用代码，或者让用户在预览里选择。<br>
+<br>
+11.<span style="color:blue;font-weight:bold">云打印，可以采集到打印持续时间吗</span><br>
+三种角色及使用方法：<br>
+参考http://www.c-lodop.com/demolist/t1.html<br>
+是指后两种角色吗，不支持，可以判断print的返回值获取是否加入队列。判断成功JS输出下当前时间试试 。<br>
+<br>
+可以直接判断print的返回值。这种是判断加入队列。<br>
+状态码那种需要是本机的打印机驱动。<br>
+<br>
+批量打印，分页分任务，在页数和任务之间平衡一下，参考样例26http://www.c-lodop.com/demolist/PrintSample26.html<br>
+或多分一些任务，每个任务输出少量的内容。<br>
+<br>
+12.<span style="color:blue;font-weight:bold">table里打印二维码</span><br>
+参考http://www.mtsoftware.cn/demolist/PrintSample47.html<br>
+或定位到合适位置。<br>
+<br>
+预览后可以看到效果，LODOP对象嵌套在一段要输出的超文本中。<br>
+或参考样例11，进行定位到合适的位置。<br>
+<br>
+或者用定位方式，如果内容行高固定，可以根据定位到合适的位置，输出多个二维码。<br>
+<br>
+没有其他很好的方法，lodop二维码内嵌超文本。或定位到合适位置。<br>
+或用img标签输出图片二维码，图片二维码 包含在超文本中。<br>
+<br>
+13.<span style="color:blue;font-weight:bold">采用端桥打印方式需要买哪些东西呢</span><br>
+这个表格的右侧，可以买云注册号扩充访问端。<br>
+<br>
+不是扩充端桥数量，是访问端。<br>
+<br>
+（图示）<br>
+这个访问端的数量。<br>
+端桥没有限制。<br>
+<br>
+是c-lodop注册号，右侧的列表里有链接。<br>
+<br>
+参考http://www.c-lodop.com/demolist/t1.html<br>
+根据角色购买。<br>
+<br>
+如果客户端是访问网站后，在自己的电脑的打印机上打印，属于第一种角色。<br>
+第一种角色可以购买lodop注册号<br>
+控件注册号 注意事项 最新价格表、购买方式和使用方法见(官网)：<br>
+http://www.c-lodop.com/Lodop_Lic.html<br>
+<br>
+后两种角色注册的是单台机器，绑定云主机机器硬件。<br>
+也可以去水印，扩充客户端和去水印。<br>
+<br>
+14.<span style="color:blue;font-weight:bold">如果我要动态生成页码  就不能用 SET_PRINT_COPIES了嘛</span><br>
+SET_PRINT_COPIES份数是一个相同的内容打印多份。<br>
+如果里面有不同的，如页码不同。<br>
+需要用多任务或多页，参考样例26<br>
+<br>
+15.<span style="color:blue;font-weight:bold">套打的位置问题，上调位置后，打印出来没变化，上调过大后，打印出来一下子就上去好多</span><br>
+参考http://www.lodop.net/faq/pp17.html<br>
+<br>
+用打印维护针对该打印机进行微调试试。<br>
+结果在客户端本地，可以微调的整体偏移数值逐渐增大。<br>
+<br>
+1px，1px的逐步调整试试。直到偏移到合适的值。<br>
+<br>
+参考http://www.c-lodop.com/faq/pp9.html<br>
+是微调的小数值没生效吗，参考链接，是否同名的任务等，造成互相影响。<br>
+<br>
+16.<span style="color:blue;font-weight:bold">一个客户打出来的是全黑的</span><br>
+是否内容有背景色，打印的是否是超文本内容。<br>
+排查ie浏览器是否设置了背景色或护眼色。<br>
+<br>
+Lodop是基于本机windows底层引擎进行渲染解析的，与ie调用的引擎一致，需要能在ie里正常显示。<br>
+<br>
+测试下样例2，点预览试试。<br>
+样例2的超文本如果可以显示说明是正常的，<br>
+在该客户端电脑里进入打印设计查看下。查看lodop内部解析的html信息，见http://www.c-lodop.com/faq/pp8.html<br>
+<br>
+17.<span style="color:blue;font-weight:bold">打印服务很不稳定，一会儿我们的打印机服务器打印了没反应，结果打到其他的地方去了，一会儿服务器都异常了</span><br>
+打印到其他电脑上去吗，还是打印到本机的其他打印机上。<br>
+<br>
+三种角色及使用方法：<br>
+参考http://www.c-lodop.com/demolist/t1.html<br>
+是哪种角色<br>
+<br>
+<span style="color:blue;font-weight:bold">集中打印,选择了A打印机，结果在B打印机出来了</span><br>
+增删打印机列表后，刷新下页面试试，清理下浏览器缓存试试，测试下样例5,7<br>
+<br>
+判断下选择的打印机再打印试试。防止走下一个优先级。<br>
+<br>
+不要在云主机上开启应用管理界面，一直处于关闭状态，防止卡死。<br>
+<br>
+云主机上不要打开界面，比如clodop的管理界面。<br>
+如果能走下一个优先级，打印到其他打印机上，可能和打印机的选择有关。<br>
+<br>
+可能和打印机的选择有关，不好判断，如果是指定的具体的打印机名称，只要没有重名的，应该是没有影响的。<br>
+访问下http://[C-Lodop服务所在主机ip或域名]:[C-Lodop端口]<br>
+访问下欢迎页面试试，用这个欢迎页面选择某个打印机试试。<br>
+<br>
+CLODOP.Create_PageSize_List,c-lodop欢迎页面用的是这个方法。<br>
+测试下欢迎页面试试。<br>
+访问下http://[C-Lodop服务所在主机ip或域名]:[C-Lodop端口]<br>
+<br>
+对照样例排查下代码，如果是指定的具体的打印机名称，打印机增删应该是不会影响的。<br>
+观察出问题的时候，是否有什么现象。判断下选择打印机的返回值试试。<br>
+<br>
+预览没有内容显示，重启下云主机上的c-lodop试试。<br>
+<br>
+以管理员权限安装最新版试试http://www.c-lodop.com/download.html<br>
+<br>
+可以下载整个，还是按照原来的使用方法，<br>
+三种角色及使用方法：<br>
+参考http://www.c-lodop.com/demolist/t1.html<br>
+<br>
+http://[C-Lodop服务所在主机ip或域名]:[C-Lodop端口]<br>
+欢迎页面是否能正常访问，重启下云主机的c-lodop试试。<br>
+<br>
+http://[C-Lodop服务所在主机ip或域名]:[C-Lodop端口]<br>
+测试下欢迎页面，用欢迎页面获取的打印机列表，选择A打印机，测试下。可以先打印机脱机，查看下是哪个打印机驱动接收到了这个任务。<br>
+<br>
+两个地方都访问下这个欢迎页面测试下。第二种角色是打印到同一台电脑上，执行JS相同，效果应该是一致的。<br>
+集中打印不选localhost，选择云主机的地址进行测试。<br>
+<br>
+和访问的pda无关，pda是访问端，第二种角色是访问的同一台云主机，获取的是该云主机上的打印机列表。<br>
+<br>
+18.<span style="color:blue;font-weight:bold">打100页会有空白页，每次都是那几页空白，头尾正常,中间一堆空白</span><br>
+这个100页是一个任务，还是多个任务。<br>
+<br>
+空白页是否有规律<br>
+<br>
+如果每次都是固定的空白页，那么也可能和内容有关，<br>
+预览查看下效果，查看下这几页是否是预览空白的。<br>
+是手动分页吗，每页都是newpage那种。<br>
+<br>
+是每页一个打印项，还是打印项数量少，中间有打印项存在自动分页。<br>
+给所有内容加背景色试试，排查是否有不可见内容导致空白页。<br>
+<br>
+中间空白比较奇怪。<br>
+如果是中间的几页每次一定出现，单独输出中间的几页测试下。<br>
+如果单独输出，和这些页数分两次输出都正常。<br>
+可能是一次打印超文本太多，只能拆分内容，分页分任务，平衡一下，参考样例26<br>
+<br>
+可能是一次打印超文本太多，只能拆分内容，分页分任务，<br>
+批量打印，分页分任务，在页数和任务之间平衡一下，参考样例26http://www.c-lodop.com/demolist/PrintSample26.html<br>
+<br>
+如果内容不复杂，文本和线条等，可以用lodop语句和画线输出，这种不受浏览器解析的影响。且输出较快。<br>
+<br>
+标签一般内容比较简单，建议用纯文本方式<br>
+纯文本+线输出表格：ADD_PRINT_TEXT、ADD_PRINT_LINE<br>
+画线输出表格，参考http://www.c-lodop.com/demolist/PrintSampleA1.html<br>
+<br>
+19.<span style="color:blue;font-weight:bold">topmagrin很大，可打区域 </span><br>
+和可打区域有关，可以用虚拟打印机对比测试下。
+虚拟打印机无可打区域。
+
+和可打区域有关，可以用虚拟打印机对比测试下。
+虚拟打印机无可打区域。
+
+参考http://www.c-lodop.com/faq/pp26.html
+
+参考http://www.c-lodop.com/faq/pp26.html
+和打印机有关，lodop控制不了。
+咨询下打印机客服试试。
+
+是否是同一台打印机，这个和打印机有关，和电脑无关。
+
+这个纸张是否正常，这个纸张看起来很大 。
+
+可以测试下样例5 http://www.c-lodop.com/demolist/PrintSample5.html
+测试打印机对纸张的支持。
+
+重装下打印机驱动试试。
+
+显示的是2700mm，这个纸张看起来不正常。
+重装打印机驱动试试。
+           </div>
+    </div><!--main_middle结束-->
+
+        <div class="box box_footer"><!--box_footer开始-->
+            <div class="footer">
+<p>lodop简短问答页面.</p>
+            </div>
+        </div><!--box_footer结束-->
+
+
+</div><!--body结束-->
+ </body>
+</html>
