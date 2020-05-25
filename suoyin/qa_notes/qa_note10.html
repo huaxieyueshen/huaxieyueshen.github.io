@@ -1,0 +1,247 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>【非常见问题杂笔记】打印svg，出现线条等</title>
+ </head>
+ <body>
+ <style>
+ body{margin:0px;}
+.body {width:100%;}
+a{text-decoration:none;color:black;}
+h1{font-size:1.625em;}
+h2{font-size:1.375em;}
+/**.box{float:left;}**/
+.header_box {width:100%;}
+.header{padding:1%;
+background-color:#f1f1f1;}
+/**border:1px solid #e9e9e9;}**/
+
+.header_bottom{width:100%;}
+.menuitem {
+    margin-top:0;
+    margin-left:0;
+    margin-bottom:0;
+    padding:1%;
+    border-bottom:1px solid #e9e9e9;
+    cursor:pointer;
+}
+
+.main {padding:1%;}
+.main_middle { width:100%;}
+
+
+.box_footer {width:100%;margin-bottom:0;}
+.footer {
+    padding:1%;
+    text-align:center;
+    background-color:#f1f1f1;
+    font-size:0.625em;
+}
+
+@media only screen and (max-width: 500px) {
+    .menu_left{width:100%;}
+    .menuitem { margin:1%;padding:1%;}
+
+    .main_middle { width:100%;}
+    .main {padding:1%;}
+
+    .box_right {width:100%;}
+    .right { padding:1%;
+    }
+
+    .box { margin-right:0; float:left; }
+}
+
+</style>
+<div class="body"><!--body开始-->
+        <div class="box header_box"><!--header开始-->
+            <div class="header">
+                <h1>LODOP超简短问答-【非常见问题杂笔记】打印svg，出现线条等</h1>
+            </div>
+        </div><!--header结束-->
+<div class="header_bottom"> 
+		   <a href="../../index.html"><div class="menuitem">花谢悦神的主页</div></a>	
+		   <a href="../phoneQA004.html"><div class="menuitem">lodop问答主页</div></a> 
+		   <a href="../phoneQA_dange.html"><div class="menuitem">问答主页（单个问答链接）</div></a> 
+		   <a href="../qa_notes.html"><div class="menuitem"><span style="color:blue;">问答等记录笔记，具体问题</span></div></a>
+</div>
+
+
+
+        <div class="box main_middle"><!--main_middle开始-->
+            <div class="main">
+<h1>【非常见问题杂笔记】打印svg，出现线条等</h1>
+1.<span style="color:blue;font-weight:bold"> 怎么打印svg</span><br>
+需要实际测试下，<br>
+查看lodop内部解析的html信息，见http://www.c-lodop.com/faq/pp8.html<br>
+分析差异点，因浏览器版本不同遵循的html标准不同，造成某些标签属性显示有差异，尽量避免使用有差异的属性，可以在ie下不同版本仿真情况下验证差异
+排查样式，尽量使用使用各浏览器无歧义的通用的 html css js，不支持的样式可尝试用其他样式代替。<br>
+<br>
+Lodop是基于本机windows底层引擎进行渲染解析的，与ie调用的引擎一致。<br>
+<br>
+不同电脑调用的解析引擎版本不同，可能导致一些打印svg，一些不行，需要实际测试下。<br>
+<br>
+2.<span style="color:blue;font-weight:bold"> svg条码有的电脑显示不出来，win7不行，win10可以。</span><br>
+和操作系统无关，和调用的超文本解析引擎有关。调用的解析超文本的引擎版本不同，<br>
+或不用svg，用lodop语句输出条码。参考样例11<br>
+<br>
+如果在该机器上测试不显示svg，就是本机浏览器引擎解析不支持，尽量用各种浏览器都支持的通用的样式。<br>
+<br>
+3.<span style="color:blue;font-weight:bold"> 预览有条横线，打印设计没有</span><br>
+进入打印设计，排查打印项，查看打印设计中横线部分，<br>
+如果是一个lodop输出的线条，删除这个线条。<br>
+如果是超文本内部样式，查看lodop内部解析的html信息，见http://www.c-lodop.com/faq/pp8.html，排查样式<br>
+<br>
+打印设计打印项列表有个lodop的线条语句，这个是纯文本的线条，先去掉这个打印项测试下。<br>
+如果去掉后线条消失，说明是这个线条，如果不消失，说明在htm打印项里。<br>
+<br>
+预览首页中的线条是这个lodop输出的纯文本的线条，<br>
+参考http://www.c-lodop.com/demolist/PrintSample25.html<br>
+设置这个线条打印项，为页眉页脚项，每页输出，禁止输出到第一页。<br>
+<br>
+4.<span style="color:blue;font-weight:bold"> 获取当前是横向纵向吗</span><br>
+参考样例22，预览或的打印后获取。http://www.c-lodop.com/demolist/PrintSample22.html<br>
+样例右键，查看源码。<br>
+需要预览或打印后获取，样例22是预览后获取。<br>
+<br>
+<span style="color:blue;font-weight:bold"> 更改横向纵向 后想更改打印内容能实现么</span><br>
+横向纵向 参考http://www.c-lodop.com/blogs/Blog010.html<br>
+设置打印方向，参考样例5 http://www.c-lodop.com/demolist/PrintSample5.html<br>
+<br>
+可以传入变量，设置横向纵向，打印内容可以传入变量实现。<br>
+如果是指预览后改变打印内容，不支持，只能在预览前改变代码里的打印内容参数。<br>
+<br>
+5.<span style="color:blue;font-weight:bold"> LODOP.NewPage();没分页</span><br>
+参考http://www.c-lodop.com/demolist/PrintSample30.html<br>
+<br>
+测试下样例30，如果样例30正常，样例右键查看源码，<br>
+这个分页是在一个任务内分页，从初始化到打印是一个任务。<br>
+<br>
+6.<span style="color:blue;font-weight:bold"> 条码宽度打印出来和虚拟打印机的不一样</span><br>
+真实打印机预览查看下效果。<br>
+<br>
+真实打印机和虚拟打印机都用相同的条码语句测试下，如果是相同的条码语句，可能和打印机精度等有关。<br>
+<br>
+理论上本机虚拟打印没问题的话，说明插件代码没问题，程序可做的努力就的确很少了，毕竟windows下的打印是微软倡导的设备无关系原则。<br>
+根据该打印机，用打印维护在客户端调整下条码 宽度试试，调整后的宽度只针对该机器有影响。<br>
+<br>
+7.<span style="color:blue;font-weight:bold"> 如何让打印项总在右下角，不同纸张。</span><br>
+设置下边距和右边距固定，参考http://www.c-lodop.com/demolist/PrintSample6.html
+<br>
+LODOP.ADD_PRINT_TEXT(421,542,165,22,"右下脚的页号：第#页/共&页");<br>
+LODOP.SET_PRINT_STYLEA(0,"ItemType",2);<br>
+LODOP.SET_PRINT_STYLEA(0,"Horient",1);<br>
+LODOP.SET_PRINT_STYLEA(0,"Vorient",1);<br>
+例如样例6里面的页码<br>
+<br>
+8.<span style="color:blue;font-weight:bold">打印调整保存后要恢复到原来怎么办？</span><br>
+如果是指打印维护的应用，参考http://www.c-lodop.com/faq/pp9.html<br>
+如果是指打印设计里的暂存，那个只是暂存，设计时可以返回上一步暂存的位置。<br>
+如果想返回打印设计的代码，参考样例35<br>
+<br>
+9.<span style="color:blue;font-weight:bold">复选框的勾中样式是在input的节点里要有checked属性打印才能显示吗</span><br>
+如果是指打印复选框：<br>
+参考http://www.c-lodop.com/demolist/PrintSample23.html<br>
+样例右键查看源码<br>
+<br>
+如果是指传入不同的样式，参考http://www.c-lodop.com/demolist/PrintSample10.html<br>
+只要拼接等方法，最后传入的是需要的样式就行。<br>
+<br>
+10.<span style="color:blue;font-weight:bold">小票打印项不定高，又设置打印项高度为100%</span><br>
+打印项是什么语句输出的，是add_print_text纯文本，还是add_print_htm超文本<br>
+<br>
+小票打印 ，参考样例18 http://www.c-lodop.com/demolist/PrintSample18.html<br>
+（小票针式打印 建议用 ADD_PRINT_TEXT文本，不用htm超文本，纸张高度不定容易引起 htm 中排版变形）<br>
+<br>
+纸张不定高，不建议用超文本打印项。<br>
+打印项高度100%是相对于纸张的，纸张又是不定高，不行，设置具体的打印项高度试试。<br>
+小票建议改用纯文本。<br>
+<br>
+纸张不定高，打印项高度设置是100%，这样是不行的。<br>
+建议用纯文本进行设计。参考样例18，是累计的打印项的高度等。<br>
+<br>
+11.<span style="color:blue;font-weight:bold">改了二维码版本,它的大小会变了是怎么回事</span><br>
+参考http://www.c-lodop.com/faq/pp10.html<br>
+不同的二维码都用相同的版本，可统一二维码大小。<br>
+<br>
+设置较大容量的而版本号。<br>
+都用同一个版本。<br>
+<br>
+没有版本8.<br>
+版本7：	最大值154个字符<br>
+版本10：最大值135个汉字 271个字符<br>
+版本14：最大值229个汉字，458个字符<br>
+<br>
+参考http://www.c-lodop.com/faq/pp10.html<br>
+参考链接的说明，宽度跳跃式放大或缩小，是非线性，宽度不能微小的调整，因为受所有条码竖的合计值影响。<br>
+<br>
+12.<span style="color:blue;font-weight:bold">lodop可以设置打印浓度？</span><br>
+如果是指打印机浓度，属于打印机的功能，lodop控制不了。<br>
+<br>
+13.<span style="color:blue;font-weight:bold">设计器可以放大去设计吗？</span><br>
+PRINT_INITA的三四参数可以设置打印设计可视化编辑区域大小。<br>
+<br>
+如果是指打印设计本身的窗口放大，或内容显示放大，不支持。<br>
+<br>
+打印设计不支持放大，可以在打印预览里点放大，查看预览的放大效果。<br>
+<br>
+14.<span style="color:blue;font-weight:bold">lodop打印表格时怎么判断打印的内容宽度大于表格的宽度？</span><br>
+ lodop没法判断。<br>
+可以用JS判断下试试。多少字超过了单元格宽度。<br>
+<br>
+或设置合适的css样式，内容超过单元格宽度换行或隐藏。<br>
+<br>
+15.<span style="color:blue;font-weight:bold">怎么知道字体的宽度，不同电脑不同</span><br>
+不能知道，不同字体的宽度也是不同的，可以设置字体大小时，不用px等相对单位，用pt等绝对单位。<br>
+<br>
+16.<span style="color:blue;font-weight:bold">打印pdf 试用版是可以直接用的吗</span><br>
+是的，可以用，不是顶级注册，会有个弹窗提示，提示需要顶级注册，点确定，可以进入预览查看效果。<br>
+<br>
+安装最新版c-lodop后，访问http://localhost:8000/c_pdfprint<br>
+<br>
+17.<span style="color:blue;font-weight:bold">点保存，保存不了</span><br>
+这个保存按钮是自己页面上写的，这个保存是指保存成什么，是pdf，还是图片等。<br>
+<br>
+根据自己的页面排查下。<br>
+<br>
+18.<span style="color:blue;font-weight:bold">文本项超出纸张</span><br>
+缩小文本框的宽度。<br>
+<br>
+预览下方状态栏查看下纸张，是否和设置的纸张一致，并再缩小下文本框宽度，直到预览出合适的效果。<br>
+<br>
+19.<span style="color:blue;font-weight:bold">打印两种是不同格式的小票</span><br>
+入如果两个小票纸张等都不同，需要设置两个模版，两个任务输出。<br>
+从初始化到打印是一个任务。<br>
+<br>
+分页分任务，参考样例26，就是多个任务。<br>
+<br>
+可以，分成两个任务，从init或inita初始化到打印是一个任务。<br>
+每个任务设置不同的纸张和份数等。<br>
+<br>
+LODOP.PRINT_INIT("打印任务名");               //首先一个初始化语句 <br>
+LODOP.ADD_PRINT_TEXT(0,0,100,20,"文本内容一");//然后多个ADD语句及SET语句 <br>
+LODOP.PRINT();                               //最后一个打印(或预览、维护、设计)语句<br>
+<br>
+这是一个任务，每个任务可以设置不同纸张，份数和内容。<br>
+<br>
+纸张设置，参考样例5,7<br>
+http://www.c-lodop.com/demolist/PrintSample5.html<br>
+<br>
+           </div>
+    </div><!--main_middle结束-->
+
+        <div class="box box_footer"><!--box_footer开始-->
+            <div class="footer">
+<p>lodop简短问答页面.</p>
+            </div>
+        </div><!--box_footer结束-->
+
+
+</div><!--body结束-->
+ </body>
+</html>
