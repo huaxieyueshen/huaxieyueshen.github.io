@@ -1,0 +1,243 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>【非常见问题杂笔记】Clodop获取设备信息都是NoResult等</title>
+ </head>
+ <body>
+ <style>
+ body{margin:0px;}
+.body {width:100%;}
+a{text-decoration:none;color:black;}
+h1{font-size:1.625em;}
+h2{font-size:1.375em;}
+/**.box{float:left;}**/
+.header_box {width:100%;}
+.header{padding:1%;
+background-color:#f1f1f1;}
+/**border:1px solid #e9e9e9;}**/
+
+.header_bottom{width:100%;}
+.menuitem {
+    margin-top:0;
+    margin-left:0;
+    margin-bottom:0;
+    padding:1%;
+    border-bottom:1px solid #e9e9e9;
+    cursor:pointer;
+}
+
+.main {padding:1%;}
+.main_middle { width:100%;}
+
+
+.box_footer {width:100%;margin-bottom:0;}
+.footer {
+    padding:1%;
+    text-align:center;
+    background-color:#f1f1f1;
+    font-size:0.625em;
+}
+
+@media only screen and (max-width: 500px) {
+    .menu_left{width:100%;}
+    .menuitem { margin:1%;padding:1%;}
+
+    .main_middle { width:100%;}
+    .main {padding:1%;}
+
+    .box_right {width:100%;}
+    .right { padding:1%;
+    }
+
+    .box { margin-right:0; float:left; }
+}
+
+</style>
+<div class="body"><!--body开始-->
+        <div class="box header_box"><!--header开始-->
+            <div class="header">
+                <h1>LODOP超简短问答-【非常见问题杂笔记】Clodop获取设备信息都是NoResult等</h1>
+            </div>
+        </div><!--header结束-->
+<div class="header_bottom"> 
+		   <a href="../../index.html"><div class="menuitem">花谢悦神的主页</div></a>	
+		   <a href="../phoneQA004.html"><div class="menuitem">lodop问答主页</div></a> 
+		   <a href="../phoneQA_dange.html"><div class="menuitem">问答主页（单个问答链接）</div></a> 
+		   <a href="../qa_notes.html"><div class="menuitem"><span style="color:blue;">问答等记录笔记，具体问题</span></div></a>
+</div>
+
+
+
+        <div class="box main_middle"><!--main_middle开始-->
+            <div class="main">
+<h1>【非常见问题杂笔记】Clodop获取设备信息都是NoResult等</h1>
+1.<span style="color:blue;font-weight:bold"> Clodop获取设备信息都是NoResult</span><br>
+双击桌面上的c-lodop快捷方式，重启一下本机的c-lodop，重启c-lodop后刷新页面。<br>
+重启c-lodop后，再测试下官网样例http://www.c-lodop.com/demolist/PrintSample28.html<br>
+<br>
+参考http://www.c-lodop.com/faq/pp5.html<br>
+排查开机启动项，用管理员权限安装最新版http://www.c-lodop.com/download.html，右键以管理员权限运行，再对比试试。<br>
+排查c-lodop是否能开机自启动，默认情况c-lodop是开机自动启动的，没自动开启可能问题：<br>
+1. 在系统msconfig启动选项列查看c-lodop是否是开启自启动；<br>
+2. 当前操作用户权限不足，无系统管理员权限；<br>
+3. 注意安全软件禁用c-lodop. 目前常用的360及金山已进行了安全认证，其他的杀毒软件请加入白名单，或直接上报提交对应的杀毒软件服务器。<br>
+<br>
+看起来不是管理员启动的，以管理员权限重新启动试试。<br>
+<br>
+以管理员权限安装，以管理员权限启动。<br>
+用管理员权限安装最新版http://www.c-lodop.com/download.html，右键以管理员权限运行，再对比试试。<br>
+排查没有以管理员启动的原因。<br>
+<br>
+2.<span style="color:blue;font-weight:bold"> 打印机打印乱码，一个打印机可以，一个不行</span><br>
+用虚拟打印机测试下。<br>
+<br>
+可以在客户端装一个虚拟打印机，打印时选择这个打印机。<br>
+群文件里有个pdf虚拟打印机的安装文件。<br>
+<br>
+看上去输出的是乱码，需要虚拟打印机测试排查是打印机或打印机驱动问题，还是内容问题。<br>
+<br>
+小票打印 ，参考样例18 http://www.c-lodop.com/demolist/PrintSample18.html
+（小票针式打印 建议用 ADD_PRINT_TEXT文本，不用htm超文本，纸张高度不定容易引起 htm 中排版变形）<br>
+<br>
+小票建议用纯文本进行设计。<br>
+<br>
+很可能和打印机或打印机驱动有关，先用虚拟打印机测试下。<br>
+<br>
+选择打印机，参考样例5、7<br>
+http://www.c-lodop.com/demolist/PrintSample5.html<br>
+http://www.c-lodop.com/demolist/PrintSample7.html<br>
+打印机优先级，参考http://www.c-lodop.com/blogs/Blog002.html<br>
+<br>
+3.<span style="color:blue;font-weight:bold"> 希望能存为pdf格式的文件，现在只能另存为xps</span><br>
+选择了xps虚拟打印机，选择一个真实打印机。<br>
+如果希望导出pdf，可以安装一个pdf虚拟打印机，群文件里有一个pdf虚拟打印机的安装文件。<br>
+<br>
+4.<span style="color:blue;font-weight:bold"> 换了一个条数据再次打印，在打印维护中显示的位置和我刚刚调整不同</span><br>
+排查打印维护是否生效，是否时候同一个任务名。<br>
+如果任务名不同，两个任务需要分别调整。<br>
+<br>
+不能为空，为空就禁用了打印维护，打印维护无效了。<br>
+<br>
+同模版任务名相同，参考http://www.c-lodop.com/faq/pp9.html<br>
+是按照任务名生成的ini文件<br>
+<br>
+5.<span style="color:blue;font-weight:bold"> 打印条码，为什么跟条码软件打印出来的条码差好多，比较长，而且清晰度很低</span><br>
+是lodop语句输出的吗，
+条码输出 参考样例11 http://www.c-lodop.com/demolist/PrintSample11.html<br>
+<br>
+用虚拟打印机输出测试下，lodop语句输出的应该是比较清晰的。<br>
+<br>
+lodop输出的条码方式和其他软件输出的条码方式不同。<br>
+<br>
+参考http://www.c-lodop.com/faq/pp10.html<br>
+条码设置多宽不一定是多宽，可以在打印设计里调整到合适大小，然后在打印设计里生成代码。<br>
+<br>
+缩小条码宽度，或换成其他条码类型试试。http://www.c-lodop.com/faq/pp18.html<br>
+<br>
+缩小条码宽度<br>
+条码随着数值不同，宽度可能不同，无法做到完全统一大小，可估计最大宽度，最后的实际宽度一般是小于等于设定宽度。<br>
+<br>
+最小宽度小于1px时就无法再小了，就要调整条码纸的宽度以适应内容输出的宽度，或调整内容输出量达到调整输出宽度效果。<br>
+其他条码软件的实现方法不清楚。<br>
+lodop目前只能是这种效果。<br>
+<br>
+6.<span style="color:blue;font-weight:bold"> 小票打印时，商品名称不固定是一行还是两行，无法使用样例18的方式纯文本打印</span><br>
+或用打印机自带的纸张试试，或设置纸张。<br>
+如果要用超文本，超文本样式不要受容器的影响，尽量用通用的样式。<br>
+<br>
+可以根据不同的纸张宽度设置不同的模版。<br>
+不定高的小票打印需要设置纸张宽度。<br>
+<br>
+排查样式，用通用的样式，样式不要受容器的影响。<br>
+<br>
+不要设置高度为100%，100%是相对纸张的。尽量用具体的数值。<br>
+<br>
+不能设置纸张不定高，打印项设置具体的数值试试，尽量用纯文本打印小票。<br>
+<br>
+打印项的高度，累计打印项的高度是不定高纸张的高度。<br>
+<br>
+可以估计最大的显示高度，留出足够的空白。<br>
+或减小打印项高度，纯文本后面的内容会隐藏。<br>
+<br>
+没有很好的处理方法，或者判断下字符的个数，设置打印项字体较小试试。<br>
+<br>
+如果只有商品一两行的区别，商品之间有一行空白也比较正常。<br>
+如果只是商品一行两行的区别，有的商品少的空白一行也算正常，可以设置两行的纯文本高度<br>
+<br>
+没有很好的处理方法，判断字符的个数，缩小字体。<br>
+或留够足够的高度。<br>
+<br>
+超文本的那个是一个整体的超文本吗，做个简单的能还原的问题例子发过来，这边测试下。<br>
+<br>
+7.<span style="color:blue;font-weight:bold">一个没有付钱的那IP出来的有 试用版的字</span><br>
+ip注册，必须访问的是注册的ip，访问其他地址需要重新注册。<br>
+<br>
+只要不注册，直接打印一直会有这个水印。<br>
+<br>
+不想用之前的ip吗，ip是一次性注册，不能更换。<br>
+更换需要重新购买。<br>
+<br>
+没买过的ip，只要使用lodop，直接打印会一直有这个试用版水印。<br>
+预览后打印是无水印的。<br>
+<br>
+8.<span style="color:blue;font-weight:bold">如何用lodop把json数据以表格的形式打印出来</span><br>
+需要自己组织成html超文本，拼接出适合的字符串进行打印。<br>
+<br>
+可以传入样式，参考样例10http://www.c-lodop.com/demolist/PrintSample10.html<br>
+<br>
+9.<span style="color:blue;font-weight:bold">本地打印打印机可以选择很多，为啥远程打印打印机就一个</span><br>
+远程和本地访问的是不同的电脑，和这个电脑的widnows打印机列表的打印机有关。<br>
+<br>
+三种角色及使用方法：<br>
+参考http://www.c-lodop.com/demolist/t1.html<br>
+是哪种角色<br>
+<br>
+第二种是云主机上的打印机。<br>
+不支持第二种角色获取客户端本地打印机，本地打印是第一种角色。<br>
+<br>
+<span style="color:blue;font-weight:bold">代码中如何能区分本地启动的是哪个版本的服务</span><br>
+可以给c-lodop取名，参考c-lodop技术手册中的说明 。<br>
+<br>
+c-lodop技术手册有说明。<br>
+可以用优先级，也可以用取名方式区分。<br>
+<br>
+参考clodop技术手册说明。<br>
+可以优先级，也可以用取名方式区分。<br>
+<br>
+<span style="color:blue;font-weight:bold">区分本地服务是基础班还是扩展板。</span><br>
+目前没有标准版了，都是c-lodop扩展版。4088<br>
+<br>
+没法方法判断。本地打印http网站，标准版和扩展版都可以。<br>
+<br>
+访问地址是不同的吗 ，https下只能用扩展版。<br>
+<br>
+以前的标准版不能用https网站，都需要用扩展版，可以提示客户端下载安装最新版，lodopFuncs.js里有判断 。<br>
+<br>
+lodopFuncs.js里面有判断的版本号，小于判断版本号会提示升级。<br>
+<br>
+10.<span style="color:blue;font-weight:bold">设置超文本打印项100%，最右边为啥还会有一点点空白，不是100%吗</span><br>
+发一下预览截图，和超文本内部的样式也有关。<br>
+<br>
+参考http://www.c-lodop.com/demolist/PrintSample34.html<br>
+测试下样例，排查内部样式。<br>
+<br>
+body要加个style='margin:0'的样式<br>
+<br>
+           </div>
+    </div><!--main_middle结束-->
+
+        <div class="box box_footer"><!--box_footer开始-->
+            <div class="footer">
+<p>lodop简短问答页面.</p>
+            </div>
+        </div><!--box_footer结束-->
+
+
+</div><!--body结束-->
+ </body>
+</html>
