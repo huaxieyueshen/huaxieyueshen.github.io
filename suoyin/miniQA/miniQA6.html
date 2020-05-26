@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>超文本表格样式问题</title>
+ </head>
+ <body>
+ <style>
+ body{margin:0px;}
+.body {width:100%;}
+a{text-decoration:none;color:black;}
+h1{font-size:1.625em;}
+h2{font-size:1.375em;}
+/**.box{float:left;}**/
+.header_box {width:100%;}
+.header{padding:1%;
+background-color:#f1f1f1;}
+/**border:1px solid #e9e9e9;}**/
+
+.header_bottom{width:100%;}
+.menuitem {
+    margin-top:0;
+    margin-left:0;
+    margin-bottom:0;
+    padding:1%;
+    border-bottom:1px solid #e9e9e9;
+    cursor:pointer;
+}
+
+.main {padding:1%;}
+.main_middle { width:100%;}
+.blue{color:#95bfc7;}
+
+
+.box_footer {width:100%;margin-bottom:0;}
+.footer {
+    padding:1%;
+    text-align:center;
+    background-color:#f1f1f1;
+    font-size:0.625em;
+}
+
+@media only screen and (max-width: 500px) {
+    .menu_left{width:100%;}
+    .menuitem { margin:1%;padding:1%;}
+
+    .main_middle { width:100%;}
+    .main {padding:1%;}
+
+    .box_right {width:100%;}
+    .right { padding:1%;
+    }
+
+    .box { margin-right:0; float:left; }
+}
+
+</style>
+<div class="body"><!--body开始-->
+        <div class="box header_box"><!--header开始-->
+            <div class="header">
+                <h1>LODOP超简短问答-超文本表格样式问题</h1>
+            </div>
+        </div><!--header结束-->
+<div class="header_bottom"> 
+		   <a href="../../index.html"><div class="menuitem">花谢悦神的主页</div></a>	
+		   <a href="../phoneQA004.html"><div class="menuitem">lodop问答主页</div></a> 
+		   <a href="../phoneQA_dange.html"><div class="menuitem">问答主页（单个问答链接）</div></a> 
+		   <a href="../mini_QAs.html"><div class="menuitem"><span style="color:#ff0099;">迷你一个问答</span></div></a> 
+</div>
+        <div class="box main_middle"><!--main_middle开始-->
+            <div class="main">
+<h1>超文本表格样式问题</h1>
+<span style="color:blue;font-weight:bold">超文本表格样式（行间距，表格列宽，字体等）</span><br>
+<br>
+超文本表格，用css样式控制，加载css样式，参考样例10 http://www.c-lodop.com/demolist/PrintSample10.html<br>
+<br>
+如果是指超文本表格，需要通过css样式控制。<br>
+加载css样式，参考样例10 http://www.c-lodop.com/demolist/PrintSample10.html<br>
+<br>
+<span style="color:blue;font-weight:bold">表格宽度超过纸张</span><br>
+<br>
+超文本超过打印项高度，自动分页。<br>
+不支持根据宽度分页。<br>
+<br>
+宽度可以进行缩放，宽度溢出缩放，参考http://www.c-lodop.com/demolist/PrintSample42.html<br>
+<br>
+或调整表格样式，宽度不要超过纸张。<br>
+或用百分比样式http://www.c-lodop.com/demolist/PrintSample34.html<br>
+<br>
+<span style="color:blue;font-weight:bold">表格打印不全，样式一些单元格不见了</span><br>
+<br>
+虚拟打印机也有问题，排查代码问题。<br>
+打印项是什么语句输出的，是add_print_text纯文本，还是add_print_htm超文本<br>
+<br>
+查看lodop内部解析的html信息，见http://www.c-lodop.com/faq/pp8.html<br>
+分析差异点，因浏览器版本不同遵循的html标准不同，造成某些标签属性显示有差异，尽量避免使用有差异的属性，可以在ie下不同版本仿真情况下验证差异<br>
+排查样式，尽量使用使用各浏览器无歧义的通用的 html css js，不支持的样式可尝试用其他样式代替。<br>
+<br>
+可尝试把ADD_PRINT_HTM 换成 ADD_PRINT_HTML（图形模式）试试，ADD_PRINT_HTML不如ADD_PRINT_HTM清晰，适合高精度的打印机，两者各有优势。<br>
+<br>
+Lodop是基于本机windows底层引擎进行渲染解析的，与ie调用的引擎一致，建议用标准的写法。<br>
+<br>
+需要能在ie里正常显示，Lodop是基于本机windows底层引擎进行渲染解析的，与ie调用的引擎一致。<br>
+ie中的表格显示有难问题，排查样式，定位到出问题的样式，修改样式。<br>
+<br>
+排查下样式，定位到是哪些样式引起的，这种可以用一个表格进行设计，<br>
+如果内容的宽高的，也可以用纯文本加线条输出，这种不受浏览器引擎解析的影响<br>
+打印设计和定位套打 参考http://www.c-lodop.com/demolist/PrintSample4.html<br>
+<br>
+建议修改样式，这个样式在不同ie仿真模式下不同。<br>
+更换实现方式，可以用表格等进行输出，或者用lodop纯文加画线输出。<br>
+<br>
+<span style="color:blue;font-weight:bold">表格有什么好的纯文本替代方案吗</span><br>
+<br>
+打印设计和定位套打 参考http://www.c-lodop.com/demolist/PrintSample4.html<br>
+手把手教你WEB套打程序开发 参考http://www.c-lodop.com/blogs/Blog008.html<br>
+<br>
+纯文本+线输出表格：ADD_PRINT_TEXT、ADD_PRINT_LINE<br>
+画线输出表格，参考http://www.c-lodop.com/demolist/PrintSampleA1.html<br>
+<br>
+二维码条码，参考样例11 http://www.c-lodop.com/demolist/PrintSample11.html<br>
+<br>
+<span style="color:blue;font-weight:bold">lodop打印表格判断内容宽度和单元格宽度</span><br>
+<br>
+lodop没法判断。<br>
+可以用JS判断下试试。多少字超过了单元格宽度。<br>
+<br>
+或设置合适的css样式，内容超过单元格宽度换行或隐藏。<br>
+<br>
+<span style="color:blue;font-weight:bold">内容紧跟表格输出</span><br>
+<br>
+参考http://www.mtsoftware.cn/demolist/PrintSample41.html<br>
+text关联表格。<br>
+<br>
+参考http://www.mtsoftware.cn/demolist/PrintSample41.html<br>
+需要紧跟着表格的那个打印项，关联表格。<br>
+<br>
+<span style="color:blue;font-weight:bold">不行跟着表格输出，在页面底部输出</span><br>
+<br>
+如果是想固定在页面底部，不是跟着表格，可以用页眉页脚项单独输出这块内容。<br>
+每页会固定位置输出。<br>
+<br>
+<span style="color:blue;font-weight:bold">表格最后一页下方有空白，可以自动填满高度吗</span><br>
+<br>
+不支持自动填满高度，可以让内容紧跟着表格输出。<br>
+<br>
+<span style="color:blue;font-weight:bold">怎么设置内容垂直居中</span><br>
+<br>
+可以设置一个表格单元格试试，设置单元格宽高。<br>
+设置内容对于单元格垂直居中。<br>
+<br>
+<span style="color:blue;font-weight:bold">样例2的表格不显示，只显示上面的纯文本打印项，</span><br>
+<br>
+测试下样例2试试http://www.c-lodop.com/demolist/PrintSample2.html<br>
+如果样例2的表格不显示，只显示上面的纯文本打印项，重置下ie浏览器。<br>
+如果样例2正常显示，排查下内容传入或预览下方查看下纸张是否一致。<br>
+<br>
+可能和ie浏览器有问题，如果内容是超文本输出的，需要ie浏览器正常。<br>
+重置下ie浏览器试试，需要能在ie里正常显示。<br>
+<br>
+Lodop是基于本机windows底层引擎进行渲染解析的，与ie调用的引擎一致。<br>
+需要将ie浏览器修复到正常情况。<br>
+<br>
+如果重置也不行，百度网上的方法，修复ie浏览器到正常状态。<br>
+测试官网样例2，直到超文本可以显示。<br>
+<br>
+
+
+
+</div>
+    </div><!--main_middle结束-->
+
+        <div class="box box_footer"><!--box_footer开始-->
+            <div class="footer">
+<p>lodop简短问答页面.</p>
+            </div>
+        </div><!--box_footer结束-->
+</div><!--body结束-->
+ </body>
+</html>
