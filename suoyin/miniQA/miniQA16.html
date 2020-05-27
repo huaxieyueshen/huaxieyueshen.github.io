@@ -1,0 +1,234 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>整体偏移问题</title>
+ </head>
+ <body>
+ <style>
+ body{margin:0px;}
+.body {width:100%;}
+a{text-decoration:none;color:black;}
+h1{font-size:1.625em;}
+h2{font-size:1.375em;}
+/**.box{float:left;}**/
+.header_box {width:100%;}
+.header{padding:1%;
+background-color:#f1f1f1;}
+/**border:1px solid #e9e9e9;}**/
+
+.header_bottom{width:100%;}
+.menuitem {
+    margin-top:0;
+    margin-left:0;
+    margin-bottom:0;
+    padding:1%;
+    border-bottom:1px solid #e9e9e9;
+    cursor:pointer;
+}
+
+.main {padding:1%;}
+.main_middle { width:100%;}
+.blue{color:#95bfc7;}
+
+
+.box_footer {width:100%;margin-bottom:0;}
+.footer {
+    padding:1%;
+    text-align:center;
+    background-color:#f1f1f1;
+    font-size:0.625em;
+}
+
+@media only screen and (max-width: 500px) {
+    .menu_left{width:100%;}
+    .menuitem { margin:1%;padding:1%;}
+
+    .main_middle { width:100%;}
+    .main {padding:1%;}
+
+    .box_right {width:100%;}
+    .right { padding:1%;
+    }
+
+    .box { margin-right:0; float:left; }
+}
+
+</style>
+<div class="body"><!--body开始-->
+        <div class="box header_box"><!--header开始-->
+            <div class="header">
+                <h1>LODOP超简短问答-整体偏移问题</h1>
+            </div>
+        </div><!--header结束-->
+<div class="header_bottom"> 
+		   <a href="../../index.html"><div class="menuitem">花谢悦神的主页</div></a>	
+		   <a href="../phoneQA004.html"><div class="menuitem">lodop问答主页</div></a> 
+		   <a href="../phoneQA_dange.html"><div class="menuitem">问答主页（单个问答链接）</div></a> 
+		   <a href="../mini_QAs.html"><div class="menuitem"><span style="color:#ff0099;">迷你一个问答</span></div></a> 
+</div>
+        <div class="box main_middle"><!--main_middle开始-->
+            <div class="main">
+<h1>整体偏移问题</h1>
+参考http://www.c-lodop.com/faq/pp17.html<br>
+<br>
+<span style="color:blue;font-weight:bold">虚拟打印机正常，个别真实打印机偏移</span><br>
+<br>
+参考http://www.lodop.net/faq/pp17.html<br>
+用打印维护针对该客户端进行调整，调整结果在客户端本地，只针对该客户端有影响。<br>
+<br>
+参考http://www.lodop.net/faq/pp17.html<br>
+用打印维护针对该客户端进行调整，调整结果在客户端本地，只针对该客户端有影响。<br>
+这个可解决不同客户端的打印机不同导致的整体偏移等问题。<br>
+<br>
+如果打印出来的有问题的那个电脑上，虚拟打印机正常。真实打印机预览正常。<br>
+排查是否是打印机的偏移问题，参考http://www.c-lodop.com/faq/pp17.html<br>
+调整打印机的初始位置，或用打印维护进行整体偏移。<br>
+<br>
+<span style="color:blue;font-weight:bold">预览正常，真实打印机打印偏移</span><br>
+<br>
+参考http://www.c-lodop.com/faq/pp17.html<br>
+调整打印机到初始位置。<br>
+或针对该客户端用打印维护进行整体偏移，结果在客户端本地。<br>
+<br>
+参考http://www.c-lodop.com/faq/pp17.html<br>
+2.1打印机挡板不在初始位置，或打印机初始位置有偏移，需要单独针对这台打印机在打印维护中调整打印任务的初始位置 ，然后点【应用】缓存为本地模板，只对这台机器起作用，不影响其他人，或直接调整打印机的初始位置<br>
+<br>
+不同电脑整体偏移，位置不同，参考http://www.c-lodop.com/faq/pp17.html<br>
+打印维护就是解决不同打印机偏移问题，针对该客户端打印机进行调整，结果在客户端本地。<br>
+<br>
+可用打印维护针对客户端进行整体偏移调整。<br>
+<br>
+<span style="color:blue;font-weight:bold">不建议直接在代码里整体偏移</span><br>
+<br>
+PRINT_INITA的前两个参数可以整体偏移。<br>
+但是不建议在原始模版代码里设置，可让根据客户端在客户端本地打印维护。<br>
+参考http://www.lodop.net/faq/pp17.html<br>
+<br>
+原始代码里尽量不要整体偏移。<br>
+可用打印维护针对客户端进行整体偏移调整。<br>
+否则会造成链接里的第四条。所有客户打印有偏移，就是我本机无偏差<br>
+<br>
+不要在代码里设置整体偏移，如果客户端有偏移，可以用打印维护在客户端调整。<br>
+<br>
+参考http://www.c-lodop.com/faq/pp9.html<br>
+开放打印维护给客户，在有问题的客户上整体偏移一下，维护结果在客户端本地。<br>
+<br>
+<span style="color:blue;font-weight:bold">打印维护设置具体的任务名</span><br>
+<br>
+参考http://www.c-lodop.com/demolist/PrintSample21.html<br>
+参考http://www.c-lodop.com/faq/pp9.html<br>
+设置具体的任务名，可让客户端调整后点应用，调整结果只针对该客户端有影响。<br>
+<br>
+针对这个电脑的这个打印机设置的偏移值。<br>
+针对这个任务名的。不同模版设置不同任务名。<br>
+<br>
+<span style="color:blue;font-weight:bold">模版怎么适应所有客户端打印机，打印机有偏移</span><br>
+<br>
+根据纸张设置模版。<br>
+设置好模版之后，如果该打印机有偏移，参考http://www.c-lodop.com/faq/pp17.html<br>
+可用打印维护调整，调整结果在客户端本地。<br>
+<br>
+可以打印维护，打印维护调整后保存结果再客户端本地，整体偏移，可以用PIRNT_INITA的一二参数，是调整整体偏移，参考http://www.c-lodop.com/faq/pp9.html<br>
+<br>
+初始化函数INITA中前两个参数可以设置整体偏移，可以在客户端本地用打印维护微调，结果是在客户端本地。<br>
+<br>
+<span style="color:blue;font-weight:bold">连续打印的，后面的内容逐渐偏移</span><br>
+<br>
+连续打印偏移问题，参考http://www.c-lodop.com/faq/pp17.html<br>
+<br>
+参考http://www.c-lodop.com/faq/pp17.html，里面的3，<br>
+连续打印输出多张，偏移累计越来越大：<br>
+设置输出的纸张 与实际纸张大小有差异，如果确实无法做到与纸张实物一样大，输出一定任务数量后，发现有偏差时需要手动调整进纸位置以纠正。<br>
+<br>
+虚拟打印机和真实打印机预览下方状态栏查看下纸张是否一致。<br>
+多测试几张，如果是纸张与实际纸张的差异，累计偏移，是真实纸张与程序纸张存在差异。<br>
+这种情况，虚拟打印机打印多少张都正常，真实打印机会出现累计偏移。<br>
+<br>
+如果实际纸张和程序设置的纸张不一致，连续打印，就会有累计偏移。<br>
+<br>
+用xps或pdf虚拟打印机测试下，如果虚拟打印机正常。<br>
+真实纸张和设置纸张之间的存在差异，参考连续打印输出多张，偏移累计越来越大：<br>
+设置输出的纸张 与实际纸张大小有差异，如果确实无法做到与纸张实物一样大，输出一定任务数量后，发现有偏差时需要手动调整进纸位置以纠正。<br>
+<br>
+是累计偏移吗，偏移逐渐增大那种。<br>
+<br>
+和实际纸张实在做不到一致，或观察一下打印多少之后，累计的偏移开始影响打印，然后在数值里调整一下。<br>
+<br>
+是累计偏移吗，测量实际的纸张，和程序的纸张，尽量做到一致。<br>
+与实际纸张差异越大，偏移越大。<br>
+<br>
+如果每次走纸都是正确的情况下，只是打印累计有偏移，还是建议把纸张大小定义精准。<br>
+<br>
+批量套打偏移 打的越多越大， 如果是上下偏移，说定义的纸张高度与实际的高度有误差，累计所致； 对于连续纸张，纸张高度应包括 两张纸张的中缝高度<br>
+<br>
+3.	连续打印输出多张，偏移累计越来越大：<br>
+设置输出的纸张 与实际纸张大小有差异，如果确实无法做到与纸张实物一样大，输出一定任务数量后，发现有偏差时需要手动调整进纸位置以纠正。<br>
+如果是情况3，尽量和实际纸张和设置纸张大小一致。<br>
+<br>
+打印机是按照纸张走纸的，如果设置纸张和实际纸张不一致，会逐渐偏移。<br>
+<br>
+<span style="color:blue;font-weight:bold">用虚拟打印机测试</span><br>
+<br>
+用xps或pdf虚拟打印机测试一下。<br>
+用真实打印机预览测试一下。<br>
+如果这两个也有问题，排查代码问题，例如初始化函数INITA中前两个参数不为零时初始位置有偏移<br>
+如果这两个都没问题，可能是打印机不在初始化位置导致的,可以调整打印机初始位置，或用打印维护进行本地调整，结果在客户端本地。<br>
+<br>
+用xps或pdf虚拟打印机测试一下，如果虚拟打印机连续打印不偏移，是纸张和设置的纸张之间有差异导致的。<br>
+如果虚拟打印机也是偏移的，可能和内容等有关。<br>
+<br>
+<span style="color:blue;font-weight:bold">第一张就偏移，还是累计偏移逐渐增大</span><br>
+<br>
+用虚拟打印机可以排查代码是否有问题，建议先用虚拟打印机测试。<br>
+如果虚拟打印机没问题，可排查纸张与实际纸张的差异，如果不是连续累计偏移，从第一张就偏移，也可能是打印机不在初始位置等问题导致的。<br>
+<br>
+用xps或pdf虚拟打印机测试一下，如果虚拟打印机连续打印不偏移，是纸张和设置的纸张之间有差异导致的。<br>
+<br>
+<span style="color:blue;font-weight:bold">打印维护调整整体偏移</span><br>
+<br>
+进入打印维护，可编辑区域左上角有纸钉，移动纸钉会调整整体偏移值，也就是PRINT_INITA的第一二参数。<br>
+<br>
+可以拖动打印维护的纸钉，整体偏移到合适位置，然后点应用，就是调整后的位置，只针对该客户端有效。其他客户端不受影响。<br>
+<br>
+<span style="color:blue;font-weight:bold">整体偏移方向</span><br>
+<br>
+偏移问题，参考http://www.lodop.net/faq/pp17.html<br>
+用打印维护调整下，向左偏移一段距离测试下。打印维护调整后只针对这个客户端有影响。<br>
+<br>
+偏移问题，参考http://www.lodop.net/faq/pp17.html<br>
+用打印维护调整下，向上传偏移一段距离测试下。打印维护调整后只针对这个客户端有影响。<br>
+<br>
+<span style="color:blue;font-weight:bold">偏移值调整多少</span><br>
+<br>
+实际不断调整下数值试试，试试偏移多少合适。<br>
+先从偏移小值的试试，逐步调整到合适的值。<br>
+<br>
+<span style="color:blue;font-weight:bold">预览和虚拟打印机也偏移</span><br>
+<br>
+PRINT_INITA的前两个参数是否都是0，这个控制整体偏移的。<br>
+<br>
+这两个参数是整体偏移，如果打印机不同，导致整体位置偏移，也可以用这个参数调整。<br>
+PIRNT_INITA的前两个参数为整体偏移值，可以根据不同打印机传入不同的调整后的偏移值，或打印维护调整点应用。<br>
+<br>
+<span style="color:blue;font-weight:bold">同电脑换打印机出现偏移</span><br>
+<br>
+同一台电脑的话，针对不同打印机进行调整试试。<br>
+PIRNT_INITA的前两个参数为整体偏移值，该电脑换新打印机的时候整体调整一下试试。<br>
+偏移值用变量控制，或用打印维护调整，点应用，会根据任务名保存这个调整。<br>
+<br>
+</div>
+    </div><!--main_middle结束-->
+
+        <div class="box box_footer"><!--box_footer开始-->
+            <div class="footer">
+<p>lodop简短问答页面.</p>
+            </div>
+        </div><!--box_footer结束-->
+</div><!--body结束-->
+ </body>
+</html>
