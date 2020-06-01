@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>打印成功</title>
+ </head>
+ <body>
+ <style>
+ body{margin:0px;}
+.body {width:100%;}
+a{text-decoration:none;color:black;}
+h1{font-size:1.625em;}
+h2{font-size:1.375em;}
+/**.box{float:left;}**/
+.header_box {width:100%;}
+.header{padding:1%;
+background-color:#f1f1f1;}
+/**border:1px solid #e9e9e9;}**/
+
+.header_bottom{width:100%;}
+.menuitem {
+    margin-top:0;
+    margin-left:0;
+    margin-bottom:0;
+    padding:1%;
+    border-bottom:1px solid #e9e9e9;
+    cursor:pointer;
+}
+
+.main {padding:1%;}
+.main_middle { width:100%;}
+.blue{color:#95bfc7;}
+
+
+.box_footer {width:100%;margin-bottom:0;}
+.footer {
+    padding:1%;
+    text-align:center;
+    background-color:#f1f1f1;
+    font-size:0.625em;
+}
+
+@media only screen and (max-width: 500px) {
+    .menu_left{width:100%;}
+    .menuitem { margin:1%;padding:1%;}
+
+    .main_middle { width:100%;}
+    .main {padding:1%;}
+
+    .box_right {width:100%;}
+    .right { padding:1%;
+    }
+
+    .box { margin-right:0; float:left; }
+}
+
+</style>
+<div class="body"><!--body开始-->
+        <div class="box header_box"><!--header开始-->
+            <div class="header">
+                <h1>LODOP超简短问答-打印成功</h1>
+            </div>
+        </div><!--header结束-->
+<div class="header_bottom"> 
+		   <a href="../../index.html"><div class="menuitem">花谢悦神的主页</div></a>	
+		   <a href="../phoneQA004.html"><div class="menuitem">lodop问答主页</div></a> 
+		   <a href="../phoneQA_dange.html"><div class="menuitem">问答主页（单个问答链接）</div></a> 
+		   <a href="../mini_QAs.html"><div class="menuitem"><span style="color:#ff0099;">迷你一个问答</span></div></a> 
+</div>
+        <div class="box main_middle"><!--main_middle开始-->
+            <div class="main">
+<h1>打印成功</h1>
+参考样例35 http://www.c-lodop.com/demolist/PrintSample35.html<br>
+样例45的13 http://www.c-lodop.com/demolist/PrintSample45.html<br>
+样例35返回的“打印成功”实际仅是成功加入后台队列。<br>
+样例45的13 判断“JOB不在队列”就足可认定已经打印成功。<br>
+一般建议使用样例4，35方法简单判断打印成功，发送打印指令加入打印机队列算打印成功。<br>
+<br>
+<span style="color:blue;font-weight:bold">返回指不对</span><br>
+<br>
+c-lodop需要回调函数，参考c-lodop技术手册<br>
+和一些含有回调函数的官网样例的源码，样例右键，查看源码，例如样例35http://www.c-lodop.com/demolist/PrintSample35.html
+样例4，样例35等等。<br>
+<br>
+c-lodop需要回调函数On_Return，参考样例源码和c-lodop技术手册http://www.c-lodop.com/download.html<br>
+<br>
+<span style="color:blue;font-weight:bold">获取的打印是否成功状态码，总是不成功</span><br>
+<br>
+参考样例45http://www.c-lodop.com/demolist/PrintSample45.html<br>
+获取打印状态，需要实际测试下，不同打印机状态码可能不同。<br>
+<br>
+参考样例45http://www.c-lodop.com/demolist/PrintSample45.html<br>
+参考样例45的13的解释，和打印机有关，有的打印机成功状态码一直是不成功。<br>
+<br>
+<span style="color:blue;font-weight:bold">打印状态返回值不对</span><br>
+<br>
+参考样例45，样例右键，查看源码<br>
+c-lodop需要回调函数http://www.c-lodop.com/demolist/PrintSample45.html<br>
+该回调函数的介绍在c-lodop技术手册里。<br>
+<br>
+<span style="color:blue;font-weight:bold">获取不到脱机状态</span><br>
+<br>
+参考样例45http://www.c-lodop.com/demolist/PrintSample45.html<br>
+获取打印状态，需要实际测试下，不同打印机状态码可能不同。<br>
+如果实际测试该打印机获取不到脱机状态，就是获取不到。<br>
+<br>
+<span style="color:blue;font-weight:bold">批量打印怎么获取返回值</span><br>
+<br>
+如果是c-lodop批量打印，则需要LODOP.On_Return_Remain=true;将回调结果保留，c-lodop任务可通过TaskID区分。<br>
+<br>
+一般建议使用样例4，35方法简单判断打印成功，发送打印指令加入打印机队列算打印成功。<br>
+<br>
+相关链接：<br><br>
+cnblog(花谢悦神）： <a href="https://www.cnblogs.com/huaxie/p/12133664.html" target="_blank"><span style="color:blue;">LODOP批量打印判断是否加入队列1</span></a><br><br>
+github（huaxieyueshen):<a href="../../New_blogs/b311.html" target="_blank"><span style="color:blue;">LODOP批量打印判断是否加入队列1</span></a><br>
+</div>
+    </div><!--main_middle结束-->
+
+        <div class="box box_footer"><!--box_footer开始-->
+            <div class="footer">
+<p>lodop简短问答页面.</p>
+            </div>
+        </div><!--box_footer结束-->
+</div><!--body结束-->
+ </body>
+</html>

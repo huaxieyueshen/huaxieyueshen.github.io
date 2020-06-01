@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>打印透明图</title>
+ </head>
+ <body>
+ <style>
+ body{margin:0px;}
+.body {width:100%;}
+a{text-decoration:none;color:black;}
+h1{font-size:1.625em;}
+h2{font-size:1.375em;}
+/**.box{float:left;}**/
+.header_box {width:100%;}
+.header{padding:1%;
+background-color:#f1f1f1;}
+/**border:1px solid #e9e9e9;}**/
+
+.header_bottom{width:100%;}
+.menuitem {
+    margin-top:0;
+    margin-left:0;
+    margin-bottom:0;
+    padding:1%;
+    border-bottom:1px solid #e9e9e9;
+    cursor:pointer;
+}
+
+.main {padding:1%;}
+.main_middle { width:100%;}
+.blue{color:#95bfc7;}
+
+
+.box_footer {width:100%;margin-bottom:0;}
+.footer {
+    padding:1%;
+    text-align:center;
+    background-color:#f1f1f1;
+    font-size:0.625em;
+}
+
+@media only screen and (max-width: 500px) {
+    .menu_left{width:100%;}
+    .menuitem { margin:1%;padding:1%;}
+
+    .main_middle { width:100%;}
+    .main {padding:1%;}
+
+    .box_right {width:100%;}
+    .right { padding:1%;
+    }
+
+    .box { margin-right:0; float:left; }
+}
+
+</style>
+<div class="body"><!--body开始-->
+        <div class="box header_box"><!--header开始-->
+            <div class="header">
+                <h1>LODOP超简短问答-打印透明图</h1>
+            </div>
+        </div><!--header结束-->
+<div class="header_bottom"> 
+		   <a href="../../index.html"><div class="menuitem">花谢悦神的主页</div></a>	
+		   <a href="../phoneQA004.html"><div class="menuitem">lodop问答主页</div></a> 
+		   <a href="../phoneQA_dange.html"><div class="menuitem">问答主页（单个问答链接）</div></a> 
+		   <a href="../mini_QAs.html"><div class="menuitem"><span style="color:#ff0099;">迷你一个问答</span></div></a> 
+</div>
+        <div class="box main_middle"><!--main_middle开始-->
+            <div class="main">
+<h1>打印透明图</h1>
+测试下样例37http://www.lodop.net/demolist/PrintSample37.html<br>
+不是所有打印机都支持透明图打印，需要实际测试下。<br>
+<br>
+<span style="color:blue;font-weight:bold">设置了透明，还是有白底</span><br>
+<br>
+测试下样例37http://www.lodop.net/demolist/PrintSample37.html<br>
+不是所有打印机都支持透明图打印，需要实际测试下，如果打印机不支持，就是不透明的。<br>
+如果实际测试打印机不支持，只能换用其他方法，例如样例37的左侧的把图片z-index设为负值来实现，本质是公章变为背景图。<br>
+<br>
+<span style="color:blue;font-weight:bold">有多个图片，有的打印出来透明，有的白底</span><br>
+<br>
+正常情况下打印机不支持，都无法透明。<br>
+能透明和不能透明的底色是否都是纯白色，<br>
+transcolor="#FFFFFF"这个是把白色转换成透明，需要背景都是纯白色。<br>
+<br>
+<span style="color:blue;font-weight:bold">pdf虚拟打印机也有白底</span><br>
+<br>
+不是所有打印机都支持透明图打印，有的虚拟打印机也不支持。<br>
+<br>
+<span style="color:blue;font-weight:bold">直接测试样例37</span><br>
+<br>
+参考测试样例37http://www.c-lodop.com/demolist/PrintSample37.html<br>
+直接测试下样例37，样例37右键查看源码，有的打印机不支持透明图，会显示白底。<br>
+如果打印机不支持，可换用其他方式，如样37的图章1，把图章变成背景图。<br>
+<br>
+参考样例37，设置transcolor="#FFFFFF"试试。<br>
+可以直接测试下样例37的例子是否正常。<br>
+<br>
+需要实际测试下，一般预览可以打印也可以。也有的打印机预览显示透明，打印出来不透明，不支持透明图打印。<br>
+如果打印机不支持，可换用其他方式，如样37的图章1，把图章变成背景图。<br>
+<br>
+<span style="color:blue;font-weight:bold">可接受不是很清晰</span><br>
+<br>
+可尝试把ADD_PRINT_HTM 换成 ADD_PRINT_HTML（图形模式）试试，ADD_PRINT_HTML不如ADD_PRINT_HTM清晰。<br>
+</div>
+    </div><!--main_middle结束-->
+
+        <div class="box box_footer"><!--box_footer开始-->
+            <div class="footer">
+<p>lodop简短问答页面.</p>
+            </div>
+        </div><!--box_footer结束-->
+</div><!--body结束-->
+ </body>
+</html>

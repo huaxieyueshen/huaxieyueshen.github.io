@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>缩放打印内容</title>
+ </head>
+ <body>
+ <style>
+ body{margin:0px;}
+.body {width:100%;}
+a{text-decoration:none;color:black;}
+h1{font-size:1.625em;}
+h2{font-size:1.375em;}
+/**.box{float:left;}**/
+.header_box {width:100%;}
+.header{padding:1%;
+background-color:#f1f1f1;}
+/**border:1px solid #e9e9e9;}**/
+
+.header_bottom{width:100%;}
+.menuitem {
+    margin-top:0;
+    margin-left:0;
+    margin-bottom:0;
+    padding:1%;
+    border-bottom:1px solid #e9e9e9;
+    cursor:pointer;
+}
+
+.main {padding:1%;}
+.main_middle { width:100%;}
+.blue{color:#95bfc7;}
+
+
+.box_footer {width:100%;margin-bottom:0;}
+.footer {
+    padding:1%;
+    text-align:center;
+    background-color:#f1f1f1;
+    font-size:0.625em;
+}
+
+@media only screen and (max-width: 500px) {
+    .menu_left{width:100%;}
+    .menuitem { margin:1%;padding:1%;}
+
+    .main_middle { width:100%;}
+    .main {padding:1%;}
+
+    .box_right {width:100%;}
+    .right { padding:1%;
+    }
+
+    .box { margin-right:0; float:left; }
+}
+
+</style>
+<div class="body"><!--body开始-->
+        <div class="box header_box"><!--header开始-->
+            <div class="header">
+                <h1>LODOP超简短问答-缩放打印内容</h1>
+            </div>
+        </div><!--header结束-->
+<div class="header_bottom"> 
+		   <a href="../../index.html"><div class="menuitem">花谢悦神的主页</div></a>	
+		   <a href="../phoneQA004.html"><div class="menuitem">lodop问答主页</div></a> 
+		   <a href="../phoneQA_dange.html"><div class="menuitem">问答主页（单个问答链接）</div></a> 
+		   <a href="../mini_QAs.html"><div class="menuitem"><span style="color:#ff0099;">迷你一个问答</span></div></a> 
+</div>
+        <div class="box main_middle"><!--main_middle开始-->
+            <div class="main">
+<h1>缩放打印内容</h1>
+整页缩放，参考样例42 http://www.c-lodop.com/demolist/PrintSample42.html<br>
+<br>
+缩放单个超文本打印项，参考样例44http://www.c-lodop.com/demolist/PrintSample44.html<br>
+<br>
+高度溢出缩放，参考样例42 http://www.c-lodop.com/demolist/PrintSample42.html<br>
+<br>
+<span style="color:blue;font-weight:bold">缩放到一页里，满页打印</span><br>
+<br>
+整页缩放，参考样例42 http://www.c-lodop.com/demolist/PrintSample42.html<br>
+使用百分比(%)和满页打印，参考样例34 http://www.c-lodop.com/demolist/PrintSample34.html<br>
+<br>
+<span style="color:blue;font-weight:bold">想满页打印，没有满页打印</span><br>
+<br>
+查看lodop内部解析的html信息，见http://www.c-lodop.com/faq/pp8.html<br>
+如果内部css样式有固定的样式，不是百分比，不会自适应纸张。<br>
+参考样例34 http://www.c-lodop.com/demolist/PrintSample34.html<br>
+<br>
+<span style="color:blue;font-weight:bold">内容宽度超过纸张，显示不全：</span><br>
+<br>
+加载css样式，参考样例10 http://www.c-lodop.com/demolist/PrintSample10.html<br>
+调整超文本内部的样式，适应纸张大小，超文本内部内容不要超过纸张和可打区域。<br>
+<br>
+或设置宽度溢出缩放，参考样例42 http://www.c-lodop.com/demolist/PrintSample42.html<br>
+<br>
+<span style="color:blue;font-weight:bold">内容高度超过纸张，自动分页了</span><br>
+<br>
+内容超过纸张，不想自动分页，如果可以接受内容有变形，可高度溢出缩放，参考样例42 <br>http://www.c-lodop.com/demolist/PrintSample42.html<br>
+<br>
+<span style="color:blue;font-weight:bold">超文本内容高度超过纸张，不想自动分页，不想缩放，想隐藏后面的</span><br>
+<br>
+把整个超文本放到add_print_table的一个td里，这个语句不切行，超过纸张会后面的内容会打印不出来。<br>
+<br>
+<span style="color:blue;font-weight:bold">超文本某个内容，不想缩放，不想超出打印项重叠，想隐藏后面的</span><br>
+<br>
+超文本，用css样式控制，参考样例10 http://www.c-lodop.com/demolist/PrintSample10.html<br>
+可以设置超出隐藏的css样式，例如样例2里的第一个表格最后一行的第一个单元格 <br>http://www.c-lodop.com/demolist/PrintSample2.html<br>
+<br>
+<span style="color:blue;font-weight:bold">纯文本项缩放自适应</span><br>
+<br>
+打印项是什么语句输出的，是add_print_text纯文本，还是add_print_htm超文本<br>
+<br>
+不支持自适应，可以JS判断下传入的字符个数，更改文字大小试试。<br>
+参考http://www.c-lodop.com/faq/pp12.html<br>
+add_print_text纯文本默认超过宽度，高度足够，会换行。<br>
+超过宽度，高度不够，会隐藏后面的内容。<br>
+<br>
+不支持根据打印项宽高自动缩放字体大小，可以JS判断下传入的字符个数，更改文字大小试试。<br>
+<br>
+<span style="color:blue;font-weight:bold">缩放图片</span><br>
+<br>
+如何输出清晰图片 参考http://www.c-lodop.com/faq/pp14.html不要在img标签里缩放。<br>
+用lodop语句的缩放。<br>
+<br>
+</div>
+    </div><!--main_middle结束-->
+
+        <div class="box box_footer"><!--box_footer开始-->
+            <div class="footer">
+<p>lodop简短问答页面.</p>
+            </div>
+        </div><!--box_footer结束-->
+</div><!--body结束-->
+ </body>
+</html>
