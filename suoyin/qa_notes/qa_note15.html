@@ -1,0 +1,294 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>【非常见问题杂笔记】指定打印机，预览内容按钮等</title>
+ </head>
+ <body>
+ <style>
+ body{margin:0px;}
+.body {width:100%;}
+a{text-decoration:none;color:black;}
+h1{font-size:1.625em;}
+h2{font-size:1.375em;}
+/**.box{float:left;}**/
+.header_box {width:100%;}
+.header{padding:1%;
+background-color:#f1f1f1;}
+/**border:1px solid #e9e9e9;}**/
+
+.header_bottom{width:100%;}
+.menuitem {
+    margin-top:0;
+    margin-left:0;
+    margin-bottom:0;
+    padding:1%;
+    border-bottom:1px solid #e9e9e9;
+    cursor:pointer;
+}
+
+.main {padding:1%;}
+.main_middle { width:100%;}
+
+
+.box_footer {width:100%;margin-bottom:0;}
+.footer {
+    padding:1%;
+    text-align:center;
+    background-color:#f1f1f1;
+    font-size:0.625em;
+}
+
+@media only screen and (max-width: 500px) {
+    .menu_left{width:100%;}
+    .menuitem { margin:1%;padding:1%;}
+
+    .main_middle { width:100%;}
+    .main {padding:1%;}
+
+    .box_right {width:100%;}
+    .right { padding:1%;
+    }
+
+    .box { margin-right:0; float:left; }
+}
+
+</style>
+<div class="body"><!--body开始-->
+        <div class="box header_box"><!--header开始-->
+            <div class="header">
+                <h1>LODOP超简短问答-【非常见问题杂笔记】指定打印机，预览内容按钮等</h1>
+            </div>
+        </div><!--header结束-->
+<div class="header_bottom"> 
+		   <a href="../../index.html"><div class="menuitem">花谢悦神的主页</div></a>	
+		   <a href="../phoneQA004.html"><div class="menuitem">lodop问答主页</div></a> 
+		   <a href="../phoneQA_dange.html"><div class="menuitem">问答主页（单个问答链接）</div></a> 
+		   <a href="../qa_notes.html"><div class="menuitem"><span style="color:blue;">问答等记录笔记，具体问题</span></div></a>
+</div>
+
+
+
+        <div class="box main_middle"><!--main_middle开始-->
+            <div class="main">
+<h1>【非常见问题杂笔记】指定打印机，预览内容按钮等</h1>
+1.<span style="color:blue;font-weight:bold"> 使用ADD_PRINT_HTM添加超文本打印项后，再用PRINT打印无效是什么原因，只能保存为文件</span><br>
+测试下样例2，http://www.c-lodop.com/demolist/PrintSample2.html<br>
+<br>
+选择的是虚拟打印机，选择个真实打印机测试下，选择打印机，参考样例5,7<br>
+<br>
+在样例7里测试下。如果是真实打印机，查看是否进入打印机队列排队。<br>
+<br>
+弹出框截图下，如果是pdf，是pdf虚拟打印机，xps的是xps的虚拟打印机。<br>
+样例7指定具体的真实打印机测试下。<br>
+<br>
+用PRINTA试试，这个直接打印前会弹出打印机选择框。<br>
+选择个真实打印机测试下，或参考样例7在代码指定。<br>
+<br>
+选择了pdf虚拟打印机，对照样例排查打印机选择是否正常。<br>
+<br>
+选择打印机，参考样例5、7<br>
+http://www.c-lodop.com/demolist/PrintSample5.html<br>
+http://www.c-lodop.com/demolist/PrintSample7.html<br>
+打印机优先级，参考http://www.c-lodop.com/blogs/Blog002.html<br>
+<br>
+样例7可以输出是正常的，样例右键查看源码，判断下选择打印机的返回值，判断成功后再进行打印或预览。<br>
+防止走下一个优先级。<br>
+<br>
+打印机优先级，参考http://www.c-lodop.com/blogs/Blog002.html<br>
+如果代码不指定，会根据优先级走。<br>
+<br>
+2.<span style="color:blue;font-weight:bold">表格数据一多，一会进程就消失了。出不来预览</span><br>
+做个简单的例子测试下，测试下官网带表格的样例，测试下样里2,43等，对照样例排查用法。<br>
+<br>
+通过做简单例子逐步排查下和什么有关。<br>
+数据多和数据少，还有某些样式等删减等逐步测试下。<br>
+<br>
+批量打印，分页分任务，在页数和任务之间平衡一下，参考样例26，http://www.c-lodop.com/demolist/PrintSample26.html<br>
+把内容拆分一下，每个任务输出少量的内容。多任务输出。<br>
+<br>
+3.<span style="color:blue;font-weight:bold">下载中心综合版64位和，右侧c-lodop64位的区别</span><br>
+左侧的是插件方式的，<br>
+右侧的那个是c-lodop的64位。<br>
+<br>
+参考http://www.c-lodop.com/faq/pp21.html<br>
+1.Lodop与浏览器位数有关,与操作系统位数无关：<br>
+    32位Lodop安装程序适应32位浏览器；<br>
+    64位Lodop安装程序适应64位浏览器；<br>
+    适用浏览器：ie系列、火狐51版及历史版本、谷歌44版及历史版本。（新版火狐及谷歌不再支持np插件，也不能使用lodop）<br>
+2.C-Lodop与操作系统位数有关，与浏览器位数无关：<br>
+    32位C-Lodop安装程序适应32位及64位操作系统；<br>
+    64位C-Lodop安装程序仅适应64位操作系统；<br>
+<br>
+用32位的c-lodop就行。适应32位及64位操作系统；<br>
+<br>
+<span style="color:blue;font-weight:bold">c-lodop能当插件使用吗</span>
+参考http://www.c-lodop.com/faq/pp21.html<br>
+c-lodop是本地服务，跳出浏览器限制，支持所有浏览器。<br>
+<br>
+4.<span style="color:blue;font-weight:bold">获取是否不在队列，返回值返回不了（用的预览）</span><br>
+参考样例45右键查看源码，c-lodop需要回调函数。<br>
+必须是直接打印后的返回值，获取job代码。<br>
+再通过job代码获取是否在队列。<br>
+<br>
+5.<span style="color:blue;font-weight:bold">设计时是横向方向，但是打印时，能否纵向打印？</span><br>
+横向纵向 参考http://www.c-lodop.com/blogs/Blog010.html<br>
+纵向设计，然后设置横向。内容会横着输出。<br>
+<br>
+<span style="color:blue;font-weight:bold">如果横向设计，纵向输出，在设计时岂不是有很多内容是不是可视范围内？</span><br>
+PRINT_INITA的三四参数，可以设置打印设计可视化编辑区域的大小。<br>
+<br>
+设置打印方向是2，横向打印，内容会横过来。<br>
+设计时不需要旋转内容，横向设置后，内容会旋转到横向。<br>
+<br>
+进纸是怎样的，是1270, 750, <br>
+如果是750的短边进纸纵向进纸，纸张宽高反过来。<br>
+<br>
+6.<span style="color:blue;font-weight:bold">SET_PRINTER_INDEX  如果是网络打印机 是不是 找不到序列号</span><br>
+测试下样例7，根据样例获取个数，序号，根据序号获取打印机名称。<br>
+<br>
+打印机增删会影响序号，也可以指定打印机名称。参考样例5,7.<br>
+<br>
+用样例7获取下名称，共享打印机一般会有前缀，用获取的名称。<br>
+<br>
+可以直接用获取的名称。<br>
+测试下样例5,7，刷新页面，重装该打印机驱动试试。<br>
+<br>
+获取的是客户端本地的打印机。<br>
+参考样例5，和7，可以让客户选择哪个打印机打印。<br>
+<br>
+选择打印机，参考样例5、7<br>
+http://www.c-lodop.com/demolist/PrintSample5.html<br>
+http://www.c-lodop.com/demolist/PrintSample7.html<br>
+打印机优先级，参考http://www.c-lodop.com/blogs/Blog002.html<br>
+<br>
+<span style="color:blue;font-weight:bold">客户不愿意选打印机</span><br>
+打印机优先级，参考http://www.c-lodop.com/blogs/Blog002.html<br>
+不选，可以指定-1默认打印机，就是客户这台电脑的默认打印机。<br>
+<br>
+<span style="color:blue;font-weight:bold">不选择打印机打印，还不能使用默认打印机 打印</span><br>
+打印机优先级，参考http://www.c-lodop.com/blogs/Blog002.html<br>
+客户需要怎么选打印机，不选打印机，怎么能知道打印到哪个打印机上。<br>
+<br>
+不选，也不能用默认的，可以是优先级中的预览的记忆上一次选的，但是这个也是要选的，在预览里选，不在代码选，也要在预览里选择。不选择不能知道打印到哪个上面。<br>
+<br>
+<span style="color:blue;font-weight:bold">能不能 循环 查找 打印机  取 带 某两个字的 打印机 作为打印对象，比如 找到 带瓶签的打印机  打印</span><br>
+参考样例5<br>
+右键查看源码，获取全部的打印机名称，添加到列表或其他地方，然后搜索这个列表里的某一项是否有哪些字符试试。<br>
+<br>
+如果有多个带瓶签的打印机，可能会获取到多个打印机名称，一个任务只能指定一个打印机，如果用户只有一个名字带瓶签的打印机，可以这样做。<br>
+<br>
+打印机优先级，参考http://www.c-lodop.com/blogs/Blog002.html<br>
+前两个优先级不设置，在初始化里设置具体的任务名，会走优先级3，打印预览会记忆上一次的选择。<br>
+ <br>
+参考样例5，获取全部打印机名称，添加到列表或其他地方，可以用匹配关键字。<br>
+如果该客户端只有一个打印机能匹配到可以，如果匹配到多个，可以把匹配到的打印机再添加打印机列表让客户选择也可以，或确保只能匹配到一个，或默认取匹配到的数组的第一个元素试试。<br>
+<br>
+7.<span style="color:blue;font-weight:bold">localhost8000谷歌浏览器正常访问，火狐浏览器提示404找不到</span><br>
+看起来是浏览器问题，谷歌是可以正常访问的，这个火狐是否有问题，下载重装下火狐浏览器试试。或排查火狐的一些设置等。<br>
+<br>
+访问http://localhost:8000欢迎页面试试<br>
+<br>
+查看谷歌欢迎页面的下方，选择个打印机点预览试试。<br>
+<br>
+谷歌可以进入欢迎页面，说明安装启动正常，下方选择打印机预览试试。<br>
+如果选择打印机可以，可能和默认打印机有关等。<br>
+<br>
+对照欢迎页面的代码排查下。<br>
+<br>
+8.<span style="color:blue;font-weight:bold">vue中使用c-lodop</span><br>
+参考http://www.c-lodop.com/faq/pp35.html<br>
+或单独用c-lodop方式 http://www.c-lodop.com/faq/pp34.html<br>
+<br>
+或单独用c-lodop方式 http://www.c-lodop.com/faq/pp34.html<br>
+这种方法不用getLODOP，用这个方法试试。如果要用lodopFuncs.js，参考http://www.c-lodop.com/faq/pp35.html<br>
+需要引入外部JS的方法,lodopFuncs.js是例子文件，可以自己修改里面的方法，或引入vue。<br>
+<br>
+9.<span style="color:blue;font-weight:bold">LODOP.On_Return没执行的话什么原因</span><br>
+测试下样例4,35，需要动作函数触发。<br>
+如果是lodop插件方式，也不会执行，参考样例源码，判断下是否是c-lodop方式。<br>
+<br>
+10.<span style="color:blue;font-weight:bold">有个客户重启电脑后打印端口为8001</span><br>
+目前是双端口，8000和18000一个能用就行。<br>
+8000被占用，会加一。<br>
+双端口下，18000能用也行。<br>
+<br>
+在lodopFuncs.js根据优先级，再设置选个低的优先级试试，把8001端口也加上。<br>
+参数Priority是服务优先级，数值越大优先级越高。<br>
+或排查是哪个应用占用了端口，卸载占用端口的应用试试。<br>
+<br>
+11.<span style="color:blue;font-weight:bold">有扫描的功能吗？</span><br>
+没有。是指扫描仪吗<br>
+<br>
+获取的是安装到winows打印机列表的打印机，需要是安装了驱动的打印机。<br>
+没有控制扫描的功能。<br>
+<br>
+12.<span style="color:blue;font-weight:bold">去水印套打怎么实现</span><br>
+Lodop c-lodop是一款专业共享软件，公开版本未限制功能，多数用户可免费长期使用。仅如下情况需要注册收费(费用很少)：您希望用到(不经过弹出预览窗口的)“直接打印”功能时。不注册时该功能直接打印的纸张左下角会有“本页由XXX试用版输出”小字样水印。另外导出Excel文件或图片也需要注册。<br>
+控件注册号 注意事项 最新价格表、购买方式和使用方法见(官网)：<br>
+http://www.c-lodop.com/Lodop_Lic.html<br>
+<br>
+打印设计和定位套打 参考http://www.c-lodop.com/demolist/PrintSample4.html<br>
+手把手教你WEB套打程序开发 参考http://www.c-lodop.com/blogs/Blog008.html<br>
+<br>
+13.<span style="color:blue;font-weight:bold">设计完的模板 可以导出保存，或者移植吗</span><br>
+返回设计的JS代码 参考样例35 http://www.lodop.net.cn/demolist/PrintSample35.html<br>
+文档式模版生成和使用 参考样例50 http://www.lodop.net.cn/demolist/PrintSample50.html<br>
+<br>
+<span style="color:blue;font-weight:bold">能导出类似xml的文件吗，导进来就看到设计图了</span><br>
+不支持导入导出xml那种格式的。<br>
+设计完的模版可以导出JS模版，和文档式模版，这两种模版储存和加载。<br>
+<br>
+14.<span style="color:blue;font-weight:bold">二维码如何移到上面去</span><br>
+参考http://www.c-lodop.com/demolist/PrintSample11.html<br>
+这个二维码是用lodop语句输出的吗，参考样例，前两个参数控制顶边距和左边距。<br>
+<br>
+15.<span style="color:blue;font-weight:bold">clodop打印预览的时候怎么记录他是否点击打印按钮，来统计打印次数</span><br>
+参考http://www.c-lodop.com/demolist/PrintSample35.html<br>
+打印维护和打印预览返回打印次数，<br>
+样例右键查看源码，c-lodop需要使用回调函数。<br>
+<br>
+是一个任务一个预览里点打印按钮打印的次数吗，<br>
+参考http://www.c-lodop.com/demolist/PrintSample35.html<br>
+打印维护和打印预览返回打印次数，<br>
+<br>
+点样例35这个预览，关闭后可以看到返回结果，<br>
+是一个任务里预览里点打印打印的次数。<br>
+<br>
+16.<span style="color:blue;font-weight:bold">远程预览模式下，怎么给html绑定事件呢</span><br>
+预览下不能改变打印内容。可以在预览前页面上进行处理。<br>
+<br>
+是指打印预览界面上的按钮吗，上面的按钮功能是固定的，不能修改。<br>
+<br>
+如果是不用远程模式，本地打印，且用插件方式，例如ie浏览器等，可以内嵌浏览器，自己组织预览界面。<br>http://www.c-lodop.com/demolist/PrintSample22.html<br>
+<br>
+打印预览内容里的按钮是无效的，最后打印出来的是预览的内容，里面的按钮都是没用的，会按照界面打印出来。<br>
+<br>
+如果是不用远程模式，本地打印，且用插件方式，例如ie浏览器等，可以内嵌浏览器，自己组织预览界面。<br>http://www.c-lodop.com/demolist/PrintSample22.html<br>
+样例22这种自己的预览界面，需要内嵌方式，只有插件方式支持内嵌，c-lodop不支持。<br>
+<br>
+需要内嵌方式，参考样例22，必须是支持内嵌的浏览器下。<br>
+ie或360,qq兼容模式，低版本的火狐谷歌等。<br>
+<br>
+不内嵌，也可以让客户在页面上先选择，选择外后预览也可以。<br>
+不是在预览界面选择。<br>
+不在预览界面选择，而是给后面的预览传参数，预览的时候只预览。<br>
+<br>
+
+		   </div>
+    </div><!--main_middle结束-->
+
+        <div class="box box_footer"><!--box_footer开始-->
+            <div class="footer">
+<p>lodop简短问答页面.</p>
+            </div>
+        </div><!--box_footer结束-->
+
+
+</div><!--body结束-->
+ </body>
+</html>
