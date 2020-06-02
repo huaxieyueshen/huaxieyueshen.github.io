@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>打印内容缩放了</title>
+ </head>
+ <body>
+ <style>
+ body{margin:0px;}
+.body {width:100%;}
+a{text-decoration:none;color:black;}
+h1{font-size:1.625em;}
+h2{font-size:1.375em;}
+/**.box{float:left;}**/
+.header_box {width:100%;}
+.header{padding:1%;
+background-color:#f1f1f1;}
+/**border:1px solid #e9e9e9;}**/
+
+.header_bottom{width:100%;}
+.menuitem {
+    margin-top:0;
+    margin-left:0;
+    margin-bottom:0;
+    padding:1%;
+    border-bottom:1px solid #e9e9e9;
+    cursor:pointer;
+}
+
+.main {padding:1%;}
+.main_middle { width:100%;}
+.blue{color:#95bfc7;}
+
+
+.box_footer {width:100%;margin-bottom:0;}
+.footer {
+    padding:1%;
+    text-align:center;
+    background-color:#f1f1f1;
+    font-size:0.625em;
+}
+
+@media only screen and (max-width: 500px) {
+    .menu_left{width:100%;}
+    .menuitem { margin:1%;padding:1%;}
+
+    .main_middle { width:100%;}
+    .main {padding:1%;}
+
+    .box_right {width:100%;}
+    .right { padding:1%;
+    }
+
+    .box { margin-right:0; float:left; }
+}
+
+</style>
+<div class="body"><!--body开始-->
+        <div class="box header_box"><!--header开始-->
+            <div class="header">
+                <h1>LODOP超简短问答-打印内容缩放了</h1>
+            </div>
+        </div><!--header结束-->
+<div class="header_bottom"> 
+		   <a href="../../index.html"><div class="menuitem">花谢悦神的主页</div></a>	
+		   <a href="../phoneQA004.html"><div class="menuitem">lodop问答主页</div></a> 
+		   <a href="../phoneQA_dange.html"><div class="menuitem">问答主页（单个问答链接）</div></a> 
+		   <a href="../mini_QAs.html"><div class="menuitem"><span style="color:#ff0099;">迷你一个问答</span></div></a> 
+</div>
+        <div class="box main_middle"><!--main_middle开始-->
+            <div class="main">
+<h1>打印内容缩放了</h1>
+可能原因分析：本地设置放大比例问题，是真实的放大或缩小，<br>
+1.查看本机ie浏览器的缩放比例应在100%，<br>
+2.操作系统控制面板设置显示应在100%。<br>
+3.超文本样式问题，分析样式中不同浏览器版本下显示不一致的标签属性，避开，换其他方式实现<br>
+4.打印机纸张问题：纸张大小是否一致；可打印区域是否影响到了输出内容的大小；<br>
+<br>
+<span style="color:blue;font-weight:bold">打印内容缩放了带详细解释的</span><br>
+<br>
+1.查看本机ie浏览器的缩放比例应在100%，<br>
+（ie浏览器上方菜单栏的查看缩放里，需要是100%)<br>
+2.操作系统控制面板设置显示应在100%。<br>
+（操作系统的控制面板里-（所有控制面板项）-显示里的缩放需要是100%）<br>
+3.超文本样式问题，分析样式中不同浏览器版本下显示不一致的标签属性，避开，换其他方式实现<br>
+（查看lodop内部解析的html信息，见http://www.c-lodop.com/faq/pp8.html，排查样式）<br>
+4.打印机纸张问题：纸张大小是否一致；可打印区域是否影响到了输出内容的大小；<br>
+（进入预览，预览下方状态栏查看纸张大小正常，是否有可打区域，排查样式是否和容器有关http://www.c-lodop.com/faq/pp8.html）<br>
+<br>
+<span style="color:blue;font-weight:bold">询问排查</span><br>
+<br>
+操作系统的，控制面板的-显示，是否是100%。<br>
+<br>
+输出个简单的内容测试下，例如一个ADD_PRINT_TEXT纯文本，测试正常和不正常的电脑纯文本输出的大小是否一致。<br>
+<br>
+<span style="color:blue;font-weight:bold">某台电脑打印内容整体放大</span><br>
+<br>
+操作系统的，控制面板的-显示，是否是100%。<br>
+<br>
+操作系统的这个显示必须是100%,lodop无法控制，需要手动设置成100%。<br>
+<br>
+<span style="color:blue;font-weight:bold">超文本，不同电脑显示大小不同</span><br>
+<br>
+如果是超文本内部的css样式设置的是px单位，电脑的分辨率不同，会有影响，可以换用pt等绝对单位。<br>
+<br>
+操作系统的，控制面板的-显示，需要是100%，查看是否是100%<br>
+<br>
+<span style="color:blue;font-weight:bold">如何让不同电脑内容大小相同</span><br>
+<br>
+1.如果打印的是超文本，超文本内部css样式等尽量使用pt等绝对单位，不使用px等相对单位，避免分辨率的影响。<br>
+2.操作系统的，控制面板的-显示，需要是100%。如果不是会影响打印。<br>
+3.ie浏览器的设置的缩放必须是100%。<br>
+4.排查样式，尽量用通用样式，在不同ie下验证。Lodop是基于本机windows底层引擎进行渲染解析的，与ie调用的引擎一致。<br>
+5.排查样式是否和容器有关，排查打印机是否支持自定义纸张，或打印机有可打区域。<br>
+<br>
+<span style="color:blue;font-weight:bold">注意事项</span><br>
+<br>
+1.并不是程序设置了纸张大小就一定生效，需要选择真实打印机然后预览下方查看，才能确认纸张和设置纸张一致。<br>
+在预览里选择真实打印机，下方状态栏可以看到纸张，有的打印机纸张可能不生效，排查一下是否和设置的纸张一致。<br>
+2.电脑中的缩放会影响打印内容，由于Lodop调用ie引擎进行解析超文本，但是客户端ie版本可能不同，或ie本身存在问题，都会影响解析后的样式是，升级ie浏览器<br>
+3.打印机不同，可打区域可能不同，进而如果里面样式受容器的影响，可打区域也会影响样式。<br>
+<br>
+此外，css样式等尽量使用pt等绝对单位，不使用px等相对单位，避免分辨率的影响。<br>
+<br>
+</div>
+    </div><!--main_middle结束-->
+
+        <div class="box box_footer"><!--box_footer开始-->
+            <div class="footer">
+<p>lodop简短问答页面.</p>
+            </div>
+        </div><!--box_footer结束-->
+</div><!--body结束-->
+ </body>
+</html>
