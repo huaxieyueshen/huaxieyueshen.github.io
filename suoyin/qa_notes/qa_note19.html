@@ -1,0 +1,462 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>【非常见问题杂笔记】ie设置磁盘空间，多任务多套页码等</title>
+ </head>
+ <body>
+ <style>
+ body{margin:0px;}
+.body {width:100%;}
+a{text-decoration:none;color:black;}
+h1{font-size:1.625em;}
+h2{font-size:1.375em;}
+/**.box{float:left;}**/
+.header_box {width:100%;}
+.header{padding:1%;
+background-color:#f1f1f1;}
+/**border:1px solid #e9e9e9;}**/
+
+.header_bottom{width:100%;}
+.menuitem {
+    margin-top:0;
+    margin-left:0;
+    margin-bottom:0;
+    padding:1%;
+    border-bottom:1px solid #e9e9e9;
+    cursor:pointer;
+}
+
+.main {padding:1%;}
+.main_middle { width:100%;}
+
+
+.box_footer {width:100%;margin-bottom:0;}
+.footer {
+    padding:1%;
+    text-align:center;
+    background-color:#f1f1f1;
+    font-size:0.625em;
+}
+
+@media only screen and (max-width: 500px) {
+    .menu_left{width:100%;}
+    .menuitem { margin:1%;padding:1%;}
+
+    .main_middle { width:100%;}
+    .main {padding:1%;}
+
+    .box_right {width:100%;}
+    .right { padding:1%;
+    }
+
+    .box { margin-right:0; float:left; }
+}
+
+</style>
+<div class="body"><!--body开始-->
+        <div class="box header_box"><!--header开始-->
+            <div class="header">
+                <h1>LODOP超简短问答-【非常见问题杂笔记】ie设置磁盘空间，多任务多套页码等</h1>
+            </div>
+        </div><!--header结束-->
+<div class="header_bottom"> 
+		   <a href="../../index.html"><div class="menuitem">花谢悦神的主页</div></a>	
+		   <a href="../phoneQA004.html"><div class="menuitem">lodop问答主页</div></a> 
+		   <a href="../phoneQA_dange.html"><div class="menuitem">问答主页（单个问答链接）</div></a> 
+		   <a href="../qa_notes.html"><div class="menuitem"><span style="color:blue;">问答等记录笔记，具体问题</span></div></a>
+</div>
+
+
+
+        <div class="box main_middle"><!--main_middle开始-->
+            <div class="main">
+<h1>【非常见问题杂笔记】ie设置磁盘空间，多任务多套页码等</h1>
+1.<span style="color:blue;font-weight:bold">ie打印不出来和Internet临时文件和历史记录设置里的磁盘空间有关系吗</span><br>
+Lodop是基于本机windows底层引擎进行渲染解析的，与ie调用的引擎一致。<br>
+可以升级ie或修改ie设置试试。<br>
+发一下具体的问题。<br>
+是超文本预览显示空白，还是不能显示预览。<br>
+<br>
+看上去左上角有个叉号，是个图片吗<br>
+<br>
+超文本图片也会经过ie浏览器解析，如果调整ie的磁盘空间有效，可能和图片太大或批量打印图片太多ie缓存太多导致的。<br>
+<br>
+（该客户反馈图片显示不出来，显示叉号，Internet临时文件和历史记录设置——要使用的磁盘空间改成250MB以后可就能显示出来了。）<br>
+<br>
+2.<span style="color:blue;font-weight:bold">  现有3个table,  我想让table3中的页码依赖于table2来进行分页 可以吗</span><br>
+lodop的页码是一个任务的、<br>
+这三个table只有中间的是自动分页吗<br>
+<br>
+是不是上面和下面的每页显示，<br>
+中间的table自动分页那种样式，这样table自动分页的页数和任务页数是一致的。<br>
+<br>
+参考样例43 http://www.c-lodop.com/demolist/PrintSample43.html<br>
+<br>
+这个是在表格里的。<br>
+可以在表格里，也可以在外面，如果整个任务只有中间table自动分页，这样table自动分页的页数和任务页数是一致的。
+和这个总页号也是一致的。<br>
+<br>
+样例43的是两个table的，是一个任务中只有中间的一个table吗，这样table自动分页的页数和任务页数是一致的。
+参考那个总页号。<br>
+<br>
+一个任务有多个单据吗，中间的table不是一个打印项。<br>
+只能在表格里的那种页号。<br>
+或者拆分任务，一个任务一个单据。<br>
+<br>
+多任务，参考样例26。页码是一个任务的，<br>
+一个单据一套页码，不用在表格里显示页码也可以。<br>
+<br>
+LODOP.PRINT_INIT("打印任务名");               //首先一个初始化语句 <br>
+LODOP.ADD_PRINT_TEXT(0,0,100,20,"文本内容一");//然后多个ADD语句及SET语句 <br>
+LODOP.PRINT();                               //最后一个打印(或预览、维护、设计)语句<br>
+从初始化到打印是一个任务，分成多个任务输出，一个单据一个任务，这样每个页码都是自己单据的。<br>
+<br>
+3.<span style="color:blue;font-weight:bold">  ，LODOP.PRINT();  打印后，返回失败，或者成功，如果打印机没有纸，或者卡纸时，已发送了打印指令，是返回成功，还是失败？</span><br>
+参考样例35 http://www.c-lodop.com/demolist/PrintSample35.html<br>
+样例45的13 http://www.c-lodop.com/demolist/PrintSample45.html<br>
+样例35返回的“打印成功”实际仅是成功加入后台队列。<br>
+样例45的13 判断“JOB不在队列”就足可认定已经打印成功。<br>
+一般建议使用样例4，35方法简单判断打印成功，发送打印指令加入打印机队列算打印成功。<br>
+直接获取print返回值是加入队列算成功，缺纸或卡纸或脱机也算加入了队列，也会认为是成功。<br>
+<br>
+4.<span style="color:blue;font-weight:bold">lodop支持一下触发两个打印任务吗？</span><br>
+参考样例26 http://www.c-lodop.com/demolist/PrintSample26.html<br>
+<br>
+LODOP.PRINT_INIT("打印任务名");               //首先一个初始化语句 <br>
+LODOP.ADD_PRINT_TEXT(0,0,100,20,"文本内容一");//然后多个ADD语句及SET语句 <br>
+LODOP.PRINT();                               //最后一个打印(或预览、维护、设计)语句<br>
+从初始化到打印是一个任务，一个按钮也可以打印多个任务。两个任务添加不同的打印项。<br>
+样例26也有多任务，样例26是每个任务相同的打印项，内容参数不同。<br>
+如果是不同模版，不同人任务设置不同打印项。<br>
+<br>
+5.<span style="color:blue;font-weight:bold">循环一个table占一页，有的电脑显示正常，每一页显示一个完整的table,但是有的电脑上显示不正常，就是table的表头，表体，表尾分别在不同的页面里面</span><br>
+在有问题的电脑上<br>
+用xps或pdf虚拟打印机测试下，<br>
+win7以后系统自带Microsoft XPS Document Writer虚拟打印机或者 下载安装群文件里的Doro PDF Writer虚拟打印机<br>
+如果虚拟打印机正常，说明和打印机或打印机设置有关，如打印机不支持自定义纸张，不同打印机可打区域不同等影响。<br>
+<br>
+用的是什么语句输出的。表头表体表尾是否是同一个打印项。<br>
+<br>
+参考http://www.c-lodop.com/demolist/PrintSample15.html<br>
+ADD_PRINT_TABLE是这个语句吗，thead和ftoot会每页输出。<br>
+<br>
+查看lodop内部解析的html信息，见http://www.c-lodop.com/faq/pp8.html<br>
+排查下传入的内容是否正常，尽量用组织好的超文本内容。<br>
+<br>
+ADD_PRINT_TABLE的第四个参数，设置具体的打印项高度试试，会按照打印项高度自动分页。<br>
+不要紧贴纸张下方输出。<br>
+<br>
+查看lodop内部解析的html信息，见http://www.c-lodop.com/faq/pp8.html<br>
+进入打印设计，选中超文本打印项，右键属性里拷出来的超文本代码发过来这边测试下。<br>
+是否是打印项高度太小了，会按照打印项高度分页，调整到打印项高度到适合的数值试试。<br>
+<br>
+6.<span style="color:blue;font-weight:bold">打印的是超市小票，有什么好的建议吗</span><br>
+小票打印 ，参考样例18 http://www.c-lodop.com/demolist/PrintSample18.html<br>
+（小票针式打印 建议用 ADD_PRINT_TEXT文本，不用htm超文本，纸张高度不定容易引起 htm 中排版变形）<br>
+不定高的纸张。<br>
+<br>
+参考样例18 http://www.c-lodop.com/demolist/PrintSample18.html<br>
+右键查看源码，可以累积多个打印项的高度。<br>
+<br>
+不打条码的商家不传入这个条码打印项，打的传入这个打印项。<br>
+<br>
+是打印项的累计高度，条码可以固定高度。<br>
+和text文本一样累计高度。<br>
+<br>
+7.<span style="color:blue;font-weight:bold">LODOP.SET_LICENSES 我这个加上，怎么还是有水印</span><br>
+参考排查一下http://www.c-lodop.com/faq/ph01.html<br>
+先确保该注册语句执行了，每个打印方法里都要执行。<br>
+可以先做个简单例子测试下，<br>
+例如：<br>
+LODOP.PRINT_INIT("打印任务名"); <br>
+LODOP.ADD_PRINT_TEXT(0,0,100,20,"文本内容一");<br>
+LODOP.SET_LICENSES........<br>
+LODOP.PRINT(); <br>
+直接放到PRINT()语句前面测试下。<br>
+<br>
+ip或域名注册，需要访问的是注册的ip或域名。<br>
+<br>
+8.<span style="color:blue;font-weight:bold">英文字符与数字打印时字符间距不相等</span><br>
+是字间距吗，<br>
+打印项是什么语句输出的，是add_print_text纯文本，还是add_print_htm超文本<br>
+<br>
+加载css样式，参考样例10 http://www.c-lodop.com/demolist/PrintSample10.html<br>
+超文本内部的字间距用css样式控制。<br>
+<br>
+Lodop是基于本机windows底层引擎进行渲染解析的，与ie调用的引擎一致。排查下样式<br>http://www.c-lodop.com/faq/pp8.html<br>
+和本机调用的解析引擎有关。<br>
+<br>
+9.<span style="color:blue;font-weight:bold">c-lodop的文档和lodop技术手册是否通用</span><br>
+http://www.c-lodop.com/download.html<br>
+lodop技术手册有大多数函数的解释。<br>
+c-lodop技术手册里是相对于lodop技术手册的补充，例如c-lodop获取动作函数返回值需要回调函数，和一些扩展功能如打印pdf等。<br>
+c-lodop技术手册里的一些方法，只能使用c-lodop的时候使用。<br>
+<br>
+10.<span style="color:blue;font-weight:bold">注册号 在哪里设置可以 去水印</span><br>
+Lodop注册号的最新价格表、购买方式和使用方法见(官网)：<br>
+http://www.c-lodop.com/Lodop_Lic.html<br>
+可以放在lodopFuncs.js标注处统一调用，或在每个打印方法里都调用<br>
+<br>
+参考排查一下http://www.c-lodop.com/faq/ph01.html<br>
+先确保该注册语句执行了，每个打印方法里都要执行。<br>
+可以先做个简单例子测试下，<br>
+例如：<br>
+LODOP.PRINT_INIT("打印任务名"); <br>
+LODOP.ADD_PRINT_TEXT(0,0,100,20,"文本内容一");<br>
+LODOP.SET_LICENSES........<br>
+LODOP.PRINT(); <br>
+直接放到PRINT()语句前面测试下。<br>
+<br>
+参考排查一下http://www.c-lodop.com/faq/ph01.html<br>
+排查下链接里的其他条目，如果是域名或ip注册，排查浏览器地址栏访问的是否是注册的ip或域名。<br>
+<br>
+浏览器地址栏的访问地址和注册域名是否一致。<br>
+<br>
+可以。赠送了localhost。<br>
+<br>
+浏览器地址栏访问的是注册的域名或localhost，<br>
+localhost如果不行，私发一下注册语句，这边测试下。<br>
+<br>
+进入打印设计，查看下打印设计的关于按钮是否隐藏<br>
+这边测试关于按钮是隐藏了。<br>
+<br>
+这边测试的是访问的localhost，<br>
+访问的是这个地址：http://localhost:8000/<br>
+测试打印设计关于是隐藏了，说明注册语句是生效了。<br>
+<br>
+先做个简单例子测试下，简单例子正常了，再在自己程序里加上，每次打印都要执行。<br>
+例如，把样例3的直接打印前加上注册语句，放到自己服务器上测试下。<br>
+<br>
+对照样例排查下代码，说明注册号生效了。<br>
+每个打印方法里都要调用到该注册语句。<br>
+<br>
+直接在print语句前面测试下，或改成打印设计，在打印设计前一句加上，观察打印设计的关于按钮是否隐藏。<br>
+确保该语句执行到。<br>
+<br>
+打印设计和打印维护，如果语句生效，会隐藏关于按钮。<br>
+<br>
+这个是打印预览，改成打印设计语句测试下。<br>
+<br>
+关于按钮还在，没隐藏，注册号没生效<br>
+<br>
+直接把注册语句放到打印设计前测试下，<br>
+LODOP.PRINT_DESIGN();<br>
+<br>
+可能放到lodopFuncs.js标注处执行有问题，<br>
+可以每个打印方法里都这样加上注册语句试试，直接写在打印方法里调用。<br>
+<br>
+只要每次打印的时候都执行到这个语句就行。<br>
+可以这样做。<br>
+<br>
+11.<span style="color:blue;font-weight:bold">发起任务的数据量有限制吗？</span><br>
+理论上没有限制，或尝试多分一些任务，<br>
+批量打印，分页分任务，在页数和任务之间平衡一下，参考样例<br>26，http://www.c-lodop.com/demolist/PrintSample26.html<br>
+<br>
+参考样例4，判断下print的返回值试试，记录丢的任务，重新发送。<br>
+或任务之间间隔大一些，设置定时器的间隔较大，发送任务间隔大一些试试。<br>
+<br>
+on_return是回调函数，是回调的print的返回值吗<br>
+<br>
+是的，如果返回false就是丢失任务了。参考样例4，判断print的返回值。<br>
+<br>
+如果是c-lodop批量打印，则需要LODOP.On_Return_Remain=true;将回调结果保留，c-lodop任务可通过TaskID区分。<br>
+调试JS，排查不返回的时候有什么现象。失败或成功正常都会返回。<br>
+<br>
+12.<span style="color:blue;font-weight:bold">有一个IC卡读写机，只支持IE (ActiveX)浏览器使用，进行IC卡的读写操作，可行吗？</span><br>
+只能试试读写端口，参考http://www.c-lodop.com/demolist/PrintSample17.html<br>
+这个样例是混合部署，支持所有浏览器，读写端口也支持ie浏览器。<br>
+<br>
+13.<span style="color:blue;font-weight:bold">预览要能选择打印从第几页到第几页，需要什么设置</span><br>
+多页的时候可以选择。任务只有一页的时候是不可用状态。<br>
+分页，参考样例30,http://www.c-lodop.com/demolist/PrintSample30.html<br>
+<br>
+14.<span style="color:blue;font-weight:bold">网页还没下载完毕，请稍等一下再操作，参考常见问答也这样</span><br>
+测试下样例22 http://www.c-lodop.com/demolist/PrintSample22.html<br>
+<br>
+测试下样例22 http://www.c-lodop.com/demolist/PrintSample22.html<br>
+如果还是提示这个，排查windows打印机列表是否存在打印机，是否有共享打印机，删除共享打印机再测试下。<br>
+<br>
+共享打印机故障可能会引起一些问题。<br>
+可以先删除共享打印机测试下，如果删除后正常，再重新共享下试试。<br>
+<br>
+15.<span style="color:blue;font-weight:bold">发给打印机 2个任务，为何只打印一张 出来呢，回调函数 中 有两次 结果，但是 实际指打印了 一张</span><br>
+判断下print的返回值，是否两个都发送成功了<br>
+<br>
+打印机脱机，查看下队列里的状况。是否有两个任务。<br>
+<br>
+获取的是PRINT语句的返回值吗，<br>
+没有看到代码里的动作语句，是否是回调的PRINT语句的返回值。<br>
+<br>
+做个简单的例子测试下，调试JS，排查是否执行了两次PRINT语句，两个任务每个任务都加初始化语句。<br>
+<br>
+LODOP.PRINT_INIT("打印任务名");               //首先一个初始化语句 <br>
+LODOP.ADD_PRINT_TEXT(0,0,100,20,"文本内容一");//然后多个ADD语句及SET语句 <br>
+LODOP.PRINT();                               //最后一个打印(或预览、维护、设计)语句<br>
+<br>
+这是一个任务的，每个任务都是这个结构。输出两个任务。<br>
+<br>
+http://www.c-lodop.com/demolist/PrintSample26.html<br>
+做个简单例子测试下，调试JS，排查是否执行了两次PRINT语句<br>
+测试下样例26是否正常。<br>
+<br>
+没有看到获取PRINT返回值的代码。<br>
+调试下JS，是执行了两次PRINT语句吗<br>
+<br>
+看代码是一个任务的，是执行了两次吗。<br>
+<br>
+c-lodop需要回调函数，lodop是直接返回，参考4，右键查看源码。<br>
+排查写法是指正确，如果是用的c-lodop，需要回调函数。<br>
+<br>
+正常情况下不会失败，判断下PRINT的返回值试试。<br>
+打印机脱机，测试下样例26试试，样例26批量打印是执行了70个任务<br>，http://www.c-lodop.com/demolist/PrintSample26.html<br>
+<br>
+16.<span style="color:blue;font-weight:bold">每次打印30条，我怎么才能知道回调的是哪30条呢</span><br>
+参考样例4,35，回调函数的写法。参考样例35 http://www.c-lodop.com/demolist/PrintSample35.html<br>
+LODOP.On_Return_Remain=true;可以保留返回值，用TaskID区分。<br>
+群文件里有个 批量打印得到结果的压缩包文件，可以参考下。<br>
+<br>
+17.<span style="color:blue;font-weight:bold">报getlodop没定义</span><br>
+样例测试官网样例http://www.c-lodop.com/demolist/PrintSample2.html<br>
+如果样例正常，样例页面右键查看源码 ，参考样例的使用方法。<br>
+getlodop方法在lodopFuncs.js里。<br>
+<br>
+样例里点预览是否正常，样例是否有什么提示<br>
+对照样例排查代码。<br>
+<br>
+只要lodopFuncs.js的路径正确，能访问到就行。<br>
+<br>
+是vue吗，参考http://www.c-lodop.com/faq/pp35.html<br>
+<br>
+其他框架需要自己整合下，引用外部的JS文件。<br>
+<br>
+或直接用欢迎页面的方法，不用加载getlodop方法。<br>
+<br>
+18.<span style="color:blue;font-weight:bold">能读扫描仪扫出来的东西吗</span><br>
+不支持<br>
+lodop没有方法，百度下获取扫描文件的方法，例如可以windonws自带的画图中获取到。<br>
+<br>
+19.<span style="color:blue;font-weight:bold">打印图片按原图比例(不变形)缩放模式，变形了 </span><br>
+不支持<br>
+发一下这个图片，和图片输出语句和缩放语句，这边测试下。<br>
+并用最新版测试下4088 http://www.c-lodop.com/download.html<br>
+<br>
+LODOP.ADD_PRINT_IMAGE(0,0,500,500,"图片地址img，src");<br>
+LODOP.SET_PRINT_STYLEA(0,"Stretch",2);<br>
+这边用这两个语句测试是正常的，没有变形。<br>
+<br>
+看上去截图是变成了可变形缩放，是否设置成了这个，LODOP.SET_PRINT_STYLEA(0,"Stretch",1);可变形缩放。<br>
+清理下浏览器缓存试试，排查是否代码有缓存等影响。<br>
+<br>
+应该是没关系，这边再测试下，排查是否是代码缓存的影响，没有走新的JS代码，看上去是设置了可变形缩放。<br>
+<br>
+LODOP.SET_PRINT_STYLEA(0,"Stretch",2);这个是不可变形缩放。<br>
+LODOP.SET_PRINT_STYLEA(0,"Stretch",1); 这个是可变形缩放。<br>
+<br>
+和base64无关，这边测试base64的不变形缩放也是正常的<br>
+进入打印设计，选中图片打印项，右键属性里查看下当前图片是否是不可变形缩放。<br>
+<br>
+用最新版测试下4088 http://www.c-lodop.com/download.html<br>
+这边测试是正常的，base64变形缩放，设计和预览都正常。<br>
+<br>
+20.<span style="color:blue;font-weight:bold">虚拟打印机跟我本地打印机都是自适应的高度。但从个别电脑打印出来的纸张不是自适应的 </span><br>
+纸张设置，参考样例5 http://www.c-lodop.com/demolist/PrintSample5.html<br>
+用xps或pdf虚拟打印机测试一下（测试可用样例5），如果虚拟打印机输出的是正确的纸张，真实打印机不是，可能是打印机不支持该自定义纸张。 选择该真实打印机，在打印预览下方状态栏查看一下纸张大小，有的打印机不支持该自定义纸张。<br>
+虚拟打印机正常，就是打印机不支持了。<br>
+<br>
+在有问题的机器上虚拟打印机测试下。<br>
+两个电脑，用的同一个打印机吗，打印机驱动是否一致，重装下打印机驱动试试，咨询下打印机客服试试。<br>
+理论上本机虚拟打印没问题的话，说明插件代码没问题，程序可做的努力就的确很少了，毕竟windows下的打印是微软倡导的设备无关系原则，要在打印机和打印驱动程序 系统上排查下，尝试重装驱动 或者 打印机不支持一些功能 打印机精度太低。<br>
+<br>
+20.<span style="color:blue;font-weight:bold">二维码图片不显示</span><br>
+二维码和图片打印项租后输出，调整打印项顺序，后输出的在上层。<br>
+先输出超文本打印项，再输出图片和二维码。<br>
+<br>
+看上去位置有重叠，可能是超文本项覆盖引起的。<br>
+单独输出图片，或在不重叠的位置输出试试。<br>
+<br>
+<span style="color:blue;font-weight:bold">单独输出图片，设计有，预览没有</span><br>
+<br>
+发一下这个原图，或base64,，这边测试下。<br>
+<br>
+这边测试预览也能显示。<br>
+<br>
+在有问题的电脑上用虚拟打印机测试下。<br>
+<br>
+有问题的电脑上虚拟打印机也正常吗，<br>
+那应该和打印机有关。重装打印机驱动试试。<br>
+换其他打印机试试。<br>
+<br>
+21.<span style="color:blue;font-weight:bold">调用 Print方法 ，但是 没有发送给打印机</span><br>
+<br>
+用虚拟打印机测试下。<br>
+这个打印机名称里有个副本，是否该打印机列表还有一个打印机驱动，排查是在那个打印机驱动里。<br>
+<br>
+22.<span style="color:blue;font-weight:bold">拒绝访问，中止，重试，忽略</span><br>
+<br>
+点重试，如果不行，重启下电脑，重启电脑后以管理员权限重新安装测试下。<br>
+<br>
+重启电脑，重启电脑后，以管理员权限安装。<br>
+<br>
+23.<span style="color:blue;font-weight:bold">用full-page缩放，二维码位置不正常</span><br>
+<br>
+整页缩放吗，这种所有内容都会被缩放，如果效果不符合要求，修改样式，在纸张范围内。
+
+加载css样式，参考样例10 http://www.c-lodop.com/demolist/PrintSample10.html
+整页缩放会导致内容变形。
+或通过css样式控制内容在纸张范围内，不进行缩放。
+<br>
+24.<span style="color:blue;font-weight:bold">想装载背景图上去看一下位置是否对准，html背后是白色的</span><br>
+<br>
+套打建议用纯文本，打印设计和定位套打 参考http://www.c-lodop.com/demolist/PrintSample4.html<br>
+手把手教你WEB套打程序开发 参考http://www.c-lodop.com/blogs/Blog008.html<br>
+超文本打印设计中有白色的背景区域，参考样例35，有个透明表格，如果预览也有白色背景，可以设置超文本透明样式，预览可以看到透明效果。<br>
+<br>
+24.<span style="color:blue;font-weight:bold">打印预览很久弹出来</span><br>
+<br>
+参考http://www.c-lodop.com/faq/pp27.html<br>
+或试试不预览直接打印。<br>
+如果这个任务每次预览都弹出的很慢，排查是否和输出内容有关，输出简单内容或少量内容测试下。<br>
+批量打印，分页分任务，在页数和任务之间平衡一下，参考样例26，http://www.c-lodop.com/demolist/PrintSample26.html<br>
+<br>
+25.<span style="color:blue;font-weight:bold">浏览器提示不安全</span><br>
+<br>
+https扩展版C-Lodop如何使用 参考http://www.c-lodop.com/faq/pp32.html<br>
+火狐浏览器不认localhost证书，添加到浏览器例外。<br>
+<br>
+目前发现火狐不认localhost证书，谷歌也添加到浏览器例外试试。<br>
+<br>
+访问https://localhost:8443<br>
+提示不安全的页面，高级里有选项可以添加到永久列外。<br>
+<br>
+火狐的不安全页面里有添加例外的方法，谷歌浏览器没有。<br>
+百度下谷歌的添加例外的设置方法试试。<br>
+<br>
+参考下网上的方法试试https://wenwen.sogou.com/z/q799571052.htm<br>
+<br>
+26.<span style="color:blue;font-weight:bold">顶级域名注册哪个，一级域名是只能有一个？</span><br>
+<br>
+是的，一个一级域名，这一级域名下面的子域名不限制。<br>
+如果有多个一级域名需要使用，可注册购买多个域名注册。<br>
+如果是想不限域名，可以公司名称注册。<br>
+<br>
+需要重新购买，域名注册是一次性注册，不能补差价。<br>
+如果是公司名，公司名高级可以补差价到公司名顶级，域名的不支持补差价。<br>
+<br>
+		   </div>
+    </div><!--main_middle结束-->
+
+        <div class="box box_footer"><!--box_footer开始-->
+            <div class="footer">
+<p>lodop简短问答页面.</p>
+            </div>
+        </div><!--box_footer结束-->
+
+
+</div><!--body结束-->
+ </body>
+</html>
