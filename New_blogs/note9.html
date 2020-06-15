@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>经验和待办简单笔记</title>
+  <style>
+ body{margin:0px;}
+.body {width:100%;}
+a{text-decoration:none;color:black;}
+h1{font-size:1.625em;display:inline-block;margin-top:27px;}
+h2{font-size:1.375em;}
+.imgbox{float:left;}
+.box{float:left;}
+.header_box {width:100%;background-color:#fef8e7;margin-bottom:1%;}
+.header{padding-top:1%;padding-left:1%;padding-right:1%;}
+
+.header_bottom{width:100%;}
+.menuitem {
+    margin-top:0;
+    margin-left:0;
+    margin-bottom:0;
+    padding:1%;
+    border-bottom:1px solid #fef8e7;
+    cursor:pointer;
+}
+
+.main {padding:1%;}
+.main_middle { width:100%;}
+.main p{background-color:#ffe1c7;color:black;}
+.pstyle2{color:#95bfc7;}
+
+.dai{background-color:#ffffcc;}
+
+.box_footer {width:100%;margin-bottom:0;}
+.footer {
+    padding:1%;
+    text-align:center;
+    background-color:#fef8e7;
+    font-size:0.625em;
+}
+
+@media only screen and (max-width: 500px) {
+    .menu_left{width:100%;}
+    .menuitem { margin:1%;padding:1%;}
+
+    .main_middle { width:100%;}
+    .main {padding:1%;}
+
+    .box_right {width:100%;}
+    .right { padding:1%;
+    }
+
+    .box { margin-right:0; float:left; }
+}
+</style>
+<div class="body"><!--body开始-->
+        <div class="box header_box"><!--header开始-->
+            <div class="header">
+                               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<h1>经验和待办简单笔记</h1>
+							   <div class="imgbox"><img src="../images/dqx.png"></div>
+            </div>
+        </div><!--header结束-->
+<div class="header_bottom"> 
+		   <a href="../index.html"><div class="menuitem">花谢悦神的主页</div></a>	
+		   <a href="../JingYan.html"><div class="menuitem">工作生活经验主页</div></a>
+           <a href="./JY_note.html"><div class="menuitem">全部笔记</div></a>
+</div>
+
+
+
+        <div class="box main_middle"><!--main_middle开始-->
+            <div class="main">
+<h1>经验和待办简单笔记</h1><br>
+<p>
+客户设置了p标签的行高css样式，行高不生效，发来代码后查看下了下，里面是div和span标签，没有p标签。&nbsp;&nbsp;2020-06-15<br>
+<br>
+客户注册号有水印，经排查，发现访问的是本地路径，不是注册的域名，该客户误认为打印的的pdf文件所在的域名路径，域名赠送了localhost，他改成了localhost访问方式。&nbsp;&nbsp;2020-06-12（原来的）<br>
+<br>
+有客户线条出现问题，新版本有问题，旧版本正常，经测试，发现原来旧版本不支持线条旋转，但是客户给线条加了旋转语句，最新版支持线条旋转了，就把原来的不生效的旋转样式生效了，导致和原来不一致。&nbsp;&nbsp;2020-06-12（原来的）<br>
+<br>
+有客户注册有水印问题，经测试，发现是公司名称普通注册，很久以前公司应该是卖过公司名的普通注册&nbsp;&nbsp;2020-06-12（原来的）<br>
+<br>
+客户设置了table里border=1，htm自动分页缺少上边框，发来代码查看了下，多了点样式，上方有css样式设置了border是0px。&nbsp;&nbsp;2020-06-12（原来的）<br>
+<br>
+客户总提示窗口已打开，后来测试删除共享打印机就好了。&nbsp;&nbsp;2020-06-12（原来的）<br>
+<br>
+开始记录经验笔记&nbsp;&nbsp;2020-06-12<br>
+<br>
+</p>
+<p style="background-color:#ffffcc;">
+将来版本可能会支持跨平台，liunx，mac等，因为电脑有开票软件，不敢太大的操作，所以将来可以在另一台电脑上安装虚拟机试试。之前的xp电脑可能因为测试问题，导致打印年月日显示方框，只能作废重开。开票软件没有备份，也无法实时云端备份，所以对操作系统有太多影响的就先不测试了。&nbsp;&nbsp;2020-06-12<br>
+<br>
+新版对透明图有改进，新版透明图测试&nbsp;&nbsp;2020-06-12<br>
+<br>
+打印机选择终极版，把之前零散的写的问答和博文图示等组合起来&nbsp;&nbsp;2020-06-12<br>
+<br>
+formart，0.几开头的格式，前面没0，修改format的格式，之前测试过也告诉了客户方法，但是打字比较麻烦，针对这个写到常见问答和博文里。演示用，最近有两个客户问了，算是略有常见。&nbsp;&nbsp;2020-06-12<br>
+<br>
+测试一个错误写法，关联一个页眉页脚项，这是不合理的写法，试试现象。&nbsp;&nbsp;2020-06-12<br>
+<br>
+完善测试页面，省的每次测试还要自己写代码再测，有点浪费时间。&nbsp;&nbsp;2020-06-12<br>
+<br>
+图片显示叉号和显示空白问答分开。&nbsp;&nbsp;2020-06-12<br>
+<br>
+echarts、canvas、SVG等由于和客户端浏览器引擎解析版本有关，有的会不显示。想实际测试下。&nbsp;&nbsp;2020-06-12<br>
+<br>
+通常是第一页有标题，第二页自动分页的次页向上偏移，有客户需要第一页不要页眉，第二页开始要，需要次页向下偏移，写例子测试这种应用。&nbsp;&nbsp;2020-06-12<br>
+<br>
+有客户想多任务，前面页数未知，一套页码，试试有什么其他实现方式。前面自动分页或知道都试试。&nbsp;&nbsp;2020-06-12<br>
+<br>
+完善差不多常见问答，想测试下新版本的新功能&nbsp;&nbsp;2020-06-12<br>
+<br>
+尽快完善常见问答，一些常见问答很快派上了用场，还有一些也是常见的却经常手打字&nbsp;&nbsp;2020-06-12<br>
+<br>
+开始记录待办笔记&nbsp;&nbsp;2020-06-12<br>
+<br>
+</p>
+
+
+<p>相关链接：<a class="pstyle2" href="./note8simple.html" target="_blank">注意事项简短列表</a></p>
+           </div>
+    </div><!--main_middle结束-->
+
+        <div class="box box_footer"><!--box_footer开始-->
+            <div class="footer">
+<p>生活工作经验相关页面</p>
+            </div>
+        </div><!--box_footer结束-->
+
+
+</div><!--body结束-->
+ </body>
+</html>
