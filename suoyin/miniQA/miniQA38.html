@@ -111,6 +111,24 @@ ADD_PRINT_HTM不支持每页输出tabe的thead，
 1.修改table样式变成单个简单的表格样式，ADD_PRINT_TABLE或ADD_PRINT_TBURL语句输出，可每页输出thead和tfoot。<br>
 2.拆分需要每页显示的内容，拆成两个打印项，页头的打印项设置为页眉页脚项。下面的不带页头的打印项自动分页。<br>
 <br>
+<span style="color:blue;font-weight:bold">一个打印项输出多个表格，需要每个表格每页带页头页尾</span><br>
+<br>
+ADD_PRINT_TABLE只能输出一个表格。<br>
+拆分打印项，多个table，多个ADD_PRINT_TABLE打印项输出。<br>
+<br>
+ADD_PRINT_HTM一次输出多个表格，每页固定位输出的也可以设置页眉页脚项，参考样例43那种。<br>
+<br>
+或者多任务，一个任务一个单子，一个单子一个table，一个单子一个add_print_table打印项输出, 每个单子自己的table打印项自动分页，每页输出thead和tfoot。<br>
+<br>
+<span style="color:blue;font-weight:bold">多个表格的输出</span><br>
+<br>
+ADD_PRINT_TABLE只能输出一个表格。<br>
+多个表格，<br>
+1.修改内容样式，变成一个表格，可用ADD_PRINT_TABLE输出。<br>
+2.拆分打印项，多个table，多个ADD_PRINT_TABLE打印项输出。<br>
+3.换用ADD_PRINT_HTM输出。<br>
+4.拆分打印项，多个table，多个ADD_PRINT_TABLE打印项输出,一个table打印项一个任务，多任务，参考样例26 <br>http://www.c-lodop.com/demolist/PrintSample26.html<br>
+<br>		    
 </div>
     </div><!--main_middle结束-->
 
