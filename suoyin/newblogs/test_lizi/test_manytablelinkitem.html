@@ -1,0 +1,146 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>lodop打印测试</title>
+<script language="javascript" src="LodopFuncs.js"></script>
+</head>
+<body>
+<div id="div1">
+<table border=1 cellSpacing=0 cellPadding=1 width="100%" style="border-collapse:collapse;background-color:#ffcccc;text-align:center;">
+<tr>
+	<td colspan="2">第一个表格的标题</td>
+</tr>
+<tr>
+	<td>第一个表格</td>
+	<td>第一个表格</td>
+</tr>
+</table>
+</div>
+<p></p>
+<div id="div2">
+<table border=1 cellSpacing=0 cellPadding=1 width="100%" style="border-collapse:collapse;background-color:#66ccff;text-align:center;">
+<tr>
+	<td colspan="2">第二个表格的标题</td>
+</tr>
+<tr>
+	<td>第二个表格</td>
+	<td>第二个表格</td>
+</tr>
+<tr>
+	<td>第二个表格</td>
+	<td>第二个表格</td>
+</tr>
+</table>
+</div>
+<p></p>
+<div id="div3">
+<table border=1 cellSpacing=0 cellPadding=1 width="100%" style="border-collapse:collapse;background-color:#ffff66;text-align:center;">
+<tr>
+	<td colspan="2">第三个表格的标题</td>
+</tr>
+<tr>
+	<td>第三个表格</td>
+	<td>第三个表格</td>
+</tr>
+</table>
+</div>
+<p></p>
+<div id="div4">
+<table border=1 cellSpacing=0 cellPadding=1 width="100%" style="border-collapse:collapse;background-color:#00ff00;text-align:center;">
+<tr>
+	<td colspan="4">第四个表格的标题</td>
+</tr>
+<tr>
+	<td>第四个表格</td>
+	<td>第四个表格</td>
+</tr>
+</table>
+</div>
+<p></p>
+<div id="div5">
+<table border=1 cellSpacing=0 cellPadding=1 width="100%" style="border-collapse:collapse;background-color:#996633;text-align:center;">
+<tr>
+	<td colspan="4">第五个表格的标题</td>
+</tr>
+<tr>
+	<td>第五个表格</td>
+	<td>第五个表格</td>
+</tr>
+</table>
+</div>
+<p></p>
+连续关联多个表格<br>
+<p><a href="javascript:prn1_preview()">四个表格关联打印预览（按顺序序号)</a></p>
+PS:按-1关联前一项，这种也可以。<br>
+<br>
+<p><a href="javascript:prn2_preview()">每个表格跟着一个text打印项（注意序号)</a></p>
+<p><a href="javascript:prn2_design()">进入打印设计，左侧有打印项列表</a></p>
+<p><a href="javascript:prn3_preview()">五个表格关联,for循环输出</a></p>
+<br>
+
+<script language="javascript" type="text/javascript">   
+        var LODOP; //声明为全局变量 
+	function prn1_preview() {	
+LODOP=getLodop(); 		
+LODOP.PRINT_INIT("");
+LODOP.ADD_PRINT_TABLE(20,20,300,"100%",document.getElementById("div1").innerHTML);
+LODOP.ADD_PRINT_TABLE(40,0,300,"100%",document.getElementById("div2").innerHTML);
+LODOP.SET_PRINT_STYLEA(0,"LinkedItem",1);
+LODOP.ADD_PRINT_TABLE(40,0,300,"100%",document.getElementById("div3").innerHTML);
+LODOP.SET_PRINT_STYLEA(0,"LinkedItem",2);
+LODOP.ADD_PRINT_TABLE(40,0,300,"100%",document.getElementById("div4").innerHTML);
+LODOP.SET_PRINT_STYLEA(0,"LinkedItem",3);
+LODOP.PREVIEW();	
+	};
+	function creat_page() {	
+LODOP=getLodop(); 		
+LODOP.PRINT_INIT("");
+LODOP.ADD_PRINT_TABLE(20,20,300,"100%",document.getElementById("div1").innerHTML);//第一个打印项
+  LODOP.ADD_PRINT_TEXT(10,0,100,20,"收件人：1号");//第二个打印项
+  LODOP.SET_PRINT_STYLEA(0,"LinkedItem",-1);
+LODOP.ADD_PRINT_TABLE(40,0,300,"100%",document.getElementById("div2").innerHTML);//第三个打印项
+LODOP.SET_PRINT_STYLEA(0,"LinkedItem",1);//关联第一个表格，第一个表格是第一个打印项
+  LODOP.ADD_PRINT_TEXT(10,0,100,20,"收件人：2号");//第四个打印项
+  LODOP.SET_PRINT_STYLEA(0,"LinkedItem",-1); 
+LODOP.ADD_PRINT_TABLE(40,0,300,"100%",document.getElementById("div3").innerHTML);//第五个打印项
+LODOP.SET_PRINT_STYLEA(0,"LinkedItem",3);//关联第二个表格，第二个表格是第三个打印项
+  LODOP.ADD_PRINT_TEXT(10,0,100,20,"收件人：3号");//第六个打印项
+  LODOP.SET_PRINT_STYLEA(0,"LinkedItem",-1); 
+LODOP.ADD_PRINT_TABLE(40,0,300,"100%",document.getElementById("div4").innerHTML);//第七个打印项
+LODOP.SET_PRINT_STYLEA(0,"LinkedItem",5);//关联第三个表格，第三个表格是第五个打印项
+  LODOP.ADD_PRINT_TEXT(10,0,100,20,"收件人：4号");//第六个打印项
+  LODOP.SET_PRINT_STYLEA(0,"LinkedItem",-1); 	
+	};
+function prn2_preview() {
+creat_page();
+LODOP.PREVIEW();
+};
+function prn2_design() {
+creat_page();
+LODOP.PRINT_DESIGN();
+};
+
+function prn3_preview() {
+LODOP=getLodop(); 
+LODOP.PRINT_INIT("");
+LODOP.ADD_PRINT_TABLE(20,20,300,"100%",document.getElementById("div1").innerHTML);//第一个打印项
+  LODOP.ADD_PRINT_TEXT(10,0,100,20,"收件人：1号");//第二个打印项
+  LODOP.SET_PRINT_STYLEA(0,"LinkedItem",-1);
+  var i,j;
+  i=-1;
+for(j=2;j<6;j++)
+{
+i=i+2;
+LODOP.ADD_PRINT_TABLE(40,0,300,"100%",document.getElementById("div"+j).innerHTML);
+console.log("div数值："+j+",i的数值");
+LODOP.SET_PRINT_STYLEA(0,"LinkedItem",i);
+LODOP.ADD_PRINT_TEXT(10,0,100,20,"收件人："+j+"号");
+console.log("LinkedItem数值："+i+",i的数值");
+LODOP.SET_PRINT_STYLEA(0,"LinkedItem",-1);
+}
+LODOP.PRINT_DESIGN();
+};
+</script> 
+</body>
+</html>
