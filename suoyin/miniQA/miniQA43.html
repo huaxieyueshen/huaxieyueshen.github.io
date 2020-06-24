@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>打印卡慢</title>
+ </head>
+ <body>
+ <style>
+ body{margin:0px;}
+.body {width:100%;}
+a{text-decoration:none;color:black;}
+h1{font-size:1.625em;}
+h2{font-size:1.375em;}
+/**.box{float:left;}**/
+.header_box {width:100%;}
+.header{padding:1%;
+background-color:#f1f1f1;}
+/**border:1px solid #e9e9e9;}**/
+
+.header_bottom{width:100%;}
+.menuitem {
+    margin-top:0;
+    margin-left:0;
+    margin-bottom:0;
+    padding:1%;
+    border-bottom:1px solid #e9e9e9;
+    cursor:pointer;
+}
+
+.main {padding:1%;}
+.main_middle { width:100%;}
+.blue{color:#95bfc7;}
+.blue2{color:blue;}
+.gray{color:gray;background-color:#66ffcc;}
+
+.box_footer {width:100%;margin-bottom:0;}
+.footer {
+    padding:1%;
+    text-align:center;
+    background-color:#f1f1f1;
+    font-size:0.625em;
+}
+
+@media only screen and (max-width: 500px) {
+    .menu_left{width:100%;}
+    .menuitem { margin:1%;padding:1%;}
+
+    .main_middle { width:100%;}
+    .main {padding:1%;}
+
+    .box_right {width:100%;}
+    .right { padding:1%;
+    }
+
+    .box { margin-right:0; float:left; }
+}
+
+</style>
+<div class="body"><!--body开始-->
+        <div class="box header_box"><!--header开始-->
+            <div class="header">
+                <h1>LODOP超简短问答-打印卡慢</h1>
+            </div>
+        </div><!--header结束-->
+<div class="header_bottom"> 
+		   <a href="../../index.html"><div class="menuitem">花谢悦神的主页</div></a>	
+		   <a href="../phoneQA004.html"><div class="menuitem">lodop问答主页</div></a> 
+		   <a href="../phoneQA_dange.html"><div class="menuitem">问答主页（单个问答链接）</div></a> 
+		   <a href="../mini_QAs.html"><div class="menuitem"><span style="color:#ff0099;">迷你一个问答</span></div></a> 
+</div>
+        <div class="box main_middle"><!--main_middle开始-->
+            <div class="main">
+<h1>打印卡慢</h1>
+批量打印，分页分任务，在页数和任务之间平衡一下，参考样例26http://www.c-lodop.com/demolist/PrintSample26.html<br>
+<br>
+<span style="color:blue;font-weight:bold">打印预览显示进度条，过慢</span><br>
+<br>
+出现进度条，打印过慢，可能和很多原因有关：打印内容或样式或图片等过多，有需要下载有脚步执行或本身网络慢；<br>
+机器性能过低 系统ie有问题或缓存过多；或使用的是共享打印机。<br>
+如果预览页数多，可以多分一些任务，太多不建议预览，建议直接打印，在任务和页数之间平衡一下，参考样例26 <br>http://www.c-lodop.com/demolist/PrintSample26.html<br>
+<br>
+<span style="color:blue;font-weight:bold">测试是否和内容有关</span><br>
+<br>
+出现进度条，打印过慢，可能和很多原因有关：打印内容或样式或图片等过多，有需要下载有脚步执行或本身网络慢；<br>
+机器性能过低 系统ie有问题或缓存过多；或使用的是共享打印机。<br>
+先测试下是否和内容有关，比如测试样例26，那种简单的纯文本试试，样例26如果测试很快，很可能和内容有关，比如自己内容过多需要下载有脚步执行或本身网络慢，打印内容或样式等过多。<br>
+<br>
+<span style="color:blue;font-weight:bold">不是共享打印机，打印预览慢</span><br>
+<br>
+排查下其他条目：出现进度条，打印过慢，可能和很多原因有关：打印内容或样式或图片等过多，有需要下载有脚步执行或本身网络慢；机器性能过低 系统ie有问题或缓存过多<br>
+<br>
+<span style="color:blue;font-weight:bold">输出简单add_Print_text测试</span><br>
+<br>
+输出个简单的add_Print_text测试下，试试纯文本是否快一些。<br>
+超文本需要浏览器引擎解析。<br>
+<br>
+纯文本+线输出表格：ADD_PRINT_TEXT、ADD_PRINT_LINE<br>
+画线输出表格，参考http://www.c-lodop.com/demolist/PrintSampleA1.html<br>
+重置ie浏览器试试，或尝试用纯文本画线方式。<br>
+<br>
+重置ie浏览器试试，输出个最简单的表格，去掉样式等对比试试。<br>
+调试代码 ，排查慢在什么地方。<br>
+用虚拟打印机测试下，对比真实打印机，有的打印机可能解析的任务较大。<br>
+<br>
+<span style="color:blue;font-weight:bold">批量直接打印，打印机停顿</span><br>
+<br>
+批量打印，分页分任务，在页数和任务之间平衡一下，参考样例26http://www.c-lodop.com/demolist/PrintSample26.html<br>
+用虚拟打印机测试一下，或打印机脱机，查看队列的任务和进入队列的时间，是打印机停顿 还是任务发送到队列的停顿。<br>
+<br>
+<span style="color:blue;font-weight:bold">批量打印超文本或图片慢</span><br>
+<br>
+是否是大量打印超文本造成的，Lodop大量打印超文本，调用ie引擎解析，ie缓存过多不释放，可能造成一些影响，如果大量打印，可以试试用纯文本方式。<br>
+<br>
+图片批量打印，src 方式输出，需要通过浏览器引擎解析，存在不释放缓存的现象，可尝试base64码输出，参考样例<br>38http://www.c-lodop.com/demolist/PrintSample38.html<br>
+base64位码输出直接通过本地lodop程序解析，无需经过浏览器引擎解析<br>
+<br>
+Lodop大量打印超文本，调用ie引擎解析，ie缓存过多不释放，可能造成一些影响，如果大量打印，可以试试用纯文本方式。
+参考http://www.c-lodop.com/demolist/PrintSample4.html<br>
+<br>
+<span style="color:blue;font-weight:bold">速度慢排查</span><br>
+<br>
+速度慢一般从以下几个方面排查<br>
+1.访问不存在的地址有等待的时间<br>
+2.共享打印机的网络地址，网络故障访问不到共享打印机<br>
+3.硬件性能问题，硬件反应慢，<br>
+4.网络数据传输速度的慢<br>
+5.打印任务加载的内容过多或过大<br>
+<br>
+<span style="color:blue;font-weight:bold">其他</span><br>
+<br>
+1.重置浏览器，清理浏览器缓存。<br>
+2.清理操作系统缓存等，关闭一些不常用的软件，保证系统内存充足。<br>
+3.是否是打印内容或样式等过多引起的（表现为打印预览弹出很慢，或有进度条，进度条卡住等，如果是数据过多引起，建议拆分一下数据分多任务）：<br>
+批量打印，分多任务，在页数和任务数量之间平衡一下，页数太多建议多分一些任务，<br>
+参考http://www.c-lodop.com/demolist/PrintSample26.html<br>
+4.测试官网样例http://www.c-lodop.com/LodopDemo.html，是否有提示。<br>
+5.测试参考样例7http://www.c-lodop.com/demolist/PrintSample7.html，选择xps或pdf虚拟打印机试试，换个打印机试试。<br>
+6.删除网络共享打印机试试，可能是导致这个原因。<br>
+（网络共享打印机还可能导致c-lodop安装界面始终打不开，可尝试删除网络共享打印机）<br>
+7.c-lodop启动界面未响应问题，可等待响应，或关闭程序，然后双击桌面上的c-lodop快捷方式重启本地的c-lodop。<br>
+<br>
+如果是批量打印相同内容，可设置份数参考样例7http://www.c-lodop.com/demolist/PrintSample7.html<br>
+如果是批量打不同的，批量打印，分页分任务，参考样例26 http://www.c-lodop.com/demolist/PrintSample26.html<br>
+<br>
+
+</div>
+    </div><!--main_middle结束-->
+
+        <div class="box box_footer"><!--box_footer开始-->
+            <div class="footer">
+<p>lodop简短问答页面.</p>
+            </div>
+        </div><!--box_footer结束-->
+</div><!--body结束-->
+ </body>
+</html>
