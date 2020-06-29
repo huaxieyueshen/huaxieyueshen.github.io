@@ -1,0 +1,55 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>lodop表格自动分页补线</title>
+<script language="javascript" src="LodopFuncs.js"></script>
+</head>
+<body>
+<div id="div1">
+<table border=1  style="border-collapse:collapse;">
+<tr>
+	<td width="50" height="50" align="center">A</td>
+	<td width="50" height="50" align="center">B</td>
+</tr>
+<tr>
+	<td width="50" height="50" align="center">C</td>
+	<td width="50" height="50" align="center">D</td>
+</tr>
+</table>
+</div>
+<hr><!--分割线-->
+<div id="div2">
+<table style="border-collapse:collapse;">
+<tr>
+	<td style="border:solid 1px black" width="50" height="50" align="center">A</td>
+	<td style="border:solid 1px black" width="50" height="50" align="center">B</td>
+</tr>
+<tr>
+	<td style="border:solid 1px black" width="50" height="50" align="center">C</td>
+	<td style="border:solid 1px black" width="50" height="50" align="center">D</td>
+</tr>
+</table>
+</div>
+<hr><!--分割线-->
+<p><a href="javascript:prn1_preview()">打印预览</a>
+<script language="javascript" type="text/javascript">   
+        var LODOP; //声明为全局变量 
+	function prn1_preview() {	
+LODOP=getLodop(); 		
+LODOP.PRINT_INIT("");
+LODOP.ADD_PRINT_HTM(10,10,350,56,document.getElementById("div1").innerHTML);
+//table加border=1,div1自动分页正常补线，
+LODOP.ADD_PRINT_HTM(80,10,350,56,document.getElementById("div2").innerHTML);
+//table没加border=1，每个单元格加了border,div2自动分页上方缺表格线,
+var strdiv1="<style>table{border:0px};</style>"+document.getElementById("div1").innerHTML;
+LODOP.ADD_PRINT_HTM(160,10,350,56,strdiv1);
+//table加border=1,但是在css样式设置了table的border是0px、
+var strdiv2="<style>table{border-top:0px};</style>"+document.getElementById("div1").innerHTML;
+LODOP.ADD_PRINT_HTM(230,10,350,56,strdiv2);
+//table加border=1,但是在css样式设置了table的border-top是0px、
+LODOP.PRINT_DESIGN();	
+	};
+</script> 
+</body>
+</html>
