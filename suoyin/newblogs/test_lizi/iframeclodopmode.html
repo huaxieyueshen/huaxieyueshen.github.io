@@ -1,0 +1,39 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>iframe的远程预览模式</title>
+<script language="javascript" src="LodopFuncs.js"></script>
+<object id="LODOP_OB" classid="clsid:2105C259-1E0C-4534-8141-A753534CB4CA" width=400 height=200> 
+	<embed id="LODOP_EM" type="application/x-print-lodop" width=400 height=200 pluginspage="install_lodop32.exe"></embed>
+</object> 
+</head>
+<body>
+<iframe id="001" width="400px" height="200px">
+  <p>您的浏览器不支持  iframe 标签。</p>
+</iframe>
+<p><a href="javascript:prn1_preview()">打印预览(只能c-lodop下用）</a></p>
+<p><a href="javascript:prn2_preview()">打印预览(只能lodop插件下用）</a></p>
+<script language="javascript" type="text/javascript">   
+        var LODOP; //声明为全局变量 
+	function prn1_preview() {//c-lodop主动远程预览模式，只能c-lodop下使用	
+LODOP=getLodop(); 		
+LODOP.PRINT_INIT("");
+LODOP.SET_PRINT_PAGESIZE(1,400,200,"");  
+LODOP.ADD_PRINT_TEXT(22,28,100,20,"这是一个文本");
+LODOP.SET_PRINT_STYLEA(0,"Alignment",2);
+LODOP.PREVIEW("001"); //在ID等于“001”的iframe元素内显示打印预览
+//LODOP.PRINT_DESIGN();	
+	};
+	function prn2_preview() {//lodop插件内嵌模式，只能在lodop插件下使用	
+LODOP=getLodop(document.getElementById('LODOP_OB'),document.getElementById('LODOP_EM')); 	
+LODOP.PRINT_INIT("");
+LODOP.SET_PRINT_PAGESIZE(1,400,200,""); 
+LODOP.ADD_PRINT_TEXT(38,42,100,20,"新加文本1");
+LODOP.SET_SHOW_MODE("PREVIEW_IN_BROWSE",1);
+LODOP.PREVIEW(); 
+//LODOP.PRINT_DESIGN();	
+	};
+</script> 
+</body>
+</html>
