@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>打印旋转</title>
+ </head>
+ <body>
+ <style>
+ body{margin:0px;}
+.body {width:100%;}
+a{text-decoration:none;color:black;}
+h1{font-size:1.625em;}
+h2{font-size:1.375em;}
+/**.box{float:left;}**/
+.header_box {width:100%;}
+.header{padding:1%;
+background-color:#f1f1f1;}
+/**border:1px solid #e9e9e9;}**/
+
+.header_bottom{width:100%;}
+.menuitem {
+    margin-top:0;
+    margin-left:0;
+    margin-bottom:0;
+    padding:1%;
+    border-bottom:1px solid #e9e9e9;
+    cursor:pointer;
+}
+
+.main {padding:1%;}
+.main_middle { width:100%;}
+.blue{color:#95bfc7;}
+.blue2{color:blue;}
+.gray{color:gray;background-color:#66ffcc;}
+
+.box_footer {width:100%;margin-bottom:0;}
+.footer {
+    padding:1%;
+    text-align:center;
+    background-color:#f1f1f1;
+    font-size:0.625em;
+}
+
+@media only screen and (max-width: 500px) {
+    .menu_left{width:100%;}
+    .menuitem { margin:1%;padding:1%;}
+
+    .main_middle { width:100%;}
+    .main {padding:1%;}
+
+    .box_right {width:100%;}
+    .right { padding:1%;
+    }
+
+    .box { margin-right:0; float:left; }
+}
+
+</style>
+<div class="body"><!--body开始-->
+        <div class="box header_box"><!--header开始-->
+            <div class="header">
+                <h1>LODOP超简短问答-打印旋转</h1>
+            </div>
+        </div><!--header结束-->
+<div class="header_bottom"> 
+		   <a href="../../index.html"><div class="menuitem">花谢悦神的主页</div></a>	
+		   <a href="../phoneQA004.html"><div class="menuitem">lodop问答主页</div></a> 
+		   <a href="../phoneQA_dange.html"><div class="menuitem">问答主页（单个问答链接）</div></a> 
+		   <a href="../mini_QAs.html"><div class="menuitem"><span style="color:#ff0099;">迷你一个问答</span></div></a> 
+</div>
+        <div class="box main_middle"><!--main_middle开始-->
+            <div class="main">
+<h1>打印旋转</h1>
+如何实现内容或整页旋转，参考http://www.c-lodop.com/faq/pp25.html<br>
+<br>
+<span style="color:blue;font-weight:bold">如何旋转图片</span><br>
+<br>
+下载安装最新版c-lodop，最新版支持图片旋转了<br>
+http://www.c-lodop.com/download.html<br>
+参考http://localhost:8000/c_pdfprint，这个页面有旋转打印项的例子，把打印项换成图片打印项。<br>
+<br>
+排查使用的是否是最新版c-lodop,http://www.c-lodop.com/download.html<br>
+<br>
+<span style="color:blue;font-weight:bold">如何控制某页整页旋转180度</span><br>
+<br>
+使用Lodop语句，该可以控制在某个打印项所在页，整页旋转。<br>
+此方法注意：很多打印机不一定支持该旋转，需要实际测试后再决定使用该功能。<br>
+LODOP.SET_PRINT_STYLEA(0,"AngleOfPageInside",180);//上面这个打印项所在页，整页旋转<br>
+该方法由于是转换成图形模式再旋转，不太清晰，不好处理，所以不建议使用，建议用手直接把纸张翻转一下。<br>
+<br>
+打印出来后，直接把纸张倒过来。<br>
+如果本身是白纸，打印机出纸内容是倒着的，可以打出来后手动倒着把纸张正过来。<br>
+如果本身不是白纸，需要打印的纸张上有背景，调整进纸方向。（如果是卷纸，卷纸背景是反的，查看一下是否放反了）。<br>
+正常情况下打印内容都是顺着打印机出纸方向的，如果打印出来是倒着的，查看一下是否打印机的设置问题。<br>
+<br>
+
+</div>
+    </div><!--main_middle结束-->
+
+        <div class="box box_footer"><!--box_footer开始-->
+            <div class="footer">
+<p>lodop简短问答页面.</p>
+            </div>
+        </div><!--box_footer结束-->
+</div><!--body结束-->
+ </body>
+</html>
