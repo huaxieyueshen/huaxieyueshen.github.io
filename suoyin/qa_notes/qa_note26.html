@@ -1,0 +1,301 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>【非常见问题杂笔记】paper size W:0 H:0 invalid，提示下载安装等</title>
+ </head>
+ <body>
+ <style>
+ body{margin:0px;}
+.body {width:100%;}
+a{text-decoration:none;color:black;}
+h1{font-size:1.625em;}
+h2{font-size:1.375em;}
+/**.box{float:left;}**/
+.header_box {width:100%;}
+.header{padding:1%;
+background-color:#f1f1f1;}
+/**border:1px solid #e9e9e9;}**/
+
+.header_bottom{width:100%;}
+.menuitem {
+    margin-top:0;
+    margin-left:0;
+    margin-bottom:0;
+    padding:1%;
+    border-bottom:1px solid #e9e9e9;
+    cursor:pointer;
+}
+
+.main {padding:1%;}
+.main_middle { width:100%;}
+
+
+.box_footer {width:100%;margin-bottom:0;}
+.footer {
+    padding:1%;
+    text-align:center;
+    background-color:#f1f1f1;
+    font-size:0.625em;
+}
+
+@media only screen and (max-width: 500px) {
+    .menu_left{width:100%;}
+    .menuitem { margin:1%;padding:1%;}
+
+    .main_middle { width:100%;}
+    .main {padding:1%;}
+
+    .box_right {width:100%;}
+    .right { padding:1%;
+    }
+
+    .box { margin-right:0; float:left; }
+}
+
+</style>
+<div class="body"><!--body开始-->
+        <div class="box header_box"><!--header开始-->
+            <div class="header">
+                <h1>LODOP超简短问答-【非常见问题杂笔记】paper size W:0 H:0 invalid，提示下载安装等</h1>
+            </div>
+        </div><!--header结束-->
+<div class="header_bottom"> 
+		   <a href="../../index.html"><div class="menuitem">花谢悦神的主页</div></a>	
+		   <a href="../phoneQA004.html"><div class="menuitem">lodop问答主页</div></a> 
+		   <a href="../phoneQA_dange.html"><div class="menuitem">问答主页（单个问答链接）</div></a> 
+		   <a href="../qa_notes.html"><div class="menuitem"><span style="color:blue;">问答等记录笔记，具体问题</span></div></a>
+</div>
+        <div class="box main_middle"><!--main_middle开始-->
+            <div class="main">
+<h1>【非常见问题杂笔记】paper size W:0 H:0 invalid，提示下载安装等</h1>
+1.<span style="color:blue;font-weight:bold">paper size W:0 H:0 invalid!</span><br>
+参考样例7，获取打印机名称http://www.c-lodop.com/demolist/PrintSample7.html<br>
+如果是指获取打印预览或打印后的打印机名称，参考样例22，预览或打印后获取。<br>http://www.c-lodop.com/demolist/PrintSample22.html<br>
+<br>
+去掉纸张语句测试下，有的打印机不支持设置的该自定义纸张。<br>
+修改纸张语句参数，或用虚拟打印机试试。<br>
+<br>
+2.<span style="color:blue;font-weight:bold">手机号中间四位，用*代替显示。这个怎么实现</span><br>
+LODOP没有处理方法，可以用JS处理<br>
+JS判断下，字符串中间的替换成星号。<br>
+<br>
+3.<span style="color:blue;font-weight:bold">  打印插件已经安装 在 谷歌浏览器上正常 可以打印，但在ie浏览器上显示 这个，打印控件未安装</span><br>
+是混合部署吗<br>
+测试参考一下官网样例http://www.c-lodop.com/LodopDemo.html<br>
+官网样例是混合部署LodopFuncs.js里已经写好了判断。<br>
+客户端是浏览器支持np插件，是32位浏览器，就会提示下载32位的Lodop插件：install_lodop32.exe<br>
+客户端浏览器支持np插件，是64位浏览器，就会提示下载64位的Lodop插件：install_lodop64.exe<br>
+客户端浏览器不支持np插件（判断如高版本谷歌火狐等），会提示下载C-Lodop方式： CLodop_Setup_for_Win32NT.exe<br>
+根据样例的提示下载安装。<br>
+<br>
+参考http://www.c-lodop.com/faq/pp21.html<br>
+高版本的火狐谷歌不再支持np插件，需要使用c-lodop，可参考官网样例混合部署http://www.c-lodop.com/LodopDemo.html<br>
+Lodop控件升级到C-Lodop云打印 参考http://www.c-lodop.com/faq/pp7.html<br>
+混合部署或单独使用c-lodop都可以支持所有浏览器<br>
+<br>
+用该浏览器测试下官网样例http://www.c-lodop.com/demolist/PrintSample2.html<br>
+如果样例正常，样例页面右键查看源码 ，参考样例的使用方法。<br>
+混合部署或单独使用c-lodop，可以支持所有浏览器。<br>
+<br>
+参考http://www.c-lodop.com/faq/pp21.html<br>
+插件方式和浏览器位数有关，<br>
+c-lodop都用32位的就行，32位c-lodop支持32和64位浏览器。<br>
+<br>
+4.<span style="color:blue;font-weight:bold">LODOP.ADD_PRINT_IMAGE 打印图片不能进行旋转？</span><br>
+安装最新版c-lodop4088，支持图片旋转。<br>
+访问http://localhost:8000/c_pdfprint<br>
+<br>
+5.<span style="color:blue;font-weight:bold">object对象这个页面中不是必须的是吗？</span><br>
+不是必须的，参考样例2，右键查看源码。判断交给 lodopFuncs.js。<br>
+高版本的火狐谷歌会走c-lodop方式。<br>
+<br>
+Lodop控件升级到C-Lodop云打印 参考http://www.c-lodop.com/faq/pp7.html<br>
+<br>
+6.<span style="color:blue;font-weight:bold">打印机多个卡槽，判断哪个卡槽</span><br>
+卡槽是指纸盒吗，<br>
+设置纸张来源，参考样例6 http://www.c-lodop.com/demolist/PrintSample6.html<br>
+<br>
+参考样例7 http://www.c-lodop.com/demolist/PrintSample7.html<br>
+获取当前的纸盒参数，切换不同纸盒，获取下参数值。<br>
+<br>
+7.<span style="color:blue;font-weight:bold">能判断打印机是否连接成功吗</span><br>
+参考样例45http://www.c-lodop.com/demolist/PrintSample45.html<br>
+获取打印状态，需要实际测试下，不同打印机状态码可能不同。<br>
+如果实际测试该打印机获取不到脱机状态，就是获取不到。<br>
+<br>
+或判断一段时间还在队列，认为链接不成功。<br>
+如果是直接判断是否脱机状态，需要实际测试。<br>
+<br>
+不支持打印前判断。<br>
+<br>
+咨询下打印机客服试试。<br>
+lodop没有打印前判断是否脱机的方法。<br>
+<br>
+或参考样例45的13，前面成功或删除了才继续打印下一个<br>
+http://www.c-lodop.com/demolist/PrintSample45.html<br>
+<br>
+不支持所有打印前判断是否连接成功。<br>
+<br>
+8.<span style="color:blue;font-weight:bold">使用的html打印目前状况是无法调整字体大小。html页面已经设置了fontsize并生效</span><br>
+加载css样式，参考样例10 http://www.c-lodop.com/demolist/PrintSample10.html<br>
+<br>
+查看lodop内部解析的html信息，见http://www.c-lodop.com/faq/pp8.html<br>
+查看下样式的传入是否正常。<br>
+<br>
+9.<span style="color:blue;font-weight:bold">用FILE:EncodeBase64转成base64后，总是会提示这个值无效</span><br>
+提示的是base64码无效，<br>
+注意紧跟"/"之后的图片格式"jpg"很重要， 一定要与生成编码时的图片格式保持一致，<br>
+发一下原图，这边测试下。<br>
+<br>
+不能发图这边不好判断，换其他图片测试下，或裁剪图片后测试下。<br>
+排查是否和图片格式，或图片大小有关。<br>
+<br>
+9.<span style="color:blue;font-weight:bold">有的客户端需要把上面那个比例调成125%才能占满A4</span><br>
+参考http://www.c-lodop.com/demolist/PrintSample42.html<br>
+<br>
+操作系统的，控制面板的-显示，是否是100%。<br>
+<br>
+在两台电脑上用虚拟打印机测试下。<br>
+如果也有问题，排查<br>
+1.查看本机ie浏览器的缩放比例应在100%，<br>
+2.操作系统控制面板设置显示应在100%。<br>
+<br>
+10.<span style="color:blue;font-weight:bold">lodop中有合并单元格的例子吗</span><br>
+加载css样式，参考样例10 http://www.c-lodop.com/demolist/PrintSample10.html<br>
+带合并单元格的例子，参考http://www.c-lodop.com/demolist/PrintSample15.html<br>
+<br>
+lodop没有自动判断重复数据合并单元格的方法，只能试试自己在JS里判断处理。<br>
+<br>
+11.<span style="color:blue;font-weight:bold">PRINT_STATUS_OK的strResult返回的是就是我传入的TaskId本身</span><br>
+参考样例45，右键查看源码http://www.c-lodop.com/demolist/PrintSample45.html<br>
+第二个参数是jobid，不是TaskID,TaskID是用来区分多个回调函数时，是哪个返回值的。<br>
+先获取PRINT或PRINTA的返回值，返回jobid，再用jobid获取一些返回值。<br>
+<br>
+写法不对，先获取jobid，再获取是否成功。<br>
+<br>
+jobid是PRINT或PRINTA返回的<br>
+<br>
+先获取jobid，然后再获取PRINT_STATUS_OK。<br>
+PRINT_STATUS_OK这个打印状态的成功打印机不一定支持，参考样例45的13，可加上不在队列进行判断。<br>
+<br>
+LODOP.SET_PRINT_MODE("CATCH_PRINT_STATUS",true);<br>
+参考样例45，需要加上这句。加上这句后，print或printa返回jobid。<br>
+<br>
+写法不对，先获取jobid，获取成功后再获取状态或不在队列。<br>
+<br>
+PRINTA的返回值也需要回调。<br>
+参考样例45，右键查看源码<br>
+jobid没有加回调函数。<br>
+<br>
+12.<span style="color:blue;font-weight:bold">预览是纵向的，打印出来又是横向的</span><br>
+横向纵向 参考http://www.c-lodop.com/blogs/Blog010.html<br>
+注意进纸的方向，横向纵向指的是内容的方法，不是纸张的方向。<br>
+<br>
+横向纵向 参考http://www.c-lodop.com/blogs/Blog010.html<br>
+进纸的时候方向是怎样的<br>
+<br>
+13.<span style="color:blue;font-weight:bold">在有多个纸盒的打印机下，纸张来源选择自动选择，打印不出来</span><br>
+是否是默认纸盒存在问题，指定下纸张来源试试<br>
+参考http://www.c-lodop.com/demolist/PrintSample6.html<br>
+指定下具体的纸张来源，纸盒试试。<br>
+<br>
+参考样例7 http://www.c-lodop.com/demolist/PrintSample7.html<br>
+获取当前的纸盒参数，切换不同纸盒，获取下参数值。<br>
+<br>
+14.<span style="color:blue;font-weight:bold">如何获取c-lodop打印机序号</span><br>
+样例右键，查看源码。<br>
+序号可能会随打印机增删而变化。<br>
+<br>
+获取打印机名称，序号，参考样例7http://www.c-lodop.com/demolist/PrintSample7.html<br>
+lodop和c-lodop技术手册，如果是AO打印，c-lodop技术手册中有一些方法。<br>
+<br>
+端桥模式只有c-lodop有，所以只在c-lodop技术手册里。http://www.c-lodop.com/download.html<br>
+<br>
+15.<span style="color:blue;font-weight:bold">c-lodop能预览显示图标图例，打印不显示图例吗</span><br>
+不支持，图例和图标是一个打印项里的，可以设置某个打印项预览不打印，不能设置部分内容预览不打印。<br>
+<br>
+或预览和打印放在两个方法里，一个任务带图例，预览中隐藏打印按钮，一个任务只用于直接打印，不带图例，在其他地方再写同样内容的直接打印。<br>
+<br>
+预览的打印按钮不能修改，是已经写好的界面。做个按钮可以隐藏。<br>
+<br>
+16.<span style="color:blue;font-weight:bold">升级新版本后，预览也不行 打印也不行</span><br>
+发一下具体的问题，测试下样例5,7，选择虚拟打印机测试下。<br>
+<br>
+直接测试下样例7试试，查看windows打印机列表是否存在打印机。<br>
+<br>
+说明安装启动是正常，对照样例排查下代码，指定下具体的打印机试试。<br>
+<br>
+样例45是用的PRINTA，直接打印前会弹出打印机选择框，这边测试是正常的，做个简单例子测试下。<br>
+用PRINTA语句输出。<br>
+<br>
+17.<span style="color:blue;font-weight:bold">有没有缺纸提示的接口？</span><br>
+参考样例45http://www.c-lodop.com/demolist/PrintSample45.html<br>
+获取打印状态，需要实际测试下，不同打印机状态码可能不同。<br>
+有的打印机可能获取不到缺纸状态。<br>
+<br>
+18.<span style="color:blue;font-weight:bold">打印弹出：传真安装程序</span><br>
+选择打印机，参考样例5、7<br>
+http://www.c-lodop.com/demolist/PrintSample5.html<br>
+http://www.c-lodop.com/demolist/PrintSample7.html<br>
+打印机优先级，参考http://www.c-lodop.com/blogs/Blog002.html<br>
+选择的不是正常的打印机，可能选择了传真，测试样例5,7指定一个打印机。<br>
+<br>
+19.<span style="color:blue;font-weight:bold">端桥模式 http的 9200 是不是也要开放   除了  18000  8000 这两个端口</span><br>
+是的，参考http://www.c-lodop.com/blogs/Blog014.html<br>
+AO服务的默认端口是9200，测试和管理(访问)端口是8000(备用端口18000），服务器开启防火墙的话，要开通这三个端口访问权。<br>
+<br>
+20.<span style="color:blue;font-weight:bold">电子快递面单能通过lodop实现吗</span><br>
+打印设计和定位套打 参考http://www.c-lodop.com/demolist/PrintSample4.html<br>
+手把手教你WEB套打程序开发 参考http://www.c-lodop.com/blogs/Blog008.html<br>
+群文件里有几个其他人做的面单的.txt文件可以参考下。<br>
+<br>
+21.<span style="color:blue;font-weight:bold">电脑换了默认打印机,设置了纸张规格,然后打印出来就空白了</span><br>
+纸张设置，参考样例5 http://www.c-lodop.com/demolist/PrintSample5.html<br>
+纸张的一些优先级 http://www.c-lodop.com/blogs/Blog002.html<br>
+用虚拟打印机测试下，如果虚拟打印机也有问题，进入打印设计查看下打印项及打印成参数是否正常传入。<br>
+<br>
+22.<span style="color:blue;font-weight:bold">打印偶尔出空白页,没有规律</span><br>
+用虚拟打印机测试下，试试能否还原问题。<br>
+调试JS，排查内容的传入是否正常，打印项数值是否传入正常。<br>
+<br>
+是批量打印图片吗，<br>
+可以试试直接输出base64码方式，参考样例38，不加img标签。<br>
+<br>
+批量打印，分页分任务，在页数和任务之间平衡一下，参考样例26http://www.c-lodop.com/demolist/PrintSample26.html<br>
+多分一些任务，一个任务不要打太多。<br>
+<br>
+试试再多分一些任务试试，<br>
+可以试试直接输出base64码方式，参考样例38，不加img标签那种方式，那种不需要经过浏览器解析。<br>
+<br>
+23.<span style="color:blue;font-weight:bold">纸张和设置纸张不一致</span><br>
+用xps或pdf虚拟打印机测试一下，如果虚拟打印机输出的是正确的纸张，真实打印机不是，打印机不支持该自定义纸张。<br>
+<br>
+用xps或pdf虚拟打印机测试一下。和打印机有关。<br>
+通常打印机都是短边进纸，类似A4那种，所以很多打印机都支持那种纸张。<br>
+宽比高大的那种是否支持，需要实际测试下，可用虚拟打印机对比测试。<br>
+<br>
+24.<span style="color:blue;font-weight:bold">内容html在浏览器中不换行，在lodop中换行</span><br>
+查看lodop内部解析的html信息，见http://www.c-lodop.com/faq/pp8.html<br>
+分析差异点，因浏览器版本不同遵循的html标准不同，造成某些标签属性显示有差异，尽量避免使用有差异的属性，可以在ie下不同版本仿真情况下验证差异 排查样式，尽量使用使用各浏览器无歧义的通用的 html css js，不支持的样式可尝试用其他样式代替。<br>
+排查样式，样式是否和容器有关，修改样式。<br>
+<br>
+lodop不支持打印word文档，是否是转成html了，排查转成的html里的样式。<br>
+<br>
+</div>
+    </div><!--main_middle结束-->
+
+        <div class="box box_footer"><!--box_footer开始-->
+            <div class="footer">
+<p>lodop简短问答页面.</p>
+            </div>
+        </div><!--box_footer结束-->
+
+
+</div><!--body结束-->
+ </body>
+</html>
