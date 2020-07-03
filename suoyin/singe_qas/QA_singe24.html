@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>条码二维码简短问答</title>
+ </head>
+ <body>
+ <style>
+ body{margin:0px;}
+.body {width:100%;}
+a{text-decoration:none;color:black;}
+h1{font-size:1.625em;}
+h2{font-size:1.375em;}
+/**.box{float:left;}**/
+.header_box {width:100%;}
+.header{padding:1%;
+background-color:#f1f1f1;}
+/**border:1px solid #e9e9e9;}**/
+
+.header_bottom{width:100%;}
+.menuitem {
+    margin-top:0;
+    margin-left:0;
+    margin-bottom:0;
+    padding:1%;
+    border-bottom:1px solid #e9e9e9;
+    cursor:pointer;
+}
+
+.main {padding:1%;}
+.main_middle { width:100%;}
+.blue{color:#95bfc7;}
+
+
+.box_footer {width:100%;margin-bottom:0;}
+.footer {
+    padding:1%;
+    text-align:center;
+    background-color:#f1f1f1;
+    font-size:0.625em;
+}
+
+@media only screen and (max-width: 500px) {
+    .menu_left{width:100%;}
+    .menuitem { margin:1%;padding:1%;}
+
+    .main_middle { width:100%;}
+    .main {padding:1%;}
+
+    .box_right {width:100%;}
+    .right { padding:1%;
+    }
+
+    .box { margin-right:0; float:left; }
+}
+
+</style>
+<div class="body"><!--body开始-->
+        <div class="box header_box"><!--header开始-->
+            <div class="header">
+                <h1>LODOP超简短问答-条码二维码简短问答</h1>
+            </div>
+        </div><!--header结束-->
+<div class="header_bottom"> 
+		   <a href="../../index.html"><div class="menuitem">花谢悦神的主页</div></a>	
+		   <a href="../phoneQA004.html"><div class="menuitem">lodop问答主页</div></a> 
+		   <a href="../phoneQA_dange.html"><div class="menuitem">问答主页（单个问答链接）</div></a> 
+		   <a href="../mini_QAs.html"><div class="menuitem"><span style="color:#ff0099;">迷你一个问答</span></div></a>
+</div>
+        <div class="box main_middle"><!--main_middle开始-->
+            <div class="main">
+<h1>条码二维码简短问答</h1> 
+<span style="color:blue;font-weight:bold">如何输出条码</span><br>
+<br>
+条码输出 参考样例11 http://www.c-lodop.com/demolist/PrintSample11.html<br>
+超文本表格中的条码参考样例47 http://www.c-lodop.com/demolist/PrintSample47.html<br>
+LODOP对象嵌套在一段要输出的超文本中,表格中的条码参考样例47http://www.c-lodop.com/demolist/PrintSample47.html<br>
+<br>
+<span style="color:blue;font-weight:bold">条码设置下方数值不显示</span><br>
+<br>
+参考样例11http://www.c-lodop.com/demolist/PrintSample11.html<br>
+LODOP.SET_PRINT_STYLEA(0,"ShowBarText",0);//设置不显示下方的条码数值<br>
+<br>
+也可以从打印设计里调整，然后生成代码<br>
+打印设计——选中该条码打印项——右键属性——条码属性——条码图含文字前面的勾去掉<br>
+<br>
+<span style="color:blue;font-weight:bold">条码下方数值相对条码居中</span><br>
+<br>
+参考样例11http://www.c-lodop.com/demolist/PrintSample11.html<br>
+LODOP.SET_PRINT_STYLEA(0,"AlignJustify",2);//设置条码下方的文字相对于条码本身居中<br>
+<br>
+<span style="color:blue;font-weight:bold">条码粗细</span><br>
+<br>
+二维码及条码大小控制 通过输出的整体宽度调整粗细<br>
+参考http://www.c-lodop.com/faq/pp10.html<br>
+<br>
+<span style="color:blue;font-weight:bold">一维码二维码字符限制</span><br>
+<br>
+一维条码能包含的字符内容及长度限制 参考http://www.c-lodop.com/faq/pp18.html<br>
+<br>
+二维码 相对于低容错L 7% 所能输出的最大字符数值http://www.c-lodop.com/faq/pp10.html<br>
+相对于低容错L 7% 所能输出的最大字符数值如下<br>
+版本1：最大值17个字符<br>
+版本2：最大值32个字符<br>
+版本3：最大值53个字符<br>
+版本5：最大值106个字符<br>
+版本7：最大值154个字符<br>
+版本10：最大值135个汉字 271个字符<br>
+版本14：最大值229个汉字，458个字符<br>
+超出了会有内容溢出提示“QRCode data overflow"<br>
+<br>
+<span style="color:blue;font-weight:bold">设置条码下方文字字体</span><br>
+<br>
+可以 LODOP.SET_PRINT_STYLEA(0,"ShowBarText",0);<br>
+可以设置下方不显示数字，然后用add_print_text文本单独输出数字，放在条形码下方。<br>
+第该文本项设置字体。<br>
+<br>
+<span style="color:blue;font-weight:bold">条码识别</span><br>
+<br>
+影响条码识别率的可能原因 http://www.c-lodop.com/faq/pp6.html<br>
+<br>
+<span style="color:blue;font-weight:bold">二维码扫描出乱码</span><br>
+<br>
+更改其他编码试试：<br>
+例如：LODOP.SET_PRINT_STYLEA(0,"DataCharset","UTF-8");<br>
+<br>
+也可以在打印设计里修改，生成代码，<br>
+打印设计——选中该条码打印项——右键属性——条码属性——下方修改编码<br>
+<br>
+<span style="color:blue;font-weight:bold">设置条码下方的字体大小</span><br>
+<br>
+例如：
+LODOP.ADD_PRINT_BARCODE(88,32,206,78,"128B","123456789012");//设置条码位置、宽高、字体、值<br>
+LODOP.SET_PRINT_STYLEA(0,"FontSize",18);//设置上面这个条码下方的文字字体大小<br>
+<br>
+<span style="color:blue;font-weight:bold">打印设计如何插入二维码</span><br>
+<br>
+打印设计，选择插入条码，然后选中这个条码，选中字体，字体改为二维码相关类型，如QRCode<br>
+<br>
+<span style="color:blue;font-weight:bold">如何旋转条码</span><br>
+<br>
+参考 样例13 http://www.c-lodop.com/demolist/PrintSample13.html<br>
+LODOP.SET_PRINT_STYLEA(0,"Angle",90);//设置旋转角度<br>
+<br>
+<span style="color:blue;font-weight:bold">条码下方数值相对条码居左居右</span><br>
+<br>
+LODOP.SET_PRINT_STYLEA(0,"AlignJustify",1);//设置条码下方的文字相对于条码本身居左<br>
+LODOP.SET_PRINT_STYLEA(0,"AlignJustify",3);//设置条码下方的文字相对于条码本身居右<br>
+<br>
+相关带图博文：<a style="color:blue" href="https://www.cnblogs.com/huaxie/p/11038280.html" target="_blank">cnblog条码二维码简短问答</a>、
+</div>
+    </div><!--main_middle结束-->
+
+        <div class="box box_footer"><!--box_footer开始-->
+            <div class="footer">
+<p>lodop简短问答页面.</p>
+            </div>
+        </div><!--box_footer结束-->
+</div><!--body结束-->
+ </body>
+</html>
