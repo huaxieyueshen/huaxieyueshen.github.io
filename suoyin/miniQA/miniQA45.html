@@ -97,6 +97,15 @@ https的C-Lodop如何使用 参考http://www.c-lodop.com/faq/pp32.html<br>
 <br>
 这个是警告，现在TLS1.0或TLS1.1还能用，只要实际测试能用就行。<br>
 <br>
+<span style="color:blue;font-weight:bold">tls1.2不支持吗，64位c-lodop也不行</span><br>
+<br>
+目前没有很好的办法，只能用32位支持的那些，或浏览器添加例外试试。<br>
+64位的那个证书过期了，目前还没有很好的解决方法，将来可能解决该问题。<br>
+<br>
+4064的时候增加了64位版支持https，但是证书后来过期了，因为卖的证书有时间限制。<br>
+增加：64位版Https支持TLSv1.1和TLSv1.2(此前仅支持SSLv2,SSLv3,TLSv1.0);<br>
+目前只能用32位的那个支持的，未来可能会解决该问题。<br>
+<br>		    
 <span style="color:blue;font-weight:bold">c-lodop添加ssl证书怎么填</span><br>
 <br>
 三种角色及使用方法：<br>
