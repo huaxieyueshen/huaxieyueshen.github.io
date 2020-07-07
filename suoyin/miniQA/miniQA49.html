@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>批打图片空白</title>
+ </head>
+ <body>
+ <style>
+ body{margin:0px;}
+.body {width:100%;}
+a{text-decoration:none;color:black;}
+h1{font-size:1.625em;}
+h2{font-size:1.375em;}
+/**.box{float:left;}**/
+.header_box {width:100%;}
+.header{padding:1%;
+background-color:#f1f1f1;}
+/**border:1px solid #e9e9e9;}**/
+
+.header_bottom{width:100%;}
+.menuitem {
+    margin-top:0;
+    margin-left:0;
+    margin-bottom:0;
+    padding:1%;
+    border-bottom:1px solid #e9e9e9;
+    cursor:pointer;
+}
+
+.main {padding:1%;}
+.main_middle { width:100%;}
+.blue{color:#95bfc7;}
+.blue2{color:blue;}
+.gray{color:gray;background-color:#66ffcc;}
+
+.box_footer {width:100%;margin-bottom:0;}
+.footer {
+    padding:1%;
+    text-align:center;
+    background-color:#f1f1f1;
+    font-size:0.625em;
+}
+
+@media only screen and (max-width: 500px) {
+    .menu_left{width:100%;}
+    .menuitem { margin:1%;padding:1%;}
+
+    .main_middle { width:100%;}
+    .main {padding:1%;}
+
+    .box_right {width:100%;}
+    .right { padding:1%;
+    }
+
+    .box { margin-right:0; float:left; }
+}
+
+</style>
+<div class="body"><!--body开始-->
+        <div class="box header_box"><!--header开始-->
+            <div class="header">
+                <h1>LODOP超简短问答-批打图片空白</h1>
+            </div>
+        </div><!--header结束-->
+<div class="header_bottom"> 
+		   <a href="../../index.html"><div class="menuitem">花谢悦神的主页</div></a>	
+		   <a href="../phoneQA004.html"><div class="menuitem">lodop问答主页</div></a> 
+		   <a href="../phoneQA_dange.html"><div class="menuitem">问答主页（单个问答链接）</div></a> 
+		   <a href="../mini_QAs.html"><div class="menuitem"><span style="color:#ff0099;">迷你一个问答</span></div></a> 
+</div>
+        <div class="box main_middle"><!--main_middle开始-->
+            <div class="main">
+<h1>批打图片空白</h1>
+尽量不要批量打印太多太大的图片。<br>
+<br>
+批量打印大量图片，用base64方式输出试试，lodop语句直接输出base64码，不带img标签，参考样例38<br>http://www.c-lodop.com/demolist/PrintSample38.html<br>
+<br>
+<span style="color:blue;font-weight:bold">批量打印大量大图，到达一定数值，都是空白</span><br>
+<br>
+带img标签的那种会经过ie浏览器解析，浏览器缓存不释放等可能会造成一些问题。<br>
+出问题时重启c-lodop试试，清理浏览器缓存。<br>
+<br>
+批量打印大量图片，用base64方式输出试试，lodop语句直接输出base64码，不带img标签，参考样例38<br>http://www.c-lodop.com/demolist/PrintSample38.html<br>
+<br>
+尽量不要批量打印大量img图片，参考样例38，换成直接输出base64试试。<br>
+或控制一次不要输出太多。<br>
+<br>
+<span style="color:blue;font-weight:bold">换用样例38方式输出</span><br>
+<br>
+图片批量打印，src 方式输出，需要通过浏览器引擎解析，存在不释放缓存的现象，可尝试base64码输出，参考样例<br>38http://www.c-lodop.com/demolist/PrintSample38.html<br>
+base64位码输出直接通过本地lodop程序解析，无需经过浏览器引擎解析印。<br>
+<br>
+<span style="color:blue;font-weight:bold">批量打印图片，中间图片偶尔出现空白</span><br>
+<br>
+显示空白或者图片缺失等问题，加延迟试试：<br>
+LODOP.SET_PRINT_STYLEA(0,"HtmWaitMilSecs",1000)//设置上一项延迟超文本下载1000毫秒<br>
+或换用base64方式试试。<br>
+<br>
+<span style="color:blue;font-weight:bold">最多能打多少张图片，都是大图扫描件</span><br>
+<br>
+和机器，浏览器等都有关系。<br>
+如果批量打印大量的大图，带img标签的那种会经过ie浏览器解析，浏览器缓存不释放等可能会造成一些问题。<br>
+<br>
+尽量不要批量打印太多太大的图片，这种表格之类的，建议用纯文本或超文本进行设计。<br>
+<br>
+<span style="color:blue;font-weight:bold">批打图片，lodop 提示out of memory</span><br>
+<br>
+用最新版测试下http://www.c-lodop.com/download.html<br>
+<br>
+排查是否内存不足等引起的，<br>
+是否是批量打印超文本造成的，批量打印图片或超文本，会受浏览器引擎解析影响，浏览器缓存不释放等原因<br>
+<br>
+尽量用纯文本进行设计模版，或重启c-lodop，清理浏览器缓存。<br>
+或参考样例38，直接base64码输出，不加img标签。<br>
+<br>
+<span style="color:blue;font-weight:bold">图片超过多少页不显示，其他方法</span><br>
+<br>
+尽量减少图片的大小；升级IE浏览器的版本<br>
+<br>
+减少每次打印图片数量；在满足需要的基础上，降低图片的大小<br>
+<br>
+</div>
+    </div><!--main_middle结束-->
+
+        <div class="box box_footer"><!--box_footer开始-->
+            <div class="footer">
+<p>lodop简短问答页面.</p>
+            </div>
+        </div><!--box_footer结束-->
+</div><!--body结束-->
+ </body>
+</html>
