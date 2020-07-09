@@ -1,0 +1,524 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>【非常见问题杂笔记】打印日志,页眉页脚不固定等</title>
+ </head>
+ <body>
+ <style>
+ body{margin:0px;}
+.body {width:100%;}
+a{text-decoration:none;color:black;}
+h1{font-size:1.625em;}
+h2{font-size:1.375em;}
+/**.box{float:left;}**/
+.header_box {width:100%;}
+.header{padding:1%;
+background-color:#f1f1f1;}
+/**border:1px solid #e9e9e9;}**/
+
+.header_bottom{width:100%;}
+.menuitem {
+    margin-top:0;
+    margin-left:0;
+    margin-bottom:0;
+    padding:1%;
+    border-bottom:1px solid #e9e9e9;
+    cursor:pointer;
+}
+
+.main {padding:1%;}
+.main_middle { width:100%;}
+
+
+.box_footer {width:100%;margin-bottom:0;}
+.footer {
+    padding:1%;
+    text-align:center;
+    background-color:#f1f1f1;
+    font-size:0.625em;
+}
+
+@media only screen and (max-width: 500px) {
+    .menu_left{width:100%;}
+    .menuitem { margin:1%;padding:1%;}
+
+    .main_middle { width:100%;}
+    .main {padding:1%;}
+
+    .box_right {width:100%;}
+    .right { padding:1%;
+    }
+
+    .box { margin-right:0; float:left; }
+}
+
+</style>
+<div class="body"><!--body开始-->
+        <div class="box header_box"><!--header开始-->
+            <div class="header">
+                <h1>LODOP超简短问答-【非常见问题杂笔记】打印日志,页眉页脚不固定等</h1>
+            </div>
+        </div><!--header结束-->
+<div class="header_bottom"> 
+		   <a href="../../index.html"><div class="menuitem">花谢悦神的主页</div></a>	
+		   <a href="../phoneQA004.html"><div class="menuitem">lodop问答主页</div></a> 
+		   <a href="../phoneQA_dange.html"><div class="menuitem">问答主页（单个问答链接）</div></a> 
+		   <a href="../qa_notes.html"><div class="menuitem"><span style="color:blue;">问答等记录笔记，具体问题</span></div></a>
+</div>
+        <div class="box main_middle"><!--main_middle开始-->
+            <div class="main">
+<h1>【非常见问题杂笔记】打印日志,页眉页脚不固定等</h1>
+1.<span style="color:blue;font-weight:bold">打印日志，这个有记录吗</span><br>
+安装最新版c-lodop试试http://www.c-lodop.com/download.html<br>
+最新版c-lodop的日志<br>
+日志功能，在端口设置界面的右键菜单里勾选 Run Logs<br>
+日志存放目录：MountTaiSoftware/CLodop32/Logs，保留最新7天日志，每天不超过200k（约2千条）<br>
+日志有对话REQUEST类和打印PRINTED类两类成功日志(暂无失败日志)，<br>
+前者保存了请求目的、对方IP、对话协议、对话端口和对话时间;<br>
+后者保存了打印机名、打印标题、打印任务页数、打印份数、打印时间；<br>
+<br>
+没有打印内容的日志，如果需要自己记录打印内容，需要自己处理。<br>
+<br>
+2.<span style="color:blue;font-weight:bold">在打印设计里面，调整打印的html尺寸，只能裁切，不能缩放吗</span><br>
+不能 ，这个是打印项宽高，设置合适的打印项宽高，预览查看下效果，预览不会裁剪。<br>
+<br>
+预览查看下效果，宽度超过纸张会不显示，<br>
+高度超过设置的打印项高度，会自动分页。<br>
+<br>
+3.<span style="color:blue;font-weight:bold">默认不能调整背景画布的按钮（纸钉）可以设置打开窗口时取消吗，现在是打开窗口之后，需要点一下才能调整背景画布的尺寸</span><br>
+这个是纸钉，打印设计的可视化编辑区域，可用print_inita三四参数控制，前两个是整体偏移值。<br>
+<br>
+纸钉是用来固定的，PRINT_INTA的前两个参数是整体偏移值，相当于拖动纸钉进行整体偏移。<br>
+三四参数控制可视化编辑区域大小，可在代码写好编辑区域大小。<br>
+<br>
+4.<span style="color:blue;font-weight:bold">lodop 提示out of memory，重启lodop  又可以的 </span><br>
+排查是否内存不足等引起的，<br>
+是否是批量打印超文本造成的，批量打印图片或超文本，会受浏览器引擎解析影响，浏览器缓存不释放等原因。<br>
+<br>
+尽量用纯文本打印，会重启c-lodop，清理浏览器缓存。<br>
+或参考样例38，直接base64码输出，不加img标签。<br>
+<br>
+5.<span style="color:blue;font-weight:bold">预览行间距和浏览器中不一致 </span><br>
+查看lodop内部解析的html信息，见http://www.c-lodop.com/faq/pp8.html<br>
+分析差异点，因浏览器版本不同遵循的html标准不同，造成某些标签属性显示有差异，尽量避免使用有差异的属性，可以在ie下不同版本仿真情况下验证差异 排查样式，尽量使用使用各浏览器无歧义的通用的 html css js，不支持的样式可尝试用其他样式代替。<br>
+加载css样式，参考样例10 http://www.c-lodop.com/demolist/PrintSample10.html<br>
+通过css样式控制下行间距试试<br>
+<br>
+通过css样式控制试试，不设置会按照浏览器解析的。用css控制下行间距和字体<br>
+<br>
+6.<span style="color:blue;font-weight:bold">页眉页脚不固定，中间自动分页 </span><br>
+1.3是页眉页脚吗，普通打印项不能关联页眉页脚<br>
+<br>
+1是页脚吗，根据不同页脚设置不同的打印模版试试。<br>
+<br>
+页眉页脚不固定，根据不同页脚设置不同的打印模版试试。<br>
+<br>
+页眉页脚高度不固定，中间留的距离也不固定，不能知道中间自动分页的打印项要占多大距离。<br>
+换成多任务，一种一个模版。<br>
+<br>
+从init初始化到print是一个任务。<br>
+不同任务客户源设置不同模版。<br>
+<br>
+页眉页脚高度不固定，中间留的距离也不固定，不能知道中间自动分页的打印项要占多大距离。<br>
+可以设置多个模版。<br>
+<br>
+就是不同的模版。<br>
+返回设计的JS代码 参考样例35 http://www.lodop.net.cn/demolist/PrintSample35.html<br>
+文档式模版生成和使用 参考样例50 http://www.lodop.net.cn/demolist/PrintSample50.html<br>
+<br>
+页眉页脚高度不固定，中间留的距离也不固定，不能知道中间自动分页的打印项要占多大距离。<br>
+只能分成不同的模版处理，一种页眉页脚一个模版。<br>
+<br>
+只能分成不同模版。页眉页脚高度不固定，中间留的距离也不固定，不能知道中间自动分页的打印项要占多大距离。<br>
+中间自动分页的打印项起始位置，和打印项自动分页的高度都不能固定，无法社设置，只能分成不同模版。<br>
+<br>
+页眉页脚和中间自动分页的是需要在一个纸张上吗，如果三部分拆成不同任务，就不是一个纸张上了。<br>
+如果需要页眉页脚，中间自动分页那种 ，页眉页脚不固定，只能做成不同模版。<br>
+<br>
+根据页眉页脚不同，设置不同模版。<br>
+每个模版的页眉页脚就是固定的了，中间的自动分页打印项高度就能固定了 。<br>
+<br>
+比如快递单，和发票，两种格式不同，可以用不同的模版。<br>
+调用的时候调用不同的模版，从初始化到打印是一个任务。<br>
+<br>
+如果两个都需要打印，两个初始化，两个print，两个模版两个任务。<br>
+如果只需要打印快递单，就只打快递单的那个模版。<br>
+如果只需要打印发票，只调用打发票的那个模版。<br>
+<br>
+如果只需要打印快递单，就只打快递单的那个模版。<br>
+如果只需要打印发票，只调用打发票的那个模版。<br>
+需要打印哪个，调哪个模版。<br>
+<br>
+不是把打印内容拆分，是根据格式不同，设置不同的模版。<br>
+<br>
+比如页眉页脚很高的那种，一个模版，中间的自动分页打印项自动分页高度设置小一些。<br>
+页眉页脚很低的，一个模版，中间自动分页的高度设置大一些。<br>
+<br>
+格式是不同的，页眉页脚高度不固定，超文本打印项超过打印项高度自动分页，这个打印项高度需要设置合适的值。<br>
+<br>
+根据不同页眉页脚的高度，设置不同的模版。<br>
+<br>
+6.<span style="color:blue;font-weight:bold">双面打印 语句里控制了 但是打印机打印不出来</span><br>
+参考样例6，测试下样例6的参数，如果语句可以控制，可以语句控制。<br>
+<br>
+打印机不支持。可以用打印机自带的控制功能。<br>
+<br>
+去掉这个语句，有的打印机对lodop一些语句支持不同。改用打印机自带的控制方法。<br>
+<br>
+不用lodop语句控制，咨询打印机客服，打印机双面打印怎么控制。<br>
+<br>
+lodop语句如果控制不了，可以打印机首选项里设置等。或打印机有自己的按钮等方法。<br>
+<br>
+7.<span style="color:blue;font-weight:bold">有时出现远程预览界面</span><br>
+c-lodop预览模式，参考http://www.c-lodop.com/faq/pp28.html<br>
+双击桌面上的c-lodop快捷方式，重启一下本机的c-lodop，重启c-lodop后刷新页面。<br>
+<br>
+双击桌面上的c-lodop快捷方式，重启一下本机的c-lodop，重启c-lodop后刷新页面。<br>
+可以告诉他们重启c-lodop的方法，重启下c-lodop，刷新页面<br>
+<br>
+c-lodop有JS重启的方法。<br>
+如在Lodopfuncs.js里用JS语句重启的话，可如下：<br>
+if (CLodopIsLocal) <br>
+window.location.href="CLodop.protocol:setup";<br>
+<br>
+三种角色及使用方法：<br>
+参考http://www.c-lodop.com/demolist/t1.html<br>
+<br>
+参考c-lodop技术手册，取不同名字<br>
+<br>
+引用的变量是否正确，是否是变量的值的LODOP对象。<br>
+<br>
+去掉后面的优先级参数，前面优先级找不到会找后面的。<br>
+<br>
+参考http://www.c-lodop.com/faq/pp23.html<br>
+参数Priority是服务优先级，数值越大优先级越高。<br>
+<br>
+不是按照优先级走，按照对象名走。<br>
+不用getloodp方法，也可以，直接用对象名<br>
+<br>
+直接用对象名，LODOPA用本地的 ，LODOPB用远程的，用来区分打到那个地址<br>
+<br>
+可以直接写在页面上 ，区分LODOPA，LODOPB，引用的时候不用getLODOP方法了。<br>
+远程打印不需要提示下载安装<br>
+<br>
+参考http://www.c-lodop.com/faq/pp34.html<br>
+<br>
+直接试试名称区分 ，查看下LODOPA和LODOPB是否正确，本地c-lodop是否启动了。<br>
+<br>
+访问下本地的欢迎页面，和云主机的欢迎页面试试<br>
+<br>
+远程的打印的和本地打印的区分开。<br>
+否则会按照优先级走。<br>
+<br>
+这个是clodopFuncs.js里的吗，这个是动态加载的，不能修改。<br>
+本地c-lodop没启动会根据优先级走。<br>
+如果远程和本地都是用，都用不同名称区分。<br>
+<br>
+参考http://www.c-lodop.com/faq/pp23.html<br>
+该文件不可修改<br>
+<br>
+如果有的页面只需要本地打印，可以只用本地打印的。<br>
+不加远程的。<br>
+<br>
+进入欢迎页面http://localhost:8000<br>
+查看下欢迎页面的打印机列表是否正常<br>
+对照欢迎页面的引用排查下。<br>
+<br>
+用对象名区分。<br>
+一个页面两个都用，只能是这种方法。<br>
+<br>
+没有很好的方法，不用名区分，就会根据优先级走。<br>
+<br>
+如果一个任务需要手机电脑都能打印，手机找不到本地优先级，会走远程的。<br>
+如果是同一个页面，有的按钮需要打印本地的，有的需要打印远程的，只能用任务名区分。<br>
+<br>
+测试下本地和远程的欢迎页面，本地打印和服务器打印调用不同的c-lodop，取不同的名字。<br>
+<br>
+8.<span style="color:blue;font-weight:bold">access violation at address XXXX in module CLODOPXX read of  addres  XXXX</span><br>
+access error，参考http://www.c-lodop.com/faq/pp1.html<br>
+以管理员权限重启下c-lodop试试<br>
+<br>
+9.<span style="color:blue;font-weight:bold">AO打印那个我如果请求号变了怎么办？</span><br>
+请求号变了，是否机器硬件变了。<br>
+绑定的那台机器，机器变化，需要重新注册新的机器。<br>
+<br>
+绑定的是机器硬件，是的，和云主机机器硬件对应，更换机器需要重新注册，所以那种注册号比较便宜。<br>
+<br>
+10.<span style="color:blue;font-weight:bold">调用虚拟打印机的时候如何自定义打印出来的文件名称</span><br>
+虚拟打印机弹出的保存框是虚拟打印机的功能，lodop无法控制<br>
+<br>
+参考样例和技术手册，可以是lodop语句输出的，也可以是超文本输出的<br>
+<br>
+不弹框的默认路径的，咨询下虚拟打印机的相关人员，<br>
+<br>
+11.<span style="color:blue;font-weight:bold">扩展版本，经常卡死</span><br>
+卡死的时候有什么现象，是云主机上的c-lodop卡死吗。<br>
+是否云主机上开启了c-lodopAO管理界面，云主机上不要有界面一直在运行。<br>
+<br>
+是否云主机上开启了c-lodopAO管理界面，云主机上不要有界面一直在运行。<br>
+之前有人反馈云主机上开着界面，造成c-lodop卡死问题 。<br>
+<br>
+c-lodop默认会凌晨定时重启，访问下http://[C-Lodop服务所在主机ip或域名]:[C-Lodop端口]/c_sysmessage，查看clodop出错信息<br>
+<br>
+以管理员权限重新安装试试，右键以管理员权限运行。<br>
+是否是权限问题。<br>
+<br>
+再出问题的时候，访问下http://[C-Lodop服务所在主机ip或域名]:[C-Lodop端口]/c_sysmessage，查看clodop出错信息<br>
+<br>
+12.<span style="color:blue;font-weight:bold">可以用html画模版，打印出来的是一个pdf的吗
+</span><br>
+可以借助pdf虚拟打印机输出为pdf文件，群文件里有个doro pdf虚拟打印机。<br>
+<br>
+打印html和样式，参考样例10，http://www.c-lodop.com/demolist/PrintSample10.html<br>
+借助pdf虚拟打印机可输出为pdf文件。<br>
+<br>
+13.<span style="color:blue;font-weight:bold">获取的状态码 不对</span><br>
+参考样例45，参考样例右键查看源码<br>
+<br>
+askid是用来区分任务的，value是实际的回调值。<br>
+<br>
+参考样例45，右键查看源码，获取的是value<br>
+<br>
+没用回调函数，参考样例45源码，c-lodop获取返回值需要回调函数。<br>
+样例是混合部署的，c-lodop走回调 ，lodop直接返回。<br>
+<br>
+如果是混合部署，可判断是否是c-lodop，c-lodop的走回调，lodop的直接返回。<br>
+先获取job代码，再获取getvalue<br>
+<br>
+先获取job代码，回调完job代码，再获取状态码。<br>
+获取状态码的一个参数就是job代码，先获取job代码。<br>
+<br>
+on_retrun_remain参考c-lodop技术手册。<br>
+获取多个值的回调，或批量打印等需要设置这个。<br>
+<br>
+14.<span style="color:blue;font-weight:bold">打印控件能上传图片吗，不是url</span><br>
+是打印图片吗，还是上传服务器,<br>
+打印图片，参考样例8.<br>
+上传服务器需要自己控制。<br>
+<br>
+图片上传服务器需要自己控制，<br>
+或参考样例38，转成base64码，上传base64码也可以。<br>
+<br>
+15.<span style="color:blue;font-weight:bold">预览排好后，实际打印的位置和预览差距很大什么原因</span><br>
+“可打区域”边缘与打印机本身有关，表现在预览里是虚线，可打区域的影响<br>
+http://www.c-lodop.com/faq/pp26.html<br>
+<br>
+参考http://www.lodop.net/faq/pp17.html<br>
+用打印维护针对该客户端进行调整，调整结果在客户端本地，只针对该客户端有影响。<br>
+<br>
+16.<span style="color:blue;font-weight:bold">批量打印跳纸，标签打印，一张后跟着两种空白</span><br>
+是否是每次都是两张白纸，真实打印机预览查看下，纸张是否正常<br>
+<br>
+真实打印机预览查看下，纸张是否正常。<br>
+预览下方状态栏查看下，可能是纸张问题，纸张尺寸高度是否是三张纸的。<br>
+<br>
+进入lodop的打印预览查看下。<br>
+<br>
+纸张语句是怎样设置的<br>
+进入lodop的打印预览查看下。LODOP.PREVIEW();<br>
+<br>
+纸张语句放到初始化之后，打印之前，一个任务设置一个初始化语句。<br>
+保留一个初始化，init或inita，纸张语句放到初始化之后<br>
+<br>
+纸张是否是实际纸张一致，看上去前面的图纸张是长方形，但是纸张语句是宽高相等的正方形。<br>
+<br>
+测量纸张，和实际纸张一致，并真实打印机预览查看纸张是否生效<br>
+纸张设置，参考样例5 http://www.c-lodop.com/demolist/PrintSample5.html<br>
+用xps或pdf虚拟打印机测试一下（测试可用样例5），如果虚拟打印机输出的是正确的纸张，真实打印机不是，可能是打印机不支持该自定义纸张。 选择该真实打印机，在打印预览下方状态栏查看一下纸张大小，有的打印机不支持该自定义纸张。<br>
+<br>
+17.<span style="color:blue;font-weight:bold">打印界面被切割了，能不能根据网页大小进行等比缩放打印</span><br>
+整页缩放，参考样例42 http://www.c-lodop.com/demolist/PrintSample42.html<br>
+<br>
+是自动分页吗，可以宽度溢出缩放，不影响高度自动分页。<br>
+<br>
+可以用宽度溢出缩放。<br>
+<br>
+17.<span style="color:blue;font-weight:bold">lodop可以删除打印任务吗</span><br>
+参考http://www.c-lodop.com/demolist/PrintSample45.html<br>
+清理某个打印机的所有任务<br>
+<br>
+18.<span style="color:blue;font-weight:bold">lodop可以删除打印任务吗</span><br>
+是指打印机打印的时候缓存吗，借助的是widnows打印服务，会在windows打印服务里进行排队。<br>
+排队发送给打印机驱动。<br>
+<br>
+如果是指打印出以前缓存的任务，如果没连接等问题，会是在队列里一直排队等着，连上就会开始打印。<br>
+<br>
+19.<span style="color:blue;font-weight:bold">每次开机都要重新安装打印程序</span><br>
+参考http://www.c-lodop.com/faq/pp5.html<br>
+排查开机启动项，用管理员权限安装最新版http://www.c-lodop.com/download.html，右键以管理员权限运行，再对比试试。<br>
+<br>
+排查c-lodop是否能开机自启动，默认情况c-lodop是开机自动启动的，没自动开启可能问题：<br>
+1. 在系统msconfig启动选项列查看c-lodop是否是开启自启动；<br>
+2. 当前操作用户权限不足，无系统管理员权限；<br>
+3. 注意安全软件禁用c-lodop. 目前常用的360及金山已进行了安全认证，其他的杀毒软件请加入白名单，或直接上报提交对应的杀毒软件服务器。<br>
+<br>
+是的，以管理员权限运行，开机后，访问http://localhost:8000/c_sysmessage，查看clodop出错信息，排查是否是权限问题<br>
+<br>
+20.<span style="color:blue;font-weight:bold">自动分页能带上页码吗？底部分页的时候留一点空隙，现在是分页没有页面直接截断分页</span><br>
+页码，参考样例6 http://www.c-lodop.com/demolist/PrintSample6.html<br>
+样例43http://www.c-lodop.com/demolist/PrintSample43.html<br>
+<br>
+分页 参考样例30 http://www.c-lodop.com/demolist/PrintSample30.html<br>
+超文本超过设置的打印项高度或纸张会自动分页。<br>
+减小打印项高度，不要紧贴纸张输出。<br>
+<br>
+减小打印项高度，进入打印预览查看下，是否有虚线可打区域，可打区域外打印不出来，控制内容在可打区域范围内。<br>
+<br>
+21.<span style="color:blue;font-weight:bold">本地运行 demo 没有任何反应啥情况？</span><br>
+进入欢迎页面http://localhost:8000，点欢迎页面的预览试试<br>
+<br>
+预览没问题，是打印有问题吗<br>
+<br>
+用xps或pdf虚拟打印机测试下，<br>
+win7以后系统自带Microsoft XPS Document Writer虚拟打印机或者 下载安装群文件里的Doro PDF Writer虚拟打印机<br>
+<br>
+是否是打印机问题，有的样例代码里没指定打印机，做个简单例子测试，指定个打印机试试。<br>
+<br>
+http://localhost:8000/CLodopDemos/PrintSample30.html这个是c-lodop自带的演示例子。<br>
+如果想单独使用c-lodop，参考http://www.c-lodop.com/faq/pp34.html，下载中心发送包里的那个lodopFuncs.js是混合部署，也可以修改成单独使用c-lodop。<br>
+<br>
+直接测试这个地址http://www.c-lodop.com/demolist/PrintSample30.html<br>
+点预览试试<br>
+试试官网的这个例子。<br>
+<br>
+进入http://localhost:8000/<br>
+下方选择打印机进行预览试试，指定有效的打印机。<br>
+<br>
+并用最新版4096测试下<br>
+<br>
+测试下样例5,7试试，选择某个打印机测试http://www.c-lodop.com/demolist/PrintSample7.html<br>
+和欢迎页面下方选择打印机进行预览。<br>
+<br>
+安装时是否勾选了云服务器工作模式。<br>
+如果是客户端本地角色，不要勾选那个。http://www.c-lodop.com/download.html<br>
+<br>
+安装时不要勾选云服务端工作默认，重新安装试试，安装是不要勾选云服务器端工作模式。<br>
+<br>
+（实际测试了下，勾选了云服务器端工作模式后，样例2等不选择打印机的样例都会点不动，看起来之前大量反馈的这个问题找到原因了，之前在工作群里也反馈过，但是没找到原因，因为客户端本地打印角色，不需要勾选这个，这个只是AO云主机时勾选。这也是一些网站有的客户端可以打印，有的不可以的原因，原因是有的客户端安装时误勾选了这个，而大部分客户是没勾选这个的。难怪之前自己怎么测也出不了问题，因为自己是正常安装的。）<br>
+<br>
+22.<span style="color:blue;font-weight:bold">CLODOP，LODOP 对象 相互兼容吗？</span><br>
+测试参考一下官网样例http://www.c-lodop.com/LodopDemo.html<br>
+官网样例是混合部署LodopFuncs.js里已经写好了判断。<br>
+客户端是浏览器支持np插件，是32位浏览器，就会提示下载32位的Lodop插件：install_lodop32.exe<br>
+客户端浏览器支持np插件，是64位浏览器，就会提示下载64位的Lodop插件：install_lodop64.exe<br>
+客户端浏览器不支持np插件（判断如高版本谷歌火狐等），会提示下载C-Lodop方式： CLodop_Setup_for_Win32NT.exe<br>
+<br>
+lodopFuncs.js里有判断，可以都安装上，不会互相影响。<br>
+<br>
+23.<span style="color:blue;font-weight:bold">可以在设置自动分页后，在页脚正中间 带上页码 数字吗</span><br>
+页码，参考样例6 http://www.c-lodop.com/demolist/PrintSample6.html<br>
+样例43http://www.c-lodop.com/demolist/PrintSample43.html<br>
+<br>
+果是add_print_text纯文本：<br>
+LODOP.SET_PRINT_STYLEA(0,"Alignment",2);//文本框里 内容对于文本框居中，<br>
+LODOP.SET_PRINT_STYLEA(0,"Horient",2);//打印项在纸张中水平居中<br>
+如果是超文本:<br>
+参考样例23 http://www.c-lodop.com/demolist/PrintSample23.html<br>
+除了设置打印项居中，还要确保打印项内容相对于打印项宽度居中。<br>
+<br>
+24.<span style="color:blue;font-weight:bold">批量打印url的pdf文件，有demo吗？</span><br>
+官网下载中心，下载最新的C-lodop<br>
+http://www.c-lodop.com/download.html<br>
+安装后在欢迎页面末尾找“PDF打印”链接，或输入地址: <br>
+http://localhost:8000/c_pdfprint<br>
+<br>
+批量打印，参考样例26<br>
+<br>
+参考样例45，暂停这个打印机<br>
+或在这个队列的菜单里选暂停<br>
+<br>
+批量打印是分页分任务，里面的打印项可以包含pdf<br>
+pdf如果要分页分任务，分页的时候用NEWPAGEA，带a的这个<br>
+<br>
+安装后在欢迎页面末尾找“PDF打印”链接，或输入地址: <br>
+http://localhost:8000/c_pdfprint<br>
+在这个地址里有pdf例子http://localhost:8000/c_pdfprint<br>
+<br>
+25.<span style="color:blue;font-weight:bold">安装包纯英文环境下乱码的问题</span><br>
+是中文乱码吗，可能和本机字体库等有关，安装时查看安装文件中的英文试试，中文是括号里的对英文的翻译。<br>
+<br>
+纯英文可能本地没有中文字体库等原因，可以查看非括号的里的英文提示。<br>
+<br>
+不支持定做安装界面的这些提示。<br>
+<br>
+安装界面的提示语言不支持定制，如果是打印设计或维护设置语言，<br>
+参考http://www.c-lodop.com/demolist/PrintSample19.html<br>
+<br>
+26.<span style="color:blue;font-weight:bold">lodop进行自定义打印模板之后 模板信息是需要存储在我们自己服务的数据库里面码？</span><br>
+可以。<br>
+<br>
+是自己储存的，返回设计的JS代码 参考样例35 http://www.lodop.net.cn/demolist/PrintSample35.html<br>
+文档式模版生成和使用 参考样例50 http://www.lodop.net.cn/demolist/PrintSample50.html<br>
+<br>
+可以只用c-lodop，参考http://www.c-lodop.com/faq/pp34.html<br>
+<br>
+返回设计的JS代码 参考样例35 http://www.lodop.net.cn/demolist/PrintSample35.html<br>
+文档式模版生成和使用 参考样例50 http://www.lodop.net.cn/demolist/PrintSample50.html<br>
+这两个模版c-lodop，lodop都可以使用。第一个是JS模版，第二个是文档式模版，都是些字符串。<br>
+<br>
+可以,ctrl_del，或在 <br>
+这个菜单下点删除。<br>
+<br>
+三种角色及使用方法：<br>
+参考http://www.c-lodop.com/demolist/t1.html<br>
+<br>
+三种角色及使用方法：<br>
+参考http://www.c-lodop.com/demolist/t1.html<br>
+第二种角色吗，获取的是云主机上的打印机。<br>
+<br>
+参考里面的图示，集中打印是一台云主机打印。<br>
+第三种是打印到很多端桥端的。<br>
+<br>
+根据角色选择使用方法，第一种角色获取的是客户端本地的windows打印机列表的打印机。<br>
+第二种角色是云主机上的windows打印机列表的打印机。<br>
+第三种是端桥端的windows打印机列表的打印机。<br>
+<br>
+27.<span style="color:blue;font-weight:bold">批量打印100份，还没有打印完，关闭了页面，发现实际只打印了30份</span><br>
+打印期间不能关闭页面，lododp是JS控制的<br>
+<br>
+参考样例35 http://www.c-lodop.com/demolist/PrintSample35.html<br>
+样例45的13 http://www.c-lodop.com/demolist/PrintSample45.html<br>
+样例35返回的“打印成功”实际仅是成功加入后台队列。<br>
+样例45的13 判断“JOB不在队列”就足可认定已经打印成功。<br>
+一般建议使用样例4，35方法简单判断打印成功，发送打印指令加入打印机队列算打印成功。<br>
+<br>
+如果是c-lodop批量打印，则需要LODOP.On_Return_Remain=true;将回调结果保留，c-lodop任务可通过TaskID区分。判断加入队列算成功，任务都加入队列了认为是成功了<br>
+<br>
+群文件里有个批量打印得到结果的zip文件。<br>
+<br>
+加上将回调结果保留，再回调的是PRINT的返回值。<br>
+触发一个回调，用taskid区分<br>
+<br>
+28.<span style="color:blue;font-weight:bold">批量打印100份，还没有打印完，关闭了页面，发现实际只打印了30份</span><br>
+参考http://www.c-lodop.com/faq/pp10.html 条码随着数值不同，宽度可能不同，无法做到完全统一大小，可估计最大宽度，最后的实际宽度一般是小于等于设定宽度。<br>
+<br>
+二维码可以通过设置具体的QRCode版本，让不同数值的二维码统一大小。<br>
+只有二维码能通过设置具体的版本，让不同数值的二维码统一大小，条码没有这个属性。<br>
+条码随着数值不同，宽度可能不同，无法做到完全统一大小。<br>
+<br>
+29.<span style="color:blue;font-weight:bold">用的打印模板哦 能后续在设置样式吗</span><br>
+可以，加载文档式模版后赋值或设置样式。<br>
+stylea的第一个参数可以是序号，也可以是项目名。<br>
+<br>
+30.<span style="color:blue;font-weight:bold">如果我的表格的数据很多 超过表格控件的长度 会不会打印不出来</span><br>
+会自动分页，可以测试下，拖动打印项高度减小，预览查看下，会自动分页。
+
+
+</div>
+    </div><!--main_middle结束-->
+
+        <div class="box box_footer"><!--box_footer开始-->
+            <div class="footer">
+<p>lodop简短问答页面.</p>
+            </div>
+        </div><!--box_footer结束-->
+
+
+</div><!--body结束-->
+ </body>
+</html>
