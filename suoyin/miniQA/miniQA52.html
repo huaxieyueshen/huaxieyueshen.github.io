@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>读写端口</title>
+ </head>
+ <body>
+ <style>
+ body{margin:0px;}
+.body {width:100%;}
+a{text-decoration:none;color:black;}
+h1{font-size:1.625em;}
+h2{font-size:1.375em;}
+/**.box{float:left;}**/
+.header_box {width:100%;}
+.header{padding:1%;
+background-color:#f1f1f1;}
+/**border:1px solid #e9e9e9;}**/
+
+.header_bottom{width:100%;}
+.menuitem {
+    margin-top:0;
+    margin-left:0;
+    margin-bottom:0;
+    padding:1%;
+    border-bottom:1px solid #e9e9e9;
+    cursor:pointer;
+}
+
+.main {padding:1%;}
+.main_middle { width:100%;}
+.blue{color:#95bfc7;}
+.blue2{color:blue;}
+.gray{color:gray;background-color:#66ffcc;}
+
+.box_footer {width:100%;margin-bottom:0;}
+.footer {
+    padding:1%;
+    text-align:center;
+    background-color:#f1f1f1;
+    font-size:0.625em;
+}
+
+@media only screen and (max-width: 500px) {
+    .menu_left{width:100%;}
+    .menuitem { margin:1%;padding:1%;}
+
+    .main_middle { width:100%;}
+    .main {padding:1%;}
+
+    .box_right {width:100%;}
+    .right { padding:1%;
+    }
+
+    .box { margin-right:0; float:left; }
+}
+
+</style>
+<div class="body"><!--body开始-->
+        <div class="box header_box"><!--header开始-->
+            <div class="header">
+                <h1>LODOP超简短问答-读写端口</h1>
+            </div>
+        </div><!--header结束-->
+<div class="header_bottom"> 
+		   <a href="../../index.html"><div class="menuitem">花谢悦神的主页</div></a>	
+		   <a href="../phoneQA004.html"><div class="menuitem">lodop问答主页</div></a> 
+		   <a href="../phoneQA_dange.html"><div class="menuitem">问答主页（单个问答链接）</div></a> 
+		   <a href="../mini_QAs.html"><div class="menuitem"><span style="color:#ff0099;">迷你一个问答</span></div></a> 
+</div>
+        <div class="box main_middle"><!--main_middle开始-->
+            <div class="main">
+<h1>读写端口</h1>
+发送打印指令和读写端口,参考http://www.c-lodop.com/demolist/PrintSample17.html<br>
+<br>
+端口是否正常，参数是否正确，测试下http://www.c-lodop.com/demolist/PrintSample17.html<br>
+或用端口调试工具调试下试试<br>
+<br>
+<span style="color:blue;font-weight:bold">用串口程序去读取数据可以读,lodop不行，是不是依赖什么组件</span><br>
+<br>
+对方串口先用模拟软件配合调试<br>
+<br>
+在通讯参数里，增加读取等待时间<br>
+<br>
+不需要。lodop借用windows的读文件方式读串口，非常通用，但注意每次读写都会临时打开端口并立即关闭。<br>
+<br>
+<span style="color:blue;font-weight:bold">有的电脑读COM端口正常，有的是空置</span><br>
+<br>
+在通讯参数里，增加读取等待时间<br>
+<br>
+<span style="color:blue;font-weight:bold">读电子秤端口的数据，读不出来</span><br>
+<br>
+参考样例的写法，可以用端口调试工具调试下。<br>
+读写COM端口前可能需要设置参数，排查参数是否正常，端口是否正常。<br>
+<br>
+后来客户反馈是数据线插头问题，好像电子秤的插头需要带源什么的，否则读不出来了，换了插头就好了。<br>
+<br>
+</div>
+    </div><!--main_middle结束-->
+
+        <div class="box box_footer"><!--box_footer开始-->
+            <div class="footer">
+<p>lodop简短问答页面.</p>
+            </div>
+        </div><!--box_footer结束-->
+</div><!--body结束-->
+ </body>
+</html>
