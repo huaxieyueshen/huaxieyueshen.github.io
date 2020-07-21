@@ -1,0 +1,522 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>【非常见问题杂笔记】谷歌https8443提示不安全等</title>
+ </head>
+ <body>
+ <style>
+ body{margin:0px;}
+.body {width:100%;}
+a{text-decoration:none;color:black;}
+h1{font-size:1.625em;}
+h2{font-size:1.375em;}
+/**.box{float:left;}**/
+.header_box {width:100%;}
+.header{padding:1%;
+background-color:#f1f1f1;}
+/**border:1px solid #e9e9e9;}**/
+
+.header_bottom{width:100%;}
+.menuitem {
+    margin-top:0;
+    margin-left:0;
+    margin-bottom:0;
+    padding:1%;
+    border-bottom:1px solid #e9e9e9;
+    cursor:pointer;
+}
+
+.main {padding:1%;}
+.main_middle { width:100%;}
+
+
+.box_footer {width:100%;margin-bottom:0;}
+.footer {
+    padding:1%;
+    text-align:center;
+    background-color:#f1f1f1;
+    font-size:0.625em;
+}
+
+@media only screen and (max-width: 500px) {
+    .menu_left{width:100%;}
+    .menuitem { margin:1%;padding:1%;}
+
+    .main_middle { width:100%;}
+    .main {padding:1%;}
+
+    .box_right {width:100%;}
+    .right { padding:1%;
+    }
+
+    .box { margin-right:0; float:left; }
+}
+
+</style>
+<div class="body"><!--body开始-->
+        <div class="box header_box"><!--header开始-->
+            <div class="header">
+                <h1>LODOP超简短问答-【非常见问题杂笔记】谷歌https8443提示不安全等</h1>
+            </div>
+        </div><!--header结束-->
+<div class="header_bottom"> 
+		   <a href="../../index.html"><div class="menuitem">花谢悦神的主页</div></a>	
+		   <a href="../phoneQA004.html"><div class="menuitem">lodop问答主页</div></a> 
+		   <a href="../phoneQA_dange.html"><div class="menuitem">问答主页（单个问答链接）</div></a> 
+		   <a href="../qa_notes.html"><div class="menuitem"><span style="color:blue;">问答等记录笔记，具体问题</span></div></a>
+</div>
+        <div class="box main_middle"><!--main_middle开始-->
+            <div class="main">
+<h1>【非常见问题杂笔记】谷歌https8443提示不安全等</h1>
+1.<span style="color:blue;font-weight:bold">怎么都是行内元素，样式乱了</span><br>
+是超文本表格吗，排查下样式<br>
+查看lodop内部解析的html信息，见http://www.c-lodop.com/faq/pp8.html<br>
+分析差异点，因浏览器版本不同遵循的html标准不同，造成某些标签属性显示有差异，尽量避免使用有差异的属性，可以在ie下不同版本仿真情况下验证差异 排查样式，尽量使用使用各浏览器无歧义的通用的 html css js，不支持的样式可尝试用其他样式代替。<br>
+可尝试把ADD_PRINT_HTM 换成 ADD_PRINT_HTML（图形模式）试试，ADD_PRINT_HTML不如ADD_PRINT_HTM清晰，适合高精度的打印机，两者各有优势。<br>
+<br>
+参考样例41，关联http://www.c-lodop.com/demolist/PrintSample41.html<br>
+<br>
+2.<span style="color:blue;font-weight:bold">集中打印获取打印机列表</span><br>
+访问下http://[C-Lodop服务所在主机ip]:[C-Lodop端口]<br>
+参考这个欢迎页面<br>
+<br>
+可以直接使用。这个是c-lodop的方法，确保当前使用的是c-lodop就行。<br>
+<br>
+参考样例右键查看源码。<br>
+<br>
+3.<span style="color:blue;font-weight:bold">ELECT_PRINTER 这个方式选了打印机之后，SET_PRINTER_INDEX 这个方法再次设置打印机是不是不能生效</span><br>
+建议用SET_PRINTER_INDEX或SET_PRINTER_INDEXA，参考样例5,7，例如样例5的步骤2的这个打印机列表<br>
+http://www.c-lodop.com/demolist/PrintSample5.html<br>
+http://www.c-lodop.com/demolist/PrintSample7.html<br>
+<br>
+不建议用临时默认打印机，该方法lodop和c-lodop下表现不同，且c-lodop指定后，该页面再用SET_PRINTER_INDEX等指定就会是无效了，只能刷新页面后才能重新选择。<br>
+<br>
+4.<span style="color:blue;font-weight:bold">连的是共享打印机 。   这时候 我的控制面板上 显示的打印机名称 假设是 192.168.3.4上的激光打印机，   但是我在lodop判断的打印机 是用“ 激光打印机”。这个名称的。 连接共享打印机。就没发进入到这个判断内。就执行不了打印了</span><br>
+是的，必须用获取的打印机名称。<br>
+<br>
+三种角色及使用方法：<br>
+参考http://www.c-lodop.com/demolist/t1.html<br>
+如果10台电脑，都用一个电脑连接的打印机打印，可用第二种角色，集中打印到某台电脑上。<br>
+<br>
+如果是共享到本机的共享打印机，参考样例5,7获取打印机名称和列表。<br>
+<br>
+可以测试下样例5http://www.c-lodop.com/demolist/PrintSample5.html<br>
+是否能获取到这台共享打印机<br>
+<br>
+参考样例5的这个打印机列表源码，获取打印机名称。<br>
+<br>
+如果要加判断，也要用获取的名称，获取的名称带ip等，也要带着。<br>
+<br>
+4.<span style="color:blue;font-weight:bold">真实打印机乱码，虚拟打印机正常，网页打pdf正常</span><br>
+之前也有虚拟打印机也乱码的，是pdf文件本身的字体库存在问题。<br>
+但是这个测试的虚拟打印机打印正常，说明可能和打印机或打印机驱动有关。<br>
+<br>
+lodop的pdf是lodop输出的。<br>
+虚拟打印机是正常的，理论上本机虚拟打印没问题的话，说明插件代码没问题，程序可做的努力就的确很少了，毕竟windows下的打印是微软倡导的设备无关系原则<br>
+<br>
+5.<span style="color:blue;font-weight:bold">一个客户找不到打印机</span><br>
+查看操作系统是否存在打印机，系统打印服务(Print Spooler)是否开启了<br>
+<br>
+三种角色及使用方法：<br>
+参考http://www.c-lodop.com/demolist/t1.html<br>
+是客户端本地打印角色吗<br>
+c-lodop预览模式，参考http://www.c-lodop.com/faq/pp28.html<br>
+双击桌面上的c-lodop快捷方式，重启一下本机的c-lodop，重启c-lodop后刷新页面。<br>
+<br>
+打印端是在哪里的，使用方法是怎样的。<br>
+是否是官网样例这种，访问网站后再客户自己的电脑上进行打印。<br>
+<br>
+双击桌面上的c-lodop快捷方式，重启一下本机的c-lodop，重启c-lodop后刷新页面试试。<br>
+并测试下样例5,7，并用最新版4099试试<br>
+<br>
+6.<span style="color:blue;font-weight:bold">windows7下打印预览样式变了，windows10是没问题</span><br>
+看上去文字也变化了，用相同的内容测试下。<br>
+<br>
+第二个截图内容，和第一个截图内容不同。<br>
+两个电脑用相同的内容测试下。<br>
+<br>
+发一下对比图，是否是样式问题<br>
+<br>
+是需要内容不换行吗，<br>
+查看lodop内部解析的html信息，见http://www.c-lodop.com/faq/pp8.html<br>
+排查样式。<br>
+<br>
+查看lodop内部解析的html信息，见http://www.c-lodop.com/faq/pp8.html<br>
+排查样式。并排查样式是否和容器有关。<br>
+<br>
+7.<span style="color:blue;font-weight:bold">只用打印控件是不是只需要安装这两个就可以了，两个插件</span><br>
+测试参考一下官网样例http://www.c-lodop.com/LodopDemo.html<br>
+官网样例是混合部署LodopFuncs.js里已经写好了判断。<br>
+客户端是浏览器支持np插件，是32位浏览器，就会提示下载32位的Lodop插件：install_lodop32.exe<br>
+客户端浏览器支持np插件，是64位浏览器，就会提示下载64位的Lodop插件：install_lodop64.exe<br>
+客户端浏览器不支持np插件（判断如高版本谷歌火狐等），会提示下载C-Lodop方式： CLodop_Setup_for_Win32NT.exe<br>
+<br>
+建议也使用c-lodop<br>
+参考http://www.c-lodop.com/faq/pp21.html<br>
+高版本的火狐谷歌不再支持np插件，需要使用c-lodop，可参考官网样例混合部署<br>http://www.c-lodop.com/LodopDemo.html<br>
+Lodop控件升级到C-Lodop云打印 参考http://www.c-lodop.com/faq/pp7.html<br>
+<br>
+也可以单独使用c-lodop，参考http://www.c-lodop.com/faq/pp34.html<br>
+<br>
+可以混合，也可以单独用c-lodop。<br>
+高版本的火狐谷歌只能使用c-lodop<br>
+<br>
+排查网站的证书是否正确，证书是颁发给域名的，https加ip这种用法不正确。<br>
+并访问https://localhost:8443欢迎页面试试。<br>
+<br>
+排查网站的证书是否正确，证书是颁发给域名的<br>
+ip地址前应该是不能用https的<br>
+<br>
+访问https://localhost:8443欢迎页面，点预览试试<br>
+<br>
+https扩展版C-Lodop如何使用 参考http://www.c-lodop.com/faq/pp32.html<br>
+欢迎页面正常，说明是正常的，lodopFuncs.js是否修改了https的<br>
+<br>
+360，qq等壳浏览器的极速模式是谷歌内核，会走c-lodop插件方式，<br>
+兼容模式混合部署下走clodop插件方式。<br>
+<br>
+8.<span style="color:blue;font-weight:bold">为什么获取的mac地址不是我电脑上的</span><br>
+参考样例28，样例右键查看源码，c-lodop需要回调函数http://www.mtsoftware.cn/demolist/PrintSample28.html<br>
+<br>
+直接测试下样例28<br>
+<br>
+('NetworkAdapter.2.PhysicalAddress')<br>
+中间的数字2修改下试试，如果有多个网卡，可能当前不是主网卡。受网卡顺序的影响。<br>
+<br>
+9.<span style="color:blue;font-weight:bold">想做到不同品牌的针式打印机套打效果一致，是否可以直接通过lodop设置实现</span><br>
+参考http://www.lodop.net/faq/pp17.html<br>
+用打印维护针对该客户端进行调整，调整结果在客户端本地，只针对该客户端有影响。<br>
+这个可解决不同客户端的打印机不同导致的整体偏移等问题。<br>
+<br>
+套打建议使用ADD_PRINT_TEXT等纯文本和画线进行设计，这种不受浏览器引擎解析的影响。<br>
+参考http://www.c-lodop.com/demolist/PrintSample4.html<br>
+<br>
+10.<span style="color:blue;font-weight:bold">网站打印  安装了插件  发现还是报错</span><br>
+双击桌面上的c-lodop快捷方式，重启一下本机的c-lodop，重启c-lodop后刷新页面。<br>
+并查看启动的端口是否正常。<br>
+<br>
+访问http://localhost:8000欢迎页面试试<br>
+查看下启动的端口是否正常<br>
+<br>
+点界面右下角这个进入试试<br>
+<br>
+参考http://www.c-lodop.com/faq/pp5.html<br>
+排查下链接的条目。<br>
+<br>
+参考http://www.c-lodop.com/faq/pp5.html<br>
+排查下链接的条目。<br>
+<br>
+11.<span style="color:blue;font-weight:bold">打印维护不生效</span><br>
+排查ini文件是否生成了，如果生成的路径不对，以管理员权限重启下c-lodop再测试下。<br>
+<br>
+http://www.c-lodop.com/demolist/PrintSample9.html<br>
+测试下样例9试试，打印维护，移动某个打印项点应用，排查ini文件路径是否正常，再次进入是否是移动后的。<br>
+<br>
+是带任务名的，根据任务名进行维护。<br>
+<br>
+参考http://www.c-lodop.com/faq/pp9.html<br>
+系统盘符:\Program Files (x86)\MountTaiSoftware\Lodop\PrintSetups_打印任务名.ini<br>
+这种是打印维护生成的文件。<br>
+<br>
+12.<span style="color:blue;font-weight:bold">浏览器兼容模式下，样式改变了</span><br>
+如果是超文本，排查样式<br>
+查看lodop内部解析的html信息，见http://www.c-lodop.com/faq/pp8.html<br>
+分析差异点，因浏览器版本不同遵循的html标准不同，造成某些标签属性显示有差异，尽量避免使用有差异的属性，可以在ie下不同版本仿真情况下验证差异 排查样式，尽量使用使用各浏览器无歧义的通用的 html css js，不支持的样式可尝试用其他样式代替。<br>
+<br>
+13.<span style="color:blue;font-weight:bold">一次10张，和一次一张，有什么区别</span><br>
+多任务多页，批量打印，分页分任务，在页数和任务之间平衡一下，参考样例<br>26，http://www.c-lodop.com/demolist/PrintSample26.html<br>
+<br>
+打印机可以先脱机，用两种方式排查下进入队列的情况。加入队列时间间隔。<br>
+<br>
+如果加入队列都很快，就和打印机有关了，加入队列就交个windows打印服务和打印机驱动了。<br>
+<br>
+已经在队列排队了，加入队列后就交给windows打印服务和打印机驱动了。<br>
+和打印机有关，如果有其他打印机，换其他打印机或用虚拟打印机测试下。<br>
+<br>
+14.<span style="color:blue;font-weight:bold">用谷歌内核的浏览器就用不了本地打印么</span><br>
+可以用本地的，是localhost本地服务。<br>
+<br>
+参考http://www.c-lodop.com/faq/pp21.html<br>
+也属于本地打印，解决一些浏览器不支持插件问题。<br>
+<br>
+15.<span style="color:blue;font-weight:bold">用谷歌内核的情况下用本地下载怎么做</span><br>
+如果是指提示下载安装的这个本地下载，这个提示路径是自己放置的，排查自己的路径是否能正常访问。在浏览器里直接访问该路径试试。<br>
+<br>
+不支持高版本的谷歌用插件方式，参考http://www.c-lodop.com/faq/pp21.html<br>
+高版本的火狐谷歌不再支持np插件，需要使用c-lodop，可参考官网样例混合部署<br>http://www.c-lodop.com/LodopDemo.html<br>
+Lodop控件升级到C-Lodop云打印 参考http://www.c-lodop.com/faq/pp7.html<br>
+<br>
+16.<span style="color:blue;font-weight:bold">表格内容超出了表格外，向上超出了</span><br>
+表格和文字是一个超文本打印项吗<br>
+这些文字是否是在表格打印项里<br>
+<br>
+排查样式，调试样式，尽量用浏览器通用的样式，可以先输出一行单元格，排查哪些样式引起内容不在表格内。<br>
+<br>
+参考样例10，样例43等http://www.c-lodop.com/demolist/PrintSample43.html<br>
+尽量用简单的样式，并排查样式。<br>
+<br>
+17.<span style="color:blue;font-weight:bold">打印预览的样子，和实际打印的有偏差（针式打印机）</span><br>
+打印预览下方状态栏的纸张是否和实际纸张一致。<br>
+<br>
+参考http://www.lodop.net/faq/pp17.html<br>
+用打印维护针对该客户端进行调整，调整结果在客户端本地，只针对该客户端有影响。<br>
+整体向右偏移试试。<br>
+<br>
+（图示）<br>
+向右偏移，点应用，偏移结果只针对这个客户端。<br>
+<br>
+18.<span style="color:blue;font-weight:bold">谷歌https8443提示您的链接存在安全隐患</span><br>
+点高级试试，继续访问。<br>
+添加到浏览器例外。<br>
+<br>
+19.<span style="color:blue;font-weight:bold">Chrome 84.xx 版本对 C-Lodop TLS 1.0 有风险提示的问题</span><br>
+访问https://localhost:8443<br>
+点高级试试，继续访问。<br>
+添加到浏览器例外。<br>
+<br>
+目前没有其他的处理方法。<br>
+<br>
+20.<span style="color:blue;font-weight:bold">文本框能复制吗，文字的水平垂直居中可以实现吗</span><br>
+ctrl 多个选中<br>
+Shift 左侧打印项列表，连续一段选择<br>
+ctrl+鼠标滑动拖拉选中区域内打印项<br>
+按住alt+打印对象，左边打印项列表中鼠标拖动改变打印项的输出顺序<br>
+ctrl + delete 删除<br>
+ctrl + 方向键移动<br>
+按住ctrl+打印对象，同时拖拉一个对象就复制了<br>
+<br>
+如果是add_print_text纯文本：<br>
+LODOP.SET_PRINT_STYLEA(0,"Alignment",2);//文本框里 内容对于文本框居中，<br>
+LODOP.SET_PRINT_STYLEA(0,"Horient",2);//打印项在纸张中水平居中<br>
+不支持内容相对于文本框垂直居中，可以通过定位到合适的位置。<br>
+<br>
+21.<span style="color:blue;font-weight:bold">谷歌访问不到https的8443端口</span><br>
+访问https://localhost:8443，如果提示不安全，添加到浏览器例外试试<br>
+<br>
+查看启动的端口是否正常<br>
+<br>
+查看下当前启动的是哪个https端口<br>
+<br>
+访问https://localhost:8443欢迎页面试试。<br>
+如果提示不安全，添加到浏览器例外。<br>
+<br>
+21.<span style="color:blue;font-weight:bold">打印或者预览的时候，会提示让安转组件，但是已经安装了</span><br>
+Lodop页面总提示"未安装"或"请升级"的可能原因 参考http://www.c-lodop.com/faq/pp2.html<br>
+<br>
+测试参考一下官网样例http://www.c-lodop.com/LodopDemo.html<br>
+官网样例是否有什么提示，提示内容是什么。<br>
+官网样例是混合部署LodopFuncs.js里已经写好了判断。<br>
+客户端是浏览器支持np插件，是32位浏览器，就会提示下载32位的Lodop插件：install_lodop32.exe<br>
+客户端浏览器支持np插件，是64位浏览器，就会提示下载64位的Lodop插件：install_lodop64.exe<br>
+客户端浏览器不支持np插件（判断如高版本谷歌火狐等），会提示下载C-Lodop方式： CLodop_Setup_for_Win32NT.exe<br>
+根据样例的提示下载安装<br>
+<br>
+是http网站，还是https的<br>
+<br>
+和官网样例一样是http的，<br>
+测试官网样例http://www.c-lodop.com/demolist/PrintSample2.html<br>
+如果样例正常，样例页面右键查看源码 ，参考样例的使用方法。<br>
+<br>
+这个提示一直都有，没安装或没启动就会提示这个。<br>
+<br>
+双击桌面上的c-lodop快捷方式，重启一下本机的c-lodop，重启c-lodop后刷新页面。<br>
+<br>
+测试官网样例http://www.c-lodop.com/demolist/PrintSample2.html<br>
+测试下官网样例试试。<br>
+<br>
+22.<span style="color:blue;font-weight:bold">所有终端打印都用不了了，二年没动过了，是突然不能用的</span><br>
+测试官网样例http://www.c-lodop.com/demolist/PrintSample2.html<br>
+样例点预览试试，是否有提示<br>
+<br>
+调试JS，排查报错是什么<br>
+<br>
+调试JS，排查报错是什么<br>
+肯定会有报错信息。是否是c-lodop没启动等导致的。<br>
+<br>
+样例正常，说明是启动了的，对照样例排查下。<br>
+<br>
+是指注册号吗，和注册号无关，注册号只是去水印的，不影响功能。<br>
+<br>
+用4099测试下<br>
+<br>
+测试官网样例正常，说明是正常的，做个简单例子测试下。<br>
+是http网站，还是https的。<br>
+<br>
+访问https://localhost:8443，不安全，继续访问<br>
+添加到浏览器例外<br>
+<br>
+访问https://localhost:8443，测试下欢迎页面试试<br>
+这边没有调整，是否是浏览器升级了。<br>
+确保https://localhost:8443能正常访问。<br>
+<br>
+是否能正确预览打印，对照欢迎页面排查代码。<br>
+提示不安全，添加到浏览器例外试试<br>
+说明是正常的，调试下自己的页面，调试JS排查下。<br>
+<br>
+报错提示的是没访问到，<br>
+访问https://localhost:8443，如果是安全问题导致访问不到，添加到浏览器例外。<br>
+<br>
+需要报错里的这两个clodopFuncs.js能正常访问。<br>
+<br>
+23.<span style="color:blue;font-weight:bold">报错对象不支持SET_BRIDGE_INDEX</span><br>
+这个是c-lodop特有的方法，当前使用的是否是c-lodop。<br>
+<br>
+三种角色及使用方法：<br>
+参考http://www.c-lodop.com/demolist/t1.html<br>
+是哪种角色<br>
+<br>
+三种角色及使用方法：<br>
+参考http://www.c-lodop.com/demolist/t1.html<br>
+是哪种角色<br>
+如果第一种角色，直接引用lodopFucns.js就可以了，<br>
+<br>
+第二种是集中打印角色，不是打印到本机的，127.0.0.1是本机的，排查使用方法是否正确。<br>
+如果是客户端访问网站在自己打印上打印，是第一种角色。<br>
+<br>
+这个是本地的，http://[C-Lodop服务所在主机ip]:[C-Lodop端口]<br>
+集中打印不是到本机，是集中到一台云主机上。<br>
+三种角色及使用方法：<br>
+参考http://www.c-lodop.com/demolist/t1.html<br>
+<br>
+24.<span style="color:blue;font-weight:bold">taskid，调用这个taskid能重新打印吗？</span><br>
+这个是任务号，可以跟任务号区分是哪个任务的返回值。
+<br>
+再重新打印一遍该任务。<br>
+从init初始化到print是一个任务。<br>
+<br>
+25.<span style="color:blue;font-weight:bold">打印维护点应用</span><br>
+是想打印维护针对不同打印机的偏移进行调整吗<br>
+<br>
+需要进入打印维护，调整后点应用。<br>
+<br>
+维护一次，点应用后，每次都会走维护后的。<br>
+<br>
+以管理员权限重启下c-lodop<br>
+<br>
+不需要停止服务，可以直接以管理员权限运行桌面上的c-lodop快捷方式试试。<br>
+<br>
+26.<span style="color:blue;font-weight:bold">条形码和二维码打印出来有锯齿</span><br>
+用lodop语句输出条码二维码试试，参考样例11 http://www.c-lodop.com/demolist/PrintSample11.html<br>
+<br>
+样例11的条形码和二维码是lodop语句直接输出的，用这种方式试试。<br>
+<br>
+如何输出清晰图片 参考http://www.c-lodop.com/faq/pp14.html<br>
+<br>
+没有其他方法了，用lodop语句输出，或参考链接用输出清晰图片的方法。<br>
+<br>
+27.<span style="color:blue;font-weight:bold">能不能检查一下购买的版本有没有问题</span><br>
+发一下注册日期和邮箱，这边查一下<br>
+再发一下访问的地址<br>
+<br>
+发一下浏览器地址栏访问的地址<br>
+<br>
+只需要发一下打印页面的浏览器地址栏的访问地址。<br>
+验证的是这个地址。<br>
+<br>
+注册的是顶级域名，只要是这个顶级域名，或这个顶级域名的子域名，和注册号对应就可以。<br>
+<br>
+28.<span style="color:blue;font-weight:bold">谷歌The FetchEvent for "https://localhost:8443/CLodopfuncs.js?priority=1" resulted in a network error response: the promise was rejected.</span><br>
+访问https://localhost:8443<br>
+点高级试试，继续访问。<br>
+添加到浏览器例外。<br>
+目前没有其他的处理方法，后续会推出版本处理该问题。<br>
+<br>
+如果不是https网站，用http的网站，就可以不用这个。<br>
+<br>
+不能下载到本地用，动态变化的，只能通过端口使用<br>
+<br>
+29.<span style="color:blue;font-weight:bold">有没有办法检测客户有没有安装或者启动这个软件？</span><br>
+参考lodopFuncs.js里的判断，没安装或没启动会有提示。<br>
+<br>
+lodopFuncs.js是例子文件，可以直接用里面的写好的判断提示。<br>
+该js在下载中心发行包里。<br>
+<br>
+30.<span style="color:blue;font-weight:bold">预览为什么只显示一半？内容在纸张的一半</span><br>
+1.查看本机ie浏览器的缩放比例应在100%，<br>
+2.操作系统控制面板设置显示应在100%。<br>
+并排查纸张是否和实际纸张一致。<br>
+<br>
+再排查纸张是否和实际纸张一致。<br>
+样例界面右键显示标尺查看下。<br>
+<br>
+31.<span style="color:blue;font-weight:bold">有的HTML打印正常，有的HTML打印区域很小</span><br>
+发一下两者的预览截图，是否是可打区域的影响<br>
+，可打区域和打印机有关。<br>
+<br>
+可打区域”边缘与打印机本身有关，表现在预览里是虚线，可打区域的影响<br>
+http://www.c-lodop.com/faq/pp26.html<br>
+和打印机或打印机驱动有关，可用虚拟打印机对比测试，虚拟打印机无可打区域。<br>
+<br>
+size是打印机的可打区域，和打印机有关。<br>
+<br>
+用xps或pdf虚拟打印机测试下，<br>
+win7以后系统自带Microsoft XPS Document Writer虚拟打印机或者 下载安装群文件里的Doro PDF Writer虚拟打印机<br>
+<br>
+虚拟打印机无可打区域，可以用虚拟打印机预览和真实打印机预览对比下。和打印机有关。<br>
+<br>
+查看下预览，是否是一个打印机预览的。<br>
+预览是打印的反显，和打印机有关。<br>
+<br>
+可打区域和打印机有关。都用虚拟打印机测试下。<br>
+<br>
+32.<span style="color:blue;font-weight:bold">lodop 远程打印PDF怎么办</span><br>
+打印pdf文件吗<br>
+官网下载中心，下载最新的C-lodop<br>
+http://www.c-lodop.com/download.html<br>
+安装后在欢迎页面末尾找“PDF打印”链接，或输入地址: <br>
+http://localhost:8000/c_pdfprint<br>
+<br>
+不支持，只能借助pdf虚拟打印机生成为pdf文件。<br>
+云服务器工作模式禁用虚拟打印机，尽量不用虚拟打印机。<br>
+<br>
+在客户端本地用虚拟打印机生成pdf，上传到服务器试试。<br>
+<br>
+在客户端本地用虚拟打印机生成pdf，上传到服务器试试。<br>
+目前只能借助pdf虚拟打印机输出为pdf文件。没有很好的处理方法。<br>
+或让客户直接打印需要打印的内容，不转成pdf文件。<br>
+<br>
+没有其他处理方法，只能借助pdf虚拟打印机。<br>
+或用其他方法生成pdf，用lodop直接打印pdf文件。<br>
+<br>
+没有其他方法了，或不用云服务器端工作模式，不禁用虚拟打印机。<br>
+百度一个能不弹窗的虚拟打印机试试，但是不要在云端留太多的任务，防止卡死等问题。<br>
+<br>
+目前没有直接导出pdf文件的计划。只能借助pdf虚拟打印机。<br>
+不建议这样使用，云端尽量不要留任务等信息。<br>
+可以让用户直接打印内容，不生成pdf。<br>
+<br>
+33.<span style="color:blue;font-weight:bold">https打印，谷歌不行</span><br>
+https扩展版C-Lodop如何使用 参考http://www.c-lodop.com/faq/pp32.html<br>
+修改lodopFuncs.js。<br>
+<br>
+访问https://localhost:8443，如果提示不安全<br>
+点高级试试，继续访问。<br>
+添加到浏览器例外。<br>
+目前没有其他的处理方法，后续会推出版本处理该问题。<br>
+<br>
+自带的是localhost证书，如果该证书或证书版本问题，可点继续，添加到例外。<br>
+<br>
+（迷你问答增加了这个简短问答，回答更方便了）<br>
+<br>
+34.<span style="color:blue;font-weight:bold">网络打印机怎么连接打印</span><br>
+获取的是安装到windows打印机列表的打印机。<br>
+查看下该打印机是否在windows打印机列表里，测试下样例5,7，获取下试试。<br>
+<br>
+</div>
+    </div><!--main_middle结束-->
+
+        <div class="box box_footer"><!--box_footer开始-->
+            <div class="footer">
+<p>lodop简短问答页面.</p>
+            </div>
+        </div><!--box_footer结束-->
+
+
+</div><!--body结束-->
+ </body>
+</html>
