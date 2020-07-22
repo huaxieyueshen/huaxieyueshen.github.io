@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>C-Lodop服务网址及测试地址</title>
+ </head>
+ <body>
+ <style>
+ body{margin:0px;}
+.body {width:100%;}
+a{text-decoration:none;color:black;}
+h1{font-size:1.625em;}
+h2{font-size:1.375em;}
+/**.box{float:left;}**/
+.header_box {width:100%;}
+.header{padding:1%;
+background-color:#f1f1f1;}
+/**border:1px solid #e9e9e9;}**/
+
+.header_bottom{width:100%;}
+.menuitem {
+    margin-top:0;
+    margin-left:0;
+    margin-bottom:0;
+    padding:1%;
+    border-bottom:1px solid #e9e9e9;
+    cursor:pointer;
+}
+
+.main {padding:1%;}
+.main_middle { width:100%;}
+.blue{color:#95bfc7;}
+.blue2{color:blue;}
+.gray{color:gray;background-color:#66ffcc;}
+
+.box_footer {width:100%;margin-bottom:0;}
+.footer {
+    padding:1%;
+    text-align:center;
+    background-color:#f1f1f1;
+    font-size:0.625em;
+}
+
+@media only screen and (max-width: 500px) {
+    .menu_left{width:100%;}
+    .menuitem { margin:1%;padding:1%;}
+
+    .main_middle { width:100%;}
+    .main {padding:1%;}
+
+    .box_right {width:100%;}
+    .right { padding:1%;
+    }
+
+    .box { margin-right:0; float:left; }
+}
+
+</style>
+<div class="body"><!--body开始-->
+        <div class="box header_box"><!--header开始-->
+            <div class="header">
+                <h1>LODOP超简短问答-C-Lodop服务网址及测试地址</h1>
+            </div>
+        </div><!--header结束-->
+<div class="header_bottom"> 
+		   <a href="../../index.html"><div class="menuitem">花谢悦神的主页</div></a>	
+		   <a href="../phoneQA004.html"><div class="menuitem">lodop问答主页</div></a> 
+		   <a href="../phoneQA_dange.html"><div class="menuitem">问答主页（单个问答链接）</div></a> 
+		   <a href="../mini_QAs.html"><div class="menuitem"><span style="color:#ff0099;">迷你一个问答</span></div></a> 
+</div>
+        <div class="box main_middle"><!--main_middle开始-->
+            <div class="main">
+<h1>C-Lodop服务网址及测试地址</h1>
+C-Lodop服务很多功能是以web方式访问处理的，这些入口都可以从欢迎页面<br>
+的超文本链接里找到，这里再罗列一下（以localhost为例）：<br>
+1、http://localhost:8000/   &nbsp;&nbsp;&nbsp;&nbsp;  主欢迎页面<br>
+2、http://localhost:8000/c_sysmessage &nbsp;&nbsp;&nbsp;&nbsp;  查看系统信息<br>
+    这个页面可以看到当前C-Lodop版本，内含Lodop版本、出错信息等<br>
+3、http://localhost:8000/c_mlogin		&nbsp;&nbsp;&nbsp;&nbsp;  设置管理员(admin)密码<br>
+    管理员admin是固定名，初始密码为空，有些访问地址需先登录管理员<br>
+4、http://localhost:8000/c_aoprint    &nbsp;&nbsp;&nbsp;&nbsp;   AO打印欢迎页面<br>
+5、http://localhost:8000/c_aobridge   &nbsp;&nbsp;&nbsp;&nbsp;   AO端桥打印欢迎页面<br>
+6、http://localhost:8000/c_aoprintget  &nbsp;&nbsp;&nbsp;&nbsp;   AO打印相关查询演示页面<br>
+7、http://localhost:8000/c_pdfprint   &nbsp;&nbsp;&nbsp;&nbsp;    PDF文件打印相关演示页面<br>
+8、http://localhost:8000/c_mpermit   &nbsp;&nbsp;&nbsp;&nbsp;   设置访问者(guest客户)密码<br>
+9、http://localhost:8000/c_whitelist  &nbsp;&nbsp;&nbsp;&nbsp;    设置来源网址白名单<br>
+    该设置可以限制访问调用本C-Lodop服务的来源网页(WEB应用页),进一步防止<br>
+    恶意打印骚扰。白名单使用原则url地址包含白名单，不能用*等通配符，可设<br>
+置多个白名单，如果确定单个网址使用时，建议包含完整的rul地址前面部分。  <br>
+10、https://localhost:8443/        &nbsp;&nbsp;&nbsp;&nbsp;      https协议的欢迎页面<br>
+11、http://localhost:8000/c_mlicense   &nbsp;&nbsp;&nbsp;&nbsp;   商用注册<br>
+12、http://localhost:8000/c_options   &nbsp;&nbsp;&nbsp;&nbsp;    设置显示选项(需注册)<br>
+13、http://localhost:8000/c_update    &nbsp;&nbsp;&nbsp;&nbsp;   下载安装文件(需服务端部署升级)<br>
+<br>
+<span style="color:blue;font-weight:bold">客户端本地打印角色</span><br>
+<br>
+进入欢迎页面http://localhost:8000，点欢迎页面的预览试试<br>
+<br>
+访问https://localhost:8443欢迎页面试试。<br>
+<br>
+访问http://localhost:8000/c_sysmessage，查看clodop出错信息<br>
+<br>
+<span style="color:blue;font-weight:bold">集中打印角色</span><br>
+<br>
+访问下http://[C-Lodop服务所在主机ip]:[C-Lodop端口]，点欢迎页面的预览试试<br>
+<br>
+访问下http://[C-Lodop服务所在主机ip]:[C-Lodop端口]/c_sysmessage，查看下云主机的出错信息<br>
+<br>
+<span style="color:blue;font-weight:bold">端桥打印角色</span><br>
+<br>
+访问下http://[C-Lodop服务所在主机ip或域名]:[C-Lodop端口]/c_aoprint 欢迎页面，查看下端桥是否在线，点预览试试<br>
+<br>
+访问下http://[C-Lodop服务所在主机ip或域名]:[C-Lodop端口]/c_aobridge 测试某端桥下的其他打印机，点预览试试<br>
+<br>
+<span style="color:blue;font-weight:bold">后两种角色云主机的注册</span><br>
+<br>
+云主机上访问http://localhost:8000/c_mlicense，查看当前注册状态<br>
+<br>
+访问http://[C-Lodop服务所在主机ip或域名]:[C-Lodop端口]/c_mlicense，查看云主机当前注册状态<br>
+<br>
+<span style="color:blue;font-weight:bold">c-lodop错误是权限相关的</span><br>
+<br>
+桌面上的c-lodop快捷方式，右键以管理员权限运行，<br>
+<br>
+然后刷新这个页面，排查报错是否消失<br>
+http://localhost:8000/c_sysmessage<br>
+<br>
+</div>
+    </div><!--main_middle结束-->
+
+        <div class="box box_footer"><!--box_footer开始-->
+            <div class="footer">
+<p>lodop简短问答页面.</p>
+            </div>
+        </div><!--box_footer结束-->
+</div><!--body结束-->
+ </body>
+</html>
