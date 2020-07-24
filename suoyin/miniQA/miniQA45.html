@@ -81,31 +81,33 @@ https的C-Lodop如何使用 参考http://www.c-lodop.com/faq/pp32.html<br>
 <br>
 访问https://localhost:8443欢迎页面试试。<br>
 <br>
-<span style="color:blue;font-weight:bold">火狐提示不安全</span><br>
+<span style="color:blue;font-weight:bold">谷歌升级到84导致的https问题</span><br>
 <br>
-火狐不认localhost证书，需要添加到浏览器例外。<br>
+参考http://blog.sina.com.cn/s/blog_721e77e50102z33a.html<br>
+安装最新版c-lodop的4101版本，并参考链接修改JS地址。<br>
 <br>
-访问https://localhost:8443，火狐不认localhost证书，添加到火狐的浏览器例外。<br>
+关于Chrome浏览器升级到84版引起问题的解决方案<br>
+http://blog.sina.com.cn/s/blog_721e77e50102z33a.html<br>
 <br>
-百度下火狐浏览器添加例外的方法。<br>
+关于Chrome浏览器升级到84版引起问题的解决方案<br>
+http://www.c-lodop.com/blogs/Blog022.html<br>
 <br>
-访问https://localhost:8443，不安全，继续访问。<br>
+<span style="color:blue;font-weight:bold">安装启动了c-lodop还是提示未安装 </span><br>
 <br>
-<span style="color:blue;font-weight:bold">js报错警告用的TLS1.0或TLS1.1未来会不支持</span><br>
+用的是什么浏览器，版本多少，是否是https网站<br>
 <br>
-32位的c-lodop目前使用的是这个。目前没有很好的处理方法，这个是警告，目前还可以使用。<br>
+是否是谷歌升级到84版。<br>
 <br>
-这个是警告，现在TLS1.0或TLS1.1还能用，只要实际测试能用就行。<br>
+访问https://localhost:8443试试<br>
 <br>
-<span style="color:blue;font-weight:bold">tls1.2不支持吗，64位c-lodop也不行</span><br>
+参考http://blog.sina.com.cn/s/blog_721e77e50102z33a.html<br>
+安装最新版c-lodop的4101版本，并参考链接修改JS地址。<br>
 <br>
-目前没有很好的办法，只能用32位支持的那些，或浏览器添加例外试试。<br>
-64位的那个证书过期了，目前还没有很好的解决方法，将来可能解决该问题。<br>
+原来的：https://localhost:8443/CLodopfuncs.js<br>
+改为：https://localhost.lodop.net:8443/CLodopfuncs.js<br>
 <br>
-4064的时候增加了64位版支持https，但是证书后来过期了，因为卖的证书有时间限制。<br>
-增加：64位版Https支持TLSv1.1和TLSv1.2(此前仅支持SSLv2,SSLv3,TLSv1.0);<br>
-目前只能用32位的那个支持的，未来可能会解决该问题。<br>
-<br>		    
+访问https://localhost.lodop.net:8443测试下。<br>
+<br>
 <span style="color:blue;font-weight:bold">c-lodop添加ssl证书怎么填</span><br>
 <br>
 三种角色及使用方法：<br>
@@ -127,6 +129,32 @@ https扩展版C-Lodop如何使用 参考http://www.c-lodop.com/faq/pp32.html<br>
 3.4 OpenSSL钥匙文件密码:是购买SSL证书时约定的具体密码值，也就是证书文件的使用密码；<br>
 （密码是防止别人得到这些文件后冒用的，有些颁发者返回的是无密码证书，此时需自己想办法附加上密码，通常用OpenSSL.exe软件）。<br>
 <br>
+<span style="color:blue;font-weight:bold">火狐提示不安全</span><br>
+<br>
+火狐不认localhost证书，需要添加到浏览器例外。<br>
+<br>
+访问https://localhost:8443，火狐不认localhost证书，添加到火狐的浏览器例外。<br>
+<br>
+百度下火狐浏览器添加例外的方法。<br>
+<br>
+访问https://localhost:8443，不安全，继续访问。<br>
+<br>
+<p>-----4101已解决该问题-----</p>
+<span style="color:blue;font-weight:bold">js报错警告用的TLS1.0或TLS1.1未来会不支持</span><br>
+<br>
+32位的c-lodop目前使用的是这个。目前没有很好的处理方法，这个是警告，目前还可以使用。<br>
+<br>
+这个是警告，现在TLS1.0或TLS1.1还能用，只要实际测试能用就行。<br>
+<br>
+<span style="color:blue;font-weight:bold">tls1.2不支持吗，64位c-lodop也不行</span><br>
+<br>
+目前没有很好的办法，只能用32位支持的那些，或浏览器添加例外试试。<br>
+64位的那个证书过期了，目前还没有很好的解决方法，将来可能解决该问题。<br>
+<br>
+4064的时候增加了64位版支持https，但是证书后来过期了，因为卖的证书有时间限制。<br>
+增加：64位版Https支持TLSv1.1和TLSv1.2(此前仅支持SSLv2,SSLv3,TLSv1.0);<br>
+目前只能用32位的那个支持的，未来可能会解决该问题。<br>
+<br>
 <span style="color:blue;font-weight:bold">高版本的谷歌访问https出问题，对 C-Lodop TLS 1.0 有风险提示</span><br>
 <br>
 访问https://localhost:8443<br>
@@ -142,8 +170,8 @@ https扩展版C-Lodop如何使用 参考http://www.c-lodop.com/faq/pp32.html<br>
 访问https://localhost:8443<br>
 点高级试试，继续访问。<br>
 添加到浏览器例外。<br>
-目前没有其他的处理方法，后续会推出版本处理该问题。<br>	
-<br>			    
+目前没有其他的处理方法，后续会推出版本处理该问题。<br>
+<br>
 <span style="color:blue;font-weight:bold">等后续版本等进一步解释</span><br>
 <br>
 最新版谷歌不再支持TLS1.0或TLS1.1。<br>
@@ -160,7 +188,7 @@ https扩展版C-Lodop如何使用 参考http://www.c-lodop.com/faq/pp32.html<br>
 1.访问https://localhost:8443，点高级试试，继续访问，添加到浏览器例外。<br>
 2.换用低版本谷歌或其他浏览器试试。<br>
 3.目前没有其他解决方法，后续会推出版本解决该问题。<br>
-<br>		    
+<br>
 </div>
     </div><!--main_middle结束-->
 
