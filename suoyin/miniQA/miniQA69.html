@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>如何提示下载和升级</title>
+ </head>
+ <body>
+ <style>
+ body{margin:0px;}
+.body {width:100%;}
+a{text-decoration:none;color:black;}
+h1{font-size:1.625em;}
+h2{font-size:1.375em;}
+/**.box{float:left;}**/
+.header_box {width:100%;}
+.header{padding:1%;
+background-color:#f1f1f1;}
+/**border:1px solid #e9e9e9;}**/
+
+.header_bottom{width:100%;}
+.menuitem {
+    margin-top:0;
+    margin-left:0;
+    margin-bottom:0;
+    padding:1%;
+    border-bottom:1px solid #e9e9e9;
+    cursor:pointer;
+}
+
+.main {padding:1%;}
+.main_middle { width:100%;}
+.blue{color:#95bfc7;}
+.blue2{color:blue;}
+.gray{color:gray;background-color:#66ffcc;}
+
+.box_footer {width:100%;margin-bottom:0;}
+.footer {
+    padding:1%;
+    text-align:center;
+    background-color:#f1f1f1;
+    font-size:0.625em;
+}
+
+@media only screen and (max-width: 500px) {
+    .menu_left{width:100%;}
+    .menuitem { margin:1%;padding:1%;}
+
+    .main_middle { width:100%;}
+    .main {padding:1%;}
+
+    .box_right {width:100%;}
+    .right { padding:1%;
+    }
+
+    .box { margin-right:0; float:left; }
+}
+
+</style>
+<div class="body"><!--body开始-->
+        <div class="box header_box"><!--header开始-->
+            <div class="header">
+                <h1>LODOP超简短问答-如何提示下载和升级</h1>
+            </div>
+        </div><!--header结束-->
+<div class="header_bottom"> 
+		   <a href="../../index.html"><div class="menuitem">花谢悦神的主页</div></a>	
+		   <a href="../phoneQA004.html"><div class="menuitem">lodop问答主页</div></a> 
+		   <a href="../phoneQA_dange.html"><div class="menuitem">问答主页（单个问答链接）</div></a> 
+		   <a href="../mini_QAs.html"><div class="menuitem"><span style="color:#ff0099;">迷你一个问答</span></div></a> 
+</div>
+        <div class="box main_middle"><!--main_middle开始-->
+            <div class="main">
+<h1>如何提示下载和升级</h1>
+参考LodopFuncs.js里写好的判断和提示。<br>
+<br>
+LodopFuncs.js下载中心发行包里，http://www.c-lodop.com/download.html<br>
+<br>
+<span style="color:blue;font-weight:bold">如何提示客户端下载安装</span><br>
+<br>
+测试参考一下官网样例http://www.c-lodop.com/LodopDemo.html<br>
+官网样例是混合部署LodopFuncs.js里已经写好了判断。<br>
+客户端是浏览器支持np插件，是32位浏览器，就会提示下载32位的Lodop插件：install_lodop32.exe<br>
+客户端浏览器支持np插件，是64位浏览器，就会提示下载64位的Lodop插件：install_lodop64.exe<br>
+客户端浏览器不支持np插件（判断如高版本谷歌火狐等），会提示下载C-Lodop方式： CLodop_Setup_for_Win32NT.exe<br>
+<br>
+单独使用c-lodop，参考http://www.c-lodop.com/faq/pp34.html<br>
+<br>
+LodopFuncs.js里已经写好了判断和提示，修改里面放置安装文件的的地址为自己的地址，可提示客户端下载安装。<br> 
+<br>
+<span style="color:blue;font-weight:bold">如何提示客户端升级新版本</span><br>
+<br>
+LodopFuncs.js里已经写好了判断和提示，判断安装版本小于js判断的版本会提示升级，提示下载安装的文件替换成新版本的安装文件。<br>
+<br>
+LodopFuncs.js里已经写好了判断和提示，<br>
+判断安装版本小于js判断的版本会提示升级，<br>
+修改lodopFuncs.js里的版本号，或替换成新的版本的lodopFuncs.js，提示下载安装的文件替换成新版本的安装文件。<br>
+<br>
+<span style="color:blue;font-weight:bold">谷歌84的https问题</span><br>
+<br>
+参考http://blog.sina.com.cn/s/blog_721e77e50102z33a.html<br>
+安装最新版c-lodop的4101版本，并参考链接修改JS地址。<br>
+<br>
+修改JS，并让客户都安装新版本，参考lodopFuncs.js里提示升级部分，安装版本小于判断版本号，可提示客户升级，提示客户下载安装新版本。<br>
+<br>
+访问不到，会提示未安装启动，把提示文件换成新的版本的。<br>
+<br>
+<b>相关链接（cnblog里的旧博文，部分内容过时，图可用)：</b><br><br>
+ <a href="https://www.cnblogs.com/huaxie/p/9635884.html" target="_blank"><span style="color:blue;">LODOP打印控件如何提示用户升级下载安装新版本1</span></a>、
+<a href="https://www.cnblogs.com/huaxie/p/9848319.html" target="_blank"><span style="color:blue;">Lodop提示安装或升级的注意事项1</span></a>、<br><br>
+
+
+</div>
+    </div><!--main_middle结束-->
+
+        <div class="box box_footer"><!--box_footer开始-->
+            <div class="footer">
+<p>lodop简短问答页面.</p>
+            </div>
+        </div><!--box_footer结束-->
+</div><!--body结束-->
+ </body>
+</html>

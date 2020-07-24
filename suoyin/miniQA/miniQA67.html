@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>需要回调返回值</title>
+ </head>
+ <body>
+ <style>
+ body{margin:0px;}
+.body {width:100%;}
+a{text-decoration:none;color:black;}
+h1{font-size:1.625em;}
+h2{font-size:1.375em;}
+/**.box{float:left;}**/
+.header_box {width:100%;}
+.header{padding:1%;
+background-color:#f1f1f1;}
+/**border:1px solid #e9e9e9;}**/
+
+.header_bottom{width:100%;}
+.menuitem {
+    margin-top:0;
+    margin-left:0;
+    margin-bottom:0;
+    padding:1%;
+    border-bottom:1px solid #e9e9e9;
+    cursor:pointer;
+}
+
+.main {padding:1%;}
+.main_middle { width:100%;}
+.blue{color:#95bfc7;}
+.blue2{color:blue;}
+.gray{color:gray;background-color:#66ffcc;}
+
+.box_footer {width:100%;margin-bottom:0;}
+.footer {
+    padding:1%;
+    text-align:center;
+    background-color:#f1f1f1;
+    font-size:0.625em;
+}
+
+@media only screen and (max-width: 500px) {
+    .menu_left{width:100%;}
+    .menuitem { margin:1%;padding:1%;}
+
+    .main_middle { width:100%;}
+    .main {padding:1%;}
+
+    .box_right {width:100%;}
+    .right { padding:1%;
+    }
+
+    .box { margin-right:0; float:left; }
+}
+
+</style>
+<div class="body"><!--body开始-->
+        <div class="box header_box"><!--header开始-->
+            <div class="header">
+                <h1>LODOP超简短问答-需要回调返回值</h1>
+            </div>
+        </div><!--header结束-->
+<div class="header_bottom"> 
+		   <a href="../../index.html"><div class="menuitem">花谢悦神的主页</div></a>	
+		   <a href="../phoneQA004.html"><div class="menuitem">lodop问答主页</div></a> 
+		   <a href="../phoneQA_dange.html"><div class="menuitem">问答主页（单个问答链接）</div></a> 
+		   <a href="../mini_QAs.html"><div class="menuitem"><span style="color:#ff0099;">迷你一个问答</span></div></a> 
+</div>
+        <div class="box main_middle"><!--main_middle开始-->
+            <div class="main">
+<h1>需要回调返回值</h1>
+c-lodop返回值不对，是7BCAAAS123256_1类似的字符串。<br>
+<br>
+c-lodop需要回调函数On_Return，参考带回调函数的样例源码和c-lodop技术手册http://www.c-lodop.com/download.html<br>
+<br>
+<span style="color:blue;font-weight:bold">为什么获取的mac地址不对</span><br>
+<br>
+参考样例28，样例右键查看源码，c-lodop需要回调函数http://www.mtsoftware.cn/demolist/PrintSample28.html<br>
+<br>
+直接测试下样例28。<br>
+<br>
+<span style="color:blue;font-weight:bold">GET_FILE_TEXT拿到的文本信息不对</span><br>
+<br>
+需要回调函数，直接测试样例12，http://www.c-lodop.com/demolist/PrintSample12.html<br>
+样例右键源码，参考样例12的写法。<br>
+<br>
+<span style="color:blue;font-weight:bold">PRINT返回值不对</span><br>
+<br>
+参考样例4，35，http://www.c-lodop.com/demolist/PrintSample4.html<br>
+样例右键查看源码，c-lodop获取动作函数的返回值需要回调函数。<br>
+<br>
+PRINT和PRINTA返回值是相同的。<br>
+<br>
+<span style="color:blue;font-weight:bold">PRINT返回值怎么不是job代码</span><br>
+<br>
+参考样例45的描述，http://www.c-lodop.com/demolist/PrintSample45.html<br>
+加LODOP.SET_PRINT_MODE("CATCH_PRINT_STATUS",true);这句后，直接打印返回job代码。<br>
+<br>
+要获得后台真实打印的状态变化以及最终是否打印成功结束，需要采用如下捕获语句：<br>
+LODOP.SET_PRINT_MODE("CATCH_PRINT_STATUS",true);<br>
+执行该语句之后，PRINT指令不再返回那个所谓“打印成功”，而是该任务的JOB代码（打印机序号和JOB序号组成）。<br>
+<br>
+</div>
+    </div><!--main_middle结束-->
+
+        <div class="box box_footer"><!--box_footer开始-->
+            <div class="footer">
+<p>lodop简短问答页面.</p>
+            </div>
+        </div><!--box_footer结束-->
+</div><!--body结束-->
+ </body>
+</html>
