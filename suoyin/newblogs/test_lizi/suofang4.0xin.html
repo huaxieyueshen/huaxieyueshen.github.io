@@ -1,0 +1,49 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>4.0后缩放旋转打印项等</title>
+<script language="javascript" src="LodopFuncs.js"></script>
+</head>
+<body>
+<p><a href="javascript:prn1_preview()">打印预览(4.0后的缩放旋转半透明）</a><br>
+<div style="line-height:25px">
+<span style="background-color:#ffff99">打印预览左上角是小打印机图标，表明当前使用的是c-lodop</span><br>
+c-lodop4.0后新增的部分功能：<br>
+图片旋转-支持<br>
+图片半透明-支持<br>
+纯文本垂直水平缩放-支持<br>
+纯文本半透明-支持<br>
+超文本垂直水平缩放-支持<br>
+</div>
+<script language="javascript" type="text/javascript">   
+        var LODOP; //声明为全局变量 
+	function prn1_preview() {	
+LODOP=getLodop(); 		
+LODOP.PRINT_INIT("");
+LODOP.ADD_PRINT_TEXT(27,29,100,20,"无样式的纯文本");
+LODOP.ADD_PRINT_TEXT(71,29,199,20,"添加了垂直缩放1.5倍样式的纯文本");
+LODOP.SET_PRINT_STYLEA(0,"ScalY",1.5);//纯文本垂直缩放
+LODOP.ADD_PRINT_TEXT(117,29,199,26,"添加了水平缩放1.5倍样式的纯文本");
+LODOP.SET_PRINT_STYLEA(0,"ScalX",1.5);//纯文本水平缩放
+LODOP.ADD_PRINT_HTM(17,317,300,54,"<body>\r HTML Demo content\r <br><font color=\"#FF0000\">Double click me and modify...</font>\r</body>");
+LODOP.SET_PRINT_STYLEA(0,"ScalY",2.0);//超文本垂直缩放
+LODOP.ADD_PRINT_HTM(172,317,300,54,"<body>\r HTML Demo content\r <br><font color=\"#FF0000\">Double click me and modify...</font>\r</body>");
+LODOP.ADD_PRINT_IMAGE(200,10,200,200,"<img src='./lizi_images/wang1.jpg'>");
+LODOP.SET_PRINT_STYLEA(0,"Stretch",2);
+LODOP.ADD_PRINT_IMAGE(352,251,200,200,"<img src='./lizi_images/wang1.jpg'>");
+LODOP.SET_PRINT_STYLEA(0,"Stretch",2);
+LODOP.SET_PRINT_STYLEA(0,"Angle",80);//图片旋转
+LODOP.ADD_PRINT_IMAGE(302,442,200,200,"<img src='./lizi_images/wang1.jpg'>");
+LODOP.SET_PRINT_STYLEA(0,"Stretch",2);
+LODOP.SET_PRINT_STYLEA(0,"Angle",80);//图片旋转
+LODOP.SET_PRINT_STYLEA(0,"Alpha",155);//图片透明度
+LODOP.ADD_PRINT_TEXT(193,402,100,41,"旺旺");
+LODOP.SET_PRINT_STYLEA(0,"FontSize",25);
+LODOP.SET_PRINT_STYLEA(0,"Bold",1);
+LODOP.SET_PRINT_STYLEA(0,"Alpha",155);//纯文本透明度
+LODOP.PREVIEW();	
+	};
+</script> 
+</body>
+</html>
