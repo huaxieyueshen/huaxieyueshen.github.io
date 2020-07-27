@@ -1,0 +1,29 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>临时默认打印机一个任务测试</title>
+<script language="javascript" src="LodopFuncs.js"></script>
+</head>
+<body>
+<p><a href="javascript:prn1_preview()">打印预览(选临时默认后打印）c-lodop不能这样用</a></p>
+<p><a href="javascript:prn2_preview()">查看SELECT_PRINTER()返回值</a></p>
+<script language="javascript" type="text/javascript">   
+        var LODOP; //声明为全局变量 
+		var pr;
+function prn1_preview() {//测试一个任务中临时默认打印机选择后打印
+LODOP=getLodop(); 		 //这个方法lodop可以，c-lodop不行，c-lodop是异步的，只能分成两个任务
+LODOP.PRINT_INIT("");    //c-lodop下这个方法是错误的哦
+LODOP.SELECT_PRINTER();
+LODOP.ADD_PRINT_TEXT(27,29,100,20,"一个文本");
+LODOP.PREVIEW();	
+	};
+function prn2_preview() {//测试SELECT_PRINTER返回值。
+LODOP=getLodop(); 	
+if (LODOP.CVERSION) CLODOP.On_Return=function(TaskID,Value){alert("C-Lodop输出的返回值："+Value);};
+var strResult=LODOP.SELECT_PRINTER();
+if (!LODOP.CVERSION) {alert("Lodop输出的返回值："+strResult);}
+	};
+</script> 
+</body>
+</html>
