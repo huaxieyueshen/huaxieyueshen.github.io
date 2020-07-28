@@ -1,0 +1,51 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>单独缩放打印项</title>
+<script language="javascript" src="LodopFuncs.js"></script>
+</head>
+<body>
+<div id="div1">
+<table border=1 cellSpacing=0 cellPadding=1 width="100%" style="border-collapse:collapse;background-color:#ffcccc;text-align:center;">
+<tr>
+    <td colspan="2">表格的内容</td>
+</tr>
+<tr>
+    <td>单元格1</td>
+    <td>单元格2</td>
+</tr>
+<tr>
+    <td>单元格3</td>
+    <td>单元格4</td>
+</tr>
+<tr>
+    <td>单元格5</td>
+    <td>单元格6</td>
+</tr>
+<tr>
+    <td>单元格7</td>
+    <td>单元格8</td>
+</tr>
+</table>
+</div>
+<p><a href="javascript:prn1_preview()">自动分页</a></p>
+<p><a href="javascript:prn2_preview()">不自动分页（垂直拉伸）</a></p>
+<script language="javascript" type="text/javascript">   
+        var LODOP; //声明为全局变量 
+	function prn1_preview() {//根据超文本打印项高度47自动分页
+LODOP=getLodop(); 		
+LODOP.PRINT_INIT("");
+LODOP.ADD_PRINT_TABLE(57,9,300,47,document.getElementById("div1").innerHTML);
+LODOP.PRINT_DESIGN();	
+	};
+	function prn2_preview() {//没有根据打印项高度47自动分页	
+LODOP=getLodop(); 		
+LODOP.PRINT_INIT("");
+LODOP.ADD_PRINT_TABLE(57,9,300,47,document.getElementById("div1").innerHTML);
+LODOP.SET_PRINT_STYLEA(0,"Vorient",3);//Vorient设定打印项在纸张范围内的垂直方向的位置锁定方式
+LODOP.PRINT_DESIGN();	
+	};
+</script> 
+</body>
+</html>
