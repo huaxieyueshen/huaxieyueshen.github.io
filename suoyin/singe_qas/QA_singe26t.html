@@ -96,6 +96,8 @@ background-color:#f1f1f1;}
      <!--第一排-->
      <li class="fs20"><a class="corWhi" target="_blank" href="./smallQA/smallQA1.html">虚拟打印机测试</a></li>
      <li class="fs20" style="width:250px"><a class="corWhi" target="_blank" href="./smallQA/smallQA2.html">安装不到启动成功界面</a></li>
+    <li class="fs20" style="width:250px"><a class="corWhi" target="_blank" href="./smallQA/smallQA3.html">不同电脑超文本样式不同</a></li>
+    <li class="fs20" style="width:250px"><a class="corWhi" target="_blank" href="./smallQA/smallQA4.html">套打样式问题建议纯文本</a></li>
    </ul>
 </div><!--divall结束-->
 <div class="clearFloat"></div>
@@ -127,6 +129,24 @@ win7以后系统自带Microsoft XPS Document Writer虚拟打印机或者 下载�
 目前发现共享打印机会导致一些问题，可以先删除，用本机打印机测试。<br>
 如果需要共享打印机，本机的打印机测试正常，重新共享下试试，再测试重新共享的打印机。<br>
 <br>
+3.<span style="color:blue;font-weight:bold">不同电脑超文本样式不同</span><br>
+<br>
+查看lodop内部解析的html信息，见http://www.c-lodop.com/faq/pp8.html<br>
+分析差异点，因浏览器版本不同遵循的html标准不同，造成某些标签属性显示有差异，尽量避免使用有差异的属性，可以在ie下不同版本仿真情况下验证差异 排查样式，尽量使用使用各浏览器无歧义的通用的 html css js，不支持的样式可尝试用其他样式代替。<br>
+<br>
+可尝试把ADD_PRINT_HTM 换成 ADD_PRINT_HTML（图形模式）试试，ADD_PRINT_HTML不如ADD_PRINT_HTM清晰，适合高精度的打印机，两者各有优势。<br>
+<br>
+Lodop是基于本机windows底层引擎进行渲染解析的，与ie调用的引擎一致。在样式有问题所在电脑上，尝试重置ie，升级ie，<br>
+或排查下样式http://www.c-lodop.com/faq/pp8.html，通过删减或做简单例子排查，找到出问题的样式，修改样式。<br>
+<br>
+4.<span style="color:blue;font-weight:bold">套打样式问题建议纯文本</span><br>
+<br>
+查看lodop内部解析的html信息，见http://www.c-lodop.com/faq/pp8.html<br>
+排查样式<br>
+<br>
+快递单，小票，标签，票据等，套打建议使用ADD_PRINT_TEXT等纯文本和画线进行设计，这种不受浏览器引擎解析的影响。<br>
+参考http://www.c-lodop.com/demolist/PrintSample4.html<br>
+<br>		    
 </div>
     </div><!--main_middle结束-->
 
