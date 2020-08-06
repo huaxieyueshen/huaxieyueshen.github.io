@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>test图片</title>
+  <script language="javascript" src="LodopFuncs.js"></script>
+ </head>
+ <body>
+ <style>
+  body{margin:0px;font-size:12px;}
+#body{width:100%;}
+#bodyleft{background-image:url(../images/tt1.png);width:790px;height:25px;margin:auto;}
+/**#bodymiddle{background-image:url(../images/tt2.png);width:790px;text-align:center;margin:auto;}**/
+#bodymiddle{background-image:url(../images/tt2.png);width:790px;text-align:left;margin:auto;}
+#bodymiddle #t{width:700px;text-align:left;margin:auto;}
+#bodymiddle #t h3{margin:0px;padding:0px;}
+.blue{color:blue}
+
+#bodyright{background-image:url(../images/tt3.png);width:790px;height:25px;margin:auto;}
+.btn1{background-color: #5ff6ed;font-size: 12px;}
+.next{color:blue;}
+#header{background-image:url(../images/topbg.png);width:100%;height:100px;}
+#head1{background-image:url(../images/lodoptest.png);width:400px;height:100px;}
+#footer{width:790px;height:100px;margin:auto;text-align:right;}
+</style>
+<div id="header">
+<div id="head1"></div>
+</div>
+
+<div id="body">
+<div id="bodyleft"></div> 
+<div id="bodymiddle">
+<div id="t">
+<input type="button" class="btn1" value="清空所有文本框" onclick="clr()" >
+</div>
+
+</div>
+<div id="bodyright"></div>
+</div>
+</div>
+
+<div id="body">
+<div id="bodyleft"></div> 
+<div id="bodymiddle">
+<div id="t">
+<h3>LODOP打印项单位：<span class="blue">px转mm:</span></h3><br>
+输入LODOP打印项的px单位的数值：<input type="text" id="T1" size=15><span class="blue">px</span>，（例如：12）<br><br>
+<input type="button" class="btn1" value="点击进行转换" onclick="pxmm()"><br><br>
+这里显示转换成mm单位后的数值：<input type="text" id="T2" size=15><span class="blue">mm</span>，（1px约等于0.26mm）<br>
+</div>
+</div>
+<div id="bodyright"></div>
+</div>
+</div>
+
+<div id="body">
+<div id="bodyleft"></div> 
+<div id="bodymiddle">
+<div id="t">
+<h3>LODOP打印项单位：<span class="blue">px转mm（强制mm保留2位的）:</span></h3><br>
+输入LODOP打印项的px单位的数值：<input type="text" id="T3" size=15><span class="blue">px</span>，（例如：12）<br><br>
+<input type="button" class="btn1" value="点击进行转换" onclick="pxmm2()"><br><br>
+这里显示转换成mm单位后的数值：<input type="text" id="T4" size=15><span class="blue">mm</span>，（1px约等于0.26mm）<br>
+</div>
+</div>
+<div id="bodyright"></div>
+</div>
+</div>
+
+<div id="body">
+<div id="bodyleft"></div> 
+<div id="bodymiddle">
+<div id="t">
+<h3>LODOP打印项单位：<span class="blue">:LODOP打印项的px不是像素，是绝对长度单位，1px等于1/96英寸</span></h3><br>
+LODOP打印项的单位，注意这里的px不是像素，是绝对长度单位，1px等于1/96英寸，与正常DPI显示设置的像素值相等。如果
+采用该单位，那么正常显示的屏幕内容与实际打印输出的内容大小相当，这个长度单位可以实现感觉上
+的“所见等于所打”，px是缺省长度单位，如此以来，单位换算关系为：
+1in = 2.54cm = 25.4mm = 72pt = 96px
+</div>
+</div>
+<div id="bodyright"></div>
+</div>
+</div>
+
+<div id="footer"><img src="../images/cnblog.png"></div>
+<script language="javascript" type="text/javascript">   
+       function pxmm(){
+       var num_px=document.getElementById("T1").value;
+	   var t2=num_px*0.26;
+       document.getElementById("T2").value=t2;
+    };
+	   function clr(){
+        document.getElementById('T1').value=""; 
+		document.getElementById('T2').value=""; 
+		document.getElementById('T3').value=""; 
+		document.getElementById('T4').value=""; 
+    };
+       function pxmm2(){
+       var num_px=parseFloat(document.getElementById("T3").value);
+	   num_px=num_px.toFixed(2);
+	   var t2=num_px*0.26;
+	   t2=t2.toFixed(2);
+       document.getElementById("T4").value=t2;
+    };
+</script> 
+ </body>
+</html>
