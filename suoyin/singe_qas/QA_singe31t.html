@@ -95,6 +95,8 @@ background-color:#f1f1f1;}
    <ul>
      <!--第一排-->
      <li class="fs20" style="width:250px"><a class="corWhi" target="_blank" href="./smallQA/smallQA14.html">如何设置页眉页脚</a></li>
+     <li class="fs20" style="width:140px"><a class="corWhi" target="_blank" href="./smallQA/smallQA16.html">超出不换行</a></li>
+     <li class="fs20" style="width:150px"><a class="corWhi" target="_blank" href="./smallQA/smallQA15.html">进度条隐藏</a></li>
    </ul>
 </div><!--divall结束-->
 <div class="clearFloat"></div>
@@ -104,6 +106,16 @@ background-color:#f1f1f1;}
 参考官网下载中心的LODOP技术手册SET_PRINT_STYLEA篇，0代表前面紧跟着的打印项，放在需要该样式的打印项后面紧跟着。<br>
 <br>
 参考技术手册http://www.c-lodop.com/download.html SET_PRINT_STYLEA篇，第一个参数，0代表紧跟着的上一个打印项，直接加在该打印项语句后面。<br>
+<br>
+2.<span style="color:blue;font-weight:bold">如何超出不换行</span><br>
+<br>
+打印项是什么语句输出的，是add_print_text纯文本，还是add_print_htm超文本<br>
+打印项如果是add_print_text纯文本：<br>
+减小打印项高度，纯文本超过宽度，高度不够，会隐藏后面的内容。<br>
+如果是超文本：<br>
+css样式可控制超文本的样式，传入css样式，参考样例10 http://www.c-lodop.com/demolist/PrintSample10.html<br>
+例如样例2里的第一个表格最后一行的第一个单元格 http://www.c-lodop.com/demolist/PrintSample2.html<br>
+<br>		    
 </div>
     </div><!--main_middle结束-->
 
