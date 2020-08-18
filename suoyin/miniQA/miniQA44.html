@@ -105,6 +105,16 @@ win7以后系统自带Microsoft XPS Document Writer虚拟打印机或者 下载�
 <br>
 测试下样例5,7，测试下样例7的纸张列表，该打印机列表里是否有这个纸张名称。<br>
 <br>
+<span style="color:blue;font-weight:bold">新组合的回答，进一步回答</span><br>
+<br>
+1.去掉SET_PRINT_PAGESIZE纸张语句，测试对比下。<br>
+2.修改纸张语句参数，直到不报错。<br>
+例如：LODOP.SET_PRINT_PAGESIZE(1, 0, 0, "A4"); <br>
+试试中间的宽高不用0,0,设置成具体的宽高值。<br>
+<br>
+修改纸张参数，直到这个打印机不报错，<br>
+或去掉纸张语句 ，改用其他纸张控制方法http://www.c-lodop.com/blogs/Blog002.htm。<br>
+<br>		    
 </div>
     </div><!--main_middle结束-->
 
