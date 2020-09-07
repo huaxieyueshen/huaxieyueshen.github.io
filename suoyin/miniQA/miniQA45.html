@@ -129,6 +129,30 @@ https扩展版C-Lodop如何使用 参考http://www.c-lodop.com/faq/pp32.html<br>
 3.4 OpenSSL钥匙文件密码:是购买SSL证书时约定的具体密码值，也就是证书文件的使用密码；<br>
 （密码是防止别人得到这些文件后冒用的，有些颁发者返回的是无密码证书，此时需自己想办法附加上密码，通常用OpenSSL.exe软件）。<br>
 <br>
+<span style="color:blue;font-weight:bold">可以只升级安装4101，不修改JS吗</span><br>
+<br>
+不能只升级不改js地址，升级c-lodop后，https地址也要修改。<br>
+新版本和新的地址对应。<br>
+<br>
+原来的：https://localhost:8443/CLodopfuncs.js<br>
+改为：https://localhost.lodop.net:8443/CLodopfuncs.js<br>
+用的新版本，需要改成这个地址<br>
+<br>
+<span style="color:blue;font-weight:bold">能只修改JS，一些用户不安装4101</span><br>
+<br>
+需要安装4101，才能用这个地址https://localhost.lodop.net:8443/CLodopfuncs.js，<br>
+<br>
+LodopFuncs.js里已经写好了判断和提示，判断安装版本小于js判断的版本会提示升级，提示下载安装的文件替换成新版本的安装文件。<br>
+<br>
+需要所有用户都升级为4101.<br>
+<br>
+<span style="color:blue;font-weight:bold">https://localhost.lodop.net:8443提示不安全，clodop报错页面报错Error accepting .....ssl3...</span><br>
+<br>
+是否是win7操作系统，<br>
+参考下https://blog.csdn.net/dreamtheworld1/article/details/105038076<br>
+<br>
+测试下其他https网站试试，访问https://www.jd.com/试试<br>
+<br>		    
 <span style="color:blue;font-weight:bold">火狐提示不安全</span><br>
 <br>
 火狐不认localhost证书，需要添加到浏览器例外。<br>
@@ -138,7 +162,7 @@ https扩展版C-Lodop如何使用 参考http://www.c-lodop.com/faq/pp32.html<br>
 百度下火狐浏览器添加例外的方法。<br>
 <br>
 访问https://localhost:8443，不安全，继续访问。<br>
-<br>
+<br>		   		    
 <p style="background-color:#ffff66">-----4101已解决该问题-----</p>
 <span style="color:blue;font-weight:bold">js报错警告用的TLS1.0或TLS1.1未来会不支持</span><br>
 <br>
