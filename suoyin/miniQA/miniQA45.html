@@ -152,7 +152,18 @@ LodopFuncs.js里已经写好了判断和提示，判断安装版本小于js判�
 参考下https://blog.csdn.net/dreamtheworld1/article/details/105038076<br>
 <br>
 测试下其他https网站试试，访问https://www.jd.com/试试<br>
-<br>		    
+<br>	
+<span style="color:blue;font-weight:bold">https://localhost.lodop.net:8443提示不安全</span><br>
+查看下证书路径是否正常：<br>
+<img src="./mini_images/certpath.png"><br>
+<br>
+安装下根证书试试<br>
+https://www.digicert.com/kb/digicert-root-certificates.htm<br>
+<br>
+安装图中的这个两个根证书:<br>
+<img src="./mini_images/cert.png"><br>
+<br>
+<p style="background-color:#ffff66">-----4101已解决该问题-----</p>		    
 <span style="color:blue;font-weight:bold">火狐提示不安全</span><br>
 <br>
 火狐不认localhost证书，需要添加到浏览器例外。<br>
@@ -163,7 +174,6 @@ LodopFuncs.js里已经写好了判断和提示，判断安装版本小于js判�
 <br>
 访问https://localhost:8443，不安全，继续访问。<br>
 <br>		   		    
-<p style="background-color:#ffff66">-----4101已解决该问题-----</p>
 <span style="color:blue;font-weight:bold">js报错警告用的TLS1.0或TLS1.1未来会不支持</span><br>
 <br>
 32位的c-lodop目前使用的是这个。目前没有很好的处理方法，这个是警告，目前还可以使用。<br>
