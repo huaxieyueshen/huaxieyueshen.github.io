@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>s不支持的操作系统</title>
+ </head>
+ <body>
+ <style>
+ body{margin:0px;}
+.body {width:100%;}
+a{text-decoration:none;color:black;}
+h1{font-size:1.625em;}
+h2{font-size:1.375em;}
+/**.box{float:left;}**/
+.header_box {width:100%;}
+.header{padding:1%;
+background-color:#f1f1f1;}
+/**border:1px solid #e9e9e9;}**/
+
+.header_bottom{width:100%;}
+.menuitem {
+    margin-top:0;
+    margin-left:0;
+    margin-bottom:0;
+    padding:1%;
+    border-bottom:1px solid #e9e9e9;
+    cursor:pointer;
+}
+
+.main {padding:1%;}
+.main_middle { width:100%;}
+
+
+.box_footer {width:100%;margin-bottom:0;}
+.footer {
+    padding:1%;
+    text-align:center;
+    background-color:#f1f1f1;
+    font-size:0.625em;
+}
+#small{background-image: radial-gradient(white 5%, #ccffff 15%, #ffccff 60%);border:#7f9db9 1px solid;padding:10px;font-size:15px; }
+#small hr{margin:10px;padding:0px;}
+
+/**渐变等背景色**/
+.Jpink{background-image: radial-gradient(white 5%, #ccffff 15%, #ffccff 60%);border:#0099ff 1px solid;text-align:center;}
+
+@media only screen and (max-width: 500px) {
+    .menu_left{width:100%;}
+    .menuitem { margin:1%;padding:1%;}
+
+    .main_middle { width:100%;}
+    .main {padding:1%;}
+
+    .box_right {width:100%;}
+    .right { padding:1%;
+    }
+
+    .box { margin-right:0; float:left;}
+}
+
+</style>
+<div class="body"><!--body开始-->
+        <div class="box header_box"><!--header开始-->
+            <div class="header">
+                <h1>LODOP超简短问答-不支持的操作系统</h1>
+            </div>
+        </div><!--header结束-->
+<div class="header_bottom"> 	
+		  <a href="../../phoneQA004.html"><div class="menuitem">lodop问答主页</div></a> 
+		  <a href="../../phoneQA_dange.html"><div class="menuitem"><span style="color:red;">问答主页（单个问答链接）</span></div></a>
+          <a href="../../mini_QAs.html"><div class="menuitem"><span style="color:#ff0099;">迷你一个问答</span></div></a> 
+		  <a href="../QA_singe33t.html"><div class="menuitem Jpink">其他参考或内容（源自网络）</span></a> 
+</div>
+        <div class="box main_middle"><!--main_middle开始-->
+            <div class="main">
+<h1>集中或AO角色自己域名证书没有key</h1>
+<div id="small">
+<span style="color:blue">AO端桥打印https的，自己域名证书没有key怎么办</span><br>
+参考http://www.c-lodop.com/faq/pp32.html<br>
+参考链接里的SSL(https)设置的相关知识(通俗)说明<br>
+3.1 OpenSSL钥匙文件:购买域名证书时，CA证书颁发者（或代理商）返回的几个文件中扩展名是“key”的那个关键文件；<br>
+证书是否正常，证书应该都是有key的。
+<hr>
+<span style="color:blue">证书需要有key安装（网上内容)</span><br>
+缺少Key文件的话是无法安装SSL证书的，可以联系SSL证书提供商，获取.key文件安装SSL证书。<br>
+<br>
+百度下关于ssl域名的相关设置试试，证书都是有key文件的。<br>
+<br>
+没有key应该是无法安装的，<br>
+需要签发机构提供IIS服务bai器环境证书才可du以安装，并且该证书还拥有证书的安装密码。如果签发机构只提供了crt是无法实现安装的，key私钥是最基本的文件，当前需要联系签发机构补足所有证书。
+<hr>
+<span style="color:blue">重新申请证书（网上内容)</span><br>
+重新申证书试试。<br>
+<br>
+SSL证书与私钥是相互匹配的，如果您只有SSL证书却没有私钥的话，请您重新申请SSL证书。生成CSR文件同时会生成密钥KEY文件（私钥生成可以直接“CSR文件生成”各大搜索引擎都可以找到工具）！非常重要，请把生成好的CSR文件和KEY文件下载到电脑妥善保存，CSR和KEY文件随机生成，如果丢失无法找回，只能重新发出申请请求。<br>
+概述：当申请者申请SSL证书时，生成了CSR文件同时生成KEY私钥文件。申请者将CSR文件提交至CA机构SSL证书颁发机构，从而就生成了SSL证书公钥文件。如果实在不行也可以找到Gworg申请SSL证书，会将这些文档整个提供。<br>
+简述申请SSL证书流程：<br>
+一、CSR请求文件生成（文件包括：私钥KEY与CSR文件）<br>
+二、提供CSR文件给SSL证书颁发机构<br>
+三、按照固定认证完毕后，获得SSL证书<br>
+<br>
+如果只有SSL证书没有私钥（key文件），那么需要重新申请证书，可以联系您当时购买的商家要求重新签发，一般证书在有效期内都是支持无限次重签的。如果需要申请新证书，可联系必盛云帮您处理。Key文件是非常重要的，请务必要妥善保管好。
+<hr>
+</div>
+           </div>
+    </div><!--main_middle结束-->
+
+        <div class="box box_footer"><!--box_footer开始-->
+            <div class="footer">
+<p>lodop简短问答页面.</p>
+            </div>
+        </div><!--box_footer结束-->
+
+
+</div><!--body结束-->
+ </body>
+</html>
