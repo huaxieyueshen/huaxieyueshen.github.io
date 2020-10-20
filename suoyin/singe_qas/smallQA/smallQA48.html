@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>s图片显示叉号</title>
+ </head>
+ <body>
+ <style>
+ body{margin:0px;}
+.body {width:100%;}
+a{text-decoration:none;color:black;}
+h1{font-size:1.625em;}
+h2{font-size:1.375em;}
+/**.box{float:left;}**/
+.header_box {width:100%;}
+.header{padding:1%;
+background-color:#f1f1f1;}
+/**border:1px solid #e9e9e9;}**/
+
+.header_bottom{width:100%;}
+.menuitem {
+    margin-top:0;
+    margin-left:0;
+    margin-bottom:0;
+    padding:1%;
+    border-bottom:1px solid #e9e9e9;
+    cursor:pointer;
+}
+
+.main {padding:1%;}
+.main_middle { width:100%;}
+
+
+.box_footer {width:100%;margin-bottom:0;}
+.footer {
+    padding:1%;
+    text-align:center;
+    background-color:#f1f1f1;
+    font-size:0.625em;
+}
+#small{background:#ccff99;border:#7f9db9 1px solid;padding:10px;font-size:15px; }
+#small hr{margin:10px;padding:0px;}
+
+@media only screen and (max-width: 500px) {
+    .menu_left{width:100%;}
+    .menuitem { margin:1%;padding:1%;}
+
+    .main_middle { width:100%;}
+    .main {padding:1%;}
+
+    .box_right {width:100%;}
+    .right { padding:1%;
+    }
+
+    .box { margin-right:0; float:left;}
+}
+
+</style>
+<div class="body"><!--body开始-->
+        <div class="box header_box"><!--header开始-->
+            <div class="header">
+                <h1>LODOP超简短问答-图片显示叉号</h1>
+            </div>
+        </div><!--header结束-->
+<div class="header_bottom"> 	
+		  <a href="../../phoneQA004.html"><div class="menuitem">lodop问答主页</div></a> 
+		  <a href="../../phoneQA_dange.html"><div class="menuitem"><span style="color:red;">问答主页（单个问答链接）</span></div></a>
+          <a href="../../mini_QAs.html"><div class="menuitem"><span style="color:#ff0099;">迷你一个问答</span></div></a> 
+		  <a href="../QA_singe29t.html"><div class="menuitem" style="background:#ccff99;border:#7f9db9 1px solid;">功能现象专题问答</span></a> 
+</div>
+        <div class="box main_middle"><!--main_middle开始-->
+            <div class="main">
+<h1>图片显示叉号</h1>
+<div id="small">
+<span style="color:blue">图片显示叉号</span><br>
+（1）查看lodop内部解析的html信息，见http://www.c-lodop.com/faq/pp8.html<br>
+查看一下传入的图片路径是否正确，尽量用绝对路径地址，换个图片试试。<br>
+（2）显示空白或者图片缺失等问题，加延迟试试：<br>
+LODOP.SET_PRINT_STYLEA(0,"HtmWaitMilSecs",1000)//设置上一项延迟超文本下载1000毫秒<br>
+（3）权限问题，图片显示叉号 说明服务端拒绝了 可能证书 session等问题，导致没有直接访问该图片的权限，有些需要验证之后才能访问图片。由于Lodop借用IE下载引擎，与非IE浏览器之间目前不能传递Session(cookies)<br>
+（4）清空ie缓存 重置ie 后在ie中查看下。IE中的URL最大长度限制为2048字节。超过这个长度会不支持。<br>
+（5） 查看服务器端错误日志排查下 。<br>
+（6）做个简单的例子验证下，排除其他因素的干扰。Base64输出图片参考样例38。<br>
+<hr>
+<span style="color:blue">在ie里访问测试</span><br>
+Lodop是基于本机windows底层引擎进行渲染解析的，与ie调用的引擎一致<br>
+直接把图片地址放到ie浏览器里是试验下。能否直接在浏览器里访问到。<br>
+<hr>
+<span style="color:blue">ie里访问不了图片路径，重装ie试试</span><br>
+需要能在ie里直接访问的地址，用能不经过验证，能直接访问的地址。<br>
+<br>
+是否是ie浏览器存在问题，重置ie，或百度下ie不能访问图片的原因，修复下ie，或重装ie。<br>
+需要能在ie里直接访问的地址。<br>
+重置ie试试，必须让ie能访问到该图片<br>
+<hr>
+<span style="color:blue">换用直接输出base64方式</span><br>
+可尝试base64码输出，参考样例38http://www.c-lodop.com/demolist/PrintSample38.html<br>
+base64位码输出直接通过本地lodop程序解析，无需经过浏览器引擎解析<br>
+<br>
+换用base64码输出，不加img标签，lodop直接输出base64码试试，参考样例<br>38http://www.c-lodop.com/demolist/PrintSample38.html<br>
+<hr>
+<span style="color:blue">是否是覆盖问题</span><br>
+单独输出该图片测试下，参考http://www.lodop.net.cn/demolist/PrintSample8.html<br>
+<br>
+是否是图片被其他打印项覆盖了，最后输出图片打印项测试下，后输出的打印项在最上层。<br>
+<hr>
+<span style="color:blue">条码，二维码图片，建议纯文本</span><br>
+也可以换用lodop语句输出二维码，条码，参考样例11 http://www.c-lodop.com/demolist/PrintSample11.html<br>
+<br>
+建议改用add_print_text和画线输出，这种是lodop直接输出，样式也不受浏览器的影响。<br>
+纯文本+线输出表格：ADD_PRINT_TEXT、ADD_PRINT_LINE<br>
+画线输出表格，参考http://www.c-lodop.com/demolist/PrintSampleA1.htm<br>
+<hr>
+<span style="color:blue">发一下地址，这边测试</span><br>
+是所有客户端都显示叉号，还是只有这一台电脑有问题。<br>
+<br>
+发一下图片地址，这边测试下。<br>
+<hr>
+<span style="color:blue">http下打印图片正常，https下打印图片是××。（有的客户端可以，有的不可以）</span><br>
+重置ie浏览器试试。<br>
+<br>
+Lodop是基于本机windows底层引擎进行渲染解析的，与ie调用的引擎一致。重置ie浏览器试试。<br>
+之前有客户反馈Ie浏览器的intenet选项--高级里调整下配置，就可以打印了。<br>
+<br>
+客户反馈：（和ie浏览器的设置有关）<br>
+intenet选项--高级里，我调整为和能打印出图片的电脑一样的配置，就可以打印了，但是不知道具体是哪项影响的<br>
+<hr>
+</div>
+<br>
+<div id="small">
+相关链接(单个问答里）： <a href="../QA_singe3.html" target="_blank"><span style="color:blue;">图片显示叉号</span></a><br>
+</div>
+           </div>
+    </div><!--main_middle结束-->
+
+        <div class="box box_footer"><!--box_footer开始-->
+            <div class="footer">
+<p>lodop简短问答页面.</p>
+            </div>
+        </div><!--box_footer结束-->
+
+
+</div><!--body结束-->
+ </body>
+</html>
