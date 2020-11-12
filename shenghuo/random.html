@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>随机数</title>
+ <link href="./shcss/money.css" type="text/css" rel="stylesheet">
+ <style>
+.btn2 {background-color:#2175bd;border:none;color:white;padding:50px 100px;text-align:center;text-decoration:none;font-size:50px}
+
+#textareadiv{width:100%;font-size:100px;margin-left:30px;margin-top:50px;}
+#btn2div{margin-left:30px;margin-top:10px;}
+#S1{font-size:50px;}
+#S2,#S3{font-size:50px;}
+ </style>
+  </head>
+  <body>
+<div class="menu">
+<ul>
+  <li><a href="./Yangsheng.html" style="color:#ffcccc;">点此返回养生生活主页</a></li>
+  <li style="float:right"><a href="./moneylist.html">月度账单主页</a></li>
+</ul>
+</div>
+
+<div>&nbsp;</div>
+
+
+<div class="main">
+<div id="textareadiv">
+输入最小值：<textarea rows="3" id="S1" cols="15"></textarea><br>
+</div>
+
+<div id="textareadiv">
+输入最大值：<textarea rows="3" id="S2" cols="15"></textarea><br>
+</div>
+
+<div id="textareadiv">
+显示随机值：
+<textarea rows="3" id="S3" cols="15"></textarea><br>
+</div>
+
+<br>
+ <div id="btn2div">
+ <input type="button" class="btn2" value="点击预览" onclick="ran()">
+ </div>
+
+<script language="javascript" type="text/javascript">   
+//生成从minNum到maxNum的随机数
+function randomNum(minNum,maxNum){ 
+    switch(arguments.length){ 
+        case 1: 
+            return parseInt(Math.random()*minNum+1,10); 
+        break; 
+        case 2: 
+            return parseInt(Math.random()*(maxNum-minNum+1)+minNum,10); 
+        break; 
+            default: 
+                return 0; 
+            break; 
+    } 
+} ;
+function ran(){
+  var a=document.getElementById('S1').value;
+  var b=document.getElementById('S2').value;
+  var c=randomNum(a,b);
+  document.getElementById('S3').value=c;
+
+};
+</script>  
+
+</div>
+
+<p>&nbsp;</p>
+ </body>
+</html>
