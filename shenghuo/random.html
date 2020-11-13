@@ -48,25 +48,14 @@
  </div>
 
 <script language="javascript" type="text/javascript">   
-////生成从minNum到maxNum的随机数
-//function randomNum(minNum,maxNum){ 
-//    switch(arguments.length){ 
-//        case 1: 
-//            return parseInt(Math.random()*minNum+1,10); 
-//        break; 
-//        case 2: 
-//            return parseInt(Math.random()*(maxNum-minNum+1)+minNum,10); 
-//        break; 
-//            default: 
-//                return 0; 
-//            break; 
-//    } 
-//} ;
 function ran(){
-var maxn=parseInt(document.getElementById('S1').value);
-var minn=parseInt(document.getElementById('S2').value);
-var a=parseInt(Math.random()*(maxn-minn+1)+minn,10); 
-document.getElementById('S3').value=a;
+var Max=parseInt(document.getElementById('S1').value);
+var Min=parseInt(document.getElementById('S2').value);
+var Range=Max-Min;
+var Rand=Math.random();
+var num =Min+Math.round(Rand * Range); //四舍五入
+//console.log(num);
+document.getElementById('S3').value=num;
 };
 </script>  
 
