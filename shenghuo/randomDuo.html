@@ -40,6 +40,7 @@
  <div id="btn2div">
  <input type="button" id="start1" class="btn2" value="点击开始" onclick="ran2()">
   <input type="button"id="stop1" class="btn2" value="停止" onclick="stopd()">
+ <input type="button" class="btn2" value="清空数值" onclick="clearS()">	 
  </div>
 
 
@@ -92,6 +93,13 @@ clearInterval(rr);
 stop1.disabled = true;
 start1.disabled = false;
    };
+	
+function clearS(){
+document.getElementById('textd').innerHTML="&nbsp;开始：";
+document.getElementById('S1').value="";
+document.getElementById('S2').value="";
+};
+	
 </script>   
 
 </div>
