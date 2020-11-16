@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>随机数</title>
+ <link href="./shcss/money.css" type="text/css" rel="stylesheet">
+ <style>
+.btn2 {background-color:#2175bd;border:none;color:white;padding:20px 50px;text-align:center;text-decoration:none;font-size:20px;margin-left:50px;margin-top:30px;}
+
+#textareadiv1{width:100%;font-size:20px;margin-left:30px;margin-top:50px;}
+#btn2div{margin-left:30px;margin-top:10px;}
+#S1{font-size:20px;}
+#S2,#S3{font-size:20px;}
+
+#textd{width:70%;background-color:#ccffff;word-break:break-all;}
+ </style>
+  </head>
+  <body>
+<div class="menu">
+<ul>
+  <li><a href="./Yangsheng.html" style="color:#ffcccc;">点此返回养生生活主页</a></li>
+  <li><a href="./numchangeIndex.html">点此返回随机数字换算等索引页</a></li>
+  <li style="float:right"><a href="./moneylist.html">月度账单主页</a></li>
+</ul>
+</div>
+
+<div>&nbsp;</div>
+
+
+<div class="main">
+<div id="textareadiv1">
+输入最小值：<textarea rows="3" id="S1" cols="15"></textarea>&nbsp;输入最大值：<textarea rows="3" id="S2" cols="15"></textarea><br>
+</div>
+
+
+ <div id="btn2div">
+ <input type="button" id="start1" class="btn2" value="点击开始" onclick="ran2()">
+  <input type="button"id="stop1" class="btn2" value="停止" onclick="stopd()">
+ </div>
+
+
+<div id="textareadiv1">
+显示随机值：
+   <div id="textd">
+	&nbsp;开始：
+    </div>
+</div>
+<br>
+
+<script language="javascript" type="text/javascript">   
+var start1=document.getElementById('start1');
+var stop1=document.getElementById('stop1');
+i=0;
+
+function ran(){
+	console.log("执行了ran");
+//i++;
+var Max=parseInt(document.getElementById('S1').value);
+var Min=parseInt(document.getElementById('S2').value);
+var Range=Max-Min;
+var Rand=Math.random();
+var num =Min+Math.round(Rand * Range); //四舍五入
+//console.log("num:"+num);
+//console.log(num);
+document.getElementById('textd').innerHTML=document.getElementById('textd').innerHTML+","+num;
+//document.getElementById('textd').innerHTML=document.getElementById('textd').innerHTML+",第"+i+"个："+num;
+//console.log(document.getElementById('textd').innerHTML);
+//document.getElementById('S3').value=num;
+};
+function ran2(){
+//	console.log("执行了ran2");
+rr=self.setInterval("ran()",100);
+};
+function stopd(){
+int=window.clearInterval(int)
+};
+
+start1.onclick = function(){
+//	console.log("执行了");
+ran2();
+start1.disabled = true;
+stop1.disabled =false;
+   };
+
+stop1.onclick = function(){
+//	console.log("执行了");
+clearInterval(rr);
+stop1.disabled = true;
+start1.disabled = false;
+   };
+</script>   
+
+</div>
+
+<p>&nbsp;</p>
+ </body>
+</html>
