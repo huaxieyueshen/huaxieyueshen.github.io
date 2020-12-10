@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>打印项边距</title>
+ </head>
+ <body>
+ <style>
+ body{margin:0px;}
+.body {width:100%;}
+a{text-decoration:none;color:black;}
+h1{font-size:1.625em;}
+h2{font-size:1.375em;}
+/**.box{float:left;}**/
+.header_box {width:100%;}
+.header{padding:1%;
+background-color:#f1f1f1;}
+/**border:1px solid #e9e9e9;}**/
+
+.header_bottom{width:100%;}
+.menuitem {
+    margin-top:0;
+    margin-left:0;
+    margin-bottom:0;
+    padding:1%;
+    border-bottom:1px solid #e9e9e9;
+    cursor:pointer;
+}
+
+.main {padding:1%;}
+.main_middle { width:100%;}
+
+
+.box_footer {width:100%;margin-bottom:0;}
+.footer {
+    padding:1%;
+    text-align:center;
+    background-color:#f1f1f1;
+    font-size:0.625em;
+}
+#small{background-image: radial-gradient(white 10%, #66ffff 35%, #ffffcc 40%);border:#66ffff 1px solid;padding:10px;font-size:15px; }
+#small hr{margin:10px;padding:0px;}
+
+/**渐变等背景色**/
+.Jpink{background-image: radial-gradient(white 10%, #66ffff 35%, #ffffcc 40%);border:#66ffff 1px solid;}
+
+@media only screen and (max-width: 500px) {
+    .menu_left{width:100%;}
+    .menuitem { margin:1%;padding:1%;}
+
+    .main_middle { width:100%;}
+    .main {padding:1%;}
+
+    .box_right {width:100%;}
+    .right { padding:1%;
+    }
+
+    .box { margin-right:0; float:left;}
+}
+
+</style>
+<div class="body"><!--body开始-->
+        <div class="box header_box"><!--header开始-->
+            <div class="header">
+                <h1>LODOP超简短问答-打印项边距</h1>
+            </div>
+        </div><!--header结束-->
+<div class="header_bottom"> 	
+		  <a href="../../phoneQA004.html"><div class="menuitem">lodop问答主页</div></a> 
+		  <a href="../../phoneQA_dange.html"><div class="menuitem"><span style="color:red;">问答主页（单个问答链接）</span></div></a>
+          <a href="../../mini_QAs.html"><div class="menuitem"><span style="color:#ff0099;">迷你一个问答</span></div></a> 
+     <a href="../QA_singe43t.html"><div class="menuitem Jpink"><span>带图问答（常用截图）</span></div></a>
+</div>
+        <div class="box main_middle"><!--main_middle开始-->
+            <div class="main">
+<h1>打印项边距</h1>
+<div id="small">
+<span style="color:blue">怎样设置页边距</span> ||<a href="./smallQA66.html" target="_blank"><span style="color:#660066;">传送小问答</span></a><br>
+直接打印项在纸张中定位，例如：ADD_PRINT_HTM(intTop,intLeft,intWidth,intHeight,strHtml)增加超文本项 前两个参数，顶边距和左边距。<br>
+<br>
+并进入打印预览，查看该打印机是否有可打区域的边距，，默认以可打区域为基点，<br>
+“可打区域”边缘与打印机本身有关，表现在预览里是虚线，可打区域的影响<br>
+http://www.c-lodop.com/faq/pp26.html<br>
+<br>
+<img src="./smallQA_images/bj_5.png" width="100%" height="100%"><br>
+<hr>
+
+<span style="color:blue">打印项边距受哪些影响，打印有边距</span><br>
+1.打印项本身的top，left值。<br>
+例如：ADD_PRINT_HTM(intTop,intLeft,intWidth,intHeight,strHtml)增加超文本项 前两个参数，顶边距和左边距。<br>
+2.INITA初始化语句第一、二参数的偏移值。<br>
+INITA初始化前两个参数是整体偏移值，查看下是否是0，如果不是，都设置为0.<br>
+3.打印预览中虚线引起的边距（打印机的可打区域的影响）<br>
+“可打区域”边缘与打印机本身有关，表现在预览里是虚线，可打区域的影响<br>
+http://www.c-lodop.com/faq/pp26.html<br>
+4.打印项内部的边距（内容的边距，如超文本中的css样式等）<br>
+进入打印设计，选中该打印项，蓝色圆点区域是打印项，蓝色圆点内的内容边距是打印项内部的边距，查看打印项内容是否有内部边距。<br>
+<hr>
+
+
+<span style="color:blue">打印项的边距受哪些影响（图1）</span><br>
+打印项在纸张中位置边距的影响：<br>
+<img src="./smallQA_images/bj_1.png"><br>
+<hr>
+
+<span style="color:blue">不整体偏移，和无可打区域下，打印项的边距受哪些影响（图2）</span><br>
+在没有INITA一二参数控制的整体偏移情况下，且打印机无可打区域情况下，打印项在纸张中位置边距的影响：<br>
+<img src="./smallQA_images/bj_3.png"><br>
+<br>
+“可打区域”边缘与打印机本身有关，表现在预览里是虚线，可打区域的影响<br>
+http://www.c-lodop.com/faq/pp26.html<br>
+<hr>
+
+<span style="color:blue">打印项的边距受哪些影响，原cnblog的图片（图3）</span><br>
+打印项在纸张中位置边距的影响：<br>
+<img src="./smallQA_images/bj_2.png"><br>
+<hr>
+
+<span style="color:blue">其他人的图：打印项的边距受哪些影响（图1）</span><br>
+打印项在纸张中位置边距的影响：<br>
+<img src="./smallQA_images/bj_4.png" width="100%" height="100%"><br>
+<hr>
+
+</div>
+<div id="small">
+相关链接：(会跳转到cnblog，非本网站地址)<br>
+cnblog(花谢悦神）： <a href="https://www.cnblogs.com/huaxie/p/9828739.html" target="_blank"><span style="color:blue;">LODOOP中的各种边距 打印项、整体偏移、可打区域、内部边距</span></a>、<br>
+<a href="https://www.cnblogs.com/huaxie/p/11187583.html" target="_blank"><span style="color:blue;">LODOP中的各种宽高和位置简短问答</span></a>、
+</div>
+
+
+
+           </div>
+    </div><!--main_middle结束-->
+
+        <div class="box box_footer"><!--box_footer开始-->
+            <div class="footer">
+<p>lodop简短问答页面.</p>
+            </div>
+        </div><!--box_footer结束-->
+
+
+</div><!--body结束-->
+ </body>
+</html>
