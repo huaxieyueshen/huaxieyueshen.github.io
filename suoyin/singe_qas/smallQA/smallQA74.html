@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>什么是一个任务</title>
+ </head>
+ <body>
+ <style>
+ body{margin:0px;}
+.body {width:100%;}
+a{text-decoration:none;color:black;}
+h1{font-size:1.625em;}
+h2{font-size:1.375em;}
+/**.box{float:left;}**/
+.header_box {width:100%;}
+.header{padding:1%;
+background-color:#f1f1f1;}
+/**border:1px solid #e9e9e9;}**/
+
+.header_bottom{width:100%;}
+.menuitem {
+    margin-top:0;
+    margin-left:0;
+    margin-bottom:0;
+    padding:1%;
+    border-bottom:1px solid #e9e9e9;
+    cursor:pointer;
+}
+
+.main {padding:1%;}
+.main_middle { width:100%;}
+
+
+.box_footer {width:100%;margin-bottom:0;}
+.footer {
+    padding:1%;
+    text-align:center;
+    background-color:#f1f1f1;
+    font-size:0.625em;
+}
+#small{background:#cc99ff;border:#7f9db9 1px solid;padding:10px;font-size:15px; }
+#small hr{margin:10px;padding:0px;}
+
+@media only screen and (max-width: 500px) {
+    .menu_left{width:100%;}
+    .menuitem { margin:1%;padding:1%;}
+
+    .main_middle { width:100%;}
+    .main {padding:1%;}
+
+    .box_right {width:100%;}
+    .right { padding:1%;
+    }
+
+    .box { margin-right:0; float:left;}
+}
+
+</style>
+<div class="body"><!--body开始-->
+        <div class="box header_box"><!--header开始-->
+            <div class="header">
+                <h1>LODOP超简短问答-什么是一个任务</h1>
+            </div>
+        </div><!--header结束-->
+<div class="header_bottom"> 	
+		  <a href="../../phoneQA004.html"><div class="menuitem">lodop问答主页</div></a> 
+		  <a href="../../phoneQA_dange.html"><div class="menuitem"><span style="color:red;">问答主页（单个问答链接）</span></div></a>
+          <a href="../../mini_QAs.html"><div class="menuitem"><span style="color:#ff0099;">迷你一个问答</span></div></a> 
+		  <a href="../QA_singe28t.html"><div class="menuitem" style="background:#cc99ff;border:#7f9db9 1px solid;">参数含义单位等解释</span></a> 
+</div>
+        <div class="box main_middle"><!--main_middle开始-->
+            <div class="main">
+<h1>什么是一个任务</h1>
+<div id="small">
+<span style="color:blue">什么是一个任务</span><br>
+从初始化INIT或INITA到打印是一个任务。<br>
+LODOP.PRINT_INIT("打印任务名");               //首先一个初始化语句 <br>
+LODOP.ADD_PRINT_TEXT(0,0,100,20,"文本内容一");//然后多个ADD语句及SET语句 <br>
+LODOP.PRINT();                               //最后一个打印(或预览、维护、设计)语句<br>
+<hr>
+<span style="color:blue">批量打印分页分任务</span><br>
+批量打印，分页分任务，在页数和任务之间平衡一下，参考样例<br>26http://www.c-lodop.com/demolist/PrintSample26.html<br>
+<hr>
+<span style="color:blue">纸张放到任务里</span><br>
+纸张语句，需要放到初始化INIT或INITA之后，打印之前。<br>
+纸张语句在初始化和打印之间：<br>
+LODOP.PRINT_INIT("打印任务名"); //首先一个初始化语句<br>
+LODOP.SET_PRINT_PAGESIZE(1,......//设置纸张大小<br>
+LODOP.ADD_PRINT_TEXT(0,0,100,20,"文本内容一");//然后多个ADD语句及SET语句<br>
+LODOP.PRINT(); //最后一个打印(或预览、维护、设计)语句<br>
+<hr>
+<span style="color:blue">一个任务只能设置一次纸张，一次lodop背景图，一个方向</span><br>
+一个任务只能设置一次纸张，可以分成多任务，每个任务设置自己的纸张。<br>
+<br>
+一个任务里设置多张ADD_PRINT_SETUP_BKIMG背景图，一个任务只能有一个，如果想不同页输出不同背景图，可用普通图片方式输出背景图，参考样例8,样例37。<br>
+<br>
+一个任务只能设置一次方向，可以分成多任务，每个任务设置自己的打印方向。<br>
+<br>
+LODOP.PRINT_INIT("");//首先一个初始化语句<br>
+LODOP.SET_PRINT_PAGESIZE(1,......//设置纸张大小<br>
+LODOP.ADD_PRINT_SETUP_BKIMG("背景图地址");//设置Lodop背景图<br>
+LODOP.SET_PRINTER_INDEX(打印机序号或名称);//选择打印机，可用序号或打印机名等方式指定打印机<br>
+LODOP.ADD_PRINT_TEXT(0,0,179,33,"页面\n内容");//ADD语句添加一个文本打印项<br>
+LODOP.SET_PRINT_STYLEA(0,"LineSpacing","10");// SET语句设置打印项样式，例如设置行间距。 <br>
+LODOP.PREVIEW();//最后一个打印(或预览、维护、设计)语句<br>
+<hr>
+<span style="color:blue">分页是在一个任务里分页，多页打印只打印最后一页</span><br>
+分页是在一个任务里分页<br>
+参考样例30 http://www.c-lodop.com/demolist/PrintSample30.html<br>
+LODOP.PRINT_INIT("");//任务开始，初始化<br>
+LODOP.ADD_PRINT_HTM(......<br>
+LODOP.NewPage();或NEWPAGEA//任务中分页<br>
+LODOP.ADD_PRINT_HTM(......<br>
+LODOP.NewPage();<br>
+LODOP.ADD_PRINT_HTM(......<br>
+LODOP.PREVIEW();//预览或打印等结束任务<br>
+<br>
+NewPageA和NewPage使用特性区分，参考http://www.lodop.net/faq/pp19.html<br>
+<br>
+查看下NewPage后是否又加了初始化语句，分页是在一个任务里分页，NewPage不要再加初始化语句。<br>
+<hr>
+</div>
+
+<div id="small">
+相关链接：<br>
+非本站(花谢悦神cnblog）其他相关： <a href="./smallQA7.html" target="_blank"><span style="color:blue;">Lodop打印语句最基本结构介绍（什么是一个任务）【cnblog】</span></a>、
+</div>
+
+
+
+
+<br>
+           </div>
+    </div><!--main_middle结束-->
+
+        <div class="box box_footer"><!--box_footer开始-->
+            <div class="footer">
+<p>lodop简短问答页面.</p>
+            </div>
+        </div><!--box_footer结束-->
+
+
+</div><!--body结束-->
+ </body>
+</html>
