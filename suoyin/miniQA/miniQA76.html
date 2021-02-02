@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>远程AO端桥模式</title>
+ </head>
+ <body>
+ <style>
+ body{margin:0px;}
+.body {width:100%;}
+a{text-decoration:none;color:black;}
+h1{font-size:1.625em;}
+h2{font-size:1.375em;}
+/**.box{float:left;}**/
+.header_box {width:100%;}
+.header{padding:1%;
+background-color:#f1f1f1;}
+/**border:1px solid #e9e9e9;}**/
+
+.header_bottom{width:100%;}
+.menuitem {
+    margin-top:0;
+    margin-left:0;
+    margin-bottom:0;
+    padding:1%;
+    border-bottom:1px solid #e9e9e9;
+    cursor:pointer;
+}
+
+.main {padding:1%;}
+.main_middle { width:100%;}
+.blue{color:#95bfc7;}
+.blue2{color:blue;}
+.gray{color:gray;background-color:#66ffcc;}
+
+.box_footer {width:100%;margin-bottom:0;}
+.footer {
+    padding:1%;
+    text-align:center;
+    background-color:#f1f1f1;
+    font-size:0.625em;
+}
+
+@media only screen and (max-width: 500px) {
+    .menu_left{width:100%;}
+    .menuitem { margin:1%;padding:1%;}
+
+    .main_middle { width:100%;}
+    .main {padding:1%;}
+
+    .box_right {width:100%;}
+    .right { padding:1%;
+    }
+
+    .box { margin-right:0; float:left; }
+}
+
+</style>
+<div class="body"><!--body开始-->
+        <div class="box header_box"><!--header开始-->
+            <div class="header">
+                <h1>LODOP超简短问答-远程AO端桥模式</h1>
+            </div>
+        </div><!--header结束-->
+<div class="header_bottom"> 
+		   <a href="../../index.html"><div class="menuitem">花谢悦神的主页</div></a>	
+		   <a href="../phoneQA004.html"><div class="menuitem">lodop问答主页</div></a> 
+		   <a href="../phoneQA_dange.html"><div class="menuitem">问答主页（单个问答链接）</div></a> 
+		   <a href="../mini_QAs.html"><div class="menuitem"><span style="color:#ff0099;">迷你一个问答</span></div></a> 
+</div>
+        <div class="box main_middle"><!--main_middle开始-->
+            <div class="main">
+<h1>远程AO端桥模式</h1>
+参考http://www.c-lodop.com/demolist/t1.html<br>
+参考链接里的三种角色及使用方法。<br>
+<br>
+图文详解AO打印（端桥模式），AO端桥模式 参考http://www.c-lodop.com/blogs/Blog014.html<br>
+<br>
+<span style="color:blue;font-weight:bold">云主机访问不了，端桥连不上</span><br>
+<br>
+云主机上的c-lodop是否安装启动成功了，重启下集中打印云主机上的c-lodop试试。<br>
+<br>
+图文详解AO打印（端桥模式） 参考http://www.c-lodop.com/blogs/Blog014.html
+注意AO服务的默认端口是9200，测试和管理(访问)端口是8000(备用端口18000），服务器开启防火墙的话，要开通这三个端口访问权。<br>
+<br>
+<span style="color:blue;font-weight:bold">测试欢迎页面</span><br>
+<br>
+访问下http://[C-Lodop服务所在主机ip或域名]:[C-Lodop端口]/c_aobridge 欢迎页面页面测试下。<br>
+<br>
+访问下http://[C-Lodop服务所在主机ip或域名]:[C-Lodop端口]/c_aoprint 欢迎页面，查看下端桥是否在线，点预览试试<br>
+<br>
+访问下http://[C-Lodop服务所在主机ip或域名]:[C-Lodop端口]/c_aobridge 测试某端桥下的其他打印机，点预览试试<br>
+<br>
+<span style="color:blue;font-weight:bold">云主机上的c-lodop总是卡死</span><br>
+<br>
+服务器的各种维护界面尽量不要处于打开状态，避免卡死<br>
+例如AO服务器端管理界面不要处于打开状态。<br>
+<br>
+AO服务器管理界面是否处于打开状态，一定要关闭<br>
+<br>
+关闭管理维护界面后再测试下。<br>
+<br>
+<span style="color:blue;font-weight:bold">端桥模式注册号如何购买</span><br>
+<br>
+参考http://www.c-lodop.com/demolist/t1.html
+表格后面购买相关的一栏<br>
+<br>
+关于购买梦泰尔软件授权的注意事项<br>
+http://www.c-lodop.com/Lodop_note.html<br>
+<br>
+c-lodop注册号购买地址：<br>
+http://www.c-lodop.com/CLodopLic.html<br>
+<br>
+<span style="color:blue;font-weight:bold">角色1，不需要购买c-lodop云注册号</span><br>
+<br>
+参考http://www.c-lodop.com/demolist/t1.html<br>
+参考链接里的三种场景，是哪种角色。<br>
+如果是客户端本地打印角色，客户端访问网站后在自己电脑连接的打印机上进行打印，是第一种角色，不需要购买c-lodop注册号。<br>
+<br>
+<span style="color:blue;font-weight:bold">怎样获取云主机请求号</span><br>
+<br>
+二. 关于绑定机器硬件 <br>
+C-Lodop云注册号绑定机器硬件信息，只能在授权的服务器上使用，在其他机器使用无效，C-Lodop云注册号根据“请求号”获得。<br> 
+获取请求号方式：<br>
+1.C-Lodop启动主界面->关于->授权注册->请求号<br> 
+<img src="../singe_qas/smallQA/smallQA_images/qingqiuhao.png"><br>
+2.打印服务所在机器，如果已安装并启动C-Lodop，访问该机器本地获取<br>
+：http://localhost:8000/c_mlicense <br>
+<br>
+<span style="color:blue;font-weight:bold">c-lodop注册号可以去水印吗</span><br>
+<br>
+关于购买梦泰尔软件授权的注意事项<br>
+http://www.c-lodop.com/Lodop_note.html<br>
+当单独使用第二、三角色时，C-Lodop云注册号在解除个数限制的同时，也会去掉水印。<br>
+<br>
+<p></p>
+<div id="small" style="border:1px solid #6600cc">
+本站：<a href="../singe_qas/smallQA/smallQA23.html" target="_blank"><span style="color:blue;">C-lodop云注册号【小】</span></a>、<a href="../singe_qas/smallQA/smallQA67.html" target="_blank"><span style="color:blue;">获取请求号【小、图】</span></a>、、<a href="../singe_qas/smallQA/smallQA87.html" target="_blank"><span style="color:blue;">本地角色和远程云角色都使用【小】</span></a>、
+
+</div>
+
+</div>
+    </div><!--main_middle结束-->
+
+        <div class="box box_footer"><!--box_footer开始-->
+            <div class="footer">
+<p>lodop简短问答页面.</p>
+            </div>
+        </div><!--box_footer结束-->
+</div><!--body结束-->
+ </body>
+</html>
