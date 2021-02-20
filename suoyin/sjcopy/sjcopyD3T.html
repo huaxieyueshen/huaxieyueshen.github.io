@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>关键词点击显示lodop问答</title>
+  <!--<link href="../../css/divstyle1.css" rel="stylesheet">-->
+   <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+   <script src="./JQJSCSS/JQ3.js"></script>
+   <link href="./JQJSCSS/JQ3.css" type="text/css" rel="stylesheet">
+ </head>
+ <body>
+ <div class="outset zy"><a href="./sjcopylist.html">返回手机扩选lodop问答主页</a>&nbsp;&nbsp;&nbsp;&nbsp;</div><!--<a id="a1" href="#">隐藏全部细节内容</a>-->
+
+<div class="jq_table">
+<table>
+<tr>
+	<th><a id="a1" href="#">点此隐藏全部细节内容</a>后点关键词进入</th>
+</tr>
+<tr>
+	<td><a id="key1" href="#">如何打印表格</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a id="key3"  style="width:180px;" href="#">表格页头页尾每页输出</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a id="key4"  style="width:180px;" href="#">自动分页分页粒度</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a id="key5"  style="width:180px;" href="#">如何自动分页</a>&nbsp;&nbsp;|&nbsp;&nbsp;</td>
+</tr>
+<tr>
+	<td><a id="key7"  style="width:320px;" href="#">表格分页，能指定每页打印多少行吗</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a id="key8"  style="width:480px;" href="#">一个打印项输出多个表格，需要每个表格每页带页头页尾</a></td>
+</tr>
+<tr>
+	<td><a id="key2" href="#">次页偏移</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a id="key6"  style="width:260px;" href="#">分页粒度介绍（技术手册）</a>&nbsp;&nbsp;|&nbsp;&nbsp;</td>
+</tr>
+</table>
+</div>
+  <div id="an1" class="Ans" style="display:hidden;">
+打印表格带页头页尾 参考样例15 http://www.c-lodop.com/demolist/PrintSample15.html<br>
+分页打印综合表格 参考样例43 http://www.c-lodop.com/demolist/PrintSample43.html<br>
+超文本表格传入css样式，参考样例10 http://www.c-lodop.com/demolist/PrintSample10.html<br>
+纯文本+线，画线输出表格，参考http://www.c-lodop.com/demolist/PrintSampleA1.html<br>
+</div>
+  <div id="an2" class="Ans">
+可以设置次页偏移，超文本自动分页后，次页开始的位置不再是初始位置，而是偏移后的位置。<br>
+例如：LODOP.SET_PRINT_STYLEA(0,"Offset2Top",-140);//设置次页向上偏移140 <br>
+</div>
+ <div id="an3" class="Ans">
+表格ADD_PRINT_TABLE输出，参考http://www.c-lodop.com/demolist/PrintSample15.html<br>
+需要每页显示的页头页尾放到thead和tfoot里，thead和tfoot会每页输出。<br>
+</div>
+ <div id="an4" class="Ans">
+可以试试用 add_print_htm, 切行时调整分页粒度TableRowThickNess，参考 样例30<br>
+http://www.c-lodop.com/demolist/PrintSample30.html<br>
+</div>
+ <div id="an5" class="Ans">
+超文本超过设置的打印项高度就会自动分页，可通过调整超文本打印项的高度，控制当前页面输出的多少内容。<br>
+参考样例30，样例43等含有自动分页。<br>
+http://www.c-lodop.com/demolist/PrintSample30.html<br>
+http://www.lodop.net/demolist/PrintSample43.html<br>
+</div>
+ <div id="an6" class="Ans">
+例如：LODOP.SET_PRINT_STYLEA(0,"TableRowThickNess",30);<br>
+“TableRowThickNess”的值：整数，分页粒度值，默认是20(px)。所谓分页粒度，是指自动分页时在分页线附近进行的前后定位分割线的范围。如果这个范围设置太小，那么分页位置恰巧遇到较大单元格时，则找不到其前后表格线，此时控件会把td单元格切开；相反如果这个范围设置太大，那么原本想切开的大单元格会被大块地搬到下页，造成每页内容差别很大而参差不齐。<br>
+</div>
+ <div id="an7" class="Ans">
+超文本自动分页每页都是根据打印项高度自动分页。如果表格行高都是比较固定的，可以调整到合适的打印项高度，打印项高度是自动分页高度，每页都会按照这个高度显示。<br>
+可以用 add_print_htm, 切行时调整分页粒度TableRowThickNess，参考 样例30<br>
+http://www.c-lodop.com/demolist/PrintSample30.html<br>
+<br>
+如果表格行高不固定，根据打印项自动分页的高度，不能确定这个高度每页会输出多少行。或参考样例30，拆分表格数据，拼接字符串等方式手动分页，控制每页显示的内容，分成多个打印项。<br>
+</div>
+ <div id="an8" class="Ans">
+1.ADD_PRINT_TABLE只能输出一个表格。<br>
+拆分打印项，多个table，多个ADD_PRINT_TABLE打印项输出。<br>
+<br>
+2.ADD_PRINT_HTM一次输出多个表格，每页固定位输出的也可以设置页眉页脚项，参考样例43那种。<br>
+<br>
+3.或者多任务，一个任务一个单子，一个单子一个table，一个单子一个add_print_table打印项输出, 每个单子自己的table打印项自动分页，每页输出thead和tfoot。<br>
+<br>
+</div>
+ </body>
+</html>
