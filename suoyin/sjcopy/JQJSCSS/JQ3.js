@@ -27,4 +27,13 @@ $(document).ready(function(){
       $("#key8").click(function(){
     $("#an8").show();
   });
+      $("#key9").click(function(){
+    $("#an9").show();
+  });
+     $("#key10").click(function(){
+    $("#an10").show();
+  });
+     $("#key11").click(function(){
+    $("#an11").show();
+  });	
 });
