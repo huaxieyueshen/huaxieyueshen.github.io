@@ -85,18 +85,31 @@ http://www.c-lodop.com/download.html<br>
 安装后在欢迎页面末尾找“PDF打印”链接，或输入地址: <br>
 http://localhost:8000/c_pdfprint<br>
 <hr>
-<span style="color:blue">提示JavaScript Alert Unable to print or view remote service files</span><br>
-打印的是什么文件，打印项是怎样输出的，是否是远程打印，并打印pdf打印项，输出方式为<br>ADD_PRINT_PDF('c:/x/xxx.pdf'),<br>
+<span style="color:blue">ADD_PRINT_PDF方法报错，排查是否是用的c-lodop</span><br>
+除了pdf，其他打印项是否正常，进入打印预览，左上角是否是小打印机的图标，只有c-lodop支持打印pdf文件<br>
 <br>
-ADD_PRINT_PDF('c:/x/xxx.pdf'),换成用http://等地址测试下。<br>
-<hr>
-<span style="color:blue">本地c-lodop，远程c-lodop打印pdf文件</span><br>
-ADD_PRINT_PDF('c:/x/xxx.pdf')本地路径方式，<br>
-本地lodop可以使用。
-远程c-lodop的不行，如果是远程c-lodop打印pdf，换成用http://等地址或base64测试下。<br>
+可以输出个add_print_text测试对比下。<br>
+如果纯文本可以正常预览，观察预览左上角的小图标是否是小打印机c-lodop方式。<br>
+如果纯文本也不行，排查用法是否正常，查看下JS报错信息。<br>
 <br>
-本地c-lodop访问的是本地的localhost，<br>
-远程的那种不行，远程c-lodop打印pdf，换成用http://等地址或base64测试下。<br>
+目前只有新版的c-lodop支持打印pdf文件，<br>
+如果使用的是lodop插件方式，不支持那个pdf语句，插件方式支持那个ADD_PRINT_TEXT打印项语句。<br>
+<br>
+LODOP.PRINT_INIT("打印控件功能演示_Lodop功能_空白练习");<br>
+LODOP.PRINT_DESIGN();<br>
+进入空的打印设计后，在插入里查看下是否有添加pdf打印项的功能<br>
+<br>
+如果用的是官网样例方式，是和浏览器有关的<br>
+官网样例是混合部署LodopFuncs.js里已经写好了判断。<br>
+客户端是浏览器支持np插件，是32位浏览器，就会提示下载32位的Lodop插件：install_lodop32.exe<br>
+客户端浏览器支持np插件，是64位浏览器，就会提示下载64位的Lodop插件：install_lodop64.exe<br>
+客户端浏览器不支持np插件（判断如高版本谷歌火狐等），会提示下载C-Lodop方式： CLodop_Setup_for_Win32NT.exe<br>
+单独使用c-lodop，参考http://www.c-lodop.com/faq/pp34.html<br>
+<br>
+单独使用c-lodop，参考http://www.c-lodop.com/faq/pp34.html<br>
+<br>
+单独使用c-lodop，参考http://www.c-lodop.com/faq/pp34.html<br>
+如果想只使用c-lodop,参考链接，修改下。<br>
 <hr>
 </div>
 <br>
