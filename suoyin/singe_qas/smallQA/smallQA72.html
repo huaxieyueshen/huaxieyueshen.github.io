@@ -90,6 +90,24 @@ LodopFuncs.js有个注释的标注处，也可以放在那里那里统一调用�
 参考 http://www.c-lodop.com/download.html <br>
 这个下载中心的发行包里的lodopFuncs.js，这个里的标注处统一调用，或在每个打印方法里调用，只要每次打印调用到该语句就行。<br>
 <hr>
+<span style="color:blue">lodopFuncs.js里注册号位置</span><br>
+可以用写在每个打印方法里，每次打印的时候都要执行，也可以放在LodopFuncs.js标注处，每次调用LODOP的时候统一调用。<br><br>
+<img src="./smallQA_images/lic1.png"><br>
+<br>
+LodopFuncs.js靠下的位置：<br>
+<img src="./smallQA_images/lic2.png"><br>
+<hr>
+<span style="color:blue">做个简单例子测试下</span><br>
+参考排查一下http://www.c-lodop.com/faq/ph01.html<br>
+只要确保注册语句执行了就行<br>
+可以先做个简单例子测试下，<br>
+例如：<br>
+LODOP.PRINT_INIT("打印任务名"); <br>
+LODOP.ADD_PRINT_TEXT(0,0,100,20,"文本内容一");<br>
+LODOP.SET_LICENSES........<br>
+LODOP.PRINT(); <br>
+直接放到PRINT()语句前面测试下。<br>
+<hr>	
 </div>
 <p></p>
 <div id="small">
