@@ -85,6 +85,23 @@ Lodop是基于本机windows底层引擎进行渲染解析的，与ie调用的引
 <br>
 不同电脑调用的解析引擎版本不同，可能导致一些打印svg，一些不行，需要实际测试下。<br>
 <br>
+<span style="color:blue;font-weight:bold">打印canvas报错</span><br>
+<br>
+查看lodop内部解析的html信息，见http://www.c-lodop.com/faq/pp8.html<br>
+分析差异点，因浏览器版本不同遵循的html标准不同，造成某些标签属性显示有差异，尽量避免使用有差异的属性，可以在ie下不同版本仿真情况下验证差异 排查样式，尽量使用使用各浏览器无歧义的通用的 html css js，不支持的样式可尝试用其他样式代替。<br>
+尽量不用canvas，不是所有浏览器都支持。<br>
+<br>
+Lodop是基于本机windows底层引擎进行渲染解析的，与ie调用的引擎一致。或在样式有问题所在电脑上，尝试重置ie，升级ie，
+或修改实现方式，不用canvas。<br>
+<br>
+<span style="color:blue;font-weight:bold">内容里无canvas，提示canvas报错</span><br>
+<br>
+查看lodop内部解析的html信息，见http://www.c-lodop.com/faq/pp8.html<br>
+查看超文本内部是否有canvas内容<br>
+<br>
+提示操作失败，参考http://www.c-lodop.com/faq/pp1.html<br>
+如果单个任务里的超文本测试都正常，排查里面的条目。尽量内容不包含canvas。<br>
+<br>		    
 <span style="color:blue;font-weight:bold"> svg条码有的电脑显示不出来，win7不行，win10可以。</span><br>
 <br>
 和操作系统无关，和调用的超文本解析引擎有关。调用的解析超文本的引擎版本不同，<br>
