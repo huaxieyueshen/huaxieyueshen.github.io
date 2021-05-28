@@ -105,6 +105,10 @@ win7以后系统自带Microsoft XPS Document Writer虚拟打印机或者 下载�
 分析一下 超文本是否输出了空白信息 或加入超文本背景色看一下。<br>
 空白页，正好超出设置高度一点也会自动分页，从这里入手分析。<br>
 <br>
+<span style="color:blue;font-weight:bold">自动分出空白页（两条常见）：</span><br><br>
+1.设置一下内容的高度，不要紧贴纸张大小输出，有时会接近纸张的无限边界时 有打印空白页的现象<br>
+2.给传入的整个超文本添加背景色，看输出的空白页中是否有背景色，排查是否有不可视内容。<br>
+<br>		    
 <span style="color:blue;font-weight:bold">多条排查1:</span><br>
 1 html内容可能有不可视内容 导致打印内容高度超过打印项高度 打印设计里调整下打印项高度<br>
   参考http://www.c-lodop.com/faq/pp8.html 可设置html内容的全局背景色排查下 或 换成纯文本项对比排查<br>
@@ -127,6 +131,11 @@ win7以后系统自带Microsoft XPS Document Writer虚拟打印机或者 下载�
 （4）设置一下内容的高度，不要紧贴纸张大小输出，有时会接近纸张的无限边界时 有打印空白页 的现象或改用newpage<br>
 （5） 打印机可打印区域问题 http://www.c-lodop.com/faq/pp26.html 。参考样例5，可设置以纸张边缘为基点输出，排除打印机可打印区域的影响。<br>
 <br>
+<span style="color:blue;font-weight:bold">多条排查3:</span><br>
+1 html内容可能有不可视内容 导致打印内容高度超过打印项高度 打印设计里调整下打印项高度  参考<br>
+http://www.c-lodop.com/faq/pp8.html 可设置html内容的全局背景色排查下 或 换成纯文本项对比排查2 打印项竖向 上边距加高度超过纸张高度 如ADD_PRINT_HTML(10, 15, "100%", "100%");  百分比是相对纸张的 上边距10 + 高度100% 超出纸张的高度， 横向宽度一样。   html内容尽量用pt in绝对单位 不要用px。3没有PRINT_INIT初始化，容易造成多页的现象。4设置一下内容的高度，不要紧贴纸张大小输出，有时会接近纸张的无限边界时 有打印空白页 的现象或改用newpage5 打印机可打印区域问题 <br>
+http://www.c-lodop.com/faq/pp26.html 。参考样例5，可设置以纸张边缘为基点输出，排除打印机可打印区域的影响6 水印在纸张的最下边缘输出无限循环打印问题<br>
+<br>		    
 <span style="color:blue;font-weight:bold">批量打印出现有规律的空白页</span><br>
 是否是每次都是间隔两张白纸，真实打印机预览查看下，纸张是否正常<br>
 <br>
