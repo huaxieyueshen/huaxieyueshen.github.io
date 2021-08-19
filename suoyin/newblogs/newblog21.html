@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <link href="../../maychangecss/newblog_nomal.css" type="text/css" rel="stylesheet">
+  <title>table打印项不按照打印项高度自动分页的可能合集</title>
+ </head>
+ <body>
+ <style>
+ body{margin:0px;}
+.body {width:100%;}
+a{text-decoration:none;color:black;}
+h1{font-size:1.625em;}
+h2{font-size:1.375em;}
+/**.box{float:left;}**/
+.header_box {width:100%;}
+.header{padding:1%;
+background-color:#f1f1f1;}
+/**border:1px solid #e9e9e9;}**/
+
+.header_bottom{width:100%;}
+.menuitem {
+    margin-top:0;
+    margin-left:0;
+    margin-bottom:0;
+    padding:1%;
+    border-bottom:1px solid #e9e9e9;
+    cursor:pointer;
+}
+
+.main {padding:1%;}
+.main_middle { width:100%;}
+.blue{color:#95bfc7;}
+
+
+.box_footer {width:100%;margin-bottom:0;}
+.footer {
+    padding:1%;
+    text-align:center;
+    background-color:#f1f1f1;
+    font-size:0.625em;
+}
+
+@media only screen and (max-width: 500px) {
+    .menu_left{width:100%;}
+    .menuitem { margin:1%;padding:1%;}
+
+    .main_middle { width:100%;}
+    .main {padding:1%;}
+
+    .box_right {width:100%;}
+    .right { padding:1%;
+    }
+
+    .box { margin-right:0; float:left; }
+}
+
+</style>
+<div class="body"><!--body开始-->
+        <div class="box header_box"><!--header开始-->
+            <div class="header">
+                <h1>博文-table打印项不按照打印项高度自动分页的可能合集</h1>
+            </div>
+        </div><!--header结束-->
+<div class="header_bottom"> 
+		   <a href="../../index.html"><div class="menuitem">花谢悦神的主页</div></a>	
+		   <a href="../phoneQA004.html"><div class="menuitem">lodop问答主页</div></a> 
+		   <a href="../phoneQA_dange.html"><div class="menuitem">问答主页（单个问答链接）</div></a> 
+		   <a href="../mini_QAs.html"><div class="menuitem"><span style="color:#ff0099;">迷你一个问答</span></div></a> 
+		   <a href="../new_bloglist.html"><div class="menuitem"><span class="newblogfont">新博文newblogs</span></div></a>
+</div>
+        <div class="box main_middle"><!--main_middle开始-->
+            <div class="main">
+<h1>table打印项不按照打印项高度自动分页的可能合集</h1>
+<p><strong>可能1：用的ADD_PRINT_TABLE输出，大table套小table</strong>，小table想自动分页，但是放到大table的tr行里了，ADD_PRINT_TABLE不切行，因此超过纸张或超过打印项高度都不会自动分页。<br />现象：超过打印项高度不分页，超过纸张也不分页，后续内容缺失<br />---------相关博文上述（<a href="https://www.cnblogs.com/huaxie/p/10670884.html" target="_blank">LODOP设置超文本不自动分页的方法</a>）---------</p>
+<p><span style="color: #000000;"><strong>可能2：用的ADD_PRINT_TABLE输出，把table主体放到thead里了</strong></span>，ADD_PRINT_TABLE里thead会每页输出，因此超过纸张或超过打印项高度都不会自动分页，超过纸张不会分页，后续内容缺失<br />---------相关博文上述（<a href="https://www.cnblogs.com/huaxie/p/15099070.html" target="_blank">表格不按照打印项高度自动分页的情况2</a>）---------</p>
+<p><span style="color: #000000;"><strong>可能3：把需要自动分页的表格打印项误设置为了页眉页脚项</strong></span>，超过打印项高度不会自动分页会截取了，后续内容缺失<br />原因：把需要自动分页的打印项误设置为了页眉页脚项，LODOP.SET_PRINT_STYLEA(0,"ItemType",1);<br />---------相关博文上述（<a href="https://www.cnblogs.com/huaxie/p/15151108.html" target="_blank">表格打印项设置了眉脚项&mdash;&mdash;表格不按照打印项高度自动分页的情况3</a>）---------</p>
+<p><span style="color: #000000;"><strong>可能4：把需要自动分页的打印项设置为了垂直拉伸</strong></span>，LODOP.SET_PRINT_STYLEA(0,"Vorient",3);垂直拉伸，没有按照打印项高度自动分页<br />---------相关博文上述（<a href="https://www.cnblogs.com/huaxie/p/13386224.html" target="_blank">垂直拉伸不按打印项高度分页</a>）---------</p>
+<p><span style="background-color: #ccffff; color: #ff9900;"><strong>相关：</strong></span><br /><strong>1.如何分页</strong><br />分页 参考样例30 http://www.c-lodop.com/demolist/PrintSample30.html<br />超文本超过设置的打印项高度或纸张会自动分页。</p>
+<p><strong>2.调整打印项高度，底部和其他打印项重叠了，打到最下方了，如何表格下方留点边距....</strong><br />超文本超过设置的打印项高度或纸张会自动分页，调整打印项高度，减小打印项高度测试下。</p>
+<p><strong>3.设置了超文本打印项高度，没有按照打印项高度自动分页</strong><br />正常超文本超过打印项高度或超过纸张会自动分页，发一下代码，是否有相关设置导致不自动分页。</p>
+<p><strong>4.什么是超文本打印项高度</strong><br />ADD_PRINT_HTM第四个参数是打印项高度，减小的打印项高度，按照打印项高度自动分页<br />ADD_PRINT_TABLE第四个参数是打印项高度，减小的打印项高度，按照打印项高度自动分页</p>
+
+<p>&nbsp;</p>
+</div>
+    </div><!--main_middle结束-->
+
+        <div class="box box_footer"><!--box_footer开始-->
+            <div class="footer">
+<p>lodop简短问答页面.</p>
+            </div>
+        </div><!--box_footer结束-->
+</div><!--body结束-->
+ </body>
+</html>
