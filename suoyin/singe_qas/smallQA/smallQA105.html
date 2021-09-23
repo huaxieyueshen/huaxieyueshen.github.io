@@ -88,6 +88,28 @@ https://stackoverflow.com/questions/66534759/chrome-cors-error-on-request-to-loc
 <br>
 <a href="https://wicg.github.io/private-network-access/#headers" target="_blank">https://wicg.github.io/private-network-access/#headers</a><br>
 <hr>
+<span style="color:blue">更新谷歌后...has been blocked by CORS policy（大量反馈后）</span><br>
+谷歌中输入地址：chrome://flags/#block-insecure-private-network-requests<br>
+（图）<br>
+<br>
+谷歌中输入地址：chrome://flags/#block-insecure-private-network-requests<br>
+禁止这个谷歌的功能试试<br>
+<br>
+可能是谷歌自动更新引起的，暂时可以用上面的方法设置，后期开发可能会有其他方式<br>
+<br>
+不好判断时间，开发人员正在排查处理中，目前可以先用上述方式暂时设置<br>
+<hr>
+<span style="color:blue">更新谷歌后...has been blocked by CORS policy（开发给的方案）</span><br>
+Win10+Chrome94版本的CORS跨域被阻断问题，目前临时解决办法（如下之一）： <br>
+1：网站改用https  <br>
+2：客户端浏览器自行修改安全设置：<br>
+chrome://flags/#block-insecure-private-network-requests 改成disabled<br>
+3：客户端改用低版本chrome（用94版之前）浏览器，简单办法是安装360急速版(内核是chrome)<br>
+<hr>
+<span style="color:blue">其他测试备用</span><br>
+https例子地址：<br>
+https://demo.lodop.net:8443/CLodopDemos/PrintSample2.html<br>
+<hr>	
 </div>
 <br>
            </div>
