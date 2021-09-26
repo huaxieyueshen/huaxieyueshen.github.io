@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>浏览器或系统更新等导致的问题（汇总）</title>
+ </head>
+ <body>
+ <style>
+ body{margin:0px;}
+.body {width:100%;}
+a{text-decoration:none;color:black;}
+h1{font-size:1.625em;}
+h2{font-size:1.375em;}
+/**.box{float:left;}**/
+.header_box {width:100%;}
+.header{padding:1%;
+background-color:#f1f1f1;}
+/**border:1px solid #e9e9e9;}**/
+
+.header_bottom{width:100%;}
+.menuitem {
+    margin-top:0;
+    margin-left:0;
+    margin-bottom:0;
+    padding:1%;
+    border-bottom:1px solid #e9e9e9;
+    cursor:pointer;
+}
+
+.main {padding:1%;}
+.main_middle { width:100%;}
+.blue{color:#95bfc7;}
+.blue2{color:blue;}
+.gray{color:gray;background-color:#66ffcc;}
+
+.box_footer {width:100%;margin-bottom:0;}
+.footer {
+    padding:1%;
+    text-align:center;
+    background-color:#f1f1f1;
+    font-size:0.625em;
+}
+
+@media only screen and (max-width: 500px) {
+    .menu_left{width:100%;}
+    .menuitem { margin:1%;padding:1%;}
+
+    .main_middle { width:100%;}
+    .main {padding:1%;}
+
+    .box_right {width:100%;}
+    .right { padding:1%;
+    }
+
+    .box { margin-right:0; float:left; }
+}
+
+</style>
+<div class="body"><!--body开始-->
+        <div class="box header_box"><!--header开始-->
+            <div class="header">
+                <h1>LODOP超简短问答-浏览器或系统更新等导致的问题（汇总）</h1>
+            </div>
+        </div><!--header结束-->
+<div class="header_bottom"> 
+		   <a href="../../index.html"><div class="menuitem">花谢悦神的主页</div></a>	
+		   <a href="../phoneQA004.html"><div class="menuitem">lodop问答主页</div></a> 
+		   <a href="../phoneQA_dange.html"><div class="menuitem">问答主页（单个问答链接）</div></a> 
+		   <a href="../mini_QAs.html"><div class="menuitem"><span style="color:#ff0099;">迷你一个问答</span></div></a> 
+</div>
+        <div class="box main_middle"><!--main_middle开始-->
+            <div class="main">
+<h1>浏览器或系统更新等导致的问题（汇总）</h1>
+1.<span style="color:blue;font-weight:bold">谷歌升级导致np插件不可用（谷歌42版）（2016年）</span><br>
+<br>
+参考http://www.c-lodop.com/faq/pp21.html<br>
+高版本的火狐谷歌不再支持np插件，需要使用c-lodop，可参考官网样例混合部署<br>http://www.c-lodop.com/LodopDemo.html<br>
+Lodop控件升级到C-Lodop云打印 参考http://www.c-lodop.com/faq/pp7.html<br>
+<br>
+谷歌41及之前 可以直接安装使用<br>
+谷歌42--44版，历史lodop版本需要手动启用npapi或安装6.119版后自动启用npapi<br>
+谷歌45及以后版 不在支持npapi插件方式<br>
+火狐64位、谷歌45版及后续版本、edge浏览器都不再支持np插件模式，可采用云打印C-Lodop。<br>
+<br>
+Chrome42-44版本，支持NP插件默认处于关闭状态，要手工打开，方法如下：<br>
+在谷歌浏览器地址栏输入：<br>
+chrome://flags/#enable-npapi<br>
+然后找到“启用NPAPI”地方看到处于启用状态; <br>
+chrome45之后版本及64位的chrome需要使用C-Lodop<br>
+参考http://www.c-lodop.com/faq/pp21.html<br>
+和http://www.c-lodop.com/faq/pp23.html<br>
+由于Chrome45之后不再支持任何NP插件，所以要使用C-Lodop，IE等浏览器可以使用lodop控件。<br>
+<br>
+相关链接：<br>
+<br>
+<a href="./miniQA56.html" target="_blank"><span style="color:#660033;">不支持np插件【此站】</span></a><br>
+<br>
+<a href="http://www.c-lodop.com/blogs/Blog020.html" target="_blank"><span style="color:#660033;">Web打印控件Lodop最新版发布(带云打印C-Lodop)【官网】</span></a><br>
+  <br>
+2.<span style="color:blue;font-weight:bold">谷歌升级到84导致的https问题（谷歌84版）（2020年）</span><br>
+<br>
+参考http://blog.sina.com.cn/s/blog_721e77e50102z33a.html<br>
+安装最新版c-lodop的4101或之后的版本，并参考链接修改JS地址。<br>
+<br>
+关于Chrome浏览器升级到84版引起问题的解决方案<br>
+http://blog.sina.com.cn/s/blog_721e77e50102z33a.html<br>
+<br>
+关于Chrome浏览器升级到84版引起问题的解决方案<br>
+http://www.c-lodop.com/blogs/Blog022.html<br>
+<br>
+3.<span style="color:blue;font-weight:bold">提示操作失败，Error reading Images1.Bitmap.....蓝屏，缺失内容（win10 3月份补丁）</span><br>
+<br>
+更新下后续的win10补丁试试，后续的补丁修正了一些打印问题。<br>
+或尝试卸载补丁，百度下3月份之后win10引起打印问题的补丁列表，排查下这些补丁。<br>
+<br>
+win10系统3月份更新可导致蓝屏 微软已确认（附解决方法）,http://www.aichunjing.com/xtzx/15689.html<br>
+<br>
+操作系统是win10?是否是最近出的这个问题，该操作系统最近是否安装了windows的补丁，例如KB5000808补丁。<br>
+这个补丁对打印有一定影响，请继续更新后续发行的补订，以便更正打印相关问题<br>
+<br>
+4.<span style="color:blue;font-weight:bold">...has been blocked by CORS policy，Win10+Chrome94版本的CORS跨域被阻断问题（谷歌92，94版）（2021年）</span><br>
+<br>
+关于谷歌Chrome浏览器94版跨域问题的解决方案，参考http://www.c-lodop.com/blogs/Blog024.html<br>
+二、安装最新的C-Lodop4.141及后版本<br>
+http://www.c-lodop.com/download.html<br>
+<br>
+Win10+Chrome94版本的CORS跨域被阻断问题，目前临时解决办法（如下之一）： <br>
+1：网站改用https  <br>
+2：客户端浏览器自行修改安全设置：<br>
+chrome://flags/#block-insecure-private-network-requests 改成disabled<br>
+3：客户端改用低版本chrome（用94版之前）浏览器，简单办法是安装360急速版(内核是chrome)<br>
+<br>
+目前可以用这些临时解决方法。<br>
+ 客户端浏览器自行修改安全设置：<br>
+chrome://flags/#block-insecure-private-network-requests 改成disabled<br>
+在谷歌里输入这个地址，该项改成disabled，重启浏览器<br>
+<br>
+相关链接：<br>
+<br>
+<a href="../singe_qas/smallQA/smallQA105.html" target="_blank"><span style="color:#660033;">更新谷歌后，报错clodopfunc.js的localhost8000端口，has been blocked by CORS policy: The request client is not a secure context and the resource is in more-private address space `local`s【此站】</span></a><br>
+<br>
+
+<hr>
+
+
+<p></p>
+
+
+</div>
+
+</div>
+    </div><!--main_middle结束-->
+
+        <div class="box box_footer"><!--box_footer开始-->
+            <div class="footer">
+<p>lodop简短问答页面.</p>
+            </div>
+        </div><!--box_footer结束-->
+</div><!--body结束-->
+ </body>
+</html>
