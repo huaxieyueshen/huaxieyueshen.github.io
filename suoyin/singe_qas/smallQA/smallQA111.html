@@ -1,0 +1,234 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>s6.1旧版本lodop注册号无效有水印</title>
+ </head>
+ <body>
+ <style>
+ body{margin:0px;}
+.body {width:100%;}
+a{text-decoration:none;color:black;}
+h1{font-size:1.625em;}
+h2{font-size:1.375em;}
+/**.box{float:left;}**/
+.header_box {width:100%;}
+.header{padding:1%;
+background-color:#f1f1f1;}
+/**border:1px solid #e9e9e9;}**/
+
+.header_bottom{width:100%;}
+.menuitem {
+    margin-top:0;
+    margin-left:0;
+    margin-bottom:0;
+    padding:1%;
+    border-bottom:1px solid #e9e9e9;
+    cursor:pointer;
+}
+
+.main {padding:1%;}
+.main_middle { width:100%;}
+
+
+.box_footer {width:100%;margin-bottom:0;}
+.footer {
+    padding:1%;
+    text-align:center;
+    background-color:#f1f1f1;
+    font-size:0.625em;
+}
+#small{background:#ccccff;border:#ccccff 1px solid;padding:10px;font-size:15px; }
+#small hr{margin:10px;padding:0px;}
+
+@media only screen and (max-width: 500px) {
+    .menu_left{width:100%;}
+    .menuitem { margin:1%;padding:1%;}
+
+    .main_middle { width:100%;}
+    .main {padding:1%;}
+
+    .box_right {width:100%;}
+    .right { padding:1%;
+    }
+
+    .box { margin-right:0; float:left;}
+}
+
+</style>
+<div class="body"><!--body开始-->
+        <div class="box header_box"><!--header开始-->
+            <div class="header">
+                <h1>LODOP超简短问答-6.1旧版本lodop注册号无效有水印</h1>
+            </div>
+        </div><!--header结束-->
+<div class="header_bottom"> 	
+		  <a href="../../phoneQA004.html"><div class="menuitem">lodop问答主页</div></a> 
+		  <a href="../../phoneQA_dange.html"><div class="menuitem"><span style="color:red;">问答主页（单个问答链接）</span></div></a>
+          <a href="../../mini_QAs.html"><div class="menuitem"><span style="color:#ff0099;">迷你一个问答</span></div></a> 
+		  <a href="../QA_singe29t.html"><div class="menuitem" style="background:#ccccff;border:#7f9db9 1px solid;">相关问题组合问答</span></a> 
+</div>
+        <div class="box main_middle"><!--main_middle开始-->
+            <div class="main">
+<h1>6.1旧版本lodop注册号无效有水印</h1>
+<div id="small">
+<span style="color:blue">注册号无效</span><br>
+参考排查一下http://www.c-lodop.com/faq/ph01.html<br>
+先确保该注册语句执行了，每个打印方法里都要执行。<br>
+可以先做个简单例子测试下，<br>
+例如：<br>
+LODOP.PRINT_INIT("打印任务名"); <br>
+LODOP.ADD_PRINT_TEXT(0,0,100,20,"文本内容一");<br>
+LODOP.SET_LICENSES........<br>
+LODOP.PRINT(); <br>
+直接放到PRINT()语句前面测试下。<br>
+<br>
+如果是ip或域名注册类型，<br>
+访问的是否是注册的ip或域名，浏览器地址栏输入的是否是注册的ip或域名，<br>
+（1）.单独注册服务器ip地址，登陆访问方式是ip地址访问，例如：注册ip地址：192.168.0.1，登陆方式如下<br>：http：//192.168.0.1:8000/index.jsp等，域名访问时，注册信息无效。<br>
+（2）.单独注册域名：登陆访问方式是域名地址访问，例如：注册域名： www.c-lodop.com 登陆方式如下<br>：http://www.c-lodop.com/index.html等，ip地址访问时，注册信息无效<br>
+<hr>
+<span style="color:blue">刚注册，清理浏览器缓存</span><br>
+参考排查一下http://www.c-lodop.com/faq/ph01.html<br>
+参考链接排查下，先排查洗浏览器地址栏是否是注册的地址。<br>
+再排查执行问题，清理下浏览器缓存试试<br>
+<br>
+如果是刚刚加上注册语句，可以清理下浏览器缓存试试，刷新页面，让最新的JS执行<br>
+<hr>
+<span style="color:blue">注册顶级域名，用的二级域名是否有效</span><br>
+对二级域名是有效的，在排查下链接的条目，可以做个简单例子测试下<br>
+LODOP.SET_LICENSES........<br>
+LODOP.PRINT(); <br>
+直接放到PRINT()语句前面测试下。<br>
+<br>
+这样可以确保该让任务执行了注册语句，测试输出下是否有水印输出<br>
+<hr>
+<span style="color:blue">水印里是6.1开头的lodop版本（如6198）</span><br>
+用最新版的打印控件，http://www.c-lodop.com/download.html<br>
+<br>
+6198版本太旧了，http://www.c-lodop.com/download.html<br>
+都安装最新版测试下，最新的lodop插件是6226<br>
+<hr>
+<span style="color:blue">安装下载中心的哪个</span><br>
+官网样例http://www.c-lodop.com/LodopDemo.html<br>
+官网样例是混合部署LodopFuncs.js里已经写好了判断。<br>
+客户端是浏览器支持np插件，是32位浏览器，就会提示下载32位的Lodop插件：install_lodop32.exe<br>
+客户端浏览器支持np插件，是64位浏览器，就会提示下载64位的Lodop插件：install_lodop64.exe<br>
+客户端浏览器不支持np插件（判断如高版本谷歌火狐等），会提示下载C-Lodop方式： CLodop_Setup_for_Win32NT.exe<br>
+如果是混合部署，安装发行包里的三个文件<br>
+<br>
+如果是混合部署，不同的浏览器走不同的方式，<br>
+根据自己的需要，您是单独使用的插件方式，还是混合部署方式，还是单独使用c-lodop方式<br>
+<hr>
+<span style="color:blue">升级新版，安装哪个插件</span><br>
+插件方式和浏览器位数有关<br>
+客户端是浏览器支持np插件，是32位浏览器，就会提示下载32位的Lodop插件：install_lodop32.exe<br>
+客户端浏览器支持np插件，是64位浏览器，就会提示下载64位的Lodop插件：install_lodop64.exe<br>
+<br>
+如果是64位操作系统，也可能会有32位浏览器，两个都安装下<br>
+<hr>
+<span style="color:blue">单独使用插件方式，安装哪个插件</span><br>
+插件方式，安装这个新版的插件安装文件<br>
+<br>
+install_lodop32.exe<br>
+install_lodop64.exe<br>
+安装官网下载中心的这两个，
+客户端安装，客户端本地打印角色<br>
+<br>
+安装新版的插件后，刷新下页面，再直接打印测试下<br>
+<hr>
+<span style="color:blue">单独使用插件方式，在客户端安装，还是服务器端安装</span><br>
+客户端安装<br>
+<br>
+在哪里打印就在哪里安装<br>
+<br>
+lodopFuncs.js里有判断提示，修改版本号可提示下载安装，<br>
+您可以先找一个客户端，安装新版，然后测试直接打印是否可以去掉水印<br>
+<hr>
+<span style="color:blue">安装了新版，还是有试用版输出（试用版6.1XX输出）</span><br>
+提示的试用版是6198，查看下当前安装的lodop版本，是否是最新版<br>
+<br>
+当前打印所在电脑查看下安装的lodop版本，是否是最新版<br>
+<br>
+再安装最新版测试下，是否提示打印控件升级成功界面，截图下控件升级成功的界面<br>
+<hr>
+<span style="color:blue">安装了新版（误安装为c-lodop)，还是有试用版输出（试用版6.1XX输出）</span><br>
+不是，这个是c-lodop，安装新版插件方式<br>
+<br>
+install_lodop32.exe<br>
+install_lodop64.exe<br>
+安装官网下载中心的这两个，在发行包里，您使用的是插件方式<br>
+<br>
+就是这个发行包里，下载后解压缩，然后安装这两个新版插件<br>
+<br>
+安装这个两个，然后刷新页面再直接打印测试下<br>
+<hr>
+<span style="color:blue">没个客户端都要安装新版本，如何提示升级</span><br>
+lodopFuncs.js有提示下载安装的路径，该提示的文件换成新的<br>
+lodopFuncs.js有提示升级的版本号，可以改成新的，客户安装版本小于判断版本会提示客户端升级<br>
+<hr>
+<span style="color:blue">LodopFuncs.js也要换成新的吗</span><br>
+新版的lodopFuncs.js里是混合部署，如果您要更改部署方式，可以修改，那时候谷歌火狐等会走c-lodop，也需要c-lodop方式。<br>
+<br>
+Lodop控件升级到C-Lodop云打印 参考http://www.c-lodop.com/faq/pp7.html<br>
+如果您不更改部署方式和代码，也可以直接用插件方式，不需要完全替换。<br>
+<hr>
+<span style="color:blue">不替换LodopFuncs.js，还是原来的只用插件的lodopFuncs.js可以吗</span><br>
+根据自己的需要，但是您只用插件方式，高版本的火狐谷歌不支持，可以限制客户使用IE等浏览器<br>
+<br>
+插件支持IE和一些壳浏览器的兼容模式<br>
+<hr>
+<span style="color:blue">替换新版本安装程序，客户没有提示升级</span><br>
+lodopFuncs.js里有提示版本号的判断，修改后，<br>
+客户端刷新下页面，让最新的JS执行<br>
+<br>
+修改lodopFuncs.js里提示下载安装的版本号，该JS需要修改。<br>
+或直接把新版本发给客户，让客户安装<br>
+<br>
+下方有版本号判断的<br>
+<br>
+这lodoFuncs.js下方，有个版本号的升级判断的地方<br>
+<hr>
+<span style="color:blue">有一个客户端提示，打印控件旧版本正在运行，请关闭其所有浏览器页面后重试</span><br>
+关闭所有页面后，再安装插件<br>
+<br>
+重启电脑后，重新安装试试<br>
+或卸载掉之前的打印插件，参考lodop技术手册，安装文件改名前面加un，可以变成卸载文件<br>
+<br>
+正常都可以替换安装，重启电脑后再安装测试下，有可能插件正在运行和使用<br>
+<br>
+卸载旧打印控件测试下<br>
+<br>
+并重启下电脑安装试试，确保当前没有任何浏览器在运行<br>
+<hr>
+<span style="color:blue">单独发给客户新版本可以，网页下载的安装不可以</span><br>
+是指下载出现问题吗，或下载文件改成压缩包，例如压缩成.zip文件，有可能被浏览器阻止了<br>
+下载压缩包后，让客户端解压后安装里面的.exe<br>
+<br>
+下载后关闭所有浏览器再安装测试下，或重启浏览器后再安装下，<br>
+<br>
+直接在浏览器执行.exe文件可能会有问题，或改成压缩包形式下载安装。<br>
+<hr>
+
+</div>
+<br>
+<div id="small">
+&nbsp;
+</div>
+           </div>
+    </div><!--main_middle结束-->
+
+        <div class="box box_footer"><!--box_footer开始-->
+            <div class="footer">
+<p>lodop简短问答页面.</p>
+            </div>
+        </div><!--box_footer结束-->
+
+
+</div><!--body结束-->
+ </body>
+</html>
