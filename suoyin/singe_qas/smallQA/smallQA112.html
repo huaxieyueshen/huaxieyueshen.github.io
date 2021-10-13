@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>s发行包三个安装程序什么区别</title>
+ </head>
+ <body>
+ <style>
+ body{margin:0px;}
+.body {width:100%;}
+a{text-decoration:none;color:black;}
+h1{font-size:1.625em;}
+h2{font-size:1.375em;}
+/**.box{float:left;}**/
+.header_box {width:100%;}
+.header{padding:1%;
+background-color:#f1f1f1;}
+/**border:1px solid #e9e9e9;}**/
+
+.header_bottom{width:100%;}
+.menuitem {
+    margin-top:0;
+    margin-left:0;
+    margin-bottom:0;
+    padding:1%;
+    border-bottom:1px solid #e9e9e9;
+    cursor:pointer;
+}
+
+.main {padding:1%;}
+.main_middle { width:100%;}
+
+
+.box_footer {width:100%;margin-bottom:0;}
+.footer {
+    padding:1%;
+    text-align:center;
+    background-color:#f1f1f1;
+    font-size:0.625em;
+}
+#small{background:#ccccff;border:#ccccff 1px solid;padding:10px;font-size:15px; }
+#small hr{margin:10px;padding:0px;}
+
+@media only screen and (max-width: 500px) {
+    .menu_left{width:100%;}
+    .menuitem { margin:1%;padding:1%;}
+
+    .main_middle { width:100%;}
+    .main {padding:1%;}
+
+    .box_right {width:100%;}
+    .right { padding:1%;
+    }
+
+    .box { margin-right:0; float:left;}
+}
+
+</style>
+<div class="body"><!--body开始-->
+        <div class="box header_box"><!--header开始-->
+            <div class="header">
+                <h1>LODOP超简短问答-发行包三个安装程序什么区别</h1>
+            </div>
+        </div><!--header结束-->
+<div class="header_bottom"> 	
+		  <a href="../../phoneQA004.html"><div class="menuitem">lodop问答主页</div></a> 
+		  <a href="../../phoneQA_dange.html"><div class="menuitem"><span style="color:red;">问答主页（单个问答链接）</span></div></a>
+          <a href="../../mini_QAs.html"><div class="menuitem"><span style="color:#ff0099;">迷你一个问答</span></div></a> 
+		  <a href="../QA_singe44t.html"><div class="menuitem" style="background:#ccccff;border:#7f9db9 1px solid;">相关问题组合问答</span></a> 
+</div>
+        <div class="box main_middle"><!--main_middle开始-->
+            <div class="main">
+<h1>发行包三个安装程序什么区别</h1>
+<div id="small">
+<span style="color:blue">发行包三个安装程序什么区别</span><br>
+lodop和c-lodop区别，参考http://www.c-lodop.com/faq/pp21.html<br>
+高版本的火狐谷歌不再支持np插件，需要使用c-lodop，可参考官网样例混合部署<br>http://www.c-lodop.com/LodopDemo.html<br>
+Lodop控件升级到C-Lodop云打印 参考http://www.c-lodop.com/faq/pp7.html<br>
+<br>
+测试参考一下官网样例http://www.c-lodop.com/LodopDemo.html<br>
+官网样例是混合部署LodopFuncs.js里已经写好了判断。<br>
+客户端是浏览器支持np插件，是32位浏览器，就会提示下载32位的Lodop插件：install_lodop32.exe<br>
+客户端浏览器支持np插件，是64位浏览器，就会提示下载64位的Lodop插件：install_lodop64.exe<br>
+客户端浏览器不支持np插件（判断如高版本谷歌火狐等），会提示下载C-Lodop方式： <br>CLodop_Setup_for_Win32NT.exe<br>
+<hr>
+<span style="color:blue">一般网站打印都是用的lodop，不需要用c-lodop吧</span><br>
+根据自己的需要，<br>
+可以混合部署，也可以单独使用c-lodop.<br>
+混合部署：<br>
+官网样例http://www.c-lodop.com/LodopDemo.html<br>
+官网样例是混合部署LodopFuncs.js里已经写好了判断。<br>
+客户端是浏览器支持np插件，是32位浏览器，就会提示下载32位的Lodop插件：install_lodop32.exe<br>
+客户端浏览器支持np插件，是64位浏览器，就会提示下载64位的Lodop插件：install_lodop64.exe<br>
+客户端浏览器不支持np插件（判断如高版本谷歌火狐等），会提示下载C-Lodop方式： <br>CLodop_Setup_for_Win32NT.exe<br>
+单独部署c-lodop:<br>
+单独c-lodop，http://www.c-lodop.com/faq/pp34.html<br>
+<hr>
+<span style="color:blue">只用lodop</span><br>
+不建议单独使用lodop插件方式，除非限制客户只用IE等，限制高版本的火狐谷歌不再支持了<br>
+可以使用混合部署，或单独c-lodop方式<br>
+<hr>
+<span style="color:blue">里面的判断，点击下载找不到安装包</span><br>
+需要放置安装文件到自己项目的路径里<br>
+<hr>
+<span style="color:blue">解压出来的安装包，全部放到项目路径吗</span><br>
+如果是混合部署，默认的lodopFuncs.js里的方式，发行包里的安装文件都要放。
+如果修改了needclodop单独使用c-lodop，可以只放c-lodop的<br>
+<br>
+参考lodopFuncs.js里的判断，如果判断没安装或版本低，会提示下载安装或升级。<br>
+会动态向页面添加一个a标签，a标签的链接路径是自己放置安装文件的路径。<br>
+<hr>
+<span style="color:blue">里面html文件也要放项目吗？</span><br>
+这些是样例，不需要放放置到项目里。<br>
+如果您是混合部署方式，放置安装文件，并修改里面的提示下载路径变成自己的放置安装文件的路径<br>
+<hr>
+<span style="color:blue">（64位c-lodop)这个压缩包里面的东西是什么？不需要放项目吧</span><br>
+这个是64位版的c-lodop，如果您是第一种角色，客户端本地打印角色，只用发行包里的32位的c-lodop就可以。<br>
+<br>
+如果是第一种角色，且您使用的混合部署方式，且客户端都是windows系统，只用这个三个文件既可以。<br>
+<br>
+三种角色及使用方法：<br>
+参考http://www.c-lodop.com/demolist/t1.html<br>
+客户端访问网站后在自己连接的电脑上打印，属于第一种角色<br>
+<hr>
+<span style="color:blue">浏览器谷歌高版本或者火狐且是32位的，用CLodop_Setup_for_Win32NT.exe；浏览器是64位的，用install_lodop64.exe</span><br>
+lodopfuncs.js里有判断，且有具体的判断版本号<br>
+谷歌高版本走的是c-ldoop，不会走插件方式,install_lodop64.exe是插件，不支持高版本的谷歌<br>
+<hr>
+<span style="color:blue">现在没走lodopfuncs.js的判断，项目路径没有放安装包，怎么判断且指导用户安装哪个安装包呢</span><br>
+您是怎样使用的，页面是怎样引用的lodop<br>
+<br>
+lodopFuncs.js是有判断的，查看下您的lodopFuncs.js是否有写好的判断，只要不是太旧的版本，都会有判断lodop和c-lodop的<br>
+<br>
+您是让用户自己去lodop官网下载吗，不建议这样使用<br>
+<br>
+建议用lodopFuncs.js里提示下载安装，并指向自己的路径，不要用lodop的地址<br>
+<hr>
+<span style="color:blue">把这3个安装包都下载了，发给我们用户让他们选择安装的</span><br>
+如果是64位操作系统，里面可能也会有32位浏览器，可以让64位系统的三个都安装上。<br>
+32位系统的，可以只安装32位lodop和c-lodop。<br>
+<br>
+关于谷歌Chrome浏览器94版跨域问题的解决方案，参考http://www.c-lodop.com/blogs/Blog024.html<br>
+二、安装最新的C-Lodop4.141及后版本<br>
+http://www.c-lodop.com/download.html<br>
+如果您的用户里有最新版的谷歌和edge，安装4142版的测试下<br>
+<hr>
+<span style="color:blue">为什么发行包这两个安装包还是18年的</span><br>
+现在主推c-lodop，因为lodop插件支持的浏览器比较少，只有IE和很旧版本的谷歌和火狐等支持<br>
+<hr>
+<span style="color:blue">18年的插件支持打印pdf吗</span><br>
+Lodop控件升级到C-Lodop云打印 参考http://www.c-lodop.com/faq/pp7.html<br>
+不支持，改成单独使用c-lodop<br>
+<br>
+参考http://www.c-lodop.com/bloglist.html<br>
+pdf只有4.0之后的c-lodop支持，lodop没有这些功能<br>
+<br>
+单独c-lodop，http://www.c-lodop.com/faq/pp34.html<br>
+修改needclodop返回true，只要c-lodop支持pdf打印<br>
+<br>
+单独c-lodop，http://www.c-lodop.com/faq/pp34.html<br>
+修改needclodop返回true<br>
+<hr>
+<span style="color:blue">c-lodop 32位，所有浏览器都可以安装吗，64位的浏览器也可以安装和运行吗</span><br>
+支持所有浏览器，最新的谷歌火狐用4142新版<br>
+参考http://www.c-lodop.com/faq/pp21.html<br>
+c-lodop和浏览器位数无关，支持所有浏览器<br>
+<br>
+可以只用c-lodop，支持所有浏览器<br>
+<br>
+c-lodop和浏览器位数无关<br>
+<br>
+您需要用到打印pdf，只能用单独部署c-lodop方式<br>
+<br>
+32位c-lodop支持所有浏览器，且支持32和64位操作系统<br>
+<br>
+您直接使用c-lodop32位就可以，修改lodopFuncs.js里返回true<br>
+<br>
+单独c-lodop，http://www.c-lodop.com/faq/pp34.html<br>
+参考链接<br>
+<hr>
+<span style="color:blue">clodopFuncs.js在哪里</span><br>
+参考http://www.c-lodop.com/faq/pp23.html<br>
+c-lodop安装启动后自动生成的<br>
+<hr>
+
+</div>
+<br>
+<div id="small">
+&nbsp;
+</div>
+           </div>
+    </div><!--main_middle结束-->
+
+        <div class="box box_footer"><!--box_footer开始-->
+            <div class="footer">
+<p>lodop简短问答页面.</p>
+            </div>
+        </div><!--box_footer结束-->
+
+
+</div><!--body结束-->
+ </body>
+</html>
