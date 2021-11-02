@@ -1,0 +1,757 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>【非常见问题杂笔记】svg图片不显示、页码和表格重叠、下边距固定的线条、字加粗等</title>
+  <!--<script language="javascript" src="LodopFuncs.js"></script>-->
+ <!-- <script src='http://localhost:8000/CLodopfuncs.js'></script>-->
+ </head>
+ <body>
+ <style>
+ body{margin:0px;}
+.body {width:100%;}
+a{text-decoration:none;color:black;}
+h1{font-size:1.625em;}
+h2{font-size:1.375em;}
+/**.box{float:left;}**/
+.header_box {width:100%;}
+.header{padding:1%;
+background-color:#f1f1f1;}
+/**border:1px solid #e9e9e9;}**/
+
+.header_bottom{width:100%;}
+.menuitem {
+    margin-top:0;
+    margin-left:0;
+    margin-bottom:0;
+    padding:1%;
+    border-bottom:1px solid #e9e9e9;
+    cursor:pointer;
+}
+
+.main {padding:1%;}
+.main_middle { width:100%;}
+
+
+.box_footer {width:100%;margin-bottom:0;}
+.footer {
+    padding:1%;
+    text-align:center;
+    background-color:#f1f1f1;
+    font-size:0.625em;
+}
+
+@media only screen and (max-width: 500px) {
+    .menu_left{width:100%;}
+    .menuitem { margin:1%;padding:1%;}
+
+    .main_middle { width:100%;}
+    .main {padding:1%;}
+
+    .box_right {width:100%;}
+    .right { padding:1%;
+    }
+
+    .box { margin-right:0; float:left; }
+}
+
+</style>
+<div class="body"><!--body开始-->
+        <div class="box header_box"><!--header开始-->
+            <div class="header">
+                <h1>LODOP超简短问答-【非常见问题杂笔记】svg图片不显示、页码和表格重叠、下边距固定的线条、字加粗等</h1>
+            </div>
+        </div><!--header结束-->
+<div class="header_bottom"> 
+		   <a href="../../index.html"><div class="menuitem">花谢悦神的主页</div></a>	
+		   <a href="../phoneQA004.html"><div class="menuitem">lodop问答主页</div></a> 
+		   <a href="../phoneQA_dange.html"><div class="menuitem">问答主页（单个问答链接）</div></a> 
+		   <a href="../qa_notes3.html"><div class="menuitem"><span style="color:blue;">问答等记录笔记，具体问题</span></div></a>
+</div>
+        <div class="box main_middle"><!--main_middle开始-->
+            <div class="main">
+<h1>【非常见问题杂笔记】svg图片不显示、页码和表格重叠、下边距固定的线条、字加粗等</h1>
+1.<span style="color:blue;font-weight:bold">打印一维码长度13位时，条形码正常显示宽度。当我把一维码长度调整到大于13位时，条形码被压缩显示了</span><br>
+两个条码数值不同<br>
+参考http://www.c-lodop.com/faq/pp10.html 条码随着数值不同，宽度可能不同，无法做到完全统一大小，可估计最大宽度，最后的实际宽度一般是小于等于设定宽度。<br>
+<br>
+2.<span style="color:blue;font-weight:bold">win732位系统这个图标右键没反应</span><br>
+参考http://www.c-lodop.com/faq/pp5.html<br>
+九、c-lodop安装界面始终打不开<br>
+可能是网络共享打印机的问题，删除就好了<br>
+是否有共享打印机，删除共享打印机后，重新安装c-lodop试试。<br>
+<br>
+3.<span style="color:blue;font-weight:bold">直接打本地的一个html文件带来的问题，图片显示叉号</span><br>
+（1）查看lodop内部解析的html信息，见http://www.c-lodop.com/faq/pp8.html<br>
+查看一下传入的图片路径是否正确，尽量用绝对路<br>
+（...小问答大段...)<br>
+<br>
+由于Lodop借用IE下载引擎，与非IE浏览器之间目前不能传递Session(Cookies)，所以需要安全验证的页面不要用URL方式打印，要用页面已经下载好的内容的HTM方式打印，也就是ADD_PRINT_HTM或ADD_PRINT_TABLE等语句<br>
+另外URL方式需要二次访问服务器，理论上存在下载失败的可能，所以专业的管理系统尽量不要用URL方式。<br>
+重置下本机IE，或设置下IE的一些安全设置，需要本机IE能直接访问的地址<br>
+<br>
+Lodop是基于本机windows底层引擎进行渲染解析的，与ie调用的引擎一致。在样式有问题所在电脑上，尝试重置ie，升级ie，<br>
+需要IE能直接访问的地址，<br>
+<br>
+图片是base64码吗，<br>
+或参考http://www.c-lodop.com/demolist/PrintSample38.html<br>
+单独输出图片，不加img标签，直接输出base64，不经过浏览器解析<br>
+<br>
+图片是svg的吗，svg不是所有浏览器都支持，尽量不用svg，转成png或jpg等格式输出试试<br>
+<br>
+尽量不用svg，转成png或jpg等格式输出试试<br>
+<br>
+不建议使用svg方式，没有很好的版本，尽量用各种浏览器通用的样式，例如换成图片输出方式<br>
+<br>
+或自己组织超文本实现，没有很好办法，超文本解析问题，目前调用IE解析引擎只能是这种效果<br>
+（客户升级到IE11，svg图片可以显示了，但是显示和需要效果不一致）<br>
+<br>
+5.<span style="color:blue;font-weight:bold">可以连接得实标签打印机吗？</span><br>
+获取的是安装到windows打印机列表的打印机。<br>
+只要是能安装到windows打印机列表的打印机都可以。<br>
+可以测试下样例5,7能否获取到，http://www.c-lodop.com/demolist/PrintSample7.html<br>
+<br>
+安装打印机驱动，到windows打印机列表，只要是能安装到windows打印机列表的打印机都可以。<br>
+<br>
+（图）<br>
+测试下样例5获取打印机列表，查看是否能获取到该打印机，<br>
+<br>
+6.<span style="color:blue;font-weight:bold">空出那么多空白是怎么回事？</span><br>
+“可打区域”边缘与打印机本身有关，表现在预览里是虚线，可打区域的影响<br>
+http://www.c-lodop.com/faq/pp26.html<br>
+<br>
+参考http://www.c-lodop.com/faq/pp26.html<br>
+可打区域lodop控制不了，和打印机有关。<br>
+用虚拟打印机测试对比下。虚拟打印机无可打区域<br>
+<br>
+7.<span style="color:blue;font-weight:bold"> 打印html内容的时候  checkbox 选中的状态失效了</span><br>
+参考http://www.c-lodop.com/demolist/PrintSample23.html<br>
+样例右键，查看源码<br>
+（图）<br>
+<br>
+8.<span style="color:blue;font-weight:bold">超出一页纸如何设置让第二页纸正常打印，不是在一半打印</span><br>
+截图描述下，是超文本自动分页，第二页想向上偏移吗<br>
+<br>
+设置打印项次页偏移，向上偏移，<br>
+例如：LODOP.SET_PRINT_STYLEA(0,"Offset2Top",-140);//设置次页向上偏移140<br>
+<br>
+设置该自动分页的表格打印项次页偏移，向上偏移，<br>
+例如：LODOP.SET_PRINT_STYLEA(0,"Offset2Top",-140);//设置次页向上偏移140<br>
+可以调整到合适具体数值<br>
+<br>
+9.<span style="color:blue;font-weight:bold">access error</span><br>
+access error 参考http://www.c-lodop.com/faq/pp1.html<br>
+<br>
+删除本机的共享打印机，再重新安装c-lodop测试下<br>
+<br>
+10.<span style="color:blue;font-weight:bold">怎么打印页码</span><br>
+页码，参考样例6 http://www.c-lodop.com/demolist/PrintSample6.html<br>
+样例43http://www.c-lodop.com/demolist/PrintSample43.html<br>
+<br>
+样例6的也不在表格里<br>
+例如<br>
+纯文本，可以设置为页号项或页数项<br>
+LODOP.SET_PRINT_STYLEA(0,"ItemType",2);//设置上面的纯文本打印项为页号项<br>
+<br>
+参考样例6 http://www.c-lodop.com/demolist/PrintSample6.html<br>
+右键查看源码<br>
+LODOP.ADD_PRINT_TEXT(421,542,165,22,"右下脚的页号：第#页/共&页");<br>
+LODOP.SET_PRINT_STYLEA(0,"ItemType",2);<br>
+<br>
+杨丽娜6和样例43都有不在表格里的页码，样例右键查看源码<br>
+（图）<br>
+（图）<br>
+样例6是纯文本的，样例43是超文本的<br>
+<br>
+调整打印项页码的位置，在纸张中的顶边距，左边距，<br>
+<br>
+打印项的位置不要和表格重叠，截图下效果<br>
+<br>
+减小表格打印项的高度，纸张下方留出点距离<br>
+<br>
+减小打印项高度，可以根据实际纸张大小设置具体值<br>
+<br>
+(图）<br>
+超文本超过打印项高度会自动分页，或设置更小一些，让表格在上面一行分页，最后一行分到下一页，就可以不和页码重叠了<br>
+<br>
+自动分页，超文本超过打印项高度会自动分页<br>
+<br>
+再减小打印项高度测试下<br>
+<br>
+11.<span style="color:blue;font-weight:bold">可以把我的同事拉入群吗</span><br>
+可以，邀请加入，或加群Q有空<br>
+Q群：634143215<br>
+<br>
+12.<span style="color:blue;font-weight:bold">怎样分页</span><br>
+分页 参考样例30 http://www.c-lodop.com/demolist/PrintSample30.html<br>
+超文本超过设置的打印项高度或纸张会自动分页。<br>
+<br>
+分页 参考样例30和样例26 http://www.c-lodop.com/demolist/PrintSample30.html<br>
+加分页语句<br>
+<br>
+13.<span style="color:blue;font-weight:bold">这边使用的是add_print_pdf，新电脑装完驱动后，会显示这个</span><br>
+官网下载中心，下载最新的C-lodop<br>
+http://www.c-lodop.com/download.html<br>
+安装后在欢迎页面末尾找“PDF打印”链接，或输入地址: <br>
+http://localhost:8000/c_pdfprint<br>
+<br>
+如果是显示需要顶级注册的弹窗<br>
+控件注册号 注意事项 最新价格表、购买方式和使用方法见(官网)：<br>
+http://www.c-lodop.com/Lodop_Lic.html<br>
+pdf打印去掉这个弹窗，需要顶级注册。域名顶级或公司名顶级。<br>
+<br>
+如果是JS报错add_print_pdf未定义，排查当前使用的是否是c-lodop方式，是否是最新版c-lodop<br>
+如果是提示需要顶级注册，pdf打印去掉这个弹窗，需要顶级注册。域名顶级或公司名顶级。<br>
+<br>
+发一下注册日期和收注册的邮箱，这边查一下试试<br>
+<br>
+这个是纯数字的注册，应该是很久以前购买的公司名普通注册<br>
+不是公司名顶级注册，去不掉pdf的那个弹窗<br>
+<br>
+点确定可以预览或打印pdf文件。<br>
+或联系淘宝客服，说明之前的注册信息，补差价公司名普通注册升级到公司名顶级注册<br>
+<br>
+14.<span style="color:blue;font-weight:bold">这个对话框可以屏蔽掉吗？</span><br>
+不支持去掉，这个是windows的安全提示，windows不让随意读写文件<br>
+<br>
+没有很好的办法，读写本地文件需要安全提示<br>
+<br>
+15.<span style="color:blue;font-weight:bold">套打的时候会出现多打印页夜空白页</span><br>
+用xps或pdf虚拟打印机测试下，<br>
+win7以后系统自带Microsoft XPS Document Writer虚拟打印机或者 下载安装群文件里的Doro PDF Writer虚拟打印机
+如果虚拟打印机正常，用真实打印机进入打印预览，查看下效果<br>
+<br>
+虚拟打印机也有空白，需要排查代码<br>
+给传入的整个超文本添加背景色，看输出的空白页中是否有背景色。<br>
+<br>
+16.<span style="color:blue;font-weight:bold">用网页直接看边框都是连续的,但是用lodop预览歪歪扭扭的</span><br>
+查看lodop内部解析的html信息，见http://www.c-lodop.com/faq/pp8.html<br>
+通过删减内容，或做简单例子的方式，找到出问题的html或样式，定位到哪些html或样式引起的。<br>
+<br>
+用xps或pdf虚拟打印机测试下，<br>
+win7以后系统自带Microsoft XPS Document Writer虚拟打印机或者 下载安装群文件里的Doro PDF Writer虚拟打印机<br>
+查看虚拟打印机输出的效果，如果虚拟打印机实际输出也有问题，排查样式，调整样式，尽量用通用的样式<br>
+<br>
+查看lodop内部解析的html信息，见http://www.c-lodop.com/faq/pp8.html<br>
+分析差异点，因浏览器版本不同遵循的html标准不同，造成某些标签属性显示有差异，尽量避免使用有差异的属性，可以在ie下不同版本仿真情况下验证差异 排查样式，尽量使用使用各浏览器无歧义的通用的 html css js，不支持的样式可尝试用其他样式代替。<br>
+可尝试把ADD_PRINT_HTM 换成 ADD_PRINT_HTML（图形模式）试试，ADD_PRINT_HTML不如ADD_PRINT_HTM清晰，适合高精度的打印机，两者各有优势。<br>
+<br>
+实际输出测试下，如果输出的xps文件也有问题，排查样式<br>
+<br>
+在每个td里加高度样式<br>
+<br>
+去掉里面的span样式试试，把需要的样式写在td里试试。<br>
+查看lodop内部解析的html信息，见http://www.c-lodop.com/faq/pp8.html<br>
+通过删减内容，或做简单例子的方式，找到出问题的html或样式，定位到哪些html或样式引起的。<br>
+<br>
+（该客户在tr里加高度样式，内部含span标签，span标签设置为block,以后测试下试试）<br>
+<br>
+17.<span style="color:blue;font-weight:bold">预览打印时，图片是显示的，但是直接打印，打印出来就没图片了</span><br>
+预览是打印机的反显，预览和打印应该是一致的，<br>
+用xps或pdf虚拟打印机测试下，<br>
+win7以后系统自带Microsoft XPS Document Writer虚拟打印机或者 下载安装群文件里的Doro PDF Writer虚拟打印机<br>
+<br>
+如果虚拟打印机预览和打印也不一致，排查图片是否设置了只预览不打印样式等<br>
+<br>
+应该没有关系，预览是打印机的反显，如果没有设置只预览不打印，预览和打印应该是一致的。<br>
+<br>
+先用虚拟打印机输出测试下，虚拟打印机如果正常，可排除代码问题<br>
+<br>
+18.<span style="color:blue;font-weight:bold">提示、“WebSocket没准备好</span><br>
+参考http://www.c-lodop.com/faq/pp3.html<br>
+<br>
+新版本c-lodop和新的lodopFuncs.js引用了双端口吗，8000和18000一个能用就行<br>
+查看下浏览器的JS报错信息<br>
+<br>
+JS里的端口和启动端口需要一致，不建议修改端口<br>
+<br>
+19.<span style="color:blue;font-weight:bold">手机打印抛出这个错误gelodop未定义</span><br>
+排查这个云主机上的c-lodop是否安装启动成功了<br>
+<br>
+三种角色及使用方法：<br>
+参考http://www.c-lodop.com/demolist/t1.html<br>
+是哪种角色，如果是后两种角色，访问下对应角色的欢迎页面试试<br>
+<br>
+参考http://www.c-lodop.com/demolist/t1.html<br>
+使用的是哪种角色，如果是第二种角色，访问下http://[C-Lodop服务所在主机ip或域名]:[C-Lodop端口]欢迎页面试试<br>
+<br>
+getlodop方法是在lodopFuncs.js里的，默认的lodopFuncs.js里是客户端本地打印角色的。<br>
+是否修改了lodopFuns.js里的指向云主机的地址，并单独使用c-lodop<br>
+<br>
+手机无法使用第一种角色，只能用后两种角色打印到其他windows电脑上<br>
+<br>
+20.<span style="color:blue;font-weight:bold">这个调用半天是咋回事</span><br>
+打印过慢，可能和很多原因有关：打印内容或样式或图片等过多，有需要下载有脚步执行或本身网络慢；<br>
+机器性能过低 系统ie有问题或缓存过多；或使用的是共享打印机。<br>
+如果预览页数多，可以多分一些任务，太多不建议预览，建议直接打印，在任务和页数之间平衡一下，参考样例26 
+http://www.c-lodop.com/demolist/PrintSample26.html<br>
+<br>
+是指预览窗口显示过慢吗，输出简单的内容测试下<br>
+<br>
+测试官网样例http://www.c-lodop.com/demolist/PrintSample2.html<br>
+点样例的预览试试<br>
+<br>
+21.<span style="color:blue;font-weight:bold">有没有关于lodop参数设置的文档</span><br>
+参考lodop技术手册和c-lodop技术手册<br>
+http://www.c-lodop.com/download.html<br>
+<br>
+22.<span style="color:blue;font-weight:bold">加了两端对齐的样式“    text-align: justify;”变重叠了</span><br>
+调用的底层解析超文本的引擎问题，排查这个样式有问题，可以去掉这个样式<br>
+<br>
+调用的底层解析超文本的引擎问题，或尝试把ADD_PRINT_HTM 换成 ADD_PRINT_HTML（图形模式）试试，ADD_PRINT_HTML不如ADD_PRINT_HTM清晰，适合高精度的打印机，两者各有优势<br>
+<br>
+调用的底层解析超文本的引擎问题，解决不了，lodop自己没有解析超文本的引擎，调用的本机的<br>
+<br>
+（这个之前我反馈到梦泰尔群过，还能搜到当时的聊天记录，根据之前记录，当时我测试了确实是这样的，开发说的是超文本解析问题，也只能是这样了）<br>
+<br>
+23.<span style="color:blue;font-weight:bold">打印怎么样可以支持双排打印呢</span><br>
+并排的两张标签看做一张纸试试，纸张设置时算上间隔试试，纸张设置，参考样例5<br>
+<br>
+这个看做一张纸试试，可以实际测试下，这样的纸张打印机是否支持，只要内容定位在实际纸张上就可以<br>
+<br>
+24.<span style="color:blue;font-weight:bold">为啥 设计里有省略号 实际预览却没有</span><br>
+打印项是什么语句输出的，是add_print_text纯文本，还是add_print_htm超文本<br>
+<br>
+（图 text-overflow:ellipsis）<br>
+查看lodop内部解析的html信息，见http://www.c-lodop.com/faq/pp8.html<br>
+分析差异点，因浏览器版本不同遵循的html标准不同，造成某些标签属性显示有差异，尽量避免使用有差异的属性，可以在ie下不同版本仿真情况下验证差异 排查样式，尽量使用使用各浏览器无歧义的通用的 html css js，不支持的样式可尝试用其他样式代替。<br>
+查看lodop内部解析的html信息，见http://www.c-lodop.com/faq/pp8.html<br>
+通过删减内容，或做简单例子的方式，找到出问题的html或样式，定位到哪些html或样式引起的。<br>
+<br>
+做个简单样式测试下，排查text-overflow:ellipsis是否生效，尽量用通用的样式，或尝试换其他css样式<br>
+<br>
+25.<span style="color:blue;font-weight:bold">预览、打印xps、实际打印机打印出来的都不一样</span><br>
+“可打区域”边缘与打印机本身有关，表现在预览里是虚线，可打区域的影响<br>
+http://www.c-lodop.com/faq/pp26.html<br>
+<br>
+调整的打印内容宽度小于可打区域，左右留一些边距，<br>
+<br>
+26.<span style="color:blue;font-weight:bold">EAN128Auto什么时候能支持</span><br>
+条码类型，参考http://www.c-lodop.com/faq/pp18.html<br>
+目前EAN的条码样式只能是这种效果<br>
+<br>
+目前只能是这种效果，根据实际需要的所有字符串类型，选择合适的条码类型<br>
+<br>
+27.<span style="color:blue;font-weight:bold">开机启动之后，打印出来是乱码</span><br>
+用虚拟打印机输出测试下<br>
+<br>
+用xps或pdf虚拟打印机测试下，<br>
+win7以后系统自带Microsoft XPS Document Writer虚拟打印机或者 下载安装群文件里的Doro PDF Writer虚拟打印机<br>
+如果虚拟打印机正常，用真实打印机进入打印预览查看下<br>
+<br>
+参考http://www.c-lodop.com/faq/pp5.html<br>
+排查开机启动项，用管理员权限安装最新版http://www.c-lodop.com/download.html，右键以管理员权限运行，再对比试试。<br>
+排查c-lodop是否能开机自启动，默认情况c-lodop是开机自动启动的，没自动开启可能问题：<br>
+1. 在系统msconfig启动选项列查看c-lodop是否是开启自启动；<br>
+2. 当前操作用户权限不足，无系统管理员权限；<br>
+3. 注意安全软件禁用c-lodop. 目前常用的360及金山已进行了安全认证，其他的杀毒软件请加入白名单，或直接上报提交对应的杀毒软件服务器。<br>
+<br>
+用xps或pdf虚拟打印机测试下，<br>
+win7以后系统自带Microsoft XPS Document Writer虚拟打印机或者 下载安装群文件里的Doro PDF Writer虚拟打印机<br>
+开机后用虚拟打印机输出测试下，查看下虚拟打印机的输出效果<br>
+<br>
+是指虚拟打印机正常，只有真实打印机出现乱码吗<br>
+开机后，先不打印，改成打印预览，用真实打印机进入打印预览，查看下预览效果，如果预览效果正常，然后点真实打印机打印预览里的打印按钮打印试试<br>
+<br>
+28.<span style="color:blue;font-weight:bold">这个语句全局配置该写在哪里</span><br>
+样例右键查看源码，<br>
+写在初始化之后，打印之前<br>
+<br>
+29.<span style="color:blue;font-weight:bold">左右边距是左边距优先生效吗？</span><br>
+直接控制打印内容的宽度，打印项的宽度固定，<br>
+打印项语句参数里设置左边距，纸张减去打印项宽度，就是剩余的右边距<br>
+<br>
+超文本内部宽度，可用css样式等控制，加载css样式，参考样例10 http://www.c-lodop.com/demolist/PrintSample10.html<br>
+<br>
+纸张宽度减去打印项实际宽度和左边距，就是剩余的右边距<br>
+<br>
+关键字RightMargin和BottomMargin使后俩参数不再直接设置宽度和高度，而是设置右边距和下边距(变相控制宽高)； <br>
+这个是变相控制宽高，如果实际css样式里控制了宽高，会按照实际样式走。<br>
+这个样例设置的表格样式是百分比<br>
+<br>
+30.<span style="color:blue;font-weight:bold">实际打印的与打印预览不一样</span><br>
+打印项是什么语句输出的，是add_print_text纯文本，还是add_print_htm超文本<br>
+<br>
+横线和文本，是一个打印项输出的，还是不同的打印项输出的<br>
+<br>
+如果是一个整体的超文本，排查样式<br>
+查看lodop内部解析的html信息，见http://www.c-lodop.com/faq/pp8.html<br>
+分析差异点，因浏览器版本不同遵循的html标准不同<br>
+（...小问答三段...)<br>
+<br>
+调整这条直线的位置，<br>
+（图）<br>
+往下调整下<br>
+<br>
+预览看上去是错位了，以预览效果为准进行调整<br>
+<br>
+参考http://www.c-lodop.com/faq/pp17.html<br>
+默认以可打区域为基点，或改成纸张边缘为基点。<br>
+或根据该打印机打印维护本地调整，只针对该客户端有效<br>
+<br>
+（图）<br>
+参考http://www.c-lodop.com/faq/pp17.html<br>
+默认以可打区域为基点，或改成纸张边缘为基点。<br>
+或根据该打印机打印维护本地调整，只针对该客户端有效<br>
+<br>
+虚拟打印机正常，和打印机有关，用打印维护针对该客户端调整下，或以纸张边缘为基点试试，虚拟打印机无可打区域，以纸张边缘为基点<br>
+<br>
+“可打区域”边缘与打印机本身有关，表现在预览里是虚线，可打区域的影响<br>
+http://www.c-lodop.com/faq/pp26.html<br>
+<br>
+可打区域”边缘与打印机本身有关，表现在预览里是虚线，可打区域的影响<br>
+http://www.c-lodop.com/faq/pp26.html<br>
+这个是打印机的可打区域，和打印机有关，虚拟打印机无可打区域<br>
+<br>
+减小纯文本打印项高度，一直减小到隐藏最后一行的数据的高度。<br>
+超过宽度自动换行，超过高度隐藏<br>
+可以实际测试下减小高度，调整到合适的值<br>
+<br>
+参考http://www.c-lodop.com/faq/pp17.html<br>
+默认以可打区域为基点，可以尝试改成纸张边缘为基点。<br>
+或根据该打印机打印维护本地调整<br>
+<br>
+参考 样例5，设置纸张边缘基点输出；<br>
+6：为使内容不出轨，输出位置一般是以“可打区域”边缘为基点的，但由于各种打印机物理边距不一样，<br>
+ 这样就造成同一程序用不同打印机输出的位置有差异，这对通用套打是非常不利的，此时可用如下语句：<br>
+ LODOP.SET_PRINT_MODE("POS_BASEON_PAPER",true);<br>
+ 该语句可使输出以纸张边缘为基点，进入打印预览6选不同物理边距打印机看看位置是否一致。<br>
+<br>
+尝试下设置以纸张边缘为基点试试，可打区域外打印不出来，控制内容不要超出可打区域。<br>
+<br>
+LODOP.SET_PRINT_MODE("POS_BASEON_PAPER",true);<br>
+参考样例5的6，http://www.c-lodop.com/demolist/PrintSample5.html<br>
+<br>
+LODOP.SET_PRINT_STYLEA(0,"Vorient",1);<br>
+设置了下边距固定吗<br>
+<br>
+去掉下边距固定，直接用具体值测试下<br>
+<br>
+31.<span style="color:blue;font-weight:bold">打印预览显示的纸张宽高是打印的实际宽高么</span><br>
+样例下方状态栏显示的纸张，是的<br>
+<br>
+换算误差引起的。在打印机内部都是按英寸的，mm换算成in，然后in再换算回来就不一定是原来的mm，要以换算后的为准。<br>
+<br>
+打印机自带的纸张名称列表里，是否有需要的尺寸，<br>
+当自定义纸张不支持或出问题时，可用打印机自带的纸张名称，打印机自带的纸张名称走纸 一定是准确的<br>
+<br>
+参考样例5的纸张列表，宽高为0，会走纸张名称。<br>
+可以尝试下代码里指定纸张名称。
+<br>
+如果出现问题，或用优先级等<br>
+纸张的一些优先级 http://www.c-lodop.com/blogs/Blog002.html<br>
+<br>
+是打印机自带的纸张列表里没有吗<br>
+<br>
+实际测试该打印机不支持该设置的自定义纸张，打印机自带的纸张列表里也没有需要的纸张，该打印机不支持这种纸张尺寸，只能换用支持的纸张大小。<br>
+或纸张设置较小一些试试，如59.9等，再用这打印机测试下试试<br>
+<br>
+31.<span style="color:blue;font-weight:bold">SET_PRINT_MODE("RESELECT_XXX",true)这个方法代码里面没写，打包发布测试环境纸张可以改变，发布到正式环境就无法改变</span><br>
+排查纸张语句是否生效了，纸张语句放在初始化之后，打印之前，可直接测试下样例7的7，<br>
+默认设置纸张后预览不可重选<br>
+<br>
+32.<span style="color:blue;font-weight:bold">内容是base64的图片，展示不齐全</span><br>
+打印图片，参考样例8 http://www.c-lodop.com/demolist/PrintSample8.html<br>
+图片默认是截取模式，排查图片缩放是否正常。<br>
+截图下出问题的打印预览<br>
+<br>
+LODOP直接输出base64码方式输出图片，参考样例38，http://www.c-lodop.com/demolist/PrintSample38.html<br>
+试试直接输出base64，不带img标签。<br>
+<br>
+显示空白或者图片缺失等问题，加延迟试试：<br>
+LODOP.SET_PRINT_STYLEA(0,"HtmWaitMilSecs",1000)//设置上一项延迟超文本下载1000毫秒<br>
+或尝试这个延迟，试试图片是否能显示完全<br>
+<br>
+33.<span style="color:blue;font-weight:bold">一个系统下两个页面引用相同的LodopFuncs.js打印出来一个待试用版一个不带</span><br>
+参考排查一下http://www.c-lodop.com/faq/ph01.html<br>
+先确保该注册语句执行了，每个打印方法里都要执行。<br>
+可以先做个简单例子测试下，<br>
+例如：<br>
+LODOP.PRINT_INIT("打印任务名"); <br>
+LODOP.ADD_PRINT_TEXT(0,0,100,20,"文本内容一");<br>
+LODOP.SET_LICENSES........<br>
+LODOP.PRINT(); <br>
+直接放到PRINT()语句前面测试下。<br>
+<br>
+直接把注册语句放到打印方法里测试下<br>
+<br>
+34.<span style="color:blue;font-weight:bold">打印设计插入表格的时候，是只能在设置属性里面去修改html吗</span><br>
+超文本输出表格：ADD_PRINT_HTML、ADD_PRINT_HTM、ADD_PRINT_TABLE、ADD_PRINT_TBURL<br>
+打印表格带页头页尾 参考样例15 http://www.c-lodop.com/demolist/PrintSample15.html<br>
+分页打印综合表格 参考样例43 http://www.c-lodop.com/demolist/PrintSample43.html<br>
+超文本表格传入css样式，参考样例10 http://www.c-lodop.com/demolist/PrintSample10.html<br>
+纯文本+线输出表格：ADD_PRINT_TEXT、ADD_PRINT_LINE<br>
+画线输出表格，参考http://www.c-lodop.com/demolist/PrintSampleA1.html<br>
+如果是超文本表格，是的，只能修改超文本内容和样式<br>
+<br>
+35.<span style="color:blue;font-weight:bold">这个PDF缩放的设置无效，能帮我看下么LODOP.ADD_PRINT_PDF(0,0,"50%","50%",XXXX.XXX);LODOP.SET_PRINT_STYLEA(0,"ScalX",0.5); //水平放大1.2倍LODOP.SET_PRINT_STYLEA(0,"ScalY",0.5);</span><br>
+进入打印设计，选中该pdf的打印项，右键属性里查看下缩放是否正常<br>
+<br>
+（图）<br>
+<br>
+原始pdf发一下，这边测试下，是否原始pdf就是过大的<br>
+<br>
+（图）<br>
+设置为实际大小测试下<br>
+<br>
+（图）<br>
+<br>
+LODOP.ADD_PRINT_PDF(0,0,"100%","100%",（pdf路径）);<br>
+LODOP.SET_PRINT_STYLEA(0,"ScalX",0.5);<br>
+LODOP.SET_PRINT_STYLEA(0,"ScalY",0.5);<br>
+LODOP.SET_PRINT_STYLEA(0,"PDFScalMode",1);<br>
+<br>
+35.<span style="color:blue;font-weight:bold">谁的网站对接打印接口了?付费请教个问题</span><br>
+如果是指购买注册，控件注册号 注意事项 最新价格表、购买方式和使用方法见(官网)：<br>
+http://www.c-lodop.com/Lodop_Lic.html<br>
+如果是指使用方法，lodop和c-lodop是JS控制的，参考官网样例和技术手册http://www.c-lodop.com/LodopDemo.html<br>
+<br>
+测试官网样例http://www.c-lodop.com/demolist/PrintSample2.html<br>
+样例页面右键查看源码 ，参考样例的使用方法。<br>
+样例2是打印的页面上的表格的<br>
+<br>
+lodop传入什么打印什么，可以传入超文本，也可以传入纯文本，可参考样例和技术手册<br>
+<br>
+lodopFuncs.js在下载中心发行包里http://www.c-lodop.com/download.html<br>
+<br>
+参考样例2，右键查看源码<br>
+http://www.c-lodop.com/demolist/PrintSample2.html<br>
+（图）<br>
+<br>
+如果没有安装，lodopFuncs.js写好了判断，会提示下载安装<br>
+安装成功后刷新页面，可以测试样例2的预览<br>
+<br>
+传入什么打印什么，传入的不一定是页面本身的内容或样式。<br>
+可以通过拼接字符串等，只要传入是需要的超文本和样式就可以。<br>
+加载css样式，参考样例10 http://www.c-lodop.com/demolist/PrintSample10.html<br>
+<br>
+36.<span style="color:blue;font-weight:bold">设计的时候，线是直的，但是打印预览是线是歪的</span><br>
+发一下线条语句，这边测试下<br>
+<br>
+以预览效果为准，发一下歪的线条的语句<br>
+<br>
+试试这个语句，不用mm和小数点的那个<br>
+LODOP.ADD_PRINT_LINE(58,512,157,513,0,1);<br>
+<br>
+可能是换算误差引起的，用px单位试试，例如这个语句：<br>
+LODOP.ADD_PRINT_LINE(58,512,157,513,0,1);<br>
+<br>
+参考http://www.c-lodop.com/demolist/PrintSample29.html<br>
+这里的px不是像素，是绝对长度单位<br>
+这个和超文本内部的px是不同的，不是像素<br>
+<br>
+（客户原语句，LODOP.ADD_PRINT_LINE("15.45mm","135.47mm","41.65mm","135.76mm",0,1);）<br>
+<br>
+37.<span style="color:blue;font-weight:bold">注册过后，为什么还会调提示pdf需要顶级注册</span><br>
+参考排查一下http://www.c-lodop.com/faq/ph01.html<br>
+先确保该注册语句执行了，每个打印方法里都要执行。<br>
+（...小问答两端段...)<br>
+<br>
+需要浏览器地址栏是注册的语句<br>
+<br>
+域名注册，验证的是浏览器地址栏的地址和注册是否一致，只能在该域名下使用<br>
+<br>
+38.<span style="color:blue;font-weight:bold">之前我们集成过window版本lodop打印pdf、现在linux下也支持pdf打印了吧</span><br>
+linux不支持打印pdf文件<br>
+<br>
+linux版本目前支持打印纯文本，图片，条码等，参考下载中心linux版的介绍http://www.c-lodop.com/download.html<br>
+<br>
+39.<span style="color:blue;font-weight:bold">LODOP.GET_PRINTER_NAME(index)，获取打印机名称与目前设备的打印机名称不一致</span><br>
+测试下样例5、7<br>
+http://www.c-lodop.com/demolist/PrintSample5.html<br>
+http://www.c-lodop.com/demolist/PrintSample7.html<br>
+更新打印机列表的打印机名称后，刷新页面，清理下浏览器缓存试试，重启下电脑试试<br>
+<br>
+40.<span style="color:blue;font-weight:bold"> LODOP.SET_PRINT_STYLEA(0, "LineSpacing", -1); 行间距不管用</span><br>
+设置大一点的数值试试<br>
+<br>
+LODOP.ADD_PRINT_TEXT(10,10,37,47,"新加文本");<br>
+LODOP.SET_PRINT_STYLEA(0,"LineSpacing",-5);<br>
+设置负值更小点试试<br>
+<br>
+41.<span style="color:blue;font-weight:bold">连续两次重复点击打印,会把上一次的信息也打印处理</span><br>
+连续两次重复点击，是指打印的是同一个任务吗，数据是相同的吗<br>
+lodop传入什么打印什么，排查传入的数据是否时候需要的内容。<br>
+<br>
+PRINT_INIT或PRINT_INITA<br>
+如果是两个不同的任务，每个任务是否有各自的初始化语句<br>
+<br>
+42.<span style="color:blue;font-weight:bold">在linux下已经安装lodop插件并启动了，但打印的时候没反应，控制台报这个错http://localhost:8080某其他JS..</span><br>
+这个不是c-lodop的报错，访问http://localhost:8000欢迎页面试试<br>
+<br>
+是指安装到启动成功界面了吗，还是安装的时候报错<br>
+<br>
+(图）<br>
+如果安装到启动成功界面了，点这个进入欢迎页面试试。<br>
+如果安装时报错，发一下CPU型号<br>
+<br>
+欢迎页面的预览试试，如果也正常，对照样例排查代码<br>
+<br>
+这个报错和c-lodop无关，调试JS，排查报错的位置，做个简单例子对比测试下<br>
+<br>
+这个就是个例子界面。<br>
+能显示打印预览吗<br>
+<br>
+（图）<br>
+下方有个选择打印机的，选择一个打印机进入打印预览试试。<br>
+<br>
+是否是打印机或打印机驱动问题，查看下这个打印机列表，如果有其他打印机，选择其他打印机测试下
+重新安装下该打印机试试<br>
+<br>
+不好判断，重装下该liunx下的打印机试试。如果有其他linux下打印机驱动，用其他打印机测试下。<br>
+<br>
+43.<span style="color:blue;font-weight:bold">画的面单，能导出PDF 和图片吗</span><br>
+不支持直接导出为pdf文件，可以借助pdf虚拟打印机打印成pdf文件。<br>
+导出图片，参考http://www.c-lodop.com/demolist/PrintSample27.html<br>
+<br>
+是指导出pdf，还是导出图片。<br>
+导出图片，参考样例27，可以用语句导出<br>
+pdf的那个安装一个pdf虚拟打印机，选择指定这个打印机打印<br>
+<br>
+可以在代码里指定格式<br>
+（图）<br>
+LODOP.SET_SAVE_MODE("SAVEAS_IMGFILE_EXENAME",".emf");<br>
+LODOP.SAVE_TO_FILE("新的矢量图片文件.emf"); <br>
+可以改成其他格式<br>
+<br>
+不支持直接导出pdf，只能借助pdf虚拟打印机<br>
+<br>
+不支持，目前没有直接导出pdf的计划。<br>
+只能借助pdf虚拟打印机进行导出<br>
+<br>
+44.<span style="color:blue;font-weight:bold">软件8000端口改过了，js里面要修改吗</span><br>
+软件启动的端口，需要和JS引用的端口一致<br>
+<br>
+不建议修改默认端口，最新版是双端口，lodopFuncs.js里引用的双端口，8000和18000一个能用就行。<br>
+<br>
+（图）<br>
+最新版是双端口，查看下当前启动的端口<br>
+<br>
+c-lodop启动界面的左上角的设置里<br>
+（图）<br>
+<br>
+双击桌面上的c-lodop快捷方式，重启一下本机的c-lodop<br>
+<br>
+以管理员权限运行下桌面上的c-lodop快捷方式试试<br>
+c-lodop快捷方式，右键选择以管理员权限运行，然后刷新页面<br>
+<br>
+45.<span style="color:blue;font-weight:bold">（标签，条码）有没有这种打印的例子</span><br>
+打印设计和定位套打 参考http://www.c-lodop.com/demolist/PrintSample4.html<br>
+纸张设置，参考样例5，标签等简单内容建议纯文本输出<br>
+条码，参考样例11<br>
+<br>
+46.<span style="color:blue;font-weight:bold">字体加粗，哪个属性</span><br>
+如果是纯文本，设置字体加粗：<br>
+LODOP.SET_PRINT_STYLEA(0,"Bold",1);<br>
+如果是超文本，css样式控制，参考样例10<br>
+<br>
+打印项是什么语句输出的，是add_print_text纯文本，还是add_print_htm超文本<br>
+<br>
+字体设置方法：<br>
+一、整体设置（针对文本项），打印初始化后、增加打印项之前调用本函数<br>
+LODOP.SET_PRINT_STYLE("FontSize",11);<br>
+二、单个打印项（针对文本项）进行字体设置，例如：<br>
+LODOP.SET_PRINT_STYLEA(3,"FontName","隶书"); 设置第3个内容项的字体为隶书。<br>
+LODOP.SET_PRINT_STYLEA(3,"FontSize",15);<br>
+<br>
+SET_PRINT_STYLEA第一个参数是指定打印项序号，0代表紧跟着的打印项，可以直接放到text打印项后面紧跟着<br>
+<br>
+SET_PRINT_STYLE是整体设置方法，打印项之前调用<br>
+SET_PRINT_STYLEA打印项之后调用，单个打印项设置<br>
+<br>
+如果是整体设置，放到所有打印项之前调用。不带A的那个。<br>
+SET_PRINT_STYLE和SET_PRINT_STYLEA的具体区别可参考lodop技术手册<br>
+<br>
+SET_PRINT_STYLE和SET_PRINT_STYLEA参数个数不同<br>
+<br>
+（图）<br>
+SET_PRINT_STYLE这个是两个参数<br>
+<br>
+SET_PRINT_STYLE是两个参数，放在所有打印项加载之前，初始化之后，打印项加载之前<br>
+发一下调用的代码<br>
+<br>
+如果想用SET_PRINT_STYLEA，带A的这个，放在打印项之后调用<br>
+LODOP.ADD_PRINT_TEXT(50,10,300,20,"上海***科技有限公司");<br>
+LODOP.SET_PRINT_STYLEA(0,"Bold",1);<br>
+<br>
+可参考下lodop技术手册SET_PRINT_STYLE和SET_PRINT_STYLEA的区别和使用方法<br>
+<br>
+（以后弄个问答，解释两者区别）<br>
+<br>
+46.<span style="color:blue;font-weight:bold">提示“网页还没下载完毕，请稍等一下再操作.”</span><br>
+发一下浏览器的JS报错提示<br>
+<br>
+参考http://www.c-lodop.com/faq/pp3.html 新版修改了该提示，是同一问题，参考链接里的方法。<br>
+如果是页面点击后打印，把获取LODOP对象放在打印按钮里触发。参考样例2<br>
+http://www.c-lodop.com/demolist/PrintSample2.html<br>
+<br>
+如果是一进入页面就调用打印了，参考链接方法处理http://www.c-lodop.com/faq/pp3.html<br>
+<br>
+测试官网样例http://www.c-lodop.com/demolist/PrintSample2.html<br>
+如果样例正常，样例页面右键查看源码 ，参考样例的使用方法。<br>
+如果样例也有问题，发一下浏览器的JS报错信息<br>
+<br>
+如果是一进入页面就调用，可以测试参考下样例22<br>
+<br>
+47.<span style="color:blue;font-weight:bold">用这个图片打印，实际出来的面单是空白，换了一张颜色深的，就没问题</span><br>
+打印图片，参考样例8 http://www.c-lodop.com/demolist/PrintSample8.html<br>
+用xps或pdf虚拟打印机测试下，<br>
+win7以后系统自带Microsoft XPS Document Writer虚拟打印机或者 下载安装群文件里的Doro PDF Writer虚拟打印机<br>
+理论上本机虚拟打印没问题的话，说明插件代码没问题，程序可做的努力就的确很少了，毕竟windows下的打印是微软倡导的设备无关系原则，要在打印机和打印驱动程序 系统上排查下，尝试重装驱动 或者 打印机不支持一些功能 打印机精度太低。<br>
+<br>
+如果虚拟打印机可以输出浅色的这个图片，是和打印机或打印机驱动有关。<br>
+<br>
+用xps或pdf虚拟打印机测试下，<br>
+win7以后系统自带Microsoft XPS Document Writer虚拟打印机或者 下载安装群文件里的Doro PDF Writer虚拟打印机<br>
+先排除下打印机问题，有的打印机可能只打纯黑或纯白的，或打印机驱动问题。<br>
+可以先用虚拟打印机输出测试下。<br>
+<br>
+虚拟打印机正常，只能是和打印机或打印机驱动有关了<br>
+理论上本机虚拟打印没问题的话，说明插件代码没问题，程序可做的努力就的确很少了，毕竟windows下的打印是微软倡导的设备无关系原则，要在打印机和打印驱动程序 系统上排查下，尝试重装驱动 或者 打印机不支持一些功能 打印机精度太低。<br>
+<br>
+输出方式不同<br>
+<br>
+或参考样例38，直接输出base64码试试，不加img标签的那种<br>
+<br>
+虚拟打印机正常，只能是和打印机或打印机驱动有关，用其他打印机输出测试下<br>
+<br>
+48.<span style="color:blue;font-weight:bold">可以设置双排打印吗</span><br>
+可以试试并排的两张纸看做一张纸，内容定位在纸张上，间隙位置不要设置内容试试。<br>
+<br>
+49.<span style="color:blue;font-weight:bold">使用连续分页打印，遇到一个性能问题， 连续分页打印200条，预览的时候非常慢，需要30秒左右</span><br>
+批量打印，分页分任务，在页数和任务之间平衡一下，参考样例26，http://www.c-lodop.com/demolist/PrintSample26.html<br>
+多分一些任务，一个任务输出少量页数试试<br>
+<br>
+打印过慢，可能和很多原因有关：打印内容或样式或图片等过多，有需要下载有脚步执行或本身网络慢；<br>
+机器性能过低 系统ie有问题或缓存过多；或使用的是共享打印机。<br>
+如果预览页数多，可以多分一些任务，太多不建议预览，建议直接打印，在任务和页数之间平衡一下，参考样例26 <br>
+http://www.c-lodop.com/demolist/PrintSample26.html<br>
+不建议预览，建议直接打印，并多分一些任务<br>
+<br>
+50.<span style="color:blue;font-weight:bold">ADD_PRINT_HTM 打印不居中</span><br>
+参考样例23 http://www.c-lodop.com/demolist/PrintSample23.html<br>
+除了设置打印项居中，还要确保打印项内容相对于打印项宽度居中。<br>
+<br>
+查看lodop内部解析的html信息，见http://www.c-lodop.com/faq/pp8.html<br>
+分析差异点，因浏览器版本不同遵循的html标准不同，造成某些<br>
+（...小问答三段...)<br>
+<br>
+该客户未发代码，看上去是超文本内容居中样式，为了测试超文本文本居中，在本地试了下是可以的<br>
+LODOP.ADD_PRINT_HTM(10,10,300,100,"&lt;body>\r\n&lt;div style=\"text-align:center;\">\r\n HTML Demo content\r\n &lt;br>&lt;font color=\"#FF0000\">Double &lt;br>click me and modify...&lt;/font>\r\n&lt;/div>\r\n&lt;/body>");<br>
+<br>
+</div>
+<!--main_middle结束-->
+        <div class="box box_footer"><!--box_footer开始-->
+            <div class="footer">
+<p>lodop简短问答页面.</p>
+            </div>
+        </div><!--box_footer结束-->
+
+
+</div><!--body结束-->
+ </body>
+</html>
