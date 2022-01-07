@@ -1,0 +1,239 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>如何打印pdf及相关</title>
+ </head>
+ <body>
+ <style>
+ body{margin:0px;}
+.body {width:100%;}
+a{text-decoration:none;color:black;}
+h1{font-size:1.625em;}
+h2{font-size:1.375em;}
+/**.box{float:left;}**/
+.header_box {width:100%;}
+.header{padding:1%;
+background-color:#f1f1f1;}
+/**border:1px solid #e9e9e9;}**/
+
+.header_bottom{width:100%;}
+.menuitem {
+    margin-top:0;
+    margin-left:0;
+    margin-bottom:0;
+    padding:1%;
+    border-bottom:1px solid #e9e9e9;
+    cursor:pointer;
+}
+
+.main {padding:1%;}
+.main_middle { width:100%;}
+
+
+.box_footer {width:100%;margin-bottom:0;}
+.footer {
+    padding:1%;
+    text-align:center;
+    background-color:#f1f1f1;
+    font-size:0.625em;
+}
+#small{background:#ccccff;border:#ccccff 1px solid;padding:10px;font-size:15px; }
+#small hr{margin:10px;padding:0px;}
+
+@media only screen and (max-width: 500px) {
+    .menu_left{width:100%;}
+    .menuitem { margin:1%;padding:1%;}
+
+    .main_middle { width:100%;}
+    .main {padding:1%;}
+
+    .box_right {width:100%;}
+    .right { padding:1%;
+    }
+
+    .box { margin-right:0; float:left;}
+}
+
+</style>
+<div class="body"><!--body开始-->
+        <div class="box header_box"><!--header开始-->
+            <div class="header">
+                <h1>LODOP超简短问答-如何打印pdf及相关</h1>
+            </div>
+        </div><!--header结束-->
+<div class="header_bottom"> 	
+		  <a href="../../phoneQA004.html"><div class="menuitem">lodop问答主页</div></a> 
+		  <a href="../../phoneQA_dange.html"><div class="menuitem"><span style="color:red;">问答主页（单个问答链接）</span></div></a>
+          <a href="../../mini_QAs.html"><div class="menuitem"><span style="color:#ff0099;">迷你一个问答</span></div></a> 
+		  <a href="../QA_singe44t.html"><div class="menuitem" style="background:#ccccff;border:#7f9db9 1px solid;">相关问题组合问答</span></a> 
+</div>
+        <div class="box main_middle"><!--main_middle开始-->
+            <div class="main">
+<h1>如何打印pdf及相关</h1>
+<div id="small">
+<span style="color:blue">如何打印pdf文件</span><br>
+官网下载中心，下载最新的C-lodop<br>
+http://www.c-lodop.com/download.html<br>
+安装后在欢迎页面末尾找“PDF打印”链接，或输入地址:<br> 
+http://localhost:8000/c_pdfprint<br>
+<hr>
+<span style="color:blue">打印https路径的pdf文件</span><br>
+参考欢迎页面的第四步，(例如Https方式)需先下载好再打印， http://localhost:8000/c_pdfprint<br>
+（注意这步演示需要访问地址https://localhost.lodop.net:8443/c_pdfprint才行）<br>
+样例右键查看源码，参考欢迎页面的使用方法。<br>
+<hr>
+<span style="color:blue">去掉pdf打印弹出的需要顶级注册弹窗</span><br>
+控件注册号 注意事项 最新价格表、购买方式和使用方法见(官网)：<br>
+http://www.c-lodop.com/Lodop_Lic.html<br>
+去掉打印pdf的弹窗，需要顶级注册。域名顶级或公司名顶级。<br>
+<hr>
+<span style="color:blue">打印某个pdf文件有问题</span><br>
+用最新版c-lodop测试下，<br>
+http://www.c-lodop.com/download.html，<br>
+如果最新版也有问题，发一下有问题的pdf文件，这边测试下。<br>
+<br>
+如果是用最新版c-lodop的，发一下有问题的pdf文件，如果这边测试也有问题，会反馈给开发人员。<br>
+<hr>
+<span style="color:blue">IE的pdf语句报错，需单独使用c-lodop</span><br>
+lodop不支持打印pdf问价，只有新版的c-lodop支持打印pdf文件。<br>
+单独使用c-lodop，参考http://www.c-lodop.com/faq/pp34.html<br>
+<br>
+只有新版c-lodop支持打印pdf文件，单独c-lodop，http://www.c-lodop.com/faq/pp34.html<br>
+修改lodopFuncs.js里needclodop方法返回true，都用c-lodop<br>
+<hr>
+<span style="color:blue">PDF欢迎页面输出的三种方式</span><br>
+参考http://localhost:8000/c_pdfprint<br>
+目前支持的打印pdf的三种方式<br>
+<img src="./smallQA_images/pdf3.png"><br>
+<hr>
+<span style="color:blue">pdf缩放，打印的pdf文件没有布满纸张</span><br>
+尝试缩放下pdf试试：<br>
+<img src="./smallQA_images/PDFsf.png"><br>
+默认是缩小大页面，如果pdf小于纸张大小，会原样输出，如果pdf大于纸张，或缩小。<br>
+还有其他两种模式，实际大小和适合纸张，试试其他缩放方式。<br>
+<br>
+LODOP.SET_PRINT_STYLEA(0,"PDFScalMode",1);//实际大小<br>
+LODOP.SET_PRINT_STYLEA(0,"PDFScalMode",2);//适合纸张<br>
+<hr>
+<span style="color:blue">如何缩放pdf文件解释（技术手册）</span><br>
+尝试缩放下pdf试试，进入打印设计，选中pdf打印项，右键属性里可以设置pdf的缩放模式。
+<br>
+生成代码或参考c-lodop技术手册。<br>
+c-lodop技术手册的pdf缩放模式的说明：<br>
+PDFScalMode的值：0-缩小大页面 、1-实际大小、2-适合纸张；<br>
+0-缩小大页面：默认值，PDF对象超出纸张时自动缩小至纸张大小；<br>
+1-实际大小：按PDF对象自身实际大小输出，存在超出纸张的可能；<br>
+2-适合纸张：PDF对象缩小或放大至纸张大小；<br>
+<hr>
+<span style="color:blue">ADD_PRINT_PDF方法报错，排查是否是用的c-lodop</span><br>
+lodop不支持打印pdf问价，只有新版的c-lodop支持打印pdf文件。<br>
+单独使用c-lodop，参考http://www.c-lodop.com/faq/pp34.html<br>
+<br>
+可以输出个add_print_text测试对比下。<br>
+如果纯文本可以正常预览，观察预览左上角的小图标是否是小打印机c-lodop方式。<br>
+如果纯文本也不行，排查用法是否正常，查看下JS报错信息。<br>
+<br>
+进入打印预览，左上角是否是小打印机的图标，只有c-lodop支持打印pdf文件<br>
+<br>
+目前只有新版的c-lodop支持打印pdf文件，<br>
+如果使用的是lodop插件方式，不支持那个pdf语句，插件方式支持那个ADD_PRINT_TEXT打印项语句。<br>
+<br>
+LODOP.PRINT_INIT("打印控件功能演示_Lodop功能_空白练习");<br>
+LODOP.PRINT_DESIGN();<br>
+进入空的打印设计后，在插入里查看下是否有添加pdf打印项的功能<br>
+<br>
+如果用的是官网样例方式，是和浏览器有关的<br>
+官网样例是混合部署LodopFuncs.js里已经写好了判断。<br>
+客户端是浏览器支持np插件，是32位浏览器，就会提示下载32位的Lodop插件：install_lodop32.exe<br>
+客户端浏览器支持np插件，是64位浏览器，就会提示下载64位的Lodop插件：install_lodop64.exe<br>
+客户端浏览器不支持np插件（判断如高版本谷歌火狐等），会提示下载C-Lodop方式： CLodop_Setup_for_Win32NT.exe<br>
+单独使用c-lodop，参考http://www.c-lodop.com/faq/pp34.html<br>
+<br>
+单独使用c-lodop，参考http://www.c-lodop.com/faq/pp34.html<br>
+<br>
+单独使用c-lodop，参考http://www.c-lodop.com/faq/pp34.html<br>
+如果想只使用c-lodop,参考链接，修改下。<br>
+<hr>
+<span style="color:blue">使用的是c-lodop，提示pdf语句报错，查看安装版本</span><br>
+官网下载中心，下载最新的C-lodop<br>
+http://www.c-lodop.com/download.html<br>
+c-lodop4.0后的版本支持打印pdf文件。<br>
+查看Lodop、C-Lodop版本的方法，参考http://www.c-lodop.com/faq/pp15.html<br>
+<hr>
+<span style="color:blue">以前用的是lodop插件，怎么打印pdf文件</span><br>
+Lodop控件升级到C-Lodop云打印 参考http://www.c-lodop.com/faq/pp7.html<br>
+<br>
+只有新版c-lodop支持打印pdf文件，单独c-lodop，http://www.c-lodop.com/faq/pp34.html<br>
+<hr>
+<span style="color:blue">pdf文件转成图片打印，不清晰</span><br>
+c-lodop最新版目前可以直接打印pdf文件，<br>
+http://www.c-lodop.com/download.html<br>
+安装后访问http://localhost:8000/c_pdfprint测试下。<br>
+<hr>
+<span style="color:blue">如何打印pdf文件（回答2）</span><br>
+参考 http://localhost:8000/c_pdfprint<br>
+参考这个欢迎页面的第一步，里的三种方式：URL方式，本地文件全路径，文件内容base64码。<br>
+和最新的c-lodop技术手册。<br>
+<hr>
+<span style="color:blue">如何打印pdf文件（回答3）</span><br>
+参考 http://localhost:8000/c_pdfprint<br>
+增加支持PDF文档格式打印功能,PDF来源可以是URL、本地路径和内容BASE64码三种方式，例如:<br>
+LODOP.ADD_PRINT_PDF(0,0,"100%","100%","http://localhost:8000/CLodopDemos/PDFDemo.pdf");<br>
+LODOP.ADD_PRINT_PDF(0,0,"100%","100%","C:\\demos\\PDFDemo.pdf");<br>
+<hr>
+<span style="color:blue">注册了域名顶级注册，还有pdf打印的弹窗提示</span><br>
+注册语句是否生效，直接打印是否去掉水印了。<br>
+发一下注册日期和收注册号邮箱或注册的域名，这边查一下是否是顶级注册。<br>
+<hr>
+<span style="color:blue">很久以前注册了域名，打印pdf提示需要顶级注册</span><br>
+发一下注册日期和收注册号邮箱，这边查一下是否是顶级注册。<br>
+<br>
+域名顶级是最近推出的，很久以前的域名都是高级注册。<br>
+那时候pdf功能属于未来功能，高级注册不支持未来功能。<br>
+<hr>
+<span style="color:blue">非本网站的https的pdf地址提示跨域错误怎么</span><br>
+1.下载pdf文件放到自己的域名下，访问同一个域名下的https的pdf地址。<br>
+2.百度下允许跨域等的方法，网站和pdf所在网站允许跨域试试。<br>
+3.用欢迎页面的后两种方式，下载到本地加载本地路径，或转成base64方法。<br>
+<hr>
+<span style="color:blue">已买高级注册，打印pdf文件，不顶级注册用不了吗</span><br>
+控件注册号 注意事项 最新价格表、购买方式和使用方法见(官网)：<br>
+http://www.c-lodop.com/Lodop_Lic.html<br>
+pdf打印去掉这个弹窗，需要顶级注册。域名顶级或公司名顶级。<br>
+<br>
+点确定可以继续使用，如果去掉这个pdf的弹窗需要顶级注册<br>
+<hr>
+<span style="color:blue">想打pdf，之前用的是插件方式，代码需要改吗</span><br>
+Lodop控件升级到C-Lodop云打印 参考http://www.c-lodop.com/faq/pp7.html<br>
+可以替换，参考这个链接，如果之前只用的lodop方式，代码大致相同，注意链接里的条目，c-lodop获取动作函数返回值需要回调函数<br>
+<hr>
+</div>
+<br>
+<div id="small">
+相关链接： <a href="../../miniQA/miniQA30.html" target="_blank"><span style="color:blue;">打印pdf文件【迷你】</span></a>、<br>
+<a href="./smallQA82.html" target="_blank"><span style="color:blue;">https的pdf地址跨域问题【小】</span></a>、<br>
+<a href="./smallQA54.html" target="_blank"><span style="color:blue;">PDF打印的缩放（图）【小】</span></a>、<br>
+<a href="./smallQA59.html" target="_blank"><span style="color:blue;">PDF欢迎页面三种方式【小、图】</span></a>、<br>
+<a href="./smallQA97.html" target="_blank"><span style="color:blue;">ADD_PRINT_PDF方法报错，提示该语句不是一个方法【小、图】</span></a>、<br>
+<a href="./smallQA104.html" target="_blank"><span style="color:blue;">升级顶级注册，公司名可补差价升级【小、图】</span></a>、<br>
+<a href="../../newblogs/newblog9.html" target="_blank"><span style="color:blue;">打印pdf文件不清晰【newblog】</span></a>、<br>
+</div>
+
+           </div>
+    </div><!--main_middle结束-->
+
+        <div class="box box_footer"><!--box_footer开始-->
+            <div class="footer">
+<p>lodop简短问答页面.</p>
+            </div>
+        </div><!--box_footer结束-->
+
+
+</div><!--body结束-->
+ </body>
+</html>

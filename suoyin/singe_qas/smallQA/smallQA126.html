@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>纯文本折行（未超过打印项宽度换行）</title>
+ </head>
+ <body>
+ <style>
+ body{margin:0px;}
+.body {width:100%;}
+a{text-decoration:none;color:black;}
+h1{font-size:1.625em;}
+h2{font-size:1.375em;}
+/**.box{float:left;}**/
+.header_box {width:100%;}
+.header{padding:1%;
+background-color:#f1f1f1;}
+/**border:1px solid #e9e9e9;}**/
+
+.header_bottom{width:100%;}
+.menuitem {
+    margin-top:0;
+    margin-left:0;
+    margin-bottom:0;
+    padding:1%;
+    border-bottom:1px solid #e9e9e9;
+    cursor:pointer;
+}
+
+.main {padding:1%;}
+.main_middle { width:100%;}
+
+
+.box_footer {width:100%;margin-bottom:0;}
+.footer {
+    padding:1%;
+    text-align:center;
+    background-color:#f1f1f1;
+    font-size:0.625em;
+}
+#small{background:#cc99ff;border:#7f9db9 1px solid;padding:10px;font-size:15px; }
+#small hr{margin:10px;padding:0px;}
+
+@media only screen and (max-width: 500px) {
+    .menu_left{width:100%;}
+    .menuitem { margin:1%;padding:1%;}
+
+    .main_middle { width:100%;}
+    .main {padding:1%;}
+
+    .box_right {width:100%;}
+    .right { padding:1%;
+    }
+
+    .box { margin-right:0; float:left;}
+}
+
+</style>
+<div class="body"><!--body开始-->
+        <div class="box header_box"><!--header开始-->
+            <div class="header">
+                <h1>LODOP超简短问答-纯文本折行（未超过打印项宽度换行）</h1>
+            </div>
+        </div><!--header结束-->
+<div class="header_bottom"> 	
+		  <a href="../../phoneQA004.html"><div class="menuitem">lodop问答主页</div></a> 
+		  <a href="../../phoneQA_dange.html"><div class="menuitem"><span style="color:red;">问答主页（单个问答链接）</span></div></a>
+          <a href="../../mini_QAs.html"><div class="menuitem"><span style="color:#ff0099;">迷你一个问答</span></div></a> 
+		  <a href="../QA_singe28t.html"><div class="menuitem" style="background:#cc99ff;border:#7f9db9 1px solid;">参数含义单位等解释</span></a> 
+</div>
+        <div class="box main_middle"><!--main_middle开始-->
+            <div class="main">
+<h1>纯文本折行（未超过打印项宽度换行）</h1>
+<div id="small">
+<hr>
+以预览为准，打印设计是辅助设计的，以预览为准进行调整<br>
+<hr>
+<span style="color:blue">纯文本，未超过打印项宽度换行了（复制用解释）</span><br>
+以预览看到的折行测算为准。text对象的录入框有末尾空白，为了让多数情况下的录入界面折行与预览界面尽量一致（二者因为DPI不一样，是没法一致的），在打印折行测算时有一定余地，也就是余下的空间在单字符的1.2倍(字宽+字间距)左右就开始折了，这个误差值是固定的。考虑与历史版本程序的兼容性，目前这个地方不易改动。<br>
+<hr>
+<span style="color:blue">纯文本，未超过打印项宽度换行了</span><br>
+以预览为准，打印设计是辅助设计的，<br>
+打印预览和打印机分辨率有关，以预览为准进行调整<br>
+<hr>
+<span style="color:blue">设置了打印项宽度76mm，实际在70mm就折行了</span><br>
+以预览效果为准进行调整，预览是打印机的反显<br>
+<br>
+打印项宽度是打印设计文本框的宽度，打印设计和显示器有关，而打印预览和实际打印有关，根据打印预览进行调整，调整到合适的打印项宽度<br>
+<br>
+录入框是windows的显示状态，以预览为准，设计字体和显示器分辨率有关，预览和实际打印有关，以显示dpi换算出来的76mm，与预览有差距<br>
+<hr>
+<span style="color:blue">纯文本，未超过打印项宽度换行了，多出点</span><br>
+以预览为准进行调整，可以尝试比实际需要的打印项宽度多出5mm等。<br>
+<br>
+<span style="color:blue">差距例子：</span><br>
+LODOP.ADD_PRINT_TEXT("0mm","0mm","76mm","9mm","手工复制出来融合到页面程序中使用。但实际上无论是直接打印  444555555555555");<br>
+LODOP.SET_PRINT_STYLEA(0,"FontSize",8);<br>
+LODOP.SET_PRINT_STYLEA(0,"TextNeatRow",1);<br>
+<hr>
+
+</div>
+<p>&nbsp;</p>
+<div id="small">
+&nbsp;
+
+</div>
+
+
+
+
+<br>
+           </div>
+    </div><!--main_middle结束-->
+
+        <div class="box box_footer"><!--box_footer开始-->
+            <div class="footer">
+<p>lodop简短问答页面.</p>
+            </div>
+        </div><!--box_footer结束-->
+
+
+</div><!--body结束-->
+ </body>
+</html>
