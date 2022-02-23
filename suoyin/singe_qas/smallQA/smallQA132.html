@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>安全https的c-lodop证书8443 漏洞,CVE-2016-2183(SSL/TLS)漏洞</title>
+ </head>
+ <body>
+ <style>
+ body{margin:0px;}
+.body {width:100%;}
+a{text-decoration:none;color:black;}
+h1{font-size:1.625em;}
+h2{font-size:1.375em;}
+/**.box{float:left;}**/
+.header_box {width:100%;}
+.header{padding:1%;
+background-color:#f1f1f1;}
+/**border:1px solid #e9e9e9;}**/
+
+.header_bottom{width:100%;}
+.menuitem {
+    margin-top:0;
+    margin-left:0;
+    margin-bottom:0;
+    padding:1%;
+    border-bottom:1px solid #e9e9e9;
+    cursor:pointer;
+}
+
+.main {padding:1%;}
+.main_middle { width:100%;}
+
+/**渐变等背景色**/
+.Jpink{background-image: linear-gradient(to right,#ffff66, #ffffcc);border:#ffff33 1px solid;}
+
+
+.box_footer {width:100%;margin-bottom:0;}
+.footer {
+    padding:1%;
+    text-align:center;
+    background-color:#f1f1f1;
+    font-size:0.625em;
+}
+#small{background-image: linear-gradient(to right,#ffff66, #ffffcc);border:#ffff33 1px solid;padding:10px;font-size:15px; }
+#small hr{margin:10px;padding:0px;}
+
+@media only screen and (max-width: 500px) {
+    .menu_left{width:100%;}
+    .menuitem { margin:1%;padding:1%;}
+
+    .main_middle { width:100%;}
+    .main {padding:1%;}
+
+    .box_right {width:100%;}
+    .right { padding:1%;
+    }
+
+    .box { margin-right:0; float:left;}
+}
+
+</style>
+<div class="body"><!--body开始-->
+        <div class="box header_box"><!--header开始-->
+            <div class="header">
+                <h1>LODOP超简短问答-安全https的c-lodop证书8443 漏洞,CVE-2016-2183(SSL/TLS)漏洞</h1>
+            </div>
+        </div><!--header结束-->
+<div class="header_bottom"> 	
+		  <a href="../../phoneQA004.html"><div class="menuitem">lodop问答主页</div></a> 
+		  <a href="../../phoneQA_dange.html"><div class="menuitem"><span style="color:red;">问答主页（单个问答链接）</span></div></a>
+          <a href="../../mini_QAs.html"><div class="menuitem"><span style="color:#ff0099;">迷你一个问答</span></div></a> 
+		  <a href="../QA_singe35t.html"><div class="menuitem Jpink">各种提示【部分是迷你问答的】</span></a> 
+</div>
+        <div class="box main_middle"><!--main_middle开始-->
+            <div class="main">
+<h1>安全https的c-lodop证书8443 漏洞,CVE-2016-2183(SSL/TLS)漏洞</h1>
+<div id="small">
+<span style="color:blue">该问题标准回复</span><br>
+C-Lodop4.100版(相对4.0)有一次针对SSL安全等级的版本调整，通过升级最新Socket组件(indy10)实现的，后面的版本没有再调整。注意C-Lodop针对SSL安全或web安全采用的是平衡策略，也就是在兼容性和安全性之间寻找一个最佳点，并不特别追求安全等级，原因之一是因为安全性是损坏通用性为代价的，设置太高的安全等级会让大量浏览器版本无法使用；原因之二是因为C-Lodop的功能是固化（功能主要是打印输出；弹出一个设计或预览窗口）的，很多所谓漏洞概念在固化功能面前毫无意义。<br>
+<hr>
+<span style="color:blue">demo.lodop.net在线解析查看</span><br>
+https://myssl.com/demo.lodop.net?domain=demo.lodop.net&status=success&port=8443<br>
+<hr>
+<span style="color:blue">解释该漏洞</span><br>
+安装最新版c-lodop,http://www.c-lodop.com/download.html<br>
+<br>
+这个不会对实际应用有影响，c-lodop只能是这样，需要兼容过多的ssl版本，需要支持几个低版本的ssl。<br>
+<hr>
+<span style="color:blue">测试安全级别降级的原因</span><br>
+4. 因为使用RC4密码套件，降级为B<br>
+<br>
+IE 6 / XP   No FS1  No SNI2	RSA(SHA256)	SSLv3	TLS_RSA_WITH_RC4_128_MD5    RC4<br>
+<br>
+IE 8 / XP   No FS1  No SNI2	RSA(SHA256)	TLSv1.0	TLS_RSA_WITH_RC4_128_MD5    RC4<br>
+<br>
+<img src="./smallQA_images/sm132.png"><br>
+<br>
+<img src="./smallQA_images/sm132_2.png"><br>
+<hr>
+<span style="color:blue">具体错误：该组件存在目标服务支持SSL中等强度加密算法漏洞(CVE-2016-2183)，SSL/TLS协议信息泄露漏洞(CVE-2016-2183)，SSL/TLS RC4 信息泄露漏洞(CVE-2013-2566)，服务器支持 TLS Client-initiated 重协商攻击(CVE-2011-1473)，SSL/TLS 受诫礼(BAR-MITZVAH)攻击漏洞(CVE-2015-2808)，OpenSSL SSLv2 协议"Drown"漏洞(CVE-2016-0800)等中高危漏洞。</span><br>
+<hr>
+<span style="color:blue">其他安装策略</span><br>
+关于C-Lodop安全策略及相关设置，参考http://www.mtsoftware.cn/blogs/Blog025.html<br>
+<hr>
+
+
+</div>
+<br>
+           </div>
+    </div><!--main_middle结束-->
+
+        <div class="box box_footer"><!--box_footer开始-->
+            <div class="footer">
+<p>lodop简短问答页面.</p>
+            </div>
+        </div><!--box_footer结束-->
+
+
+</div><!--body结束-->
+ </body>
+</html>

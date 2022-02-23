@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>缩放pdf打印项</title>
+ </head>
+ <body>
+ <style>
+ body{margin:0px;}
+.body {width:100%;}
+a{text-decoration:none;color:black;}
+h1{font-size:1.625em;}
+h2{font-size:1.375em;}
+/**.box{float:left;}**/
+.header_box {width:100%;}
+.header{padding:1%;
+background-color:#f1f1f1;}
+/**border:1px solid #e9e9e9;}**/
+
+.header_bottom{width:100%;}
+.menuitem {
+    margin-top:0;
+    margin-left:0;
+    margin-bottom:0;
+    padding:1%;
+    border-bottom:1px solid #e9e9e9;
+    cursor:pointer;
+}
+
+.main {padding:1%;}
+.main_middle { width:100%;}
+
+
+.box_footer {width:100%;margin-bottom:0;}
+.footer {
+    padding:1%;
+    text-align:center;
+    background-color:#f1f1f1;
+    font-size:0.625em;
+}
+#small{background:#febaab;border:#7f9db9 1px solid;padding:10px;font-size:15px; }
+#small hr{margin:10px;padding:0px;}
+
+@media only screen and (max-width: 500px) {
+    .menu_left{width:100%;}
+    .menuitem { margin:1%;padding:1%;}
+
+    .main_middle { width:100%;}
+    .main {padding:1%;}
+
+    .box_right {width:100%;}
+    .right { padding:1%;
+    }
+
+    .box { margin-right:0; float:left;}
+}
+
+</style>
+<div class="body"><!--body开始-->
+        <div class="box header_box"><!--header开始-->
+            <div class="header">
+                <h1>LODOP超简短问答-缩放pdf打印项</h1>
+            </div>
+        </div><!--header结束-->
+<div class="header_bottom"> 	
+		  <a href="../../phoneQA004.html"><div class="menuitem">lodop问答主页</div></a> 
+		  <a href="../../phoneQA_dange.html"><div class="menuitem"><span style="color:red;">返回问答主页（单个问答链接）</span></div></a>
+          <a href="../../mini_QAs.html"><div class="menuitem"><span style="color:#ff0099;">返回迷你一个问答</span></div></a> 
+		  <a href="../QA_singe31t.html"><div class="menuitem" style="background:#febaab;border:#7f9db9 1px solid;">如何实现某功能语句</span></a> 
+</div>
+        <div class="box main_middle"><!--main_middle开始-->
+            <div class="main">
+<h1>缩放pdf打印项</h1>
+<div id="small">
+<span style="color:blue">打印项宽高100%改成80%无效，如何缩放pdf,不占满纸张,</span><br>
+可以缩放pdf文件，pdf的宽高参数设置无效。<br>
+<img src="./smallQA_images/sm138pdf.png"><br>
+选中打印项，右键属性里可以缩放打印项。<br>
+<br>
+例如，缩放c-lodop欢迎页面自带的这个例子：<br>
+LODOP.ADD_PRINT_PDF(10,10,634,300,"http://localhost:8000/CLodopDemos/PDFDemo.pdf");<br>
+LODOP.SET_PRINT_STYLEA(0,"ScalX",0.5);<br>
+LODOP.SET_PRINT_STYLEA(0,"ScalY",0.5);<br>
+<hr>
+<span style="color:blue">可以缩放pdf吗</span><br>
+<img src="./smallQA_images/sm138pdf.png"><br>
+选中打印项，右键属性里可以缩放打印项。<br>
+<img src="./smallQA_images/PDFsf.png"><br>
+pdf本身也有缩放类型，默认是缩小大页面<br>
+<hr>
+<span style="color:blue">可以代码控制pdf缩放吗</span><br>
+可以代码控制，打印设计生成代码，或参考c-lodop技术手册http://www.c-lodop.com/download.html，写语句参数<br>
+<hr>
+<span style="color:blue">pdf自带的缩放类型</span><br>
+LODOP.SET_PRINT_STYLEA(0,"PDFScalMode",1);//实际大小<br>
+LODOP.SET_PRINT_STYLEA(0,"PDFScalMode",2);//适合纸张<br>
+lodop自带的三种缩放模式，默认缩小大页面。<br>
+<hr>
+
+
+
+
+</div>
+<p></p>
+<div id="small">
+相关链接： <a href="./smallQA122.html" target="_blank"><span style="color:blue;">如何打印pdf及相关</span></a>、<br>
+</div>
+
+<br>
+           </div>
+    </div><!--main_middle结束-->
+
+        <div class="box box_footer"><!--box_footer开始-->
+            <div class="footer">
+<p>lodop简短问答页面.</p>
+            </div>
+        </div><!--box_footer结束-->
+
+
+</div><!--body结束-->
+ </body>
+</html>

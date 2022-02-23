@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>sVue中使用lodop</title>
+ </head>
+ <body>
+ <style>
+ body{margin:0px;}
+.body {width:100%;}
+a{text-decoration:none;color:black;}
+h1{font-size:1.625em;}
+h2{font-size:1.375em;}
+/**.box{float:left;}**/
+.header_box {width:100%;}
+.header{padding:1%;
+background-color:#f1f1f1;}
+/**border:1px solid #e9e9e9;}**/
+
+.header_bottom{width:100%;}
+.menuitem {
+    margin-top:0;
+    margin-left:0;
+    margin-bottom:0;
+    padding:1%;
+    border-bottom:1px solid #e9e9e9;
+    cursor:pointer;
+}
+
+.main {padding:1%;}
+.main_middle { width:100%;}
+
+
+.box_footer {width:100%;margin-bottom:0;}
+.footer {
+    padding:1%;
+    text-align:center;
+    background-color:#f1f1f1;
+    font-size:0.625em;
+}
+#small{background:#ffccff;border:#7f9db9 1px solid;padding:10px;font-size:15px; }
+#small hr{margin:10px;padding:0px;}
+
+@media only screen and (max-width: 500px) {
+    .menu_left{width:100%;}
+    .menuitem { margin:1%;padding:1%;}
+
+    .main_middle { width:100%;}
+    .main {padding:1%;}
+
+    .box_right {width:100%;}
+    .right { padding:1%;
+    }
+
+    .box { margin-right:0; float:left;}
+}
+
+</style>
+<div class="body"><!--body开始-->
+        <div class="box header_box"><!--header开始-->
+            <div class="header">
+                <h1>LODOP超简短问答-vue中使用lodop</h1>
+            </div>
+        </div><!--header结束-->
+<div class="header_bottom"> 	
+		  <a href="../../phoneQA004.html"><div class="menuitem">lodop问答主页</div></a> 
+		  <a href="../../phoneQA_dange.html"><div class="menuitem"><span style="color:red;">问答主页（单个问答链接）</span></div></a>
+          <a href="../../mini_QAs.html"><div class="menuitem"><span style="color:#ff0099;">迷你一个问答</span></div></a> 
+		  <a href="../QA_singe27t.html"><div class="menuitem" style="background:#ffccff;border:#7f9db9 1px solid;">使用方法点击到关键词</span></a> 
+</div>
+
+        <div class="box main_middle"><!--main_middle开始-->
+            <div class="main">
+<h1>vue中使用lodop</h1>
+<div id="small">
+<span style="color:blue">vue中如何使用lodop</span><br>
+vue中使用Lodop，参考http://www.c-lodop.com/faq/pp35.html<br>
+<br>
+vue中如何使用Lodop打印，其他客户的经验，参考<br>：https://www.yuque.com/docs/share/bdd26152-e1ef-4ed3-b536-8234fcb4df68<br>
+<hr>
+<span style="color:blue">vue中如何使用lodop（常见问答原文）</span><br>
+ <b>1</b> 把官方提供的LodopFuncs.js文件保存到某个目录下，<br>
+ 如myProject\src\assets\LodopFuncs.js。<br><br>
+<b>2</b> 修改LodopFuncs.js文件, 在文件最底部添加一行代码<br>
+<font color='#0000FF'> export { getLodop }; //导出getLodop <br> </font> 
+    把该文件中的getLodop函数 export 出来。<br><br>
+
+<b>3</b> 在打印事件处理函数所在文件里 import 该 module<br>
+在打印事件函数中调用getLodop获取LODOP对象变量，<br>
+按照官方教程书写自己的打印函数，通过 PRINT、PREVIEW、PRINT_DESIGN进行输出。<br>
+  如下代码所示 myProject\src\components\Print.vue<br><br>
+<font color='#0000FF'> &lt;template><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;div class="Print"><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;button class="print-btn" v-on:click="btnClickPrint"><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;span>{{msg}}&lt;/span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/button><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;/div><br>
+&lt;/template><br>
+
+&lt;script><br>
+import { getLodop } from '../assets/LodopFuncs' //导入模块<br>
+export default {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;name: 'Print',<br>
+&nbsp;&nbsp;&nbsp;&nbsp;data () {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;msg: '点击按钮打印'<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;},<br>
+methods: {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;btnClickPrint: function () {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;let LODOP = getLodop()//调用getLodop获取LODOP对象<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;LODOP.PRINT_INIT("")<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;LODOP.ADD_PRINT_TEXT(50, 231, 260, 39, "打印内容")<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;LODOP.PREVIEW()<br>
+ &nbsp;&nbsp;&nbsp;&nbsp;  &nbsp;&nbsp;&nbsp;&nbsp;    }<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;  }<br>
+&nbsp;&nbsp;}<br>
+&lt;/script><br>	</font> <br>
+<hr>
+<span style="color:blue">vue中使用lodop（客户经验原文）</span><br>
+一、复制LodopFuncs.js到vue项目里<br>
+比如复制到src/plugins文件夹下<br>
+<img src="./smallQA_images/vue1.png"><br>
+二、修改LodopFuncs.js文件, 在文件最底部添加一行代码<br>
+<div class="cnblogs_code">
+<pre><span style="color: #008000;">//</span><span style="color: #008000;">导出getLodop</span>
+<span style="color: #000000;">export {
+    getLodop
+}</span></pre>
+</div>
+
+
+
+
+
+三、使用方法<br>
+方法1、vue组件里直接引用<br>
+<div class="cnblogs_code">
+<p>&lt;template&gt;<br />  &lt;div class="Print"&gt;<br />    &lt;el-button type="primary" @click="btnClickPrint"&gt;{{msg}}&lt;/el-button&gt;<br />  &lt;/div&gt;<br />&lt;/template&gt;</p>
+<p>&lt;script&gt;<br />import { getLodop } from '@/plugins/LodopFuncs.js' //导入模块<br />export default {<br />  data() {<br />    return {<br />      msg: '点击按钮打印'<br />    }<br />  },<br />  methods: {<br />    //   打印逻辑<br />    btnClickPrint() {<br />      let LODOP = getLodop()//调用getLodop获取LODOP对象<br />      LODOP.PRINT_INIT("")<br />      LODOP.ADD_PRINT_TEXT(50, 231, 260, 39, "打印内容")<br />      LODOP.PREVIEW()<br />    }<br />  }<br />}<br />&lt;/script&gt;</p>
+</div>
+方法2、新建lodopPrint.js文件，在js文件里封装好打印函数<br>
+<img src="./smallQA_images/vue2.png"><br>
+vue组件里去调用封装函数<br>
+<div class="cnblogs_code">
+<p>&lt;template&gt;<br />  &lt;div class="Print"&gt;<br />    &lt;el-button type="primary" @click="btnClickPrint"&gt;{{msg}}&lt;/el-button&gt;<br />  &lt;/div&gt;<br />&lt;/template&gt;</p>
+<p>&lt;script&gt;<br />import { printAftersalePartsOne } from '@/utils/lodopPrint.js'<br />export default {<br />  data() {<br />    return {<br />      msg: '点击按钮打印'<br />    },<br />      val:{<br />        address:'地址信息XXXX',<br />        partinfo:'物品信息XXXXX'  <br />    }<br />  },<br />  methods: {<br />    //   打印逻辑<br />    btnClickPrint() {<br />      printAftersalePartsOne(this.val)<br />    }<br />  }<br />}<br />&lt;/script&gt;</p>
+
+</div><br>
+附：lodopPrint.js文件<br>
+<div class="cnblogs_code">
+<pre>import { getLodop } from '@/plugins/LodopFuncs.js' <span style="color: #008000;">//</span><span style="color: #008000;">导入lodop getLodop函数模块</span>
+import dayjs from "dayjs" <span style="color: #008000;">//</span><span style="color: #008000;">日期格式化插件</span><span style="color: #008000;">
+//</span><span style="color: #008000;">引入store</span>
+import store from '@/store/index.js'<span style="color: #000000;">
+const nowtime </span>= dayjs().format('YYYY-MM-DD HH:mm:ss'<span style="color: #000000;">)
+const user </span>=<span style="color: #000000;"> store.state.common.user.name
+</span><span style="color: #008000;">/*</span><span style="color: #008000;">*
+ * 售后管理
+ </span><span style="color: #008000;">*/</span>
+
+<span style="color: #008000;">//</span><span style="color: #008000;"> 售后配件登记打印模版</span>
+export <span style="color: #0000ff;">function</span><span style="color: #000000;"> printAftersalePartsOne(p) {
+    LODOP </span>=<span style="color: #000000;"> getLodop();
+
+    LODOP.PRINT_INITA(</span>"0mm", "0mm", "100.01mm", "70.01mm", "诚迅办公系统售后配件登记打印作业"<span style="color: #000000;">);
+    LODOP.SET_PRINT_PAGESIZE(</span>1, 1000, 700, "CreateCustomPage"<span style="color: #000000;">);
+    LODOP.ADD_PRINT_TEXT(</span>"3.94mm", "3.97mm", "24.92mm", "5.77mm", "收货信息"<span style="color: #000000;">);
+    LODOP.SET_PRINT_STYLEA(</span>0, "FontSize", 12<span style="color: #000000;">);
+    LODOP.SET_PRINT_STYLEA(</span>0, "Bold", 1<span style="color: #000000;">);
+    LODOP.ADD_PRINT_TEXT(</span>"9.53mm", "3.97mm", "43.66mm", "26.46mm"<span style="color: #000000;">, p.address);
+    LODOP.SET_PRINT_STYLEA(</span>0, "FontSize", 10<span style="color: #000000;">);
+    LODOP.ADD_PRINT_RECT(</span>5, 5, 360, 247, 2, 1<span style="color: #000000;">);
+    LODOP.SET_PRINT_STYLEA(</span>0, "Horient", 2<span style="color: #000000;">);
+    LODOP.SET_PRINT_STYLEA(</span>0, "Vorient", 2<span style="color: #000000;">);
+    LODOP.ADD_PRINT_TEXT(</span>"4.23mm", "53.45mm", "18.52mm", "5.29mm", "物品"<span style="color: #000000;">);
+    LODOP.SET_PRINT_STYLEA(</span>0, "FontSize", 12<span style="color: #000000;">);
+    LODOP.SET_PRINT_STYLEA(</span>0, "Bold", 1<span style="color: #000000;">);
+    LODOP.ADD_PRINT_TEXT(</span>"9.53mm", "53.45mm", "39.69mm", "23.81mm"<span style="color: #000000;">, p.partinfo);
+    LODOP.SET_PRINT_STYLEA(</span>0, "FontSize", 10<span style="color: #000000;">);
+    LODOP.ADD_PRINT_LINE(</span>149, "50.01mm", "2.33mm", 190, 2, 1<span style="color: #000000;">);
+    LODOP.SET_PRINT_STYLEA(</span>0, "Horient", 2<span style="color: #000000;">);
+    LODOP.ADD_PRINT_LINE(</span>149, 9, 150, 369, 2, 1<span style="color: #000000;">);
+    LODOP.ADD_PRINT_LINE(</span>"58.74mm", "2.38mm", "59.03mm", "97.68mm", 2, 1<span style="color: #000000;">);
+    LODOP.ADD_PRINT_TEXT(</span>"40.98mm", "3.97mm", "19.63mm", "7.09mm", "备注"<span style="color: #000000;">);
+    LODOP.SET_PRINT_STYLEA(</span>0, "FontSize", 12<span style="color: #000000;">);
+    LODOP.SET_PRINT_STYLEA(</span>0, "Bold", 1<span style="color: #000000;">);
+    LODOP.ADD_PRINT_TEXT(</span>"61.91mm", "3.97mm", "89.96mm", "3.97mm"<span style="color: #000000;">, `打印人：${user}，  打印时间：${nowtime}`);
+
+    </span><span style="color: #008000;">//</span><span style="color: #008000;"> LODOP.PRINT_DESIGN();</span>
+<span style="color: #000000;">    LODOP.PREVIEW()
+}</span></pre>
+</div>
+<hr>
+<p>&nbsp;</p>
+</div>
+           </div>
+    </div><!--main_middle结束-->
+
+        <div class="box box_footer"><!--box_footer开始-->
+            <div class="footer">
+<p>lodop简短问答页面.</p>
+            </div>
+        </div><!--box_footer结束-->
+
+
+</div><!--body结束-->
+ </body>
+</html>
