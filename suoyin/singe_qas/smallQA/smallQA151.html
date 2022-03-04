@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>如何旋转pdf打印项</title>
+ </head>
+ <body>
+ <style>
+ body{margin:0px;}
+.body {width:100%;}
+a{text-decoration:none;color:black;}
+h1{font-size:1.625em;}
+h2{font-size:1.375em;}
+/**.box{float:left;}**/
+.header_box {width:100%;}
+.header{padding:1%;
+background-color:#f1f1f1;}
+/**border:1px solid #e9e9e9;}**/
+
+.header_bottom{width:100%;}
+.menuitem {
+    margin-top:0;
+    margin-left:0;
+    margin-bottom:0;
+    padding:1%;
+    border-bottom:1px solid #e9e9e9;
+    cursor:pointer;
+}
+
+.main {padding:1%;}
+.main_middle { width:100%;}
+
+
+.box_footer {width:100%;margin-bottom:0;}
+.footer {
+    padding:1%;
+    text-align:center;
+    background-color:#f1f1f1;
+    font-size:0.625em;
+}
+#small{background:#febaab;border:#7f9db9 1px solid;padding:10px;font-size:15px; }
+#small hr{margin:10px;padding:0px;}
+
+@media only screen and (max-width: 500px) {
+    .menu_left{width:100%;}
+    .menuitem { margin:1%;padding:1%;}
+
+    .main_middle { width:100%;}
+    .main {padding:1%;}
+
+    .box_right {width:100%;}
+    .right { padding:1%;
+    }
+
+    .box { margin-right:0; float:left;}
+}
+
+</style>
+<div class="body"><!--body开始-->
+        <div class="box header_box"><!--header开始-->
+            <div class="header">
+                <h1>LODOP超简短问答-如何旋转pdf打印项</h1>
+            </div>
+        </div><!--header结束-->
+<div class="header_bottom"> 	
+		  <a href="../../phoneQA004.html"><div class="menuitem">lodop问答主页</div></a> 
+		  <a href="../../phoneQA_dange.html"><div class="menuitem"><span style="color:red;">返回问答主页（单个问答链接）</span></div></a>
+          <a href="../../mini_QAs.html"><div class="menuitem"><span style="color:#ff0099;">返回迷你一个问答</span></div></a> 
+		  <a href="../QA_singe31t.html"><div class="menuitem" style="background:#febaab;border:#7f9db9 1px solid;">如何实现某功能语句</span></a> 
+</div>
+        <div class="box main_middle"><!--main_middle开始-->
+            <div class="main">
+<h1>如何旋转pdf打印项</h1>
+<div id="small">
+<span style="color:blue">如何旋转pdf打印项,</span><br>
+旋转，参考http://www.c-lodop.com/faq/pp25.html<br>
+<br>
+是想旋转90度，想内容横向打印吗<br>
+<br>
+如果是旋转90度可以用内容横向，<br>
+参考http://www.c-lodop.com/blogs/Blog010.html<br>
+注意这里的横向纵向指的是内容的方向，不是纸张的方向。<br>
+<br>
+单个打印项旋转，需要旋转的pdf加上旋转<br>
+参考http://localhost:8000/c_pdfprint<br>
+例如：LODOP.SET_PRINT_STYLEA(0,"Angle",-35);<br>
+加在pdf打印项后面，可以旋转该pdf打印项<br>
+<hr>
+<span style="color:blue">pdf旋转 + 满页打印,怎么设置</span><br>
+LODOP.SET_PRINT_STYLEA(0,"PDFScalMode",2);//适合纸张
+如果是旋转90度可以用内容横向，<br>
+参考http://www.c-lodop.com/blogs/Blog010.html<br>
+<br>
+例如：<br>
+LODOP.SET_PRINT_PAGESIZE(2,0,0,"A4");<br>
+LODOP.ADD_PRINT_PDF(0,0,"100%","100%",strURLorContent);<br>
+LODOP.SET_PRINT_STYLEA(0,"PDFScalMode",2);<br>
+<hr>
+<span style="color:blue">pdf打印，内容横向</span><br>
+1.纸张设置横向或纵向输出，实现内容90旋转，参考样例5 纸张设置，<br>
+例如：LODOP.SET_PRINT_PAGESIZE(2,0,0,"A4");<br>
+纸张语句第一个参数设置2，是内容横向<br>
+<br>
+参考http://www.c-lodop.com/blogs/Blog010.html<br>
+注意这里的横向纵向指的是内容的方向，不是纸张的方向。<br>
+设置为2后，内容会变为横向，效果是旋转90度<br>
+<br>
+这个A4纸张是个例子，纸张设置，参考样例5 http://www.c-lodop.com/demolist/PrintSample5.html<br>
+参考样例5的步骤1，可以尝试自定义纸张宽高，右键查看源码，纸张名称也可以设置为空值<br>
+<hr>
+<span style="color:blue">不支持一份pdf的某页内容旋转打印</span><br>
+如果是一份多页pdf中的某页旋转，不支持。<br>
+pdf打印项旋转，或该任务横向旋转<br>
+<br>
+参考http://www.c-lodop.com/faq/pp25.html<br>
+是旋转90度吗<br>
+1.纸张设置横向或纵向输出，实现内容90旋转，参考样例5 纸张设置，<br>
+例如：LODOP.SET_PRINT_PAGESIZE(2,0,0,"A4");<br>
+纸张语句第一个参数设置2，是内容横向<br>
+<br>
+这一份多页pdf，是一个pdf打印项吗，不支持对打印项内容中某页修改<br>
+<br>
+如果是一个pdf打印项，不支持修改某页旋转。<br>
+如果是多个pdf打印项，可以旋转某个pdf打印项<br>
+<br>
+一个pdf打印项，不支持修改某个pdf某页旋转<br>
+<hr>
+<span style="color:blue">横向纵向方法，可以只旋转某一页吗</span><br>
+打印一个任务的第几页到第几页，参考例如：<br>
+LODOP.SET_PRINT_MODE ("PRINT_START_PAGE",2);//设置从第2页开始打印<br>
+LODOP.SET_PRINT_MODE ("PRINT_END_PAGE",3);//设置从第3页结束打印<br>
+该pdf是多页打印项，在一个任务里输出，可以输出该任务的某些页数。<br>
+<br>
+LODOP.SET_PRINT_PAGESIZE(2<br>
+如果是用的内容横向这个，是整个任务的。<br>
+如果是设置某个打印项旋转，该整个pdf打印项都旋转，如果该pdf打印项是多页的，该pdf打印项所有页数都旋转。<br>
+<hr>
+<span style="color:blue">不支持旋转pdf打印项中的某一页</span><br>
+不支持对一个pdf打印项的某页旋转。<br>
+旋转只能针对整个任务，或一个打印项<br>
+<hr>
+<span style="color:blue">一个任务多个pdf，旋转某个pdf</span><br>
+多个pdf，可以分成多任务，批量打印，参考样例26，http://www.c-lodop.com/demolist/PrintSample26.html，每个任务设置不同方向<br>
+<br>
+或设置单个打印项旋转，需要旋转的pdf加上旋转<br>
+参考http://localhost:8000/c_pdfprint<br>
+例如：LODOP.SET_PRINT_STYLEA(0,"Angle",-35);<br>
+加在pdf打印项后面，可以旋转该pdf打印项<br>
+或分成多任务，用内容横向。<br>
+<br>
+LODOP.SET_PRINT_STYLEA(0,"Angle",90);<br>
+这个是针对打印项旋转的，注意不要旋转出纸张<br>
+<hr>
+<span style="color:blue">旋转某个pdf打印项,SET_PRINT_STYLEA(0写在哪里</span><br>
+参考技术手册http://www.c-lodop.com/download.html SET_PRINT_STYLEA篇，第一个参数，0代表紧跟着的上一个打印项，直接加在该打印项语句后面。<br>
+需要旋转的打印项后面添加旋转语句<br>
+<hr>
+<span style="color:blue">一个任务只能设置一次方向</span><br>
+如果要用纸张语句里的横向纵向，纸张的第一个参数是方向。<br>
+一个任务只能设置一次方向，只能分成不同的任务<br>
+<br>
+一个任务只能设置一次方向，只能分成不同的任务<br>
+init或inita初始化到print是一个任务，一个任务只能设置一次纸张，一次方向<br>
+<br>
+分成不同任务，参考样例26，http://www.c-lodop.com/demolist/PrintSample26.html<br>
+<br>
+init或inita初始化到print是一个任务，一个任务只能设置一次纸张，一个方向<br>
+不同方向的，可设置不同的任务<br>
+<br>
+不同任务，每个任务可以设置不同的SET_PRINT_PAGESIZE里的方向。<br>
+<br>
+</div>
+<p></p>
+<div id="small">
+相关链接： <a href="./smallQA122.html" target="_blank"><span style="color:blue;">如何打印pdf及相关</span></a>、<br>
+</div>
+
+<br>
+           </div>
+    </div><!--main_middle结束-->
+
+        <div class="box box_footer"><!--box_footer开始-->
+            <div class="footer">
+<p>lodop简短问答页面.</p>
+            </div>
+        </div><!--box_footer结束-->
+
+
+</div><!--body结束-->
+ </body>
+</html>

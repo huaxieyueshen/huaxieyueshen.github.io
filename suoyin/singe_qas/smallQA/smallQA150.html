@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>s不支持自动判断设置pdf旋转横向纵向</title>
+ </head>
+ <body>
+ <style>
+ body{margin:0px;}
+.body {width:100%;}
+a{text-decoration:none;color:black;}
+h1{font-size:1.625em;}
+h2{font-size:1.375em;}
+/**.box{float:left;}**/
+.header_box {width:100%;}
+.header{padding:1%;
+background-color:#f1f1f1;}
+/**border:1px solid #e9e9e9;}**/
+
+.header_bottom{width:100%;}
+.menuitem {
+    margin-top:0;
+    margin-left:0;
+    margin-bottom:0;
+    padding:1%;
+    border-bottom:1px solid #e9e9e9;
+    cursor:pointer;
+}
+
+.main {padding:1%;}
+.main_middle { width:100%;}
+
+
+.box_footer {width:100%;margin-bottom:0;}
+.footer {
+    padding:1%;
+    text-align:center;
+    background-color:#f1f1f1;
+    font-size:0.625em;
+}
+#small{background:#d8b1b1;border:#7f9db9 1px solid;padding:10px;font-size:15px; }
+#small hr{margin:10px;padding:0px;}
+
+@media only screen and (max-width: 500px) {
+    .menu_left{width:100%;}
+    .menuitem { margin:1%;padding:1%;}
+
+    .main_middle { width:100%;}
+    .main {padding:1%;}
+
+    .box_right {width:100%;}
+    .right { padding:1%;
+    }
+
+    .box { margin-right:0; float:left;}
+}
+
+</style>
+<div class="body"><!--body开始-->
+        <div class="box header_box"><!--header开始-->
+            <div class="header">
+                <h1>LODOP超简短问答-不支持自动判断设置pdf旋转横向纵向</h1>
+            </div>
+        </div><!--header结束-->
+<div class="header_bottom"> 	
+		  <a href="../../phoneQA004.html"><div class="menuitem">lodop问答主页</div></a> 
+		  <a href="../../phoneQA_dange.html"><div class="menuitem"><span style="color:red;">问答主页（单个问答链接）</span></div></a>
+          <a href="../../mini_QAs.html"><div class="menuitem"><span style="color:#ff0099;">迷你一个问答</span></div></a> 
+		  <a href="../QA_singe33t.html"><div class="menuitem" style="background:#d8b1b1;border:#7f9db9 1px solid;">不支持的功能等</span></a> 
+</div>
+        <div class="box main_middle"><!--main_middle开始-->
+            <div class="main">
+<h1>不支持自动判断设置pdf旋转横向纵向</h1>
+<div id="small">
+<span style="color:blue">打印多种pdf，可以自动判断并转换pdf方向吗</span><br>
+不支持自动判断哪些pdf需要横向和纵向，c-lodop默认输出的是pdf的原始方向，<br>
+如果需要某种pdf旋转，需要自己处理，代码里设置横向或纵向或旋转<br>
+<br>
+或预览里切换横纵向，或让客户自己旋转该pdf横打还是纵打。
+<hr>
+<span style="color:blue">纸张是A4纸张，如何设置不同pdf自动横打或纵打到该纸张大小</span><br>
+LODOP.SET_PRINT_PAGESIZE(2,0,0,"A4");或LODOP.SET_PRINT_PAGESIZE(1,0,0,"A4");<br>
+在A4纸张中，默认缩小大页面，是在纸张范围内<br>
+<br>
+不支持自动判断哪些pdf需要横向和纵向，c-lodop默认输出的是pdf的原始方向，<br>
+如果需要某种pdf旋转，需要自己处理，代码里设置横向或纵向或旋转<br>
+<hr>
+<span style="color:blue">后端区分，自己设置哪些横向，纵向</span><br>
+不支持自动判断横向纵向，需要自己设置<br>
+或在后端区分下，不同的单据，哪些单据的需要横向，设置横向，不需要设置纵向<br>
+<br>
+针对某种类型的pdf，例如某种单据，在后端区分下，该种单据都用横向或纵向<br>
+<br>
+一个任务只能设置一次方向，只能分成不同的任务<br>
+init或inita初始化到print是一个任务，一个任务只能设置一次纸张，一次方向<br>
+不同任务，每个任务可以设置不同的SET_PRINT_PAGESIZE里的方向。<br>
+<hr>
+<span style="color:blue">如何设置pdf横向输出，还是纵向输出</span><br>
+如果每次都需要改打印内容的方向，可以尝试直接在代码里设置横向纵向<br>
+横向纵向 参考http://www.c-lodop.com/blogs/Blog010.html<br>
+设置打印方向，参考样例5 http://www.c-lodop.com/demolist/PrintSample5.html<br>
+<br>
+如果不确定客户需要内容横向打印，还是纵向打印。<br>
+或让客户选择，在预览的设置里切换横纵方向。<br>
+纸张语句的横向纵向用变量控制，让用户自己选择，<br>
+如果是预览，也可以让用户在预览里根据自己的需要重选方向<br>
+LODOP.SET_PRINT_MODE("RESELECT_ORIENT",true);让用户选择打印方向。<br>
+<br>
+不经过预览，可以直接在代码里语句控制，横向纵向。<br>
+<hr>
+<span style="color:blue">后端传来pdf，不确定是要横向还是纵向打印，怎么处理</span><br>
+需要确定需要内容是横向还是纵向的。<br>
+直接打印不预览，没有很好的办法，或在后端生成时，分为需要横向的，不需要横向。在后端区分下。<br>
+<br>
+没有办法提前知道需要设置横向或纵向。<br>
+如果代码不设置，会根据优先级走。<br>
+或预览后打印，让客户在预览里切换横纵向。<br>
+<br>
+横向纵向需要自己设置，或把横向纵向的选择交给客户设置。<br>
+不支持提前判断需要横向或纵向。<br>
+<br>
+不支持预先知道您想设置横向或纵向，<br>
+需要您预先知道您的内容需要设置横向，还是纵向。<br>
+无论是网页自带的打印还是word等，都需要您指定横向或纵向，lodop也无法提前知道您需要横向的效果，还是纵向的效果。<br>
+或用打印预览方式，根据预览效果，让客户自己调整方向。<br>
+<br>
+不支持lodop提前判断，没有软件可以在不知道打印内容的情况下，设置横向或纵向。即使是word或网页自带的打印，也有选择横向纵向的设置。<br>
+<br>
+后端把需要横打的模版，和纵打的模版区分下，分别输出，设置不同的方向。<br>
+或让客户自己预览效果，然后选择该文件横打还是纵打。<br>
+<hr>
+<span style="color:blue">如何自动判断旋转，不设置代码</span><br>
+需要横版还是纵版，是否旋转需要自己判断。<br>
+可根据不同的pdf类型设置不同的方法。<br>
+<br>
+不支持自动判断，只能自己处理。<br>
+例如两种单据，不同类型的pdf，不同模版。<br>
+或把是否横向纵向交给客户设置，预览选择方向<br>
+<br>
+直接打印，只能自己在程序里处理，例如在后端传入pdf时区分下。<br>
+不同类型的pdf，自己想办法设置旋转或不旋转，横向或纵向。<br>
+<br>
+<span style="color:blue">横版A3的pdf内容竖版打印缩放至A4纸张大小打印</span><br>
+设置纸张后，加载pdf打印项，pdf大于纸张，默认会缩小大页面，缩小到纸张范围内<br>
+<br>
+默认缩小大页面不会超出，布满可设置适合纸张<br>
+LODOP.SET_PRINT_STYLEA(0,"PDFScalMode",2);//适合纸张<br>
+<br>
+旋转，参考http://www.c-lodop.com/faq/pp25.html<br>
+设置横向纵向，或单独旋转pdf打印项<br>
+<br>
+发一下该A3的pdf文件，这边测试下是否可以缩放到A4纸张。<br>
+<br>
+LODOP.SET_PRINT_PAGESIZE(2,0,0,"A4");<br>
+可以设置横向，在A4纸张中，默认缩小大页面，是在纸张范围内<br>
+<br>
+根据不同的pdf类型，分成不同的模版，决定是否使用横向或旋转<br>
+<br>
+不同类型pdf，不同的任务，不同的方向<br>
+<br>
+如果您的纸张是固定的A4纸张，可以纸张用A4纸张，c-lodop输出的是pdf原始的方向<br>
+如果需要旋转，可以代码里修改成横向。<br>
+不支持自动判断哪些pdf需要横向或纵向。<br>
+不同类型的pdf文件可以当作不同的模版，用不同的任务，每个任务设置不同的方向<br>
+<br>
+支持自动判断哪些pdf需要横向和纵向，c-lodop输出原始方向，需要自己处理，设置横向或纵向<br>
+<br>
+不支持自动判断横向纵向，需要自己设置<br>
+<br>
+在后端区分下，不同的单据，哪些单据的需要横向，设置横向，不需要设置纵向<br>
+<br>
+LODOP.SET_PRINT_PAGESIZE(2,0,0,"A4");或LODOP.SET_PRINT_PAGESIZE(1,0,0,"A4");<br>
+您的纸张是A4的，如果要缩放到A4纸张，需要设置纸张为A4<br>
+<br>
+针对某种类型的pdf，例如某种单据，在后端区分下，该种单据都用横向或纵向<br>
+<br>
+不支持自动判断哪些pdf需要横向和纵向，c-lodop默认输出原始方向，<br>
+如果需要某种pdf旋转，需要自己处理，设置横向或纵向<br>
+<br>
+不支持自动设置横向或纵向<br>
+<hr>
+
+</div>
+           </div>
+    </div><!--main_middle结束-->
+
+        <div class="box box_footer"><!--box_footer开始-->
+            <div class="footer">
+<p>lodop简短问答页面.</p>
+            </div>
+        </div><!--box_footer结束-->
+
+
+</div><!--body结束-->
+ </body>
+</html>
