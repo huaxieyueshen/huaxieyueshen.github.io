@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>打印维护PRINT_SETUP本地缓存ini文件生成不了</title>
+ </head>
+ <body>
+ <style>
+ body{margin:0px;}
+.body {width:100%;}
+a{text-decoration:none;color:black;}
+h1{font-size:1.625em;}
+h2{font-size:1.375em;}
+/**.box{float:left;}**/
+.header_box {width:100%;}
+.header{padding:1%;
+background-color:#f1f1f1;}
+/**border:1px solid #e9e9e9;}**/
+
+.header_bottom{width:100%;}
+.menuitem {
+    margin-top:0;
+    margin-left:0;
+    margin-bottom:0;
+    padding:1%;
+    border-bottom:1px solid #e9e9e9;
+    cursor:pointer;
+}
+
+.main {padding:1%;}
+.main_middle { width:100%;}
+
+
+.box_footer {width:100%;margin-bottom:0;}
+.footer {
+    padding:1%;
+    text-align:center;
+    background-color:#f1f1f1;
+    font-size:0.625em;
+}
+#small{background:#ccff99;border:#7f9db9 1px solid;padding:10px;font-size:15px; }
+#small hr{margin:10px;padding:0px;}
+
+@media only screen and (max-width: 500px) {
+    .menu_left{width:100%;}
+    .menuitem { margin:1%;padding:1%;}
+
+    .main_middle { width:100%;}
+    .main {padding:1%;}
+
+    .box_right {width:100%;}
+    .right { padding:1%;
+    }
+
+    .box { margin-right:0; float:left;}
+}
+
+</style>
+<div class="body"><!--body开始-->
+        <div class="box header_box"><!--header开始-->
+            <div class="header">
+                <h1>LODOP超简短问答-打印维护PRINT_SETUP本地缓存ini文件生成不了</h1>
+            </div>
+        </div><!--header结束-->
+<div class="header_bottom"> 	
+		  <a href="../../phoneQA004.html"><div class="menuitem">lodop问答主页</div></a> 
+		  <a href="../../phoneQA_dange.html"><div class="menuitem"><span style="color:red;">问答主页（单个问答链接）</span></div></a>
+          <a href="../../mini_QAs.html"><div class="menuitem"><span style="color:#ff0099;">迷你一个问答</span></div></a> 
+		  <a href="../QA_singe29t.html"><div class="menuitem" style="background:#ccff99;border:#7f9db9 1px solid;">功能现象专题问答</span></a> 
+</div>
+        <div class="box main_middle"><!--main_middle开始-->
+            <div class="main">
+<h1>打印维护PRINT_SETUP本地缓存ini文件生成不了</h1>
+<div id="small">
+<span style="color:blue">打印维护应用后的ini保存在哪里</span><br>
+参考http://www.c-lodop.com/faq/pp9.html<br>
+文件路径和文件名类似如下： 系统盘符:\Program Files (x86)\MountTaiSoftware\Lodop\PrintSetups_打印任务名.ini<br>
+<hr>
+<span style="color:blue">打印维护点应用，类似提示"没有设置任务名，请先..."</span><br>
+参考http://www.c-lodop.com/faq/pp9.html<br>
+需要在INIT或INITA初始化里设置任务名，根据任务名缓存对应的该任务名的ini文件。<br>
+如果初始化里设置任务名为""空，是禁用打印维护状态，不会生成任何ini文件。<br>
+<hr>
+<span style="color:blue">打印维护点应用，没有生成任何ini文件（设置了任务名）</span><br>
+以管理员权限重启下c-lodop试试，右键以管理员权限运行，再在打印维护里测试下<br>
+<br>
+以管理员权限安装最新版c-lodop测试下http://www.c-lodop.com/download.html<br>
+<hr>
+<span style="color:blue">测试样例9的打印维护</span><br>
+桌面上的c-lodop快捷方式，右键以管理员权限运行<br>
+测试下样例9试试，打印维护里随便移动打印项位置，点应用，查看是否生成了对应任务名的ini文件<br>
+http://www.c-lodop.com/demolist/PrintSample9.html<br>
+<br>
+http://www.c-lodop.com/demolist/PrintSample9.html<br>
+直接测试下样例9试试，点样例9的打印维护，查看是否生成了对应任务名的ini文件<br>
+<hr>
+<span style="color:blue">测试样例9的打印维护,也没有看到任务名的ini文件</span><br>
+<img src="./smallQA_images/sm162weihu.png"><br>
+<br>
+样例9样例的是这个任务名，再次进入是调整后的结果，如果没有生成，或进入后没有生效，以管理员权限运行下桌面上的c-lodop，可能是权限问题<br>
+<br>
+重启下c-lodop试试，右键以管理员权限运行<br>
+<br>
+没有生成或生成路径不对，一般是权限问题。<br>
+以管理员运行后，直接测试下样例9，查看是否有样例9任务名的ini文件生成，再次进入是否是调整后的<br>
+<hr>
+<span style="color:blue">用打印设计调整的，没有生成ini文件</span><br>
+打印设计是开发人员辅助设计的，打印设计不会生成可以下次使用的ini文件，也不会对再次加载时有效<br>
+需要使用打印维护功能。<br>
+<hr>
+<span style="color:blue">打印维护外的整体偏移方法</span><br>
+或直接传值，PRINT_INITA一二参数控制偏移，初始都是0，设置变量，可传入向下偏移或向左偏移数值<br>
+<hr>
+<span style="color:blue">打印维护缓存路径不对</span><br>
+类似C:\MountTaiSoftware\MountTaiSoftware\Lodop或其他，<br>
+<br>
+权限不足缓存路径可能会不对，桌面上的c-lodop快捷方式，右键以管理员权限运行，然后再重新维护点应用试试<br>
+<hr>
+
+<span style="color:#660000">Lodop打印维护PRINT_SETUP本地缓存ini文件（之前的cnblogb博文图文例子测试详细的）</span><br>
+Lodop打印维护PRINT_SETUP本地缓存ini文件，参考https://www.cnblogs.com/huaxie/p/9728450.html<br>
+<br>
+ cnblog相关博文链接：<a href="https://www.cnblogs.com/huaxie/p/9728450.html" target="_blank"><span style="color:#660099;">Lodop打印维护PRINT_SETUP本地缓存ini文件</span></a><br>
+<hr>
+
+
+
+</div>
+           </div>
+    </div><!--main_middle结束-->
+
+        <div class="box box_footer"><!--box_footer开始-->
+            <div class="footer">
+<p>lodop简短问答页面.</p>
+            </div>
+        </div><!--box_footer结束-->
+
+
+</div><!--body结束-->
+ </body>
+</html>

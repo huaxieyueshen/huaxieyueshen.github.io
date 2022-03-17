@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>如何pdf单一文档模式，按pdf内部纸张</title>
+ </head>
+ <body>
+ <style>
+ body{margin:0px;}
+.body {width:100%;}
+a{text-decoration:none;color:black;}
+h1{font-size:1.625em;}
+h2{font-size:1.375em;}
+/**.box{float:left;}**/
+.header_box {width:100%;}
+.header{padding:1%;
+background-color:#f1f1f1;}
+/**border:1px solid #e9e9e9;}**/
+
+.header_bottom{width:100%;}
+.menuitem {
+    margin-top:0;
+    margin-left:0;
+    margin-bottom:0;
+    padding:1%;
+    border-bottom:1px solid #e9e9e9;
+    cursor:pointer;
+}
+
+.main {padding:1%;}
+.main_middle { width:100%;}
+
+
+.box_footer {width:100%;margin-bottom:0;}
+.footer {
+    padding:1%;
+    text-align:center;
+    background-color:#f1f1f1;
+    font-size:0.625em;
+}
+#small{background:#febaab;border:#7f9db9 1px solid;padding:10px;font-size:15px; }
+#small hr{margin:10px;padding:0px;}
+
+@media only screen and (max-width: 500px) {
+    .menu_left{width:100%;}
+    .menuitem { margin:1%;padding:1%;}
+
+    .main_middle { width:100%;}
+    .main {padding:1%;}
+
+    .box_right {width:100%;}
+    .right { padding:1%;
+    }
+
+    .box { margin-right:0; float:left;}
+}
+
+</style>
+<div class="body"><!--body开始-->
+        <div class="box header_box"><!--header开始-->
+            <div class="header">
+                <h1>LODOP超简短问答-如何pdf单一文档模式，按pdf内部纸张</h1>
+            </div>
+        </div><!--header结束-->
+<div class="header_bottom"> 	
+		  <a href="../../phoneQA004.html"><div class="menuitem">lodop问答主页</div></a> 
+		  <a href="../../phoneQA_dange.html"><div class="menuitem"><span style="color:red;">返回问答主页（单个问答链接）</span></div></a>
+          <a href="../../mini_QAs.html"><div class="menuitem"><span style="color:#ff0099;">返回迷你一个问答</span></div></a> 
+		  <a href="../QA_singe31t.html"><div class="menuitem" style="background:#febaab;border:#7f9db9 1px solid;">如何实现某功能语句</span></a> 
+</div>
+        <div class="box main_middle"><!--main_middle开始-->
+            <div class="main">
+<h1>如何pdf单一文档模式，按pdf内部纸张</h1>
+<div id="small">
+<span style="color:blue">如何pdf单一文档模式，按pdf内部纸张</span><br>
+参考http://www.c-lodop.com/faq/pp36.html<br>
+<br>
+参考http://www.c-lodop.com/faq/pp36.html<br>
+单一PDF打印模式:纸张大小以PDF文档中自身纸张定义为准<br>
+<hr>
+<span style="color:blue">pdf单一文档模式，怎么设置</span><br>
+LODOP.SET_PRINT_PAGESIZE(3,0,0,"");//纸张设置为自定义模式<br>
+LODOP.SET_PRINT_STYLEA(0,"PDFScalMode",1);//参数值含义：0-缩小大页面 、1-实际大小（选它）、2-适合纸张<br>
+加这个两句<br>
+<br>
+当仅有单个PDF主对象+纸张大小PAGESIZE=模式3(纸张随内容变化)+PDF对象按原始大小输出，此时最终输出纸张大小按PDF文档内部定义的纸张尺寸;<br>
+例如:<br>
+LODOP.ADD_PRINT_PDF(0,0,"100%","100%",strURLorContent);<br>
+LODOP.SET_PRINT_STYLEA(0,"PDFScalMode",1);<br>
+LODOP.SET_PRINT_PAGESIZE(3,0,0,"");<br>
+<hr>
+<span style="color:blue">设置了pdf单一文档模式，无效</span><br>
+安装最新版c-lodop测试下，排除版本问题，http://www.c-lodop.com/download.html<br>
+用xps或pdf虚拟打印机测试下，<br>
+win7以后系统自带Microsoft XPS Document Writer虚拟打印机或者 下载安装群文件里的Doro PDF Writer虚拟打印机<br>
+<br>
+如果虚拟打印机设置单一模式也有问题，发一下有问题的pdf文件，这边测试下<br>
+<hr>
+<span style="color:blue">设置了pdf单一文档模式，无效，4.088版本的c-lodop</span><br>
+安装最新版c-lodop测试下，参考下载中心，c-lodop变更记录http://www.c-lodop.com/c-lodopsteprec.html<br>
+<br>
+参考http://www.c-lodop.com/c-lodopsteprec.html<br>
+4.1.2.7<br>
+增加: 单一PDF打印模式;<br>
+       当仅有单个PDF主对象+纸张大小PAGESIZE=模式3(纸张随内容变化)+PDF对象按原始大小输出，此时最终输出纸张大小按PDF文档内部定义的纸张尺寸;<br>
+       例如:<br>
+       LODOP.ADD_PRINT_PDF(0,0,"100%","100%",strURLorContent);<br>
+       LODOP.SET_PRINT_STYLEA(0,"PDFScalMode",1);<br>
+       LODOP.SET_PRINT_PAGESIZE(3,0,0,"");<br>
+这个是4127之后增加的<br>
+<hr>
+<span style="color:blue">根据实际纸张，其他pdf缩放</span><br>
+根据实际纸张，设置自定义纸张，纸张设置，参考样例5 <br>http://www.c-lodop.com/demolist/PrintSample5.html<br>
+默认pdf大于纸张，会是缩小大页面，不会超出纸张<br>
+<br>
+若pdf大于纸张，默认是缩小大页面，不会超出<br>
+如果您想缩放到和纸张一样大，LODOP.SET_PRINT_STYLEA(0,"PDFScalMode",2);//适合纸张<br>
+<hr>
+</div>
+<p></p>
+<div id="small">
+</div>
+
+<br>
+           </div>
+    </div><!--main_middle结束-->
+
+        <div class="box box_footer"><!--box_footer开始-->
+            <div class="footer">
+<p>lodop简短问答页面.</p>
+            </div>
+        </div><!--box_footer结束-->
+
+
+</div><!--body结束-->
+ </body>
+</html>
