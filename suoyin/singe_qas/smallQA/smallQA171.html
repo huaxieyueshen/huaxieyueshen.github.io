@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>如何调整条码下方的字体大小</title>
+ </head>
+ <body>
+ <style>
+ body{margin:0px;}
+.body {width:100%;}
+a{text-decoration:none;color:black;}
+h1{font-size:1.625em;}
+h2{font-size:1.375em;}
+/**.box{float:left;}**/
+.header_box {width:100%;}
+.header{padding:1%;
+background-color:#f1f1f1;}
+/**border:1px solid #e9e9e9;}**/
+
+.header_bottom{width:100%;}
+.menuitem {
+    margin-top:0;
+    margin-left:0;
+    margin-bottom:0;
+    padding:1%;
+    border-bottom:1px solid #e9e9e9;
+    cursor:pointer;
+}
+
+.main {padding:1%;}
+.main_middle { width:100%;}
+
+
+.box_footer {width:100%;margin-bottom:0;}
+.footer {
+    padding:1%;
+    text-align:center;
+    background-color:#f1f1f1;
+    font-size:0.625em;
+}
+#small{background-image: radial-gradient(white 10%, #66ffff 35%, #ffffcc 40%);border:#66ffff 1px solid;padding:10px;font-size:15px; }
+#small hr{margin:10px;padding:0px;}
+
+/**渐变等背景色**/
+.Jpink{background-image: radial-gradient(white 10%, #66ffff 35%, #ffffcc 40%);border:#66ffff 1px solid;}
+
+@media only screen and (max-width: 500px) {
+    .menu_left{width:100%;}
+    .menuitem { margin:1%;padding:1%;}
+
+    .main_middle { width:100%;}
+    .main {padding:1%;}
+
+    .box_right {width:100%;}
+    .right { padding:1%;
+    }
+
+    .box { margin-right:0; float:left;}
+}
+
+</style>
+<div class="body"><!--body开始-->
+        <div class="box header_box"><!--header开始-->
+            <div class="header">
+                <h1>LODOP超简短问答-如何调整条码下方的字体大小</h1>
+            </div>
+        </div><!--header结束-->
+<div class="header_bottom"> 	
+		  <a href="../../phoneQA004.html"><div class="menuitem">lodop问答主页</div></a> 
+		  <a href="../../phoneQA_dange.html"><div class="menuitem"><span style="color:red;">问答主页（单个问答链接）</span></div></a>
+          <a href="../../mini_QAs.html"><div class="menuitem"><span style="color:#ff0099;">迷你一个问答</span></div></a> 
+     <a href="../QA_singe43t.html"><div class="menuitem Jpink"><span>带图问答（常用截图）</span></div></a>
+</div>
+        <div class="box main_middle"><!--main_middle开始-->
+            <div class="main">
+<h1>如何调整条码下方的字体大小</h1>
+<div id="small">
+<span style="color:blue">如何调整条码下方的字体大小</span><br>
+<img src="./smallQA_images/sm171tiaoma.jpg"><br>
+例如：
+LODOP.ADD_PRINT_BARCODE(88,32,206,78,"128B","123456789012");//设置条码位置、宽高、字体、值<br>
+LODOP.SET_PRINT_STYLEA(0,"FontSize",18);//设置上面这个条码下方的文字字体大小<br>
+<hr>
+<span style="color:blue">其他方法</span><br>
+也可以 LODOP.SET_PRINT_STYLEA(0,"ShowBarText",0);<br>
+可以设置下方不显示数字，然后用add_print_text文本单独输出数字，放在条形码下方。<br>
+<hr>
+<span style="color:blue">不支持设置条码下方字体样式</span><br>
+可以 LODOP.SET_PRINT_STYLEA(0,"ShowBarText",0);<br>
+可以设置下方不显示数字，然后用add_print_text文本单独输出数字，放在条形码下方。<br>
+纯文本可用纯文本字体样式控制方法控制<br>
+<hr>
+<span style="color:#993300">（相关链接）旧的原cnblog博文和问答(该图还是原来的图）</span><br>
+参考https://www.cnblogs.com/huaxie/p/11038280.html<br>
+相关链接（cnblog)：<a href="https://www.cnblogs.com/huaxie/p/11038280.html" target="_blank" style="color:#660099">LODOP条码二维码简短问答及相关博文</a><br>
+<hr>
+
+           </div>
+    </div><!--main_middle结束-->
+
+        <div class="box box_footer"><!--box_footer开始-->
+            <div class="footer">
+<p>lodop简短问答页面.</p>
+            </div>
+        </div><!--box_footer结束-->
+
+
+</div><!--body结束-->
+ </body>
+</html>
