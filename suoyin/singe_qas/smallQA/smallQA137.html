@@ -196,6 +196,29 @@ export <span style="color: #0000ff;">function</span><span style="color: #000000;
 }</span></pre>
 </div>
 <hr>
+<span style="color:blue">vue中报getClodop错误，不能关闭语法检查</span><br>
+关闭检查语法的测试下<br>
+可以先临时关闭测试下，是否是这个引起的<br>
+<br>
+您先临时关闭检查语法测试下，关闭后多编译几次<br>
+<br>
+关闭正常，说明是该语法检查的问题<br>
+<br>
+c-lodop一进入页面有准备时间，需要等c-lodop准备好，关闭语法检查可以正常执行<br>
+<br>
+http://localhost:8000/CLodopFuncs.js<br>
+clodop的这个在这个里面，是动态生成的，c-lodop每次进入页面有准备时间<br>
+没有很好的方法，只能关闭语法检查<br>
+<br>
+参考http://www.c-lodop.com/faq/pp3.html<br>
+这个是启动了，但一进入页面需要有准备时间，您关闭语法检查就可以了<br>
+<br>
+vue调用时关闭语法检查<br>
+<hr>
+<span style="color:blue">lodopFuncs.js可以改吗</span><br>
+lodopFuncs.js是例子文件，也可以自己修改<br>
+http://localhost:8000/或用欢迎页面的方式，然后尝试自己写提示下载安装的部分<br>
+<hr>	
 <p>&nbsp;</p>
 </div>
            </div>
