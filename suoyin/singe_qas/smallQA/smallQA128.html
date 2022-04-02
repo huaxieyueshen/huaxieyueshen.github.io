@@ -116,7 +116,26 @@ LODOP.NEWPAGEA();<br>
 LODOP.ADD_PRINT_PDF(..........);;<br>
 LODOP.PREVIEW();<br>
 <hr>
-
+<span style="color:blue">pdf的打印，是不是只能挨个推送。还是可以跟标签一样，做newpage</span><br>
+NewPageA和NewPage使用特性区分，参考http://www.lodop.net/faq/pp19.html<br>
+pdf属于多页打印项，用NEWPAGEA这个带A的进行分页<br>
+<br>
+例如：<br>
+LODOP.PRINT_INIT("测试PDF打印功能");<br>
+LODOP.SET_PRINTER_INDEX(iPrinterIndex);<br>
+LODOP.ADD_PRINT_PDF(0,0,"100%","100%",strURLorContent);<br>
+LODOP.NEWPAGEA();<br>
+LODOP.ADD_PRINT_PDF(0,0,"100%","100%",strURLorContent);<br>
+LODOP.PREVIEW();<br>
+<br>
+LODOP.NEWPAGEA();pdf打印项之间分页时用这个语句<br>
+<br>
+LODOP.NEWPAGEA();<br>
+一个任务内分页，如果是pdf打印项之间分页，用这个<br>
+<br>
+如果是pdf文件内部，是几页就是几页<br>
+两个pdf文件之间分页可用LODOP.NEWPAGEA();<br>
+<hr>
 </div>
 <p></p>
 <div id="small">
