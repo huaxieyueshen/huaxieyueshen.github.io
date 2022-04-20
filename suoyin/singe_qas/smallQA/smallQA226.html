@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>page-break-after:always没生效，设置后不分页</title>
+ </head>
+ <body>
+ <style>
+ body{margin:0px;}
+.body {width:100%;}
+a{text-decoration:none;color:black;}
+h1{font-size:1.625em;}
+h2{font-size:1.375em;}
+/**.box{float:left;}**/
+.header_box {width:100%;}
+.header{padding:1%;
+background-color:#f1f1f1;}
+/**border:1px solid #e9e9e9;}**/
+
+.header_bottom{width:100%;}
+.menuitem {
+    margin-top:0;
+    margin-left:0;
+    margin-bottom:0;
+    padding:1%;
+    border-bottom:1px solid #e9e9e9;
+    cursor:pointer;
+}
+
+.main {padding:1%;}
+.main_middle { width:100%;}
+
+/**渐变等背景色**/
+.Jpink{background-image: linear-gradient(to bottom,#ccccff, #ffffff);border:#ccccff 1px solid;}
+
+
+.box_footer {width:100%;margin-bottom:0;}
+.footer {
+    padding:1%;
+    text-align:center;
+    background-color:#f1f1f1;
+    font-size:0.625em;
+}
+#small{background-image: linear-gradient(to bottom,#ccccff, #ffffff);border:#ccccff 1px solid; }
+#small hr{margin:10px;padding:0px;}
+
+@media only screen and (max-width: 500px) {
+    .menu_left{width:100%;}
+    .menuitem { margin:1%;padding:1%;}
+
+    .main_middle { width:100%;}
+    .main {padding:1%;}
+
+    .box_right {width:100%;}
+    .right { padding:1%;
+    }
+
+    .box { margin-right:0; float:left;}
+}
+
+</style>
+<div class="body"><!--body开始-->
+        <div class="box header_box"><!--header开始-->
+            <div class="header">
+                <h1>page-break-after:always没生效，设置后不分页</h1>
+            </div>
+        </div><!--header结束-->
+<div class="header_bottom"> 	
+		  <a href="../../phoneQA004.html"><div class="menuitem">lodop问答主页</div></a> 
+		  <a href="../../phoneQA_dange.html"><div class="menuitem"><span style="color:red;">问答主页（单个问答链接）</span></div></a>
+          <a href="../../mini_QAs.html"><div class="menuitem"><span style="color:#ff0099;">迷你一个问答</span></div></a> 
+		  <a href="../QA_singe45t.html"><div class="menuitem Jpink">各种小问答（其他）</span></a> 
+</div>
+        <div class="box main_middle"><!--main_middle开始-->
+            <div class="main">
+<h1>page-break-after:always没生效，设置后不分页</h1>
+<div id="small">
+<span style="color:blue">page-break-after:always没生效</span><br>
+参考http://www.c-lodop.com/demolist/PrintSample30.html<br>
+样例右键查看源码，对照样例排查代码，
+分页元素不能空，可以是空格或普通内容<br>
+且必须在block元素之间进行分页。<br>
+<br>
+查看lodop内部解析的html信息，见http://www.c-lodop.com/faq/pp8.html<br>
+排查样式是否传入分页样式正常，进入打印设计，右键属性里查看实际传入的代码<br>
+<hr>
+<span style="color:blue">page-break-after:always没生效（是否为空，前后是否不是block元素）</span><br>
+参考http://www.c-lodop.com/demolist/PrintSample30.html<br>
+<br>
+分页元素不能空，可以是空格或普通内容<br>
+<br>
+该方式语法简单，但需要超文本中提前预置强制分页符， 并注意只有前后都有换行符的block元素才能用来分页，<br>
+可以专门插入一个分页元素，也可以把一个正常元素的style设为强制分页，且必须在block元素之间进行分页。<br>
+<hr>
+<span style="color:blue">解释样例30该超文本分页方法</span><br>
+样例右键查看源码，修改代码，前后都是block元素，前后放到两个div里测试下<br>
+<br>
+<img src="./smallQA_images/sm226_1fenye.png"><br>
+<br>
+<img src="./smallQA_images/sm226_2fenye.png"><br>
+<br>
+参考样例，第二个div和第一个div之间用的p标签，在之后分页。<br>
+第三个div直接加div上了，该div内部是表格，在该div之前分页。<br>
+<hr>
+<span style="color:blue">最简单的例子也不分页</span><br>
+发一下这个测试的超文本代码，这边复制上测试下<br>
+<br>
+LODOP.ADD_PRINT_HTM(10,10,300,100,"&lt;div style=\"page-break-after:always\">xx&lt;/div>\r\n&lt;div>xx&lt;/div>");<br>
+这边只用两个div测试，可以分页<br>
+<br>
+LODOP.ADD_PRINT_HTM(10,10,300,"100%","&lt;div>xx&lt;/div>\r\n&lt;div  style=\"page-break-after:always\">&amp;nbsp;&lt;/div>\r\n&lt;div>xx&lt;/div>");<br>
+三个div，中间为空，这边测试也可以正常分页，对照代码排查下<br>
+<hr>
+<span style="color:blue">排查是否和div嵌套多层有关（后自己过代码，测试无关）</span><br>
+需要第一页显示的套一个div，需要第二页显示的套一个div，在 第一个div上添加该项后分页样式测试下<br>
+<br>
+去掉外面的div测试下，排查是否有外层div的样式或嵌套的影响<br>
+<br>
+去掉外面的div测试下<br>
+<br>
+LODOP.ADD_PRINT_HTM(10,10,300,100,"&lt;div style=\"page-break-after:always\">xx&lt;/div>\r\n&lt;div>xx&lt;/div>");做简单例子，逐步添加外层div测试下<br>
+<br>
+LODOP.ADD_PRINT_HTM(10,10,300,100,"&lt;div style=\"page-break-after:always\">xx&lt;/div>\r\n&lt;div>xx&lt;/div>");<br>
+您用自己的电脑测试下这个简单例子是否正常，如果简单例子正常，逐步添加外层div和样式等尝试下<br>
+<hr>
+<span style="color:blue">页面样式正常，传入变成了break-after:page;了</span><br>
+打印设计右键属性里拷出来的，是实际传入的字符串，<br>
+排查传入的字符串参数是否正常，或之后手动拼接字符串等方式调整<br>
+<br>
+或拆分超文本打印项，用newpage或newpagea手动分页方式。<br>
+<hr>
+<span style="color:blue">页面样式正常，传入变成了break-after:page;了</span><br>
+您是否是用来什么框架之类的，不是原生的htm和样式，<br>
+或之后手动拼接字符串等方式调整，调整实际传入lodop的超文本字符串。<br>
+<hr>
+-------------------------<br>
+<span style="color:#990033">----------测试代码和结果---------</span><br>
+您前面发的代码没加分页语句，这边测试在这个style上加上分页样式是可以分页的<br>
+<br>
+----------------------------之后测了下客户发的代码，测试没分页，但查看代码，没有加分页语句-------<br>
+该客户发的代码：<br>
+&lt;div class=\"print-scrollCon el-scrollbar\">&lt;div class=\"el-scrollbar__wrap\" style=\"margin-bottom:-17px;margin-right:-17px;\">&lt;div class=\"el-scrollbar__view\">&lt;div> xxx &lt;/div>&lt;div style=\"\"> &amp;nbsp; &lt;/div>&lt;div> xxx &lt;/div>&lt;/div>&lt;/div>&lt;div class=\"el-scrollbar__bar is-horizontal\">&lt;div class=\"el-scrollbar__thumb\" style=\"transform:translateX(0%);\">&lt;/div>&lt;/div>&lt;div class=\"el-scrollbar__bar is-vertical\">&lt;div class=\"el-scrollbar__thumb\" style=\"height:29.6152%;transform:translateY(0%);\">&lt;/div>&lt;/div>&lt;/div><br>
+----------------------下方为加上分页语句测试的，预览可以分页---------------------------<br>
+LODOP.ADD_PRINT_HTM(10,10,300,"100%","&lt;div class=\"print-scrollCon el-scrollbar\">&lt;div class=\"el-scrollbar__wrap\" style=\"margin-bottom:-17px;margin-right:-17px;\">&lt;div class=\"el-scrollbar__view\">&lt;div> xxx &lt;/div>&lt;div style=\"page-break-after:always\"> &amp;nbsp;&amp;nbsp;&lt;/div>&lt;div> xxx &lt;/div>&lt;/div>&lt;/div>&lt;div class=\"el-scrollbar__bar is-horizontal\">&lt;div class=\"el-scrollbar__thumb\" style=\"transform:translateX(0%);\">&lt;/div>&lt;/div>&lt;div class=\"el-scrollbar__bar is-vertical\">&lt;div class=\"el-scrollbar__thumb\" style=\"height:29.6152%;transform:translateY(0%);\">&lt;/div>&lt;/div>&lt;/div>");<br>
+----------------测试结束---------<br>
+<br>
+（印象之前好像有客户也遇到过，变成其他样式问题，当时客户也是后续拼接出合适的字符串处理了，不过时间太久了，不知道当时记录没有，之后整理非常见问答到小问答之后，可能会排查到之前的客户问答，有可能和某些框架有关。）<br>
+<br>
+
+
+
+</div>
+<br>
+           </div>
+    </div><!--main_middle结束-->
+
+        <div class="box box_footer"><!--box_footer开始-->
+            <div class="footer">
+<p>lodop简短问答页面.</p>
+            </div>
+        </div><!--box_footer结束-->
+
+
+</div><!--body结束-->
+ </body>
+</html>
