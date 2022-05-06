@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>打多了偏移，多种纸张混搭，不设纸张</title>
+ </head>
+ <body>
+ <style>
+ body{margin:0px;}
+.body {width:100%;}
+a{text-decoration:none;color:black;}
+h1{font-size:1.625em;}
+h2{font-size:1.375em;}
+/**.box{float:left;}**/
+.header_box {width:100%;}
+.header{padding:1%;
+background-color:#f1f1f1;}
+/**border:1px solid #e9e9e9;}**/
+
+.header_bottom{width:100%;}
+.menuitem {
+    margin-top:0;
+    margin-left:0;
+    margin-bottom:0;
+    padding:1%;
+    border-bottom:1px solid #e9e9e9;
+    cursor:pointer;
+}
+
+.main {padding:1%;}
+.main_middle { width:100%;}
+
+/**渐变等背景色**/
+.Jpink{background-image: linear-gradient(to bottom,#ccccff, #ffffff);border:#ccccff 1px solid;}
+
+
+.box_footer {width:100%;margin-bottom:0;}
+.footer {
+    padding:1%;
+    text-align:center;
+    background-color:#f1f1f1;
+    font-size:0.625em;
+}
+#small{background-image: linear-gradient(to bottom,#ccccff, #ffffff);border:#ccccff 1px solid; }
+#small hr{margin:10px;padding:0px;}
+
+@media only screen and (max-width: 500px) {
+    .menu_left{width:100%;}
+    .menuitem { margin:1%;padding:1%;}
+
+    .main_middle { width:100%;}
+    .main {padding:1%;}
+
+    .box_right {width:100%;}
+    .right { padding:1%;
+    }
+
+    .box { margin-right:0; float:left;}
+}
+
+</style>
+<div class="body"><!--body开始-->
+        <div class="box header_box"><!--header开始-->
+            <div class="header">
+                <h1>打多了偏移，多种纸张混搭，不设纸张</h1>
+            </div>
+        </div><!--header结束-->
+<div class="header_bottom"> 	
+		  <a href="../../phoneQA004.html"><div class="menuitem">lodop问答主页</div></a> 
+		  <a href="../../phoneQA_dange.html"><div class="menuitem"><span style="color:red;">问答主页（单个问答链接）</span></div></a>
+          <a href="../../mini_QAs.html"><div class="menuitem"><span style="color:#ff0099;">迷你一个问答</span></div></a> 
+		  <a href="../QA_singe45t.html"><div class="menuitem Jpink">各种小问答（其他）</span></a> 
+</div>
+        <div class="box main_middle"><!--main_middle开始-->
+            <div class="main">
+<h1>打多了偏移，多种纸张混搭，不设纸张</h1>
+<div id="small">
+<span style="color:blue">打印多了会严重偏移</span><br>
+参考http://www.c-lodop.com/faq/pp17.html，里面的3，<br>
+连续打印输出多张，偏移累计越来越大：<br>
+<br>
+偏移会逐渐增大，是实际纸张和设置纸张走纸差异导致的，<br>
+<hr>
+<span style="color:blue">尝试打印机自带的纸张名称</span><br>
+<img src="../../miniQA/mini_images/pagename.png"><br>
+<br>
+测试下样例5，选择该打印机查看下该打印机的纸张列表，纸张列表里是否有需要的尺寸，如果有需要尺寸的纸张，可以试试宽高为0,指定这个纸张名称。<br>
+<hr>
+<span style="color:blue">不是自定义纸张，没设置纸张，偏移</span><br>
+是指没设置纸张吗<br>
+纸张的一些优先级 http://www.c-lodop.com/blogs/Blog002.html<br>
+没设置会根据优先级走，查看下优先级走的纸张和实际纸张是否一致<br>
+<hr>
+<span style="color:blue">不设纸张，两种不同纸张混打，分任务</span><br>
+是两种纸张混合打印吗，<br>
+代码里是怎样设置的，两个任务设置的同一个纸张吗<br>
+<br>
+两种纸张不同任务输出，每个任务设置各自的纸张<br>
+<br>
+您的实际场景是怎样的，是两个任务，第一个任务一种纸张，第二个任务另一种纸张吗。<br>
+分成两个任务输出，每个任务设置各自的纸张<br>
+<hr>
+<span style="color:blue">很多模版，没设纸张，不同模版大小不同</span><br>
+您代码里是怎样设置的纸张语句，是设置了吗<br>
+不同模版用不同的纸张<br>
+<br>
+纸张的一些优先级 http://www.c-lodop.com/blogs/Blog002.html<br>
+没设置纸张，会根据优先级走，<br>
+不同模版设置不同的纸张，您在代码里里不同任务设置不同的纸张<br>
+<hr>
+<span style="color:blue">（预览，有可打区域，显示竖条状）</span><br>
+是小票打印吗<br>
+<br>
+小票打印 ，参考样例18 http://www.c-lodop.com/demolist/PrintSample18.html<br>
+（小票针式打印 建议用 ADD_PRINT_TEXT文本，不用htm超文本，纸张高度不定容易引起 htm 中排版变形）<br>
+不定高的纸张。<br>
+<br>
+小票打印，试试这个纸张不定高<br>
+<br>
+不定高纸张就是根据内容的，您设置不定高纸张测试下<br>
+<hr>
+<span style="color:blue">（实际纸张，一个小标签，一个长条大点的标签）</span><br>
+这个是标签纸，是定高的，不是小票打印，<br>
+您根据实际的标签纸，设置下纸张测试下<br>
+<br>
+如果您两种纸张混合打，不同任务设置不同的纸张<br>
+<hr>
+<span style="color:blue">不是两种纸张，有10种标签纸</span><br>
+10种标签纸吗，分成不同的模版，不同的任务设置不同的纸张<br>
+<br>
+分成不同的模版，不同的任务设置不同的纸张<br>
+每个模版走各自的纸张<br>
+<br>
+不同的模版，不同的任务设置不同的纸张<br>
+<br>
+不同纸张对应不同的模版<br>
+不同标签纸模版对应不同的纸张<br>
+<br>
+您代码里设置下纸张，<br>
+您多种纸张，多种标签，不同模版对应不同的纸张<br>
+<br>
+纸张设置，参考样例5 http://www.c-lodop.com/demolist/PrintSample5.html<br>
+代码里没设置纸张，您需要根据您的模版设置对应的纸张<br>
+<hr>
+<span style="color:blue">代码没设置纸张，（首选项里设置的纸张）</span><br>
+纸张的一些优先级 http://www.c-lodop.com/blogs/Blog002.html<br>
+首选项里的是的默认纸张，参考优先级，默认纸张优先级最低<br>
+<br>
+如果您没有前面的优先级，也可以修改默认纸张方式。<br>
+建议参考样例5，不同模版在代码里设置不同的纸张，代码设置优先级较高<br>
+<br>
+参考样例5，可以自定义纸张，可以打印机自带的纸张。语句控制的纸张优先级高<br>
+<br>
+纸张的一些优先级 http://www.c-lodop.com/blogs/Blog002.html<br>
+首选项里的是的默认纸张，如果您可以确保没有前面的优先级，也可以用首选项的默认纸张<br>
+<hr>
+<span style="color:blue">虚拟打印机对比测试，标签上方有空白</span><br>
+用xps或pdf虚拟打印机测试下，<br>
+win7以后系统自带Microsoft XPS Document Writer虚拟打印机或者 下载安装群文件里的Doro PDF Writer虚拟打印机<br>
+<br>
+上方有很大的空白，您用虚拟打印机输出测试下，虚拟打印机输出第一张上方是否有空白区域<br>
+<br>
+如果虚拟打印机上方无空白，真实打印机预览上方也无空白区域，<br>
+可能真实打印机初始位置等存在问题，咨询下打印机客服试试<br>
+<br>
+用xps或pdf虚拟打印机测试下，<br>
+win7以后系统自带Microsoft XPS Document Writer虚拟打印机或者 下载安装群文件里的Doro PDF Writer虚拟打印机<br>
+排除下打印机问题<br>
+<br>
+理论上本机虚拟打印没问题的话，说明插件代码没问题，程序可做的努力就的确很少了，毕竟windows下的打印是微软倡导的设备无关系原则，要在打印机和打印驱动程序 系统上排查下，尝试重装驱动 或者 打印机不支持一些功能，咨询下打印机客服<br>
+<br>
+您是指走纸问题吗，真实打印机预览上方如果没有空白，咨询下打印机客服，可能打印机初始位置或校准有问题<br>
+<hr>
+<span style="color:blue">XX打印机不支持吗</span><br>
+获取的是安装到windows打印机列表的打印机。<br>
+只要是能安装到windows打印机列表的打印机都可以。<br>
+可以测试下样例5,7能否获取到，http://www.c-lodop.com/demolist/PrintSample7.html<br>
+<hr>
+
+</div>
+<br>
+           </div>
+    </div><!--main_middle结束-->
+
+        <div class="box box_footer"><!--box_footer开始-->
+            <div class="footer">
+<p>lodop简短问答页面.</p>
+            </div>
+        </div><!--box_footer结束-->
+
+
+</div><!--body结束-->
+ </body>
+</html>
