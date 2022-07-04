@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>国产linux安装方法和报错</title>
+ </head>
+ <body>
+ <style>
+ body{margin:0px;}
+.body {width:100%;}
+a{text-decoration:none;color:black;}
+h1{font-size:1.625em;}
+h2{font-size:1.375em;}
+/**.box{float:left;}**/
+.header_box {width:100%;}
+.header{padding:1%;
+background-color:#f1f1f1;}
+/**border:1px solid #e9e9e9;}**/
+
+.header_bottom{width:100%;}
+.menuitem {
+    margin-top:0;
+    margin-left:0;
+    margin-bottom:0;
+    padding:1%;
+    border-bottom:1px solid #e9e9e9;
+    cursor:pointer;
+}
+
+.main {padding:1%;}
+.main_middle { width:100%;}
+
+/**渐变等背景色**/
+.Jpink{background-image: linear-gradient(to bottom,#ccccff, #ffffff);border:#ccccff 1px solid;}
+
+
+.box_footer {width:100%;margin-bottom:0;}
+.footer {
+    padding:1%;
+    text-align:center;
+    background-color:#f1f1f1;
+    font-size:0.625em;
+}
+#small{background-image: linear-gradient(to bottom,#ccccff, #ffffff);border:#ccccff 1px solid; }
+#small hr{margin:10px;padding:0px;}
+
+@media only screen and (max-width: 500px) {
+    .menu_left{width:100%;}
+    .menuitem { margin:1%;padding:1%;}
+
+    .main_middle { width:100%;}
+    .main {padding:1%;}
+
+    .box_right {width:100%;}
+    .right { padding:1%;
+    }
+
+    .box { margin-right:0; float:left;}
+}
+
+</style>
+<div class="body"><!--body开始-->
+        <div class="box header_box"><!--header开始-->
+            <div class="header">
+                <h1>国产linux安装方法和报错</h1>
+            </div>
+        </div><!--header结束-->
+<div class="header_bottom"> 	
+		  <a href="../../phoneQA004.html"><div class="menuitem">lodop问答主页</div></a> 
+		  <a href="../../phoneQA_dange.html"><div class="menuitem"><span style="color:red;">问答主页（单个问答链接）</span></div></a>
+          <a href="../../mini_QAs.html"><div class="menuitem"><span style="color:#ff0099;">迷你一个问答</span></div></a> 
+		  <a href="../QA_singe45t.html"><div class="menuitem Jpink">各种小问答（其他）</span></a> 
+</div>
+        <div class="box main_middle"><!--main_middle开始-->
+            <div class="main">
+<h1>国产linux安装方法和报错</h1>
+<div id="small">
+<span style="color:blue">如何安装linux版本</span><br>
+参考http://www.c-lodop.com/download.html<br>
+linux版<br>
+根据CPU型号安装对应的linux版安装程序<br>
+终端里运行 sudo ./lodop install<br>
+<hr>
+<span style="color:blue">核对cpu型号（发一下型号，飞腾）</span><br>
+CPU是什么型号的，根据对应的型号安装对应的linux版安装程序<br>
+<br>
+CPU型号发一下，如果是ARM架构的CPU，可以安装这个<br>
+<br>
+飞腾的，是ARM架构的，可以安装这个<br>
+<hr>
+<span style="color:blue">cpu型号相关，暂不支持龙芯</span><br>
+目前仅支持x86 64架构和arm架构的cpu，mips64架构的正在研发中<br>
+<br>
+国产CPU（支持第一类）：<br>
+Linux操作系统CPU架构分类：<br>
+第一类：x86或amd64架构：<br>
+支持中国海光、上海兆芯、美国Intel、AMD<br>
+<br>
+第二类：mips64架构：<br>
+支持中科院龙芯、北京君正<br>
+<br>
+第三类：arm64架构：<br>
+支持华为鲲鹏(920)、国科大飞腾(2000/2500)、中标麒麟<br>
+<br>
+龙芯CPU是mips64架构，目前不支持，还在研发中<br>
+<hr>
+<span style="color:blue">飞腾的如何安装</span><br>
+飞腾的安装带ARM字样的lodop7，http://www.c-lodop.com/download.html<br>
+解压缩后 终端里运行 sudo ./lodop install<br>
+<img src="./smallQA_images/sm265feiteng.png"><br>
+<hr>
+<span style="color:blue">麒麟990的CPU无法安装（或其他）</span><br>
+终端里运行下xhost si:localuser:root<br>
+<br>
+然后运行 sudo ./lodop install<br>
+<br>
+<img src="./smallQA_images/sm265root.png"><br>
+<hr>
+<span style="color:blue">执行sudo那个，提示：没有那个文件或目录</span><br>
+sudo后面加空格，每个英文命令之间用空格间隔<br>
+<br>
+sudo ./lodop install<br>
+<hr>
+<span style="color:blue">安装成功了，访问欢迎页面，修改lodopFuncs.js</span><br>
+访问http://localhost:8000欢迎页面试试<br>
+<br>
+说明安装启动成功正常，<br>
+默认lodopFuncs.js（发行包里的）是windows提示下载安装的，参考官网样例的lodopFuncs.js，<br>
+http://www.c-lodop.com/demolist/LodopFuncs.js<br>
+<br>
+http://www.c-lodop.com/demolist/LodopFuncs.js里有判断linux版本命令<br>
+发行包里自带的lodoFuncs.js里都是windows的，您可以参考修改下<br>
+<hr>
+<span style="color:blue">linux版lodop7两种安装方法</span><br>
+# Install method 1,execute this on terminal(安装方法1，在终端桌面执行如下语句):<br>
+sudo ./lodop install<br>
+#<br>
+#<br>
+#<br>
+# Install method 2(安装方法2):<br>
+# double click "lodop" in this directory on linux desktop of root user(在root用户桌面，双击安装目录下的lodop主文件)<br>
+<hr>
+
+
+
+
+</div>
+<br>
+           </div>
+    </div><!--main_middle结束-->
+
+        <div class="box box_footer"><!--box_footer开始-->
+            <div class="footer">
+<p>lodop简短问答页面.</p>
+            </div>
+        </div><!--box_footer结束-->
+
+
+</div><!--body结束-->
+ </body>
+</html>

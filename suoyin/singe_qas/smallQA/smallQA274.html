@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>远程预览窗口空白界面</title>
+ </head>
+ <body>
+ <style>
+ body{margin:0px;}
+.body {width:100%;}
+a{text-decoration:none;color:black;}
+h1{font-size:1.625em;}
+h2{font-size:1.375em;}
+/**.box{float:left;}**/
+.header_box {width:100%;}
+.header{padding:1%;
+background-color:#f1f1f1;}
+/**border:1px solid #e9e9e9;}**/
+
+.header_bottom{width:100%;}
+.menuitem {
+    margin-top:0;
+    margin-left:0;
+    margin-bottom:0;
+    padding:1%;
+    border-bottom:1px solid #e9e9e9;
+    cursor:pointer;
+}
+
+.main {padding:1%;}
+.main_middle { width:100%;}
+
+/**渐变等背景色**/
+.Jpink{background-image: linear-gradient(to bottom,#ccccff, #ffffff);border:#ccccff 1px solid;}
+
+
+.box_footer {width:100%;margin-bottom:0;}
+.footer {
+    padding:1%;
+    text-align:center;
+    background-color:#f1f1f1;
+    font-size:0.625em;
+}
+#small{background-image: linear-gradient(to bottom,#ccccff, #ffffff);border:#ccccff 1px solid; }
+#small hr{margin:10px;padding:0px;}
+
+@media only screen and (max-width: 500px) {
+    .menu_left{width:100%;}
+    .menuitem { margin:1%;padding:1%;}
+
+    .main_middle { width:100%;}
+    .main {padding:1%;}
+
+    .box_right {width:100%;}
+    .right { padding:1%;
+    }
+
+    .box { margin-right:0; float:left;}
+}
+
+</style>
+<div class="body"><!--body开始-->
+        <div class="box header_box"><!--header开始-->
+            <div class="header">
+                <h1>远程预览窗口空白界面</h1>
+            </div>
+        </div><!--header结束-->
+<div class="header_bottom"> 	
+		  <a href="../../phoneQA004.html"><div class="menuitem">lodop问答主页</div></a> 
+		  <a href="../../phoneQA_dange.html"><div class="menuitem"><span style="color:red;">问答主页（单个问答链接）</span></div></a>
+          <a href="../../mini_QAs.html"><div class="menuitem"><span style="color:#ff0099;">迷你一个问答</span></div></a> 
+		  <a href="../QA_singe45t.html"><div class="menuitem Jpink">各种小问答（其他）</span></a> 
+</div>
+        <div class="box main_middle"><!--main_middle开始-->
+            <div class="main">
+<h1>远程预览窗口空白界面</h1>
+<div id="small">
+<span style="color:blue">能远程直接打印，远程预览界面显示空白</span><br>
+观察云服务器windows电脑打印机列表是否有打印机存在，如果一个打印机也没有，有的系统打印服务可能会有问题，安装一个虚拟打印机或其他打印机试试。<br>
+<br>
+查看云服务的print spooler服务，是否开启了<br>
+<hr>
+<span style="color:blue">端桥打印，预览界面无纸张无内容，显示空白</span><br>
+访问下http://[C-Lodop服务所在主机ip或域名]:[C-Lodop端口]/c_aobridge<br>
+是否有其他端桥，选择其他端桥测试下<br>
+<br>
+如果所有端桥都不行，可能和云服务器有关<br>
+重装下云服务器那台电脑上的c-lodop试试，以管理员权限安装最新版c-lodop。<br>
+查看云服务的windows打印服务print spooler服务，是否开启了<br>
+<hr>
+<span style="color:blue">端桥打印，某打印机预览界面空白</span><br>
+访问下http://[C-Lodop服务所在主机ip或域名]:[C-Lodop端口]/c_aobridge<br>
+<br>
+访问下端桥欢迎页面，如果该端桥下有多个打印机，选不同打印机测试下，排查是否和打印机有关<br>
+<br>
+预览是打印机的反显，预览和打印机有关，访问下http://[C-Lodop服务所在主机ip或域名]:[C-Lodop端口]/c_aobridge<br>
+欢迎页面下方有个打印机列表，选择不同打印机预览测试下<br>
+<hr>
+<span style="color:blue">测试其他端桥，所有端桥都空白</span><br>
+是否有其他端桥，选择其他端桥测试下<br>
+<br>
+所有端桥都不行，可能和云服务器有关<br>
+重装下云服务器那台电脑上的c-lodop试试，以管理员权限安装最新版c-lodop。<br>
+安装时勾选云服务器工作模式，并参考<br>
+图文详解AO打印（端桥模式） 参考http://www.c-lodop.com/blogs/Blog014.html<br>
+查看云服务的windows打印服务print spooler服务，是否开启了<br>
+<br>
+观察云服务器windows电脑打印机列表是否有打印机存在，如果一个打印机也没有，有的系统打印服务可能会有问题，安装一个虚拟打印机或其他打印机试试。<br>
+<hr>
+<span style="color:#990000">记录qa_note159的36，客户端桥直接打印正常，远程预览空白</span><br>
+客户反馈服务器上print spooler服务开启就可以了<br>
+<hr>
+</div>
+<br>
+           </div>
+    </div><!--main_middle结束-->
+
+        <div class="box box_footer"><!--box_footer开始-->
+            <div class="footer">
+<p>lodop简短问答页面.</p>
+            </div>
+        </div><!--box_footer结束-->
+
+
+</div><!--body结束-->
+ </body>
+</html>

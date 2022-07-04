@@ -1,0 +1,389 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>注册号使用，本地，远程角色注册区分</title>
+ </head>
+ <body>
+ <style>
+ body{margin:0px;}
+.body {width:100%;}
+a{text-decoration:none;color:black;}
+h1{font-size:1.625em;}
+h2{font-size:1.375em;}
+/**.box{float:left;}**/
+.header_box {width:100%;}
+.header{padding:1%;
+background-color:#f1f1f1;}
+/**border:1px solid #e9e9e9;}**/
+
+.header_bottom{width:100%;}
+.menuitem {
+    margin-top:0;
+    margin-left:0;
+    margin-bottom:0;
+    padding:1%;
+    border-bottom:1px solid #e9e9e9;
+    cursor:pointer;
+}
+
+.main {padding:1%;}
+.main_middle { width:100%;}
+
+/**渐变等背景色**/
+.Jpink{background-image: linear-gradient(to bottom,#ccccff, #ffffff);border:#ccccff 1px solid;}
+
+
+.box_footer {width:100%;margin-bottom:0;}
+.footer {
+    padding:1%;
+    text-align:center;
+    background-color:#f1f1f1;
+    font-size:0.625em;
+}
+#small{background-image: linear-gradient(to bottom,#ccccff, #ffffff);border:#ccccff 1px solid; }
+#small hr{margin:10px;padding:0px;}
+
+@media only screen and (max-width: 500px) {
+    .menu_left{width:100%;}
+    .menuitem { margin:1%;padding:1%;}
+
+    .main_middle { width:100%;}
+    .main {padding:1%;}
+
+    .box_right {width:100%;}
+    .right { padding:1%;
+    }
+
+    .box { margin-right:0; float:left;}
+}
+
+</style>
+<div class="body"><!--body开始-->
+        <div class="box header_box"><!--header开始-->
+            <div class="header">
+                <h1>注册号使用，本地，远程角色注册区分</h1>
+            </div>
+        </div><!--header结束-->
+<div class="header_bottom"> 	
+		  <a href="../../phoneQA004.html"><div class="menuitem">lodop问答主页</div></a> 
+		  <a href="../../phoneQA_dange.html"><div class="menuitem"><span style="color:red;">问答主页（单个问答链接）</span></div></a>
+          <a href="../../mini_QAs.html"><div class="menuitem"><span style="color:#ff0099;">迷你一个问答</span></div></a> 
+		  <a href="../QA_singe45t.html"><div class="menuitem Jpink">各种小问答（其他）</span></a> 
+</div>
+        <div class="box main_middle"><!--main_middle开始-->
+            <div class="main">
+<h1>注册号使用，本地，远程角色注册区分</h1>
+<div id="small">
+<span style="color:blue">调用本地打印,购买了IP注册号，怎么用注册号</span><br>
+可以用写在每个打印方法里，每次打印的时候都要执行，也可以放在LodopFuncs.js标注处，每次调用LODOP的时候统一调用。<br>
+<br>
+如果注册号没生效，参考排查一下http://www.c-lodop.com/faq/ph01.html<br>
+先确保该注册语句执行了，每个打印方法里都要执行。<br>
+可以先做个简单例子测试下，<br>
+例如：<br>
+LODOP.PRINT_INIT("打印任务名"); <br>
+LODOP.ADD_PRINT_TEXT(0,0,100,20,"文本内容一");<br>
+LODOP.SET_LICENSES........<br>
+LODOP.PRINT(); <br>
+直接放到PRINT()语句前面测试下。<br>
+<br>
+如果是ip或域名注册类型，<br>
+访问的是否是注册的ip或域名，浏览器地址栏输入的是否是注册的ip或域名，<br>
+（1）.单独注册服务器ip地址，登陆访问方式是ip地址访问，例如：注册ip地址：192.168.0.1，登陆方式如下<br>
+：http：//192.168.0.1:8000/index.jsp等，域名访问时，注册信息无效。<br>
+（2）.单独注册域名：登陆访问方式是域名地址访问，例如：注册域名： www.c-lodop.com 登陆方式如下<br>
+：http://www.c-lodop.com/index.html等，ip地址访问时，注册信息无效<br>
+<hr>
+<span style="color:blue">不是网页打印,是程序调用控件打印</span><br>
+(图）<br>
+您自己的页面里，如果引用了lodopFuncs.js，可以放在这里统一调用<br>
+<br>
+如果没用lodopFuncs.js，可直接放每个打印方法里，只要每次打印都执行就行。<br>
+每个打印方法里都要执行。<br>
+可以先做个简单例子测试下，<br>
+例如：<br>
+LODOP.PRINT_INIT("打印任务名"); <br>
+LODOP.ADD_PRINT_TEXT(0,0,100,20,"文本内容一");<br>
+LODOP.SET_LICENSES........<br>
+LODOP.PRINT(); <br>
+直接放到PRINT()语句前面测试下。<br>
+<hr>
+<span style="color:blue">（确认本地打印角色）不需要访问服务器进行打印,就是本地调用控件打印</span><br>
+您的场景是怎样的，<br>
+三种角色及使用方法：<br>
+参考http://www.c-lodop.com/demolist/t1.html<br>
+如果客户端是访问网站后，在自己的电脑的打印机上打印，属于第一种角色。<br>
+<br>
+您先确认下角色，您是客户端是访问网站后，在客户端自己的电脑的打印机上打印吗<br>
+<hr>
+<span style="color:blue">所有都是访问本机的127.0.0.1进行打印</span><br>
+验证您浏览器地址栏的地址，<br>
+（1）.单独注册服务器ip地址，登陆访问方式是ip地址访问，例如：注册ip地址：192.168.0.1，登陆方式如下<br>
+：http：//192.168.0.1:8000/index.jsp等，域名访问时，注册信息无效。<br>
+（2）.单独注册域名：登陆访问方式是域名地址访问，例如：注册域名： www.c-lodop.com 登陆方式如下<br>
+：http://www.c-lodop.com/index.html等，ip地址访问时，注册信息无效<br>
+<hr>
+<span style="color:blue">（注册号调用位置）注册号使用，修改客户端上本地的LodopFuncs.js?</span><br>
+您先确认下角色，您是客户端是访问网站后，在客户端自己的电脑的打印机上打印吗<br>
+<br>
+如果是第一种角色，客户端本地打印角色，服务器端不安装，每个客户端本地安装，服务器端可引用lodopFuncs.js，提示客户端下载安装，注册号可以加在服务器上的lodopFuncs.js里<br>
+<br>
+客户端本地角色的注册号，注册语句是一个JS语句，每次的打印的时候都执行下。<br>
+LodopFuncs.js有个注释的标注处，也可以放在那里那里统一调用。<br>
+<br>
+（图）<br>
+您打印页面所在的，浏览器地址栏的地址发一下<br>
+<br>
+如果您是客户端本地打印角色，客户访问服务器上的网站，服务器上不需要安装c-lodop，引用lodopFuncs.js，可在服务器上lodopFuncs.js里标注处统一调用<br>
+<hr>
+<span style="color:blue">（用的端桥，想改成本地打印方式）两边都有安装,现在用桥接进行打印.但是现在想不使用桥接打印.不使用桥接打印会有水印</span><br>
+您现在用的是端桥方式吗，是指想改成客户端本地打印角色方式吗<br>
+客户端本地打印角色，每个客户端都安装，访问客户端本地的c-lodop<br>
+<br>
+您是指现在使用的是端桥，想改成本地打印角色方式吗，<br>
+本地打印角色，需要购买这个注册号：<br>
+可根据浏览器地址栏地址注册或公司名称注册<br>
+控件注册号 注意事项 最新价格表、购买方式和使用方法见(官网)：<br>
+http://www.c-lodop.com/Lodop_Lic.html<br>
+<hr>
+<span style="color:blue">注册号语句是在服务器上写还是在打印的客户端写</span><br>
+您是之前用的端桥，目前想用客户端本地打印角色吗，客户端本地打印角色访问的是每个客户端本地的c-lodop，<br>
+例如官网样例是客户端本地打印角色的，http://www.c-lodop.com/demolist/PrintSample2.html<br>
+<img src="./smallQA_images/sm262bendi.png"><br>
+<br>
+您的网站部署在服务器上，服务器上引用lodopFuncs.js，代码在您服务器上<br>
+<hr>
+<span style="color:blue">（访问地址）每个客户端的IP都买了一个</span><br>
+验证浏览器地址栏的地址<br>
+<br>
+IP和域名注册，根据浏览器地址栏访问方式注册，P访问，注册IP；域名访问，注册域名；不限IP域名，可做企业名称注册。<br>
+（1）.单独注册服务器ip地址，登陆访问方式是ip地址访问，例如：注册ip地址：192.168.0.1，登陆方式如下<br>http：//192.168.0.1:8000/index.jsp等，域名访问时，注册信息无效。<br>
+（2）.单独注册域名：登陆访问方式是域名地址访问，例如：注册域名： www.c-lodop.com 登陆方式如下<br>：http://www.c-lodop.com/index.html等，ip地址访问时，注册信息无效<br>
+<hr>
+<span style="color:blue">（询问BS还是CS架构）不是网页打印,是程序调用本地控件进行打印</span><br>
+LODOP.SET_LICENSES........<br>
+LODOP.PRINT(); <br>
+直接放到PRINT()语句前面测试下。<br>
+<br>
+您的程序是BS架构的，还是CS架构的<br>
+<br>
+是BS架构的，还是CS架构的，内部代码是怎样写的<br>
+<br>
+如果是CS架构的，只能购买公司名称注册<br>
+<br>
+您的网站是BS架构的，还是CS架构的<br>
+<hr>
+<span style="color:blue">CS架构只能公司名注册，不能ip注册</span><br>
+CS架构的不经过浏览器，只能购买公司名称注册<br>
+<br>
+参考http://www.c-lodop.com/Lodop_Lic.html<br>
+（图）<br>
+ip注册号验证浏览器地址栏的地址<br>
+<br>
+ip注册适用于web网站，浏览器地址栏地址，<br>
+CS架构的只能购买公司名称注册<br>
+<br>
+ip和域名，需要是BS架构的，根据浏览器地址栏的地址注册<br>
+<br>
+控件注册号 注意事项 最新价格表、购买方式和使用方法见(官网)：<br>
+http://www.c-lodop.com/Lodop_Lic.html<br>
+客户端本地打印不需要请求号，根据访问地址或公司名注册<br>
+<hr>
+<span style="color:blue">只能内网访问</span><br>
+如果您是BS架构的，内网网站，验证浏览器地址栏的地址，与网络无关，可以是内网地址<br>
+<hr>
+<span style="color:blue">询问CS的使用方法</span><br>
+您的CS架构的程序是怎样使用的，是引用的CAOSOFT_WEB_PRINT_lodop.ocx吗<br>
+<br>
+lodop和c-lodop区别，参考http://www.c-lodop.com/faq/pp21.html<br>
+<br>
+代码里调用lodop对象的方法发一下<br>
+<hr>
+<span style="color:blue">CS架构可以注册c-lodop单机吗</span><br>
+您的CS架构的程序是怎样使用的，是引用的CAOSOFT_WEB_PRINT_lodop.ocx吗<br>
+c-lodop单机角色，需要本地引用的是c-lodop，如果是插件方式，c-lodop单机注册号去不掉水印<br>
+<hr>
+<span style="color:blue">代码需要找开发要</span><br>
+三种角色及使用方法：<br>
+参考http://www.c-lodop.com/demolist/t1.html<br>
+向开发确认下是哪种角色<br>
+<br>
+或可以邀请您的开发加入该T群<br>
+<hr>
+<span style="color:blue">本地注册好打印没有水印</span><br>
+本地注册好，是指根据本机请求号购买的额c-lodop注册号，填写注册号那种吗<br>
+<br>
+建议您让您的开发加一下这个群，确认下当前使用的场景和角色，根据自己的需求购买<br>
+三种角色及使用方法：<br>
+参考http://www.c-lodop.com/demolist/t1.html<br>
+<hr>
+<span style="color:blue">询问getlodop细节，判断客户用的角色</span><br>
+（图）<br>
+这个getLodop是LodopFuncs.js里的吗，lodopFuncs.js里是否是引用的客户端本地的c-lodop<br>
+<br>
+<img src="./smallQA_images/sm262bendi.png"><br>
+lodopFuncs.js是否是默认的localhost，如果是就是和官网样例一样，是客户端本地打印角色<br>
+<hr>
+<span style="color:blue">（两种角色都用了，判断，一个走远程，一个走本地）</span><br>
+（图）<br>
+您是端桥模式和本地角色模式都有吗<br>
+（图）<br>
+<br>
+您可以给本地打印和端桥模式，取不同的名字用来区分。<br>
+两种角色都有，两种注册号都需要购买<br>
+参考http://www.c-lodop.com/demolist/t1.html<br>
+<hr>
+<span style="color:blue">本地打印，改了端口</span><br>
+（图）<br>
+参考http://www.c-lodop.com/demolist/t1.html<br>
+第一种角色访问每个客户端本地的c-lodop，http默认端口是8000和18000，您这里引用的端口不是，是每个客户端都修改了端口吗<hr>
+<span style="color:blue">本地注册号，要改那个文件?</span><br>
+控件注册号 注意事项 最新价格表、购买方式和使用方法见(官网)：<br>
+http://www.c-lodop.com/Lodop_Lic.html<br>
+IP和域名注册，根据浏览器地址栏访问方式注册，P访问，注册IP；域名访问，注册域名；不限IP域名，可做企业名称注册。<br>
+（1）.单独注册服务器ip地址，登陆访问方式是ip地址访问，例如：注册ip地址：192.168.0.1，登陆方式如下<br>http：//192.168.0.1:8000/index.jsp等，域名访问时，注册信息无效。<br>
+（2）.单独注册域名：登陆访问方式是域名地址访问，例如：注册域名： www.c-lodop.com 登陆方式如下<br>：http://www.c-lodop.com/index.html等，ip地址访问时，注册信息无效<br>
+<br>
+参考排查一下http://www.c-lodop.com/faq/ph01.html<br>
+只要每个方法里都调用到就可以<br>
+<br>
+可以用写在每个打印方法里，每次打印的时候都要执行，也可以放在LodopFuncs.js标注处，每次调用LODOP的时候统一调用。<br>
+<br>
+直接复制收注册号邮箱里的语句，每次打印时调用下<br>
+<br>
+和其他lodop语句一样调用，就是每次打印时调用下<br>
+<br>
+CLodopfuncs.js是不能修改的，在lodopFuncs.js或网页打印代码里调用<br>
+<br>
+参考http://www.c-lodop.com/faq/pp23.html<br>
+CLodopfuncs.js是动态生成的，这个文件不用改。<br>
+注册语句作为一个普通的JS语句，和其他lodop一样调用，只要每次打印调用到就可以（ip域名注册，且浏览地址栏是注册的地址）<br>
+<br>
+控件注册号 注意事项 最新价格表、购买方式和使用方法见(官网)：<br>
+http://www.c-lodop.com/Lodop_Lic.html<br>
+客户端本地打印角色的这个注册号和请求号无关，和浏览器地址栏地址有关<br>
+<br>
+只要每次打印都调用到就可以，可以写在这个位置统一调用，也可以写在每个打印方法里<br>
+<br>
+不支持，根据浏览器地址栏的地址，访问哪个调用哪个注册语句<br>
+<br>
+域名和ip可以同时生效，最多同时支持3个<br>
+（图）<br>
+不支持多个语句，一个语句可以支持三个ip域名注册<br>
+<br>
+验证浏览器地址栏的地址，访问哪个调用哪个注册语句<br>
+IP和域名注册，根据浏览器地址栏访问方式注册，P访问，注册IP；域名访问，注册域名；不限IP域名，可做企业名称注册。<br>
+（1）.单独注册服务器ip地址，登陆访问方式是ip地址访问，例如：注册ip地址：192.168.0.1，登陆方式如下<br>http：//192.168.0.1:8000/index.jsp等，域名访问时，注册信息无效。<br>
+（2）.单独注册域名：登陆访问方式是域名地址访问，例如：注册域名： www.c-lodop.com 登陆方式如下<br>：http://www.c-lodop.com/index.html等，ip地址访问时，注册信息无效<br>
+<br>
+ip和域名是一次性注册，不支持更换<br>
+<br>
+（图）<br>
+您是两种角色，两种注册号都需要购买<br>
+端桥的绑定云主机机器硬件，购买请求号的那个。<br>
+本地角色，可以根据您浏览器地址栏访问地址购买，或购买公司名称注册<br>
+<br>
+控件注册号 注意事项 最新价格表、购买方式和使用方法见(官网)：<br>
+http://www.c-lodop.com/Lodop_Lic.html<br>
+不要桥接，只用本地打印角色，只需要购买本地角色的注册号，参考链接，根据访问地址购买，或公司名称注册<br>
+<br>
+和clodopFuncs.js地址无关，验证浏览器地址栏的地址<br>
+<br>
+（图）<br>
+第一种角色，验证浏览器地址栏的地址，<br>
+<hr>
+<span style="color:blue">以后会注释掉端桥，只用本地打印，想买请求号那种注册</span><br>
+您如果是去掉端桥，只使用客户端本地打印角色，<br>
+控件注册号 注意事项 最新价格表、购买方式和使用方法见(官网)：<br>
+http://www.c-lodop.com/Lodop_Lic.html<br>
+只用本地打印角色，只需要购买本地角色的注册号，参考链接，根据访问地址购买，或公司名称注册<br>
+<br>
+参考http://www.c-lodop.com/CLodopLic.html<br>
+A注册，绑定单机机器硬件<br>
+<br>
+ip和域名是一次性注册，不支持更换<br>
+<br>
+三种角色及使用方法：<br>
+参考http://www.c-lodop.com/demolist/t1.html<br>
+<br>
+（图）<br>
+您是确认之后要去掉端桥角色，只用本地打印角色吗<br>
+<br>
+如果您是客户端本地打印角色，购买这种A类型的，每个客户端都要单机注册<br>
+或购买ip域名注册，所有访问该客户端本地打印的都去掉水印<br>
+<br>
+虚拟商品一经售出，无法收回，您更换成本地打印角色，去掉端桥角色。<br>
+只能再重新购买，购买ip域名或公司名<br>
+或每个客户端A注册单机注册<br>
+<br>
+这个是您浏览器地址栏的地址，和clodopFuncs.js的地址无关<br>
+<br>
+与这个clodopFuncs.js无关，和您网站浏览器地址的地址栏有关，验证的是浏览器地址栏的地址<br>
+<br>
+建议您先参考下http://www.c-lodop.com/demolist/t1.html<br>
+和http://www.c-lodop.com/Lodop_Lic.html<br>
+您想把端桥改成本地打印角色，您可以先修改代码，等全修改成本地打印角色，测试完成了，再购买注册去水印。<br>
+<br>
+建议您先参考下http://www.c-lodop.com/demolist/t1.html<br>
+和http://www.c-lodop.com/Lodop_Lic.html<br>
+本地角色注册和端桥角色注册号是不同的，<br>
+<br>
+本地角色如果您想用A类的每个单机注册，每个客户端都要购买，切客户更换机器硬件也会无效。建议您再参考下链接，确定需要购买哪个<br>
+<br>
+可以用写在每个打印方法里，每次打印的时候都要执行，也可以放在LodopFuncs.js标注处，每次调用LODOP的时候统一调用。<br>
+就是普通的JS语句，和lodop其他语句一样，就是每次打印调用下这个注册语句<br>
+<br>
+IP和域名注册，根据浏览器地址栏访问方式注册，P访问，注册IP；域名访问，注册域名；不限IP域名，可做企业名称注册。<br>
+（1）.单独注册服务器ip地址，登陆访问方式是ip地址访问，例如：注册ip地址：192.168.0.1，登陆方式如下<br>http：//192.168.0.1:8000/index.jsp等，域名访问时，注册信息无效。<br>
+（2）.单独注册域名：登陆访问方式是域名地址访问，例如：注册域名： www.c-lodop.com 登陆方式如下<br>：http://www.c-lodop.com/index.html等，ip地址访问时，注册信息无效<br>
+访问哪个调用哪个注册语句<br>
+<br>
+例如官网样例2，http://www.c-lodop.com/demolist/PrintSample2.html<br>
+这个可注册c-lodop.com，注册号后，所有访问该域名网站进行本地打印的客户端都去掉水印<br>
+<br>
+客户端本地打印角色，就是每个客户端都安装，调用每个客户端本地的打印机打印。<br>
+如果是打到其他电脑上，就不是第一种角色了，您再确认下您需要的角色<br>
+<br>
+第一种角色验证浏览器地址栏的地址，与那个请求号的注册号无关<br>
+<br>
+ip和域名是一次性注册，不支持更换，虚拟商品一经售出无法收回<br>
+<hr>
+<span style="color:blue">本地角色，不能买请求号的那种吗</span><br>
+如果您是客户端本地打印角色，购买这种A类型的，每个客户端都要单机注册<br>
+或购买ip域名注册，所有访问该客户端本地打印的都去掉水印<br>
+<hr>
+<span style="color:blue">例如样例2</span><br>
+例如官网样例2，http://www.c-lodop.com/demolist/PrintSample2.html<br>
+这个可注册c-lodop.com，注册后，所有访问该域名网站进行本地打印的客户端都去掉水印<br>
+<br>
+例如官网样例2，http://www.c-lodop.com/demolist/PrintSample2.html<br>
+这个可注册c-lodop.com（浏览器地址栏的访问地址）注册后，所有访问该域名网站进行本地打印的客户端都去掉水印<br>
+<hr>
+
+
+
+
+
+
+
+
+</div>
+<br>
+           </div>
+    </div><!--main_middle结束-->
+
+        <div class="box box_footer"><!--box_footer开始-->
+            <div class="footer">
+<p>lodop简短问答页面.</p>
+            </div>
+        </div><!--box_footer结束-->
+
+
+</div><!--body结束-->
+ </body>
+</html>
