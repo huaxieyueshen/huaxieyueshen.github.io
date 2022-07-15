@@ -81,6 +81,9 @@ background-color:#f1f1f1;}
 <div id="small">
 <span style="color:blue">提示Canvas报错,操作失败...canvas does not allow drawing</span><br>
 参考http://www.c-lodop.com/faq/pp1.html<br>
+排查链接里的操作失败的条目<br>
+<br>
+参考http://www.c-lodop.com/faq/pp1.html<br>
 并查看lodop内部解析的html信息，见http://www.c-lodop.com/faq/pp8.html<br>
 分析差异点，因浏览器版本不同遵循的html标准不同，造成某些标签属性显示有差异，尽量避免使用有差异的属性，可以在ie下不同版本仿真情况下验证差异 排查样式，尽量使用使用各浏览器无歧义的通用的 html css js，不支持的样式可尝试用其他样式代替。<br>
 尽量不用canvas，不是所有浏览器都支持。<br>
@@ -95,6 +98,27 @@ background-color:#f1f1f1;}
 参考http://www.c-lodop.com/faq/pp1.html<br>
 如果打印的超文本，排查内部内容里是否有canvas,尽量不用canvas，不是所有浏览器都支持<br>
 <hr>
+<span style="color:blue">提示Canvas报错,操作失败...canvas does not allow drawing</span><br>
+参考http://www.c-lodop.com/faq/pp1.html<br>
+看是否调用了set_print_pagesize语句， 该语句可动态设置纸张大小，但目前发现有很多打印机不支持该操作，会表现出一些异常<br>
+如果调用了set_print_pagesize语句，去掉该语句对比下。<br>
+<hr>
+<span style="color:blue">安装最新版</span><br>
+安装最新版c-lodop测试下http://www.c-lodop.com/download.html<br>
+参考http://www.c-lodop.com/faq/pp1.html<br>
+排查链接里的操作失败的条目<br>
+<hr>
+<span style="color:blue">提示Canvas报错，打印机选成导出为wps pdf的原因</span><br>
+选择打印机，参考样例5、7<br>
+http://www.c-lodop.com/demolist/PrintSample5.html<br>
+http://www.c-lodop.com/demolist/PrintSample7.html<br>
+选择其他打印机测试下，<br>
+排查是否选择了导出为wps pdf，选择不是这个导出为wps pdf 的其他打印机试试<br>
+<br>
+--------------<br>
+客户反馈：打印机选成导出为wps pdf的原因<br>
+-----------------<br>
+<br>
 </div>
 <br>
            </div>
