@@ -1,0 +1,892 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>【非常见问题杂笔记】SSL证书到期，缅文更换字体可以打印，不需要横向，安装不到启动成功界面，英文系统中文包等</title>
+  <!--<script language="javascript" src="LodopFuncs.js"></script>-->
+ <!-- <script src='http://localhost:8000/CLodopfuncs.js'></script>-->
+ </head>
+ <body>
+ <style>
+ body{margin:0px;}
+.body {width:100%;}
+a{text-decoration:none;color:black;}
+h1{font-size:1.625em;}
+h2{font-size:1.375em;}
+/**.box{float:left;}**/
+.header_box {width:100%;}
+.header{padding:1%;
+background-color:#f1f1f1;}
+/**border:1px solid #e9e9e9;}**/
+
+.header_bottom{width:100%;}
+.menuitem {
+    margin-top:0;
+    margin-left:0;
+    margin-bottom:0;
+    padding:1%;
+    border-bottom:1px solid #e9e9e9;
+    cursor:pointer;
+}
+
+.main {padding:1%;}
+.main_middle { width:100%;}
+
+
+.box_footer {width:100%;margin-bottom:0;}
+.footer {
+    padding:1%;
+    text-align:center;
+    background-color:#f1f1f1;
+    font-size:0.625em;
+}
+
+@media only screen and (max-width: 500px) {
+    .menu_left{width:100%;}
+    .menuitem { margin:1%;padding:1%;}
+
+    .main_middle { width:100%;}
+    .main {padding:1%;}
+
+    .box_right {width:100%;}
+    .right { padding:1%;
+    }
+
+    .box { margin-right:0; float:left; }
+}
+
+</style>
+<div class="body"><!--body开始-->
+        <div class="box header_box"><!--header开始-->
+            <div class="header">
+                <h1>LODOP超简短问答-【非常见问题杂笔记】SSL证书到期，缅文更换字体可以打印，不需要横向，安装不到启动成功界面，英文系统中文包等</h1>
+            </div>
+        </div><!--header结束-->
+<div class="header_bottom"> 
+		   <a href="../../index.html"><div class="menuitem">花谢悦神的主页</div></a>	
+		   <a href="../phoneQA004.html"><div class="menuitem">lodop问答主页</div></a> 
+		   <a href="../phoneQA_dange.html"><div class="menuitem">问答主页（单个问答链接）</div></a> 
+		   <a href="../qa_notes3.html"><div class="menuitem"><span style="color:blue;">问答等记录笔记，具体问题</span></div></a>
+</div>
+        <div class="box main_middle"><!--main_middle开始-->
+            <div class="main">
+<h1>【非常见问题杂笔记】SSL证书到期，缅文更换字体可以打印，不需要横向，安装不到启动成功界面，英文系统中文包等</h1>
+-----因之前电脑坏了，没有及时备份，丢失一些，以下为一些以前在其他地方备份过，或后期补回来部分，不全的记录。缺失部分无法补充，回归正常记录后该标志会去掉------------------<br />
+<br />
+1.<span style="color: blue; font-weight: bold;">不停弹出access......</span><br />
+以管理员权限安装最新版c-lodop测试下http://www.c-lodop.com/download.html<br />
+<br />
+并查看本机操作系统打印机列表是否有共享打印机，如果有，删除掉再安装c-lodop测试下<br />
+<br />
+2.<span style="color: blue; font-weight: bold;">7月22号晚上更新什么了吗，现在这边好多用户提示重新安排</span><br />
+关于C-Lodop证书过期问题解决方案<br />
+<br />
+截止到2022年7月22日，C-Lodop6.561及前版本的SSL证书到期，<br />
+部分电脑在自动下载新证书时失败，造成了https页面的用户没法使用（http页面用户无影响），<br />
+解决方案如下：<br />
+有三种方法，选其一就行：<br />
+1：客户端安装最新版本C-Lodop6.566，新版本请从本群的最新群文件下载(速度快),或官网下载中心:<br />
+http://www.lodop.net/download.html<br />
+2：更新LodopFuncs.js文件，6.566版带的新js可以让更多浏览器避开SSL证书，先让部分旧版客户端也可用；<br />
+3：如果在更新LodopFuncs.js同时，客户端也安装C-Lodop6.566及后版本，则可以彻底省去SSL证书问题，<br />
+因为新版方案采用websocket方式，不再依赖SSL证书，以后年度就一劳永逸了。<br />
+<br />
+3.<span style="color: blue; font-weight: bold;">提示Load SSL Error:Could not certificate error:......PEM...no start line</span><br />
+参考群公告，安装最新版c-lodop<br />
+<br />
+更新lodopFuncs.js，提示升级的文件替换成最新版，提示客户端下载升级<br />
+<br />
+是的，lodopFuncs.js替换成新版的<br />
+<br />
+参考下载中心发行包里最新的lodopFuncs.js<br />
+<br />
+建议更新lodopFuncs.js<br />
+3：如果在更新LodopFuncs.js同时，客户端也安装C-Lodop6.566及后版本，则可以彻底省去SSL证书问题，<br />
+因为新版方案采用websocket方式，不再依赖SSL证书，以后年度就一劳永逸了。<br />
+<br />
+只下载6.566也可以，这个版本是新的证书<br />
+但也建议更新lodopFuncs.js<br />
+<br />
+是的<br />
+<br />
+http://www.c-lodop.com/download.html<br />
+下载中心发行包里<br />
+<br />
+4.<span style="color: blue; font-weight: bold;">安装提示这个怎么处理，拒绝访问，中止，重试，忽略</span><br />
+重启电脑后，再以管理员权限重新安装试试。<br />
+<br />
+重启电脑后，右键以管理员运行安装程序试试。http://www.c-lodop.com/download.html<br />
+<br />
+5.<span style="color: blue; font-weight: bold;">https连不上插件</span><br />
+参考群公告，安装最新版c-lodop<br />
+<br />
+下载中心发行包里<br />
+<br />
+6.<span style="color: blue; font-weight: bold;">访问某ip欢迎页面提示：Target shielded by[Only Local Print Mode]</span><br />
+安装时勾选了仅本地打印角色，重新安装，去掉仅本地打印机角色勾选<br />
+<br />
+7.<span style="color: blue; font-weight: bold;">提示Load SSL Error:Could not certificate error:......PEM...no start line</span><br />
+参考群公告，安装最新版c-lodop<br />
+<br />
+客户端本地打印角色，每个客户端都安装，lodopFuncs.js里提示升级判断，可提示客户端下载最新版，提示安装文件替换成最新版<br />
+<br />
+只下载6.566也可以，这个版本是新的证书<br />
+但也建议更新lodopFuncs.js<br />
+<br />
+是的，6566，也可以在官网下载中心下载<br />
+<br />
+8.<span style="color: blue; font-weight: bold;">提安装插件时经常会被360、腾讯、2345等安全卫士拦截，我们的客户大部分都不太懂电脑，这样造成很多问题。有没有什么办法解决？</span><br />
+不会，c-lodop发布的版本都提交过360和金山了，<br />
+以管理员权限安装最新版c-lodop测试下http://www.c-lodop.com/download.html<br />
+<br />
+9.<span style="color: blue; font-weight: bold;">直接引入 新的js，会报错
+，然后如果是低版本4.x的lodop 就会一直显示网页没下载完成，</span><br />
+以管理员权限安装最新版c-lodop，http://www.c-lodop.com/download.html<br />
+<br />
+您是http网站，还是https的<br />
+<br />
+测试官网样例http://www.c-lodop.com/demolist/PrintSample2.html<br />
+如果样例正常，样例页面右键查看源码 ，参考样例的使用方法。<br />
+如果样例报错，查看下样例的报错的JS信息<br />
+<br />
+官网样例也是http的，测试下官网样例<br />
+<br />
+是vue中使用吗<br />
+<br />
+vue中使用Lodop，参考http://www.c-lodop.com/faq/pp35.html<br />
+<br />
+官网样例正常，样例也是http的，其他框架需要自己整合下<br />
+<br />
+如果是http网站，样例正常，样例页面右键查看源码 ，参考样例的使用方法。<br />
+<br />
+断点调试JS，排查JS的执行问题<br />
+<br />
+lodopFuncs.js是例子文件，也可以自己修改，如果是http的，也可以只用http的<br />
+如果是vue的，排查里面的方法是否都导出了，排查vue中引用外部JS方法是否正常<br />
+<br />
+10.<span style="color: blue; font-weight: bold;">（图）这两个是32位和64位</span><br />
+可以安装发行包里的32位c-lodop，<br />
+32位c-lodop支持32和64位操作系统，可以都安装32位的c-lodop<br />
+http://www.c-lodop.com/download.html<br />
+<br />
+参考http://www.c-lodop.com/faq/pp21.html<br />
+高版本的火狐谷歌不再支持np插件，需要使用c-lodop，可参考官网样例混合部署<br />http://www.c-lodop.com/LodopDemo.html<br />
+Lodop控件升级到C-Lodop云打印 参考http://www.c-lodop.com/faq/pp7.html<br />
+高版本的火狐谷歌只能用c-lodop，可以都装发行包里的32位c-lodop<br />
+<br />
+11.<span style="color: blue; font-weight: bold;">之前pdf有改进？</span><br />
+参考http://www.c-lodop.com/c-lodopsteprec.html<br />
+用最新版测试下，如果是指一些pdf的条码不清晰问题，目前只能是这个效果，之后版本可能会出来<br />
+<br />
+查看下收注册号的邮箱，里面的邮件里有说明注册的域名<br />
+<br />
+发一下收注册号的邮箱，这边查一下<br />
+<br />
+不支持更换域名，ip和域名是一次性注册，更换需要重新购买<br />
+<br />
+新的域名需要重新购买<br />
+<br />
+控件注册号 注意事项 最新价格表、购买方式和使用方法见(官网)：<br />
+http://www.c-lodop.com/Lodop_Lic.html<br />
+<br />
+查到了，域名顶级注册<br />
+<br />
+好的，稍后会发注册邮件到邮箱里<br />
+<br />
+稍等，稍后同事看到后会发邮箱<br />
+<br />
+12.<span style="color: blue; font-weight: bold;">https://localhost.lodop.net:8443访问不了</span><br />
+以管理员权限安装最新版c-lodop测试下http://www.c-lodop.com/download.html<br />
+<br />
+参考http://www.c-lodop.com/blogs/Blog022.html<br />
+localhost.lodop.net是一个指向127.0.0.1的本地特殊域名，与localhost等效<br />
+并查看下是否开启了vpn代理，如果开启了代理，.lodop.net取消代理试试<br />
+<br />
+修改本机hosts文件，localhost.lodop.net指向127.0.0.1本地试试<br />
+<br />
+修改本机hosts文件，localhost.lodop.net指向127.0.0.1本地试试<br />
+（图）<br />
+排查是否是DNS域名解析问题，localhost.lodop.net指向127.0.0.1本地试试<br />
+<br />
+右键以管理员权限运行<br />
+<br />
+百度下该操作系统获取管理员全权限的方法<br />
+<br />
+13.<span style="color: blue; font-weight: bold;">clodop能否使用ie浏览器</span><br />
+支持，c-lodop支持所有浏览器<br />
+<br />
+单独c-lodop，http://www.c-lodop.com/faq/pp34.html<br />
+<br />
+14.<span style="color: blue; font-weight: bold;">在打印PDF的时候 同一批PDF 可以设置不同的打印模式吗？比如第一张按照PDF大小打印 第二张按照纸张大小打印？</span><br />
+分成两个任务，每个任务设置自己的纸张。<br />
+参考http://www.c-lodop.com/faq/pp36.html<br />
+单一PDF打印模式:纸张大小以PDF文档中自身纸张定义为准<br />
+其他纸张，参考样例5<br />
+<br />
+15.<span style="color: blue; font-weight: bold;">统计函数为什么都统计的不准</span><br />
+如果是用的lodop统计方式，参考http://www.c-lodop.com/demolist/PrintSample31.html<br />
+排查统计的列数和写法是否正确<br />
+<br />
+16.<span style="color: blue; font-weight: bold;">clodop能否使用ie浏览器</span><br />
+支持，c-lodop支持所有浏览器<br />
+<br />
+单独c-lodop，http://www.c-lodop.com/faq/pp34.html<br />
+<br />
+17.<span style="color: blue; font-weight: bold;">打印预览设置的背景没显示，是要加个啥配置吗？</span><br />
+如果是css背景图，http协议会按异步方式下载背景图，所以很容易等不到下载完毕就开始打印了，故lodop不打印背景图。至于普通图片参考样例37 http://www.c-lodop.com/demolist/PrintSample37.html<br />
+用普通图片的输出方式。<br />
+<br />
+如果是lodop语句输出的背景图<br />
+参考样例9步骤3和4 http://www.c-lodop.com/demolist/PrintSample9.html<br />
+<br />
+参考样例9步骤4 http://www.c-lodop.com/demolist/PrintSample9.html<br />
+预览和打印包含背景图<br />
+<br />
+18.<span style="color: blue; font-weight: bold;">安装应用的时候显示没有权限</span><br />
+右键以管理员权限运行试试<br />
+<br />
+测试官网样例http://www.c-lodop.com/demolist/PrintSample2.html<br />
+点样例的预览试试，只要主进程启动了，就可以正常访问<br />
+<br />
+参考http://www.c-lodop.com/faq/pp5.html<br />
+并排查链接里的条目，是否有防火墙或杀毒软件等问题<br />
+<br />
+19.<span style="color: blue; font-weight: bold;">这个问题也是证书问题么</span><br />
+以管理员权限安装最新版c-lodop测试下http://www.c-lodop.com/download.html<br />
+<br />
+参考群公告，关于C-Lodop证书过期问题解决方案<br />
+<br />
+20.<span style="color: blue; font-weight: bold;">Load SSL Error这是怎么回事</span><br />
+参考群公告，安装最新版c-lodop，更新最新的lodopFuncs.js<br />
+http://www.c-lodop.com/download.html<br />
+<br />
+安装最新版c-lodop6566，更新最新的lodopFuncs.js<br />
+http://www.c-lodop.com/download.html<br />
+<br />
+21.<span style="color: blue; font-weight: bold;">重新下载安装了还是这样</span><br />
+http网站，还是https的<br />
+<br />
+测试官网样例http://www.c-lodop.com/demolist/PrintSample2.html<br />
+如果样例正常，样例页面右键查看源码 ，参考样例的使用方法。<br />
+<br />
+参考群公告，安装最新版c-lodop，更新最新的lodopFuncs.js<br />
+http://www.c-lodop.com/download.html<br />
+<br />
+22.<span style="color: blue; font-weight: bold;">_Lodop 的版本为还未升级，只升级了LodopFuncs.js 打开后就报  checkOrTryHttp is not defined 是怎么回事</span><br />
+安装最新版c-lodop，<br />
+http://www.c-lodop.com/download.html<br />
+<br />
+需要最新版c-lodop，6566版<br />
+<br />
+更新lodopFuncs.js，提示升级的文件替换成最新版，提示客户端下载升级<br />
+<br />
+23.<span style="color: blue; font-weight: bold;">已经用 LODOP.SET_PRINTER_INDEX(strPrintName); 设置了默认打印机吗，为什么打印一组后还是分配给了电脑的默认打印机</span><br />
+选择打印机，参考样例5、7<br />
+http://www.c-lodop.com/demolist/PrintSample5.html<br />
+http://www.c-lodop.com/demolist/PrintSample7.html<br />
+打印机优先级，参考http://www.c-lodop.com/blogs/Blog002.html<br />
+<br />
+打印机语句放到初始化之后，打印之前，对该任务有效，<br />
+每个任务里都加指定打印机语句<br />
+<br />
+每个任务都要指定<br />
+<br />
+（客户反馈，加入到分组后，没问题了）<br />
+<br />
+参考样例35 http://www.c-lodop.com/demolist/PrintSample35.html<br />
+样例45的13 http://www.c-lodop.com/demolist/PrintSample45.html<br />
+样例35返回的&ldquo;打印成功&rdquo;实际仅是成功加入后台队列。<br />
+样例45的13 判断&ldquo;JOB不在队列&rdquo;就足可认定已经打印成功。<br />
+一般建议使用样例4，35方法简单判断打印成功，发送打印指令加入打印机队列算打印成功。<br />
+<br />
+不支持实时的，c-lodop需要回调函数<br />
+如果是c-lodop批量打印，则需要LODOP.On_Return_Remain=true;将回调结果保留，c-lodop任务可通过TaskID区分。<br />
+<br />
+可以混合部署，也可以单独使用c-lodop.<br />
+混合部署：<br />
+官网样例http://www.c-lodop.com/LodopDemo.html<br />
+官网样例是混合部署LodopFuncs.js里已经写好了判断。<br />
+客户端是浏览器支持np插件，是32位浏览器，就会提示下载32位的Lodop插件：install_lodop32.exe<br />
+客户端浏览器支持np插件，是64位浏览器，就会提示下载64位的Lodop插件：install_lodop64.exe<br />
+客户端浏览器不支持np插件（判断如高版本谷歌火狐等），会提示下载C-Lodop方式： <br />CLodop_Setup_for_Win32NT.exe<br />
+单独部署c-lodop:<br />
+单独c-lodop，http://www.c-lodop.com/faq/pp34.html<br />
+<br />
+如果是单独使用c-lodop，可以只写回调<br />
+单独c-lodop，http://www.c-lodop.com/faq/pp34.html<br />
+<br />
+24.<span style="color: blue; font-weight: bold;">  同一批PDF 设置两个任务进行打印 有没有参考样例</span><br />
+批量打印，分页分任务，在页数和任务之间平衡一下，参考样例<br />26，http://www.c-lodop.com/demolist/PrintSample26.html<br />
+<br />
+如果需要任务内分页<br />
+NewPageA和NewPage使用特性区分，参考http://www.lodop.net/faq/pp19.html<br />
+pdf属于多页打印项，用NEWPAGEA这个带A的进行分页<br />
+<br />
+25.<span style="color: blue; font-weight: bold;">前端设置多任务  每个任务设置不通打印方向</span><br />
+批量打印，分页分任务，在页数和任务之间平衡一下，参考样例<br />26，http://www.c-lodop.com/demolist/PrintSample26.html<br />
+<br />
+纸张设置，参考样例5 http://www.c-lodop.com/demolist/PrintSample5.html<br />
+<br />
+一个任务设置一次纸张，每个任务可设置不同的纸张<br />
+<br />
+横向纵向 参考http://www.c-lodop.com/blogs/Blog010.html<br />
+纸张语句放到初始化之后，打印之前，对该任务有效，不同任务可设置不同的纸张方向<br />
+<br />
+SET_PRINT_PAGESIZE(intOrient,<br />
+第一个参数是方向，<br />
+INIT或INITA到PRINT是一个任务，每个任务可以设置不同的方向<br />
+<br />
+纸张设置，参考样例5 http://www.c-lodop.com/demolist/PrintSample5.html<br />
+SET_PRINT_PAGESIZE(intOrient,<br />
+第一个参数是方向，<br />
+<br />
+是的，初始化到打印是一个任务，如果是多任务，就是多个任务组合<br />
+<br />
+您这个初始化在循环外面，是一个任务多页，如果是多任务，是多个初始化到打印的组合<br />
+<br />
+直接打印用PRINT<br />
+<br />
+批量打印不预览，直接打印。<br />
+预览只能预览一个任务的，不能多个连续预览<br />
+<br />
+是的，c-lodop一次只能打开一个窗口，多任务用PRINT直接打印<br />
+<br />
+26.<span style="color: blue; font-weight: bold;">打不出来缅甸语是因为什么？</span><br />
+打印项是什么语句输出的，是add_print_text纯文本，还是add_print_htm超文本，还是add_print_pdf打印项<br />
+<br />
+本机操作系统是否安装有相关的字体<br />
+<br /><br />
+换其他字体测试下<br />
+（图）<br />
+进入打印设计，选择不同字体查看下效果<br />
+<br />
+换其他字体测试下<br />
+（图）<br />
+进入打印设计，选择不同字体查看下效果，排查下是否是字体问题<br />
+<br />
+LODOP.ADD_PRINT_TEXT(34,230,408,30,"တရာနှစ်ဆယ်သုံးယောက်");<br />
+这边确实测试显示不出来，用其他字体测试下<br />
+<br />
+这边测了几个字体，确实显示不出来，这边向开发人员反馈下试试<br />
+<br />
+-----------反馈到梦泰尔群---------<br />
+（图）<br />
+群P的客户反馈缅文打印不出来，这边测试打印设计可以显示，预览不显示<br />
+LODOP.ADD_PRINT_TEXT(45,69,408,30,"缅文：တရာနှစ်ဆယ်သုံးယောက်");<br />
+-------反馈结束-----------------<br />
+<br />
+---------自己后来多测了些字体，发现有的字体是可以显示的，所以再次再群里反馈了下-------<br />
+可能是字体原因，这边测试了个字体可以了<br />
+LODOP.ADD_PRINT_TEXT(45,69,408,30,"缅文：တရာနှစ်ဆယ်သုံးယောက်");<br />
+LODOP.ADD_PRINT_TEXT(98,65,408,30,"(复制2)缅文：တရာနှစ်ဆယ်သုံးယောက်");<br />
+LODOP.SET_PRINT_STYLEA(0,"FontName","Segoe UI");<br />
+-------第二次反馈结束--------<br />
+<br />
+可能是字体原因，这边测试了个字体可以了<br />
+LODOP.ADD_PRINT_TEXT(45,69,408,30,"缅文：တရာနှစ်ဆယ်သုံးယောက်");<br />
+LODOP.ADD_PRINT_TEXT(98,65,408,30,"(复制2)缅文：တရာနှစ်ဆယ်သုံးယောက်");<br />
+LODOP.SET_PRINT_STYLEA(0,"FontName","Segoe UI");<br />
+<br />
+LODOP.SET_PRINT_STYLEA(0,"FontName","Arial");<br />
+LODOP.SET_PRINT_STYLEA(0,"FontName","Segoe UI");<br />
+这边测试这两个字体都能显示缅文，更换字体测试下<br />
+<br />
+--------反馈结果----<br />
+对，与字体有关的，第三国语言都涉及这个<br />
+------反馈结束-----<br />
+<br />
+27.<span style="color: blue; font-weight: bold;">pdf明明是横向的。为什么要设置成竖向才能打印完整？</span><br />
+用最新版c-lodop测试下，http://www.c-lodop.com/download.html<br />
+如果最新版也有问题，发一下有问题的pdf文件，这边测试下<br />
+<br />
+默认是缩小大页面，正常应该是都能打印完整的<br />
+<br />
+您的纸张是A4纸张吗，设置成纵向试试<br />
+<br />
+（图）<br />
+<br />
+横向纵向 参考http://www.c-lodop.com/blogs/Blog010.html<br />
+这个pdf内容本身是横向的，不需要再设置旋转内容方向<br />
+<br />
+和pdf原始方向有关，您发一下默认纵向也不全的pdf文件，这边测试下<br />
+<br />
+（图）<br />
+这边测试这个也是原始内容是横向的，也不需要旋转，纵向显示完全的<br />
+<br />
+这个pdf只有一页，一个任务多页的才可以双面打印<br />
+<br />
+需要旋转的再设置横向，不需要旋转的这种原始方向就可以<br />
+<br />
+参考样例7的步骤7，可重选的打印预览，<br />
+可以让客户在打印预览里重选方向<br />
+<br />
+直接在代码里改成1，纵向<br />
+<br />
+28.<span style="color: blue; font-weight: bold;">上个周还能打印的，这个周就又不可以了</span><br />
+参考群公告，安装最新版c-lodop，更新最新的lodopFuncs.js<br />
+http://www.c-lodop.com/download.html<br />
+<br />
+您的网站是http的，还是https的<br />
+<br />
+https的，参考群公告，安装最新版c-lodop，更新最新的lodopFuncs.js<br />
+http://www.c-lodop.com/download.html<br />
+<br />
+29.<span style="color: blue; font-weight: bold;">用的这个属性统计的合计  不能强制换行么</span><br />
+用的这个属性统计的合计  不能强制换行么<br />
+<br />
+留出足够的空间显示数据<br />
+<br />
+30.<span style="color: blue; font-weight: bold;">https有问题</span><br />
+参考群公告，安装最新版c-lodop，更新最新的lodopFuncs.js<br />
+http://www.c-lodop.com/download.html<br />
+<br />
+最新版是6566，安装最新版http://www.c-lodop.com/download.html<br />
+<br />
+在群文件里下载也可以<br />
+<br />
+安装6566压缩包里的最新的c-lodop<br />
+<br />
+CLodop_Setup_for_Win32NT.exe<br />
+<br />
+30.<span style="color: blue; font-weight: bold;">Load SSL Error</span><br />
+参考群公告，安装最新版c-lodop，更新最新的lodopFuncs.js<br />
+http://www.c-lodop.com/download.html<br />
+<br />
+参考http://www.c-lodop.com/blogs/Blog026.html<br />
+<br />
+参考http://www.c-lodop.com/blogs/Blog026.html<br />
+安装最新版c-lodop，更新最新的lodopFuncs.js<br />
+http://www.c-lodop.com/download.html<br />
+<br />
+参考http://www.c-lodop.com/download.html<br />
+linux版<br />
+根据CPU型号安装对应的linux版安装程序<br />
+终端里运行 sudo ./lodop install<br />
+<br />
+31.<span style="color: blue; font-weight: bold;">印html元素中包含img  通过lodop图片会变形失帧有解决方案吗</span><br />
+如何输出清晰图片 参考http://www.c-lodop.com/faq/pp14.html<br />
+<br />
+如何输出清晰图片 参考http://www.c-lodop.com/faq/pp14.html<br />
+按照链接里的方法输出试试<br />
+<br />
+是的，需要单独输出图片，参考链接的输出方法对比试试<br />
+<br />
+32.<span style="color: blue; font-weight: bold;">提示：Paper size(W:0 H:0)invalid!</span><br />
+去掉纸张语句测试下，有的打印机不支持设置的该自定义纸张。<br />
+修改纸张语句参数直到这个打印机正常。<br />
+<br />
+去掉纸张语句测试下，有的打印机不支持设置的该自定义纸张。<br />
+修改纸张语句参数直到这个打印机正常。<br />
+打印机对纸张的支持问题<br />
+<br />
+纸张设置，参考样例5 http://www.c-lodop.com/demolist/PrintSample5.html<br />
+去掉纸张语句测试下<br />
+<br />
+去掉纸张语句测试下，这个提示和打印机对纸张支持有关<br />
+<br />
+以管理员权限安装最新版c-lodop测试下http://www.c-lodop.com/download.html<br />
+<br />
+用xps或pdf虚拟打印机测试下，<br />
+win7以后系统自带Microsoft XPS Document Writer虚拟打印机或者 下载安装群文件里的Doro PDF Writer虚拟打印机<br />
+<br />
+33.<span style="color: blue; font-weight: bold;"> 预约页面可以增加保存按钮，保存成pdf格式吗</span><br />
+不支持在预览界面里增加按钮<br />
+不支持直接导出为pdf文件，可以借助pdf虚拟打印机打印成pdf文件。<br />
+<br />
+34.<span style="color: blue; font-weight: bold;">http://demo.c-lodop.com:8000/Lodop6.226_Clodop6.566.zip下载不了，提示High Security Alert....</span><br />
+在群文件里下载也可以<br />
+<br />
+35.<span style="color: blue; font-weight: bold;"> 为什么这个条码认别率很差？</span><br />
+影响条码识别率的可能原因 http://www.c-lodop.com/faq/pp6.html<br />
+增加条码宽度试试<br />
+<br />
+36.<span style="color: blue; font-weight: bold;">这里有个pdf是横向的，但是按照纵向打印了是为什么</span><br />
+发一下该pdf文件，这边测试下<br />
+<br />
+（图）<br />
+这个pdf原始方向就是这样的，lodop输出的是原始方向<br />
+<br />
+您用其他pdf查看器，也是这个方向<br />
+<br />
+如果您是指纸张，参考http://www.c-lodop.com/faq/pp36.html<br />
+单一PDF打印模式:纸张大小以PDF文档中自身纸张定义为准<br />
+<br />
+这个pdf原始纸张不是A4纸张，如果您想用pdf内部的纸张：<br />
+参考http://www.c-lodop.com/faq/pp36.html<br />
+<br />
+37.<span style="color: blue; font-weight: bold;">个别电脑提示证书不安全？</span><br />
+参考群公告，安装最新版c-lodop，更新最新的lodopFuncs.js<br />
+http://www.c-lodop.com/download.html<br />
+<br />
+在有问题的电脑安装最新版c-lodop后，访问https://localhost.lodop.net:8443试试<br />
+如果提示不安全，查看下证书信息<br />
+<br />
+（图）<br />
+如果确认是最新版c-lodop，展开这个详细信息试试，在浏览器地址栏查看下证书信息<br />
+<br />
+查看下安装版本是否是最新版c-lodop6566版本<br />
+<br />
+查看下证书信息，是否是最新的证书<br />
+（图）<br />
+<br />
+（图）<br />
+再查下路径，是否根证书等正常<br />
+<br />
+证书正常，是否是浏览器问题，用其他浏览器测试下<br />
+<br />
+访问https://localhost.lodop.net:8443<br />
+这个浏览器地址栏的地址，点上面的不安全的叹号或图标，查看下是否有显示不安全的原因<br />
+<br />
+（图）<br />
+谷歌浏览器地址栏的这个锁，具体内容查看下<br />
+<br />
+（图）<br />
+点一下面的具体条目，查看下证书无效的原因<br />
+<br />
+这个证书显示没有问题，浏览器是识别的，是否该浏览器存在问题，用其他浏览器测试下<br />
+<br />
+这边测试是可以的，浏览器识别该证书<br />
+<br />
+重启浏览器测试下试试，浏览器地址栏显示证书无效，但您打开详情证书是有效的。<br />
+<br />
+38.<span style="color: blue; font-weight: bold;"> LODOP.FORMAT("VOICE:0;100",&ldquo;内容&rdquo;);云打印，桥接的话，这个也可以使用吗？</span><br />
+可以，参考http://www.c-lodop.com/demolist/PrintSample48.html<br />
+<br />
+可以使用，只要操作系统有语音包就可以<br />
+<br />
+（图）<br />
+这个朗读依赖于windows的语音系统，操作系统需要是windows，如果没有语音包或客户端不是windows不行<br />
+<br />
+（后来自己测了下，好像没成功，因是上班时间，没开声音，开了一点测试，本地测试可以听到，远程的好像没有听到，本地打印是可以，远程打印好像读不了，以后再测试下）<br />
+<br />
+39.<span style="color: blue; font-weight: bold;">最新版的c-lodop显示安装成功了，但是启动不了</span><br />
+如果是https网站，参考群公告，安装最新版c-lodop，更新最新的lodopFuncs.js<br />
+http://www.c-lodop.com/download.html<br />
+<br />
+http网站，还是https的<br />
+<br />
+测试官网样例http://www.c-lodop.com/demolist/PrintSample2.html<br />
+点样例的预览试试<br />
+<br />
+如果样例报错，查看下浏览器的JS报错信息<br />
+<br />
+（图）<br />
+如果可以安装到启动成功界面，左上角查看下启动的端口<br />
+<br />
+参考http://www.c-lodop.com/faq/pp5.html<br />
+九、c-lodop安装界面始终打不开<br />
+可能是网络共享打印机的问题，删除就好了<br />
+是否有共享打印机，删除共享打印机后，重新安装c-lodop试试。<br />
+<br />
+查看操作系统是否存在打印机，系统打印服务(Print Spooler)是否开启了<br />
+<br />
+下载最新版后，压缩文件解压缩，安装里面的CLodop_Setup_for_Win32NT.exe<br />
+<br />
+是的，查看下系统打印服务(Print Spooler)是否开启了，操作系统是否有共享打印机，删除共享打印机后再安装，只保留本地打印机<br />
+<br />
+截图下该操作系统的打印机列表<br />
+<br />
+看起来都是本地打印机，有打印机驱动有多个副本<br />
+以管理员权限安装最新版c-lodop测试下http://www.c-lodop.com/download.html<br />
+安装时，右键以管理员权限运行试试<br />
+<br />
+如果哪些副本不需要，删除掉该打印机驱动的其他副本试试，<br />
+<br />
+不好判断，目前发现安装不到启动成功界面的是共享打印机问题，<br />
+这个有同名打印机，是否是这个原因，改成不同的打印机名字试试<br />
+<br />
+参考http://www.c-lodop.com/faq/pp5.html<br />
+并排查是否有杀毒软件或防火墙问题<br />
+<br />
+排查是否有防火墙禁用，或一些安全软件的阻挡<br />
+<br />
+临时关闭防火墙和安全软件试试<br />
+<br />
+系统打印服务(Print Spooler)是否开启了<br />
+查看下windows的这个服务是否是开启状态<br />
+<br />
+参考http://www.c-lodop.com/faq/pp5.html<br />
+<br />
+不好判断，目前一般安装不到启动成界面，和防火墙杀毒软件，还有网络共享打印机有关<br />
+<br />
+参考http://www.c-lodop.com/faq/pp5.html<br />
+（图）<br />
+是否和该打印机或该打印机副本有关。如果是不需要的副本，删除试试，重装打印机驱动试试<br />
+<br />
+这边没有向日葵，目前一般安装不到启动成界面，和防火墙杀毒软件，还有网络共享打印机有关<br />
+一般是这两个问题，<br />
+1.网络共享打印机<br />
+2.防火墙，杀毒软件<br />
+<br />
+---------------反馈到梦泰尔群，并口头说了下------<br />
+（图）<br />
+P群的该客户安装不到启动成功界面<br />
+（图）<br />
+反馈操作系统没有共享打印机，没有杀毒软件，关闭了防火墙<br />
+------反馈结束---------<br />
+<br />
+有老版本吗？删除那俩打印机&ldquo;副本&rdquo;试试；看看梦泰尔工作目录啥情况；<br />
+<br />
+什么操作系统？<br />
+<br />
+看一下 C盘目录下是否有 c-lodop的安装目录<br />
+<br />
+C:\Program Files (x86)\MountTaiSoftware\CLodop32<br />
+<br />
+一般是在c盘下<br />
+<br />
+先卸载老版本 再装新版本<br />
+<br />
+（后来，李哥去远程了，不过目前还不清楚是什么原因，似乎确实安装不到启动成功界面，但后来好像又行了样例又正常了，可能是操作系统有问题，但客户又行了，所有也不清楚具体原因）<br />
+<br />
+40.<span style="color: blue; font-weight: bold;">ODOP怎么在任务管理器里杀掉进程</span><br />
+是想让c-lodop停止服务吗<br />
+<br />
+（图）<br />
+左上角设置里有个停止服务<br />
+<br />
+可以在启动成功界面，左上角停止服务<br />
+有备用进程，主进程被杀死会再启动一个，进一步确保进程的启动<br />
+<br />
+41.<span style="color: blue; font-weight: bold;">新版的lodopfuncs,出现这个问题</span><br />
+查看是否安装的是否是最新版6566<br />
+<br />
+http网站，还是https的<br />
+<br />
+参考http://www.c-lodop.com/blogs/Blog026.html<br />
+安装最新版c-lodop，更新最新的lodopFuncs.js<br />
+http://www.c-lodop.com/download.html<br />
+<br />
+42.<span style="color: blue; font-weight: bold;">统信UOS安装lodop安装哪个版本？龙芯的CPU</span><br />
+暂不支持龙芯的CPU<br />
+参考官网下载中心，目前linux版支持x86和ARM的<br />
+<br />
+（因开完发票录入表格，电脑卡了，qq崩溃了，所以断断续续打了字，没加链接，没想到后来重新登录qq，发现之前输入的内容还在）<br />
+<br />
+43.<span style="color: blue; font-weight: bold;">用新版的lodopfuncs,出现这个问题</span><br />
+查看是否安装的是否是最新版6566<br />
+<br />
+http网站，还是https的<br />
+<br />
+参考http://www.c-lodop.com/blogs/Blog026.html<br />
+安装最新版c-lodop，更新最新的lodopFuncs.js
+http://www.c-lodop.com/download.html<br />
+<br />
+建议更新成新的lodopFuncs.js
+3：如果在更新LodopFuncs.js同时，客户端也安装C-Lodop6.566及后版本，则可以彻底省去SSL证书问题，<br />
+因为新版方案采用websocket方式，不再依赖SSL证书，以后年度就一劳永逸了。<br />
+<br />
+44.<span style="color: blue; font-weight: bold;">怎么让数字和英文字母自动换行</span><br />
+如果是add_print_text纯文本<br />
+超过宽度，高度足够，换行<br />
+<br />
+如果想允许标点溢出，且英文单词拆开：<br />
+参考http://www.c-lodop.com/demolist/PrintSample6.html<br />
+设置这个：LODOP.SET_PRINT_STYLEA(0,"TextNeatRow",true);//允许标点溢出，且英文单词拆开。<br />
+<br />
+45.<span style="color: blue; font-weight: bold;">设置了纸张的大小，导出pdf是OK的，但是打印出来就不行了，必须在打印机上设置打印范围才行</span><br />
+纸张设置，参考样例5 http://www.c-lodop.com/demolist/PrintSample5.html<br />
+用xps或pdf虚拟打印机测试一下（测试可用样例5），如果虚拟打印机输出的是正确的纸张，真实打印机不是，可能是打印机不支持该自定义纸张。 选择该真实打印机，在打印预览下方状态栏查看一下纸张大小，有的打印机不支持该自定义纸张。<br />
+<br />
+如果虚拟打印机输出的是正确的纸张，真实打印机不是，可能是打印机不支持该自定义纸张。<br />
+<br />
+测试下样例5，选择该打印机查看下该打印机的纸张列表，纸张列表里是否有需要的尺寸，如果有需要尺寸的纸张，可以试试宽高为0,指定这个纸张名称。<br />
+（图）<br />
+<br />
+打印机不支持这种自定义纸张<br />
+<br />
+实际测试该打印机不支持该设置的自定义纸张，打印机自带的纸张列表里也没有需要的纸张，该打印机不支持这种纸张尺寸，只能换用支持的纸张大小。<br />
+<br />
+纸张的支持和打印机有关，打印机自带的纸张肯定支持，自定义纸张的尺寸支持和打印机有关<br />
+<br />
+是打印机设置里调整纸张吗，调整后，获取下打印机的纸张列表，查看是否有调整后的纸张名称<br />
+<br />
+调整后，获取下打印机的纸张列表，查看是否有调整后的纸张名称<br />
+<br />
+测试下样例5，选择该打印机查看下该打印机的纸张列表，纸张列表里是否有需要的尺寸，如果有需要尺寸的纸张，可以试试宽高为0,指定这个纸张名称。<br />
+（图）<br />
+<br />
+是的，上一步选择打印机，下一步选择纸张列表，是纸张名称<br />
+<br />
+样例的步骤1是自定义纸张，需要打印机支持<br />
+<br />
+46.<span style="color: blue; font-weight: bold;">软件上面这个是不是也要去注册一下？</span><br />
+三种角色及使用方法：<br />
+参考http://www.c-lodop.com/demolist/t1.html<br />
+如果是第一种角色，直接在JS里放注册语句代码，不需要在这个界面注册<br />
+<br />
+顶级域名，子域名都有效<br />
+<br />
+稍等，这边会重发下注册文件，根据您的加群信息，可能注册生成有问题，这边会再重发下<br />
+<br />
+已重发，在收注册邮箱查收下<br />
+<br />
+47.<span style="color: blue; font-weight: bold;">麒麟纵向显示，打印横向的问题，有进展了吗</span><br />
+参考http://www.c-lodop.com/lodopsteprec-L.html<br />
+有，安装7046测试下<br />
+<br />
+修正：解决ARM麒麟下的横向/分组打印问题;<br />
+<br />
+好的，这边反馈下<br />
+<br />
+---------<br />
+群A的XXXXXXXX（qq:XXXXX），反馈安装linux的7046后，ARM架构下横向纵向还是有问题<br />
+该客户发的.zip的压缩已发到群文件<br />
+----------<br />
+<br />
+48.<span style="color: blue; font-weight: bold;">用PDF打印，客户这边发现大部分电脑可以正常打印，个别电脑会弹提醒注册，就像是没有设置license一样。我们已经设置了</span><br />
+参考排查一下http://www.c-lodop.com/faq/ph01.html<br />
+先确保该注册语句执行了，每个打印方法里都要执行。<br />
+（图）<br />
+<br />
+参考排查一下http://www.c-lodop.com/faq/ph01.html<br />
+逐条排查下链接里的条目，如果是个别电脑出问题，特别是里面个别电脑出现水印的情况的条目。<br />
+<br />
+可以先做个简单例子测试下，<br />
+例如：<br />
+LODOP.PRINT_INIT("打印任务名");<br />
+LODOP.ADD_PRINT_TEXT(0,0,100,20,"文本内容一");<br />
+LODOP.SET_LICENSES........<br />
+LODOP.PRINT();<br />
+直接放到PRINT()语句前面测试下。<br />
+<br />
+您购买的是什么类型的，如果是ip域名的，浏览器地址栏访问的是否是对应的ip或域名<br />
+<br />
+公司名顶级不限ip域名，排查下执行问题<br />
+LODOP.SET_LICENSES........<br />
+LODOP.PRINT();<br />
+直接放到PRINT()语句前面测试下。<br />
+<br />
+直接复制收注册邮箱里的语句，有多句的，多句都复制上<br />
+<br />
+访问http://localhost:8000欢迎页面试试<br />
+您是公司名顶级注册，不限ip域名，也可以直接用欢迎页面测试下。<br />
+<br />
+http://www.c-lodop.com/download.html<br />
+也可以下载发行包，在例子里复制上公司名注册语句，直接本地运行例子<br />
+<br />
+官网下载中心，下载最新的C-lodop<br />
+http://www.c-lodop.com/download.html<br />
+安装后在欢迎页面末尾找&ldquo;PDF打印&rdquo;链接，或输入地址:<br />
+http://localhost:8000/c_pdfprint<br />
+<br />
+访问http://localhost:8000欢迎页面试试<br />
+（图）<br />
+在欢迎页面加上注册语句，查看预览下方状态栏是否显示公司名<br />
+<br />
+是的 ，正常如果您加上了公司名注册语句，这里应该会显示公司名<br />
+参考排查一下http://www.c-lodop.com/faq/ph01.html<br />
+逐条排查下链接里的条目，排查下其他条目试试<br />
+<br />
+以管理员权限安装最新版c-lodop测试下http://www.c-lodop.com/download.html<br />
+安装时查看安装步骤和提示是否有中文乱码现象<br />
+如果有乱码现象，排查下里面的乱码条目<br />
+<br />
+私发一下该公司名顶级注册语句，这边测试下，<br />
+逐条排查下链接里的条目，目前发现的无效问题都在里面http://www.c-lodop.com/faq/ph01.htm<br />
+<br />
+发一下注册语句<br />
+<br />
+逐条排查下链接里的条目，http://www.c-lodop.com/faq/ph01.html<br />
+逐个排查下，在有问题的那台机子上排查<br />
+<br />
+您是三台电脑，仓库的一台是不行的，您的本机是正常的吗<br />
+只能在有问题的电脑上排查<br />
+<br />
+这边没有TODESK，您在有问题的机器安装最新版c-lodop测试下，排查是否是版本问题，安装时是否有乱码，是否是乱码问题<br />
+<br />
+安装步骤的时候，是否有乱码现象<br />
+<br />
+之前LodopFuncs.js那台机器获取的是乱码。<br />
+是否编码问题<br />
+是第十 LodopFuncs.js文件的编码方式与页面编码不一致（例如UTF-8，此时可以用记事本软件把该js文件另存为UTF-8编码）<br />
+<br />
+http://www.c-lodop.com/faq/ph01.htm<br />
+可能是乱码问题，排查下里面的乱码条目<br />
+<br />
+（客户用的是64位纯英文版，所以没有发现乱码，安装32位发现安装步骤确实是乱码的）<br />
+<br />
+（在自己的公司名乱码的小问答里补充了下，因客户安装的64位的，所以可能误认为安装程序没有乱码，其实还是乱码问题）<br />
+<br />
+参考http://www.c-lodop.com/faq/ph01.html<br />
+排查下链接的软件乱码条目<br />
+<br />
+第二个可能原因：操作系统修改区域语言与操作系统不一致。<br />
+查看下是否是操作系统语言问题<br />
+<br />
+操作系统是否是简体中文的，还是英文操作系统带了中文包<br />
+<br />
+安装的操作系统语言<br />
+<br />
+--------------------反馈到梦泰尔群------<br />
+T群的圆通的那个，公司名顶级注册，个别电脑出现水印，32位c-lodop安装界面是乱码，<br />
+第十一 系统故障，最常见的是&ldquo;软件出现乱码&rdquo;，排查了两个条目，注册号无效<br />
+------------反馈结束------------<br />
+<br />
+区域语音改成香港的测试下<br />
+<br />
+（改成香港的，预览会显示英文名称）<br />
+<br />
+可能是操作系统是英文的，安装了中文包<br />
+<br />
+通过字符集无法判断英文操作系统。<br />
+<br />
+（纯中文，纯英文操作系统）<br />
+-----------------<br />
+winq10系统，区域语言改为 格式：中文（繁体，香港特别行政区）<br />
+可预览显示英文名称，英文注册号有效。<br />
+<br />
+区域语言 管理：当前操作系统区域设置：中文（简体，中国）<br />
+默认勾选，Beta版：使用Unicode UTP-8 提供全球语言支持（待确认是否和该问题有关）<br />
+<br />
+-------------该客户------<br />
+因外文操作系统装中文包无法使用，赠送一个顶级域名授权<br />
+--------<br />
+<br />
+49.<span style="color: blue; font-weight: bold;">网口通讯</span><br />
+参考http://www.c-lodop.com/demolist/PrintSample17.html<br />
+<br />
+控件注册号 注意事项 最新价格表、购买方式和使用方法见(官网)：<br />
+http://www.c-lodop.com/Lodop_Lic.html<br />
+需要顶级注册。域名顶级或公司名顶级。<br />
+<br />
+点确定，可以测试使用<br />
+<br />
+50.<span style="color: blue; font-weight: bold;">头尾固定，中间内容自适应分页，同时批量打印，需要预览
+ 这种的怎么实现</span><br />
+参考样例15 http://www.c-lodop.com/demolist/PrintSample15.html<br />
+样例43 http://www.c-lodop.com/demolist/PrintSample43.html<br />
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+
+
+
+
+<!--main_middle结束-->
+        <div class="box box_footer"><!--box_footer开始-->
+            <div class="footer">
+<p>lodop简短问答页面.</p>
+            </div>
+        </div><!--box_footer结束-->
+
+
+</div><!--body结束-->
+ </body>
+</html>
