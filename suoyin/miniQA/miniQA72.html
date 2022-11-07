@@ -76,15 +76,30 @@ background-color:#f1f1f1;}
             <div class="main">
 <h1>linux版的使用</h1>
 参考http://www.c-lodop.com/download.html<br>
+linux版<br>
+根据CPU型号安装对应的linux版安装程序<br>
+终端里运行 sudo ./lodop install<br>
+<br>
+参考http://www.c-lodop.com/download.html<br>
 linux版，在下载中心其他版本里<br>
 <br>
 终端里运行下  install.sh<br>
 <br>
 运行 install.sh 或者 直接在linux桌面双击lodop<br>
 <br>
+<span style="color:blue;font-weight:bold">支持国产化环境吗</span><br>
+<br>
+参考http://www.c-lodop.com/download.html<br>
+linux版<br>
+<br>
+CPU是什么型号的，根据CPU架构安装对应的linux安装程序<br>
+<br>
+运行 install.sh 或者 直接在linux桌面双击lodop<br>
+或终端里运行 sudo ./lodop install<br>
+<br>
 <span style="color:blue;font-weight:bold">linux版支持的cpu</span><br>
 <br>
-目前仅支持x86  64架构cpu 还不支持arm架构的 后期有计划<br>
+目前仅支持x86 64架构和arm架构的cpu，mips64架构的正在研发中<br>
 <br>
 国产CPU（支持第一类）：<br>
 	Linux操作系统CPU架构分类：<br>
@@ -110,6 +125,66 @@ linux版，在下载中心其他版本里<br>
 <span style="color:blue;font-weight:bold">国产系统，支持龙芯CPU吗</span><br>
 <br>
 龙芯CPU是mips64架构，目前不支持，还在开发中<br>
+<br>
+<span style="color:blue;font-weight:bold">国产系统安装linux报错（飞腾CPU）</span><br>
+CPU是什么型号的<br>
+<br>
+终端里运行 sudo ./lodop install试试<br>
+并发一下CPU型号<br>
+<br>
+飞腾的安装带ARM字样的lodop7，http://www.c-lodop.com/download.html<br>
+解压缩后 终端里运行 sudo ./lodop install<br>
+<br>
+<img src="./mini_images/linuxARM.png"><br>
+<br>
+运行这个试试sudo ./lodop install<br>
+<br>
+访问http://localhost:8000欢迎页面试试<br>
+点欢迎页面的预览试试<br>
+<br>
+<span style="color:blue;font-weight:bold">麒麟990的CPU无法安装（华为电脑，系统银河麒麟）</span><br>
+<br>
+参考http://www.c-lodop.com/download.html<br>
+下载安装linux版，ARM架构的那个<br>
+<br>
+用roor权限测试下<br>
+<br>
+终端里运行下xhost si:localuser:root<br>
+<br>
+然后运行  sudo ./lodop  install<br>
+<br>
+<img src="./mini_images/qilin990.png"><br>
+<br>
+<span style="color:blue;font-weight:bold">麒麟990（Kirin990）的CPU安装提示：Authorization required,but no authorization protocol specified（客户实测有效）</span><br>
+<br>
+终端里运行下xhost si:localuser:root<br>
+<br>
+运行这个root后，再用sudo ./lodop install试试<br>
+<br>
+<span style="color:#00cc33">---------资料----------------</span><br>
+xhost si:localuser:root<br>
+sudo   your-graphical-app<br>
+<br>
+Newer systems by design don't allow graphical applications as root (it's a Wayland thing). Workaround:<br>
+xhost si:localuser:root<br>
+sudo   your-graphical-app<br>
+---------资料结束----------------<br>
+<br>
+<span style="color:blue;font-weight:bold">linux版lodop7两种安装方法</span><br>
+# Install method 1,execute this on terminal(安装方法1，在终端桌面执行如下语句):<br>
+sudo ./lodop install<br>
+#<br>
+#<br>
+#<br>
+# Install method 2(安装方法2):<br>
+# double click "lodop" in this directory on linux desktop of root user(在root用户桌面，双击安装目录下的lodop主文件)<br>
+<br>
+<span style="color:#cc0033">---------以下之前的------</span><br>
+<br>
+<span style="color:#00cc33">---------之前的------</span><br>
+<br>
+<span style="color:blue;font-weight:bold">linux版支持的cpu（ARM架构发布之前）</span><br>
+目前仅支持x86  64架构cpu 还不支持arm架构的 后期有计划<br>
 <br>
 <span style="color:blue;font-weight:bold">国产操作系统安装了，打印设计和模板的打印维护打开后就只是预览了</span><br>
 <br>
