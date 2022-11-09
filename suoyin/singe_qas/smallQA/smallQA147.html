@@ -96,6 +96,46 @@ C-Lodop看到的才是真实的“原始方向”。其它软件都采用了“�
 发一下原始的pdf，如果实际输出和原始的pdf方向不一致，这边测试下，<br>
 c-lodop输出的是原始的pdf方向，一些pdf查看器有自动旋转功能，c-lodop输出的方向为准<br>
 <hr>
+<span style="color:blue">单一文档模式，原始纸张</span><br>
+单一文档模式测试下，参考http://www.c-lodop.com/faq/pp36.html<br />
+<br />
+例如:<br />
+ LODOP.ADD_PRINT_PDF(0,0,"100%","100%","http://localhost:8000/CLodopDemos/PDFDemo.pdf");<br />
+ LODOP.SET_PRINT_PAGESIZE(3,0,0,"");//纸张设置为自定义模式<br />
+ LODOP.SET_PRINT_STYLEA(0,"PDFScalMode",1);//参数值含义：0-缩小大页面 、1-实际大小（选它）、2-适合纸张<br />
+<hr>
+<span style="color:blue">是否是最新版</span><br>
+安装的c-lodop版本是多少<br />
+以管理员权限安装最新版c-lodop测试下http://www.c-lodop.com/download.html<br />
+<br />
+输出的是pdf内部原始的方向<br />
+<hr>
+<span style="color:blue">其他软件自动旋转，尝试单一文档模式</span><br>
+输出的是pdf内部原始的方向，一些其他软件会有自动旋转功能，lodop输出的是pdf原始的方向<br />
+<br />
+参考http://www.c-lodop.com/faq/pp36.html<br />
+并测试下单一文档模式，这个不只输出原始的方向，也会输出内部的纸张<br />
+<hr>
+<span style="color:blue">方向没错，纸张不是A4纸张</span><br>
+参考http://www.c-lodop.com/blogs/Blog010.html<br />
+注意这里的横向纵向指的是内容的方向，不是纸张的方向。<br />
+排查纸张是否正常，可以用xps虚拟打印机输出对比下<br />
+<br />
+方向没有错，lodop输出的就是pdf的方向，但是这个pdf内部的纸张不是A4纸张，是图中的这个A4r，和A4宽高相反的纸张<br />
+<br />
+参考http://www.c-lodop.com/blogs/Blog010.html<br />
+注意这里的横向纵向指的是内容的方向，不是纸张的方向。<br />
+A4和A4r是不同的纸张，您这个pdf内部纸张不是A4纸张<br />
+<hr>
+<span style="color:blue">其他软件打印正常</span><br>
+其他软件或浏览器等，有自动旋转功能，如果设置纸张是A4纸张，而pdf如果不是A4的，是A4r纸张，可能会旋转原始pdf<br />
+<hr>
+<span style="color:blue">pdf方向不对怎么处理</span><br>
+参考http://www.c-lodop.com/blogs/Blog010.html<br />
+注意这里的横向纵向指的是内容的方向，不是纸张的方向。<br />
+<br />
+LODOP.SET_PRINT_PAGESIZE(2,0,0,"A4"); 可以设置A4纸张，然后旋转内容<br />
+<hr>
 </div>
 <p>&nbsp;</p>
 <div id="small">
