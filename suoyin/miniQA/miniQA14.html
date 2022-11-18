@@ -132,6 +132,32 @@ background-color:#f1f1f1;}
 4.用最新版测试下http://www.c-lodop.com/download.html<br>
 如果最新版也是这样，选择其他打印机试试，重装该打印机驱动试试。<br>
 <br>
+<span style="color:blue;font-weight:bold">花小克的西瓜视频（文档）</span><br>
+<br>
+【LODOP】提示Printer selected is not valid<br>
+<br>
+这个提示的英文部分是windows系统抛出的异常信息，意思是“所选择的打印机无效”！ <br>
+<br>
+1.安装最新版c-lodop测试下，http://www.c-lodop.com/download.html<br>
+2.系统打印服务(Print Spooler)是否开启了<br>
+3.查看操作系统是否存在打印机<br>
+4.查看操作系统是否有共享打印机，删除所有共享打印机再测试下<br>
+最常见的原因：windows系统默认打印机是一台网络共享打印机且该打印机目前不可访问。例如：网络断开原因、本地重启电脑后共享打印机没有记住共享端的用户名和密码等。<br>
+<br>
+5.重装打印机驱动<br>
+用虚拟打印机测试下，如果虚拟打印机不提示这个，和打印机或打印机驱动或打印机对一些语句的支持有关，重装打印机驱动测试下
+<br>
+如果是刚刚添加打印机出现该问题，建议重新启动电脑（个别驱动程序要求系统重启打印服务）<br>
+<br>
+6.去掉纸张语句测试下set_print_pagesize语句<br>
+是否调用了set_print_pagesize语句， 该语句可动态设置纸张大小，但目前发现有很多打印机不支持该操作，会表现出以上异常。 建议暂时去掉这个语句试试<br>
+<br>
+7.类似的提示<br>
+There is no default printer currently selected<br>
+Operation not supported on selected printer<br>
+<br>
+是否没有指定默认打印机，查看一下windows打印机列表，指定一下windows默认打印机。<br>
+<br>		    
 </div>
     </div><!--main_middle结束-->
 
