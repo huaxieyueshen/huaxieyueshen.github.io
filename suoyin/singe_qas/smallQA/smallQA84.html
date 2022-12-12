@@ -90,6 +90,17 @@ LODOP直接输出base64码方式输出图片，参考样例38，http://www.c-lod
 测试下样例37http://www.lodop.net/demolist/PrintSample37.html<br>
 不是所有打印机都支持样例37的透明图打印，需要实际测试下。<br>
 <hr>
+<span style="color:blue">图片有白边</span><br>
+ADD_PRINT_IMAGE直接输出URL方式测试下，不加img标签。<br>
+例如：<br>
+LODOP.ADD_PRINT_IMAGE(0,0,"210mm","296.99mm","http://www.c-lodop.com/demolist/PrintSample8.jpg");<br>
+或参考样例38，直接输出base64码，不加img标签，不经过浏览器解析,http://www.c-lodop.com/demolist/PrintSample38.html<br>
+<hr>
+<span style="color:blue">图片有浅绿色边</span><br>
+直接输出图片URL，不加img标签,
+或参考样例38，也不加img标签，不经过浏览器解析
+后面的浅绿色背景应该是IE浏览器的护眼色，去掉IE浏览器的护眼色背景
+<hr>
 <span style="color:blue">一个任务多个背景图</span><br>
 ADD_PRINT_SETUP_BKIMG是lodop背景图，一个任务只能设置一个，可以用多任务方式，参考样例<br>
 26.http://www.c-lodop.com/demolist/PrintSample26.html<br>
@@ -98,6 +109,14 @@ ADD_PRINT_SETUP_BKIMG是lodop背景图，一个任务只能设置一个，可以
 或参考样例37，样例8，换用普通图片输出方式，不用LODOP的这个背景图。<br>
 普通图片一个任务可以输出多个。<br>
 <hr>
+<span style="color:blue">不加img标签</span><br>
+安装最新版c-lodop，不加img标签，不经过浏览器解析<br>
+ADD_PRINT_IMAGE直接输出URL方式测试下，不加img标签。<br>
+例如：<br>
+LODOP.ADD_PRINT_IMAGE(0,0,"210mm","296.99mm","http://www.c-lodop.com/demolist/PrintSample8.jpg");<br>
+或参考样例38，直接输出base64码，不加img标签，不经过浏览器解<br>析,http://www.c-lodop.com/demolist/PrintSample38.html<br>
+<hr>
+
 </div>
 <p></p>
 <div id="small">
@@ -107,13 +126,19 @@ ADD_PRINT_SETUP_BKIMG是lodop背景图，一个任务只能设置一个，可以
 <a href="../../miniQA/miniQA22.html" target="_blank"><span style="color:blue;">打印透明图</span></a>、 <a href="./smallQA31.html" target="_blank"><span style="color:blue;">一个任务多个背景图</span></a>、<br>
 <br>
 相关链接：(非本站，cnblog)<br>
-(花谢悦神cnblog）： <a href="https://www.cnblogs.com/huaxie/p/10395704.html" target="_blank"><span style="color:blue;">LODOP直接用base64码输出图片</span></a>、<br>
+(花谢悦神cnblog）：<br>
+<br>
+<a href="https://www.cnblogs.com/huaxie/p/10395704.html" target="_blank"><span style="color:blue;">LODOP直接用base64码输出图片</span></a>、<br>
 <br>
 <a href="https://www.cnblogs.com/huaxie/p/12054653.html" target="_blank"><span style="color:blue;">LODOP打印图片水平居中</span></a>、<br>
 <br>
 <a href="https://www.cnblogs.com/huaxie/p/10064469.html" target="_blank"><span style="color:blue;">Lodop打印较大的超出纸张的图片</span></a>、<br>
 <br>
 <a href="https://www.cnblogs.com/huaxie/p/9883291.html" target="_blank"><span style="color:blue;">Lodop图片输出ADD_PRINT_IMAGE 有白边</span></a>、<br>
+<br>
+<a href="https://www.cnblogs.com/huaxie/p/15572075.html" target="_blank"><span style="color:blue;">ADD_PRINT_IMAGE直接输出图片URL方式</span></a>、<br>
+<br>
+<a href="https://www.cnblogs.com/huaxie/p/9717172.html" target="_blank"><span style="color:blue;">如何取消浏览器护眼色 Lodop打印图片有窗口颜色的边框</span></a>、<br>
 <br>
 </div>
 
