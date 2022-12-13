@@ -79,6 +79,9 @@ background-color:#f1f1f1;}
             <div class="main">
 <h1>提示，Invalid Parameter(unit):XXXis not a valid floating point value</h1>
 <div id="small">
+<span style="color:blue">某浮点数不是浮点数</span><br>
+提示 "19.97"(类似) is not a valid floating ponit value 的原因 参考 http://www.c-lodop.com/faq/pp40.html<br>
+<hr>
 <span style="color:blue">参数错误</span><br>
 提示是参数值无效，调试JS，排查该报错位置的参数值。<br>
 <hr>
@@ -99,7 +102,12 @@ lodop没有判断当前操作系统的数字格式方法，只能自己处理。
 <hr>
 <span style="color:blue">目前已遇到的逗号点号的操作系统</span><br>
 德文，俄罗斯，西班牙语，系统<br>
-<hr>	
+<hr>
+<span style="color:blue">操作系统点号逗号</span><br>
+通常系统语言区域的小数点格式应是"."，但少数语言系统或意外修改了该值，会报以上错误。<br>
+解决方法如下：<br>
+在系统的 控制面板 -> 时钟和区域 -> 更改日期 时间和数组格式 -> 其他设置 -> 数字 设置面板里 将小数点(D)属性设置一个点”.”<br>
+<hr>
 </div>
 <br>
            </div>
