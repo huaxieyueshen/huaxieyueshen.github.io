@@ -107,7 +107,21 @@ LODOP.ADD_PRINT_TEXT(0,0,100,20,"文本内容一");<br>
 LODOP.SET_LICENSES........<br>
 LODOP.PRINT(); <br>
 直接放到PRINT()语句前面测试下。<br>
-<hr>	
+<hr>
+<span style="color:blue">ip或域名注册使用</span><br>
+可以用写在每个打印方法里，每次打印的时候都要执行，也可以放在LodopFuncs.js标注处，每次调用LODOP的时候统一调用。<br>
+<br>
+（图）<br>
+可以放在lodopFuncs.js标注处统一调用，也可以每个方法里都调用<br>
+例如：<br>
+LODOP.PRINT_INIT("打印任务名"); <br>
+LODOP.ADD_PRINT_TEXT(0,0,100,20,"文本内容一");<br>
+LODOP.SET_LICENSES........<br>
+LODOP.PRINT(); <br>
+直接放到PRINT()语句前面测试下。<br>
+只要每次打印调用到注册语句，如果是ip或域名注册，且和浏览器地址栏的地址对应就可以<br>
+<hr>
+	
 </div>
 <p></p>
 <div id="small">
