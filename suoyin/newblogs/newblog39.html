@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <link href="../../maychangecss/newblog_nomal.css" type="text/css" rel="stylesheet">
+  <title>【LODOP】任务加入队列打印不出来</title>
+ </head>
+ <body>
+ <style>
+ body{margin:0px;}
+.body {width:100%;}
+a{text-decoration:none;color:black;}
+h1{font-size:1.625em;}
+h2{font-size:1.375em;}
+/**.box{float:left;}**/
+.header_box {width:100%;}
+.header{padding:1%;
+background-color:#f1f1f1;}
+/**border:1px solid #e9e9e9;}**/
+
+.header_bottom{width:100%;}
+.menuitem {
+    margin-top:0;
+    margin-left:0;
+    margin-bottom:0;
+    padding:1%;
+    border-bottom:1px solid #e9e9e9;
+    cursor:pointer;
+}
+
+.main {padding:1%;}
+.main_middle { width:100%;}
+.blue{color:#95bfc7;}
+
+
+.box_footer {width:100%;margin-bottom:0;}
+.footer {
+    padding:1%;
+    text-align:center;
+    background-color:#f1f1f1;
+    font-size:0.625em;
+}
+
+@media only screen and (max-width: 500px) {
+    .menu_left{width:100%;}
+    .menuitem { margin:1%;padding:1%;}
+
+    .main_middle { width:100%;}
+    .main {padding:1%;}
+
+    .box_right {width:100%;}
+    .right { padding:1%;
+    }
+
+    .box { margin-right:0; float:left; }
+}
+
+</style>
+<div class="body"><!--body开始-->
+        <div class="box header_box"><!--header开始-->
+            <div class="header">
+                <h1>博文-【LODOP】任务加入队列打印不出来</h1>
+            </div>
+        </div><!--header结束-->
+<div class="header_bottom"> 
+		   <a href="../../index.html"><div class="menuitem">花谢悦神的主页</div></a>	
+		   <a href="../phoneQA004.html"><div class="menuitem">lodop问答主页</div></a> 
+		   <a href="../phoneQA_dange.html"><div class="menuitem">问答主页（单个问答链接）</div></a> 
+		   <a href="../mini_QAs.html"><div class="menuitem"><span style="color:#ff0099;">迷你一个问答</span></div></a> 
+		   <a href="../new_bloglist.html"><div class="menuitem"><span class="newblogfont">新博文newblogs</span></div></a>
+</div>
+        <div class="box main_middle"><!--main_middle开始-->
+            <div class="main">
+<h1>【LODOP】任务加入队列打印不出来（文案，初）</h1>
+            <div class="postBody">
+                <div id="cnblogs_post_body" class="blogpost-body blogpost-body-html">
+<p>LODOP借助windows打印服务进行打印，<br />当出现任务加入队列后，打印机却打印不出来的情况，一般是和打印机或打印机驱动有关。</p>
+<p>查看打印机队列的情况<br />控制面板&mdash;&mdash;设备和打印机&mdash;&mdash;选中需要的打印机右键里</p>
+<p>进入队列后就交给windows打印服务和打印机驱动了，进入队列打印不出来，一般和打印机和电脑的连线有问题，或打印机卡纸等问题，或咨询下打印机客服。</p>
+<p>常见可能排查：<br />1.排查打印机连线是否正常，接口是否松动<br />2.排查打印机是否脱机<br />3.重装打印机驱动试试<br />4.排查是否有卡纸或堵纸问题<br />5.咨询打印机客服</p>
+<p>接口松动/打印机脱机，是最常见的 加入队列打印不出来的可能。<br />（打印机和电脑连线问题）</p>
+<p>进一步确认是否是打印机问题：</p>
+<p>用xps或pdf虚拟打印机测试下，<br />win7以后系统自带Microsoft XPS Document Writer虚拟打印机或者 下载安装Doro PDF Writer虚拟打印机<br />如果虚拟打印机输出正常，说明和打印机或打印机驱动有关。</p>
+<p>PS：如果出现虚拟打印机弹不出报错框：<br />查看是否有安全设置阻挡了，例如：<br />360安全卫士把spool drivers里的核心dll文件阻止了</p>
+<p>虚拟打印机输出正常，则说明和打印机或打印机驱动有关。</p>
+<p>其他各种情况（个别打印机出现）：<br />（1）空的任务名，有的打印机会在队列不打印</p>
+<p>没有任务名有的打印机会有问题，初始化里加上一个任务名试试<br />LODOP.PRINT_INIT("打印任务名"); //首先一个初始化语句</p>
+<p>现象：打印机队列里，任务名一栏是空的，该打印机任务在队列不出来。<br />         初始化加上任务名后，可以打印了，</p>
+<p>（2）打印机不支持SET_PRINT_PAGESIZE语句纸张</p>
+<p>去掉纸张语句测试下，<br />如果去掉自定义纸张语句正常，可能该打印机不支持自定义纸张等导致的。</p>
+<p>如果是自定义宽高，可以试试指定宽高为0，指定纸张名称<br />LODOP.SET_PRINT_PAGESIZE(1, 0, 0, "A4");<br />也有个别打印机指定名称不行，指定宽高可以，</p>
+<p>有个别打印机只要加上SET_PRINT_PAGESIZE语句就报错，打印机显示屏显示类似&ldquo;请放入正确纸张，请选择正确纸张...&rdquo;一类的提示。<br />去掉纸张语句就正常，这种打印机可能只支持打印机自己的纸张列表的纸张，可以用打印机首选项默认纸张等控制。</p>
+<p>（3）打印机驱动问题<br />打印机驱动和操作系统不匹配，型号不匹配，驱动过旧等。</p>
+<p>（4）打印机故障，咨询下打印机客服。</p>
+<p>（5）任务加入队列，但闪红灯。<br />咨询下打印机客服，可能缺纸，缺墨，卡纸，不支持自定义纸张等，具体可咨询下打印机客服。</p>
+<p>（6）本机有共享打印机，共享打印机出了问题<br />删除本机所有共享打印机，只保留本地打印机对比测试。</p>
+<p>（7）任务加入队列后消失了，但打印机没打印<br />重装打印机驱动，咨询下打印机客服。</p>
+<p>（8）操作系统有问题，系统打印服务(Print Spooler)有问题<br />一打印，系统打印服务(Print Spooler)自动关闭等，操作系统问题，可以在网上搜索下解决方法</p>
+<p><br />任务栏右下角windows报打印机错误</p>
+<p>加入队列后打印不出来，操作系统可能会在右下角提示，打印机错误之类的，<br />这也是加入队列打印不出来的一种现象</p>
+<p>其他软件都能正常打印，只有lodop打印不了：<br />ODOP.PRINT_INIT("打印任务名"); //首先一个初始化语句<br />LODOP.ADD_PRINT_TEXT(0,0,100,20,"文本内容一");//然后多个ADD语句及SET语句<br />LODOP.PRINT(); //最后一个打印(或预览、维护、设计)语句<br />可以先做个最简单的例子，然后逐步添加上自己的其他语句和功能，排查和哪个语句或功能有关。</p>
+<p>lodop功能较多，有的打印机不支持自定义纸张，或对一些语句支持有问题，可以做简单例子对比下。</p>
+<p>加入打印机队列，打印不出来<br />最常见的可能就是：打印机和电脑usb连线问题，打印机脱机。</p>
+<p>&nbsp;</p>
+</div>
+</div>
+    </div><!--main_middle结束-->
+
+        <div class="box box_footer"><!--box_footer开始-->
+            <div class="footer">
+<p>lodop简短问答页面.</p>
+            </div>
+        </div><!--box_footer结束-->
+</div><!--body结束-->
+ </body>
+</html>

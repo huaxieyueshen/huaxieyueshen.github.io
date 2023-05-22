@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <link href="../../maychangecss/newblog_nomal.css" type="text/css" rel="stylesheet">
+  <title>【LODOP】不同电脑样式不同，解析超文本HTM底层IE引擎</title>
+ </head>
+ <body>
+ <style>
+ body{margin:0px;}
+.body {width:100%;}
+a{text-decoration:none;color:black;}
+h1{font-size:1.625em;}
+h2{font-size:1.375em;}
+/**.box{float:left;}**/
+.header_box {width:100%;}
+.header{padding:1%;
+background-color:#f1f1f1;}
+/**border:1px solid #e9e9e9;}**/
+
+.header_bottom{width:100%;}
+.menuitem {
+    margin-top:0;
+    margin-left:0;
+    margin-bottom:0;
+    padding:1%;
+    border-bottom:1px solid #e9e9e9;
+    cursor:pointer;
+}
+
+.main {padding:1%;}
+.main_middle { width:100%;}
+.blue{color:#95bfc7;}
+
+
+.box_footer {width:100%;margin-bottom:0;}
+.footer {
+    padding:1%;
+    text-align:center;
+    background-color:#f1f1f1;
+    font-size:0.625em;
+}
+
+@media only screen and (max-width: 500px) {
+    .menu_left{width:100%;}
+    .menuitem { margin:1%;padding:1%;}
+
+    .main_middle { width:100%;}
+    .main {padding:1%;}
+
+    .box_right {width:100%;}
+    .right { padding:1%;
+    }
+
+    .box { margin-right:0; float:left; }
+}
+
+</style>
+<div class="body"><!--body开始-->
+        <div class="box header_box"><!--header开始-->
+            <div class="header">
+                <h1>博文-【LODOP】不同电脑样式不同，解析超文本HTM底层IE引擎</h1>
+            </div>
+        </div><!--header结束-->
+<div class="header_bottom"> 
+		   <a href="../../index.html"><div class="menuitem">花谢悦神的主页</div></a>	
+		   <a href="../phoneQA004.html"><div class="menuitem">lodop问答主页</div></a> 
+		   <a href="../phoneQA_dange.html"><div class="menuitem">问答主页（单个问答链接）</div></a> 
+		   <a href="../mini_QAs.html"><div class="menuitem"><span style="color:#ff0099;">迷你一个问答</span></div></a> 
+		   <a href="../new_bloglist.html"><div class="menuitem"><span class="newblogfont">新博文newblogs</span></div></a>
+</div>
+        <div class="box main_middle"><!--main_middle开始-->
+            <div class="main">
+<h1>【LODOP】不同电脑样式不同，解析超文本HTM底层IE引擎（文案，初）</h1>
+            <div class="postBody">
+                <div id="cnblogs_post_body" class="blogpost-body blogpost-body-html">
+<p>lodop中ADD_PRINT_HTM，ADD_PRINT_TABLE等打印项，输出的是htm超文本，<br />lodop和c-lodop是轻量级的，很小，内部没有解析超文本的引擎，调用的本机windows底层引擎进行渲染解析的，与ie调用的引擎一致。</p>
+<p>由于不同的客户端底层的IE调用的引擎版本不同，可能会出现不同电脑超文本解析样式不同问题。</p>
+<p>为避免这种情况：<br />建议用各种浏览器通用的样式，样式兼容各种IE版本，提高各种样式在不同的电脑兼容性。<br />客户使用的系统较旧，例如xp系统等，的IE底层引擎也旧，且不升级IE，带一些样式就容易出现问题。</p>
+<p>排查样式：</p>
+<p>查看lodop内部解析的html信息，见http://www.c-lodop.com/faq/pp8.html<br />分析差异点，因浏览器版本不同遵循的html标准不同，造成某些标签属性显示有差异，尽量避免使用有差异的属性，可以在ie下不同版本仿真情况下验证差异 排查样式，尽量使用使用各浏览器无歧义的通用的 html css js，不支持的样式可尝试用其他样式代替。</p>
+<p>用的浏览器不是IE，用的谷歌火狐等，为什么在要排查IE？</p>
+<p>和使用哪个浏览器无关，<br />这里指的是解析超文本的样式，不是使用的浏览器<br />不论使用什么浏览器，都是调用本机底层引擎解析的</p>
+<p>lodop是基于本机windows底层引擎进行渲染解析的，与ie调用的引擎一致。在样式有问题所在电脑上，尝试重置ie，升级ie，<br />或排查下样式http://www.c-lodop.com/faq/pp8.html，通过删减或做简单例子排查，找到出问题的样式，修改样式</p>
+<p>其他方法：<br />可尝试把ADD_PRINT_HTM 换成 ADD_PRINT_HTML（图形模式）试试，ADD_PRINT_HTML不如ADD_PRINT_HTM清晰，适合高精度的打印机，两者各有优势。</p>
+<p>ADD_PRINT_HTML（图形模式）这种能更好还原页面样式，但是清晰度不如ADD_PRINT_HTM。<br />如果要用解析后的超文本ADD_PRINT_HTM，出现问题时需要排查样式。</p>
+<p>具体如何排查样式：<br />查看lodop内部解析的html信息，见http://www.c-lodop.com/faq/pp8.html<br />通过删减内容，或做简单例子的方式，找到出问题的html或样式，定位到哪些html或样式引起的。<br />排查样式，修改样式。</p>
+<p>htm内部可能内容和样式很多，较难定位 ，可以尝试删减或做简单例子排查。<br />删减：逐步删减样式，一直到删减到哪个地方，出现正常，或去掉了该问题现象。定位样式，修改样式。<br />做简单例子：根据实际现象，看看哪个样式控制的，单独摘取这个样式和部分简单内容做一个简单例子，简单例子如果也有问题，也可能是一些样式组合问题，再逐步排查样式问题的原因。</p>
+<p>常见的一种：行高变化，表格内容换行<br />由于htm在浏览器中，如果样式受容器影响，在浏览器中就受浏览器容器影响。<br />但lodop的预览中，就会受纸张影响，由于容器不同，一些样式不固定的就会影响。</p>
+<p>例如表格百分比宽度，在浏览器中，相对于浏览器，和lodop预览相对于纸张，就是不同的。</p>
+<p>一些电脑打印机不支持自定义纸张，或打印机可打区域较小等，都可能会影响受容器影响的样式。</p>
+<p>虚拟打印机测试：<br />用虚拟打印机测试下。win7以后系统自带Microsoft XPS Document Writer虚拟打印机 或者 Doro PDF Writer虚拟打印机</p>
+<p>如果两台电脑虚拟打印机输出也是不同的，但虚拟打印机纸张相同，可能是样式问题。<br />如果样式有问题的电脑，虚拟打印机输出正常，真实打印机不是，可能真实打印机可打区域或纸张容器不同的影响。<br />可以预览查看下虚拟打印机和真实打印机效果。</p>
+<p>不是个别样式，是全部样式，大多少样式没有：<br />加载css样式，参考样例10 http://www.c-lodop.com/demolist/PrintSample10.html<br />是否是外链样式等，样式文件是否正常访问到了。</p>
+<p>样式不是自己生成的，自己无法修改：<br />一些软件自动生成的样式比较复杂，例如一些拖动自动生成页面的软件等工具，<br />内部会产生很多div和空的样式内容等。<br />建议修改样式，自己写样式，尽量用通用的样式。</p>
+<p>输出的是别人的URL：<br />建议不用URL方式，用自己组织好的超文本：<br />由于Lodop借用IE下载引擎，与非IE浏览器之间目前不能传递Session(Cookies)，所以需要安全验证的页面不要用URL方式打印，要用页面已经下载好的内容的HTM方式打印，也就是ADD_PRINT_HTM或ADD_PRINT_TABLE等语句<br />另外URL方式需要二次访问服务器，理论上存在下载失败的可能，所以专业的管理系统尽量不要用URL方式。</p>
+<p>IE浏览器其他影响：<br />1.查看本机ie浏览器的缩放比例应在100%，<br />2.操作系统控制面板设置显示应在100%。<br />如果是超文本，本机IE缩放会有影响。</p>
+<p>IE其他影响2：<br />IE设置了护眼色，背景色<br />E浏览器右上角&mdash;&mdash;Internet选项&mdash;&mdash;颜色&mdash;&mdash;背景</p>
+<p>设置后，一些img的超文本图片，或一些htm内容，会带有背景色<br />一般是护眼色，预览可能产生浅绿色背景，黑白打印机打印出来是灰色背景。</p>
+<p>IE其他影响3：<br />样例2，只显示上面纯文本，不显示下方超文本表格<br />http://www.c-lodop.com/demolist/PrintSample2.html<br />本机IE有问题，重置修复IE等。</p>
+<p>IE其他影响4：<br />IE出问题，脱机等，导致打印出来是IE浏览器的一个提示页面</p>
+<p>&nbsp;</p>
+</div>
+</div>
+    </div><!--main_middle结束-->
+
+        <div class="box box_footer"><!--box_footer开始-->
+            <div class="footer">
+<p>lodop简短问答页面.</p>
+            </div>
+        </div><!--box_footer结束-->
+</div><!--body结束-->
+ </body>
+</html>

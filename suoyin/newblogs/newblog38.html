@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <link href="../../maychangecss/newblog_nomal.css" type="text/css" rel="stylesheet">
+  <title>【LODOP】批量打印速度较慢</title>
+ </head>
+ <body>
+ <style>
+ body{margin:0px;}
+.body {width:100%;}
+a{text-decoration:none;color:black;}
+h1{font-size:1.625em;}
+h2{font-size:1.375em;}
+/**.box{float:left;}**/
+.header_box {width:100%;}
+.header{padding:1%;
+background-color:#f1f1f1;}
+/**border:1px solid #e9e9e9;}**/
+
+.header_bottom{width:100%;}
+.menuitem {
+    margin-top:0;
+    margin-left:0;
+    margin-bottom:0;
+    padding:1%;
+    border-bottom:1px solid #e9e9e9;
+    cursor:pointer;
+}
+
+.main {padding:1%;}
+.main_middle { width:100%;}
+.blue{color:#95bfc7;}
+
+
+.box_footer {width:100%;margin-bottom:0;}
+.footer {
+    padding:1%;
+    text-align:center;
+    background-color:#f1f1f1;
+    font-size:0.625em;
+}
+
+@media only screen and (max-width: 500px) {
+    .menu_left{width:100%;}
+    .menuitem { margin:1%;padding:1%;}
+
+    .main_middle { width:100%;}
+    .main {padding:1%;}
+
+    .box_right {width:100%;}
+    .right { padding:1%;
+    }
+
+    .box { margin-right:0; float:left; }
+}
+
+</style>
+<div class="body"><!--body开始-->
+        <div class="box header_box"><!--header开始-->
+            <div class="header">
+                <h1>博文-【LODOP】批量打印速度较慢</h1>
+            </div>
+        </div><!--header结束-->
+<div class="header_bottom"> 
+		   <a href="../../index.html"><div class="menuitem">花谢悦神的主页</div></a>	
+		   <a href="../phoneQA004.html"><div class="menuitem">lodop问答主页</div></a> 
+		   <a href="../phoneQA_dange.html"><div class="menuitem">问答主页（单个问答链接）</div></a> 
+		   <a href="../mini_QAs.html"><div class="menuitem"><span style="color:#ff0099;">迷你一个问答</span></div></a> 
+		   <a href="../new_bloglist.html"><div class="menuitem"><span class="newblogfont">新博文newblogs</span></div></a>
+</div>
+        <div class="box main_middle"><!--main_middle开始-->
+            <div class="main">
+<h1>【LODOP】批量打印速度较慢（文案，初）</h1>
+            <div class="postBody">
+                <div id="cnblogs_post_body" class="blogpost-body blogpost-body-html">
+<p>打印较慢，可能是什么原因？</p>
+<p>1.是否是页数过多，一个任务内容过多，或单页大量的任务，任务过多</p>
+<p>解决方法：<br />批量打印，分页分任务，在页数和任务之间平衡一下，参考样例26，http://www.c-lodop.com/demolist/PrintSample26.html</p>
+<p>当打印页数超级多（上千页）时，如果用单页循环打印，会因为在操作系统中产生太多的<br />打印任务而影响性能；<br />如果用NewPage分页方式打印，则会因为一次性占用太多的系统资源而<br />需要等待很长时间...<br />解决问题的办法是采用折中处理，既分组完成，每组完成一部分，循环执行组打印。</p>
+<p>单页循环大量任务，后续任务会不断加入队列，会因为在操作系统中产生太多的打印任务而影响性能<br />一个任务大量页数，会因为一次性占用太多的系统资源而需要等待很长时间，该任务会很慢</p>
+<p>因此，大量打印时，建议在页数和任务之间平衡一下，找到效率最高的分组打印方式。</p>
+<p>此外，如果打印量非常大，建议纯文本和画线输出，不经过浏览器解析，速度比较快：<br />快递单，小票，标签，票据等，建议用ADD_PRINT_TEXT等纯文本和画线等进行设计，不受浏览器解析的影响。<br />参考http://www.c-lodop.com/demolist/PrintSample4.html</p>
+<p>2.安装最新版c-lodop，以管理员权限安装最新版c-lodop测试下http://www.c-lodop.com/download.html<br />新版本对于旧版本都会有很多优化和改进，查看下当前自己使用的版本，安装最新版对比下。</p>
+<p>3.排查是否和内容有关，输出一个add_print_text纯文本测试下速度<br />如果一个add_print_text纯文本很快，大概率和内容有关。</p>
+<p>进一步测试：<br />（1）排查是否和超文本解析引擎有关<br />lodop本身没有解析超文本引擎，调用本机windows底层引擎，与底层IE一致。如果是IE存在问题，会影响超文本打印。</p>
+<p>可测试下有无超文本的情况，打印快慢，也可以直接用样例测试<br />样例4是纯文本：<br />http://www.c-lodop.com/demolist/PrintSample4.html<br />样例2是超文本：<br />http://www.c-lodop.com/demolist/PrintSample2.html</p>
+<p>如果样例4非常快，样例2则很慢，可能和本机底层的超文本解析引擎有关，</p>
+<p>解决方式：<br />在有问题所在电脑上，尝试重置ie，升级ie，<br />或改用纯文本输出</p>
+<p>快递单，小票，标签，票据等，建议用ADD_PRINT_TEXT等纯文本和画线等进行设计，不受浏览器解析的影响。<br />参考http://www.c-lodop.com/demolist/PrintSample4.html</p>
+<p>进一步测试：<br />（2）和超文本某些内容有关<br />样例4是纯文本：<br />http://www.c-lodop.com/demolist/PrintSample4.html<br />样例2是超文本：<br />http://www.c-lodop.com/demolist/PrintSample2.html</p>
+<p>如果测试样例2和样例4都非常快，就自己的内容慢，自己的内容也是一页超文本很少，可能和打印项里的某些内容有关：</p>
+<p>例如：打印内容或样式或图片等过多，有需要下载有脚步执行或本身网络慢；</p>
+<p>如果想定位到具体那个地方引起的慢，可以逐步删减或做简单例子排查，例如逐步删的内容，删哪段时速度明显变快，问题内容就在哪个区域内，再摘除该区域逐步定位：<br />查看lodop内部解析的html信息，见http://www.c-lodop.com/faq/pp8.html<br />例如样式复杂，需要网络的图片等。</p>
+<p>进一步测试：<br />（3）打印很慢，出现了进度条<br />排查是否用的是add_print_url方式，URL方式需要二次访问服务器，理论上存在下载失败的可能，尽量不用这种方式，用组织好的超文本。</p>
+<p>由于Lodop借用IE下载引擎，与非IE浏览器之间目前不能传递Session(Cookies)，所以需要安全验证的页面不要用URL方式打印，要用页面已经下载好的内容的HTM方式打印，也就是ADD_PRINT_HTM或ADD_PRINT_TABLE等语句<br />另外URL方式需要二次访问服务器，理论上存在下载失败的可能，所以专业的管理系统尽量不要用URL方式。</p>
+<p>PS：图片有两种输出方式不需要经过浏览器解析：<br />ADD_PRINT_IMAGE直接输出URL方式测试下，不加img标签。<br />例如：<br />LODOP.ADD_PRINT_IMAGE(0,0,"210mm","296.99mm","http://www.c-lodop.com/demolist/PrintSample8.jpg");<br />或参考样例38，直接输出base64码，不加img标签，不经过浏览器解析,http://www.c-lodop.com/demolist/PrintSample38.html</p>
+<p>二维码和条码也可用lodop语句输出，参考样例11</p>
+<p>打印大量超文本浏览器可能存在缓存不释放或释放慢等情况，建议用纯文本和画线方式试试，参考样例4，http://www.c-lodop.com/demolist/PrintSample4.html</p>
+<p>4.用xps或pdf虚拟打印机测试下，排查是否和打印机或打印机驱动有关<br />用虚拟打印机和其他打印机测试，如果都正常，就一台打印机有问题，和打印机或打印机驱动有关，可尝试重装打印机驱动，咨询下打印机客服。<br />有的打印机有连续打印模式和单页模式，打印机的某些模式也可能会影响出纸。</p>
+<p>5.排查是否有共享打印机，删除所有共享打印机<br />因c-lodop会获取本机所有打印机，如果某一个共享打印机出问题，也能会造成一些影响，即使您当前选的不是共享打印机。<br />如果本机存在共享打印机，建议删除所有共享打印机再对比下。</p>
+<p>6.其他：<br />---硬件性能问题，硬件反应慢：<br />电脑内存，打印机驱动等</p>
+<p>清理操作系统缓存等，关闭一些不常用的软件，保证系统内存充足。</p>
+<p>--网络数据传输速度的慢<br />有需要网络的加载的内容，受网络影响。</p>
+<p>打印过慢，和机器 内容 网络 打印机等都可能存在关系，定位问题需要逐步排查下。<br />如果是个别机器出现出现问题，可按上述排查。</p>
+<p><br />排查<br />1.是否是页数过多，一个任务内容过多。批量打印，分页分任务，在页数和任务之间平衡一下，参考样例26.<br />2.安装最新版c-lodop，以管理员权限安装最新版c-lodop测试下http://www.c-lodop.com/download.html<br />3.排查是否和内容有关，输出一个add_print_text纯文本测试下速度<br />4.用xps或pdf虚拟打印机测试下，排查是否和打印机或打印机驱动有关<br />5.排查是否有共享打印机，删除所有共享打印机<br />6.其他：机器硬件性能，网络，加载内容过多过大，打印机驱动问题，共享打印机故障等</p>
+<p>方法：<br />平衡任务和页数<br />安装最新版c-lodop<br />排查内容，量大尽量纯文本<br />删除所有共享打印机，重装打印机驱动</p>
+<p>&nbsp;</p>
+</div>
+</div>
+    </div><!--main_middle结束-->
+
+        <div class="box box_footer"><!--box_footer开始-->
+            <div class="footer">
+<p>lodop简短问答页面.</p>
+            </div>
+        </div><!--box_footer结束-->
+</div><!--body结束-->
+ </body>
+</html>
