@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <link href="../../maychangecss/newblog_nomal.css" type="text/css" rel="stylesheet">
+  <title>【LODOP】打印透明图（图片白色底层不透明或png图黑色背景）（文案，初）</title>
+ </head>
+ <body>
+ <style>
+ body{margin:0px;}
+.body {width:100%;}
+a{text-decoration:none;color:black;}
+h1{font-size:1.625em;}
+h2{font-size:1.375em;}
+/**.box{float:left;}**/
+.header_box {width:100%;}
+.header{padding:1%;
+background-color:#f1f1f1;}
+/**border:1px solid #e9e9e9;}**/
+
+.header_bottom{width:100%;}
+.menuitem {
+    margin-top:0;
+    margin-left:0;
+    margin-bottom:0;
+    padding:1%;
+    border-bottom:1px solid #e9e9e9;
+    cursor:pointer;
+}
+
+.main {padding:1%;}
+.main_middle { width:100%;}
+.blue{color:#95bfc7;}
+
+
+.box_footer {width:100%;margin-bottom:0;}
+.footer {
+    padding:1%;
+    text-align:center;
+    background-color:#f1f1f1;
+    font-size:0.625em;
+}
+
+@media only screen and (max-width: 500px) {
+    .menu_left{width:100%;}
+    .menuitem { margin:1%;padding:1%;}
+
+    .main_middle { width:100%;}
+    .main {padding:1%;}
+
+    .box_right {width:100%;}
+    .right { padding:1%;
+    }
+
+    .box { margin-right:0; float:left; }
+}
+
+</style>
+<div class="body"><!--body开始-->
+        <div class="box header_box"><!--header开始-->
+            <div class="header">
+                <h1>博文-【LODOP】打印透明图（图片白色底层不透明或png图黑色背景）（文案，初） </h1>
+            </div>
+        </div><!--header结束-->
+<div class="header_bottom"> 
+		   <a href="../../index.html"><div class="menuitem">花谢悦神的主页</div></a>	
+		   <a href="../phoneQA004.html"><div class="menuitem">lodop问答主页</div></a> 
+		   <a href="../phoneQA_dange.html"><div class="menuitem">问答主页（单个问答链接）</div></a> 
+		   <a href="../mini_QAs.html"><div class="menuitem"><span style="color:#ff0099;">迷你一个问答</span></div></a> 
+		   <a href="../new_bloglist.html"><div class="menuitem"><span class="newblogfont">新博文newblogs</span></div></a>
+</div>
+        <div class="box main_middle"><!--main_middle开始-->
+            <div class="main">
+<h1>【LODOP】打印透明图（图片白色底层不透明或png图黑色背景）（文案，初） </h1>
+            <div class="postBody">
+                <div id="cnblogs_post_body" class="blogpost-body blogpost-body-html">
+<p>透明图打印，可参考样例37http://www.lodop.net/demolist/PrintSample37.html<br />不是所有打印机都支持透明图打印，需要实际测试下。<br />个别虚拟打印机也会不支持透明，也会表现为白色底色。</p>
+<p>样例37，右键查看源码，可以看到演示的两个公章的两个方式，<br />（图）<br />一个是背景图；<br />一个是图章在文字上方，该图片设置了transcolor="#FFFFFF"，这个 可以把白色转成透明</p>
+<p>（图）<br />进入打印预览，可以看出两个图章的效果，<br />不过对于右侧的这个白色转透明的，一些打印机不支持，打印出来会出现白色背景，盖住下面的文字，因为图片是矩形的，所以打出来会有白色底色。</p>
+<p>LODOP.SET_PRINT_STYLEA(0,"TransColor","#FFFFFF");<br />这个是透的#FFFFFF白色底色，也可以透其他底色<br />例如透#FF0000红色等，一般图片是白色底色，所有是透白色底色</p>
+<p>打印机不支持TransColor把白色转成透明怎么？<br />在无法变更打印机的情况下：</p>
+<p>方法1：用样例37左侧的图章的方法，把图章变成背景图，文字在图片上方。<br />如果图片和文字是分开的打印项，先输出图片，后输出文本，后输出的在上层。</p>
+<p>方法2：把图片设置为一定透明度：<br />例如：<br />LODOP.SET_PRINT_STYLEA(0,"Alpha",128);/这个例子的透明度值设置为128，真正意义上的"半"透明<br />（这种方法是整个图片的透明度，因此红色等部分会变成浅色）<br />（图）<br />如果进入打印设计右键属性里没有看到整个选项，查看当前c-lodop版本，过旧的版本没有这个半透明功能</p>
+<p>其他1：<br />linux下png图片变成黑色，windows下正常：<br />该图片内部可能不是png格式的，可通过画图等其他工具另存为一下该图片<br />或尝试加白色背景另存为一下。</p>
+<p>其他2：某些pdf图章下红色变成浅色，半透明<br />采用的GDI+不支持图像与运算，只能靠半透明近似，目前一些pdf只能是这个效果，后续可能会优化</p>
+<p>某些pdf图章不透色<br />旧版本的c-lodop直接采用windows的图文接口GDI+，如果打印机或虚拟打印机不支持这个接口，就暂时没法使用这个地方的透明功能。<br />安装最新版c-lodop，新版后优化了该部分，目前有些pdf是半透明近似实现这个效果。</p>
+<p><br />ADD_PRINT_IMAGE直接输出http的URL方式测试下，不加img标签。<br />例如：<br />LODOP.ADD_PRINT_IMAGE(0,0,"210mm","296.99mm","http://www.c-lodop.com/demolist/PrintSample8.jpg");<br />或参考样例38，直接输出base64码，不加img标签，不经过浏览器解析,http://www.c-lodop.com/demolist/PrintSample38.html</p>
+<p>&nbsp;</p>
+</div>
+</div>
+    </div><!--main_middle结束-->
+
+        <div class="box box_footer"><!--box_footer开始-->
+            <div class="footer">
+<p>lodop简短问答页面.</p>
+            </div>
+        </div><!--box_footer结束-->
+</div><!--body结束-->
+ </body>
+</html>
