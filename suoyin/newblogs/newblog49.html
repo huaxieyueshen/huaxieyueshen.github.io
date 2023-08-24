@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <link href="../../maychangecss/newblog_nomal.css" type="text/css" rel="stylesheet">
+  <title>【LODOP】提示：Paper size(W:0 H:0)invalid!（文案，初）</title>
+ </head>
+ <body>
+ <style>
+ body{margin:0px;}
+.body {width:100%;}
+a{text-decoration:none;color:black;}
+h1{font-size:1.625em;}
+h2{font-size:1.375em;}
+/**.box{float:left;}**/
+.header_box {width:100%;}
+.header{padding:1%;
+background-color:#f1f1f1;}
+/**border:1px solid #e9e9e9;}**/
+
+.header_bottom{width:100%;}
+.menuitem {
+    margin-top:0;
+    margin-left:0;
+    margin-bottom:0;
+    padding:1%;
+    border-bottom:1px solid #e9e9e9;
+    cursor:pointer;
+}
+
+.main {padding:1%;}
+.main_middle { width:100%;}
+.blue{color:#95bfc7;}
+
+
+.box_footer {width:100%;margin-bottom:0;}
+.footer {
+    padding:1%;
+    text-align:center;
+    background-color:#f1f1f1;
+    font-size:0.625em;
+}
+
+@media only screen and (max-width: 500px) {
+    .menu_left{width:100%;}
+    .menuitem { margin:1%;padding:1%;}
+
+    .main_middle { width:100%;}
+    .main {padding:1%;}
+
+    .box_right {width:100%;}
+    .right { padding:1%;
+    }
+
+    .box { margin-right:0; float:left; }
+}
+
+</style>
+<div class="body"><!--body开始-->
+        <div class="box header_box"><!--header开始-->
+            <div class="header">
+                <h1>博文-【LODOP】提示：Paper size(W:0 H:0)invalid!（文案，初） </h1>
+            </div>
+        </div><!--header结束-->
+<div class="header_bottom"> 
+		   <a href="../../index.html"><div class="menuitem">花谢悦神的主页</div></a>	
+		   <a href="../phoneQA004.html"><div class="menuitem">lodop问答主页</div></a> 
+		   <a href="../phoneQA_dange.html"><div class="menuitem">问答主页（单个问答链接）</div></a> 
+		   <a href="../mini_QAs.html"><div class="menuitem"><span style="color:#ff0099;">迷你一个问答</span></div></a> 
+		   <a href="../new_bloglist.html"><div class="menuitem"><span class="newblogfont">新博文newblogs</span></div></a>
+</div>
+        <div class="box main_middle"><!--main_middle开始-->
+            <div class="main">
+<h1>【LODOP】提示：Paper size(W:0 H:0)invalid!（文案，初） </h1>
+            <div class="postBody">
+                <div id="cnblogs_post_body" class="blogpost-body blogpost-body-html">
+<p>1.首先安装最新版c-lodop测试下，确保当前版本是最新版。<br />2.右键以管理员权限运行，确保c-lodop有足够的权限。<br />3.删除本机共享打印机测试对比下，某个共享打印机异常会导致一些c-lodop问题。<br />若上述都排除了，一般这个提示就是和打印机对纸张的支持有关了，视频后面描述下一些测试和可能的情况：</p>
+<p>一，测试确定是否和打印机有关<br />用xps或pdf虚拟打印机测试下，<br />win7以后系统自带Microsoft XPS Document Writer虚拟打印机或者的Doro PDF Writer虚拟打印机</p>
+<p>选择打印机，参考样例5、7<br />http://www.c-lodop.com/demolist/PrintSample5.html<br />http://www.c-lodop.com/demolist/PrintSample7.html<br />打印机优先级，参考http://www.c-lodop.com/blogs/Blog002.html</p>
+<p>如果测试对比发现，虚拟打印机正常，只有该真实打印机报错，可以确定和该打印机有关，再根据后续排查下。</p>
+<p>二，测试确定是否和纸张语句有关<br />用该有问题的打印机测试，去掉纸张语句，和带着语句对比。</p>
+<p>如果测试对比发现，去掉纸张语句不报错，加上纸张语句报错，可以确定和该打印机对该自定义纸张语句的支持有关。</p>
+<p>如何处理：<br />修改纸张语句参数，直到不报错，或去掉纸张语句。</p>
+<p>情况1：纸张语句宽高为0，走纸张名称。<br />例如：LODOP.SET_PRINT_PAGESIZE(1, 0, 0, "A4");<br />试试中间的宽高不用0,0,设置成具体的宽高值。</p>
+<p>如果测试具体的宽高不再报错，该打印机可以用具体的自定义宽高设置方式。</p>
+<p><br />情况2：纸张语句宽高为具体值，自定义宽高<br />例如：LODOP.SET_PRINT_PAGESIZE(1,1100,2000,"");  <br />宽高设置具体值，可尝试宽高为0，第四个参数纸张名称，走打印机自带的纸张。</p>
+<p>如果测试宽高为0，纸张名称设置正常，该打印机可以用纸张名称方式指定。</p>
+<p>（PS：自定义宽高方式，一些有显示器的打印机，打印机显示屏可能会显示纸张不支持，请重选纸张，或纸张规格不对类似的提示）</p>
+<p>情况3：无论是自定义宽高，还是宽高为0走纸张名称，打印机都报错。<br />这种无论怎么修改纸张参数，打印机都报错，即使是打印机自带的纸张名称也会报错。</p>
+<p>重装打印机驱动测试下，个别打印机驱动问题也会导致异常。如果去掉是打印机官方的且正常。<br />或去掉纸张语句，用不用语句的其他优先级方式控制：<br />打印机优先级，参考http://www.c-lodop.com/blogs/Blog002.html</p>
+<p>由于打印机种类千差万别，所以不同打印机对自定义纸张的支持也有差异。<br />有的打印机不支持自定义纸张会显示默认纸张，而有的则会报错，个别也会加上语句就报错。<br />可根据实际情况测试修改。</p>
+<p>正常情况下指定打印机自带的纸张名称都是支持的，也就是宽高为0，走第四个参数纸张名称。<br />但也有打印机宽高为0，打印机驱动会报错。</p>
+<p>其他情况：<br />（1）同一个打印机，偶尔报错：<br />观察操作系统或内存等是否有什么现象，是否电脑硬件等限制，windows打印服务是否正常，是否有充足内存可以保证windows打印服务的运行等。</p>
+<p>（2）导出wps pdf虚拟打印机提示这个：<br />一些虚拟打印机对纸张语句也会有异常。<br />不建议用导出字样的这种虚拟打印机，可以用的Doro PDF Writer虚拟打印机或Microsoft XPS Document Writer虚拟打印机等测试。</p>
+<p>由于自己用过的打印机较少，并未遇到过该问题，以上只是来源于他人反馈，这个问题和打印机对纸张的支持有关。</p>
+<p>&nbsp;</p>
+</div>
+</div>
+    </div><!--main_middle结束-->
+
+        <div class="box box_footer"><!--box_footer开始-->
+            <div class="footer">
+<p>lodop简短问答页面.</p>
+            </div>
+        </div><!--box_footer结束-->
+</div><!--body结束-->
+ </body>
+</html>

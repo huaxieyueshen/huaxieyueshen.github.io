@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <link href="../../maychangecss/newblog_nomal.css" type="text/css" rel="stylesheet">
+  <title>【LODOP】打印乱码（打印机，内容，安装程序，水印等乱码）（文案，初）</title>
+ </head>
+ <body>
+ <style>
+ body{margin:0px;}
+.body {width:100%;}
+a{text-decoration:none;color:black;}
+h1{font-size:1.625em;}
+h2{font-size:1.375em;}
+/**.box{float:left;}**/
+.header_box {width:100%;}
+.header{padding:1%;
+background-color:#f1f1f1;}
+/**border:1px solid #e9e9e9;}**/
+
+.header_bottom{width:100%;}
+.menuitem {
+    margin-top:0;
+    margin-left:0;
+    margin-bottom:0;
+    padding:1%;
+    border-bottom:1px solid #e9e9e9;
+    cursor:pointer;
+}
+
+.main {padding:1%;}
+.main_middle { width:100%;}
+.blue{color:#95bfc7;}
+
+
+.box_footer {width:100%;margin-bottom:0;}
+.footer {
+    padding:1%;
+    text-align:center;
+    background-color:#f1f1f1;
+    font-size:0.625em;
+}
+
+@media only screen and (max-width: 500px) {
+    .menu_left{width:100%;}
+    .menuitem { margin:1%;padding:1%;}
+
+    .main_middle { width:100%;}
+    .main {padding:1%;}
+
+    .box_right {width:100%;}
+    .right { padding:1%;
+    }
+
+    .box { margin-right:0; float:left; }
+}
+
+</style>
+<div class="body"><!--body开始-->
+        <div class="box header_box"><!--header开始-->
+            <div class="header">
+                <h1>博文-【LODOP】打印乱码（打印机，内容，安装程序，水印等乱码）（文案，初） </h1>
+            </div>
+        </div><!--header结束-->
+<div class="header_bottom"> 
+		   <a href="../../index.html"><div class="menuitem">花谢悦神的主页</div></a>	
+		   <a href="../phoneQA004.html"><div class="menuitem">lodop问答主页</div></a> 
+		   <a href="../phoneQA_dange.html"><div class="menuitem">问答主页（单个问答链接）</div></a> 
+		   <a href="../mini_QAs.html"><div class="menuitem"><span style="color:#ff0099;">迷你一个问答</span></div></a> 
+		   <a href="../new_bloglist.html"><div class="menuitem"><span class="newblogfont">新博文newblogs</span></div></a>
+</div>
+        <div class="box main_middle"><!--main_middle开始-->
+            <div class="main">
+<h1>【LODOP】打印乱码（打印机，内容，安装程序，水印等乱码）（文案，初） </h1>
+            <div class="postBody">
+                <div id="cnblogs_post_body" class="blogpost-body blogpost-body-html">
+<p>一，真实打印机，打印出现乱码<br />先确定该乱码和打印机有关，还是和内容等有关：</p>
+<p>打印出现乱码，排查和什么有关<br />用xps或pdf虚拟打印机测试下，排查乱码是和内容有关，还是打印机有关。<br />win7以后系统自带Microsoft XPS Document Writer虚拟打印机或者 下载安装群文件里的Doro PDF Writer虚拟打印机</p>
+<p>测试结果（1）虚拟打印机不乱码，只有真实打印机打印出来乱码</p>
+<p>理论上本机虚拟打印没问题的话，说明插件代码没问题，程序可做的努力就的确很少了，毕竟windows下的打印是微软倡导的设备无关系原则，要在打印机和打印驱动程序 系统上排查下，重装打印机驱动试试，咨询下打印机客服。</p>
+<p>打印机驱动或打印机故障有问题。</p>
+<p>尝试重装驱动，并重启打印机试试。</p>
+<p>个人经验：<br />自己打发票或其他的时候，也遇到过乱码，比如打内容上面出现一行乱码，但预览的时候是没有的。<br />打印机进纸有点问题，针式打印机放入有时提示缺纸，所以多放几次，<br />自己调整打印机的偏移值，需要多测试查看效果，然后对着发票各自通过透光观察内容套打的偏移，调整偏移值。在多出测试中，偶尔就会冒出页面上面有乱码，该乱码显然不是内容里的。</p>
+<p>因为打印机有点问题，所以要多放几次到它不再提示缺纸，经常会重启打印机，该偶尔出现的乱码，重启打印机后经常就没有了。</p>
+<p>（这个是偶尔出现，自己遇到的是正常内容上面出现了一行，发票是用的其他软件打的，出现情况不明，估计是打印机故障引起的打印机自己输出的提示。）</p>
+<p>自己解决该偶尔出现的乱码，就是通过重启打印机，该乱码出现概率很小，对打印机不了解，原因不明。</p>
+<p>二，真实打印机，虚拟打印机，打印都出现乱码<br />测试结果（2）虚拟打印机输出也是乱码</p>
+<p>打印项是什么语句输出的，是add_print_text纯文本，还是add_print_htm超文本，还是add_print_pdf打印项</p>
+<p>a1,输出内容是htm超文本的情况：<br />如果是HTM，由于lodop本身没有解析超文本的引擎，调用本机底层的，所以可能是底层引擎存在问题，或页面编码问题。</p>
+<p>测试纯文本进一步测试是否和htm超文本有关：<br />输出简单的纯文本超文本测试下<br />测试样例4，http://www.c-lodop.com/demolist/PrintSample4.html</p>
+<p>测试结果：如果是纯文本正常，只有htm超文本有问题，可以确定和超文本解析有关。</p>
+<p>如果纯文本正常，只有超文本有问题，排查html内容的编码或重置下ie试试。Lodop是基于本机windows底层引擎进行渲染解析的，与ie调用的引擎一致。</p>
+<p>例如：本机底层IE引擎存在问题或编码问题，htm页面加编码格式utf-8等：content="text/html; charset=utf-8"</p>
+<p>a1,输出内容是add_print_text纯文本的情况：<br />add_print_text纯文本是lodop输出的，而调用的字体是当前机器本机操作系统字体库的字体，<br />如果纯文本存在问题，一般是字体问题。</p>
+<p>测试样例4，http://www.c-lodop.com/demolist/PrintSample4.html<br />可以在样例4里选中某个纯文本打印项，切换不同字体预览效果。<br />样例4是默认的宋体，如果样例4也全部乱码，切换其他字体正常，就是本机宋体存在问题</p>
+<p>如果样例4不乱码，查看下自己设置的字体<br />如果自己代码里是黑体，在样例4找一个纯文本，改成黑体，预览查看效果<br />测试只有黑体的乱码，宋体的都不乱码，那就是本机的黑体存在问题</p>
+<p>PS：除了操作系统字体库某字体问题外，也可能存在多个版本的字体，导致了异常<br />例如：经过测试，纯文本黑体乱码，其他字体不乱码<br />问题原因：电脑里面有的黑体有两个版本的黑体，删掉其中较低版本的字体后就正常了</p>
+<p>这些是其他人遇到过的，虽然自己没遇到过，但其他人测试有效。</p>
+<p>网上查找或从正常电脑找字体导出等：<br />或从正常电脑上的（某字体）复制出来，在有问题的电脑上安装测试下</p>
+<p>其他字体正常，就是该客户windows字体库的（某字体）有问题，重装下（某字体）<br />或观察下是否安装了多个版本的（某字体），把低版本的（某字体）删除掉</p>
+<p><br />总结. 某个真实打印机打印出来是乱码</p>
+<p>先确定该乱码和打印机有关，还是和内容等有关，<br />再根据上诉排查。</p>
+<p>三.c-lodop安装程序界面乱码</p>
+<p>c-lodop安装程序界面全是乱码：<br />一种是系统故障&ldquo;软件出现乱码&rdquo;，可用360修复软件乱码问题<br />另一种是操作系统修改区域语言与操作系统不一致。<br />第二种修改区域语言与操作系统一致。</p>
+<p>c-lodop安装步骤界面中文乱码：（繁体操作系统等）<br />安装过程界面目前是中文简体的，<br />如果是64位操作系统，可以用那个64位纯英文的http://www.c-lodop.com/download.html<br />这个64位的c-lodop是纯英文的安装程序</p>
+<p>异常界面全部乱码：<br />其他人经验：<br />调整控制面板里的区域，当前系统区域先改成英文，重启电脑，再改成中文简体。</p>
+<p>四.水印乱码<br />统故障&ldquo;软件出现乱码&rdquo;，可用360修复软件乱码问题<br />修改区域语言与操作系统一致。</p>
+<p>另外一种，他人经验：<br />（图）<br />操作系统区域语言里是否勾选了：beta，使用Unicode UTF-8提供全球语言支持<br />去掉这个勾选试试</p>
+<p>此问题也会表现一些其他异常：<br />（图）<br />欢迎页面打印机名称中文乱码（可能是导出wps pdf虚拟打印机，里面的中文都是乱码）</p>
+<p>&nbsp;</p>
+</div>
+</div>
+    </div><!--main_middle结束-->
+
+        <div class="box box_footer"><!--box_footer开始-->
+            <div class="footer">
+<p>lodop简短问答页面.</p>
+            </div>
+        </div><!--box_footer结束-->
+</div><!--body结束-->
+ </body>
+</html>

@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <link href="../../maychangecss/newblog_nomal.css" type="text/css" rel="stylesheet">
+  <title>【LODOP】https://localhost.lodop.net:8443不安全(Load SSL Error)（文案，初）</title>
+ </head>
+ <body>
+ <style>
+ body{margin:0px;}
+.body {width:100%;}
+a{text-decoration:none;color:black;}
+h1{font-size:1.625em;}
+h2{font-size:1.375em;}
+/**.box{float:left;}**/
+.header_box {width:100%;}
+.header{padding:1%;
+background-color:#f1f1f1;}
+/**border:1px solid #e9e9e9;}**/
+
+.header_bottom{width:100%;}
+.menuitem {
+    margin-top:0;
+    margin-left:0;
+    margin-bottom:0;
+    padding:1%;
+    border-bottom:1px solid #e9e9e9;
+    cursor:pointer;
+}
+
+.main {padding:1%;}
+.main_middle { width:100%;}
+.blue{color:#95bfc7;}
+
+
+.box_footer {width:100%;margin-bottom:0;}
+.footer {
+    padding:1%;
+    text-align:center;
+    background-color:#f1f1f1;
+    font-size:0.625em;
+}
+
+@media only screen and (max-width: 500px) {
+    .menu_left{width:100%;}
+    .menuitem { margin:1%;padding:1%;}
+
+    .main_middle { width:100%;}
+    .main {padding:1%;}
+
+    .box_right {width:100%;}
+    .right { padding:1%;
+    }
+
+    .box { margin-right:0; float:left; }
+}
+
+</style>
+<div class="body"><!--body开始-->
+        <div class="box header_box"><!--header开始-->
+            <div class="header">
+                <h1>博文-【LODOP】https://localhost.lodop.net:8443不安全(Load SSL Error)（文案，初） </h1>
+            </div>
+        </div><!--header结束-->
+<div class="header_bottom"> 
+		   <a href="../../index.html"><div class="menuitem">花谢悦神的主页</div></a>	
+		   <a href="../phoneQA004.html"><div class="menuitem">lodop问答主页</div></a> 
+		   <a href="../phoneQA_dange.html"><div class="menuitem">问答主页（单个问答链接）</div></a> 
+		   <a href="../mini_QAs.html"><div class="menuitem"><span style="color:#ff0099;">迷你一个问答</span></div></a> 
+		   <a href="../new_bloglist.html"><div class="menuitem"><span class="newblogfont">新博文newblogs</span></div></a>
+</div>
+        <div class="box main_middle"><!--main_middle开始-->
+            <div class="main">
+<h1>【LODOP】https://localhost.lodop.net:8443不安全(Load SSL Error)（文案，初） </h1>
+            <div class="postBody">
+                <div id="cnblogs_post_body" class="blogpost-body blogpost-body-html">
+<p>之前有两个视频提到了关于客户端端本地打印角色，https网站的设置和一些问题，这个视频单独介绍证书问题引起的情况。<br />如果JS报错是https://localhost.lodop.net:8443/CLodopfuncs.js访问不了，是DNS，或VPN或没启动等，之前视频里有介绍过，此视频不再介绍。</p>
+<p>此视频介绍JS报错是和证书有关的，<br />也就是访问https://localhost.lodop.net:8443，这个欢迎页面，浏览器地址栏提示不安全的情况。</p>
+<p>先介绍下https://localhost.lodop.net:8443/CLodopfuncs.js的这个域名是什么情况：<br />localhost.lodop.net是一个指向127.0.0.1的本地特殊域名，与localhost等效，这个就是https网站客户端本地角色访问本地的地址。<br />c-lodop安装时会自带这个域名的证书。</p>
+<p>访问https://localhost.lodop.net:8443，提示不安全<br />证书错误，显示不安全的两种情况：</p>
+<p>情况1：证书时间问题<br />（在操作系统时间正常的情况下）</p>
+<p>目前ssl证书是一年更新一次，证书到期时间附近的提前一个月，会陆续自动推送新证书。<br />也有一些情况导致推送失败，例如客户网络问题，提高推送的服务器出现问题，c-lodop版本太旧没有达到推送需要的版本等。</p>
+<p>如图，距离当前发布视频最近的证书就是这个<br />2023年6月25日&mdash;&mdash;2024年7月26号到期<br />（图） （图）</p>
+<p>大部分正常收到推送的会自动更新证书，小部分会更新失败，例如提示Load SSL Error。<br />以及JS报错证书问题，提示c-lodop未安装启动<br />（图）</p>
+<p>解决方法：(截止视频发布时间）<br />截止到2023年7月22日，C-Lodop6.571及前版本的SSL证书到期，<br />部分电脑在自动下载新证书时失败(证书未更新或提示"Load SSL Error")，造成https页面没法使用（http页面无影响）</p>
+<p>C-Lodop会定时自动更新SSL，个别自动更新失败的，请重启一下C-Lodop或重装下C-Lodop。<br />如果版本太早(小于6.5.6.5)或网络有困难,请直接安装最新版本(6.5.7.2):<br />http://www.lodop.net/download.html</p>
+<p>可以安装最新版，更新最新lodopFuncs.js，提示客户端都安装6572，c-lodop6572带新证书：<br />参考http://www.c-lodop.com/blogs/Blog026.html<br />安装最新版c-lodop，更新最新的lodopFuncs.js<br />http://www.c-lodop.com/download.html</p>
+<p>由于一些客户成功被推送了新证书，一些客户证书自动更新失败，所以该问题表现为https网站，一些用户有问题，一些客户还能正常使用。</p>
+<p>情况2：证书路径问题<br />访问https://localhost.lodop.net:8443，提示不安全，<br />点开不安全的具体提示，如果证书时间没问题，再看下证书路径，是否确实根证书<br />（图）</p>
+<p>（1）可在证书网站上查找并安装：<br />安装下根证书<br />https://www.digicert.com/kb/digicert-root-certificates.htm</p>
+<p>（2）在这个官网博文里有下载证书，或从已经成功安装的电脑里导出<br />参考http://www.c-lodop.com/blogs/Blog026.html<br />windows系统的全球CA根证书不全，可以自行安装其根证书：<br />DigiCert_RapidSSL.cer ,该根证书文件可以从已经成功安装的电脑里导出，也可以从这里下载。</p>
+<p>其他：<br />如果您报错的是另一个旧地址：<br />https://localhost:8443/CLodopfuncs.js<br />这个地址是很旧的c-lodop版本的，需要更新最新版和最新的lodopFuncs.js，里面是新的地址。</p>
+<p>总结：<br />JS报错证书问题，先观察是哪个问题，是证书时间问题，还是证书路径问题。<br />如果是证书到期问题，更新最新版带最新的证书。<br />证书路径问题，windows确实根证书，安装对应的根证书。</p>
+</div>
+<p>&nbsp;</p>
+</div>
+</div>
+    </div><!--main_middle结束-->
+
+        <div class="box box_footer"><!--box_footer开始-->
+            <div class="footer">
+<p>lodop简短问答页面.</p>
+            </div>
+        </div><!--box_footer结束-->
+</div><!--body结束-->
+ </body>
+</html>
