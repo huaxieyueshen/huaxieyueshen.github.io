@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <link href="../../maychangecss/newblog_nomal.css" type="text/css" rel="stylesheet">
+  <title>【LODOP】提示“网页还没下载完毕，请稍等一下再操作.”（文案，初）</title>
+ </head>
+ <body>
+ <style>
+ body{margin:0px;}
+.body {width:100%;}
+a{text-decoration:none;color:black;}
+h1{font-size:1.625em;}
+h2{font-size:1.375em;}
+/**.box{float:left;}**/
+.header_box {width:100%;}
+.header{padding:1%;
+background-color:#f1f1f1;}
+/**border:1px solid #e9e9e9;}**/
+
+.header_bottom{width:100%;}
+.menuitem {
+    margin-top:0;
+    margin-left:0;
+    margin-bottom:0;
+    padding:1%;
+    border-bottom:1px solid #e9e9e9;
+    cursor:pointer;
+}
+
+.main {padding:1%;}
+.main_middle { width:100%;}
+.blue{color:#95bfc7;}
+
+
+.box_footer {width:100%;margin-bottom:0;}
+.footer {
+    padding:1%;
+    text-align:center;
+    background-color:#f1f1f1;
+    font-size:0.625em;
+}
+
+@media only screen and (max-width: 500px) {
+    .menu_left{width:100%;}
+    .menuitem { margin:1%;padding:1%;}
+
+    .main_middle { width:100%;}
+    .main {padding:1%;}
+
+    .box_right {width:100%;}
+    .right { padding:1%;
+    }
+
+    .box { margin-right:0; float:left; }
+}
+
+</style>
+<div class="body"><!--body开始-->
+        <div class="box header_box"><!--header开始-->
+            <div class="header">
+                <h1>博文-【LODOP】提示“网页还没下载完毕，请稍等一下再操作.”（文案，初） </h1>
+            </div>
+        </div><!--header结束-->
+<div class="header_bottom"> 
+		   <a href="../../index.html"><div class="menuitem">花谢悦神的主页</div></a>	
+		   <a href="../phoneQA004.html"><div class="menuitem">lodop问答主页</div></a> 
+		   <a href="../phoneQA_dange.html"><div class="menuitem">问答主页（单个问答链接）</div></a> 
+		   <a href="../mini_QAs.html"><div class="menuitem"><span style="color:#ff0099;">迷你一个问答</span></div></a> 
+		   <a href="../new_bloglist.html"><div class="menuitem"><span class="newblogfont">新博文newblogs</span></div></a>
+</div>
+        <div class="box main_middle"><!--main_middle开始-->
+            <div class="main">
+<h1>【LODOP】提示“网页还没下载完毕，请稍等一下再操作.”（文案，初） </h1>
+            <div class="postBody">
+                <div id="cnblogs_post_body" class="blogpost-body blogpost-body-html">
+<p>提示&ldquo;网页还没下载完毕，请稍等一下再操作.&rdquo;<br />这个是发行包里lodopFuncs.js里的提示，<br />（图）</p>
+<p>原来的c-lodop版本也会有提示&ldquo;C-Lodop没准备好&rdquo;</p>
+<p>类似的提示还有，提示"WebSocket没准备好，点确定继续"，这个提示是在CLodopfuncs.js里 <br />例如http网站，且是8000端口时，http://localhost:8000/CLodopfuncs.js中<br />（图）</p>
+<p>解决方法：<br />参考http://www.c-lodop.com/faq/pp3.html<br />新版修改了该提示，是同一问题，参考链接里的方法。</p>
+<p>情况1：点击按钮或其他方式等触发<br />如果是页面点击后打印，把获取LODOP对象放在打印按钮里触发。参考样例2<br />http://www.c-lodop.com/demolist/PrintSample2.html<br />进入页面稍等一会再点击打印按钮</p>
+<p><br />情况2：一进入页面就调用，不是进入点击按钮等触发方式（c-lodop已安装启动）</p>
+<p>参考常见问答的三种方法：参考http://www.c-lodop.com/faq/pp3.html</p>
+<p>方法一：等待C-Lodop准备好再执行<br />调用打印方法打印，详见样例22，因样例是混合部署，所以写了判断，c-lodop和lodop两种。<br />样例22是一进入页面就弹出打印预览（c-lodop以弹出的形式，lodop插件会是内嵌浏览器方式），<br />没有点击打印按钮，一进入就调用，代码里加了等c-lodop准备好的方法</p>
+<p>  if (needCLodop()) {<br />	//如果是只运行C-Lodop,只需下边的代码，<br />	//C-Lodop----begin----<br />	window.On_CLodop_Opened=function(){<br />		OpenPreview();	//OpenPreview()是调用打印方法						<br />		window.On_CLodop_Opened=null;<br />	};	<br />	//C-Lodop----end----				<br />  } else <br />  window.onload = function(){OpenPreview();};	//使用lodop控件时的调用</p>
+<p>方法二：设置时间延迟执行<br />	setTimeout("print()","500");  //500毫秒后执行print()函数，只执行一次。<br />	function print(){<br />		LODOP.PRINT_INIT("测试打印");<br />		LODOP.ADD_PRINT_TEXT(10,10,300,200,"这是纯文本行");<br />		LODOP.PRINT();<br />	}</p>
+<p>方法三：提前自行判断一下之后再打印，自行判断方法如下：<br />if (LODOP.webskt &amp;&amp; LODOP.webskt.readyState==1){ 准备好} else {没准备好}</p>
+<p>&ldquo;网页还没下载完毕，请稍等一下再操作.&rdquo;或提示&ldquo;C-Lodop没准备好&rdquo;<br />还有一起团其他原因，可参见问答介绍http://www.c-lodop.com/faq/pp3.html<br />（图）</p>
+<p>&nbsp;</p>
+<p>其他现象：总是提示&ldquo;网页还没下载完毕，请稍等一下再操作.&rdquo;，刷新页面，进入页面等待也没有效果。<br />可能原因：c-lodop没安装启动。<br />查看下c-lodop是否处于启动状态 ，端口是否正常，或http的CORS阻挡，https的证书等，<br />此问题可参见另一个提示未安装启动的视频，就不多做介绍了：<br />（图）</p>
+<p>c-lodop没安装，想测试lodopFuncs.js自带的提示下载安装，没有提示下载安装，提示这个&ldquo;网页还没下载完毕，请稍等一下再操作.&rdquo;</p>
+<p>进入页面稍等一会再调用LODOP对象，最新版lodopFuncs.js里，等四个报错都完成，判断的JS都完成了，再调用LODOP对象会有提示<br />（图）</p>
+<p>如果是一进入页面就调用，加延迟调用LODOP对象，等clodopFucns.js里加载完成，报错也完成，会有提示</p>
+</div>
+<p>&nbsp;</p>
+</div>
+</div>
+    </div><!--main_middle结束-->
+
+        <div class="box box_footer"><!--box_footer开始-->
+            <div class="footer">
+<p>lodop简短问答页面.</p>
+            </div>
+        </div><!--box_footer结束-->
+</div><!--body结束-->
+ </body>
+</html>

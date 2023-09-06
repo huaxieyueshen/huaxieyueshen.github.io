@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <link href="../../maychangecss/newblog_nomal.css" type="text/css" rel="stylesheet">
+  <title>【LODOP】打印第几页到第几页（一个任务的）（文案，初）</title>
+ </head>
+ <body>
+ <style>
+ body{margin:0px;}
+.body {width:100%;}
+a{text-decoration:none;color:black;}
+h1{font-size:1.625em;}
+h2{font-size:1.375em;}
+/**.box{float:left;}**/
+.header_box {width:100%;}
+.header{padding:1%;
+background-color:#f1f1f1;}
+/**border:1px solid #e9e9e9;}**/
+
+.header_bottom{width:100%;}
+.menuitem {
+    margin-top:0;
+    margin-left:0;
+    margin-bottom:0;
+    padding:1%;
+    border-bottom:1px solid #e9e9e9;
+    cursor:pointer;
+}
+
+.main {padding:1%;}
+.main_middle { width:100%;}
+.blue{color:#95bfc7;}
+
+
+.box_footer {width:100%;margin-bottom:0;}
+.footer {
+    padding:1%;
+    text-align:center;
+    background-color:#f1f1f1;
+    font-size:0.625em;
+}
+
+@media only screen and (max-width: 500px) {
+    .menu_left{width:100%;}
+    .menuitem { margin:1%;padding:1%;}
+
+    .main_middle { width:100%;}
+    .main {padding:1%;}
+
+    .box_right {width:100%;}
+    .right { padding:1%;
+    }
+
+    .box { margin-right:0; float:left; }
+}
+
+</style>
+<div class="body"><!--body开始-->
+        <div class="box header_box"><!--header开始-->
+            <div class="header">
+                <h1>博文-【LODOP】打印第几页到第几页（一个任务的）（文案，初） </h1>
+            </div>
+        </div><!--header结束-->
+<div class="header_bottom"> 
+		   <a href="../../index.html"><div class="menuitem">花谢悦神的主页</div></a>	
+		   <a href="../phoneQA004.html"><div class="menuitem">lodop问答主页</div></a> 
+		   <a href="../phoneQA_dange.html"><div class="menuitem">问答主页（单个问答链接）</div></a> 
+		   <a href="../mini_QAs.html"><div class="menuitem"><span style="color:#ff0099;">迷你一个问答</span></div></a> 
+		   <a href="../new_bloglist.html"><div class="menuitem"><span class="newblogfont">新博文newblogs</span></div></a>
+</div>
+        <div class="box main_middle"><!--main_middle开始-->
+            <div class="main">
+<h1>【LODOP】打印第几页到第几页（一个任务的）文案，初） </h1>
+            <div class="postBody">
+                <div id="cnblogs_post_body" class="blogpost-body blogpost-body-html">
+<p>LODOP中的打印预览，点打印按钮，弹出的弹窗里（一个任务多页的情况下），可以看到第几页到第几页，<br />输入初始页数和结束页数，可以打印该任务的某些页<br />（图）</p>
+<p>这个也可以代码控制，这个演示在样例22里<br />参考http://www.c-lodop.com/demolist/PrintSample22.html，右键查看源码，打印一个任务的第几页到第几页。</p>
+<p>PS：由于样例22是内嵌方式，而c-lodop不支持内嵌，所以会是弹出的形式样例，lodop是内嵌模式，该样例为预览内嵌的模式。</p>
+<p>代码：<br />打印一个任务的第几页到第几页，参考例如：<br />LODOP.SET_PRINT_MODE ("PRINT_START_PAGE",2);//设置从第2页开始打印<br />LODOP.SET_PRINT_MODE ("PRINT_END_PAGE",3);//设置从第3页结束打印</p>
+<p>1.如果想输出单个页数怎么办？<br />起始页和初始页设置相同就可以里，例如打印该任务第2页，<br />可以设置从第2页开始打印，到第2也结束打印。</p>
+<p>之前博文里的图片，打印第4页：<br />（图）</p>
+<p>2.如果想打印的不是连续的页数怎么办?<br />可以拆成多任务，批量打印，每个任务输出需要的页数。</p>
+<p>从初始化INIT或INITA到打印是一个任务。<br />LODOP.PRINT_INIT("打印任务名"); //首先一个初始化语句<br />LODOP.ADD_PRINT_TEXT(0,0,100,20,"文本内容一");//然后多个ADD语句及SET语句<br />LODOP.PRINT(); //最后一个打印(或预览、维护、设计)语句</p>
+<p>批量打印，分页分任务，在页数和任务之间平衡一下，参考样例<br />26http://www.c-lodop.com/demolist/PrintSample26.html</p>
+<p>例如，想打该任务第2页，和第6页<br />可以两个任务输出同样的内容，<br />第一个任务设置从第2页打到第2页<br />第二个任务设置第6页打到第6页</p>
+<p>批量打印多个任务， 由于是批量打印，而一次只能预览一个任务，所以批量打印多任务用PRINT直接输出，<br />在打印机队列里，是加入的不同的任务。</p>
+<p>3.lodop的打印预览可以只预览需要的页数吗？<br />不支持，lodop的打印预览是预览整个任务的，整个是设置该任务实际打印想页数，但预览是传入什么预览什么，预览整个任务。</p>
+<p>如果只想预览单个页数，直接在代码里去掉其他页数内容，只保留该页内容，可以拼接字符串等方式合理控制传入的内容。</p>
+<p>4.如何打印一个pdf的某一页或某几页<br />新版c-lodop有打印pdf功能，pdf作为一个打印项存在，可以单个任务输出这个多页pdf打印项，然后同样也是设置打印该任务的第几页到第几页。<br />当任务里只有一个pdf打印项时，也就是打印这个pdf的第几页到第几页。</p>
+<p>5.设置没有生效<br />（1）SET_PRINT_MODE放在INIT或INITA初始化之后，PRNT打印之前调用，排查语句顺序是否正常</p>
+<p>（2）这个任务本身就只有一页，这个语句是控制打印一个任务的某些页数的，不是控制打印哪些任务。<br />（多页的一个任务中，打印某些页数）</p>
+<p>其他：可以设置一个任务的页码的初始值和结束值吗？</p>
+<p>LODOP.SET_PRINT_STYLEA(0,"NumberStartPage",2);//设置从哪一页开始显示<br />LODOP.SET_PRINT_STYLEA(0,"StartNumberValue",3);//设置页码从几开始显示</p>
+<p>（页码会在另一个视频里在介绍，）</p>
+<p>参考http://www.c-lodop.com/demolist/PrintSample16.html<br />blDirectPrint： 打印按钮是否&ldquo;直接打印&rdquo; 1-是 0-否（弹出界面&ldquo;选机打印&rdquo;）</p>
+<p>西瓜视频：【LODOP】打印第几页到第几页（一个任务的） ：https://v.ixigua.com/ieMDEQJb/</p>
+</div>
+<p>&nbsp;</p>
+</div>
+</div>
+    </div><!--main_middle结束-->
+
+        <div class="box box_footer"><!--box_footer开始-->
+            <div class="footer">
+<p>lodop简短问答页面.</p>
+            </div>
+        </div><!--box_footer结束-->
+</div><!--body结束-->
+ </body>
+</html>

@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <link href="../../maychangecss/newblog_nomal.css" type="text/css" rel="stylesheet">
+  <title>【LODOP】ADD_PRINT_HTM自动分页后，缺少上边线（文案，初）</title>
+ </head>
+ <body>
+ <style>
+ body{margin:0px;}
+.body {width:100%;}
+a{text-decoration:none;color:black;}
+h1{font-size:1.625em;}
+h2{font-size:1.375em;}
+/**.box{float:left;}**/
+.header_box {width:100%;}
+.header{padding:1%;
+background-color:#f1f1f1;}
+/**border:1px solid #e9e9e9;}**/
+
+.header_bottom{width:100%;}
+.menuitem {
+    margin-top:0;
+    margin-left:0;
+    margin-bottom:0;
+    padding:1%;
+    border-bottom:1px solid #e9e9e9;
+    cursor:pointer;
+}
+
+.main {padding:1%;}
+.main_middle { width:100%;}
+.blue{color:#95bfc7;}
+
+
+.box_footer {width:100%;margin-bottom:0;}
+.footer {
+    padding:1%;
+    text-align:center;
+    background-color:#f1f1f1;
+    font-size:0.625em;
+}
+
+@media only screen and (max-width: 500px) {
+    .menu_left{width:100%;}
+    .menuitem { margin:1%;padding:1%;}
+
+    .main_middle { width:100%;}
+    .main {padding:1%;}
+
+    .box_right {width:100%;}
+    .right { padding:1%;
+    }
+
+    .box { margin-right:0; float:left; }
+}
+
+</style>
+<div class="body"><!--body开始-->
+        <div class="box header_box"><!--header开始-->
+            <div class="header">
+                <h1>博文-【LODOP】ADD_PRINT_HTM自动分页后，缺少上边线（文案，初） </h1>
+            </div>
+        </div><!--header结束-->
+<div class="header_bottom"> 
+		   <a href="../../index.html"><div class="menuitem">花谢悦神的主页</div></a>	
+		   <a href="../phoneQA004.html"><div class="menuitem">lodop问答主页</div></a> 
+		   <a href="../phoneQA_dange.html"><div class="menuitem">问答主页（单个问答链接）</div></a> 
+		   <a href="../mini_QAs.html"><div class="menuitem"><span style="color:#ff0099;">迷你一个问答</span></div></a> 
+		   <a href="../new_bloglist.html"><div class="menuitem"><span class="newblogfont">新博文newblogs</span></div></a>
+</div>
+        <div class="box main_middle"><!--main_middle开始-->
+            <div class="main">
+<h1>【LODOP】ADD_PRINT_HTM自动分页后，缺少上边线（文案，初） </h1>
+            <div class="postBody">
+                <div id="cnblogs_post_body" class="blogpost-body blogpost-body-html">
+<p>ADD_PRINT_HTM具体超过打印项高度自动分页的特点，如果有行正好在打印项高度附近，会被切行，如果想尽量不要切行，可以调整分页粒度：<br />add_print_htm, 切行时调整分页粒度TableRowThickNess，参考 样例30<br />http://www.c-lodop.com/demolist/PrintSample30.html</p>
+<p>例如：LODOP.SET_PRINT_STYLEA(0,"TableRowThickNess",30);<br />&ldquo;TableRowThickNess&rdquo;的值：整数，分页粒度值，默认是20(px)。所谓分页粒度，是指自动分页时在分页线附近进行的前后定位分割线的范围。如果这个范围设置太小，那么分页位置恰巧遇到较大单元格时，则找不到其前后表格线，此时控件会把td单元格切开；相反如果这个范围设置太大，那么原本想切开的大单元格会被大块地搬到下页，造成每页内容差别很大而参差不齐。</p>
+<p>如何行太大，需要切行，而切行表格上方却缺少线条，怎么办？<br />由于行太大，整行在当前页显示不了，全部分到下一页，上一页下方有大量留白，这时候需要自带的超过打印项高度切行补线的功能。</p>
+<p>如果发生没有补线的会是怎么回事？分页后上面缺少线条。</p>
+<p>解决方法：在table标签里加border属性。&lt;table border="1"</p>
+<p>此问题之前写过一个博文测试过，时间有点久了，那个博文是介绍三种表格缺线情况，这里是第一种<br />还是用以前写的代码和图示，目前自己可用时间不多，就不另外测试了，此问题后续版本未变化，之前的测试结果应该还是有效的。</p>
+<p>&mdash;&mdash;还原自动分页缺线问题&mdash;&mdash;<br />只在td里加border属性，table不加border的情况：<br />（图）<br />（图）</p>
+<p>效果如图：<br />第一页表格正常，在打印项高度处自动分页，第二页表格上面没有边框线，<br />（图）</p>
+<p><br />之前是一次测试了两个问题，还有一个表格线超出问题<br />&mdash;&mdash;还原表格线超出问题&mdash;&mdash;<br />在css样式里给table和td加了表格线样式，但在table标签本身里没有&lt;table border="1"<br />（图）<br />之前为了简略，还是用的测试第一个问题的htm表格，就是样式改了下，样式里css里table标签加了border</p>
+<p>线条超出测试结果：<br />（图）</p>
+<p>这两个问题的解决方法，<br />在table标签本身里加border，css样式td也加boder<br />&lt;table cellspacing="0" cellpadding="0" border="1"&gt;</p>
+<p>&lt;style&gt;td {border: 1 solid #000000;border-collapse:collapse; }</p>
+<p><br />（图）<br />（图）</p>
+<p>效果图：<br />（图）</p>
+<p>总结之前的测试效果：<br />1.只在td里加border，table不加border样式，分页后上边缘没有线。<br />2.在table里加css样式，设置border，分页后下边缘凸出有多余部分。<br />3.直接在table标签里加border属性，td里也加border，正常。<br />（图）</p>
+<p>原博文地址：https://www.cnblogs.com/huaxie/p/11004252.html</p>
+</div>
+<p>&nbsp;</p>
+</div>
+</div>
+    </div><!--main_middle结束-->
+
+        <div class="box box_footer"><!--box_footer开始-->
+            <div class="footer">
+<p>lodop简短问答页面.</p>
+            </div>
+        </div><!--box_footer结束-->
+</div><!--body结束-->
+ </body>
+</html>

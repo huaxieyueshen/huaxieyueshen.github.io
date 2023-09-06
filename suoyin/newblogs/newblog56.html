@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <link href="../../maychangecss/newblog_nomal.css" type="text/css" rel="stylesheet">
+  <title>【LODOP】tfoot上面表格线有空格，连不起来（ADD_PRINT_TABLE或HTM）（文案，初）</title>
+ </head>
+ <body>
+ <style>
+ body{margin:0px;}
+.body {width:100%;}
+a{text-decoration:none;color:black;}
+h1{font-size:1.625em;}
+h2{font-size:1.375em;}
+/**.box{float:left;}**/
+.header_box {width:100%;}
+.header{padding:1%;
+background-color:#f1f1f1;}
+/**border:1px solid #e9e9e9;}**/
+
+.header_bottom{width:100%;}
+.menuitem {
+    margin-top:0;
+    margin-left:0;
+    margin-bottom:0;
+    padding:1%;
+    border-bottom:1px solid #e9e9e9;
+    cursor:pointer;
+}
+
+.main {padding:1%;}
+.main_middle { width:100%;}
+.blue{color:#95bfc7;}
+
+
+.box_footer {width:100%;margin-bottom:0;}
+.footer {
+    padding:1%;
+    text-align:center;
+    background-color:#f1f1f1;
+    font-size:0.625em;
+}
+
+@media only screen and (max-width: 500px) {
+    .menu_left{width:100%;}
+    .menuitem { margin:1%;padding:1%;}
+
+    .main_middle { width:100%;}
+    .main {padding:1%;}
+
+    .box_right {width:100%;}
+    .right { padding:1%;
+    }
+
+    .box { margin-right:0; float:left; }
+}
+
+</style>
+<div class="body"><!--body开始-->
+        <div class="box header_box"><!--header开始-->
+            <div class="header">
+                <h1>博文-【LODOP】tfoot上面表格线有空格，连不起来（ADD_PRINT_TABLE或HTM）（文案，初） </h1>
+            </div>
+        </div><!--header结束-->
+<div class="header_bottom"> 
+		   <a href="../../index.html"><div class="menuitem">花谢悦神的主页</div></a>	
+		   <a href="../phoneQA004.html"><div class="menuitem">lodop问答主页</div></a> 
+		   <a href="../phoneQA_dange.html"><div class="menuitem">问答主页（单个问答链接）</div></a> 
+		   <a href="../mini_QAs.html"><div class="menuitem"><span style="color:#ff0099;">迷你一个问答</span></div></a> 
+		   <a href="../new_bloglist.html"><div class="menuitem"><span class="newblogfont">新博文newblogs</span></div></a>
+</div>
+        <div class="box main_middle"><!--main_middle开始-->
+            <div class="main">
+<h1>【LODOP】tfoot上面表格线有空格，连不起来（ADD_PRINT_TABLE或HTM）（文案，初） </h1>
+            <div class="postBody">
+                <div id="cnblogs_post_body" class="blogpost-body blogpost-body-html">
+<p>之前的视频中介绍了表格自动分页没有上边线，和表格线超出的情况：<br />【LODOP】ADD_PRINT_HTM自动分页后，缺少上边线（西瓜视频））：<br />https://v.ixigua.com/ieeJNA68/</p>
+<p>（图）<br />（图）</p>
+<p>本视频会介绍另外两种情况：</p>
+<p><br />前面提到解决两个问题的解决方法，这里两种情况同样有效：<br />在table标签本身里加border，css样式td也加boder<br />&lt;table cellspacing="0" cellpadding="0" border="1"&gt;</p>
+<p>&lt;style&gt;td {border: 1 solid #000000;border-collapse:collapse; }</p>
+<p><br />情况3：<br />ADD_PRINT_HTM输出表格，单元格之间有空格，看起来像是线没有连接起来一样<br />（还是用之前测试代码和之前的图片，就不另外测试了）<br />出现问题的使用方法：table标签本身没加border，也没加cellspacing="0" cellpadding="0"，只给td加样式</p>
+<p>（图）<br />（图）</p>
+<p>测试效果：<br />（图）</p>
+<p>总结：<br />表格table标签本身没加border，也没加cellspacing="0" cellpadding="0"，只给td加样式<br />结果是单元格之间存在空格</p>
+<p>（总结图）</p>
+<p>情况4：<br />LODOP中tfoot和tbody中间线连不起来<br />ADD_PRINT_TABLE语句是单独输出单个表格的语句，该语句中内容放到thead和tfoot里可以每页输出，如果发生表格tfoot和tbody中间的线存在空格，排查是否没有设置cellspacing="0" cellpadding="0"</p>
+<p>此问题解决方法是：<br />给table标签价cellspacing="0" cellpadding="0"。</p>
+<p>&lt;table border=1 cellspacing="0" cellpadding="0" style="border:solid 1px black;border-collapse:collapse" &gt;</p>
+<p>出现问题的使用方法：<br />table没有加cellspacing="0" cellpadding="0"</p>
+<p>（图）<br />（图）</p>
+<p>测试效果：<br />（图）</p>
+<p>总结：出现问题时，排查样式修改样式，直到合适效果：<br />&lt;table border=1 cellspacing="0" cellpadding="0" style="border:solid 1px black;border-collapse:collapse" &gt;</p>
+</div>
+<p>&nbsp;</p>
+</div>
+</div>
+    </div><!--main_middle结束-->
+
+        <div class="box box_footer"><!--box_footer开始-->
+            <div class="footer">
+<p>lodop简短问答页面.</p>
+            </div>
+        </div><!--box_footer结束-->
+</div><!--body结束-->
+ </body>
+</html>
