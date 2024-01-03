@@ -198,6 +198,23 @@ System.out.println("...................lodop="+lodop);<br>
 <br>
 修改嵌互操作类型属性为false，修改完属性以后，在动态编译引用添加时，要写全名Interop.Lodop.dll 而非Lodop.dll。<br>
 <br>
+ <span style="color:blue;font-weight:bold">怎么打印数据，后端传前端，前端传后端</span><br>
+<br>
+打印项内容是一个字符串，只要最后是自己需要的内容就可以<br>
+数据怎样传都可以，是后台数据库，还是前端客户输入的，拼接的，都可以，只要最后传给lodop是需要的内容就行<br>
+<br>
+<span style="color:blue;font-weight:bold">手机小程序如何不经过浏览器调用</span><br>
+<br>
+您先查看下您小程序里是否可以运行JS，或内嵌浏览器，如果不行，再自己和c-lodop通讯<br>
+<br>
+桌面程序或app类程序如何打印？，参考http://www.c-lodop.com/faq/pp37.html<br>
+<br>
+广域网打印或集中打印时，js传输的URL串数据，需要将该数据串转码，转为可以识别的数据串。<br>
+<br>
+电脑上打印时，浏览器在传输js数据串时自动转码了，在桌面程序或app类程序中需要自己转码，<br>
+<br>
+例如:在线转码例子URL在线编码转换工具>>>http://www.c-lodop.com/faq/pp37/pp37_urlencode_decode.html<br>
+<br>
 </div>
     </div><!--main_middle结束-->
 
