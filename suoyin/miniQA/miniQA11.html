@@ -97,6 +97,15 @@ background-color:#f1f1f1;}
 <br>
 发一下这两个大小不同的二维码语句和设置的版本号语句，这边测试下。<br>
 <br>
+<span style="color:blue;font-weight:bold">加具体的版本语句，放在哪里</span><br>
+<br>
+如果是SET_PRINT_STYLEA第一个参数0，可以放到打印项后面紧跟着：<br>
+例如：<br>
+LODOP.ADD_PRINT_BARCODE(128,35,137,82,"QRCode","123");<br>
+LODOP.SET_PRINT_STYLEA(0,"QRCodeVersion",5);<br>
+LODOP.ADD_PRINT_BARCODE(30,32,137,82,"QRCode","123456789012");<br>
+LODOP.SET_PRINT_STYLEA(0,"QRCodeVersion",5);<br>
+<br>		    
 </div>
     </div><!--main_middle结束-->
 
